@@ -21,42 +21,39 @@ export default function BeforeAfterSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-white py-20 md:py-[100px]" ref={ref}>
-      <div className="container-mf max-w-[1000px]">
-        <h2 className={`font-display text-[28px] md:text-[36px] text-center mb-12 reveal ${isVisible ? "visible" : ""}`}>
-          Ce que ça change concrètement
+    <section className="py-20 md:py-28" ref={ref}>
+      <div className="container-mf max-w-[900px]">
+        <h2 className={`font-display text-[26px] md:text-[36px] text-center mb-12 reveal ${isVisible ? "visible" : ""}`}>
+          Ce que ça change <span className="text-accent">concrètement</span>
         </h2>
 
-        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] rounded-[20px] overflow-hidden border border-border reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
-          {/* Before */}
+        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] rounded-2xl overflow-hidden border border-border/60 bg-white reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
           <div>
-            <div className="bg-accent text-accent-foreground font-bold text-[15px] px-6 py-4">
+            <div className="bg-accent text-white font-bold text-[14px] px-6 py-4">
               AVANT MFinances
             </div>
-            <div className="p-8 bg-[#FFF8F8] space-y-4">
+            <div className="p-7 space-y-4">
               {before.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <X size={16} className="text-accent mt-0.5 flex-shrink-0" />
-                  <span className="text-[14px] text-[#444]">{item}</span>
+                  <X size={15} className="text-accent mt-0.5 flex-shrink-0" />
+                  <span className="text-[14px] text-foreground/60">{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Arrow separator */}
-          <div className="hidden md:flex items-center justify-center px-4 bg-white">
-            <ArrowRight size={28} className="text-accent" />
+          <div className="hidden md:flex items-center justify-center px-3">
+            <ArrowRight size={24} className="text-accent" />
           </div>
 
-          {/* After */}
           <div>
-            <div className="bg-primary text-primary-foreground font-bold text-[15px] px-6 py-4">
+            <div className="bg-primary text-white font-bold text-[14px] px-6 py-4">
               APRÈS MFinances
             </div>
-            <div className="p-8 bg-[#F0F8FF] space-y-4">
+            <div className="p-7 space-y-4">
               {after.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <Check size={16} className="text-[#27AE60] mt-0.5 flex-shrink-0" />
+                  <Check size={15} className="text-[#27AE60] mt-0.5 flex-shrink-0" />
                   <span className="text-[14px] text-primary font-medium">{item}</span>
                 </div>
               ))}

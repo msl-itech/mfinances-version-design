@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import brusselsSkyline from "@/assets/brussels-skyline.jpg";
 
 const steps = [
   { num: "01", title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes." },
@@ -13,39 +12,30 @@ export default function MethodSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-[100px] relative overflow-hidden" ref={ref}>
-      {/* Brussels skyline background */}
-      <div className="absolute inset-0 opacity-[0.12]">
-        <img src={brusselsSkyline} alt="" className="w-full h-full object-cover" aria-hidden="true" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary" />
-
+    <section className="bg-primary py-20 md:py-28 relative overflow-hidden" ref={ref}>
       <div className="container-mf relative z-10">
-        <h2 className={`font-display text-[28px] md:text-[40px] text-center text-white mb-16 reveal ${isVisible ? "visible" : ""}`}>
-          Notre méthode de pilotage en 3 étapes
+        <h2 className={`font-display text-[26px] md:text-[38px] text-center text-white mb-14 reveal ${isVisible ? "visible" : ""}`}>
+          Notre méthode en <span className="text-accent">3 étapes</span>
         </h2>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Dotted line connector */}
-          <div className="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-[1px] border-t-2 border-dashed border-white/30" />
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`relative text-center rounded-[20px] p-10 border border-white/15 bg-white/[0.08] backdrop-blur-sm reveal ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${0.15 + i * 0.12}s` }}
+              className={`relative text-center rounded-2xl p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
             >
-              <span className="font-display text-[72px] font-bold text-accent leading-none">
+              <span className="font-display text-[56px] font-bold text-accent leading-none">
                 {step.num}
               </span>
-              <h3 className="font-bold text-[20px] text-white mt-2 font-body">{step.title}</h3>
-              <p className="text-white/75 text-[15px] leading-relaxed mt-3">{step.desc}</p>
+              <h3 className="font-bold text-[18px] text-white mt-2 font-body">{step.title}</h3>
+              <p className="text-white/60 text-[14px] leading-relaxed mt-3">{step.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="white" size="lg" asChild>
+          <Button variant="white" size="lg" className="rounded-full px-8" asChild>
             <Link to="/diagnostic/">Voir si mon entreprise est en danger →</Link>
           </Button>
         </div>

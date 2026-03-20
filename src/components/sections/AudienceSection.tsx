@@ -15,10 +15,10 @@ export default function AudienceSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="bg-background py-16 md:py-20" ref={ref}>
+    <section className="bg-[#FAF8F6] py-16 md:py-20" ref={ref}>
       <div className="container-mf">
-        <h2 className={`font-display text-[28px] md:text-[36px] text-center mb-10 reveal ${isVisible ? "visible" : ""}`}>
-          Nous accompagnons les dirigeants qui ont décidé de grandir
+        <h2 className={`font-display text-[24px] md:text-[34px] text-center mb-10 reveal ${isVisible ? "visible" : ""}`}>
+          Nous accompagnons les dirigeants qui ont décidé de <span className="text-accent">grandir</span>
         </h2>
 
         <div className={`flex flex-wrap justify-center gap-3 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
@@ -26,10 +26,10 @@ export default function AudienceSection() {
             <Link
               key={a}
               to="/qui-nous-accompagnons/"
-              className={`px-5 py-2.5 rounded-3xl text-[14px] font-medium border transition-all duration-200 ${
+              className={`px-5 py-2.5 rounded-full text-[13px] font-medium border transition-all duration-200 ${
                 hovered === i
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-white text-foreground border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                  ? "bg-primary text-white border-primary"
+                  : "bg-white text-foreground/70 border-border/40 hover:bg-primary hover:text-white hover:border-primary"
               }`}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
@@ -40,7 +40,7 @@ export default function AudienceSection() {
         </div>
 
         <div className="text-center mt-8">
-          <Link to="/qui-nous-accompagnons/" className="link-underline text-accent text-[14px] font-medium">
+          <Link to="/qui-nous-accompagnons/" className="text-accent text-[13px] font-semibold hover:underline">
             Trouvez votre profil →
           </Link>
         </div>
