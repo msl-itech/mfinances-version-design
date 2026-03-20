@@ -16,7 +16,7 @@ function AnimatedBadge({ icon, text, count }: { icon: string; text: string; coun
   const displayText = count ? text.replace("{count}", String(animatedCount)) : text;
 
   return (
-    <span className="inline-flex items-center gap-2 bg-background border border-border/50 rounded-full px-3.5 py-1.5 text-[13px] text-foreground">
+    <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-primary/10 rounded-full px-3.5 py-1.5 text-[13px] text-foreground shadow-sm">
       <span>{icon}</span>
       <span>{displayText}</span>
     </span>
@@ -45,9 +45,10 @@ export default function HeroSection() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="bg-white relative overflow-hidden">
-      {/* Subtle grain */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
+    <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #FFFBF5 0%, #F7F4EE 40%, #F0EDE7 100%)" }}>
+      {/* Warm decorative shapes */}
+      <div className="absolute top-[-200px] right-[-100px] w-[500px] h-[500px] rounded-full opacity-[0.06]" style={{ background: "radial-gradient(circle, #E8393A 0%, transparent 70%)" }} />
+      <div className="absolute bottom-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, #1B2B5E 0%, transparent 70%)" }} />
 
       <div className="container-mf relative pt-20 md:pt-[120px] pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
@@ -88,7 +89,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <p
-              className={`text-[16px] md:text-[18px] text-[#555] leading-[1.7] mt-6 max-w-[540px] transition-all duration-700 ${
+              className={`text-[16px] md:text-[18px] text-[#5a5247] leading-[1.7] mt-6 max-w-[540px] transition-all duration-700 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: "1.2s" }}

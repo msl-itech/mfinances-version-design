@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import financialDesk from "@/assets/financial-desk.jpg";
 
 export default function PainSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-white py-20 md:py-[100px]" ref={ref}>
-      <div className="container-mf max-w-[800px]">
+    <section className="bg-white py-20 md:py-[100px] relative overflow-hidden" ref={ref}>
+      {/* Subtle background image */}
+      <div className="absolute inset-0 opacity-[0.04]">
+        <img src={financialDesk} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+      </div>
+
+      <div className="container-mf max-w-[800px] relative z-10">
         <h2
           className={`font-display text-[28px] md:text-[40px] italic text-center leading-[1.15] reveal ${isVisible ? "visible" : ""}`}
         >

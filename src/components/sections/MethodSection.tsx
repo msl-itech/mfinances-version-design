@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import brusselsSkyline from "@/assets/brussels-skyline.jpg";
 
 const steps = [
   { num: "01", title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes." },
@@ -12,8 +13,14 @@ export default function MethodSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-[100px]" ref={ref}>
-      <div className="container-mf">
+    <section className="bg-primary py-20 md:py-[100px] relative overflow-hidden" ref={ref}>
+      {/* Brussels skyline background */}
+      <div className="absolute inset-0 opacity-[0.12]">
+        <img src={brusselsSkyline} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary" />
+
+      <div className="container-mf relative z-10">
         <h2 className={`font-display text-[28px] md:text-[40px] text-center text-white mb-16 reveal ${isVisible ? "visible" : ""}`}>
           Notre méthode de pilotage en 3 étapes
         </h2>

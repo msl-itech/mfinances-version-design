@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BarChart2, Briefcase, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import financialDesk from "@/assets/financial-desk.jpg";
 
 const services = [
   {
@@ -37,14 +38,24 @@ export default function SolutionSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-background py-20 md:py-[100px]" ref={ref}>
+    <section className="py-20 md:py-[100px]" style={{ background: "linear-gradient(180deg, #F7F4EE 0%, #F5F2EC 100%)" }} ref={ref}>
       <div className="container-mf">
         <h2 className={`font-display text-[28px] md:text-[40px] text-center reveal ${isVisible ? "visible" : ""}`}>
           Un cabinet comptable qui fait plus que la comptabilité
         </h2>
-        <p className={`text-[17px] text-[#555] text-center mt-4 mb-16 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        <p className={`text-[17px] text-[#555] text-center mt-4 mb-8 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           Trois expertises intégrées dans un seul accompagnement
         </p>
+
+        {/* Warm image banner */}
+        <div className={`rounded-2xl overflow-hidden mb-12 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+          <img
+            src={financialDesk}
+            alt="Analyse financière professionnelle"
+            className="w-full h-[200px] object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((s, i) => {
@@ -52,8 +63,8 @@ export default function SolutionSection() {
             return (
               <div
                 key={s.title}
-                className={`relative bg-white rounded-3xl p-10 border-t-4 ${s.color} border-x border-b border-border/50 transition-all duration-200 hover:shadow-[0_8px_32px_rgba(27,43,94,0.12)] reveal ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
+                className={`relative bg-white rounded-3xl p-10 border-t-4 ${s.color} border-x border-b border-primary/10 transition-all duration-200 hover:shadow-[0_8px_32px_rgba(27,43,94,0.12)] reveal ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
               >
                 {s.badge && (
                   <span className="inline-block bg-[#FFF0F0] text-accent text-[11px] font-bold px-2 py-0.5 rounded mb-4">
