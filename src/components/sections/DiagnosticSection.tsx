@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import meetingWarm from "@/assets/meeting-warm.jpg";
 
 export default function DiagnosticSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -18,7 +19,18 @@ export default function DiagnosticSection() {
             <p className="text-[16px] text-[#555] leading-relaxed mt-4">
               La plupart des dirigeants pensent que tout va bien… jusqu'à ce que le compte soit à sec. Ce diagnostic confidentiel vous révèle votre situation réelle en 3 minutes.
             </p>
-            <ul className="mt-6 space-y-3">
+
+            {/* Warm image */}
+            <div className="my-6 rounded-2xl overflow-hidden">
+              <img
+                src={meetingWarm}
+                alt="Rencontre professionnelle chaleureuse"
+                className="w-full h-[180px] object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <ul className="mt-4 space-y-3">
               {["8 questions ciblées sur votre trésorerie", "Score instantané avec recommandations", "100% gratuit et confidentiel"].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-[15px]">
                   <Check size={16} className="text-[#27AE60] flex-shrink-0" />

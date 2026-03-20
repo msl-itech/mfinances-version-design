@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import brusselsSkyline from "@/assets/brussels-skyline.jpg";
 
 export default function FinalCtaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-[120px]" ref={ref}>
-      <div className="container-mf text-center">
+    <section className="bg-primary py-20 md:py-[120px] relative overflow-hidden" ref={ref}>
+      {/* Background image */}
+      <div className="absolute inset-0 opacity-[0.15]">
+        <img src={brusselsSkyline} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/90 to-primary/70" />
+
+      <div className="container-mf text-center relative z-10">
         <span className={`text-accent text-[12px] font-bold tracking-[0.15em] uppercase reveal ${isVisible ? "visible" : ""}`}>
           PREMIER ÉCHANGE GRATUIT
         </span>
