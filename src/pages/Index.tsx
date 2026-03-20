@@ -1,16 +1,43 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import EntryPointsSection from "@/components/sections/EntryPointsSection";
+import PainSection from "@/components/sections/PainSection";
+import SolutionSection from "@/components/sections/SolutionSection";
+import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
+import MethodSection from "@/components/sections/MethodSection";
+import AudienceSection from "@/components/sections/AudienceSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import DiagnosticSection from "@/components/sections/DiagnosticSection";
+import LeadMagnetSection from "@/components/sections/LeadMagnetSection";
+import MikaSection from "@/components/sections/MikaSection";
+import DisqualificationSection from "@/components/sections/DisqualificationSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FinalCtaSection from "@/components/sections/FinalCtaSection";
+import SeoLocalSection from "@/components/sections/SeoLocalSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+export default function Index() {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <EntryPointsSection />
+        <PainSection />
+        <SolutionSection />
+        <BeforeAfterSection />
+        <MethodSection />
+        <AudienceSection />
+        <TestimonialsSection />
+        <DiagnosticSection />
+        <LeadMagnetSection />
+        <MikaSection />
+        <DisqualificationSection />
+        <PricingSection />
+        <FinalCtaSection />
+        <SeoLocalSection />
+      </main>
+      <Footer />
     </div>
   );
-};
-
-const Index = PlaceholderIndex;
-
-export default Index;
+}
