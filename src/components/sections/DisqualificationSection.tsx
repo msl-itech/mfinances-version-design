@@ -63,7 +63,7 @@ export default function DisqualificationSection() {
           >
             {/* Subtle accent bar */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-light" />
-            <div className="px-7 pt-7 pb-2 flex items-center gap-3">
+            <div className="px-5 md:px-7 pt-5 md:pt-7 pb-2 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Handshake size={20} className="text-primary" strokeWidth={1.5} />
               </div>
