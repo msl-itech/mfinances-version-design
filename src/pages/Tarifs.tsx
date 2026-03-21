@@ -218,15 +218,42 @@ export default function Tarifs() {
                     <thead>
                       <tr className="border-b border-border/30 bg-secondary/40">
                         <th className="text-left p-5 font-body font-normal text-muted-foreground w-[40%]" />
-                        {["Essentiel", "Premium", "Excellence"].map((plan, i) => (
-                          <th key={plan} className="p-5 text-center relative">
+                        {[
+                          { name: "Essentiel", videoUrl: null },
+                          { name: "Premium", videoUrl: "https://www.youtube.com/embed/hZplCFSNXlk" },
+                          { name: "Excellence", videoUrl: "https://www.youtube.com/embed/XJrFJicX7S0" },
+                        ].map((plan, i) => (
+                          <th key={plan.name} className="p-5 text-center relative">
                             {i === 1 && (
                               <span className="absolute -top-0 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold px-2.5 py-0.5 rounded-b-md">
                                 POPULAIRE
                               </span>
                             )}
-                            <span className={`font-display font-bold text-[16px] ${i === 2 ? "text-accent" : "text-primary"}`}>
-                              {plan}
+                            <span className={`font-display font-bold text-[16px] ${i === 2 ? "text-accent" : "text-primary"} inline-flex items-center gap-1.5`}>
+                              {plan.name}
+                              {plan.videoUrl && (
+                                <Popover>
+                                  <PopoverTrigger asChild>
+                                    <button className="inline-flex text-accent hover:text-accent/80 transition-colors" aria-label={`Voir la vidéo ${plan.name}`}>
+                                      <PlayCircle size={18} strokeWidth={1.5} />
+                                    </button>
+                                  </PopoverTrigger>
+                                  <PopoverContent className="w-[420px] p-2" side="bottom" align="center">
+                                    <div className="aspect-video rounded-lg overflow-hidden">
+                                      <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={plan.videoUrl}
+                                        title={`Vidéo ${plan.name}`}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
+                                      />
+                                    </div>
+                                  </PopoverContent>
+                                </Popover>
+                              )}
                             </span>
                           </th>
                         ))}
