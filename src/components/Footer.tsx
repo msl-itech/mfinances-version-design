@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Col 1 — À propos */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-5">
-            <img src={logoSquare} alt="MFinances" className="h-[60px] brightness-0 invert" />
+            <img src={logoSquare} alt="MFinances" className="h-[60px] rounded-lg" />
             <p className="text-white/70 text-sm italic leading-relaxed">
               "Transformez votre stress en succès."
             </p>
