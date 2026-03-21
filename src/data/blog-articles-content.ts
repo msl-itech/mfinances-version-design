@@ -83,35 +83,46 @@ export const articleContent: Record<string, ArticleBody> = {
   "investir-sans-fragiliser-tresorerie": {
     sections: [
       {
+        heading: "L'erreur que font 8 dirigeants sur 10",
         paragraphs: [
-          "Investir est indispensable pour faire croître votre entreprise. Mais un investissement mal financé peut mettre votre trésorerie en danger.",
+          "Investir comptant. Par principe. Par méfiance envers les banques. Par conviction que « ne rien devoir à personne » est une vertu de gestion. C'est une erreur financière — et elle peut transformer un bon investissement en menace existentielle pour votre trésorerie.",
         ],
       },
       {
-        heading: "Le piège du financement sur fonds propres",
+        heading: "Pourquoi payer comptant fragilise",
         paragraphs: [
-          "Beaucoup de dirigeants financent leurs investissements sur fonds propres « par principe » ou pour éviter de s'endetter. C'est souvent une erreur stratégique.",
-          "Quand vous utilisez votre trésorerie pour acheter un véhicule ou du matériel, vous immobilisez des liquidités qui pourraient servir à absorber un retard de paiement client ou une période creuse.",
+          "Imaginez : vous avez 80 000 € de trésorerie disponible. Vous investissez 60 000 € dans un équipement. Il vous reste 20 000 € — soit moins d'un mois de charges fixes. Un client qui tarde à payer, une panne imprévue, un mois de faible activité — et vous êtes en difficulté.",
         ],
       },
       {
-        heading: "Les bonnes pratiques de financement",
-        paragraphs: ["Voici les règles que nous recommandons à nos clients :"],
-        list: [
-          "Financer les actifs durables par de l'emprunt ou du leasing — préservez votre cash pour le quotidien",
-          "Adapter la durée du financement à la durée de vie de l'actif",
-          "Comparer systématiquement le coût du financement externe au coût d'opportunité du cash immobilisé",
-          "Intégrer les échéances de remboursement dans votre prévisionnel de trésorerie",
+        heading: "Les trois options et quand les utiliser",
+        paragraphs: [
+          "Autofinancement — À utiliser pour : les petits investissements (moins de 10-15 % de vos liquidités disponibles), les achats qui ne se financent pas autrement. À éviter si l'investissement représente une part importante de vos liquidités.",
+          "Emprunt bancaire — À utiliser pour : les investissements importants à retour sur investissement prévisible. Condition : le ROI de l'investissement doit dépasser le coût du crédit. Votre trésorerie est préservée, vos mensualités sont prévisibles.",
+          "Leasing — À utiliser pour : les équipements technologiques qui évoluent vite, les véhicules, les machines industrielles. Avantage fiscal : les loyers de leasing sont déductibles comme charges. Trésorerie préservée, flexibilité à l'issue du contrat.",
         ],
       },
       {
-        heading: "Leasing vs emprunt : comment choisir ?",
+        heading: "La règle des 3 mois",
         paragraphs: [
-          "Le leasing est souvent préférable pour les véhicules et le matériel informatique : loyers déductibles, pas d'immobilisation comptable, renouvellement facilité. L'emprunt classique convient mieux pour l'immobilier ou les investissements de long terme.",
-          "Dans tous les cas, la décision doit être prise en fonction de votre situation de trésorerie — pas uniquement de votre bénéfice.",
+          "Avant tout investissement : après cet investissement, est-ce que je dispose encore de 3 mois de charges fixes en trésorerie disponible ? Si la réponse est non — quel que soit le mode de financement — l'investissement doit être revu, reporté ou financé différemment.",
         ],
       },
     ],
+    faq: [
+      {
+        question: "Vaut-il mieux emprunter ou autofinancer un investissement ?",
+        answer: "Cela dépend de votre position de trésorerie. Si l'investissement représente plus de 15-20 % de vos liquidités disponibles, le financement externe préserve mieux votre trésorerie et votre capacité à faire face aux imprévus.",
+      },
+      {
+        question: "Comment évaluer le retour sur investissement avant d'investir ?",
+        answer: "Comparez les gains générés (économies de coût, revenus supplémentaires, gains de productivité) aux coûts totaux (prix d'achat ou loyers, maintenance, formation). Si le ROI annuel dépasse le coût du financement, l'investissement mérite d'être financé plutôt que de puiser dans la trésorerie.",
+      },
+    ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "gestion-stocks-tresorerie": {
     sections: [
