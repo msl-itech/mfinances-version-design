@@ -32,7 +32,7 @@ export default function BeforeAfterSection() {
             <div className="bg-accent text-white font-bold text-[14px] px-6 py-4">
               AVANT MFinances
             </div>
-            <div className="p-7 space-y-4">
+            <div className="p-5 md:p-7 space-y-3 md:space-y-4">
               {before.map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <X size={15} className="text-accent mt-0.5 flex-shrink-0" />
