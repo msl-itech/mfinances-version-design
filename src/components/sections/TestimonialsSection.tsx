@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={t.author}
-              className={`bg-white rounded-2xl p-8 border border-border/40 hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)] transition-shadow reveal ${isVisible ? "visible" : ""}`}
+              className={`bg-white rounded-2xl p-6 md:p-8 border border-border/40 hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)] transition-shadow reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
             >
               <p className="text-[14px] text-foreground/65 leading-[1.75] italic">

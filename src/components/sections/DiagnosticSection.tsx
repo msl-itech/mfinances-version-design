@@ -17,7 +17,7 @@ export default function DiagnosticSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left column — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
-            <h2 className="font-display text-[28px] md:text-[36px] text-primary leading-tight">
+            <h2 className="font-display text-[24px] md:text-[36px] text-primary leading-tight">
               Suis-je en danger<br className="hidden md:block" /> sans le savoir ?
             </h2>
 

@@ -30,7 +30,7 @@ export default function MikaSection() {
             </div>
 
             {/* Right — Bio */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-6 md:p-12 flex flex-col justify-center">
               <span className="text-accent/80 text-[11px] font-bold tracking-[0.15em] uppercase">
                 VOTRE EXPERT-COMPTABLE À BRUXELLES
               </span>

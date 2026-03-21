@@ -54,7 +54,7 @@ export default function SolutionSection() {
                 <img
                   src={s.image}
                   alt={s.title}
-                  className="w-full h-44 object-cover"
+                  className="w-full h-36 md:h-44 object-cover"
                   loading="lazy"
                 />
                 <div className="p-5 md:p-7">

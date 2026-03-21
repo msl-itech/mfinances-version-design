@@ -59,7 +59,7 @@ export default function PricingSection() {
                 {plan.label}
               </span>
               <div className="mt-2 flex items-baseline gap-1">
-                <span className="font-display text-[44px] font-bold text-primary leading-none">
+                <span className="font-display text-[36px] md:text-[44px] font-bold text-primary leading-none">
                   {plan.price}€
                 </span>
                 <span className="text-[13px] text-foreground/40">/mois HTVA</span>
