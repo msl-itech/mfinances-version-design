@@ -38,7 +38,7 @@ export default function DisqualificationSection() {
             className={`relative rounded-3xl overflow-hidden border border-accent/15 bg-gradient-to-b from-accent/[0.03] to-white shadow-[0_2px_16px_rgba(232,57,58,0.04)] reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.15s" }}
           >
-            <div className="px-7 pt-7 pb-2 flex items-center gap-3">
+            <div className="px-5 md:px-7 pt-5 md:pt-7 pb-2 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
                 <ShieldX size={20} className="text-accent" strokeWidth={1.5} />
               </div>
