@@ -234,8 +234,9 @@ export default function Tarifs() {
                               {plan.videoUrl && (
                                 <Popover>
                                   <PopoverTrigger asChild>
-                                    <button className="inline-flex text-accent hover:text-accent/80 transition-colors" aria-label={`Voir la vidéo ${plan.name}`}>
-                                      <PlayCircle size={18} strokeWidth={1.5} />
+                                    <button className="inline-flex text-accent hover:text-accent/80 transition-all group/play relative" aria-label={`Voir la vidéo ${plan.name}`}>
+                                      <span className="absolute inset-0 rounded-full bg-accent/20 animate-ping" />
+                                      <PlayCircle size={18} strokeWidth={1.5} className="relative z-10 group-hover/play:scale-125 transition-transform duration-200" />
                                     </button>
                                   </PopoverTrigger>
                                   <PopoverContent className="w-[420px] p-2" side="bottom" align="center">
