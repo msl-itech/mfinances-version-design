@@ -152,6 +152,18 @@ export default function BlogArticle() {
           </div>
         </section>
 
+        {/* ── HERO IMAGE ── */}
+        {categorySlug && categoryHeroImages[categorySlug] && (
+          <div className="w-full max-h-[360px] overflow-hidden">
+            <img
+              src={categoryHeroImages[categorySlug]}
+              alt={`${category.label} — MFinances`}
+              className="w-full h-[360px] object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+
         {/* ── ARTICLE BODY ── */}
         <section className="bg-card py-12 md:py-16">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
