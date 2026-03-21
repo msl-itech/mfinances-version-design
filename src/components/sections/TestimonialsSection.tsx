@@ -22,13 +22,13 @@ export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf">
-        <h2 className={`font-display text-[26px] md:text-[36px] text-center mb-4 reveal ${isVisible ? "visible" : ""}`}>
+        <h2 className={`font-display text-[22px] md:text-[36px] text-center mb-4 reveal ${isVisible ? "visible" : ""}`}>
           Ils nous font <span className="text-accent">confiance</span>
         </h2>
 
-        <div className={`flex justify-center mb-12 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        <div className={`flex justify-center mb-8 md:mb-12 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           <a
             href="https://www.google.com/maps/place/MFinances"
             target="_blank"
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={t.author}
-              className={`bg-white rounded-2xl p-8 border border-border/40 hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)] transition-shadow reveal ${isVisible ? "visible" : ""}`}
+              className={`bg-white rounded-2xl p-6 md:p-8 border border-border/40 hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)] transition-shadow reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
             >
               <p className="text-[14px] text-foreground/65 leading-[1.75] italic">

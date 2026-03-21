@@ -145,7 +145,7 @@ export default function DafExternalise() {
 
       <main>
         {/* HERO */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <Breadcrumb>
@@ -176,7 +176,7 @@ export default function DafExternalise() {
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Service Excellence
                 </span>
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Un copilote financier à vos côtés pour les décisions qui comptent
                 </h1>
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
@@ -204,10 +204,10 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 1 — Missions */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Ce que fait vraiment un DAF
                 <br />
                 <span className="text-accent">à temps partiel</span>
@@ -240,10 +240,10 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 2 — Fonctionnement */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Concrètement, comment ça fonctionne
               </h2>
             </ScrollRevealDiv>
@@ -269,10 +269,10 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 3 — Conditions */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Conditions d'accès
               </h2>
             </ScrollRevealDiv>
@@ -316,10 +316,10 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 4 — FAQ */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions fréquentes
               </h2>
             </ScrollRevealDiv>
@@ -346,10 +346,10 @@ export default function DafExternalise() {
         </section>
 
         {/* CTA FINAL */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Prêt à avoir un copilote financier ?
             </h2>
             <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">

@@ -6,9 +6,9 @@ export default function PainSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf">
-        <div className={`bg-white rounded-3xl p-8 md:p-14 shadow-[0_4px_40px_rgba(27,43,94,0.06)] reveal ${isVisible ? "visible" : ""}`}>
+        <div className={`bg-white rounded-3xl p-6 md:p-14 shadow-[0_4px_40px_rgba(27,43,94,0.06)] reveal ${isVisible ? "visible" : ""}`}>
           {/* Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center">
@@ -17,7 +17,7 @@ export default function PainSection() {
           </div>
 
           {/* Title */}
-          <h2 className="font-display text-[24px] md:text-[34px] text-center leading-[1.2] max-w-[700px] mx-auto">
+          <h2 className="font-display text-[22px] md:text-[34px] text-center leading-[1.2] max-w-[700px] mx-auto">
             Fin de mois tendu. Décisions prises au feeling.
             <br className="hidden md:block" />
             Et la question qui revient toujours :{" "}

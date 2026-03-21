@@ -47,22 +47,22 @@ export default function APropos() {
 
       <main>
         {/* HERO */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
               Pourquoi MFinances
             </span>
-            <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+            <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
               Pourquoi j'ai créé MFinances
             </h1>
           </div>
         </section>
 
         {/* SECTION 1 — L'histoire fondatrice */}
-        <section className="bg-card py-16 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <section className="bg-card py-10 md:py-20">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Il avait triplé son chiffre d'affaires en un an.
                 <br />
                 <span className="text-accent">Et pourtant.</span>
@@ -124,10 +124,10 @@ export default function APropos() {
         </section>
 
         {/* SECTION 2 — La conviction */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Les TPE en croissance n'ont pas moins besoin de pilotage.
                 <br />
                 <span className="text-accent">Elles en ont plus besoin.</span>
@@ -173,10 +173,10 @@ export default function APropos() {
         </section>
 
         {/* SECTION 3 — Ce que je fais différemment */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Un niveau de structure que vous pensiez
                 <br />
                 <span className="text-accent">réservé aux grandes entreprises</span>
@@ -203,8 +203,8 @@ export default function APropos() {
         </section>
 
         {/* SECTION 4 — Mika en bref */}
-        <section className="bg-secondary py-16 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        <section className="bg-secondary py-10 md:py-20">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
             <ScrollRevealDiv className="lg:col-span-2">
               <img
                 src={mikaPhoto}
@@ -214,7 +214,7 @@ export default function APropos() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1} className="lg:col-span-3">
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Mika Musungayi
               </h2>
               <p className="text-accent font-body font-semibold text-[15px] mt-1">
@@ -251,9 +251,9 @@ export default function APropos() {
         </section>
 
         {/* SECTION 5 — CTA final */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
-            <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Vous reconnaissez-vous dans cette histoire ?
             </h2>
             <p className="text-primary-foreground/70 text-[16px] mt-4 font-body max-w-[560px] mx-auto">

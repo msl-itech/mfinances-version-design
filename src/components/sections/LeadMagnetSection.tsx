@@ -6,7 +6,7 @@ export default function LeadMagnetSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-16 md:py-24" ref={ref}>
+    <section className="bg-primary py-12 md:py-24" ref={ref}>
       <div className="container-mf">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
@@ -30,7 +30,7 @@ export default function LeadMagnetSection() {
           </div>
 
           <div className={`reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
-            <div className="bg-white rounded-2xl p-8">
+            <div className="bg-white rounded-2xl p-6 md:p-8">
               <h3 className="font-bold text-[16px] font-body mb-5">Recevez le guide par email</h3>
               <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                 <input

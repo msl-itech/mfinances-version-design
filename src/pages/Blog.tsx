@@ -94,7 +94,7 @@ export default function Blog() {
             </Breadcrumb>
 
             <div className="mt-8">
-              <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+              <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                 Le pilotage financier, <span className="text-accent">sans jargon comptable</span>
               </h1>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
@@ -108,7 +108,7 @@ export default function Blog() {
         <section className="bg-secondary py-16 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Explorez par <span className="text-accent">catégorie</span>
               </h2>
             </ScrollRevealDiv>
@@ -159,7 +159,7 @@ export default function Blog() {
           <section className="bg-card py-16 md:py-20">
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
               <ScrollRevealDiv className="text-center mb-12">
-                <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+                <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                   Derniers <span className="text-accent">articles</span>
                 </h2>
               </ScrollRevealDiv>
@@ -191,7 +191,7 @@ export default function Blog() {
         <section className="bg-primary py-16 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Envie de passer à l'action ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body">

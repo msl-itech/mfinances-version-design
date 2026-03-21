@@ -6,12 +6,12 @@ export default function FinalCtaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-28" ref={ref}>
+    <section className="bg-primary py-12 md:py-28" ref={ref}>
       <div className="container-mf text-center">
         <span className={`text-accent text-[11px] font-bold tracking-[0.15em] uppercase reveal ${isVisible ? "visible" : ""}`}>
           PREMIER ÉCHANGE GRATUIT
         </span>
-        <h2 className={`font-display text-[28px] md:text-[40px] text-white mt-4 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        <h2 className={`font-display text-[24px] md:text-[40px] text-white mt-4 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           Prêt à piloter votre entreprise avec clarté ?
         </h2>
         <p className={`text-white/60 text-[15px] max-w-[520px] mx-auto mt-4 leading-relaxed reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>

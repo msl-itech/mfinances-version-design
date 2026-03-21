@@ -12,9 +12,9 @@ export default function MethodSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-28 relative overflow-hidden" ref={ref}>
+    <section className="bg-primary py-12 md:py-28 relative overflow-hidden" ref={ref}>
       <div className="container-mf relative z-10">
-        <h2 className={`font-display text-[26px] md:text-[38px] text-center text-white mb-14 reveal ${isVisible ? "visible" : ""}`}>
+        <h2 className={`font-display text-[22px] md:text-[38px] text-center text-white mb-8 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
           Notre méthode en <span className="text-accent">3 étapes</span>
         </h2>
 
@@ -22,10 +22,10 @@ export default function MethodSection() {
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`relative text-center rounded-2xl p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
+              className={`relative text-center rounded-2xl p-6 md:p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
             >
-              <span className="font-display text-[56px] font-bold text-accent leading-none">
+              <span className="font-display text-[40px] md:text-[56px] font-bold text-accent leading-none">
                 {step.num}
               </span>
               <h3 className="font-bold text-[18px] text-white mt-2 font-body">{step.title}</h3>

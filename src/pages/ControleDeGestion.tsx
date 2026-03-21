@@ -154,7 +154,7 @@ export default function ControleDeGestion() {
 
       <main>
         {/* HERO */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <Breadcrumb>
@@ -181,7 +181,7 @@ export default function ControleDeGestion() {
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Premium & Excellence
                 </span>
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Pilotez votre entreprise avec les bons chiffres, au bon moment
                 </h1>
                 <div className="flex flex-wrap gap-3 mt-7">
@@ -206,10 +206,10 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION 1 — Ce que comprend le service */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Ce que comprend notre
                 <br />
                 <span className="text-accent">contrôle de gestion</span>
@@ -234,10 +234,10 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION 2 — Tableau comparatif */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Niveau de service selon votre forfait
               </h2>
             </ScrollRevealDiv>
@@ -277,10 +277,10 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION 3 — 5 KPIs */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Vos 5 indicateurs clés
                 <br />
                 <span className="text-accent">surveillés chaque mois</span>
@@ -313,10 +313,10 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION FAQ */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions fréquentes
               </h2>
             </ScrollRevealDiv>
@@ -343,10 +343,10 @@ export default function ControleDeGestion() {
         </section>
 
         {/* CTA FINAL */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Prêt à piloter votre entreprise avec les bons chiffres ?
             </h2>
             <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">

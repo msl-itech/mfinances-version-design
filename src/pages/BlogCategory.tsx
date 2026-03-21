@@ -88,7 +88,7 @@ export default function BlogCategory() {
             </Breadcrumb>
 
             <div className="mt-8">
-              <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+              <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                 {category.label}
               </h1>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
@@ -159,7 +159,7 @@ export default function BlogCategory() {
         <section className="bg-primary py-16 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Besoin d'un accompagnement personnalisé ?
               </h2>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">

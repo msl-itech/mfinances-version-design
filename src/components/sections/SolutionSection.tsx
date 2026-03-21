@@ -34,7 +34,7 @@ export default function SolutionSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#FAF8F6] py-20 md:py-28" ref={ref}>
+    <section className="bg-[#FAF8F6] py-12 md:py-28" ref={ref}>
       <div className="container-mf">
         <h2 className={`font-display text-[26px] md:text-[38px] text-center leading-[1.15] reveal ${isVisible ? "visible" : ""}`}>
           Un cabinet comptable qui fait
@@ -54,10 +54,10 @@ export default function SolutionSection() {
                 <img
                   src={s.image}
                   alt={s.title}
-                  className="w-full h-44 object-cover"
+                  className="w-full h-36 md:h-44 object-cover"
                   loading="lazy"
                 />
-                <div className="p-7">
+                <div className="p-5 md:p-7">
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                     <Icon size={20} className="text-accent" strokeWidth={1.5} />
                   </div>

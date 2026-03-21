@@ -26,7 +26,7 @@ export default function HeroSection() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F6] pt-12 md:pt-20 pb-0">
+    <section className="relative overflow-hidden bg-[#FAF8F6] pt-8 md:pt-20 pb-0">
       {/* Subtle warm gradient blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, #E8393A 0%, transparent 70%)" }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.05]" style={{ background: "radial-gradient(circle, #1B2B5E 0%, transparent 70%)" }} />
@@ -35,7 +35,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left */}
           <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-            <h1 className="text-[32px] md:text-[48px] font-bold leading-[1.08] mb-0">
+            <h1 className="text-[26px] md:text-[48px] font-bold leading-[1.12] md:leading-[1.08] mb-0">
               Vous travaillez dur.
               <br />
               Mais savez-vous vraiment si votre entreprise{" "}

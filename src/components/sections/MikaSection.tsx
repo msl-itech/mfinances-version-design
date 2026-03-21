@@ -8,12 +8,12 @@ export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf">
         <div className={`bg-primary rounded-3xl overflow-hidden reveal ${isVisible ? "visible" : ""}`}>
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
             {/* Left — Photo */}
-            <div className="relative h-[300px] lg:h-auto">
+            <div className="relative h-[240px] lg:h-auto">
               <img
                 src={mikaPhoto}
                 alt="Mika Musungayi — Expert-comptable certifié ITAA"
@@ -30,7 +30,7 @@ export default function MikaSection() {
             </div>
 
             {/* Right — Bio */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-6 md:p-12 flex flex-col justify-center">
               <span className="text-accent/80 text-[11px] font-bold tracking-[0.15em] uppercase">
                 VOTRE EXPERT-COMPTABLE À BRUXELLES
               </span>

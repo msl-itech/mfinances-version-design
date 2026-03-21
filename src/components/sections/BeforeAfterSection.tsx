@@ -21,9 +21,9 @@ export default function BeforeAfterSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf max-w-[900px]">
-        <h2 className={`font-display text-[26px] md:text-[36px] text-center mb-12 reveal ${isVisible ? "visible" : ""}`}>
+        <h2 className={`font-display text-[22px] md:text-[36px] text-center mb-8 md:mb-12 reveal ${isVisible ? "visible" : ""}`}>
           Ce que ça change <span className="text-accent">concrètement</span>
         </h2>
 
@@ -32,7 +32,7 @@ export default function BeforeAfterSection() {
             <div className="bg-accent text-white font-bold text-[14px] px-6 py-4">
               AVANT MFinances
             </div>
-            <div className="p-7 space-y-4">
+            <div className="p-5 md:p-7 space-y-3 md:space-y-4">
               {before.map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <X size={15} className="text-accent mt-0.5 flex-shrink-0" />
@@ -50,7 +50,7 @@ export default function BeforeAfterSection() {
             <div className="bg-primary text-white font-bold text-[14px] px-6 py-4">
               APRÈS MFinances
             </div>
-            <div className="p-7 space-y-4">
+            <div className="p-5 md:p-7 space-y-3 md:space-y-4">
               {after.map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <Check size={15} className="text-[#27AE60] mt-0.5 flex-shrink-0" />
