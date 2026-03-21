@@ -6,6 +6,9 @@ export interface BlogArticle {
   categorySlug: string;
   published: boolean;
   date: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  pillarPage?: string;
 }
 
 export interface BlogCategory {
@@ -27,12 +30,15 @@ export const blogArticles: BlogArticle[] = [
   // ── TRÉSORERIE (publiés) ──
   {
     slug: "tresorerie-vs-benefices",
-    title: "Pourquoi votre trésorerie est plus importante que vos bénéfices",
-    excerpt: "Un bénéfice comptable ne garantit pas que vous avez du cash. Découvrez pourquoi la trésorerie est le vrai indicateur de santé financière.",
+    title: "Trésorerie vs bénéfices — pourquoi votre entreprise peut être rentable et à court de cash",
+    excerpt: "Comprendre pourquoi une entreprise rentable peut manquer de cash. La distinction essentielle entre bénéfice et trésorerie expliquée avec des exemples concrets.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-11-15",
+    seoTitle: "Trésorerie vs Bénéfices — Quelle Différence pour un Dirigeant de TPE ?",
+    metaDescription: "Comprendre pourquoi une entreprise rentable peut manquer de cash. La distinction essentielle entre bénéfice et trésorerie expliquée avec des exemples concrets.",
+    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "investir-sans-fragiliser-tresorerie",
