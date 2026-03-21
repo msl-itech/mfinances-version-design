@@ -23,6 +23,7 @@ import Asbl from "./pages/Asbl.tsx";
 import SocieteExploitation from "./pages/SocieteExploitation.tsx";
 import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
 import Contact from "./pages/Contact.tsx";
+import Support from "./pages/Support.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/qui-nous-accompagnons/societe-de-moyens/" element={<SocieteDeMoyens />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
+          <Route path="/support/" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
