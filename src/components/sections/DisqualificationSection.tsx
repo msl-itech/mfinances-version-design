@@ -19,7 +19,7 @@ export default function DisqualificationSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28 bg-background" ref={ref}>
+    <section className="py-12 md:py-28 bg-background" ref={ref}>
       <div className="container-mf max-w-[960px]">
         <p className={`text-center text-accent text-[13px] font-semibold tracking-widest uppercase mb-4 reveal ${isVisible ? "visible" : ""}`}>
           Transparence
