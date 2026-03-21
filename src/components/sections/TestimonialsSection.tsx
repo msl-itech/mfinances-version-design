@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
           Ils nous font <span className="text-accent">confiance</span>
         </h2>
 
-        <div className={`flex justify-center mb-12 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        <div className={`flex justify-center mb-8 md:mb-12 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           <a
             href="https://www.google.com/maps/place/MFinances"
             target="_blank"
