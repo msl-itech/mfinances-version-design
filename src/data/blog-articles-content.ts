@@ -2,6 +2,7 @@ export interface ArticleSection {
   heading?: string;
   paragraphs: string[];
   list?: string[];
+  table?: { headers: string[]; rows: string[][] };
 }
 
 export interface ArticleFaq {
