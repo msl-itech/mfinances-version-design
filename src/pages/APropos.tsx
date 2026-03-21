@@ -129,7 +129,7 @@ export default function APropos() {
             </div>
 
             <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={mikaPhoto} alt="Mika Musungayi, fondateur MFinances" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
+              <img src={mikaPhoto} alt="Mika MUSUNGAYI, fondateur MFinances" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
             </div>
           </div>
         </section>
@@ -278,7 +278,7 @@ export default function APropos() {
               « Arrêtez de vous voir trop petit. Commencez à piloter comme une entreprise en croissance. »
             </p>
             <p className="text-primary-foreground/50 text-[13px] font-body mt-4">
-              — Mika Musungayi, fondateur
+              — Mika MUSUNGAYI, fondateur
             </p>
           </div>
         </section>
@@ -289,14 +289,14 @@ export default function APropos() {
             <SR className="lg:col-span-2">
               <img
                 src={mikaPhoto}
-                alt="Mika Musungayi, fondateur MFinances"
+                alt="Mika MUSUNGAYI, fondateur MFinances"
                 className="rounded-2xl w-full h-[300px] md:h-[380px] object-cover object-top shadow-lg"
               />
             </SR>
 
             <SR delay={0.1} className="lg:col-span-3">
-              <h2 className="font-display text-[22px] md:text-[34px] leading-[1.15] text-foreground">
-                Mika Musungayi
+              <h2 className="font-display text-[22px] md:text-[34px] leading-[1.15]">
+                <span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span>
               </h2>
               <p className="text-accent font-body font-semibold text-[15px] mt-1">
                 Expert-comptable · Fondateur de MFinances

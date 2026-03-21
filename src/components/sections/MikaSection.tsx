@@ -16,7 +16,7 @@ export default function MikaSection() {
             <div className="relative h-[280px] lg:h-auto">
               <img
                 src={mikaPhoto}
-                alt="Mika Musungayi — Expert-comptable certifié ITAA"
+                alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
@@ -26,7 +26,7 @@ export default function MikaSection() {
                 <div className="bg-accent text-accent-foreground text-[13px] font-bold px-4 py-2 rounded-lg shadow-md">
                   Mika MUSUNGAYI
                 </div>
-                <div className="text-primary-foreground/80 text-[11px] mt-1 px-1 font-medium">Expert-comptable certifié ITAA</div>
+                <div className="text-primary-foreground/80 text-[11px] mt-1 px-1 font-medium">Expert-comptable</div>
               </div>
             </div>
 
@@ -47,7 +47,7 @@ export default function MikaSection() {
               </p>
 
               <ul className="mt-6 space-y-3">
-                {["Spécialiste patrimoine et TPE", "Membre agréé ITAA"].map((item) => (
+                {["Spécialiste patrimoine et TPE", "Membre ITAA"].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-primary-foreground/75 text-[14px]">
                     <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
                       <Check size={11} className="text-accent" strokeWidth={3} />
