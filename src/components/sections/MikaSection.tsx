@@ -8,7 +8,7 @@ export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf">
         <div className={`bg-primary rounded-3xl overflow-hidden reveal ${isVisible ? "visible" : ""}`}>
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
