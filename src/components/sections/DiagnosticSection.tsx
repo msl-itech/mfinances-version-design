@@ -36,12 +36,12 @@ export default function DiagnosticSection() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center leading-snug" asChild>
                 <Link to="/diagnostic/">Découvrir pourquoi je manque de cash →</Link>
               </Button>
               <Link
                 to="/checklist-tresorerie/"
-                className="text-accent font-medium text-[15px] hover:underline underline-offset-4 transition-colors sm:mt-3"
+                className="text-accent font-medium text-[15px] hover:underline underline-offset-4 transition-colors sm:mt-3 whitespace-normal"
               >
                 Voir si je commets ces erreurs →
               </Link>
