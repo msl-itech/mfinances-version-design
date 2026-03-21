@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
+import Diagnostic from "./pages/Diagnostic.tsx";
 import DafExternalise from "./pages/DafExternalise.tsx";
 import ControleDeGestion from "./pages/ControleDeGestion.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/services/fiscalite/" element={<Fiscalite />} />
           <Route path="/services/creation-entreprise/" element={<CreationEntreprise />} />
           <Route path="/tarifs/" element={<Tarifs />} />
+          <Route path="/diagnostic/" element={<Diagnostic />} />
           <Route path="/qui-nous-accompagnons/" element={<QuiNousAccompagnons />} />
           <Route path="/qui-nous-accompagnons/independants-et-startups/" element={<IndependantsStartups />} />
           <Route path="/qui-nous-accompagnons/commerce-et-horeca/" element={<CommerceHoreca />} />
