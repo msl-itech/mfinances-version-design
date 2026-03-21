@@ -24,7 +24,7 @@ export default function DisqualificationSection() {
         <p className={`text-center text-accent text-[13px] font-semibold tracking-widest uppercase mb-4 reveal ${isVisible ? "visible" : ""}`}>
           Transparence
         </p>
-        <h2 className={`font-display text-[26px] md:text-[36px] text-center leading-[1.15] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.05s" }}>
+        <h2 className={`font-display text-[22px] md:text-[36px] text-center leading-[1.15] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.05s" }}>
           MFinances n'est peut-être <br className="hidden md:block" />
           <span className="text-accent">pas</span> le bon cabinet pour vous
         </h2>
