@@ -25,7 +25,7 @@ const audienceRight = [
   { label: "ASBL", href: "/qui-nous-accompagnons/asbl/" },
   { label: "Société d'exploitation", href: "/qui-nous-accompagnons/societe-exploitation/" },
   { label: "Société de management", href: "/qui-nous-accompagnons/" },
-  { label: "Société de moyens", href: "/qui-nous-accompagnons/" },
+  { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
 ];
 
 function DropdownWrapper({ label, children }: { label: string; children: React.ReactNode }) {
