@@ -98,7 +98,7 @@ export default function Asbl() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité, gestion administrative, recherche de financements et obligations légales pour ASBL à Bruxelles. Dès 350 €/mois HTVA avec réduction de 21 % pour les structures non assujetties.");
+    setMeta("description", "Comptabilité, subsides, obligations légales et accompagnement pour ASBL en Belgique. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
