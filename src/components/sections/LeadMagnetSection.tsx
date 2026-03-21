@@ -6,7 +6,7 @@ export default function LeadMagnetSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-16 md:py-24" ref={ref}>
+    <section className="bg-primary py-12 md:py-24" ref={ref}>
       <div className="container-mf">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
