@@ -232,7 +232,19 @@ export default function Header() {
               </button>
               {mobileAudienceOpen && (
                 <div className="pl-4 pb-2">
-                  {[...audienceLeft, ...audienceRight].map((link) => (
+                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Profils</span>
+                  {audienceLeft.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Structures</span>
+                  {audienceRight.map((link) => (
                     <Link
                       key={link.label}
                       to={link.href}
