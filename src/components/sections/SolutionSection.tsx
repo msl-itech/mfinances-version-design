@@ -57,7 +57,7 @@ export default function SolutionSection() {
                   className="w-full h-44 object-cover"
                   loading="lazy"
                 />
-                <div className="p-7">
+                <div className="p-5 md:p-7">
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                     <Icon size={20} className="text-accent" strokeWidth={1.5} />
                   </div>

@@ -25,7 +25,7 @@ export default function MethodSection() {
               className={`relative text-center rounded-2xl p-6 md:p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
             >
-              <span className="font-display text-[56px] font-bold text-accent leading-none">
+              <span className="font-display text-[40px] md:text-[56px] font-bold text-accent leading-none">
                 {step.num}
               </span>
               <h3 className="font-bold text-[18px] text-white mt-2 font-body">{step.title}</h3>

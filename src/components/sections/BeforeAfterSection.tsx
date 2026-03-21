@@ -50,7 +50,7 @@ export default function BeforeAfterSection() {
             <div className="bg-primary text-white font-bold text-[14px] px-6 py-4">
               APRÈS MFinances
             </div>
-            <div className="p-7 space-y-4">
+            <div className="p-5 md:p-7 space-y-3 md:space-y-4">
               {after.map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <Check size={15} className="text-[#27AE60] mt-0.5 flex-shrink-0" />

@@ -17,7 +17,7 @@ export default function PainSection() {
           </div>
 
           {/* Title */}
-          <h2 className="font-display text-[24px] md:text-[34px] text-center leading-[1.2] max-w-[700px] mx-auto">
+          <h2 className="font-display text-[22px] md:text-[34px] text-center leading-[1.2] max-w-[700px] mx-auto">
             Fin de mois tendu. Décisions prises au feeling.
             <br className="hidden md:block" />
             Et la question qui revient toujours :{" "}

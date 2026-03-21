@@ -35,7 +35,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left */}
           <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-            <h1 className="text-[32px] md:text-[48px] font-bold leading-[1.08] mb-0">
+            <h1 className="text-[26px] md:text-[48px] font-bold leading-[1.12] md:leading-[1.08] mb-0">
               Vous travaillez dur.
               <br />
               Mais savez-vous vraiment si votre entreprise{" "}
