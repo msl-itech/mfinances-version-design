@@ -22,42 +22,63 @@ export const articleContent: Record<string, ArticleBody> = {
   "tresorerie-vs-benefices": {
     sections: [
       {
+        heading: "Le paradoxe que personne ne vous explique",
         paragraphs: [
-          "Beaucoup de dirigeants de TPE confondent bénéfice et trésorerie. Et c'est l'une des erreurs les plus dangereuses en gestion d'entreprise.",
-          "Votre comptabilité peut afficher un bénéfice de 50 000 € alors que votre compte en banque est à sec. Comment est-ce possible ?",
+          "Vous avez clôturé le mois avec un bénéfice positif. Et pourtant, en fin de semaine, votre compte bancaire est dans le rouge.",
+          "C'est le paradoxe le plus courant chez les dirigeants de TPE en croissance — et l'un des plus mal compris. Pas parce que vous êtes mauvais gestionnaire. Parce que bénéfice et trésorerie sont deux choses fondamentalement différentes, et qu'on ne vous l'a jamais expliqué clairement.",
         ],
       },
       {
-        heading: "Le bénéfice est une notion comptable, pas bancaire",
+        heading: "Définitions simples",
         paragraphs: [
-          "Le bénéfice est calculé selon des règles comptables : produits moins charges. Mais une facture émise n'est pas un paiement reçu. Un amortissement réduit votre bénéfice sans sortir un euro de votre compte.",
-          "À l'inverse, le remboursement d'un emprunt sort du cash de votre compte sans apparaître comme une charge dans votre résultat.",
+          "Le bénéfice est un résultat comptable. C'est ce qui reste quand vous soustrayez toutes vos charges de tous vos revenus — sur une période donnée, selon les règles comptables. Il intègre des éléments qui ne correspondent pas à des flux d'argent réels — amortissements, provisions, produits et charges à recevoir ou à payer.",
+          "La trésorerie est la réalité bancaire. C'est l'argent réellement disponible sur votre compte aujourd'hui pour payer vos fournisseurs, vos salariés, vos charges. Elle dépend uniquement des encaissements et décaissements réels — quand l'argent entre et quand il sort.",
         ],
       },
       {
-        heading: "Les décalages les plus fréquents",
-        paragraphs: ["Voici les situations qui créent un fossé entre votre bénéfice et votre trésorerie :"],
+        heading: "Pourquoi le décalage se produit",
+        paragraphs: [
+          "1. Les délais de paiement clients — Vous facturez 50 000 € en novembre. Votre client paie à 60 jours. L'argent arrive en janvier. Entre-temps, vous devez payer vos salariés, vos fournisseurs et vos charges fixes en décembre. Votre bénéfice de novembre est réel — votre trésorerie de décembre est tendue.",
+          "2. Les investissements — Vous achetez une machine pour 30 000 €. Comptablement, cette machine est amortie sur 5 ans — soit 6 000 € de charge par an. Mais les 30 000 € sont sortis de votre compte le jour de l'achat. Votre bénéfice n'est impacté qu'à hauteur de 6 000 €. Votre trésorerie, elle, a pris 30 000 € d'un coup.",
+          "3. La croissance elle-même — Paradoxalement, croître consomme de la trésorerie. Vous devez recruter, stocker, investir, avancer des frais — avant que les recettes supplémentaires n'arrivent. Plus vous grandissez vite, plus votre besoin en fonds de roulement augmente.",
+        ],
+      },
+      {
+        heading: "L'histoire de Thomas",
+        paragraphs: [
+          "Thomas dirige une société de services IT à Bruxelles. Ses résultats sont excellents — croissance de 40 % sur l'année, bénéfice en hausse. Et pourtant, en mars, il ne peut pas honorer une échéance fiscale.",
+          "Le problème : deux gros clients paient à 90 jours. Thomas a facturé 180 000 € en décembre et janvier. L'argent n'arrive qu'en mars et avril. Entre-temps, il a recruté deux développeurs en janvier, payé ses charges sociales, ses loyers.",
+          "Son bénéfice est là. Sa trésorerie, elle, a disparu. La solution n'était pas de moins facturer — c'était de mettre en place un prévisionnel de trésorerie qui anticipait ce décalage.",
+        ],
+      },
+      {
+        heading: "Ce que ça change concrètement pour vous",
+        paragraphs: ["Voici comment cette distinction impacte vos décisions au quotidien :"],
         list: [
-          "Clients qui paient à 60 ou 90 jours — vos factures sont comptabilisées mais le cash n'est pas là",
-          "Stock important — vous avez payé vos fournisseurs mais la marchandise n'est pas encore vendue",
-          "Investissements sur fonds propres — vous dépensez du cash qui ne réduit pas votre bénéfice (il s'amortit sur plusieurs années)",
-          "TVA à reverser — vous encaissez de la TVA pour le compte de l'État, ce n'est pas votre argent",
-        ],
-      },
-      {
-        heading: "Comment piloter votre trésorerie",
-        paragraphs: [
-          "La solution ? Un prévisionnel de trésorerie actualisé chaque mois. Pas une estimation vague, mais un document construit sur vos données réelles : encaissements attendus, décaissements planifiés, échéances fiscales.",
-          "Chez MFinances, nos clients Excellence disposent d'un prévisionnel de trésorerie mis à jour mensuellement. Ils savent exactement à quoi s'attendre dans les 3 prochains mois.",
-        ],
-      },
-      {
-        heading: "En résumé",
-        paragraphs: [
-          "Le bénéfice vous dit si votre activité est rentable. La trésorerie vous dit si votre entreprise peut survivre. Les deux sont importants — mais c'est la trésorerie qui paie vos factures.",
+          "Avant de recruter, vous regardez l'impact sur votre trésorerie à 3 mois — pas seulement sur votre résultat annuel",
+          "Avant d'investir, vous choisissez entre autofinancement et leasing en fonction de votre position de trésorerie",
+          "Avant d'accepter un gros contrat, vous vérifiez que vous pouvez financer l'avance de trésorerie qu'il exige",
         ],
       },
     ],
+    faq: [
+      {
+        question: "Pourquoi une entreprise rentable peut-elle faire faillite ?",
+        answer: "Parce que la rentabilité ne paie pas les factures — la trésorerie le fait. Une entreprise rentable mais à court de cash ne peut pas honorer ses échéances immédiates. Si elle ne peut pas payer ses fournisseurs ou ses salariés, elle cesse d'activité — même si son bilan annuel sera positif.",
+      },
+      {
+        question: "Quelle est la différence entre cash-flow et bénéfice ?",
+        answer: "Le bénéfice est calculé selon les règles comptables — il intègre des éléments non monétaires comme les amortissements. Le cash-flow mesure uniquement les mouvements réels d'argent entrant et sortant. Une entreprise peut avoir un bénéfice positif et un cash-flow négatif.",
+      },
+      {
+        question: "Comment suivre sa trésorerie simplement ?",
+        answer: "La méthode la plus simple : un tableau avec deux colonnes — encaissements prévus et décaissements prévus — semaine par semaine sur 3 mois glissants. Mis à jour chaque semaine avec les données réelles. Pour une version automatisée, c'est ce que MFinances met en place dans Odoo.",
+      },
+    ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "investir-sans-fragiliser-tresorerie": {
     sections: [
