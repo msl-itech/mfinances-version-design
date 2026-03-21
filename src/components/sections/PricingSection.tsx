@@ -34,13 +34,13 @@ export default function PricingSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#FAF8F6] py-20 md:py-28" ref={ref}>
+    <section className="bg-[#FAF8F6] py-12 md:py-28" ref={ref}>
       <div className="container-mf">
-        <h2 className={`font-display text-[26px] md:text-[36px] text-center reveal ${isVisible ? "visible" : ""}`}>
+        <h2 className={`font-display text-[22px] md:text-[36px] text-center reveal ${isVisible ? "visible" : ""}`}>
           Des forfaits <span className="text-accent">transparents</span>, sans surprise
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mt-8 md:mt-14">
           {plans.map((plan, i) => (
             <div
               key={plan.label}
