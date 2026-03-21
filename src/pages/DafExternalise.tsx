@@ -142,50 +142,60 @@ export default function DafExternalise() {
 
       <main>
         {/* HERO */}
-        <section className="bg-primary py-16 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
-                      Accueil
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="text-primary-foreground/40" />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
-                      Services
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="text-primary-foreground/40" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage className="text-primary-foreground text-[13px]">DAF à temps partiel</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
+                        Accueil
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator className="text-primary-foreground/40" />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
+                        Services
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator className="text-primary-foreground/40" />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage className="text-primary-foreground text-[13px]">DAF à temps partiel</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
 
-            <div className="mt-8 max-w-[680px]">
-              <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                Service Excellence
-              </span>
-              <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                Un copilote financier à vos côtés pour les décisions qui comptent
-              </h1>
-              <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
-                Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-7">
-                <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                  150 € HTVA / heure
+              <div className="mt-8">
+                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
+                  Service Excellence
                 </span>
-                <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                  Réservé aux clients Excellence
-                </span>
+                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                  Un copilote financier à vos côtés pour les décisions qui comptent
+                </h1>
+                <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
+                  Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement.
+                </p>
+                <div className="flex flex-wrap gap-3 mt-7">
+                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
+                    150 € HTVA / heure
+                  </span>
+                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
+                    Réservé aux clients Excellence
+                  </span>
+                </div>
               </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <img
+                src={imgHero}
+                alt="Réunion de pilotage financier avec un DAF externalisé MFinances"
+                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
+              />
             </div>
           </div>
         </section>
