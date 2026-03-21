@@ -93,7 +93,7 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
             {/* Services dropdown */}
-            <DropdownWrapper label="Services">
+            <DropdownWrapper label="Services" href="/services/">
               <div className="p-3 min-w-[220px]">
                 {servicesLinks.map((link) => (
                   <Link
