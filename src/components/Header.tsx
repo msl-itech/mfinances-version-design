@@ -28,7 +28,7 @@ const audienceRight = [
   { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
 ];
 
-function DropdownWrapper({ label, children }: { label: string; children: React.ReactNode }) {
+function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const timeout = useRef<ReturnType<typeof setTimeout>>();
   const ref = useRef<HTMLDivElement>(null);
@@ -43,10 +43,10 @@ function DropdownWrapper({ label, children }: { label: string; children: React.R
 
   return (
     <div ref={ref} className="relative" onMouseEnter={enter} onMouseLeave={leave}>
-      <button className="flex items-center gap-1 text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors py-2">
+      <Link to={href} className="flex items-center gap-1 text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors py-2">
         {label}
         <ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
-      </button>
+      </Link>
       {open && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[150]">
           <div
@@ -93,7 +93,7 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
             {/* Services dropdown */}
-            <DropdownWrapper label="Services">
+            <DropdownWrapper label="Services" href="/services/">
               <div className="p-3 min-w-[220px]">
                 {servicesLinks.map((link) => (
                   <Link
@@ -108,7 +108,7 @@ export default function Header() {
             </DropdownWrapper>
 
             {/* Audience dropdown */}
-            <DropdownWrapper label="Qui nous accompagnons">
+            <DropdownWrapper label="Qui nous accompagnons" href="/qui-nous-accompagnons/">
               <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
                 <div>
                   <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
