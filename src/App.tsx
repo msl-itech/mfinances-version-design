@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import DafExternalise from "./pages/DafExternalise.tsx";
 import ControleDeGestion from "./pages/ControleDeGestion.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
+import Comptabilite from "./pages/Comptabilite.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
