@@ -34,7 +34,7 @@ export default function SolutionSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#FAF8F6] py-20 md:py-28" ref={ref}>
+    <section className="bg-[#FAF8F6] py-12 md:py-28" ref={ref}>
       <div className="container-mf">
         <h2 className={`font-display text-[26px] md:text-[38px] text-center leading-[1.15] reveal ${isVisible ? "visible" : ""}`}>
           Un cabinet comptable qui fait
