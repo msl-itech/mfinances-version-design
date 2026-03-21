@@ -245,11 +245,26 @@ export default function Diagnostic() {
 
   const caProfile = getCaProfile(answers[1]);
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (emailForm.prenom.trim() && emailForm.email.trim()) {
-      setEmailSubmitted(true);
-    }
+    if (!emailForm.prenom.trim() || !emailForm.email.trim()) return;
+
+    const descParts = [
+      `📊 Lead Diagnostic Trésorerie`,
+      `\n📈 Score: ${score}/20`,
+      `👤 Statut: ${statusLabel}`,
+      `💰 CA: ${caLabel}`,
+      `🎯 Préoccupation: ${concernLabel}`,
+      `\nSource: Diagnostic Trésorerie - Site MFinances`,
+    ];
+
+    await sendLeadToOdoo({
+      name: emailForm.prenom,
+      email_from: emailForm.email,
+      description: descParts.join("\n"),
+    });
+
+    setEmailSubmitted(true);
   };
 
   const getResultConfig = () => {

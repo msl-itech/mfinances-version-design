@@ -116,12 +116,27 @@ export default function Contact() {
     return () => { s1.remove(); };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({
-      prenom, nom, email, telephone, message,
-      situation, besoin, source: "formulaire-contact",
+    setIsLoading(true);
+
+    const descParts = [
+      `📋 Lead Formulaire Contact`,
+      `\n👤 Situation: ${situation}`,
+      `🎯 Besoin: ${besoin}`,
+      `\n📞 Téléphone: ${telephone}`,
+      message ? `💬 Message: ${message}` : "",
+      `\nSource: Formulaire Contact - Site MFinances`,
+    ].filter(Boolean);
+
+    await sendLeadToOdoo({
+      name: `${prenom} ${nom}`,
+      email_from: email,
+      phone: telephone,
+      description: descParts.join("\n"),
     });
+
+    setIsLoading(false);
     setSubmitted(true);
   };
 
