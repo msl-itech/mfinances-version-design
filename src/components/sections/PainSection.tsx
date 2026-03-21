@@ -1,60 +1,68 @@
 import { Link } from "react-router-dom";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, TrendingDown, Eye, HelpCircle } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
+const painPoints = [
+  {
+    icon: TrendingDown,
+    title: "Trésorerie floue",
+    desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours.",
+  },
+  {
+    icon: Eye,
+    title: "Fiscalité subie",
+    desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
+  },
+  {
+    icon: HelpCircle,
+    title: "Décisions à l'aveugle",
+    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
+  },
+];
 
 export default function PainSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-28" ref={ref}>
+    <section className="py-14 md:py-28 bg-card" ref={ref}>
       <div className="container-mf">
-        <div className={`bg-white rounded-3xl p-6 md:p-14 shadow-[0_4px_40px_rgba(27,43,94,0.06)] reveal ${isVisible ? "visible" : ""}`}>
-          {/* Icon */}
-          <div className="flex justify-center mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center">
-              <AlertTriangle size={28} className="text-accent" strokeWidth={1.5} />
-            </div>
+        {/* Header */}
+        <div className={`text-center max-w-[700px] mx-auto mb-10 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
+          <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+            <AlertTriangle size={26} className="text-accent" strokeWidth={1.5} />
           </div>
-
-          {/* Title */}
-          <h2 className="font-display text-[22px] md:text-[34px] text-center leading-[1.2] max-w-[700px] mx-auto">
-            Fin de mois tendu. Décisions prises au feeling.
+          <h2 className="font-display text-[24px] md:text-[38px] leading-[1.15]">
+            Fin de mois tendu. Décisions au feeling.
             <br className="hidden md:block" />
-            Et la question qui revient toujours :{" "}
-            <span className="text-accent italic">où est passé l'argent ?</span>
+            <span className="text-accent italic">Où est passé l'argent ?</span>
           </h2>
+        </div>
 
-          {/* 2-column text */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
-            <div className="space-y-4 text-[15px] text-foreground/60 leading-[1.8]">
-              <p>
-                Vous avez des clients. Vous facturez. Et pourtant, votre compte
-                est souvent plus vide que prévu. Vous ne savez pas ce que sera
-                votre trésorerie dans 60 jours.
-              </p>
-              <p>
-                Vous découvrez votre charge fiscale en fin d'année — quand
-                il est trop tard pour agir.
-              </p>
-            </div>
-            <div className="space-y-4 text-[15px] text-foreground/60 leading-[1.8]">
-              <p>
-                Ce n'est pas une question de talent. C'est une question d'outils.
-                Jusqu'ici, seules les grandes entreprises avaient un DAF — un directeur
-                administratif et financier.
-              </p>
-              <p className="font-semibold text-primary text-[16px]">
-                Les grandes entreprises ont un DAF. Pourquoi pas vous ?
-              </p>
-            </div>
-          </div>
+        {/* Pain cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {painPoints.map((pain, i) => {
+            const Icon = pain.icon;
+            return (
+              <div
+                key={pain.title}
+                className={`bg-background rounded-2xl p-6 md:p-7 border border-accent/10 reveal ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-accent/8 flex items-center justify-center mb-4">
+                  <Icon size={20} className="text-accent" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-[16px] font-body text-foreground mb-2">{pain.title}</h3>
+                <p className="text-[14px] text-muted-foreground leading-[1.75]">{pain.desc}</p>
+              </div>
+            );
+          })}
+        </div>
 
-          {/* CTA link */}
-          <div className={`text-right mt-6 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.25s" }}>
-            <Link to="/diagnostic/" className="text-accent text-[14px] font-bold uppercase tracking-wide hover:underline">
-              PLUS MAINTENANT →
-            </Link>
-          </div>
+        {/* CTA */}
+        <div className={`text-center mt-10 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.35s" }}>
+          <Link to="/diagnostic/" className="inline-flex items-center gap-2 text-accent text-[14px] font-bold uppercase tracking-wide hover:underline">
+            PLUS MAINTENANT — FAITES LE DIAGNOSTIC →
+          </Link>
         </div>
       </div>
     </section>
