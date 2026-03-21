@@ -15,7 +15,7 @@ const ressourcesLinks = [
   { label: "Blog", href: "/blog/" },
   { label: "Diagnostic gratuit", href: "/diagnostic/" },
   { label: "Guide trésorerie gratuit", href: "/checklist-tresorerie/" },
-  { label: "Support", href: "/contact/" },
+  { label: "Support", href: "/support/" },
   { label: "Pourquoi MFinances", href: "/a-propos/" },
 ];
 
