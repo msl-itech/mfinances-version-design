@@ -18,7 +18,7 @@ const audienceLeft = [
   { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
   { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
   { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
 ];
 
 const audienceRight = [
