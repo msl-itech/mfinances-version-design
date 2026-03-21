@@ -405,9 +405,10 @@ export default function Contact() {
                             variant="accent"
                             size="lg"
                             type="submit"
+                            disabled={isLoading}
                             className="rounded-full w-full mt-7 whitespace-normal text-center leading-snug text-[15px]"
                           >
-                            Envoyer ma demande — Mika me rappelle sous 72h
+                            {isLoading ? "Envoi en cours..." : "Envoyer ma demande — Mika me rappelle sous 72h"}
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
 
