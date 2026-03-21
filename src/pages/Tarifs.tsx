@@ -180,11 +180,17 @@ export default function Tarifs() {
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Tarifs expert-comptable MFinances Bruxelles"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
+            <div className="rounded-2xl shadow-2xl overflow-hidden aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/gAF_Jw6_T7Q"
+                title="Pilotez vos finances avec Mfinances - Bruxelles : Formule Base, Premium ou Excellence"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full h-full"
               />
             </div>
           </div>
