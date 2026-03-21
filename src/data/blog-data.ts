@@ -54,12 +54,15 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "gestion-stocks-tresorerie",
-    title: "Gestion des stocks — libérez vos liquidités",
-    excerpt: "Vos stocks immobilisent des liquidités. Apprenez à optimiser la rotation pour libérer du cash.",
+    title: "Votre stock immobilise du cash — voici comment le libérer",
+    excerpt: "Comment une mauvaise gestion des stocks immobilise des milliers d'euros de liquidités. Stratégies concrètes pour optimiser votre stock et libérer du cash.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-10-10",
+    seoTitle: "Gestion des Stocks et Trésorerie — Libérez vos Liquidités Immobilisées",
+    metaDescription: "Comment une mauvaise gestion des stocks immobilise des milliers d'euros de liquidités. Stratégies concrètes pour optimiser votre stock et libérer du cash.",
+    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "tresorerie-face-concurrence",
