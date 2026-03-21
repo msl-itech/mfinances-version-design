@@ -14,7 +14,7 @@ export default function DiagnosticSection() {
   return (
     <section className="bg-white py-12 md:py-[80px]" ref={ref}>
       <div className="container-mf">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left column — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
             <h2 className="font-display text-[24px] md:text-[36px] text-primary leading-tight">

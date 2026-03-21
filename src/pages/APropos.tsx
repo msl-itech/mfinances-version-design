@@ -60,7 +60,7 @@ export default function APropos() {
 
         {/* SECTION 1 — L'histoire fondatrice */}
         <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <ScrollRevealDiv>
               <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Il avait triplé son chiffre d'affaires en un an.
@@ -204,7 +204,7 @@ export default function APropos() {
 
         {/* SECTION 4 — Mika en bref */}
         <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
             <ScrollRevealDiv className="lg:col-span-2">
               <img
                 src={mikaPhoto}
