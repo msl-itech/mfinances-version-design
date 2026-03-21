@@ -36,6 +36,7 @@ import {
   Clock,
   FileText,
   Headphones,
+  PlayCircle,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
