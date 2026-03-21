@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Briefcase, Building2, Heart, Rocket, Building } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import imgIndependants from "@/assets/audience-independants.jpg";
+import imgHoreca from "@/assets/audience-commerce-horeca.jpg";
+import imgSante from "@/assets/audience-sante.jpg";
+import imgCroissance from "@/assets/audience-croissance.jpg";
+import imgPromoteurs from "@/assets/audience-promoteurs.jpg";
 
 const audiences = [
-  { icon: Rocket, label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-startups/" },
-  { icon: Briefcase, label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-horeca/" },
-  { icon: Heart, label: "Professions de santé", href: "/qui-nous-accompagnons/professions-sante/" },
-  { icon: Building2, label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-croissance/" },
-  { icon: Building, label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-startups/", image: imgIndependants },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-horeca/", image: imgHoreca },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-sante/", image: imgSante },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-croissance/", image: imgCroissance },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: imgPromoteurs },
 ];
 
 export default function AudienceSection() {
@@ -27,23 +32,33 @@ export default function AudienceSection() {
           </h2>
         </div>
 
-        <div className={`grid grid-cols-2 md:grid-cols-5 gap-4 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
-          {audiences.map((a, i) => {
-            const Icon = a.icon;
-            return (
-              <Link
-                key={a.label}
-                to={a.href}
-                className="group flex flex-col items-center gap-3 bg-card rounded-2xl p-5 md:p-6 border border-border/40 hover:border-primary/30 hover:shadow-[0_6px_24px_rgba(27,43,94,0.08)] transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center transition-colors">
-                  <Icon size={22} className="text-primary" strokeWidth={1.5} />
-                </div>
-                <span className="text-[13px] font-medium text-foreground text-center leading-tight">{a.label}</span>
-                <ArrowRight size={14} className="text-muted-foreground group-hover:text-accent transition-colors" />
-              </Link>
-            );
-          })}
+        <div className={`grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+          {audiences.map((a) => (
+            <Link
+              key={a.label}
+              to={a.href}
+              className="group relative rounded-2xl overflow-hidden h-[200px] md:h-[260px] border border-border/20"
+            >
+              <img
+                src={a.image}
+                alt={a.label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
+              {/* Content */}
+              <div className="absolute bottom-0 inset-x-0 p-4 flex flex-col items-start">
+                <span className="text-[13px] font-bold text-primary-foreground leading-tight">
+                  {a.label}
+                </span>
+                <span className="text-[11px] text-primary-foreground/60 mt-1 flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Découvrir
+                  <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <div className={`text-center mt-10 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
