@@ -16,6 +16,14 @@ import DisqualificationSection from "@/components/sections/DisqualificationSecti
 import PricingSection from "@/components/sections/PricingSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import SeoLocalSection from "@/components/sections/SeoLocalSection";
+import { accountingServiceSchema, createFaqSchema, injectJsonLd } from "@/lib/seo-schemas";
+
+const homepageFaqs = [
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel), 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle et accès DAF). Engagement annuel avec tacite reconduction." },
+  { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle intégrés dans les forfaits." },
+  { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
+];
 
 export default function Index() {
   useEffect(() => {
@@ -31,6 +39,10 @@ export default function Index() {
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://mfinances.be/";
+
+    const s1 = injectJsonLd(accountingServiceSchema);
+    const s2 = injectJsonLd(createFaqSchema(homepageFaqs));
+    return () => { s1.remove(); s2.remove(); };
   }, []);
   return (
     <div className="min-h-screen">
