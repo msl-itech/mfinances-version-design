@@ -9,6 +9,7 @@ import ControleDeGestion from "./pages/ControleDeGestion.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
 import Comptabilite from "./pages/Comptabilite.tsx";
 import Fiscalite from "./pages/Fiscalite.tsx";
+import CreationEntreprise from "./pages/CreationEntreprise.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
