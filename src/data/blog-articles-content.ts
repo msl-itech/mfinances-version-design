@@ -127,35 +127,40 @@ export const articleContent: Record<string, ArticleBody> = {
   "gestion-stocks-tresorerie": {
     sections: [
       {
+        heading: "Le stock, c'est de l'argent qui dort",
         paragraphs: [
-          "Vos stocks, c'est de l'argent immobilisé. Chaque euro stocké dans votre entrepôt est un euro qui ne travaille pas pour votre entreprise.",
+          "Du point de vue de la trésorerie, un produit en stock n'est pas une richesse — c'est de l'argent immobilisé. De l'argent que vous avez sorti de votre compte pour acheter des marchandises qui n'ont pas encore été vendues. Tant que ce produit n'est pas vendu, il ne génère pas de cash. Pire : il génère des coûts — stockage, assurance, obsolescence potentielle.",
         ],
       },
       {
-        heading: "Le coût caché des stocks",
-        paragraphs: [
-          "Au-delà du prix d'achat, vos stocks coûtent cher : stockage, assurance, obsolescence, capital immobilisé. Pour une TPE, un stock mal optimisé peut représenter plusieurs mois de trésorerie bloquée.",
-        ],
-      },
-      {
-        heading: "Comment optimiser votre rotation de stock",
-        paragraphs: ["Quelques leviers concrets pour libérer des liquidités :"],
+        heading: "Les signaux d'alerte",
+        paragraphs: ["Votre stock est un problème de trésorerie si :"],
         list: [
-          "Analysez votre taux de rotation par catégorie de produit — identifiez les « dormeurs »",
-          "Négociez des délais de paiement fournisseurs plus longs",
-          "Mettez en place des commandes plus fréquentes et plus petites",
-          "Déstockez les produits à faible rotation avant qu'ils ne perdent de la valeur",
-          "Suivez votre BFR (Besoin en Fonds de Roulement) mensuellement",
+          "Votre taux de rotation est inférieur à ce que votre secteur exige",
+          "Vous avez des références qui n'ont pas bougé depuis 3 mois",
+          "Vos coûts de stockage représentent plus de 20 % de la valeur du stock",
+          "Vous avez des ruptures sur les produits qui se vendent bien, et des excédents sur ceux qui se vendent mal",
         ],
       },
       {
-        heading: "L'impact direct sur votre trésorerie",
+        heading: "Trois stratégies pour libérer du cash",
         paragraphs: [
-          "Réduire votre stock de 20 % peut libérer des dizaines de milliers d'euros de trésorerie. C'est de l'argent que vous récupérez sans emprunter, sans vendre plus, sans augmenter vos prix.",
-          "Chez MFinances, nous aidons nos clients à mettre en place un suivi analytique de leurs stocks pour identifier les opportunités de libération de cash.",
+          "1. Identifier et liquider les stocks dormants — Faites l'inventaire de toutes les références qui n'ont pas bougé depuis 90 jours. Pour les libérer : promotions ciblées, vente en lot, déstockage auprès de revendeurs. L'objectif n'est pas de vendre à perte — c'est de transformer du stock mort en cash utilisable.",
+          "2. Réduire les niveaux de stock sur les produits courants — Analysez votre consommation réelle sur les 6 derniers mois par référence. Calculez votre stock de sécurité réel (délai de réapprovisionnement × consommation moyenne). Souvent, les entreprises maintiennent 2 à 3 fois plus de stock que nécessaire par excès de prudence.",
+          "3. Négocier des délais de livraison plus courts — Si votre fournisseur livre en 15 jours et que vous maintenez 30 jours de stock par sécurité, négocier des livraisons en 7 jours vous permet de diviser votre stock de sécurité par deux — et de libérer le cash correspondant.",
+        ],
+      },
+      {
+        heading: "La règle des 80/20 appliquée au stock",
+        paragraphs: [
+          "20 % des références génèrent 80 % du chiffre d'affaires. Ces références méritent un suivi serré. Les 80 % restants génèrent 20 % du CA — c'est là que se cache la majorité des liquidités immobilisées et que vous pouvez libérer le plus de cash avec le moins d'impact commercial.",
         ],
       },
     ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "tresorerie-face-concurrence": {
     sections: [
