@@ -13,7 +13,7 @@ export default function MikaSection() {
         <div className={`bg-primary rounded-3xl overflow-hidden reveal ${isVisible ? "visible" : ""}`}>
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
             {/* Left — Photo */}
-            <div className="relative h-[300px] lg:h-auto">
+            <div className="relative h-[240px] lg:h-auto">
               <img
                 src={mikaPhoto}
                 alt="Mika Musungayi — Expert-comptable certifié ITAA"
