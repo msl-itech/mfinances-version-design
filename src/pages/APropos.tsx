@@ -7,6 +7,7 @@ import mikaPhoto from "@/assets/mika-musungayi.png";
 import imgStory from "@/assets/about-story.jpg";
 import { ArrowRight, MapPin, Award, Quote } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
 
 function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal();
@@ -32,6 +33,12 @@ export default function APropos() {
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://mfinances.be/a-propos/";
+
+    const s1 = injectJsonLd(createBreadcrumbSchema([
+      { name: "Accueil", url: "https://mfinances.be/" },
+      { name: "À propos", url: "https://mfinances.be/a-propos/" },
+    ]));
+    return () => { s1.remove(); };
   }, []);
 
   return (

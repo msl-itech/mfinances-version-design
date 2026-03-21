@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -105,6 +106,12 @@ export default function Contact() {
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://mfinances.be/contact/";
+
+    const s1 = injectJsonLd(createBreadcrumbSchema([
+      { name: "Accueil", url: "https://mfinances.be/" },
+      { name: "Contact", url: "https://mfinances.be/contact/" },
+    ]));
+    return () => { s1.remove(); };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
