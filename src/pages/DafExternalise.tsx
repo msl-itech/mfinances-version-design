@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import imgHero from "@/assets/daf-hero.jpg";
+import imgDashboard from "@/assets/daf-dashboard.jpg";
+import imgMeeting from "@/assets/daf-meeting.jpg";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
