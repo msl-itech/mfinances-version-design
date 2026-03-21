@@ -14,6 +14,19 @@ import {
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, blogArticles } from "@/data/blog-data";
+import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
+import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
+import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+
+const categoryImages: Record<string, string> = {
+  "tresorerie": heroTresorerie,
+  "daf-externalise": heroDaf,
+  "controle-de-gestion": heroControle,
+  "fiscalite-belgique": heroFiscalite,
+  "creation-societe": heroCreation,
+};
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
