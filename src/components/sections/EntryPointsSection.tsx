@@ -79,7 +79,7 @@ export default function EntryPointsSection() {
                 <p className="text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">{card.desc}</p>
                 <div className="mt-5">
                   {card.isButton ? (
-                    <Button variant="accent" size="sm" className="w-full rounded-full text-[13px]" asChild>
+                    <Button variant="accent" size="sm" className="w-full rounded-full text-[13px] whitespace-normal h-auto py-2" asChild>
                       <Link to={card.ctaHref}>{card.cta}</Link>
                     </Button>
                   ) : (
