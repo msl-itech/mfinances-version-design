@@ -12,7 +12,7 @@ export default function MethodSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-20 md:py-28 relative overflow-hidden" ref={ref}>
+    <section className="bg-primary py-12 md:py-28 relative overflow-hidden" ref={ref}>
       <div className="container-mf relative z-10">
         <h2 className={`font-display text-[26px] md:text-[38px] text-center text-white mb-14 reveal ${isVisible ? "visible" : ""}`}>
           Notre méthode en <span className="text-accent">3 étapes</span>
