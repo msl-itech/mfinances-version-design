@@ -1,11 +1,21 @@
-interface ArticleSection {
+export interface ArticleSection {
   heading?: string;
   paragraphs: string[];
   list?: string[];
 }
 
-interface ArticleBody {
+export interface ArticleFaq {
+  question: string;
+  answer: string;
+}
+
+export interface ArticleBody {
   sections: ArticleSection[];
+  faq?: ArticleFaq[];
+  ctaText?: string;
+  ctaDescription?: string;
+  ctaLink?: string;
+  ctaLabel?: string;
 }
 
 export const articleContent: Record<string, ArticleBody> = {
