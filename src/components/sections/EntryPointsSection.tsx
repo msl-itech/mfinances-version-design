@@ -48,6 +48,7 @@ export default function EntryPointsSection() {
   return (
     <section className="py-10 md:py-12" style={{ backgroundColor: "#F7F8FC" }}>
       <div className="container-mf" ref={ref}>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Par où commencer ?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {cards.map((card, i) => {
             const Icon = card.icon;
