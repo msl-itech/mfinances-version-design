@@ -112,7 +112,7 @@ export default function HeroSection() {
               <div className="relative bg-gradient-to-b from-primary/5 to-transparent rounded-3xl overflow-hidden">
                 <img
                   src={mikaPhoto}
-                  alt="Mika Musungayi — Expert-comptable certifié ITAA, fondateur MFinances"
+                  alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                   className="w-full h-[380px] md:h-[480px] object-cover object-top"
                   loading="eager"
                 />
