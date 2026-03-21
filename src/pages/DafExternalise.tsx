@@ -346,8 +346,9 @@ export default function DafExternalise() {
         </section>
 
         {/* CTA FINAL */}
-        <section className="bg-primary py-16 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
+        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+          <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
+          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Prêt à avoir un copilote financier ?
             </h2>
