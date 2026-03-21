@@ -37,6 +37,8 @@ const erreurs = [
     desc: "Recruter, investir, signer un gros contrat — sans projection à 3-6 mois, ces décisions peuvent vous fragiliser sans que vous le voyiez.",
   },
 ];
+
+function triggerPdfDownload() {
   const link = document.createElement("a");
   link.href = "/checklist-tresorerie-mfinances.pdf";
   link.download = "checklist-tresorerie-mfinances.pdf";
