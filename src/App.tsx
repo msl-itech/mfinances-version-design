@@ -10,6 +10,7 @@ import Tresorerie from "./pages/Tresorerie.tsx";
 import Comptabilite from "./pages/Comptabilite.tsx";
 import Fiscalite from "./pages/Fiscalite.tsx";
 import CreationEntreprise from "./pages/CreationEntreprise.tsx";
+import Tarifs from "./pages/Tarifs.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/services/comptabilite/" element={<Comptabilite />} />
           <Route path="/services/fiscalite/" element={<Fiscalite />} />
           <Route path="/services/creation-entreprise/" element={<CreationEntreprise />} />
+          <Route path="/tarifs/" element={<Tarifs />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
