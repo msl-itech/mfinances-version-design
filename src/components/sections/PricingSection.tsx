@@ -44,7 +44,7 @@ export default function PricingSection() {
           {plans.map((plan, i) => (
             <div
               key={plan.label}
-              className={`relative bg-white rounded-2xl p-8 border ${
+              className={`relative bg-white rounded-2xl p-6 md:p-8 border ${
                 plan.popular ? "border-primary shadow-[0_8px_40px_rgba(27,43,94,0.1)]" : "border-border/40"
               } reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
