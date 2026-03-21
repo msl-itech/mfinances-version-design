@@ -8,6 +8,7 @@ import DafExternalise from "./pages/DafExternalise.tsx";
 import ControleDeGestion from "./pages/ControleDeGestion.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
 import Comptabilite from "./pages/Comptabilite.tsx";
+import Fiscalite from "./pages/Fiscalite.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/services/controle-de-gestion/" element={<ControleDeGestion />} />
           <Route path="/services/tresorerie/" element={<Tresorerie />} />
           <Route path="/services/comptabilite/" element={<Comptabilite />} />
+          <Route path="/services/fiscalite/" element={<Fiscalite />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
