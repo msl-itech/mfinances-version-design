@@ -102,13 +102,16 @@ export const blogArticles: BlogArticle[] = [
   },
   // ── DAF EXTERNALISÉ (à venir) ──
   {
-    slug: "cest-quoi-un-daf-externalise",
-    title: "C'est quoi un DAF externalisé — et en quoi c'est différent d'un expert-comptable ?",
-    excerpt: "Le DAF externalisé ne remplace pas votre comptable — il complète votre équipe avec une vision stratégique.",
+    slug: "daf-externalise-definition",
+    title: "C'est quoi un DAF externalisé — définition et rôle pour une TPE",
+    excerpt: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
-    published: false,
-    date: "2026-04-01",
+    published: true,
+    date: "2026-03-20",
+    seoTitle: "C'est quoi un DAF Externalisé — Définition et Rôle pour une TPE",
+    metaDescription: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
+    pillarPage: "/services/daf-externalise/",
   },
   {
     slug: "quand-faire-appel-daf-temps-partiel",
