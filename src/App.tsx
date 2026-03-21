@@ -67,6 +67,9 @@ const App = () => (
           <Route path="/blog/" element={<Blog />} />
           <Route path="/blog/:categorySlug/" element={<BlogCategory />} />
           <Route path="/blog/:categorySlug/:articleSlug/" element={<BlogArticle />} />
+          <Route path="/mentions-legales/" element={<MentionsLegales />} />
+          <Route path="/politique-de-confidentialite/" element={<PolitiqueConfidentialite />} />
+          <Route path="/politique-de-cookies/" element={<PolitiqueCookies />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
