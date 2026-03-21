@@ -181,7 +181,7 @@ export default function QuiNousAccompagnons() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <Breadcrumb>
@@ -218,9 +218,9 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── PAR PROFIL D'ACTIVITÉ ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Par <span className="text-accent">profil d'activité</span>
               </h2>
@@ -235,9 +235,9 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── PAR STRUCTURE JURIDIQUE ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Par <span className="text-accent">structure juridique</span>
               </h2>
@@ -252,7 +252,7 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>

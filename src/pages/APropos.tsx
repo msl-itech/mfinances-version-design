@@ -47,7 +47,7 @@ export default function APropos() {
 
       <main>
         {/* HERO */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
               Pourquoi MFinances
@@ -59,7 +59,7 @@ export default function APropos() {
         </section>
 
         {/* SECTION 1 — L'histoire fondatrice */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <ScrollRevealDiv>
               <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
@@ -124,7 +124,7 @@ export default function APropos() {
         </section>
 
         {/* SECTION 2 — La conviction */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv>
               <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
@@ -173,7 +173,7 @@ export default function APropos() {
         </section>
 
         {/* SECTION 3 — Ce que je fais différemment */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv>
               <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
@@ -203,7 +203,7 @@ export default function APropos() {
         </section>
 
         {/* SECTION 4 — Mika en bref */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <ScrollRevealDiv className="lg:col-span-2">
               <img
@@ -251,7 +251,7 @@ export default function APropos() {
         </section>
 
         {/* SECTION 5 — CTA final */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Vous reconnaissez-vous dans cette histoire ?

@@ -128,7 +128,7 @@ export default function Comptabilite() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <Breadcrumb>
@@ -187,7 +187,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 1 — Pourquoi Odoo ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
@@ -203,9 +203,9 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 2 — Services (6 cards) ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Ce que comprend notre <span className="text-accent">service comptable</span>
               </h2>
@@ -232,9 +232,9 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 3 — Témoignages ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Ils nous font <span className="text-accent">confiance</span>
               </h2>
@@ -258,7 +258,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 4 — Odoo integration (with image) ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <ScrollRevealDiv>
               <div className="flex items-center gap-2 mb-4">
@@ -299,9 +299,9 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 5 — Tableau comparatif forfaits ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Inclus dans <span className="text-accent">tous nos forfaits</span>
               </h2>
@@ -353,7 +353,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION FAQ ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
@@ -383,7 +383,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── CTA FINAL (with background image) ── */}
-        <section className="bg-primary py-16 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Partenariat comptable" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
