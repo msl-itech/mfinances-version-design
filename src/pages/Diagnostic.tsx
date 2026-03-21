@@ -507,43 +507,133 @@ export default function Diagnostic() {
             {/* ── RESULTS ── */}
             {step === 8 && (() => {
               const r = getResultConfig();
-              return (
-                <div className="space-y-8">
-                  {/* Score card */}
-                  <div
-                    className="rounded-2xl p-8 border-2 text-center"
-                    style={{ backgroundColor: r.bgColor, borderColor: r.borderColor }}
-                  >
-                    <span className="text-[48px]">{r.zone}</span>
-                    <h2 className="font-display text-[26px] md:text-[32px] text-foreground mt-3 mb-2">{r.title}</h2>
-                    <p className="text-[15px] text-muted-foreground font-body max-w-[500px] mx-auto">{r.desc}</p>
+              const scoredQuestions = questions.slice(3); // Q4-Q8
+              const scoredAnswers = answers.slice(3);
+              const scoreIcons = [Wallet, Clock, TrendingUp, Landmark, PiggyBank];
+              const percentage = Math.round((score / 20) * 100);
+              const circumference = 2 * Math.PI * 54;
+              const strokeOffset = circumference - (percentage / 100) * circumference;
 
-                    <div className="mt-6 inline-block text-left bg-white rounded-xl p-5 border border-border/50 shadow-sm">
-                      <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-foreground/40 mb-3">Votre profil détecté</p>
-                      <div className="space-y-1.5 text-[14px] font-body">
-                        <p><span className="text-foreground/50">Statut :</span> <span className="font-medium text-foreground">{statusLabel}</span></p>
-                        <p><span className="text-foreground/50">CA :</span> <span className="font-medium text-foreground">{caLabel}</span></p>
-                        <p><span className="text-foreground/50">Préoccupation :</span> <span className="font-medium text-foreground">{concernLabel}</span></p>
-                        <p><span className="text-foreground/50">Score trésorerie :</span> <span className="font-bold" style={{ color: r.color }}>{score}/20</span></p>
+              return (
+                <div className="space-y-6">
+
+                  {/* ── 1. Score principal ── */}
+                  <div className="bg-card rounded-2xl p-8 md:p-10 border border-border/50 shadow-sm text-center">
+                    <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-6 font-body">Votre résultat</p>
+
+                    {/* Gauge circulaire */}
+                    <div className="relative w-36 h-36 mx-auto mb-6">
+                      <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="hsl(var(--border))" strokeWidth="8" opacity="0.3" />
+                        <circle
+                          cx="60" cy="60" r="54" fill="none"
+                          stroke={r.color}
+                          strokeWidth="8"
+                          strokeLinecap="round"
+                          strokeDasharray={circumference}
+                          strokeDashoffset={strokeOffset}
+                          className="transition-all duration-1000 ease-out"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span className="text-[32px] font-bold font-display" style={{ color: r.color }}>{score}</span>
+                        <span className="text-[13px] text-muted-foreground font-body">/20</span>
                       </div>
                     </div>
 
-                    <div className="mt-8 flex flex-col items-center gap-3">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold font-body mb-3" style={{ backgroundColor: r.bgColor, color: r.color, border: `1px solid ${r.borderColor}` }}>
+                      {score <= 8 && <AlertTriangle size={14} />}
+                      {score > 8 && score <= 16 && <TrendingUp size={14} />}
+                      {score > 16 && <CheckCircle2 size={14} />}
+                      {r.title}
+                    </div>
+
+                    <p className="text-[15px] text-muted-foreground font-body max-w-[480px] mx-auto leading-relaxed mt-2">{r.desc}</p>
+                  </div>
+
+                  {/* ── 2. Détail par question ── */}
+                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[20px] text-foreground mb-2">Détail de votre score</h3>
+                    <p className="text-[13px] text-muted-foreground font-body mb-6">Performance sur chaque indicateur clé de trésorerie</p>
+
+                    <div className="space-y-4">
+                      {scoredQuestions.map((q, i) => {
+                        const ansIdx = scoredAnswers[i];
+                        const pts = ansIdx !== null ? (q.options[ansIdx]?.points ?? 0) : 0;
+                        const pct = (pts / 4) * 100;
+                        const Icon = scoreIcons[i];
+                        const barColor = pts >= 3 ? "hsl(145, 63%, 42%)" : pts >= 2 ? "hsl(35, 90%, 50%)" : "hsl(0, 79%, 53%)";
+
+                        return (
+                          <div key={q.id} className="group">
+                            <div className="flex items-center gap-3 mb-1.5">
+                              <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
+                                <Icon size={16} className="text-primary" />
+                              </div>
+                              <span className="text-[14px] font-medium text-foreground font-body flex-1">{q.title}</span>
+                              <span className="text-[13px] font-bold font-body" style={{ color: barColor }}>{pts}/4</span>
+                            </div>
+                            <div className="ml-11 h-2 bg-border/30 rounded-full overflow-hidden">
+                              <div className="h-full rounded-full transition-all duration-700 ease-out" style={{ width: `${pct}%`, backgroundColor: barColor }} />
+                            </div>
+                            {ansIdx !== null && (
+                              <p className="ml-11 text-[12px] text-muted-foreground font-body mt-1 leading-snug">
+                                {q.options[ansIdx].emoji} {q.options[ansIdx].label}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* ── 3. Profil détecté ── */}
+                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[20px] text-foreground mb-5">Votre profil</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Statut</p>
+                        <p className="text-[13px] font-medium text-foreground font-body">{statusLabel}</p>
+                      </div>
+                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Chiffre d'affaires</p>
+                        <p className="text-[13px] font-medium text-foreground font-body">{caLabel}</p>
+                      </div>
+                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Préoccupation</p>
+                        <p className="text-[13px] font-medium text-foreground font-body">{concernLabel}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ── 4. CTA principal ── */}
+                  <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: r.bgColor, border: `2px solid ${r.borderColor}` }}>
+                    <h3 className="font-display text-[22px] text-foreground mb-2">
+                      {score <= 8 ? "Agissez maintenant" : score <= 16 ? "Passez au niveau supérieur" : "Continuez sur cette lancée"}
+                    </h3>
+                    <p className="text-[14px] text-muted-foreground font-body mb-6 max-w-[440px] mx-auto">
+                      {score <= 8
+                        ? "Plus vous attendez, plus les fragilités s'aggravent. Prenez rendez-vous pour un premier échange gratuit."
+                        : score <= 16
+                        ? "Quelques ajustements suffisent pour sécuriser votre croissance."
+                        : "Un DAF externalisé peut vous aider à aller encore plus loin."}
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <Button
                         size="lg"
                         className="rounded-full px-8"
-                        style={score <= 8 ? { backgroundColor: "hsl(0, 79%, 53%)", color: "white" } : score <= 16 ? { backgroundColor: "hsl(35, 90%, 50%)", color: "white" } : { backgroundColor: "hsl(145, 63%, 42%)", color: "white" }}
+                        style={{ backgroundColor: r.color, color: "white" }}
                         asChild
                       >
                         <Link to={r.ctaHref}>{r.ctaLabel}</Link>
                       </Button>
-                      <Link to={r.secondaryHref} className="text-[13px] text-muted-foreground hover:text-foreground underline font-body">
-                        {r.secondaryLabel}
-                      </Link>
+                      <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
+                        <Link to={r.secondaryHref}>{r.secondaryLabel}</Link>
+                      </Button>
                     </div>
                   </div>
 
-                  {/* Email capture */}
+                  {/* ── 5. Email capture ── */}
                   <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
                     {!emailSubmitted ? (
                       <>
@@ -553,14 +643,14 @@ export default function Diagnostic() {
                         <p className="text-[14px] text-muted-foreground font-body mb-5">
                           Avec nos recommandations personnalisées selon votre profil.
                         </p>
-                        <form onSubmit={handleEmailSubmit} className="space-y-3">
+                        <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
                           <input
                             type="text"
                             placeholder="Prénom"
                             required
                             value={emailForm.prenom}
                             onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                           />
                           <input
                             type="email"
@@ -568,10 +658,10 @@ export default function Diagnostic() {
                             required
                             value={emailForm.email}
                             onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                           />
-                          <Button variant="accent" className="w-full rounded-full" type="submit">
-                            Recevoir mon analyse <ArrowRight size={16} className="ml-1" />
+                          <Button variant="accent" className="rounded-full px-6" type="submit">
+                            Envoyer <ArrowRight size={16} className="ml-1" />
                           </Button>
                         </form>
                         <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
@@ -589,8 +679,8 @@ export default function Diagnostic() {
                     )}
                   </div>
 
-                  {/* 5 fragilités */}
-                  <div id="fragilites" className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                  {/* ── 6. Fragilités ── */}
+                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
                     <h3 className="font-display text-[20px] md:text-[24px] text-foreground mb-6">
                       Les 5 fragilités de trésorerie <span className="text-accent">les plus courantes</span>
                     </h3>
@@ -611,6 +701,16 @@ export default function Diagnostic() {
                         </Link>
                       ))}
                     </div>
+                  </div>
+
+                  {/* ── 7. Recommencer ── */}
+                  <div className="text-center">
+                    <button
+                      onClick={() => { setStep(-1); setAnswers(Array(8).fill(null)); setEmailSubmitted(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                      className="text-[13px] text-muted-foreground hover:text-foreground underline underline-offset-4 font-body transition-colors"
+                    >
+                      Refaire le diagnostic
+                    </button>
                   </div>
                 </div>
               );
