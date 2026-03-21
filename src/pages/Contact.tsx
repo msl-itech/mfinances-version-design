@@ -12,14 +12,17 @@ import {
   CheckCircle,
   ArrowRight,
   ArrowLeft,
+  Shield,
+  Clock,
+  MessageCircle,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const situations = [
-  { emoji: "👤", label: "Particulier — déclaration d'impôt" },
+  { emoji: "👤", label: "Particulier — j'ai besoin d'aide pour ma déclaration d'impôt" },
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
-  { emoji: "💼", label: "Indépendant en personne physique" },
-  { emoji: "🏗️", label: "En train de créer une société" },
+  { emoji: "💼", label: "Je suis déjà indépendant en personne physique" },
+  { emoji: "🏗️", label: "Je suis en train de créer une société" },
   { emoji: "🏢", label: "J'ai déjà une société active" },
   { emoji: "❓", label: "Autre" },
 ];
@@ -32,31 +35,38 @@ const besoins = [
   { emoji: "🎯", label: "DAF à temps partiel" },
 ];
 
-function StepIndicator({ current }: { current: number }) {
+function ProgressBar({ current }: { current: number }) {
+  const progress = (current / 3) * 100;
   return (
-    <div className="flex items-center justify-center gap-0 mb-8">
-      {[1, 2, 3].map((step, i) => (
-        <div key={step} className="flex items-center">
-          <div
-            className={`w-9 h-9 rounded-full flex items-center justify-center text-[14px] font-bold font-body transition-colors ${
-              step === current
-                ? "bg-accent text-accent-foreground"
-                : step < current
-                ? "bg-primary text-primary-foreground"
-                : "bg-border text-muted-foreground"
-            }`}
-          >
-            {step}
-          </div>
-          {i < 2 && (
+    <div className="mb-8">
+      <div className="flex items-center justify-between mb-3">
+        {[1, 2, 3].map((step) => (
+          <div key={step} className="flex items-center gap-2">
             <div
-              className={`w-10 h-0.5 ${
-                step < current ? "bg-primary" : "bg-border"
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-bold font-body transition-all duration-300 ${
+                step === current
+                  ? "bg-accent text-accent-foreground shadow-md scale-110"
+                  : step < current
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-border text-muted-foreground"
               }`}
-            />
-          )}
-        </div>
-      ))}
+            >
+              {step < current ? "✓" : step}
+            </div>
+            <span className={`text-[12px] font-body hidden sm:inline ${
+              step === current ? "text-foreground font-semibold" : "text-muted-foreground"
+            }`}>
+              {step === 1 ? "Situation" : step === 2 ? "Besoin" : "Coordonnées"}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
+        <div
+          className="h-full bg-accent rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
     </div>
   );
 }
@@ -99,7 +109,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // POST to Odoo would go here
     console.log({
       prenom, nom, email, telephone, message,
       situation, besoin, source: "formulaire-contact",
@@ -112,128 +121,124 @@ export default function Contact() {
       <Header />
 
       <main>
-        <section className="bg-card py-16 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-            {/* LEFT — Coordonnées (2/5) */}
-            <div className="lg:col-span-2">
-              <ScrollRevealDiv>
-                <h1 className="font-display text-[32px] md:text-[40px] leading-[1.12] text-foreground">
-                  Parlons de votre entreprise
-                </h1>
-                <p className="text-accent font-display italic text-[17px] mt-2">
-                  Premier échange gratuit, confidentiel et sans engagement.
-                </p>
+        {/* Hero banner */}
+        <section className="bg-primary text-primary-foreground py-14 md:py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.12),transparent_60%)]" />
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10 text-center">
+            <ScrollRevealDiv>
+              <p className="text-accent font-body text-[13px] font-bold uppercase tracking-widest mb-4">
+                Premier échange gratuit
+              </p>
+              <h1 className="font-display text-[32px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto">
+                Parlons de votre entreprise
+              </h1>
+              <p className="text-primary-foreground/70 font-body text-[16px] md:text-[18px] mt-4 max-w-[560px] mx-auto leading-relaxed">
+                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous 72h — gratuit, confidentiel, sans engagement.
+              </p>
+            </ScrollRevealDiv>
+          </div>
+        </section>
 
-                {/* Mika */}
-                <div className="mt-8 bg-secondary/60 rounded-2xl p-5 border border-border/50">
-                  <img
-                    src={mikaPhoto}
-                    alt="Mika Musungayi, fondateur MFinances"
-                    className="w-full h-[200px] object-cover object-top rounded-xl"
-                  />
-                  <p className="text-[14px] italic text-muted-foreground leading-relaxed mt-4 font-body">
-                    "Je rappelle personnellement chaque nouveau contact sous 72h."
-                  </p>
-                  <p className="text-[13px] font-semibold text-foreground mt-2 font-body">
-                    — Mika Musungayi, fondateur MFinances
-                  </p>
-                </div>
-
-                {/* Contact blocs */}
-                <div className="mt-8 space-y-4">
-                  <a
-                    href="tel:+3228860550"
-                    className="flex items-start gap-3 p-4 rounded-xl bg-secondary/60 border border-border/50 hover:bg-secondary transition-colors"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone size={16} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[15px] font-semibold text-foreground font-body">+32 2 886 05 50</p>
-                      <p className="text-[12px] text-muted-foreground font-body">Lun-Ven 9h-18h</p>
-                    </div>
-                  </a>
-
-                  <a
-                    href="mailto:info@mfinances.be"
-                    className="flex items-start gap-3 p-4 rounded-xl bg-secondary/60 border border-border/50 hover:bg-secondary transition-colors"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mail size={16} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[15px] font-semibold text-foreground font-body">info@mfinances.be</p>
-                    </div>
-                  </a>
-
-                  <div className="flex items-start gap-3 p-4 rounded-xl bg-secondary/60 border border-border/50">
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin size={16} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[15px] font-semibold text-foreground font-body">20 Rue de la Magnanerie</p>
-                      <p className="text-[12px] text-muted-foreground font-body">1180 Uccle, Bruxelles</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Badge Google */}
+        {/* 3 contact methods */}
+        <section className="bg-background py-10 md:py-14">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+            <ScrollRevealDiv>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <a
-                  href="https://g.page/mfinances"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/60 border border-border/50 hover:bg-secondary transition-colors"
+                  href="tel:+3228860550"
+                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300"
                 >
-                  <Star size={16} className="text-yellow-500 fill-yellow-500" />
-                  <span className="text-[13px] font-semibold text-foreground font-body">
-                    5,0 / 5 · 16 avis Google →
-                  </span>
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Phone size={22} className="text-accent" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-[17px] text-foreground">Par téléphone</h3>
+                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">+32 2 886 05 50</p>
+                  <p className="text-[12px] text-muted-foreground font-body mt-1">Lun-Ven · 9h-18h</p>
                 </a>
-              </ScrollRevealDiv>
-            </div>
 
-            {/* RIGHT — Formulaire (3/5) */}
-            <div className="lg:col-span-3">
-              <ScrollRevealDiv delay={0.1}>
-                <div className="bg-card rounded-3xl p-7 md:p-10 shadow-[0_4px_24px_rgba(27,43,94,0.08)] border border-border/50">
+                <a
+                  href="mailto:info@mfinances.be"
+                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Mail size={22} className="text-accent" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-[17px] text-foreground">Par email</h3>
+                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">info@mfinances.be</p>
+                  <p className="text-[12px] text-muted-foreground font-body mt-1">Réponse sous 24h</p>
+                </a>
+
+                <div className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <MapPin size={22} className="text-accent" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-[17px] text-foreground">En personne</h3>
+                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">20 Rue de la Magnanerie</p>
+                  <p className="text-[12px] text-muted-foreground font-body mt-1">1180 Uccle · Sur RDV uniquement</p>
+                </div>
+              </div>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
+        {/* Form + sidebar */}
+        <section className="bg-background pb-16 md:pb-24">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
+            {/* LEFT — Formulaire (3/5) */}
+            <div className="lg:col-span-3 order-2 lg:order-1">
+              <ScrollRevealDiv>
+                <div className="bg-card rounded-3xl p-7 md:p-10 shadow-[0_8px_40px_rgba(27,43,94,0.08)] border border-border/50">
                   {submitted ? (
-                    /* CONFIRMATION */
-                    <div className="text-center py-8">
-                      <CheckCircle size={56} className="text-green-500 mx-auto mb-5" strokeWidth={1.5} />
-                      <h3 className="font-display text-[26px] text-foreground">
-                        C'est envoyé, {prenom} !
+                    <div className="text-center py-10">
+                      <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+                        <CheckCircle size={32} className="text-green-600" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="font-display text-[28px] text-foreground">
+                        Merci {prenom} !
                       </h3>
-                      <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body max-w-[400px] mx-auto">
+                      <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body max-w-[420px] mx-auto">
                         Mika vous rappelle personnellement sous 72h pour un premier échange gratuit, confidentiel et sans engagement.
                       </p>
-                      <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                        <Link to="/diagnostic/">
-                          En attendant, faire le diagnostic
-                          <ArrowRight size={16} className="ml-1" />
-                        </Link>
-                      </Button>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+                        <Button variant="accent" size="lg" className="rounded-full" asChild>
+                          <Link to="/diagnostic/">
+                            Faire le diagnostic gratuit
+                            <ArrowRight size={16} className="ml-1" />
+                          </Link>
+                        </Button>
+                        <Button variant="outline" size="lg" className="rounded-full" asChild>
+                          <Link to="/">Retour à l'accueil</Link>
+                        </Button>
+                      </div>
                     </div>
                   ) : (
                     <>
-                      <StepIndicator current={step} />
+                      <ProgressBar current={step} />
 
                       {/* STEP 1 */}
                       {step === 1 && (
                         <div>
-                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">Étape 1/3 — Votre situation actuelle</p>
-                          <h3 className="font-display text-[22px] text-foreground mb-6">Commençons par vous connaître</h3>
+                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">
+                            Étape 1 sur 3
+                          </p>
+                          <h2 className="font-display text-[24px] text-foreground mb-2">
+                            Quelle est votre situation actuelle ?
+                          </h2>
+                          <p className="text-muted-foreground text-[14px] font-body mb-6">
+                            Sélectionnez l'option qui vous correspond le mieux.
+                          </p>
                           <div className="space-y-2.5">
                             {situations.map((s) => (
                               <button
                                 key={s.label}
                                 onClick={() => setSituation(s.label)}
-                                className={`w-full text-left px-5 py-3.5 rounded-xl border-2 transition-all font-body text-[14px] ${
+                                className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all font-body text-[14px] flex items-center gap-3 ${
                                   situation === s.label
-                                    ? "border-accent bg-accent/5 text-foreground font-semibold"
-                                    : "border-border/50 bg-card text-foreground/80 hover:border-border"
+                                    ? "border-accent bg-accent/5 text-foreground font-semibold shadow-sm"
+                                    : "border-border/50 bg-card text-foreground/80 hover:border-border hover:bg-secondary/40"
                                 }`}
                               >
-                                <span className="mr-2.5">{s.emoji}</span>
+                                <span className="text-[18px] flex-shrink-0">{s.emoji}</span>
                                 {s.label}
                               </button>
                             ))}
@@ -241,7 +246,7 @@ export default function Contact() {
                           <Button
                             variant="accent"
                             size="lg"
-                            className="rounded-full w-full mt-6"
+                            className="rounded-full w-full mt-7 text-[15px]"
                             disabled={!situation}
                             onClick={() => setStep(2)}
                           >
@@ -254,20 +259,27 @@ export default function Contact() {
                       {/* STEP 2 */}
                       {step === 2 && (
                         <div>
-                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">Étape 2/3 — Votre besoin principal</p>
-                          <h3 className="font-display text-[22px] text-foreground mb-6">Qu'est-ce qui vous préoccupe le plus ?</h3>
+                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">
+                            Étape 2 sur 3
+                          </p>
+                          <h2 className="font-display text-[24px] text-foreground mb-2">
+                            Quel est votre besoin principal ?
+                          </h2>
+                          <p className="text-muted-foreground text-[14px] font-body mb-6">
+                            Qu'est-ce qui vous préoccupe le plus en ce moment ?
+                          </p>
                           <div className="space-y-2.5">
                             {besoins.map((b) => (
                               <button
                                 key={b.label}
                                 onClick={() => setBesoin(b.label)}
-                                className={`w-full text-left px-5 py-3.5 rounded-xl border-2 transition-all font-body text-[14px] ${
+                                className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all font-body text-[14px] flex items-center gap-3 ${
                                   besoin === b.label
-                                    ? "border-accent bg-accent/5 text-foreground font-semibold"
-                                    : "border-border/50 bg-card text-foreground/80 hover:border-border"
+                                    ? "border-accent bg-accent/5 text-foreground font-semibold shadow-sm"
+                                    : "border-border/50 bg-card text-foreground/80 hover:border-border hover:bg-secondary/40"
                                 }`}
                               >
-                                <span className="mr-2.5">{b.emoji}</span>
+                                <span className="text-[18px] flex-shrink-0">{b.emoji}</span>
                                 {b.label}
                               </button>
                             ))}
@@ -275,7 +287,7 @@ export default function Contact() {
                           <Button
                             variant="accent"
                             size="lg"
-                            className="rounded-full w-full mt-6"
+                            className="rounded-full w-full mt-7 text-[15px]"
                             disabled={!besoin}
                             onClick={() => setStep(3)}
                           >
@@ -284,7 +296,7 @@ export default function Contact() {
                           </Button>
                           <button
                             onClick={() => setStep(1)}
-                            className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors mt-4 mx-auto font-body"
+                            className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mt-4 mx-auto font-body"
                           >
                             <ArrowLeft size={14} />
                             Étape précédente
@@ -295,8 +307,15 @@ export default function Contact() {
                       {/* STEP 3 */}
                       {step === 3 && (
                         <form onSubmit={handleSubmit}>
-                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">Étape 3/3 — Vos coordonnées</p>
-                          <h3 className="font-display text-[22px] text-foreground mb-6">Comment vous rappeler ?</h3>
+                          <p className="text-[12px] font-bold text-accent uppercase tracking-wider font-body mb-1">
+                            Étape 3 sur 3
+                          </p>
+                          <h2 className="font-display text-[24px] text-foreground mb-2">
+                            Vos coordonnées
+                          </h2>
+                          <p className="text-muted-foreground text-[14px] font-body mb-6">
+                            Pour que Mika puisse vous rappeler personnellement.
+                          </p>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -306,7 +325,8 @@ export default function Contact() {
                                 required
                                 value={prenom}
                                 onChange={(e) => setPrenom(e.target.value)}
-                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body focus:border-accent focus:outline-none transition-colors"
+                                placeholder="Votre prénom"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
                               />
                             </div>
                             <div>
@@ -316,7 +336,8 @@ export default function Contact() {
                                 required
                                 value={nom}
                                 onChange={(e) => setNom(e.target.value)}
-                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body focus:border-accent focus:outline-none transition-colors"
+                                placeholder="Votre nom"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
                               />
                             </div>
                           </div>
@@ -328,7 +349,8 @@ export default function Contact() {
                               required
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body focus:border-accent focus:outline-none transition-colors"
+                              placeholder="votre@email.com"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
                             />
                           </div>
 
@@ -339,18 +361,19 @@ export default function Contact() {
                               required
                               value={telephone}
                               onChange={(e) => setTelephone(e.target.value)}
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body focus:border-accent focus:outline-none transition-colors"
+                              placeholder="+32 4XX XX XX XX"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
                             />
                           </div>
 
                           <div className="mt-4">
-                            <label className="block text-[13px] font-semibold text-foreground mb-1.5 font-body">Message (optionnel)</label>
+                            <label className="block text-[13px] font-semibold text-foreground mb-1.5 font-body">Message <span className="font-normal text-muted-foreground">(optionnel)</span></label>
                             <textarea
                               value={message}
                               onChange={(e) => setMessage(e.target.value)}
                               rows={3}
                               placeholder="Décrivez votre situation en 2 lignes..."
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body focus:border-accent focus:outline-none transition-colors resize-none"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors resize-none"
                             />
                           </div>
 
@@ -358,20 +381,23 @@ export default function Contact() {
                             variant="accent"
                             size="lg"
                             type="submit"
-                            className="rounded-full w-full mt-6 whitespace-normal text-center leading-snug"
+                            className="rounded-full w-full mt-7 whitespace-normal text-center leading-snug text-[15px]"
                           >
                             Envoyer ma demande — Mika me rappelle sous 72h
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
 
-                          <p className="text-[12px] italic text-muted-foreground text-center mt-3 font-body">
-                            Premier échange gratuit, confidentiel et sans engagement. Mika vous rappelle personnellement.
-                          </p>
+                          <div className="flex items-center justify-center gap-2 mt-4">
+                            <Shield size={14} className="text-muted-foreground" />
+                            <p className="text-[12px] text-muted-foreground text-center font-body">
+                              Premier échange gratuit, confidentiel et sans engagement.
+                            </p>
+                          </div>
 
                           <button
                             type="button"
                             onClick={() => setStep(2)}
-                            className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors mt-4 mx-auto font-body"
+                            className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mt-4 mx-auto font-body"
                           >
                             <ArrowLeft size={14} />
                             Étape précédente
@@ -381,6 +407,86 @@ export default function Contact() {
                     </>
                   )}
                 </div>
+              </ScrollRevealDiv>
+            </div>
+
+            {/* RIGHT — Sidebar (2/5) */}
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              <ScrollRevealDiv delay={0.15}>
+                {/* Mika card */}
+                <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
+                  <img
+                    src={mikaPhoto}
+                    alt="Mika Musungayi, fondateur MFinances"
+                    className="w-full h-[220px] object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <MessageCircle size={16} className="text-accent" />
+                      <p className="text-[13px] font-bold text-accent font-body uppercase tracking-wider">Votre interlocuteur</p>
+                    </div>
+                    <p className="text-[15px] italic text-foreground/80 leading-relaxed font-body">
+                      "Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit."
+                    </p>
+                    <p className="text-[14px] font-semibold text-foreground mt-3 font-body">
+                      Mika Musungayi
+                    </p>
+                    <p className="text-[12px] text-muted-foreground font-body">
+                      Fondateur · Expert-Comptable
+                    </p>
+                  </div>
+                </div>
+
+                {/* Trust badges */}
+                <div className="mt-6 space-y-3">
+                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
+                    <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle size={18} className="text-green-600" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-semibold text-foreground font-body">100% gratuit</p>
+                      <p className="text-[11px] text-muted-foreground font-body">Premier échange sans engagement</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                      <Clock size={18} className="text-primary" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-semibold text-foreground font-body">Rappel sous 72h</p>
+                      <p className="text-[11px] text-muted-foreground font-body">Par Mika personnellement</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
+                    <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+                      <Shield size={18} className="text-purple-600" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-semibold text-foreground font-body">Confidentiel</p>
+                      <p className="text-[11px] text-muted-foreground font-body">Vos données restent privées</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Google badge */}
+                <a
+                  href="https://g.page/mfinances"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all"
+                >
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={14} className="text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-foreground font-body">5,0 / 5 · 16 avis Google</p>
+                  </div>
+                  <ArrowRight size={14} className="text-muted-foreground ml-auto" />
+                </a>
               </ScrollRevealDiv>
             </div>
           </div>
