@@ -109,20 +109,34 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function DafExternalise() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "DAF Externalisé pour TPE à Bruxelles — MFinances";
+    
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
+      el.content = content;
+    };
+    setMeta("description", "Un copilote financier à temps partiel pour vos décisions stratégiques. Réservé aux clients Excellence. 150€ HTVA/heure. Cabinet MFinances, Bruxelles.");
+
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    canonical.href = "https://mfinances.be/services/daf-externalise/";
+
+    const addJsonLd = (data: object) => {
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.textContent = JSON.stringify(data);
+      document.head.appendChild(s);
+      return s;
+    };
+    const s1 = addJsonLd(breadcrumbJsonLd);
+    const s2 = addJsonLd(faqJsonLd);
+
+    return () => { s1.remove(); s2.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
-      <Helmet>
-        <title>DAF Externalisé pour TPE à Bruxelles — MFinances</title>
-        <meta
-          name="description"
-          content="Un copilote financier à temps partiel pour vos décisions stratégiques. Réservé aux clients Excellence. 150€ HTVA/heure. Cabinet MFinances, Bruxelles."
-        />
-        <link rel="canonical" href="https://mfinances.be/services/daf-externalise/" />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-      </Helmet>
 
       <Header />
 
