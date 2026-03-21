@@ -1091,4 +1091,522 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/services/creation-entreprise/",
     ctaLabel: "Découvrir notre service création d'entreprise",
   },
+
+  // ══════════════════════════════════════════════
+  // ARTICLES FROIDS
+  // ══════════════════════════════════════════════
+
+  "pourquoi-pas-argent-sur-compte": {
+    sections: [
+      {
+        heading: "Vous n'êtes pas seul",
+        paragraphs: [
+          "C'est l'une des questions les plus fréquentes que nous posent les dirigeants de TPE. Vous travaillez. Vous facturez. Vos clients payent. Et pourtant, en fin de mois — votre compte bancaire est dans le rouge ou dangereusement bas.",
+          "La première chose à savoir : ce n'est pas un signe d'échec. C'est souvent un problème de timing et de structure — pas de rentabilité.",
+        ],
+      },
+      {
+        heading: "Les 5 vraies raisons",
+        paragraphs: [],
+      },
+      {
+        heading: "Raison 1 — Vos clients paient trop tard",
+        paragraphs: [
+          "Si vos clients paient à 60 ou 90 jours et que vos charges sont à payer ce mois-ci, votre argent existe — mais il n'est pas encore là. Vous avez des bénéfices sur le papier et un compte vide en pratique. C'est le décalage de trésorerie le plus courant.",
+        ],
+      },
+      {
+        heading: "Raison 2 — Vous ne provisionnez pas vos impôts et charges sociales",
+        paragraphs: [
+          "TVA, cotisations sociales, acomptes d'impôt — ces montants sont prévisibles mais arrivent en bloc. Si vous n'avez pas mis de côté chaque mois, leur arrivée vide votre compte d'un coup.",
+        ],
+      },
+      {
+        heading: "Raison 3 — Votre croissance consomme plus qu'elle ne rapporte (pour l'instant)",
+        paragraphs: [
+          "Recruter, investir, stocker — tout ça coûte de l'argent maintenant. Les recettes supplémentaires arrivent plus tard. Plus vous grandissez vite, plus ce décalage est important.",
+        ],
+      },
+      {
+        heading: "Raison 4 — Vous payez comptant ce qui devrait être financé",
+        paragraphs: [
+          "Un équipement à 20 000 € payé cash, c'est 20 000 € qui quittent votre compte en une fois. Financé sur 3 ans, c'est 550 €/mois. Votre trésorerie respire.",
+        ],
+      },
+      {
+        heading: "Raison 5 — Vous n'avez pas de visibilité sur ce qui arrive",
+        paragraphs: [
+          "Sans prévisionnel de trésorerie, vous ne voyez pas venir les tensions. Vous les découvrez quand elles arrivent — et il est souvent trop tard pour agir autrement qu'en urgence.",
+        ],
+      },
+      {
+        heading: "Ce que vous pouvez faire cette semaine",
+        paragraphs: [],
+        list: [
+          "Action 1 — Ouvrez un compte épargne dédié aux charges fiscales. Virez automatiquement 20-25% de votre CA chaque mois. Ne touchez pas à cet argent.",
+          "Action 2 — Listez tous vos encaissements attendus ce mois et le suivant. Confrontez-les à vos dépenses prévues. Vision immédiate à 30-60 jours.",
+          "Action 3 — Relancez vos factures impayées. Pour chaque facture en retard, envoyez un email de relance aujourd'hui.",
+        ],
+      },
+      {
+        heading: "Quand le problème est plus structurel",
+        paragraphs: [
+          "Si malgré ces actions votre trésorerie reste chroniquement tendue, le problème est probablement structurel. Même si vous débutez. Même si vous ne comprenez pas encore tous vos chiffres. Le diagnostic trésorerie gratuit prend 5 minutes et vous dit exactement où vous en êtes.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Pourquoi mon compte bancaire est-il toujours vide même si j'ai des clients ?",
+        answer: "La cause la plus fréquente est le décalage entre le moment où vous facturez et le moment où vous encaissez. Si vos clients paient à 60 jours et vos charges sont dues ce mois-ci, votre argent existe comptablement — mais il n'est pas encore sur votre compte. S'y ajoutent souvent des provisions fiscales insuffisantes et des investissements mal financés.",
+      },
+      {
+        question: "Comment savoir si mon entreprise est vraiment rentable ?",
+        answer: "La rentabilité se mesure sur le compte de résultats — revenus moins charges. La trésorerie se mesure sur vos relevés bancaires. Une entreprise peut être rentable et avoir une trésorerie tendue. Pour avoir une vision claire des deux, un tableau de bord financier simple suffit.",
+      },
+      {
+        question: "Que faire quand on n'a plus d'argent sur son compte professionnel ?",
+        answer: "En urgence : relancer les factures impayées, négocier un délai avec vos fournisseurs, contacter votre banque pour un crédit de trésorerie temporaire. À moyen terme : mettre en place un prévisionnel pour que ça ne se reproduise plus.",
+      },
+    ],
+    ctaText: "Découvrir pourquoi je manque de cash",
+    ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où votre argent disparaît.",
+    ctaLink: "/diagnostic/",
+    ctaLabel: "Découvrir pourquoi mon compte est vide →",
+  },
+
+  "argent-disparait-fin-mois": {
+    sections: [
+      {
+        heading: "Le paradoxe que personne ne vous explique clairement",
+        paragraphs: [
+          "Votre comptable vous dit que vous êtes rentable. Votre banquier voit des bénéfices. Et vous, vous vérifiez votre compte bancaire avec appréhension à chaque fin de mois.",
+          "Ce n'est pas une contradiction. C'est une mécanique financière que 60% des dirigeants de TPE ne comprennent pas — parce que personne ne la leur a jamais expliquée simplement.",
+          "Le bénéfice est ce que vous avez gagné sur le papier. La trésorerie est l'argent disponible sur votre compte maintenant. Les deux ne sont jamais identiques. Et l'écart entre les deux peut vous coûter très cher.",
+        ],
+      },
+      {
+        heading: "Trois raisons concrètes pour lesquelles votre argent disparaît",
+        paragraphs: [],
+      },
+      {
+        heading: "1. Vos clients vous paient trop tard",
+        paragraphs: [
+          "Vous avez facturé 30 000 € ce mois-ci. Vos clients paient à 60 jours. Cet argent n'existera sur votre compte que dans 2 mois. D'ici là, vous payez vos salariés, votre loyer, vos fournisseurs. Résultat : bénéfice positif, compte négatif.",
+        ],
+      },
+      {
+        heading: "2. La TVA et les impôts ne sont pas votre argent",
+        paragraphs: [
+          "Sur chaque facture à 1 000 €, 174 € appartiennent à l'État (TVA à 21%). Si vous dépensez cet argent, vous devrez le rembourser. C'est l'une des erreurs les plus fréquentes — et les plus coûteuses.",
+        ],
+      },
+      {
+        heading: "3. Vous grandissez — et grandir coûte de l'argent avant d'en rapporter",
+        paragraphs: [
+          "Chaque recrutement, chaque investissement, chaque nouveau stock — tout ça sort de votre compte maintenant. Les recettes supplémentaires arrivent dans 3, 6, 12 mois. C'est le piège de la croissance rapide.",
+        ],
+      },
+      {
+        heading: "Ce que vous pouvez faire cette semaine — 3 actions",
+        paragraphs: [],
+        list: [
+          "Action 1 : Ouvrez un compte épargne dédié TVA + impôts. Virez-y 25% de chaque encaissement automatiquement. Ne touchez jamais à cet argent.",
+          "Action 2 : Listez toutes les factures impayées de plus de 30 jours. Envoyez une relance aujourd'hui. Chaque jour de retard est de l'argent immobilisé.",
+          "Action 3 : Faites le diagnostic trésorerie gratuit — 8 questions pour savoir exactement où votre argent disparaît.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Pourquoi une entreprise rentable peut-elle manquer de cash ?",
+        answer: "Parce que la rentabilité et la liquidité sont deux concepts différents. La rentabilité mesure si vos revenus dépassent vos charges sur une période donnée. La liquidité mesure si vous avez de l'argent disponible maintenant. Les décalages de paiement, les investissements et la croissance créent systématiquement un écart entre les deux.",
+      },
+      {
+        question: "Comment savoir si mon problème de trésorerie est structurel ou passager ?",
+        answer: "C'est structurel si ça se reproduit chaque mois malgré une activité correcte. C'est passager si ça coïncide avec un événement précis (gros investissement, perte d'un client, retard exceptionnel). Le diagnostic trésorerie gratuit vous aide à faire cette distinction en 8 questions.",
+      },
+    ],
+    ctaText: "Découvrir pourquoi je manque de cash",
+    ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où votre argent disparaît.",
+    ctaLink: "/diagnostic/",
+    ctaLabel: "Voir si je commets ces erreurs →",
+  },
+
+  "stress-fin-mois-dirigeant-tpe": {
+    sections: [
+      {
+        heading: "Ce que personne ne dit à voix haute",
+        paragraphs: [
+          "Chaque fin de mois, vous vérifiez votre compte bancaire professionnel avec une légère appréhension. Parfois plusieurs fois par jour. Vous calculez mentalement si vous pouvez payer vos charges, vos salariés, vos fournisseurs. Vous attendez que les clients paient.",
+          "Si vous vous reconnaissez dans cette description, sachez une chose : vous n'êtes pas seul. C'est l'une des réalités les moins avouées de la vie des dirigeants de TPE — parce qu'on ne parle pas de ses difficultés financières, même à ses proches.",
+          "Mais c'est aussi l'une des plus corrigeables.",
+        ],
+      },
+      {
+        heading: "Pourquoi ce stress arrive",
+        paragraphs: [
+          "Le stress de fin de mois vient presque toujours de la même source : l'absence de visibilité. Vous ne savez pas avec certitude ce que sera votre solde dans 15 jours. Vous réagissez à ce qui se passe plutôt que d'anticiper.",
+          "Ce n'est pas un problème de revenus. Des dirigeants avec d'excellents chiffres vivent ce stress — parce que leurs clients paient tard, parce qu'ils n'ont pas de prévisionnel, parce que leurs charges fiscales arrivent en surprise.",
+        ],
+      },
+      {
+        heading: "Ce que font différemment les dirigeants qui dorment bien",
+        paragraphs: [],
+      },
+      {
+        heading: "Ils savent ce qui arrive avant que ça arrive",
+        paragraphs: [
+          "Un prévisionnel de trésorerie mis à jour chaque mois leur montre leur solde estimé semaine par semaine sur les 3 prochains mois. Ils ne découvrent pas les tensions — ils les voient venir et agissent avant.",
+        ],
+      },
+      {
+        heading: "Ils ont un compte dédié aux charges fiscales",
+        paragraphs: [
+          "TVA, cotisations sociales, acomptes d'impôt — tout est provisionné chaque mois sur un compte séparé. Quand l'échéance arrive, l'argent est là. Pas de surprise.",
+        ],
+      },
+      {
+        heading: "Ils ont une réserve de sécurité",
+        paragraphs: [
+          "Trois mois de charges fixes disponibles en permanence. Ce coussin transforme chaque imprévu en inconvénient gérable — pas en urgence financière.",
+        ],
+      },
+      {
+        heading: "Ils ont un interlocuteur qui surveille",
+        paragraphs: [
+          "Ils ne sont pas seuls face à leurs chiffres. Quelqu'un regarde leurs finances régulièrement, les prévient quand quelque chose dérive, et les aide à décider avant que la situation ne se dégrade.",
+        ],
+      },
+      {
+        heading: "Par où commencer si vous partez de loin",
+        paragraphs: [
+          "Vous n'avez pas besoin de tout mettre en place en même temps. Commencez par une seule chose : le diagnostic trésorerie gratuit. 8 questions, 3 minutes, et vous saurez précisément quel est votre point de fragilité principal.",
+          "Même si vous débutez. Même si vos finances sont dans un état que vous n'osez pas montrer. Le premier échange avec MFinances est gratuit, confidentiel, et sans engagement.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Est-il normal d'avoir du stress financier quand on dirige une TPE ?",
+        answer: "C'est courant — mais ce n'est pas inévitable. Le stress financier des dirigeants de TPE vient dans la grande majorité des cas d'un manque de visibilité, pas d'une situation objectivement catastrophique. Mettre en place les bons outils de suivi transforme cette anxiété en maîtrise.",
+      },
+      {
+        question: "Comment réduire le stress financier quand on est chef d'entreprise ?",
+        answer: "Les trois leviers les plus efficaces : un prévisionnel de trésorerie mensuel (vous savez ce qui vient), un compte dédié aux provisions fiscales (les échéances ne sont plus des surprises), et une réserve de sécurité de 3 mois de charges fixes (les imprévus cessent d'être des urgences).",
+      },
+    ],
+    ctaText: "Voir si mon entreprise est en danger",
+    ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où vous en êtes.",
+    ctaLink: "/diagnostic/",
+    ctaLabel: "Parler à un expert — c'est gratuit →",
+  },
+
+  "combien-reserve-securite-tpe": {
+    sections: [
+      {
+        heading: "La règle des 3 mois — pourquoi ce chiffre",
+        paragraphs: [
+          "Trois mois de charges fixes couverts en réserve, c'est le seuil minimum recommandé. Voici ce que ça couvre :",
+        ],
+        list: [
+          "Un client important qui paie avec 2 mois de retard",
+          "Une panne d'équipement imprévue",
+          "Un mois de faible activité (vacances, maladie, crise sectorielle)",
+          "Une régularisation de cotisations sociales plus élevée que prévu",
+        ],
+      },
+      {
+        paragraphs: [
+          "En dessous de 3 mois, le moindre imprévu devient une urgence financière. Au-dessus, vous avez la sérénité de décider — pas de réagir.",
+        ],
+      },
+      {
+        heading: "Comment calculer votre seuil de sécurité",
+        paragraphs: [
+          "Listez toutes vos charges fixes mensuelles : loyer professionnel, salaires et charges, cotisations sociales du dirigeant, abonnements et frais fixes, remboursements d'emprunts. Multipliez par 3. C'est votre réserve de sécurité minimum.",
+          "Exemple : charges fixes mensuelles de 8 000 € → réserve minimum de 24 000 €.",
+        ],
+      },
+      {
+        heading: "Comment constituer cette réserve si vous partez de zéro",
+        paragraphs: [],
+      },
+      {
+        heading: "Méthode simple",
+        paragraphs: [
+          "Automatiser un virement de 10% de chaque encaissement sur un compte épargne dédié. Ne touchez pas à ce compte sauf urgence réelle. En 12 à 18 mois, vous avez votre réserve.",
+        ],
+      },
+      {
+        heading: "Méthode accélérée",
+        paragraphs: [
+          "Identifier et liquider les postes de dépenses non essentiels, négocier des délais fournisseurs plus longs, encaisser vos créances en retard. Chaque euro récupéré va sur ce compte.",
+        ],
+      },
+      {
+        heading: "Ce que ça change quand vous avez cette réserve",
+        paragraphs: [
+          "Vous pouvez dire non à un mauvais client. Vous pouvez attendre le bon moment pour signer un contrat. Vous pouvez traverser un mois difficile sans paniquer. La réserve de sécurité n'est pas une épargne passive — c'est un outil de liberté décisionnelle.",
+        ],
+      },
+    ],
+    ctaText: "Faire le diagnostic trésorerie gratuit",
+    ctaDescription: "Découvrez exactement où en est votre réserve de sécurité.",
+    ctaLink: "/diagnostic/",
+    ctaLabel: "Faire le diagnostic gratuit →",
+  },
+
+  "combien-me-payer-independant-belgique": {
+    sections: [
+      {
+        heading: "La question que tout le monde se pose et que personne ne pose à son comptable",
+        paragraphs: [
+          "C'est souvent la première vraie question d'un indépendant — et l'une des moins bien répondues. Voici la réponse simple.",
+        ],
+      },
+      {
+        heading: "Ce qui part avant que vous puissiez vous payer",
+        paragraphs: [],
+        list: [
+          "Cotisations sociales : environ 20,5% de votre revenu net imposable. Facturées trimestriellement.",
+          "TVA : si vous êtes assujetti, la TVA collectée appartient à l'État. Ne la dépensez pas.",
+          "Impôts (IPP) : selon votre niveau de revenus, entre 25% et 50% de votre bénéfice imposable. À provisionner chaque mois.",
+        ],
+      },
+      {
+        heading: "Ce qu'il reste — un exemple concret",
+        paragraphs: [
+          "Indépendant avec 60 000 € de CA annuel et 15 000 € de charges professionnelles. Bénéfice : 45 000 €.",
+        ],
+        list: [
+          "Cotisations sociales : environ 9 000 €",
+          "Impôt IPP (taux moyen estimé) : environ 14 000 €",
+          "Reste disponible : environ 22 000 € net — soit 1 833 € par mois",
+        ],
+      },
+      {
+        paragraphs: [
+          "Ce chiffre est indicatif. Il varie selon votre situation familiale, vos déductions, votre région et votre structure.",
+        ],
+      },
+      {
+        heading: "Comment augmenter ce qu'il vous reste",
+        paragraphs: [],
+        list: [
+          "1. Déduire tous vos frais professionnels réels — bureau, voiture, téléphone, formation, abonnements",
+          "2. Envisager le passage en société — avantageux généralement à partir de 40 000 à 60 000 € de bénéfice net",
+          "3. Optimiser vos cotisations sociales — demander une réduction des cotisations provisoires si vos revenus réels sont inférieurs",
+        ],
+      },
+      {
+        heading: "La règle simple à retenir",
+        paragraphs: [
+          "Sur chaque euro que vous encaissez, provisionnez immédiatement 40 à 45% pour les charges fiscales et sociales. Ce qui reste, vous pouvez vous le payer.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Combien de charges sociales paie un indépendant en Belgique ?",
+        answer: "Les cotisations sociales d'un indépendant à titre principal représentent environ 20,5% du revenu net imposable, avec un minimum annuel d'environ 900 € par trimestre en 2026 pour un débutant. Elles sont facturées trimestriellement et régularisées l'année suivante.",
+      },
+      {
+        question: "Comment calculer son salaire net quand on est indépendant en Belgique ?",
+        answer: "Partez de votre CA, déduisez vos charges professionnelles pour obtenir votre bénéfice brut. Déduisez ensuite les cotisations sociales (environ 20,5%) puis l'IPP selon votre tranche marginale. Ce qui reste est votre revenu net disponible.",
+      },
+    ],
+    ctaText: "Prendre rendez-vous",
+    ctaDescription: "Premier échange gratuit pour analyser votre situation.",
+    ctaLink: "/contact/",
+    ctaLabel: "Faire le diagnostic gratuit →",
+  },
+
+  "je-paye-trop-impots-belgique": {
+    sections: [
+      {
+        heading: "La réponse courte : probablement oui",
+        paragraphs: [
+          "La Belgique est l'un des pays où la pression fiscale sur les revenus professionnels est la plus élevée d'Europe. Un dirigeant de TPE qui se rémunère classiquement — salaire + dividendes standards — peut supporter une charge fiscale et sociale de 45 à 55% sur ses revenus.",
+          "Mais voici ce que beaucoup de dirigeants ne savent pas : une grande partie de cette charge est légalement réductible. Pas par de l'optimisation agressive. Par l'utilisation correcte des dispositifs fiscaux belges existants — que votre comptable connaît peut-être, mais n'applique pas toujours proactivement.",
+        ],
+      },
+      {
+        heading: "Combien payez-vous vraiment ? Un calcul concret",
+        paragraphs: [
+          "Prenons un dirigeant avec une société qui génère 100 000 € de bénéfice avant impôt :",
+        ],
+        list: [
+          "ISOC sur le bénéfice : 20 000 à 25 000 € (taux 20% PME ou 25% standard)",
+          "Précompte mobilier sur dividendes : 15 à 30% selon le dispositif utilisé",
+          "Cotisations sociales sur salaire dirigeant : environ 20,5% du revenu net",
+          "IPP sur le salaire : selon tranche marginale, entre 25% et 50%",
+        ],
+      },
+      {
+        paragraphs: [
+          "En optimisant correctement la combinaison de ces éléments, la charge fiscale globale peut être réduite de 20 à 30% sans aucune zone grise.",
+        ],
+      },
+      {
+        heading: "Les 5 leviers sous-utilisés par les dirigeants belges",
+        paragraphs: [],
+        list: [
+          "1. Le VVPRbis — dividendes à 15% au lieu de 30% pour les PME éligibles",
+          "2. La réserve de liquidation — mise en réserve des bénéfices avec taxe de 10% maintenant, distribution à 5% dans 5 ans",
+          "3. La déduction pour investissement — jusqu'à 25% de majoration sur certains investissements",
+          "4. L'optimisation salaire/dividendes — trouver l'équilibre qui minimise la charge globale",
+          "5. La société de management — facturer vos prestations via une structure séparée pour optimiser la remontée de revenus",
+        ],
+      },
+      {
+        heading: "Ce que ça change concrètement",
+        paragraphs: [
+          "Un dirigeant avec 100 000 € de bénéfice qui optimise correctement sa situation peut économiser 15 000 à 25 000 € de charges fiscales annuelles — légalement, durablement, en utilisant uniquement les dispositifs prévus par le législateur belge.",
+          "La question n'est pas de savoir si vous payez trop d'impôts. La question est de savoir si quelqu'un s'occupe activement de les réduire tout au long de l'année — pas juste au moment de la déclaration.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Quel est le taux d'imposition réel d'un dirigeant de TPE en Belgique ?",
+        answer: "La charge fiscale et sociale effective d'un dirigeant de TPE belge varie entre 40% et 55% selon le mode de rémunération choisi et les dispositifs utilisés. Sans optimisation, elle se situe généralement autour de 45-50%. Avec une structuration correcte, elle peut descendre à 30-35% sans aucune zone grise.",
+      },
+      {
+        question: "Est-il légal de réduire ses impôts en Belgique ?",
+        answer: "Oui — absolument. La loi fiscale belge prévoit de nombreux dispositifs d'optimisation légaux : VVPRbis, réserve de liquidation, déduction pour investissement, frais professionnels déductibles, optimisation salaire/dividendes. Ces dispositifs existent précisément pour être utilisés. Les utiliser n'est pas de l'évasion fiscale — c'est de la planification fiscale responsable.",
+      },
+      {
+        question: "Mon comptable devrait-il s'occuper de mon optimisation fiscale ?",
+        answer: "Un bon expert-comptable ne se limite pas à déclarer vos revenus — il devrait vous informer proactivement des dispositifs applicables à votre situation et les mettre en place. Si vous découvrez votre charge fiscale en fin d'année sans avoir eu de conseil en cours d'année, vous n'avez peut-être pas le bon niveau de service.",
+      },
+    ],
+    ctaText: "Parler à un expert — c'est gratuit",
+    ctaDescription: "Découvrez combien vous pourriez économiser légalement.",
+    ctaLink: "/contact/",
+    ctaLabel: "Voir si mon entreprise est en danger →",
+  },
+
+  "pourquoi-comptable-aide-pas": {
+    sections: [
+      {
+        heading: "Une question légitime que beaucoup n'osent pas poser",
+        paragraphs: [
+          "Vous avez un comptable. Il fait vos déclarations. Et pourtant, quand vous avez une décision importante à prendre, vous ne savez pas vraiment quoi faire. Ce n'est pas forcément la faute de votre comptable. Mais ce n'est pas normal non plus.",
+        ],
+      },
+      {
+        heading: "Ce que fait un comptable classique — et ce qu'il ne fait pas",
+        paragraphs: [
+          "Un comptable traditionnel est formé pour produire des chiffres conformes et les déclarer dans les délais. Ce qu'il ne fait généralement pas :",
+        ],
+        list: [
+          "Il ne vous explique pas ce que vos chiffres signifient pour vos décisions à venir",
+          "Il ne vous prévient pas quand une tension de trésorerie arrive dans 2 mois",
+          "Il ne vous aide pas à décider si vous pouvez vous payer plus ce mois-ci",
+          "Il ne modélise pas l'impact financier de votre prochain recrutement",
+          "Il ne vous appelle pas quand quelque chose ne va pas dans vos comptes",
+        ],
+      },
+      {
+        heading: "Ce que vous méritez en plus",
+        paragraphs: [
+          "Un dirigeant de TPE en croissance a besoin de deux choses : un expert-comptable rigoureux qui produit des chiffres fiables et optimise votre fiscalité, ET un partenaire de pilotage qui utilise ces chiffres pour vous aider à décider. Chez MFinances, vous avez les deux — intégrés dans le même service.",
+        ],
+      },
+      {
+        heading: "Les signes que vous avez besoin de plus qu'un comptable",
+        paragraphs: [],
+        list: [
+          "Vous recevez vos comptes annuels 6 mois après la clôture et vous ne les comprenez pas vraiment",
+          "Vous ne savez pas ce que sera votre trésorerie dans 60 jours",
+          "Vous prenez vos décisions d'investissement à l'intuition",
+          "Vous découvrez votre charge fiscale en fin d'année — toujours trop tard pour agir",
+          "Vous avez l'impression que votre comptable travaille pour l'administration fiscale, pas pour vous",
+        ],
+      },
+      {
+        paragraphs: [
+          "Si vous vous reconnaissez dans au moins deux de ces situations, un premier échange avec MFinances vous donnera une vision claire de ce qui manque. Même si vous ne voulez pas changer de comptable. Même si vous ne comprenez pas encore tous vos chiffres.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Mon comptable doit-il m'expliquer mes chiffres ?",
+        answer: "Oui — un bon expert-comptable ne se contente pas de produire vos déclarations. Il devrait vous expliquer ce que vos résultats signifient, vous alerter sur les anomalies et vous aider à anticiper votre situation fiscale.",
+      },
+      {
+        question: "Quelle différence entre un comptable et un expert-comptable en Belgique ?",
+        answer: "En Belgique, l'expert-comptable est un titre protégé, réglementé par l'ITAA. Il est habilité à certifier les comptes, donner des conseils fiscaux et représenter ses clients. Un comptable sans ce titre peut tenir la comptabilité mais n'a pas les mêmes responsabilités légales ni le même champ d'intervention.",
+      },
+    ],
+    ctaText: "Prendre rendez-vous — premier échange gratuit",
+    ctaDescription: "Découvrez ce qu'un vrai partenaire financier fait différemment.",
+    ctaLink: "/contact/",
+    ctaLabel: "Faire le diagnostic gratuit →",
+  },
+
+  "suis-je-rentable-tpe": {
+    sections: [
+      {
+        heading: "La question qu'on n'ose pas poser",
+        paragraphs: [
+          "Vous travaillez beaucoup. Vous avez des clients. Vous encaissez. Et pourtant, vous n'êtes pas vraiment sûr que votre entreprise gagne de l'argent. Pas clairement. Pas avec certitude. C'est plus courant qu'on ne le croit. Et ce n'est pas une question de compétence — c'est une question d'outils.",
+        ],
+      },
+      {
+        heading: "Ce que 'rentable' veut vraiment dire",
+        paragraphs: [
+          "Votre entreprise est rentable si elle génère plus de revenus qu'elle ne dépense — charges comprises, y compris votre propre rémunération. C'est là que beaucoup de dirigeants se trompent : ils calculent la rentabilité sans inclure leur propre salaire dans les charges. Si vous ne vous payiez pas, vous seriez rentable. Mais puisque vous vous payez — êtes-vous toujours rentable ?",
+        ],
+      },
+      {
+        heading: "3 questions pour savoir si vous êtes rentable",
+        paragraphs: [],
+      },
+      {
+        heading: "Question 1 — Connaissez-vous votre marge brute ?",
+        paragraphs: [
+          "Marge brute = (CA - coût direct des ventes) / CA × 100. Si vous ne connaissez pas ce chiffre, vous pilotez à l'aveugle.",
+        ],
+      },
+      {
+        heading: "Question 2 — Votre CA couvre-t-il toutes vos charges fixes + votre rémunération ?",
+        paragraphs: [
+          "Listez toutes vos charges mensuelles — y compris ce que vous vous payez. Si votre CA moyen mensuel couvre ces charges avec un surplus, vous êtes rentable.",
+        ],
+      },
+      {
+        heading: "Question 3 — Avez-vous gagné plus cette année que l'année précédente — en travaillant autant ou moins ?",
+        paragraphs: [
+          "La rentabilité, c'est aussi l'amélioration dans le temps. Si vous travaillez autant mais gagnez moins — quelque chose ne fonctionne pas dans votre modèle.",
+        ],
+      },
+      {
+        heading: "Par où commencer si vous ne savez pas",
+        paragraphs: [
+          "Même si vous ne comprenez pas encore tous vos chiffres, un expert-comptable peut vous donner une vision claire de votre rentabilité en une séance. Pas avec des tableaux compliqués — avec des réponses à vos vraies questions. Chez MFinances, on commence toujours par là.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Comment savoir si mon entreprise est rentable ?",
+        answer: "Comparez vos revenus totaux à l'ensemble de vos charges — y compris votre propre rémunération et les charges sociales associées. Si le solde est positif de façon régulière, votre entreprise est rentable.",
+      },
+      {
+        question: "Mon entreprise peut-elle survivre si elle n'est pas encore rentable ?",
+        answer: "Oui — à condition d'avoir suffisamment de trésorerie pour financer les pertes en attendant le point mort. Le risque est de manquer de cash avant d'atteindre la rentabilité. C'est pourquoi le suivi de trésorerie est aussi important que le suivi de rentabilité.",
+      },
+      {
+        question: "Quelle est la différence entre rentabilité et trésorerie ?",
+        answer: "La rentabilité mesure si votre activité génère de la valeur sur le long terme. La trésorerie mesure si vous avez de l'argent disponible maintenant pour payer vos charges. Les deux indicateurs sont indispensables.",
+      },
+    ],
+    ctaText: "Voir si mon entreprise est en danger",
+    ctaDescription: "Le diagnostic gratuit vous dit exactement où vous en êtes.",
+    ctaLink: "/diagnostic/",
+    ctaLabel: "Prendre rendez-vous — premier échange gratuit →",
+  },
 };
