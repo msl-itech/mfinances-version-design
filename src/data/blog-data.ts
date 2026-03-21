@@ -6,6 +6,9 @@ export interface BlogArticle {
   categorySlug: string;
   published: boolean;
   date: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  pillarPage?: string;
 }
 
 export interface BlogCategory {
