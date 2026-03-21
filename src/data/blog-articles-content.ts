@@ -229,34 +229,59 @@ export const articleContent: Record<string, ArticleBody> = {
   "anticiper-flux-tresorerie": {
     sections: [
       {
+        heading: "Réactif ou proactif — deux façons de gérer sa trésorerie",
         paragraphs: [
-          "L'anticipation est le maître-mot de la gestion de trésorerie. Sans visibilité sur vos flux futurs, chaque décision financière est un pari.",
+          "Le dirigeant réactif découvre ses problèmes de trésorerie quand ils arrivent. Il jongle, il négocie des délais, il cherche des solutions en urgence. Le dirigeant proactif voit ses problèmes 3 mois à l'avance. Il a le temps de négocier, d'ajuster, de planifier. La différence tient à un seul outil : le prévisionnel de trésorerie.",
         ],
       },
       {
-        heading: "Pourquoi la plupart des TPE pilotent à vue",
+        heading: "Qu'est-ce qu'un prévisionnel de trésorerie ?",
         paragraphs: [
-          "Sans prévisionnel, vous découvrez vos problèmes de trésorerie quand ils se présentent. Il est alors trop tard pour réagir sereinement : vous devez emprunter en urgence, retarder vos paiements fournisseurs ou renoncer à des opportunités.",
-          "Avec un prévisionnel actualisé, vous voyez les tensions arriver 2 à 3 mois à l'avance. Vous avez le temps de prendre des mesures : relancer un client, négocier un échéancier, reporter un investissement.",
+          "Un prévisionnel de trésorerie est un tableau qui projette, semaine par semaine ou mois par mois, l'ensemble de vos encaissements attendus et de vos décaissements prévus — sur 3 à 12 mois. Il part de vos données réelles : contrats signés, factures émises, charges fixes connues, échéances fiscales planifiées. Il est mis à jour régulièrement — idéalement chaque mois.",
         ],
       },
       {
-        heading: "Comment construire un prévisionnel efficace",
-        paragraphs: ["Un bon prévisionnel de trésorerie n'a pas besoin d'être complexe. Il doit contenir :"],
+        heading: "Les trois erreurs qui rendent le prévisionnel inutile",
+        paragraphs: [
+          "Erreur 1 — Le construire une fois et ne jamais le mettre à jour. Un prévisionnel statique est inutile après 6 semaines. La réalité diverge toujours des prévisions — l'intérêt est de mettre à jour régulièrement pour garder une vision précise des semaines à venir.",
+          "Erreur 2 — N'inclure que les éléments certains. Un bon prévisionnel inclut aussi les éléments probables avec leur probabilité estimée. Un contrat à 80 % de chance d'être signé mérite d'apparaître — avec une note de probabilité.",
+          "Erreur 3 — Ne pas modéliser les scénarios. Le prévisionnel de base montre le scénario central. Mais un bon prévisionnel inclut aussi un scénario pessimiste — que se passe-t-il si mon plus gros client paie avec 30 jours de retard ?",
+        ],
+      },
+      {
+        heading: "Les périodes critiques à anticiper en Belgique",
+        paragraphs: ["Voici les moments de l'année où la trésorerie est sous pression :"],
         list: [
-          "Vos encaissements attendus — factures émises, dates de paiement prévues",
-          "Vos décaissements planifiés — loyer, salaires, fournisseurs, échéances fiscales",
-          "Vos échéances exceptionnelles — remboursements d'emprunt, investissements, régularisations",
-          "Un solde prévisionnel par semaine ou par mois",
+          "Janvier-mars : cotisations sociales des indépendants, acomptes d'impôt",
+          "Avril-juin : TVA du premier trimestre, charges sociales, premières échéances fiscales",
+          "Septembre-octobre : rentrée avec recrutements et investissements",
+          "Décembre : treizième mois, primes, clôture comptable, pré-paiement TVA",
         ],
       },
       {
-        heading: "La mise à jour mensuelle : indispensable",
+        heading: "Odoo comme outil d'anticipation",
         paragraphs: [
-          "Un prévisionnel qui n'est pas mis à jour est un prévisionnel inutile. Chaque mois, il faut confronter vos prévisions aux données réelles : quels clients ont payé ? Quelles dépenses imprévues sont apparues ?",
-          "Chez MFinances, le prévisionnel de trésorerie est inclus dans le forfait Excellence. Il est actualisé mensuellement sur vos données réelles pour que vous ayez toujours une vision fiable de vos 3 prochains mois.",
+          "Intégré correctement, Odoo permet de synchroniser votre prévisionnel avec vos données réelles en temps quasi-réel. C'est l'approche que MFinances met en place pour ses clients Excellence — un prévisionnel actualisé chaque mois, discuté lors de la réunion de pilotage mensuelle.",
         ],
       },
     ],
+    faq: [
+      {
+        question: "Comment créer un tableau de trésorerie prévisionnel ?",
+        answer: "Listez toutes vos charges fixes mensuelles. Ajoutez les charges variables prévisibles. Projetez vos encaissements attendus en vous basant sur vos contrats en cours et votre historique. La différence entre encaissements et décaissements chaque mois donne votre solde prévisionnel. Mettez à jour chaque mois avec les données réelles.",
+      },
+      {
+        question: "À quelle fréquence mettre à jour son prévisionnel ?",
+        answer: "Idéalement chaque mois, avec les données réelles du mois écoulé. Pour les entreprises avec des flux importants, un suivi hebdomadaire est recommandé pour les 4 à 6 semaines à venir.",
+      },
+      {
+        question: "Quels outils utiliser pour gérer sa trésorerie en Belgique ?",
+        answer: "Pour une TPE débutante : un tableau Excel bien structuré suffit. Pour une TPE en croissance : un ERP comme Odoo permet une synchronisation automatique des données et une vision en temps réel.",
+      },
+    ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
 };
