@@ -90,12 +90,15 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "anticiper-flux-tresorerie",
-    title: "L'anticipation — votre meilleure arme financière",
-    excerpt: "Un prévisionnel de trésorerie vous donne 3 mois d'avance sur les problèmes. Voici comment le construire.",
+    title: "Comment anticiper vos flux de trésorerie — et arrêter de subir vos finances",
+    excerpt: "Tableau de trésorerie prévisionnel, scénarios financiers, outils Odoo — comment anticiper vos besoins financiers avant que les problèmes n'arrivent. MFinances, Bruxelles.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-08-18",
+    seoTitle: "Comment Anticiper ses Flux de Trésorerie — Guide Pratique TPE Belgique",
+    metaDescription: "Tableau de trésorerie prévisionnel, scénarios financiers, outils Odoo — comment anticiper vos besoins financiers avant que les problèmes n'arrivent. MFinances, Bruxelles.",
+    pillarPage: "/services/tresorerie/",
   },
   // ── DAF EXTERNALISÉ (à venir) ──
   {
