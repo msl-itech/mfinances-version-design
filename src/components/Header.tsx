@@ -153,10 +153,6 @@ export default function Header() {
             <Link to="/contact/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Contact
             </Link>
-
-            <Link to="/support/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
-              Support
-            </Link>
           </nav>
 
           {/* Right side */}
@@ -254,9 +250,6 @@ export default function Header() {
               </Link>
               <Link to="/contact/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Contact
-              </Link>
-              <Link to="/support/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
-                Support
               </Link>
 
               <a href="tel:+3228860550" className="flex items-center gap-2 px-4 py-3 text-[14px] text-muted-foreground">
