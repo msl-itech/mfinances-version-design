@@ -42,12 +42,15 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "investir-sans-fragiliser-tresorerie",
-    title: "Investir sans mettre votre trésorerie en danger",
-    excerpt: "Comment financer vos investissements sans asphyxier votre trésorerie — emprunt, leasing, fonds propres.",
+    title: "Investir dans votre entreprise sans vider votre trésorerie — le guide pratique",
+    excerpt: "Autofinancement, emprunt ou leasing ? Comment choisir le bon mode de financement pour préserver votre trésorerie. Guide pratique MFinances, Bruxelles.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-10-28",
+    seoTitle: "Investir sans Fragiliser sa Trésorerie — Guide Pratique pour Dirigeants TPE",
+    metaDescription: "Autofinancement, emprunt ou leasing ? Comment choisir le bon mode de financement pour préserver votre trésorerie. Guide pratique MFinances, Bruxelles.",
+    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "gestion-stocks-tresorerie",
