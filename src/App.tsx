@@ -25,6 +25,9 @@ import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
 import Contact from "./pages/Contact.tsx";
 import Support from "./pages/Support.tsx";
 import APropos from "./pages/APropos.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogCategory from "./pages/BlogCategory.tsx";
+import BlogArticle from "./pages/BlogArticle.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
