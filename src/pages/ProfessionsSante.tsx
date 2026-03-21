@@ -79,7 +79,7 @@ export default function ProfessionsSante() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité, TVA mixte, optimisation fiscale et planification patrimoniale pour médecins, dentistes et professions de santé à Bruxelles. Dès 350 €/mois HTVA.");
+    setMeta("description", "Comptabilité, fiscalité et optimisation patrimoniale pour médecins, dentistes, kinés et paramédicaux en Belgique. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

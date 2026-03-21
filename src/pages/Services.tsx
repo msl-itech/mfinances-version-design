@@ -142,7 +142,7 @@ export default function Services() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "DAF externalisé, contrôle de gestion, trésorerie, comptabilité Odoo, fiscalité et création d'entreprise. Découvrez tous les services de MFinances à Bruxelles.");
+    setMeta("description", "DAF externalisé, contrôle de gestion, trésorerie et comptabilité pour TPE à Bruxelles. Services MFinances adaptés à votre stade de croissance.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

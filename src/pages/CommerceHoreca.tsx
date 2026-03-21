@@ -92,7 +92,7 @@ export default function CommerceHoreca() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité sectorielle, analyse des marges, optimisation TVA multi-taux et prévision de trésorerie pour Commerce et Horeca à Bruxelles. Forfait Premium dès 450 €/mois HTVA.");
+    setMeta("description", "Comptabilité, TVA multi-taux, marges et trésorerie pour commerçants et secteur Horeca en Belgique. Suivi minimum trimestriel. MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

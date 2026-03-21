@@ -172,7 +172,7 @@ export default function Diagnostic() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Votre trésorerie vous cache quelque chose. 8 questions, 3 minutes. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles.");
+    setMeta("description", "Évaluez la santé de votre trésorerie en 8 questions. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

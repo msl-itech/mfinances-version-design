@@ -60,7 +60,7 @@ export default function PromoteursImmobiliers() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité analytique par projet, TVA immobilière et pilotage financier pour promoteurs immobiliers à Bruxelles. Forfait Excellence dès 650 €/mois HTVA.");
+    setMeta("description", "Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

@@ -162,7 +162,7 @@ export default function QuiNousAccompagnons() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Indépendants, startups, commerce, Horeca, professions de santé, ASBL, promoteurs immobiliers — découvrez l'accompagnement MFinances adapté à votre profil.");
+    setMeta("description", "MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

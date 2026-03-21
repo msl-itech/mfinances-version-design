@@ -91,7 +91,7 @@ export default function EntreprisesCroissance() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Situations mensuelles, contrôle de gestion, trésorerie prévisionnelle et DAF à temps partiel pour entreprises en croissance à Bruxelles. Forfait Excellence dès 650 €/mois HTVA.");
+    setMeta("description", "Pilotage financier mensuel et DAF externalisé pour entreprises en croissance en Belgique. Forfait Excellence. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

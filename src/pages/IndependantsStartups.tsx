@@ -96,7 +96,7 @@ export default function IndependantsStartups() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité, plan financier, optimisation fiscale et accompagnement administratif pour indépendants et startups à Bruxelles. Forfait Essentiel dès 350 €/mois HTVA.");
+    setMeta("description", "Accompagnement comptable, fiscal et financier pour indépendants et startups en Belgique. Plan financier, optimisation fiscale. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
