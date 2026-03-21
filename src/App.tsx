@@ -13,6 +13,8 @@ import CreationEntreprise from "./pages/CreationEntreprise.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
 import IndependantsStartups from "./pages/IndependantsStartups.tsx";
 import CommerceHoreca from "./pages/CommerceHoreca.tsx";
+import ProfessionsSante from "./pages/ProfessionsSante.tsx";
+import EntreprisesCroissance from "./pages/EntreprisesCroissance.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
