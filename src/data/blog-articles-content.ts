@@ -453,4 +453,642 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/services/daf-externalise/",
     ctaLabel: "Découvrir notre service DAF externalisé",
   },
+  "decisions-daf-fait-difference": {
+    sections: [
+      {
+        paragraphs: [
+          "Un DAF externalisé n'est pas un luxe — c'est un accélérateur de décisions. Voici les 5 moments clés où sa présence change concrètement la trajectoire d'une TPE.",
+        ],
+      },
+      {
+        heading: "Décision 1 — Investissement majeur",
+        paragraphs: [
+          "Le DAF modélise l'impact sur la trésorerie, évalue le ROI, recommande le mode de financement optimal. Sans lui, vous décidez sur la base de votre solde bancaire et de votre intuition — avec le risque de fragiliser votre trésorerie pour un investissement qui ne sera rentable que dans 18 mois.",
+        ],
+      },
+      {
+        heading: "Décision 2 — Recrutement structurant",
+        paragraphs: [
+          "Le DAF calcule le coût total réel (salaire + charges + onboarding), l'impact sur le BFR, le délai de rentabilisation. Il vous dit à partir de quel mois ce salarié sera rentable — et si votre trésorerie peut absorber la montée en charge.",
+        ],
+      },
+      {
+        heading: "Décision 3 — Dossier bancaire ou levée de fonds",
+        paragraphs: [
+          "Le DAF construit le dossier financier, les projections, l'argumentation chiffrée. Il parle le même langage que votre banquier ou vos investisseurs — et il sait ce qu'ils regardent en premier.",
+        ],
+      },
+      {
+        heading: "Décision 4 — Restructuration ou réduction des coûts",
+        paragraphs: [
+          "Le DAF identifie les leviers sans compromettre la croissance, modélise les scénarios. Réduire les coûts sans vision financière, c'est couper dans le vif au hasard. Le DAF vous montre où couper — et où investir davantage.",
+        ],
+      },
+      {
+        heading: "Décision 5 — Stratégie de croissance",
+        paragraphs: [
+          "Le DAF traduit les ambitions en projections financières réalistes, identifie les contraintes de financement. Il transforme un objectif de croissance en plan d'action chiffré — avec les jalons, les risques et les besoins de financement associés.",
+        ],
+      },
+    ],
+    ctaText: "Vous faites face à l'une de ces décisions ?",
+    ctaDescription: "Premier échange gratuit — nous évaluons ensemble votre situation.",
+    ctaLink: "/services/daf-externalise/",
+    ctaLabel: "Découvrir notre service DAF externalisé",
+  },
+  "controle-gestion-tpe-definition": {
+    sections: [
+      {
+        heading: "Définition simple en 3 phrases",
+        paragraphs: [
+          "Le contrôle de gestion est un ensemble d'outils et de pratiques qui permettent au dirigeant de suivre les performances de son entreprise en temps réel, de les comparer à ses objectifs, et d'agir avant que les écarts ne deviennent des problèmes.",
+          "Ce n'est pas de la comptabilité — c'est du pilotage. Ce n'est pas réservé aux grandes entreprises — c'est indispensable à toute TPE en croissance.",
+        ],
+      },
+      {
+        heading: "La différence entre comptabilité et contrôle de gestion",
+        paragraphs: [
+          "La comptabilité enregistre ce qui s'est passé. Le contrôle de gestion compare ce qui s'est passé à ce qui était prévu — et en tire des actions concrètes.",
+          "Votre comptable vous dit que votre marge brute est de 35 %. Le contrôle de gestion vous dit que cette marge était à 38 % il y a 6 mois, que la baisse vient du client X qui négocie trop fort, et qu'il faut agir avant que ça ne s'aggrave.",
+        ],
+      },
+      {
+        heading: "Ce que ça change concrètement dans votre quotidien de dirigeant",
+        paragraphs: [
+          "Avec un contrôle de gestion en place, vous ne découvrez plus vos problèmes en fin d'année. Vous les voyez arriver chaque mois. Vous savez quels produits sont rentables, quels clients coûtent plus qu'ils ne rapportent, et si votre trajectoire est cohérente avec vos objectifs.",
+        ],
+      },
+      {
+        heading: "Les 3 outils de base du contrôle de gestion pour une TPE",
+        paragraphs: [
+          "1. Le budget annuel — votre référentiel. Il fixe les objectifs de revenus et de charges pour l'année, mois par mois.",
+          "2. Le tableau de bord mensuel — votre cockpit. Il compare chaque mois le réalisé au budget et met en lumière les écarts significatifs.",
+          "3. L'analyse de rentabilité par activité — votre radar. Elle vous montre quels produits, services ou clients sont rentables — et lesquels ne le sont pas.",
+        ],
+      },
+      {
+        heading: "Par où commencer — les premières étapes",
+        paragraphs: [
+          "Commencez par construire un budget simple sur l'année en cours. Puis chaque mois, comparez vos résultats réels à ce budget. Les écarts vous diront où concentrer votre attention. C'est le contrôle de gestion dans sa forme la plus accessible — et c'est déjà transformateur.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "C'est quoi le contrôle de gestion ?",
+        answer: "Le contrôle de gestion est un ensemble d'outils qui permet au dirigeant de suivre les performances de son entreprise, de les comparer à ses objectifs, et d'agir avant que les écarts ne deviennent des problèmes. Ce n'est pas de la comptabilité — c'est du pilotage.",
+      },
+      {
+        question: "Quelle différence entre comptabilité et contrôle de gestion ?",
+        answer: "La comptabilité enregistre les opérations passées et produit les documents légaux. Le contrôle de gestion utilise ces données pour analyser les performances, identifier les écarts par rapport aux objectifs et orienter les décisions futures.",
+      },
+      {
+        question: "Le contrôle de gestion est-il utile pour une TPE ?",
+        answer: "Oui — dès que votre entreprise dépasse le stade de l'activité simple avec quelques clients. Le contrôle de gestion vous permet de piloter votre rentabilité, d'anticiper les problèmes et de prendre de meilleures décisions sans attendre le bilan de fin d'année.",
+      },
+      {
+        question: "Comment mettre en place un contrôle de gestion simplement ?",
+        answer: "Commencez par un budget annuel simple et un suivi mensuel des écarts entre budget et réalisé. Ajoutez ensuite une analyse de rentabilité par activité ou par client. Ces trois outils suffisent pour transformer votre pilotage.",
+      },
+    ],
+    ctaText: "Besoin de structurer votre pilotage ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/controle-de-gestion/",
+    ctaLabel: "Découvrir notre service contrôle de gestion",
+  },
+  "kpis-tpe-dirigeant": {
+    sections: [
+      {
+        paragraphs: [
+          "Vous n'avez pas besoin de 50 indicateurs. Vous avez besoin de 5 KPIs bien choisis, suivis chaque mois, qui vous disent l'essentiel sur la santé financière de votre entreprise.",
+        ],
+      },
+      {
+        heading: "KPI 1 — Marge brute",
+        paragraphs: [
+          "Formule : (CA - coût des ventes) / CA × 100. La marge brute mesure la rentabilité directe de votre activité avant les charges de structure. Seuil d'alerte : si elle baisse de plus de 2 points sur un trimestre sans explication, il faut investiguer — pression prix, hausse des coûts d'achat, ou changement de mix produit.",
+        ],
+      },
+      {
+        heading: "KPI 2 — Besoin en fonds de roulement (BFR)",
+        paragraphs: [
+          "Formule : stocks + créances clients - dettes fournisseurs. Le BFR mesure le cash immobilisé dans votre cycle d'exploitation. Seuil d'alerte : si le BFR augmente plus vite que le CA, votre croissance consomme plus de cash qu'elle n'en génère.",
+        ],
+      },
+      {
+        heading: "KPI 3 — DSO (délai moyen de paiement clients)",
+        paragraphs: [
+          "Formule : créances clients / CA × 30. Le DSO mesure le nombre de jours moyen entre l'émission d'une facture et son encaissement. Seuil d'alerte : au-delà de 45 jours pour la plupart des secteurs. Un DSO qui augmente signifie que vos clients paient de plus en plus tard.",
+        ],
+      },
+      {
+        heading: "KPI 4 — Taux d'endettement",
+        paragraphs: [
+          "Formule : dettes financières / capitaux propres. Ce ratio mesure votre levier financier. Seuil d'alerte : au-delà de 1 (dettes supérieures aux fonds propres), votre banquier commencera à s'inquiéter et vos conditions de financement se durciront.",
+        ],
+      },
+      {
+        heading: "KPI 5 — Point mort mensuel",
+        paragraphs: [
+          "Formule : charges fixes / (1 - taux de charges variables). C'est le CA minimum à réaliser chaque mois pour ne pas perdre d'argent. Connaître ce chiffre change votre perspective — vous savez exactement à partir de quel moment du mois vous commencez à gagner de l'argent.",
+        ],
+      },
+    ],
+    ctaText: "Besoin d'un tableau de bord sur mesure ?",
+    ctaDescription: "Nous construisons vos KPIs dans Odoo pour un suivi automatisé.",
+    ctaLink: "/services/controle-de-gestion/",
+    ctaLabel: "Découvrir notre service contrôle de gestion",
+  },
+  "budget-annuel-tpe": {
+    sections: [
+      {
+        paragraphs: [
+          "Un budget annuel n'est pas un exercice académique — c'est votre GPS financier. Sans lui, vous pilotez à vue. Avec lui, vous savez à chaque instant si vous êtes sur la bonne trajectoire.",
+        ],
+      },
+      {
+        heading: "Étape 1 — Partir de l'historique réel",
+        paragraphs: [
+          "Analysez les 2 dernières années. Identifiez les tendances : croissance du CA, évolution des charges, saisonnalité. Neutralisez les éléments exceptionnels (un gros contrat ponctuel, une dépense unique). Votre budget doit refléter la réalité probable — pas vos rêves.",
+        ],
+      },
+      {
+        heading: "Étape 2 — Budgétiser les charges fixes en premier",
+        paragraphs: [
+          "Loyers, salaires, abonnements, cotisations — ces charges arrivent quoi qu'il se passe commercialement. Commencez par elles : vous savez immédiatement quel montant de CA vous devez générer juste pour couvrir vos frais fixes.",
+        ],
+      },
+      {
+        heading: "Étape 3 — Estimer les revenus par scénario",
+        paragraphs: [
+          "Construisez 3 scénarios : base (continuité de l'historique), optimiste (+15 %), pessimiste (-15 %). Travaillez avec le scénario base pour les décisions courantes. Le scénario pessimiste vous dit ce qui se passe si les choses tournent mal — et si vous pouvez y survivre.",
+        ],
+      },
+      {
+        heading: "Étape 4 — Calculer le point mort et valider la viabilité",
+        paragraphs: [
+          "Votre budget est-il viable dans le scénario pessimiste ? Si non, identifiez les leviers : quelles charges peuvent être réduites ? Quels revenus peuvent être sécurisés ? Le budget n'est pas qu'un objectif — c'est aussi un test de résistance.",
+        ],
+      },
+      {
+        heading: "Étape 5 — Planifier les révisions trimestrielles",
+        paragraphs: [
+          "Le budget n'est pas un document figé — il est comparé aux réalisés et ajusté chaque trimestre. C'est cette comparaison régulière qui transforme un exercice comptable en outil de pilotage vivant.",
+        ],
+      },
+      {
+        heading: "Les erreurs les plus courantes",
+        paragraphs: ["Voici les pièges à éviter :"],
+        list: [
+          "Surestimer les revenus par optimisme commercial",
+          "Oublier les charges sociales et fiscales dans les décaissements",
+          "Ne pas budgétiser les investissements prévisibles",
+          "Construire un budget et ne jamais le comparer aux réalisés",
+        ],
+      },
+    ],
+    ctaText: "Besoin d'aide pour construire votre budget ?",
+    ctaDescription: "Nous construisons votre budget annuel et assurons le suivi trimestriel.",
+    ctaLink: "/services/controle-de-gestion/",
+    ctaLabel: "Découvrir notre service contrôle de gestion",
+  },
+  "analyse-ecarts-budgetaires": {
+    sections: [
+      {
+        paragraphs: [
+          "Avoir un budget, c'est bien. Le comparer à la réalité chaque mois et en tirer des actions, c'est le contrôle de gestion. L'analyse des écarts est l'outil qui transforme vos chiffres en décisions.",
+        ],
+      },
+      {
+        heading: "Les 4 types d'écarts et ce qu'ils signalent",
+        paragraphs: [
+          "Écart de volume — Vous avez vendu plus ou moins que prévu. Cause : commerciale ou marché. Action : ajuster la prévision de CA et le budget des charges variables.",
+          "Écart de prix — Vos prix réels diffèrent du budget. Cause : négociation, concurrence, inflation. Action : revoir la politique tarifaire ou les conditions commerciales.",
+          "Écart de coût — Vos charges sont différentes du budget. Cause : dérive opérationnelle ou changement de structure. Action : identifier la source de la dérive et corriger.",
+          "Écart de mix — La composition de vos ventes a changé. Cause : évolution du portefeuille client ou produit. Action : analyser la rentabilité par segment et réorienter l'effort commercial.",
+        ],
+      },
+      {
+        heading: "La méthode d'analyse en 3 questions",
+        paragraphs: ["Pour chaque écart significatif, posez-vous ces 3 questions :"],
+        list: [
+          "L'écart est-il significatif ? (plus de 5 % du budget sur ce poste)",
+          "L'écart est-il structurel (il va se répéter) ou ponctuel (événement exceptionnel) ?",
+          "L'écart nécessite-t-il une action correctrice sur le budget ou sur les opérations ?",
+        ],
+      },
+      {
+        heading: "Ce que l'analyse des écarts change pour vous",
+        paragraphs: [
+          "Sans analyse des écarts, vous découvrez vos problèmes en fin d'année — quand il est trop tard pour agir. Avec une analyse mensuelle, vous voyez les dérives dès le premier mois et vous avez 11 mois pour corriger la trajectoire.",
+        ],
+      },
+    ],
+    ctaText: "Besoin d'un suivi budgétaire structuré ?",
+    ctaDescription: "Nous mettons en place l'analyse des écarts dans votre pilotage mensuel.",
+    ctaLink: "/services/controle-de-gestion/",
+    ctaLabel: "Découvrir notre service contrôle de gestion",
+  },
+  "vvprbis-belgique": {
+    sections: [
+      {
+        heading: "Définition en bref",
+        paragraphs: [
+          "Le VVPRbis (Verlaagde Voorheffing / Précompte Réduit bis) est un régime fiscal belge qui permet aux PME de distribuer des dividendes à un taux de précompte mobilier réduit — 15 % au lieu de 30 % standard — sous certaines conditions. C'est l'un des leviers d'optimisation les plus efficaces pour les dirigeants de PME belges qui souhaitent se rémunérer via dividendes.",
+        ],
+      },
+      {
+        heading: "Conditions pour en bénéficier",
+        paragraphs: ["Pour bénéficier du régime VVPRbis, toutes ces conditions doivent être réunies :"],
+        list: [
+          "La société doit être une PME au sens du Code des sociétés",
+          "Les actions doivent avoir été émises à partir du 1er juillet 2013",
+          "Les actions doivent être nominatives (inscrites dans le registre des actionnaires)",
+          "Les actions doivent être souscrites en numéraire — pas par apport en nature",
+          "Les apports doivent être entièrement libérés",
+          "Un délai d'attente de 2 ans (dividende à 20 %) puis 5 ans (dividende à 15 %) s'applique",
+        ],
+      },
+      {
+        heading: "Les pièges à éviter",
+        paragraphs: ["Attention à ces erreurs fréquentes :"],
+        list: [
+          "Confondre VVPRbis et réserve de liquidation — ce sont deux mécanismes distincts",
+          "Ne pas respecter les conditions de libération du capital",
+          "Distribuer avant le délai d'attente et perdre l'avantage",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "C'est quoi le VVPRbis en Belgique ?",
+        answer: "Le VVPRbis est un régime fiscal qui permet aux PME belges de distribuer des dividendes à un taux de précompte mobilier de 15 % (au lieu de 30 %) sous certaines conditions liées à l'ancienneté et à la nature des actions.",
+      },
+      {
+        question: "Quelle différence entre VVPRbis et réserve de liquidation ?",
+        answer: "Le VVPRbis s'applique aux dividendes courants et dépend de l'ancienneté des actions. La réserve de liquidation est constituée à partir des bénéfices mis en réserve, avec une taxe de 10 % payée immédiatement, en vue d'une distribution future à taux réduit. Les deux mécanismes sont complémentaires selon votre situation.",
+      },
+    ],
+    ctaText: "Envie d'optimiser vos dividendes ?",
+    ctaDescription: "Nous analysons votre situation et identifions les mécanismes applicables.",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir notre service fiscalité",
+  },
+  "reserve-liquidation-belgique": {
+    sections: [
+      {
+        heading: "Définition en bref",
+        paragraphs: [
+          "La réserve de liquidation est un mécanisme fiscal belge qui permet à une PME de mettre en réserve une partie de ses bénéfices en payant immédiatement une taxe de 10 %, en vue de les distribuer ultérieurement à un taux de précompte mobilier réduit ou nul selon le délai d'attente.",
+        ],
+      },
+      {
+        heading: "La mécanique en 3 étapes",
+        paragraphs: [
+          "Étape 1 — La PME décide de constituer une réserve de liquidation et paie immédiatement 10 % de taxe sur le montant mis en réserve.",
+          "Étape 2 — Si la réserve est distribuée avant 5 ans : précompte mobilier de 20 % supplémentaire.",
+          "Étape 3 — Si la réserve est distribuée après 5 ans : précompte mobilier de 5 % — soit une charge totale de 15 % contre 30 % pour un dividende classique.",
+        ],
+      },
+      {
+        heading: "Quand utiliser la réserve de liquidation ?",
+        paragraphs: [
+          "La réserve de liquidation est particulièrement intéressante pour les sociétés matures qui dégagent des bénéfices réguliers et qui n'ont pas besoin de distribuer immédiatement. Elle permet de capitaliser avec un coût fiscal réduit à long terme.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "C'est quoi la réserve de liquidation pour une PME belge ?",
+        answer: "La réserve de liquidation permet à une PME belge de mettre en réserve une partie de ses bénéfices en payant une taxe de 10 % immédiatement, pour les distribuer plus tard à un taux de précompte réduit ou nul selon le délai d'attente. C'est un outil puissant de planification fiscale à long terme.",
+      },
+      {
+        question: "Réserve de liquidation ou VVPRbis — lequel choisir ?",
+        answer: "Les deux mécanismes sont complémentaires. Le VVPRbis convient mieux aux sociétés récentes qui distribuent régulièrement. La réserve de liquidation convient mieux aux sociétés plus matures qui veulent capitaliser et distribuer à terme. Une analyse personnalisée de votre situation est nécessaire.",
+      },
+    ],
+    ctaText: "Envie d'optimiser votre fiscalité ?",
+    ctaDescription: "Nous analysons votre situation et construisons la stratégie adaptée.",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir notre service fiscalité",
+  },
+  "remuneration-dirigeant-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "Salaire, dividendes, avantages en nature — la rémunération d'un dirigeant de société belge est un arbitrage fiscal et social complexe. Voici les clés pour comprendre et optimiser.",
+        ],
+      },
+      {
+        heading: "Les trois modes de rémunération d'un dirigeant belge",
+        paragraphs: [
+          "Le salaire — Soumis à l'IPP (jusqu'à 50 %) et aux cotisations sociales. Déductible comme charge pour la société. Ouvre des droits sociaux (maladie, pension). C'est la base obligatoire de toute rémunération de dirigeant.",
+          "Les dividendes — Soumis au précompte mobilier (30 % standard, 20 % ou 15 % avec VVPRbis). Distribués sur bénéfice après ISOC. Pas de cotisations sociales. Intéressant au-delà du salaire minimum obligatoire.",
+          "Les avantages en nature — Voiture de société, GSM, ordinateur — soumis à l'IPP sur la valeur ATN forfaitaire. Souvent plus avantageux que l'équivalent en salaire net.",
+        ],
+      },
+      {
+        heading: "La question centrale : quel est le bon équilibre ?",
+        paragraphs: [
+          "La loi belge impose un salaire minimum au dirigeant pour que la société bénéficie du taux réduit ISOC PME (45 000 € bruts minimum en 2026, ou salaire supérieur au bénéfice imposable). Au-delà de ce minimum, l'arbitrage salaire/dividendes dépend de votre situation patrimoniale, de vos besoins de liquidités et de vos objectifs à long terme.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Est-il mieux de se payer en salaire ou en dividendes en Belgique ?",
+        answer: "Il n'existe pas de réponse universelle. Un salaire crée des droits sociaux et est déductible pour la société. Les dividendes évitent les cotisations sociales mais sont distribués sur bénéfice après ISOC. L'optimum dépend de votre taux marginal IPP, de vos besoins sociaux, et des mécanismes disponibles (VVPRbis, réserve de liquidation). Une analyse personnalisée est indispensable.",
+      },
+    ],
+    ctaText: "Envie d'optimiser votre rémunération ?",
+    ctaDescription: "Nous simulons la combinaison optimale pour votre situation.",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir notre service fiscalité",
+  },
+  "voiture-societe-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "La voiture de société reste l'un des avantages les plus utilisés par les dirigeants belges — mais aussi l'un des plus complexes fiscalement. Voici ce que vous devez savoir en 2026.",
+        ],
+      },
+      {
+        heading: "Les 4 composantes fiscales d'une voiture de société",
+        paragraphs: [
+          "L'ATN (Avantage de Toute Nature) — Calculé sur la valeur catalogue × coefficient CO2 × 6/7. Soumis à l'IPP du dirigeant comme revenu professionnel.",
+          "La déductibilité des frais — Dépend des émissions CO2 du véhicule. Pour les véhicules à moteur thermique achetés après 2026, tendance à la déductibilité réduite.",
+          "La cotisation de solidarité CO2 — Charge pour la société, dépend des émissions du véhicule.",
+          "La TVA récupérable — Limitée à 50 % maximum pour les véhicules mixtes usage professionnel / privé.",
+        ],
+      },
+      {
+        heading: "Voiture électrique — l'avantage fiscal en 2026",
+        paragraphs: [
+          "Les véhicules électriques bénéficient d'un ATN réduit (coefficient CO2 à 0), d'une déductibilité des frais favorable, et d'une cotisation de solidarité CO2 minimale. Dans le cadre de la réforme fiscale belge en cours, les avantages des véhicules électriques sont progressivement renforcés — à vérifier selon la date d'acquisition.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Comment est calculé l'ATN d'une voiture de société en Belgique ?",
+        answer: "L'ATN est calculé selon la formule : valeur catalogue (TVA comprise, options incluses) × coefficient CO2 × 6/7. Le résultat est l'avantage imposable annuel à l'IPP. Des coefficients correcteurs s'appliquent selon l'âge du véhicule. Le calcul est complexe — MFinances l'effectue pour chaque véhicule lors de l'optimisation de la rémunération.",
+      },
+    ],
+    ctaText: "Besoin d'un calcul précis ?",
+    ctaDescription: "Nous simulons l'impact fiscal de votre véhicule de société.",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir notre service fiscalité",
+  },
+  "declaration-isoc-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "La déclaration ISOC est un exercice annuel incontournable pour toute société belge. Bien préparée, elle est une formalité. Mal anticipée, elle peut coûter cher.",
+        ],
+      },
+      {
+        heading: "Les délais et échéances ISOC",
+        paragraphs: ["Voici les échéances clés à respecter :"],
+        list: [
+          "Clôture d'exercice : date variable selon vos statuts (souvent 31/12 ou 30/06)",
+          "Dépôt des comptes annuels à la BNB : dans les 7 mois suivant la clôture",
+          "Dépôt de la déclaration ISOC : dans les 7 mois suivant la clôture (délai standard)",
+          "Paiement des acomptes : 4 acomptes trimestriels recommandés pour éviter la majoration",
+        ],
+      },
+      {
+        heading: "Les acomptes d'impôt — pourquoi ils sont indispensables",
+        paragraphs: [
+          "Sans acomptes, votre société est soumise à une majoration d'impôt de 6,75 % (taux 2026). Pour une ISOC de 20 000 €, c'est 1 350 € de majoration évitable. Les acomptes sont versés les 10 avril, 10 juillet, 10 octobre et 20 décembre.",
+        ],
+      },
+      {
+        heading: "ISOC taux normal vs taux réduit PME",
+        paragraphs: [
+          "Le taux ISOC normal est de 25 %. Les PME bénéficient d'un taux réduit de 20 % sur la première tranche de 100 000 € de bénéfice imposable — sous conditions (notamment : salaire dirigeant minimum de 45 000 € bruts ou égal au bénéfice imposable).",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Quel est le taux de l'impôt des sociétés en Belgique ?",
+        answer: "Le taux ISOC standard est de 25 % en Belgique. Les PME bénéficient d'un taux réduit de 20 % sur la première tranche de 100 000 € de bénéfice imposable, sous conditions notamment relatives au salaire minimum du dirigeant.",
+      },
+    ],
+    ctaText: "Besoin de préparer votre déclaration ISOC ?",
+    ctaDescription: "Nous prenons en charge votre déclaration et optimisons votre charge fiscale.",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir notre service fiscalité",
+  },
+  "srl-vs-independant-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "SRL ou indépendant en personne physique ? C'est la première question que se pose tout entrepreneur belge — et la réponse a des conséquences fiscales et juridiques pendant des années.",
+        ],
+      },
+      {
+        heading: "Comparatif détaillé",
+        paragraphs: [],
+        table: {
+          headers: ["", "Indépendant PP", "SRL"],
+          rows: [
+            ["Responsabilité", "Illimitée sur patrimoine personnel", "Limitée au capital apporté"],
+            ["Fiscalité bénéfices", "IPP — jusqu'à 50 %", "ISOC — 20 ou 25 %"],
+            ["Cotisations sociales", "Sur revenus nets", "Sur salaire dirigeant"],
+            ["Frais de création", "Quasi nuls", "1 500 à 3 000 €"],
+            ["Comptabilité", "Simplifiée possible", "En partie double obligatoire"],
+            ["Crédibilité bancaire", "Limitée", "Meilleure"],
+          ],
+        },
+      },
+      {
+        heading: "À quel niveau de revenus la SRL devient avantageuse ?",
+        paragraphs: [
+          "En règle générale, la SRL devient fiscalement avantageuse lorsque le bénéfice net dépasse 40 000 à 60 000 € par an — seuil variable selon la situation personnelle, les charges de famille et les objectifs patrimoniaux. En dessous, les frais de structure peuvent dépasser les économies fiscales.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Vaut-il mieux être indépendant ou créer une société en Belgique ?",
+        answer: "Cela dépend de votre niveau de revenus, de votre tolérance au risque personnel et de vos objectifs patrimoniaux. L'indépendant en personne physique est plus simple et moins coûteux à gérer. La SRL offre une protection du patrimoine personnel et devient fiscalement avantageuse à partir d'un certain niveau de bénéfices. Une analyse personnalisée est indispensable avant de décider.",
+      },
+    ],
+    ctaText: "Besoin d'un avis personnalisé ?",
+    ctaDescription: "Nous analysons votre situation pour déterminer la structure optimale.",
+    ctaLink: "/services/creation-entreprise/",
+    ctaLabel: "Découvrir notre service création d'entreprise",
+  },
+  "creer-srl-belgique-2026": {
+    sections: [
+      {
+        paragraphs: [
+          "Créer une SRL en Belgique en 2026 suit un processus structuré en 6 étapes. Avec un bon accompagnement, vous pouvez aller de la première réunion à la première facture en 2 à 4 semaines.",
+        ],
+      },
+      {
+        heading: "Étape 1 — Le plan financier obligatoire",
+        paragraphs: [
+          "Document légalement requis, remis au notaire, il démontre la viabilité de votre projet sur 2 ans. Il engage votre responsabilité en cas de faillite dans les 3 ans. Honoraires MFinances : inclus dans le forfait 800 € HTVA.",
+        ],
+      },
+      {
+        heading: "Étape 2 — L'acte constitutif chez le notaire",
+        paragraphs: [
+          "Rédaction et signature de l'acte de constitution. Le notaire vérifie le plan financier, les statuts et les apports. Frais notariaux : 1 000 à 1 500 € selon la complexité.",
+        ],
+      },
+      {
+        heading: "Étape 3 — L'inscription à la BCE",
+        paragraphs: [
+          "Attribution du numéro d'entreprise via un guichet d'entreprises agréé. Délai : 1 à 3 jours ouvrables. Frais : environ 90 €.",
+        ],
+      },
+      {
+        heading: "Étape 4 — L'activation du numéro de TVA",
+        paragraphs: [
+          "Demande auprès du SPF Finances. Délai : 1 à 3 semaines. Obligatoire pour facturer avec TVA. Le régime TVA (normal, franchise, mixte) doit être choisi avec soin.",
+        ],
+      },
+      {
+        heading: "Étape 5 — L'affiliation à une caisse d'assurances sociales",
+        paragraphs: [
+          "Obligatoire pour le dirigeant indépendant. Premier trimestre de cotisations à provisionner (environ 700 à 900 €).",
+        ],
+      },
+      {
+        heading: "Étape 6 — L'ouverture du compte bancaire professionnel",
+        paragraphs: [
+          "Obligatoire pour déposer le capital et recevoir les paiements clients. Comparez les offres bancaires — les frais varient significativement.",
+        ],
+      },
+      {
+        heading: "Délai total",
+        paragraphs: [
+          "Avec un dossier complet, la création d'une SRL prend généralement 2 à 4 semaines de la première réunion à la première facture émise.",
+        ],
+      },
+    ],
+    ctaText: "Prêt à créer votre SRL ?",
+    ctaDescription: "Plan financier + accompagnement complet à partir de 800 € HTVA.",
+    ctaLink: "/services/creation-entreprise/",
+    ctaLabel: "Découvrir notre service création d'entreprise",
+  },
+  "cout-creation-societe-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "Combien coûte réellement la création d'une société en Belgique ? Voici tous les frais, poste par poste, sans surprise.",
+        ],
+      },
+      {
+        heading: "Tableau récapitulatif des coûts",
+        paragraphs: [],
+        table: {
+          headers: ["Poste de coût", "Montant estimé"],
+          rows: [
+            ["Honoraires notaire (acte constitutif)", "1 000 à 1 500 €"],
+            ["Publication au Moniteur belge", "200 à 350 €"],
+            ["Inscription à la BCE", "environ 90 €"],
+            ["Ouverture compte bancaire professionnel", "0 à 150 € selon banque"],
+            ["Honoraires MFinances (plan financier + conseil + mise en place Odoo)", "800 € HTVA"],
+            ["Capital minimum SRL", "1 € légal — 18 550 € recommandé en pratique"],
+            ["TOTAL frais de création (hors capital)", "2 000 à 3 000 € environ"],
+          ],
+        },
+      },
+      {
+        heading: "Les frais récurrents après création",
+        paragraphs: [
+          "Comptabilité (forfait MFinances à partir de 350 € HTVA/mois), cotisations sociales dirigeant (environ 700 à 900 €/trimestre en début d'activité), assurance responsabilité professionnelle selon secteur.",
+        ],
+      },
+    ],
+    ctaText: "Prêt à vous lancer ?",
+    ctaDescription: "Nous vous accompagnons de A à Z dans la création de votre société.",
+    ctaLink: "/services/creation-entreprise/",
+    ctaLabel: "Découvrir notre service création d'entreprise",
+  },
+  "plan-financier-obligatoire-belgique": {
+    sections: [
+      {
+        heading: "Pourquoi le plan financier est obligatoire — le cadre légal",
+        paragraphs: [
+          "Depuis la réforme du Code des sociétés et des associations (CSA) en 2019, le plan financier est obligatoire pour la constitution d'une SRL ou d'une SA. Il est remis au notaire lors de la constitution et conservé pendant 3 ans après la date de constitution.",
+        ],
+      },
+      {
+        heading: "La responsabilité du fondateur",
+        paragraphs: [
+          "Si la société est déclarée en faillite dans les 3 ans suivant la constitution, et si le tribunal estime que le capital était manifestement insuffisant au regard du plan financier, les fondateurs peuvent être tenus personnellement responsables des dettes. C'est la principale raison pour laquelle un plan financier solide et réaliste est indispensable.",
+        ],
+      },
+      {
+        heading: "Ce que le plan financier doit contenir",
+        paragraphs: ["Le plan financier doit inclure les éléments suivants :"],
+        list: [
+          "Description de l'activité projetée",
+          "Présentation de l'actionnariat et du capital",
+          "Compte de résultats prévisionnel sur 2 ans minimum",
+          "Bilan prévisionnel sur 2 ans minimum",
+          "Plan de trésorerie sur 2 ans",
+          "Description des hypothèses et des sources de financement",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Le plan financier est-il obligatoire pour créer une société en Belgique ?",
+        answer: "Oui — depuis la réforme CSA de 2019, le plan financier est obligatoire pour la constitution d'une SRL ou SA en Belgique. Il doit être remis au notaire et démontre la viabilité financière de la société sur 2 ans minimum. Un plan financier insuffisant peut engager la responsabilité personnelle des fondateurs en cas de faillite dans les 3 ans.",
+      },
+    ],
+    ctaText: "Besoin d'un plan financier solide ?",
+    ctaDescription: "Nous construisons votre plan financier conforme aux exigences légales.",
+    ctaLink: "/services/creation-entreprise/",
+    ctaLabel: "Découvrir notre service création d'entreprise",
+  },
+  "erreurs-creation-societe-belgique": {
+    sections: [
+      {
+        paragraphs: [
+          "Créer une société en Belgique n'est pas compliqué — mais les erreurs commises au départ peuvent coûter cher pendant des années. Voici les 5 plus fréquentes.",
+        ],
+      },
+      {
+        heading: "Erreur 1 — Choisir sa structure juridique sans analyse fiscale",
+        paragraphs: [
+          "Coût réel : des milliers d'euros de surcharge fiscale pendant plusieurs années, et une restructuration coûteuse quand l'erreur est réalisée. Un indépendant qui aurait dû créer une SRL dès le départ peut perdre 5 000 à 15 000 € d'avantage fiscal annuel.",
+        ],
+      },
+      {
+        heading: "Erreur 2 — Sous-estimer le capital de départ",
+        paragraphs: [
+          "Coût réel : difficultés de trésorerie dès le premier trimestre, crédibilité bancaire fragilisée, risque de responsabilité personnelle en cas de faillite. Le capital minimum légal d'1 € est insuffisant — un capital réel de 15 000 à 25 000 € est recommandé selon l'activité.",
+        ],
+      },
+      {
+        heading: "Erreur 3 — Négliger le plan financier obligatoire",
+        paragraphs: [
+          "Coût réel : refus du notaire de constituer la société, ou pire : responsabilité personnelle engagée en cas de faillite dans les 3 ans si le plan est jugé insuffisant.",
+        ],
+      },
+      {
+        heading: "Erreur 4 — Mal configurer la TVA dès le départ",
+        paragraphs: [
+          "Coût réel : pénalités de retard, TVA non récupérable sur les premiers investissements, déclarations rectificatives coûteuses. Le régime TVA (normal, franchise, mixte) doit être choisi en connaissance de cause dès la création.",
+        ],
+      },
+      {
+        heading: "Erreur 5 — Ne pas anticiper sa rémunération de dirigeant",
+        paragraphs: [
+          "Coût réel : perte du taux réduit ISOC PME (20 % vs 25 %), cotisations sociales calculées sur une base incorrecte, surprises fiscales en fin d'année. Le salaire minimum du dirigeant pour bénéficier du taux réduit ISOC est de 45 000 € bruts en 2026.",
+        ],
+      },
+    ],
+    ctaText: "Évitez les erreurs dès le départ",
+    ctaDescription: "Nous vous accompagnons pour une création de société sans faux pas.",
+    ctaLink: "/services/creation-entreprise/",
+    ctaLabel: "Découvrir notre service création d'entreprise",
+  },
 };
