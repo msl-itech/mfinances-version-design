@@ -16,7 +16,7 @@ export default function MikaSection() {
             <div className="relative h-[280px] lg:h-auto">
               <img
                 src={mikaPhoto}
-                alt="Mika Musungayi — Expert-comptable certifié ITAA"
+                alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
