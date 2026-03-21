@@ -22,7 +22,7 @@ export default function MethodSection() {
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`relative text-center rounded-2xl p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
+              className={`relative text-center rounded-2xl p-6 md:p-8 border border-white/10 bg-white/[0.06] reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
             >
               <span className="font-display text-[56px] font-bold text-accent leading-none">
