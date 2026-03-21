@@ -125,8 +125,8 @@ export default function HeroSection() {
                 className={`absolute bottom-8 left-4 md:left-6 bg-card/90 backdrop-blur-md border border-border/50 rounded-2xl px-5 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "0.7s" }}
               >
-                <p className="font-bold text-[14px] text-foreground">Mika Musungayi</p>
-                <p className="text-[12px] text-muted-foreground">Expert-comptable certifié ITAA</p>
+                <p className="font-bold text-[14px]"><span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span></p>
+                <p className="text-[12px] text-muted-foreground">Expert-comptable</p>
               </div>
 
               {/* Floating stat badge */}
