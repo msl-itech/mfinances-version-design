@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
+
+const ODOO_API_URL = "https://api-connect-odoo.vercel.app/api";
+const ODOO_HEADERS = {
+  "Content-Type": "application/json",
+  "x-signature": "f48fc94a838ab87d65de288bfcb037d109d1141fd981f70f378be51c91c764bd",
+  "x-client-id": "client_mfinances",
+  "x-company-id": "3",
+};
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -37,9 +45,40 @@ const erreurs = [
   },
 ];
 
+async function sendLeadToOdoo(prenom: string, email: string) {
+  const leadData = {
+    name: prenom,
+    email_from: email,
+    description: `Lead Checklist Trésorerie\n\nPrénom: ${prenom}\nEmail: ${email}\nSource: Checklist trésorerie - Site MFinances`,
+  };
+
+  const response = await fetch(`${ODOO_API_URL}/leads`, {
+    method: "POST",
+    headers: ODOO_HEADERS,
+    body: JSON.stringify(leadData),
+  });
+
+  if (!response.ok) {
+    console.error("Erreur envoi Odoo:", response.status);
+  }
+
+  return response;
+}
+
+function triggerPdfDownload() {
+  const link = document.createElement("a");
+  link.href = "/checklist-tresorerie-mfinances.pdf";
+  link.download = "checklist-tresorerie-mfinances.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 export default function ChecklistTresorerie() {
   const [form, setForm] = useState({ prenom: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,10 +102,28 @@ export default function ChecklistTresorerie() {
     return () => { s.remove(); };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.prenom.trim() && form.email.trim()) {
+    if (!form.prenom.trim() || !form.email.trim()) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Envoi vers Odoo (on ne bloque pas le téléchargement si ça échoue)
+      await sendLeadToOdoo(form.prenom, form.email).catch((err) => {
+        console.error("Erreur Odoo (non bloquante):", err);
+      });
+
+      // Téléchargement du PDF
+      triggerPdfDownload();
+
       setSubmitted(true);
+    } catch (err) {
+      console.error("Erreur:", err);
+      setError("Une erreur est survenue. Veuillez réessayer.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -112,7 +169,7 @@ export default function ChecklistTresorerie() {
                 {!submitted ? (
                   <>
                     <h2 className="font-display text-[20px] text-foreground mb-1 leading-tight">
-                      Recevez la checklist
+                      Téléchargez la checklist
                     </h2>
                     <p className="text-[13px] text-muted-foreground font-body mb-5">
                       Vérifiez si vous commettez ces 5 erreurs — résultat immédiat.
@@ -125,6 +182,7 @@ export default function ChecklistTresorerie() {
                         value={form.prenom}
                         onChange={(e) => setForm({ ...form, prenom: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        disabled={isLoading}
                       />
                       <input
                         type="email"
@@ -133,9 +191,22 @@ export default function ChecklistTresorerie() {
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        disabled={isLoading}
                       />
-                      <Button variant="accent" className="w-full rounded-full" type="submit">
-                        Voir si je commets ces erreurs <ArrowRight size={16} className="ml-1" />
+                      {error && (
+                        <p className="text-[13px] text-accent font-body">{error}</p>
+                      )}
+                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading}>
+                        {isLoading ? (
+                          <>
+                            <Loader2 size={16} className="mr-1 animate-spin" />
+                            Envoi en cours…
+                          </>
+                        ) : (
+                          <>
+                            Télécharger la checklist <Download size={16} className="ml-1" />
+                          </>
+                        )}
                       </Button>
                     </form>
                     <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
@@ -147,11 +218,17 @@ export default function ChecklistTresorerie() {
                     <CheckCircle2 size={36} className="text-[hsl(145,63%,42%)] mx-auto mb-3" />
                     <h3 className="font-display text-[20px] text-foreground mb-1">Merci {form.prenom} !</h3>
                     <p className="text-[14px] text-muted-foreground font-body mb-4">
-                      Votre checklist arrive dans votre boîte mail. Vérifiez vos spams si besoin.
+                      Votre checklist a été téléchargée. Vérifiez votre dossier de téléchargements.
                     </p>
-                    <Button variant="default" className="rounded-full" asChild>
-                      <Link to="/diagnostic/">Faire le diagnostic complet →</Link>
-                    </Button>
+                    <div className="flex flex-col gap-3">
+                      <Button variant="accent" className="rounded-full" onClick={triggerPdfDownload}>
+                        <Download size={16} className="mr-1" />
+                        Retélécharger le PDF
+                      </Button>
+                      <Button variant="default" className="rounded-full" asChild>
+                        <Link to="/diagnostic/">Faire le diagnostic complet →</Link>
+                      </Button>
+                    </div>
                   </div>
                 )}
               </div>
