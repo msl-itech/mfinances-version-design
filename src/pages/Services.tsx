@@ -135,7 +135,7 @@ function ServiceCard({
 export default function Services() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Nos Services — Cabinet Expert-Comptable MFinances Bruxelles";
+    document.title = "Nos Services — Expert-Comptable MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

@@ -165,7 +165,7 @@ export default function Diagnostic() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Diagnostic Trésorerie Gratuit pour TPE — MFinances Bruxelles";
+    document.title = "Diagnostic Trésorerie Gratuit pour TPE — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

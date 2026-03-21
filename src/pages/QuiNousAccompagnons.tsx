@@ -155,7 +155,7 @@ function AudienceCard({
 export default function QuiNousAccompagnons() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Qui nous accompagnons — MFinances Cabinet Comptable Bruxelles";
+    document.title = "Qui nous accompagnons — MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

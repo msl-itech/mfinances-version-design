@@ -89,7 +89,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function IndependantsStartups() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable pour Indépendants et Startups à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Indépendants Bruxelles — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

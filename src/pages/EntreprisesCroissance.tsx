@@ -84,7 +84,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function EntreprisesCroissance() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Entreprise en Croissance à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Entreprise en Croissance Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

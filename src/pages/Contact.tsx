@@ -93,7 +93,7 @@ export default function Contact() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Contactez MFinances — Expert-Comptable Bruxelles | Consultation Gratuite";
+    document.title = "Contactez MFinances — Expert-Comptable Bruxelles | RDV Gratuit";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

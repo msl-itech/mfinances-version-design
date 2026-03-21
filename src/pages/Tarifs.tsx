@@ -128,7 +128,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function Tarifs() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Tarifs Expert-Comptable Bruxelles — MFinances | À partir de 350€/mois HTVA";
+    document.title = "Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

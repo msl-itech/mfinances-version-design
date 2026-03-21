@@ -20,7 +20,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function APropos() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Pourquoi MFinances — Cabinet d'expertise comptable Bruxelles | Mika Musungayi";
+    document.title = "Pourquoi MFinances — Cabinet comptable Bruxelles | Mika Musungayi";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

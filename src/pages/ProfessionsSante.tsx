@@ -72,7 +72,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function ProfessionsSante() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Professions de Santé à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Professions de Santé Bruxelles — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

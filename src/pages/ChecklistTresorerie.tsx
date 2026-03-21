@@ -43,7 +43,7 @@ export default function ChecklistTresorerie() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Les 5 Erreurs qui Détruisent la Trésorerie des TPE — Guide Gratuit MFinances";
+    document.title = "5 Erreurs de Trésorerie — Guide Gratuit | MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
