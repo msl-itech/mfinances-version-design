@@ -43,6 +43,7 @@ const App = () => (
           <Route path="/services/fiscalite/" element={<Fiscalite />} />
           <Route path="/services/creation-entreprise/" element={<CreationEntreprise />} />
           <Route path="/tarifs/" element={<Tarifs />} />
+          <Route path="/qui-nous-accompagnons/" element={<QuiNousAccompagnons />} />
           <Route path="/qui-nous-accompagnons/independants-et-startups/" element={<IndependantsStartups />} />
           <Route path="/qui-nous-accompagnons/commerce-et-horeca/" element={<CommerceHoreca />} />
           <Route path="/qui-nous-accompagnons/professions-de-sante/" element={<ProfessionsSante />} />
