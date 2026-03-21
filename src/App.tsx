@@ -13,6 +13,8 @@ import CreationEntreprise from "./pages/CreationEntreprise.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
 import IndependantsStartups from "./pages/IndependantsStartups.tsx";
 import CommerceHoreca from "./pages/CommerceHoreca.tsx";
+import ProfessionsSante from "./pages/ProfessionsSante.tsx";
+import EntreprisesCroissance from "./pages/EntreprisesCroissance.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -36,6 +38,8 @@ const App = () => (
           <Route path="/tarifs/" element={<Tarifs />} />
           <Route path="/qui-nous-accompagnons/independants-et-startups/" element={<IndependantsStartups />} />
           <Route path="/qui-nous-accompagnons/commerce-et-horeca/" element={<CommerceHoreca />} />
+          <Route path="/qui-nous-accompagnons/professions-de-sante/" element={<ProfessionsSante />} />
+          <Route path="/qui-nous-accompagnons/entreprises-en-croissance/" element={<EntreprisesCroissance />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
