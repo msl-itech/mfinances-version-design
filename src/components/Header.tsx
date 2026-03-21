@@ -109,8 +109,11 @@ export default function Header() {
 
             {/* Audience dropdown */}
             <DropdownWrapper label="Qui nous accompagnons">
-              <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-4">
+              <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
                 <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Profils</span>
+                  </div>
                   {audienceLeft.map((link) => (
                     <Link
                       key={link.label}
@@ -122,6 +125,9 @@ export default function Header() {
                   ))}
                 </div>
                 <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Structures</span>
+                  </div>
                   {audienceRight.map((link) => (
                     <Link
                       key={link.label}
