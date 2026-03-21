@@ -156,7 +156,7 @@ export default function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href="tel:+3228860550"
               className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors"
