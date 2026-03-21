@@ -145,7 +145,7 @@ export default function BlogArticle() {
 
             <div className="mt-6">
               <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
-              <h1 className="font-display text-[28px] md:text-[40px] leading-[1.15] text-primary-foreground mt-2">
+              <h1 className="font-display text-[24px] md:text-[40px] leading-[1.15] text-primary-foreground mt-2">
                 {article.title}
               </h1>
             </div>

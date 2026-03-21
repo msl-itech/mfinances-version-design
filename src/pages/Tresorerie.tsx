@@ -159,7 +159,7 @@ export default function Tresorerie() {
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Excellence
                 </span>
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Votre trésorerie sous contrôle — chaque mois, sans mauvaise surprise
                 </h1>
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
@@ -190,7 +190,7 @@ export default function Tresorerie() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Pourquoi la trésorerie est le principal stress
                 <br />
                 <span className="text-accent">des dirigeants de TPE</span>
@@ -233,7 +233,7 @@ export default function Tresorerie() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Ce que comprend votre
                 <br />
                 <span className="text-accent">trésorerie prévisionnelle</span>
@@ -264,7 +264,7 @@ export default function Tresorerie() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Les périodes critiques
                 <br />
                 <span className="text-accent">à anticiper en Belgique</span>
@@ -299,7 +299,7 @@ export default function Tresorerie() {
                 <RefreshCw size={18} className="text-accent" strokeWidth={1.5} />
                 <span className="text-[12px] font-bold text-accent uppercase tracking-wider font-body">Intégration</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Synchronisation automatique
                 <br />
                 <span className="text-accent">avec Odoo</span>
@@ -339,7 +339,7 @@ export default function Tresorerie() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions fréquentes
               </h2>
             </ScrollRevealDiv>
@@ -370,7 +370,7 @@ export default function Tresorerie() {
           <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <AlertTriangle size={32} className="text-accent mx-auto mb-4" strokeWidth={1.5} />
-            <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
               Votre trésorerie est-elle vraiment sous contrôle ?
             </h2>
             <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">

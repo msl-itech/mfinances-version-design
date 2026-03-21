@@ -199,7 +199,7 @@ export default function QuiNousAccompagnons() {
               </Breadcrumb>
 
               <div className="mt-8">
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Trouvez l'accompagnement <span className="text-accent">fait pour vous</span>
                 </h1>
                 <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
@@ -221,7 +221,7 @@ export default function QuiNousAccompagnons() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Par <span className="text-accent">profil d'activité</span>
               </h2>
             </ScrollRevealDiv>
@@ -238,7 +238,7 @@ export default function QuiNousAccompagnons() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Par <span className="text-accent">structure juridique</span>
               </h2>
             </ScrollRevealDiv>
@@ -256,7 +256,7 @@ export default function QuiNousAccompagnons() {
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Vous ne savez pas quel accompagnement choisir ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">

@@ -180,7 +180,7 @@ export default function Tarifs() {
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   À partir de 350 € HTVA / mois
                 </span>
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Des forfaits transparents, sans surprise — <span className="text-accent">adaptés à votre stade de croissance</span>
                 </h1>
               </div>
@@ -206,7 +206,7 @@ export default function Tarifs() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1000px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Nos trois <span className="text-accent">forfaits</span>
               </h2>
             </ScrollRevealDiv>
@@ -294,7 +294,7 @@ export default function Tarifs() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Quel forfait est <span className="text-accent">fait pour vous ?</span>
               </h2>
             </ScrollRevealDiv>
@@ -343,7 +343,7 @@ export default function Tarifs() {
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
                 <Users size={26} className="text-accent" strokeWidth={1.5} />
               </div>
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Le DAF à temps partiel — <span className="text-accent">option Excellence</span>
               </h2>
               <p className="text-muted-foreground text-[15px] leading-[1.8] mt-5 font-body max-w-[640px] mx-auto">
@@ -360,7 +360,7 @@ export default function Tarifs() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Missions <span className="text-accent">ponctuelles</span>
               </h2>
             </ScrollRevealDiv>
@@ -400,7 +400,7 @@ export default function Tarifs() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Comment ça se passe <span className="text-accent">concrètement ?</span>
               </h2>
             </ScrollRevealDiv>
@@ -432,7 +432,7 @@ export default function Tarifs() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions <span className="text-accent">fréquentes</span>
               </h2>
             </ScrollRevealDiv>
@@ -463,7 +463,7 @@ export default function Tarifs() {
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Prêt à choisir votre forfait ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">

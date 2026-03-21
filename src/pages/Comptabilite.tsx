@@ -155,7 +155,7 @@ export default function Comptabilite() {
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Inclus dès le forfait Essentiel
                 </span>
-                <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Votre comptabilité, claire et sans stress — <span className="text-accent">intégrée dans Odoo</span>
                 </h1>
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
@@ -190,7 +190,7 @@ export default function Comptabilite() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Pourquoi Odoo <span className="text-accent">change tout</span>
               </h2>
             </ScrollRevealDiv>
@@ -206,7 +206,7 @@ export default function Comptabilite() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Ce que comprend notre <span className="text-accent">service comptable</span>
               </h2>
             </ScrollRevealDiv>
@@ -235,7 +235,7 @@ export default function Comptabilite() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Ils nous font <span className="text-accent">confiance</span>
               </h2>
             </ScrollRevealDiv>
@@ -265,7 +265,7 @@ export default function Comptabilite() {
                 <RefreshCw size={18} className="text-accent" strokeWidth={1.5} />
                 <span className="text-[12px] font-bold text-accent uppercase tracking-wider font-body">Intégration</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[36px] leading-[1.15] text-foreground">
+              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
                 Tout est centralisé <span className="text-accent">dans Odoo</span>
               </h2>
               <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body">
@@ -302,7 +302,7 @@ export default function Comptabilite() {
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Inclus dans <span className="text-accent">tous nos forfaits</span>
               </h2>
             </ScrollRevealDiv>
@@ -356,7 +356,7 @@ export default function Comptabilite() {
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions <span className="text-accent">fréquentes</span>
               </h2>
             </ScrollRevealDiv>
@@ -387,7 +387,7 @@ export default function Comptabilite() {
           <img src={imgMeeting} alt="Partenariat comptable" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.15]">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Prêt à simplifier votre comptabilité ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
