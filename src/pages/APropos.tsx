@@ -278,7 +278,7 @@ export default function APropos() {
               « Arrêtez de vous voir trop petit. Commencez à piloter comme une entreprise en croissance. »
             </p>
             <p className="text-primary-foreground/50 text-[13px] font-body mt-4">
-              — Mika Musungayi, fondateur
+              — Mika MUSUNGAYI, fondateur
             </p>
           </div>
         </section>
