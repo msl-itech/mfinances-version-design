@@ -442,7 +442,7 @@ export default function Contact() {
                 <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
                   <img
                     src={mikaPhoto}
-                    alt="Mika Musungayi, fondateur MFinances"
+                    alt="Mika MUSUNGAYI, fondateur MFinances"
                     className="w-full h-[220px] object-cover object-top"
                   />
                   <div className="p-6">
