@@ -129,7 +129,7 @@ export default function APropos() {
             </div>
 
             <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={mikaPhoto} alt="Mika Musungayi, fondateur MFinances" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
+              <img src={mikaPhoto} alt="Mika MUSUNGAYI, fondateur MFinances" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
             </div>
           </div>
         </section>
