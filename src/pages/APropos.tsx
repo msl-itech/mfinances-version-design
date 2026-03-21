@@ -295,8 +295,8 @@ export default function APropos() {
             </SR>
 
             <SR delay={0.1} className="lg:col-span-3">
-              <h2 className="font-display text-[22px] md:text-[34px] leading-[1.15] text-foreground">
-                Mika Musungayi
+              <h2 className="font-display text-[22px] md:text-[34px] leading-[1.15]">
+                <span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span>
               </h2>
               <p className="text-accent font-body font-semibold text-[15px] mt-1">
                 Expert-comptable · Fondateur de MFinances
