@@ -1,14 +1,31 @@
+User-agent: *
+Allow: /
+
+# Bloquer le sous-domaine Odoo des moteurs de recherche
+User-agent: *
+Disallow: /vente/
+Disallow: /web/
+Disallow: /odoo/
+Disallow: /gallery_category/
+
+# Autoriser explicitement les bots IA (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: LovableHTMLBot
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+# Sitemap
+Sitemap: https://mfinances.be/sitemap.xml
