@@ -164,6 +164,32 @@ export default function BlogArticle() {
                       ))}
                     </ul>
                   )}
+                  {section.table && (
+                    <div className="overflow-x-auto mb-6">
+                      <table className="w-full text-[13px] font-body border-collapse">
+                        <thead>
+                          <tr>
+                            {section.table.headers.map((h, hi) => (
+                              <th key={hi} className="text-left py-3 px-4 bg-secondary text-foreground font-semibold border-b border-border/50 first:rounded-tl-lg last:rounded-tr-lg">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row, ri) => (
+                            <tr key={ri} className="border-b border-border/30 last:border-0">
+                              {row.map((cell, ci) => (
+                                <td key={ci} className={`py-3 px-4 text-foreground/80 ${ci === 0 ? "font-semibold text-foreground" : ""}`}>
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </ScrollRevealDiv>
               ))}
             </article>

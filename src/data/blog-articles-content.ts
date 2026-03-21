@@ -2,6 +2,7 @@ export interface ArticleSection {
   heading?: string;
   paragraphs: string[];
   list?: string[];
+  table?: { headers: string[]; rows: string[][] };
 }
 
 export interface ArticleFaq {
@@ -401,6 +402,54 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Vous vous reconnaissez ?",
     ctaDescription: "Premier échange gratuit — nous évaluons ensemble vos besoins de pilotage financier.",
+    ctaLink: "/services/daf-externalise/",
+    ctaLabel: "Découvrir notre service DAF externalisé",
+  },
+  "daf-externalise-vs-expert-comptable": {
+    sections: [
+      {
+        paragraphs: [
+          "C'est la question que posent 9 dirigeants sur 10 quand on leur parle de DAF externalisé : « Mais mon expert-comptable ne fait pas déjà ça ? » La réponse est non — et comprendre cette différence peut transformer la façon dont vous pilotez votre entreprise.",
+        ],
+      },
+      {
+        heading: "Deux rôles fondamentalement différents",
+        paragraphs: [
+          "L'expert-comptable produit et certifie vos chiffres. Il s'assure que votre comptabilité est conforme, que vos déclarations fiscales sont correctes, que vos bilans sont fiables. C'est un rôle technique et réglementaire — indispensable et obligatoire.",
+          "Le DAF externalisé utilise ces chiffres pour vous aider à décider. Il analyse vos performances, modélise des scénarios, construit des prévisionnels et vous accompagne dans vos décisions stratégiques. C'est un rôle stratégique et opérationnel — facultatif mais souvent décisif.",
+        ],
+      },
+      {
+        heading: "Comparatif détaillé",
+        paragraphs: [],
+        table: {
+          headers: ["", "Expert-comptable", "DAF externalisé"],
+          rows: [
+            ["Rôle principal", "Produire et certifier les chiffres", "Analyser et aider à décider"],
+            ["Horizon temporel", "Passé et présent", "Présent et futur"],
+            ["Nature des interventions", "Technique et réglementaire", "Stratégique et opérationnel"],
+            ["Fréquence", "Continue (comptabilité)", "Mensuelle + ad hoc"],
+            ["Obligation légale", "Oui", "Non — choix stratégique"],
+            ["Chez MFinances", "Inclus dans tous les forfaits", "Option Excellence — 150 € HTVA/h"],
+          ],
+        },
+      },
+      {
+        heading: "Complémentaires, pas concurrents",
+        paragraphs: [
+          "L'expert-comptable fournit la matière première — des chiffres fiables. Le DAF la transforme en décisions. Sans comptabilité fiable, le DAF ne peut pas travailler. Sans DAF, les chiffres restent des constats sans plan d'action.",
+          "C'est pourquoi chez MFinances, les deux rôles sont intégrés dans une même équipe. Votre comptable et votre DAF travaillent sur les mêmes données, dans le même outil (Odoo), avec une vision cohérente de votre entreprise.",
+        ],
+      },
+      {
+        heading: "Quand passer du comptable seul au binôme comptable + DAF ?",
+        paragraphs: [
+          "Tant que votre entreprise est simple — quelques clients, des charges fixes prévisibles, pas d'investissement majeur — votre expert-comptable suffit. Mais dès que la complexité augmente — croissance rapide, décisions d'investissement, besoin de financement, restructuration — le DAF devient un accélérateur de décisions.",
+        ],
+      },
+    ],
+    ctaText: "Besoin des deux ?",
+    ctaDescription: "Chez MFinances, comptabilité et pilotage financier sont intégrés dans une même équipe.",
     ctaLink: "/services/daf-externalise/",
     ctaLabel: "Découvrir notre service DAF externalisé",
   },
