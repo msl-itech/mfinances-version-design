@@ -14,6 +14,19 @@ import {
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, blogArticles } from "@/data/blog-data";
+import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
+import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
+import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+
+const categoryImages: Record<string, string> = {
+  "tresorerie": heroTresorerie,
+  "daf-externalise": heroDaf,
+  "controle-de-gestion": heroControle,
+  "fiscalite-belgique": heroFiscalite,
+  "creation-societe": heroCreation,
+};
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -108,19 +121,30 @@ export default function Blog() {
                   <ScrollRevealDiv key={cat.slug} delay={0.08 + i * 0.05}>
                     <Link
                       to={cat.href}
-                      className="group block bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
+                      className="group block bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
                     >
-                      <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
-                        {cat.label}
-                      </h3>
-                      <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mb-4">{cat.description}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-[12px] text-foreground/40 font-body">
-                          {articleCount > 0 ? `${articleCount} article${articleCount > 1 ? "s" : ""}` : ""}
-                          {articleCount > 0 && upcomingCount > 0 ? " · " : ""}
-                          {upcomingCount > 0 ? `${upcomingCount} à venir` : ""}
-                        </span>
-                        <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors" />
+                      {categoryImages[cat.slug] && (
+                        <div className="h-[140px] overflow-hidden">
+                          <img
+                            src={categoryImages[cat.slug]}
+                            alt={`${cat.label} — MFinances blog`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      )}
+                      <div className="p-7">
+                        <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
+                          {cat.label}
+                        </h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mb-4">{cat.description}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[12px] text-foreground/40 font-body">
+                            {articleCount > 0 ? `${articleCount} article${articleCount > 1 ? "s" : ""}` : ""}
+                            {articleCount > 0 && upcomingCount > 0 ? " · " : ""}
+                            {upcomingCount > 0 ? `${upcomingCount} à venir` : ""}
+                          </span>
+                          <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors" />
+                        </div>
                       </div>
                     </Link>
                   </ScrollRevealDiv>
