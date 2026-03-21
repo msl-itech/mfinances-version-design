@@ -165,35 +165,36 @@ export const articleContent: Record<string, ArticleBody> = {
   "tresorerie-face-concurrence": {
     sections: [
       {
+        heading: "Le réflexe qui coûte cher",
         paragraphs: [
-          "Quand la concurrence s'intensifie, la tentation est de baisser les prix. Mais une guerre des prix sans vision trésorerie peut être fatale.",
+          "Face à un concurrent qui baisse ses prix, le réflexe naturel est de s'aligner. C'est aussi le réflexe le plus dangereux pour votre trésorerie. Baisser ses prix de 10 % pour conserver un client peut transformer un client profitable en client déficitaire — et fragiliser votre trésorerie globale sans que vous le réalisiez.",
         ],
       },
       {
-        heading: "La pression sur les marges",
+        heading: "Comprendre l'impact réel sur votre trésorerie",
         paragraphs: [
-          "Face à un concurrent agressif sur les prix, beaucoup de dirigeants réagissent en alignant leurs tarifs. Le chiffre d'affaires se maintient — mais la marge fond. Et avec elle, la trésorerie.",
-          "Le problème : quand vos marges diminuent, votre capacité à absorber les imprévus diminue aussi. Un retard de paiement client ou une dépense imprévue peut suffire à mettre votre trésorerie dans le rouge.",
+          "Si votre marge sur un produit est de 30 % et que vous baissez votre prix de 10 %, votre marge tombe à 22 % — une baisse de 27 % de votre rentabilité pour une baisse de prix de 10 %. Pour compenser cette perte de marge, vous devez augmenter votre volume de 36 %. C'est rarement ce qui se passe.",
         ],
       },
       {
-        heading: "Comment protéger votre trésorerie face à la concurrence",
-        paragraphs: ["Voici les stratégies qui fonctionnent :"],
-        list: [
-          "Connaître votre seuil de rentabilité — en dessous de ce prix, vous perdez de l'argent",
-          "Différencier votre offre par la valeur, pas par le prix",
-          "Resserrer votre suivi client — relancez plus tôt, facturez plus vite",
-          "Constituer une réserve de trésorerie en période favorable",
-          "Surveiller vos marges par produit/service — certains sont peut-être déficitaires sans que vous le sachiez",
+        heading: "Trois alternatives à la guerre des prix",
+        paragraphs: [
+          "1. Creuser votre différenciation — Un client qui choisit uniquement sur le prix ira toujours chez le moins cher. Mais la plupart des clients choisissent sur la valeur perçue — qualité, fiabilité, service, relation. Identifiez ce que vous faites mieux que votre concurrent et rendez-le visible.",
+          "2. Segmenter votre offre — Créez une offre d'entrée de gamme qui répond à la pression prix — sans dévaloriser votre offre principale. Vous gardez vos marges sur les clients qui valorisent la qualité, et vous limitez les pertes sur les clients les plus sensibles au prix.",
+          "3. Renforcer la rétention avant de perdre des clients — Le coût d'acquisition d'un nouveau client est 5 à 7 fois supérieur au coût de rétention d'un client existant. Investir dans la relation client est souvent bien plus rentable que de baisser les prix pour attirer de nouveaux clients.",
         ],
       },
       {
-        heading: "Garder le cap",
+        heading: "Ce que votre trésorerie vous dit",
         paragraphs: [
-          "La meilleure défense face à la concurrence, c'est la visibilité financière. Un dirigeant qui connaît ses chiffres prend de meilleures décisions — et résiste mieux aux pressions du marché.",
+          "Une trésorerie prévisionnelle à jour vous permet de mesurer précisément l'impact d'une pression concurrentielle. Combien de clients devez-vous perdre avant que votre trésorerie soit menacée ? Quel volume supplémentaire devez-vous générer pour compenser une baisse de prix de 5 % ? Ces réponses changent complètement la nature de votre décision stratégique.",
         ],
       },
     ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "fidelisation-tresorerie": {
     sections: [

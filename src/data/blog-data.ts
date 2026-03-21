@@ -66,12 +66,15 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "tresorerie-face-concurrence",
-    title: "SOS Trésorerie — garder le cap face à la concurrence",
-    excerpt: "La concurrence met la pression sur vos marges. Comment protéger votre trésorerie dans un environnement compétitif.",
+    title: "Un concurrent vous attaque sur les prix — comment protéger votre trésorerie sans vous brader",
+    excerpt: "Un concurrent agressif attaque vos prix. Comment protéger votre trésorerie sans entrer dans une guerre des prix perdante ? Stratégies concrètes pour TPE.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-09-22",
+    seoTitle: "Concurrence et Trésorerie — Comment Résister sans Brader vos Marges",
+    metaDescription: "Un concurrent agressif attaque vos prix. Comment protéger votre trésorerie sans entrer dans une guerre des prix perdante ? Stratégies concrètes pour TPE.",
+    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "fidelisation-tresorerie",
