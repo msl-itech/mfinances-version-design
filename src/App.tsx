@@ -25,6 +25,7 @@ const App = () => (
           <Route path="/services/daf-externalise/" element={<DafExternalise />} />
           <Route path="/services/controle-de-gestion/" element={<ControleDeGestion />} />
           <Route path="/services/tresorerie/" element={<Tresorerie />} />
+          <Route path="/services/comptabilite/" element={<Comptabilite />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
