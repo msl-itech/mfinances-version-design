@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { sendLeadToOdoo } from "@/lib/odoo";
 import { Link } from "react-router-dom";
 import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
 import Header from "@/components/Header";
@@ -91,6 +92,7 @@ export default function Contact() {
   const [telephone, setTelephone] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -114,12 +116,27 @@ export default function Contact() {
     return () => { s1.remove(); };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({
-      prenom, nom, email, telephone, message,
-      situation, besoin, source: "formulaire-contact",
+    setIsLoading(true);
+
+    const descParts = [
+      `📋 Lead Formulaire Contact`,
+      `\n👤 Situation: ${situation}`,
+      `🎯 Besoin: ${besoin}`,
+      `\n📞 Téléphone: ${telephone}`,
+      message ? `💬 Message: ${message}` : "",
+      `\nSource: Formulaire Contact - Site MFinances`,
+    ].filter(Boolean);
+
+    await sendLeadToOdoo({
+      name: `${prenom} ${nom}`,
+      email_from: email,
+      phone: telephone,
+      description: descParts.join("\n"),
     });
+
+    setIsLoading(false);
     setSubmitted(true);
   };
 
@@ -388,9 +405,10 @@ export default function Contact() {
                             variant="accent"
                             size="lg"
                             type="submit"
+                            disabled={isLoading}
                             className="rounded-full w-full mt-7 whitespace-normal text-center leading-snug text-[15px]"
                           >
-                            Envoyer ma demande — Mika me rappelle sous 72h
+                            {isLoading ? "Envoi en cours..." : "Envoyer ma demande — Mika me rappelle sous 72h"}
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
 

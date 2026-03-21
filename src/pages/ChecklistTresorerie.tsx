@@ -4,14 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
-
-const ODOO_API_URL = "https://api-connect-odoo.vercel.app/api";
-const ODOO_HEADERS = {
-  "Content-Type": "application/json",
-  "x-signature": "f48fc94a838ab87d65de288bfcb037d109d1141fd981f70f378be51c91c764bd",
-  "x-client-id": "client_mfinances",
-  "x-company-id": "3",
-};
+import { sendLeadToOdoo } from "@/lib/odoo";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -44,26 +37,6 @@ const erreurs = [
     desc: "Recruter, investir, signer un gros contrat — sans projection à 3-6 mois, ces décisions peuvent vous fragiliser sans que vous le voyiez.",
   },
 ];
-
-async function sendLeadToOdoo(prenom: string, email: string) {
-  const leadData = {
-    name: prenom,
-    email_from: email,
-    description: `Lead Checklist Trésorerie\n\nPrénom: ${prenom}\nEmail: ${email}\nSource: Checklist trésorerie - Site MFinances`,
-  };
-
-  const response = await fetch(`${ODOO_API_URL}/leads`, {
-    method: "POST",
-    headers: ODOO_HEADERS,
-    body: JSON.stringify(leadData),
-  });
-
-  if (!response.ok) {
-    console.error("Erreur envoi Odoo:", response.status);
-  }
-
-  return response;
-}
 
 function triggerPdfDownload() {
   const link = document.createElement("a");
@@ -111,7 +84,11 @@ export default function ChecklistTresorerie() {
 
     try {
       // Envoi vers Odoo (on ne bloque pas le téléchargement si ça échoue)
-      await sendLeadToOdoo(form.prenom, form.email).catch((err) => {
+      await sendLeadToOdoo({
+        name: form.prenom,
+        email_from: form.email,
+        description: `Lead Checklist Trésorerie\n\nPrénom: ${form.prenom}\nEmail: ${form.email}\nSource: Checklist trésorerie - Site MFinances`,
+      }).catch((err) => {
         console.error("Erreur Odoo (non bloquante):", err);
       });
 
