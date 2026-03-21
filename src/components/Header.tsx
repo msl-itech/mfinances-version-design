@@ -153,6 +153,10 @@ export default function Header() {
             <Link to="/contact/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Contact
             </Link>
+
+            <Link to="/support/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
+              Support
+            </Link>
           </nav>
 
           {/* Right side */}
