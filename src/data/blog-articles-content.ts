@@ -349,4 +349,59 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/services/daf-externalise/",
     ctaLabel: "Découvrir notre service DAF externalisé",
   },
+  "quand-faire-appel-daf": {
+    sections: [
+      {
+        paragraphs: [
+          "Beaucoup de dirigeants de TPE sentent qu'ils ont besoin d'un regard financier plus stratégique — mais ne savent pas si c'est le bon moment. Voici les 6 signaux qui indiquent que votre entreprise est prête pour un DAF externalisé.",
+        ],
+      },
+      {
+        heading: "Signal 1 — Vous prenez des décisions d'investissement sans modélisation financière",
+        paragraphs: [
+          "Vous achetez du matériel, vous recrutez, vous ouvrez un nouveau point de vente — sur la base de votre intuition et de votre solde bancaire. Vous n'avez pas de projection financière qui vous montre l'impact à 6 ou 12 mois. Vous décidez au feeling — et parfois, ça coûte cher.",
+        ],
+      },
+      {
+        heading: "Signal 2 — Votre banquier vous pose des questions auxquelles vous ne savez pas répondre",
+        paragraphs: [
+          "Quel est votre EBITDA ? Votre ratio d'endettement ? Votre prévisionnel de trésorerie à 12 mois ? Si ces questions vous mettent mal à l'aise, c'est que vous n'avez pas les outils de pilotage qu'un DAF mettrait en place. Et votre banquier le sait.",
+        ],
+      },
+      {
+        heading: "Signal 3 — Votre trésorerie est tendue malgré une activité rentable",
+        paragraphs: [
+          "Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire. C'est le signe classique d'un décalage entre bénéfice et trésorerie — et c'est exactement le type de problème qu'un DAF résout en construisant un prévisionnel de trésorerie fiable.",
+        ],
+      },
+      {
+        heading: "Signal 4 — Vous envisagez un recrutement structurant sans avoir modélisé l'impact",
+        paragraphs: [
+          "Recruter un salarié à 3 500 € brut en Belgique coûte environ 5 500 € à 6 000 € charges comprises. Sur 12 mois, c'est 66 000 € à 72 000 € de trésorerie. Un DAF modélise cet impact, identifie le point mort du recrutement et vous dit à partir de quel mois ce salarié sera rentable.",
+        ],
+      },
+      {
+        heading: "Signal 5 — Vous préparez une levée de fonds ou un crédit important",
+        paragraphs: [
+          "Les investisseurs et les banques veulent des chiffres structurés : business plan financier, prévisionnel de trésorerie, analyse de rentabilité par activité. Un DAF externalisé construit ces documents et vous accompagne dans la négociation.",
+        ],
+      },
+      {
+        heading: "Signal 6 — Vous sentez que vos chiffres ne vous aident pas à décider",
+        paragraphs: [
+          "Vous recevez votre bilan annuel, vos déclarations TVA, vos situations intermédiaires — mais vous ne savez pas quoi en faire concrètement. Vos chiffres ne vous aident pas à prendre de meilleures décisions. C'est le signal le plus fréquent — et le plus sous-estimé.",
+        ],
+      },
+      {
+        heading: "Si vous vous reconnaissez dans au moins 2 de ces signaux",
+        paragraphs: [
+          "Il est probablement temps d'explorer ce qu'un DAF externalisé peut apporter à votre entreprise. Pas nécessairement un engagement lourd — souvent, 1 à 2 jours par mois suffisent pour structurer votre pilotage financier et prendre de meilleures décisions.",
+        ],
+      },
+    ],
+    ctaText: "Vous vous reconnaissez ?",
+    ctaDescription: "Premier échange gratuit — nous évaluons ensemble vos besoins de pilotage financier.",
+    ctaLink: "/services/daf-externalise/",
+    ctaLabel: "Découvrir notre service DAF externalisé",
+  },
 };
