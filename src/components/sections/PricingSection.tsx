@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 const plans = [
   {
     label: "ESSENTIEL",
-    price: "490",
+    price: "350",
     subtitle: "Pour sécuriser vos bases",
     features: ["Comptabilité complète", "Déclarations fiscales", "Accès à votre expert dédié"],
     popular: false,
@@ -14,7 +14,7 @@ const plans = [
   },
   {
     label: "PREMIUM",
-    price: "890",
+    price: "450",
     subtitle: "Pour structurer votre croissance",
     features: ["Tout Essentiel +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle"],
     popular: true,
@@ -22,7 +22,7 @@ const plans = [
   },
   {
     label: "EXCELLENCE",
-    price: "1 490",
+    price: "650",
     subtitle: "Pour piloter comme un grand",
     features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"],
     popular: false,
