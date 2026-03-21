@@ -108,7 +108,7 @@ export default function Header() {
             </DropdownWrapper>
 
             {/* Audience dropdown */}
-            <DropdownWrapper label="Qui nous accompagnons">
+            <DropdownWrapper label="Qui nous accompagnons" href="/qui-nous-accompagnons/">
               <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
                 <div>
                   <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
