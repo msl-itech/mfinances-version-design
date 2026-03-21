@@ -75,14 +75,14 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function SocieteDeMoyens() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Société de Moyens à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Société de Moyens Bruxelles — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité transparente, cash collecting et gestion mutualisée pour sociétés de moyens à Bruxelles. Dès 350 €/mois HTVA.");
+    setMeta("description", "Comptabilité, répartition des charges et cash collecting pour sociétés de moyens en Belgique. MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

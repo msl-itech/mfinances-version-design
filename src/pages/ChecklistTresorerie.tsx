@@ -43,14 +43,14 @@ export default function ChecklistTresorerie() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Les 5 Erreurs qui Détruisent la Trésorerie des TPE — Guide Gratuit MFinances";
+    document.title = "5 Erreurs de Trésorerie — Guide Gratuit | MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Téléchargez gratuitement la checklist MFinances : 5 erreurs de trésorerie que commettent 80% des dirigeants de TPE — et comment les éviter.");
+    setMeta("description", "Téléchargez gratuitement : pourquoi vous n'avez jamais d'argent sur votre compte — et les 5 erreurs à corriger cette semaine.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

@@ -64,7 +64,7 @@ export default function BlogArticle() {
         canonical.setAttribute("rel", "canonical");
         document.head.appendChild(canonical);
       }
-      canonical.setAttribute("href", `https://steer-finance.lovable.app/blog/${categorySlug}/${articleSlug}/`);
+      canonical.setAttribute("href", `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`);
     }
   }, [article, categorySlug, articleSlug]);
 

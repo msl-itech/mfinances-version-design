@@ -72,14 +72,14 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function ProfessionsSante() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Professions de Santé à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Professions de Santé Bruxelles — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Comptabilité, TVA mixte, optimisation fiscale et planification patrimoniale pour médecins, dentistes et professions de santé à Bruxelles. Dès 350 €/mois HTVA.");
+    setMeta("description", "Comptabilité, fiscalité et optimisation patrimoniale pour médecins, dentistes, kinés et paramédicaux en Belgique. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

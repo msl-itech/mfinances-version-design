@@ -155,14 +155,14 @@ function AudienceCard({
 export default function QuiNousAccompagnons() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Qui nous accompagnons — MFinances Cabinet Comptable Bruxelles";
+    document.title = "Qui nous accompagnons — MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Indépendants, startups, commerce, Horeca, professions de santé, ASBL, promoteurs immobiliers — découvrez l'accompagnement MFinances adapté à votre profil.");
+    setMeta("description", "MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

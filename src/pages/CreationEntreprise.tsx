@@ -93,7 +93,7 @@ export default function CreationEntreprise() {
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. Lancez votre entreprise sur des bases solides. Cabinet MFinances, Bruxelles.");
+    setMeta("description", "Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. 800€ HTVA. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

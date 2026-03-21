@@ -84,14 +84,14 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function EntreprisesCroissance() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Entreprise en Croissance à Bruxelles — MFinances";
+    document.title = "Expert-Comptable Entreprise en Croissance Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Situations mensuelles, contrôle de gestion, trésorerie prévisionnelle et DAF à temps partiel pour entreprises en croissance à Bruxelles. Forfait Excellence dès 650 €/mois HTVA.");
+    setMeta("description", "Pilotage financier mensuel et DAF externalisé pour entreprises en croissance en Belgique. Forfait Excellence. Cabinet MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

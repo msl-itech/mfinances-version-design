@@ -35,8 +35,16 @@ export default function BlogCategory() {
     window.scrollTo(0, 0);
     if (category) {
       document.title = `${category.label} — Blog MFinances Bruxelles`;
+
+      let metaDesc = document.querySelector('meta[name="description"]') as HTMLMetaElement;
+      if (!metaDesc) { metaDesc = document.createElement("meta"); metaDesc.setAttribute("name", "description"); document.head.appendChild(metaDesc); }
+      metaDesc.setAttribute("content", category.description);
+
+      let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+      if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+      canonical.href = `https://mfinances.be/blog/${categorySlug}/`;
     }
-  }, [category]);
+  }, [category, categorySlug]);
 
   if (!category) {
     return (

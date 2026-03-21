@@ -36,7 +36,7 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function Blog() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Blog — Pilotage financier pour dirigeants de TPE | MFinances Bruxelles";
+    document.title = "Blog — Pilotage financier TPE | MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;

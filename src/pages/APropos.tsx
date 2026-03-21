@@ -20,14 +20,14 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function APropos() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Pourquoi MFinances — Cabinet d'expertise comptable Bruxelles | Mika Musungayi";
+    document.title = "Pourquoi MFinances — Cabinet comptable Bruxelles | Mika Musungayi";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Mika Musungayi a créé MFinances après avoir vu trop de dirigeants de TPE piloter leur croissance sans visibilité financière. Découvrez sa conviction et son approche.");
+    setMeta("description", "Mika Musungayi a créé MFinances après avoir vu trop de dirigeants de TPE piloter leur croissance sans visibilité financière. Découvrez sa conviction.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

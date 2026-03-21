@@ -135,14 +135,14 @@ function ServiceCard({
 export default function Services() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Nos Services — Cabinet Expert-Comptable MFinances Bruxelles";
+    document.title = "Nos Services — Expert-Comptable MFinances Bruxelles";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "DAF externalisé, contrôle de gestion, trésorerie, comptabilité Odoo, fiscalité et création d'entreprise. Découvrez tous les services de MFinances à Bruxelles.");
+    setMeta("description", "DAF externalisé, contrôle de gestion, trésorerie et comptabilité pour TPE à Bruxelles. Services MFinances adaptés à votre stade de croissance.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }

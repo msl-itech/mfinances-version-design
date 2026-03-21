@@ -165,14 +165,14 @@ export default function Diagnostic() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Diagnostic Trésorerie Gratuit pour TPE — MFinances Bruxelles";
+    document.title = "Diagnostic Trésorerie Gratuit pour TPE — MFinances";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
       el.content = content;
     };
-    setMeta("description", "Votre trésorerie vous cache quelque chose. 8 questions, 3 minutes. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles.");
+    setMeta("description", "Évaluez la santé de votre trésorerie en 8 questions. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
