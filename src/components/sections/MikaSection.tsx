@@ -47,7 +47,7 @@ export default function MikaSection() {
               </p>
 
               <ul className="mt-6 space-y-3">
-                {["Spécialiste patrimoine et TPE", "Membre agréé ITAA"].map((item) => (
+                {["Spécialiste patrimoine et TPE", "Membre ITAA"].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-primary-foreground/75 text-[14px]">
                     <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
                       <Check size={11} className="text-accent" strokeWidth={3} />

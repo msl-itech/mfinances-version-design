@@ -289,7 +289,7 @@ export default function APropos() {
             <SR className="lg:col-span-2">
               <img
                 src={mikaPhoto}
-                alt="Mika Musungayi, fondateur MFinances"
+                alt="Mika MUSUNGAYI, fondateur MFinances"
                 className="rounded-2xl w-full h-[300px] md:h-[380px] object-cover object-top shadow-lg"
               />
             </SR>

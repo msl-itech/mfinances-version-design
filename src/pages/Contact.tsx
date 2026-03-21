@@ -453,9 +453,9 @@ export default function Contact() {
                     <p className="text-[15px] italic text-foreground/80 leading-relaxed font-body">
                       "Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit."
                     </p>
-                    <p className="text-[14px] font-semibold text-foreground mt-3 font-body">
-                      Mika Musungayi
-                    </p>
+                     <p className="text-[14px] font-semibold mt-3 font-body">
+                       <span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span>
+                     </p>
                     <p className="text-[12px] text-muted-foreground font-body">
                       Fondateur · Expert-Comptable
                     </p>
