@@ -80,7 +80,7 @@ export default function Header() {
         }`}
         style={{ borderBottom: scrolled ? "none" : "1px solid rgba(27,43,94,0.06)" }}
       >
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 flex items-center justify-between h-[60px] md:h-[72px]">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12 flex items-center justify-between h-[60px] md:h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
