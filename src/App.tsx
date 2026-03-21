@@ -28,6 +28,9 @@ import APropos from "./pages/APropos.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogCategory from "./pages/BlogCategory.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
+import MentionsLegales from "./pages/MentionsLegales.tsx";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
+import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
