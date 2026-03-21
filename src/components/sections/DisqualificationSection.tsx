@@ -28,7 +28,7 @@ export default function DisqualificationSection() {
           MFinances n'est peut-être <br className="hidden md:block" />
           <span className="text-accent">pas</span> le bon cabinet pour vous
         </h2>
-        <p className={`text-center text-[15px] text-foreground/50 mt-4 mb-14 max-w-[520px] mx-auto leading-relaxed reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        <p className={`text-center text-[14px] text-foreground/50 mt-4 mb-8 md:mb-14 max-w-[520px] mx-auto leading-relaxed reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           Nous préférons être honnêtes dès le départ — c'est le meilleur moyen de construire une relation de confiance.
         </p>
 
