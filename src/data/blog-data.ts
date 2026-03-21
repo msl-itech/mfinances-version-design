@@ -78,12 +78,15 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "fidelisation-tresorerie",
-    title: "Fidélisation — un pilier pour votre trésorerie",
-    excerpt: "Un client fidèle paie plus vite, coûte moins cher à servir et stabilise vos flux de trésorerie.",
+    title: "Fidéliser vos clients — l'impact direct sur votre trésorerie que personne ne calcule",
+    excerpt: "Un client fidèle coûte 5 fois moins cher qu'un nouveau client. Comment la fidélisation améliore directement votre trésorerie et stabilise vos flux financiers.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-09-05",
+    seoTitle: "Fidélisation Client et Trésorerie — Le Lien que Personne ne Vous Explique",
+    metaDescription: "Un client fidèle coûte 5 fois moins cher qu'un nouveau client. Comment la fidélisation améliore directement votre trésorerie et stabilise vos flux financiers.",
+    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "anticiper-flux-tresorerie",
