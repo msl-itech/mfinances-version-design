@@ -12,6 +12,7 @@ import Comptabilite from "./pages/Comptabilite.tsx";
 import Fiscalite from "./pages/Fiscalite.tsx";
 import CreationEntreprise from "./pages/CreationEntreprise.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
+import QuiNousAccompagnons from "./pages/QuiNousAccompagnons.tsx";
 import IndependantsStartups from "./pages/IndependantsStartups.tsx";
 import CommerceHoreca from "./pages/CommerceHoreca.tsx";
 import ProfessionsSante from "./pages/ProfessionsSante.tsx";
