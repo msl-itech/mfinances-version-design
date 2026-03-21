@@ -14,6 +14,20 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
 
+import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
+import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
+import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+
+const categoryHeroImages: Record<string, string> = {
+  "tresorerie": heroTresorerie,
+  "daf-externalise": heroDaf,
+  "controle-de-gestion": heroControle,
+  "fiscalite-belgique": heroFiscalite,
+  "creation-societe": heroCreation,
+};
+
 function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal();
   return (
@@ -137,6 +151,18 @@ export default function BlogArticle() {
             </div>
           </div>
         </section>
+
+        {/* ── HERO IMAGE ── */}
+        {categorySlug && categoryHeroImages[categorySlug] && (
+          <div className="w-full max-h-[360px] overflow-hidden">
+            <img
+              src={categoryHeroImages[categorySlug]}
+              alt={`${category.label} — MFinances`}
+              className="w-full h-[360px] object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
 
         {/* ── ARTICLE BODY ── */}
         <section className="bg-card py-12 md:py-16">
