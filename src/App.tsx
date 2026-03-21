@@ -18,6 +18,7 @@ import EntreprisesCroissance from "./pages/EntreprisesCroissance.tsx";
 import PromoteursImmobiliers from "./pages/PromoteursImmobiliers.tsx";
 import Asbl from "./pages/Asbl.tsx";
 import SocieteExploitation from "./pages/SocieteExploitation.tsx";
+import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
 import Contact from "./pages/Contact.tsx";
 import APropos from "./pages/APropos.tsx";
 import NotFound from "./pages/NotFound.tsx";
