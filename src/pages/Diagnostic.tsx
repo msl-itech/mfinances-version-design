@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Clock, Shield, BarChart3 } from "lucide-react";
 
 /* ───── DATA ───── */
 
@@ -24,19 +24,20 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    title: "Votre statut",
+    title: "Votre statut professionnel",
     subtitle: "Pour personnaliser votre diagnostic, dites-nous en quelle situation vous êtes :",
     scored: false,
     options: [
-      { emoji: "🌱", label: "Indépendant en personne physique" },
-      { emoji: "🏢", label: "Dirigeant de société (SRL, SA...)" },
-      { emoji: "🚀", label: "En cours de création" },
-      { emoji: "🔄", label: "Indépendant en transition vers une société" },
+      { emoji: "🌱", label: "Indépendant en personne physique — Je gère mon activité en nom propre" },
+      { emoji: "🏢", label: "Dirigeant de société — J'ai une SRL, SA ou autre structure" },
+      { emoji: "🚀", label: "En cours de création — Je démarre mon activité" },
+      { emoji: "🔄", label: "Indépendant en transition — Je pense passer en société" },
     ],
   },
   {
     id: 2,
     title: "Votre chiffre d'affaires annuel",
+    subtitle: "Quel est votre chiffre d'affaires annuel approximatif ?",
     scored: false,
     options: [
       { emoji: "📊", label: "Moins de 100 000 €" },
@@ -48,13 +49,14 @@ const questions: Question[] = [
   {
     id: 3,
     title: "Votre préoccupation principale",
+    subtitle: "Quelle est votre plus grande préoccupation financière en ce moment ?",
     scored: false,
     options: [
-      { emoji: "💸", label: "Ma trésorerie — je manque de visibilité sur mes flux" },
-      { emoji: "📉", label: "Ma rentabilité — je ne sais pas si je gagne vraiment de l'argent" },
-      { emoji: "🏛️", label: "Mes impôts — je paye trop ou je ne sais pas optimiser" },
-      { emoji: "🎯", label: "Mes décisions — je manque d'outils pour piloter" },
-      { emoji: "🆕", label: "Je démarre — je veux bien partir du bon pied" },
+      { emoji: "💸", label: "Ma trésorerie — Je manque de visibilité sur mes flux" },
+      { emoji: "📉", label: "Ma rentabilité — Je ne sais pas si je gagne vraiment de l'argent" },
+      { emoji: "🏛️", label: "Mes impôts — Je paye trop ou je ne sais pas optimiser" },
+      { emoji: "🎯", label: "Mes décisions — Je manque d'outils pour piloter" },
+      { emoji: "🆕", label: "Je démarre — Je veux bien partir du bon pied" },
     ],
   },
   {
@@ -132,6 +134,16 @@ const fragilites = [
   { label: "Décider sans tableau prévisionnel", href: "/blog/tresorerie/anticiper-flux-tresorerie/" },
 ];
 
+/* CA profile buckets */
+type CaProfile = "low" | "mid" | "high";
+
+const getCaProfile = (caAnswer: number | null): CaProfile => {
+  if (caAnswer === null) return "low";
+  if (caAnswer === 0) return "low";       // < 100K
+  if (caAnswer === 1) return "mid";       // 100K-500K
+  return "high";                           // 500K+ or 1M+
+};
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -144,7 +156,8 @@ const breadcrumbJsonLd = {
 /* ───── COMPONENT ───── */
 
 export default function Diagnostic() {
-  const [step, setStep] = useState(0); // 0-7 = questions, 8 = result
+  // step: -1 = intro, 0-7 = questions, 8 = result
+  const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
   const [showMidMessage, setShowMidMessage] = useState(false);
   const [emailForm, setEmailForm] = useState({ prenom: "", email: "" });
@@ -205,7 +218,15 @@ export default function Diagnostic() {
     if (step > 0) {
       setStep(step - 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (step === 0) {
+      setStep(-1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
+
+  const startDiagnostic = () => {
+    setStep(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Calculate score (questions 4-8, indices 3-7)
@@ -219,7 +240,9 @@ export default function Diagnostic() {
   const caLabel = answers[1] !== null ? questions[1].options[answers[1]].label : "—";
   const concernLabel = answers[2] !== null ? questions[2].options[answers[2]].label : "—";
 
-  const progress = step <= 7 ? ((step + 1) / 8) * 100 : 100;
+  const progress = step >= 0 && step <= 7 ? ((step + 1) / 8) * 100 : 100;
+
+  const caProfile = getCaProfile(answers[1]);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -229,43 +252,110 @@ export default function Diagnostic() {
   };
 
   const getResultConfig = () => {
+    // 🔴 Zone rouge (0-8)
     if (score <= 8) {
+      if (caProfile === "low") {
+        return {
+          zone: "🔴",
+          color: "hsl(0, 79%, 53%)",
+          bgColor: "hsl(0, 79%, 97%)",
+          borderColor: "hsl(0, 79%, 90%)",
+          title: "Trésorerie fragile",
+          desc: "Même en début d'activité, quelques outils simples changent tout. Votre trésorerie présente des points de fragilité qui méritent une attention immédiate.",
+          ctaLabel: "Télécharger le guide gratuit →",
+          ctaHref: "/contact/",
+          ctaVariant: "accent" as const,
+          secondaryLabel: "Découvrir le forfait Essentiel →",
+          secondaryHref: "/tarifs/",
+        };
+      }
+      if (caProfile === "mid") {
+        return {
+          zone: "🔴",
+          color: "hsl(0, 79%, 53%)",
+          bgColor: "hsl(0, 79%, 97%)",
+          borderColor: "hsl(0, 79%, 90%)",
+          title: "Risques sérieux détectés",
+          desc: "À ce stade de développement, le forfait Premium vous donnera la visibilité manquante sur votre trésorerie et votre rentabilité.",
+          ctaLabel: "Prendre rendez-vous →",
+          ctaHref: "/contact/",
+          ctaVariant: "accent" as const,
+          secondaryLabel: "Découvrir le forfait Premium →",
+          secondaryHref: "/tarifs/",
+        };
+      }
+      // high
       return {
         zone: "🔴",
         color: "hsl(0, 79%, 53%)",
         bgColor: "hsl(0, 79%, 97%)",
         borderColor: "hsl(0, 79%, 90%)",
-        title: "Trésorerie fragilisée",
-        desc: "Votre trésorerie présente plusieurs points de fragilité qui méritent une attention immédiate.",
-        ctaLabel: "Voir si mon entreprise est en danger →",
+        title: "Trésorerie en danger",
+        desc: "À ce niveau de chiffre d'affaires, chaque semaine sans prévisionnel coûte. Le forfait Excellence avec trésorerie mensuelle est indispensable.",
+        ctaLabel: "Rendez-vous urgent →",
         ctaHref: "/contact/",
         ctaVariant: "accent" as const,
-        secondaryLabel: "Voir si je commets ces erreurs →",
-        secondaryHref: "#fragilites",
+        secondaryLabel: "Découvrir le forfait Excellence →",
+        secondaryHref: "/tarifs/",
       };
     }
+
+    // 🟡 Zone jaune (9-16)
     if (score <= 16) {
+      if (caProfile === "low") {
+        return {
+          zone: "🟡",
+          color: "hsl(35, 90%, 50%)",
+          bgColor: "hsl(35, 90%, 97%)",
+          borderColor: "hsl(35, 90%, 85%)",
+          title: "Bonnes bases, quelques angles morts",
+          desc: "Le forfait Essentiel sécurise votre situation et vous donne les outils pour piloter sereinement.",
+          ctaLabel: "Télécharger le guide gratuit →",
+          ctaHref: "/contact/",
+          ctaVariant: "default" as const,
+          secondaryLabel: "Découvrir le forfait Essentiel →",
+          secondaryHref: "/tarifs/",
+        };
+      }
+      if (caProfile === "mid") {
+        return {
+          zone: "🟡",
+          color: "hsl(35, 90%, 50%)",
+          bgColor: "hsl(35, 90%, 97%)",
+          borderColor: "hsl(35, 90%, 85%)",
+          title: "Vous avancez bien",
+          desc: "Votre croissance mérite un suivi structuré. Le forfait Premium vous apporte la visibilité nécessaire pour passer au niveau supérieur.",
+          ctaLabel: "Découvrir le forfait Premium →",
+          ctaHref: "/tarifs/",
+          ctaVariant: "default" as const,
+          secondaryLabel: "Prendre rendez-vous →",
+          secondaryHref: "/contact/",
+        };
+      }
+      // high
       return {
         zone: "🟡",
         color: "hsl(35, 90%, 50%)",
         bgColor: "hsl(35, 90%, 97%)",
         borderColor: "hsl(35, 90%, 85%)",
-        title: "Trésorerie en construction",
-        desc: "Vous avez des bases solides mais des angles morts subsistent.",
-        ctaLabel: "Découvrir pourquoi je manque de cash →",
-        ctaHref: "/services/tresorerie/",
+        title: "Bases solides, mais votre stade exige plus",
+        desc: "Le forfait Excellence avec trésorerie mensuelle est l'étape suivante pour sécuriser votre croissance.",
+        ctaLabel: "Découvrir le forfait Excellence →",
+        ctaHref: "/tarifs/",
         ctaVariant: "default" as const,
-        secondaryLabel: "Parler à un expert — c'est gratuit →",
+        secondaryLabel: "Prendre rendez-vous →",
         secondaryHref: "/contact/",
       };
     }
+
+    // 🟢 Zone verte (17-20) — tout profil
     return {
       zone: "🟢",
       color: "hsl(145, 63%, 42%)",
       bgColor: "hsl(145, 63%, 97%)",
       borderColor: "hsl(145, 63%, 85%)",
-      title: "Trésorerie maîtrisée",
-      desc: "Vous pilotez votre trésorerie avec méthode. Prochaine étape : intégrer votre trésorerie dans un pilotage financier global.",
+      title: "Trésorerie bien pilotée",
+      desc: "Vous pilotez votre trésorerie avec méthode. L'étape suivante : contrôle de gestion + DAF pour passer au niveau supérieur.",
       ctaLabel: "Découvrir le forfait Excellence →",
       ctaHref: "/tarifs/",
       ctaVariant: "default" as const,
@@ -298,7 +388,44 @@ export default function Diagnostic() {
         <section className="bg-secondary py-12 md:py-16">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
 
-            {step <= 7 && !showMidMessage && (
+            {/* ── STEP 0: INTRO / ACCROCHE ── */}
+            {step === -1 && (
+              <div className="bg-card rounded-2xl p-8 md:p-10 border border-border/50 shadow-sm text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                  <BarChart3 size={28} className="text-primary" />
+                </div>
+                <h2 className="font-display text-[24px] md:text-[30px] text-foreground leading-[1.2] mb-3">
+                  Votre diagnostic trésorerie personnalisé
+                </h2>
+                <p className="text-[15px] text-muted-foreground font-body mb-8 max-w-[520px] mx-auto leading-relaxed">
+                  3 questions rapides pour personnaliser votre analyse, puis 5 questions sur votre trésorerie.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
+                    <Clock size={15} className="text-primary/60" />
+                    <span>Moins de 3 minutes</span>
+                  </div>
+                  <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
+                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
+                    <BarChart3 size={15} className="text-primary/60" />
+                    <span>Résultat immédiat</span>
+                  </div>
+                  <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
+                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
+                    <Shield size={15} className="text-primary/60" />
+                    <span>100% confidentiel</span>
+                  </div>
+                </div>
+
+                <Button variant="accent" size="lg" className="rounded-full px-10" onClick={startDiagnostic}>
+                  Commencer le diagnostic <ArrowRight size={16} className="ml-1" />
+                </Button>
+              </div>
+            )}
+
+            {/* ── QUESTIONS ── */}
+            {step >= 0 && step <= 7 && !showMidMessage && (
               <>
                 {/* Progress bar */}
                 <div className="mb-8">
@@ -320,14 +447,12 @@ export default function Diagnostic() {
 
                 {/* Question card */}
                 <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
-                  {step > 0 && (
-                    <button
-                      onClick={goBack}
-                      className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-5"
-                    >
-                      <ArrowLeft size={14} /> Retour
-                    </button>
-                  )}
+                  <button
+                    onClick={goBack}
+                    className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-5"
+                  >
+                    <ArrowLeft size={14} /> Retour
+                  </button>
 
                   <h2 className="font-display text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2">
                     {questions[step].title}
@@ -422,9 +547,11 @@ export default function Diagnostic() {
                   <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
                     {!emailSubmitted ? (
                       <>
-                        <h3 className="font-display text-[20px] text-foreground mb-1">Recevez votre analyse complète</h3>
-                        <p className="text-[13px] text-muted-foreground font-body mb-5">
-                          Résultats détaillés et recommandations personnalisées dans votre boîte mail.
+                        <h3 className="font-display text-[20px] text-foreground mb-1">
+                          Recevez votre analyse complète par email
+                        </h3>
+                        <p className="text-[14px] text-muted-foreground font-body mb-5">
+                          Avec nos recommandations personnalisées selon votre profil.
                         </p>
                         <form onSubmit={handleEmailSubmit} className="space-y-3">
                           <input
@@ -444,11 +571,11 @@ export default function Diagnostic() {
                             className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                           />
                           <Button variant="accent" className="w-full rounded-full" type="submit">
-                            Recevoir mon analyse complète <ArrowRight size={16} className="ml-1" />
+                            Recevoir mon analyse <ArrowRight size={16} className="ml-1" />
                           </Button>
                         </form>
                         <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
-                          En laissant votre email, vous recevrez également notre guide « Pourquoi vous n'avez jamais d'argent sur votre compte ».
+                          En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
                         </p>
                       </>
                     ) : (
