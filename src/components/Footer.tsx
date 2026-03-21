@@ -21,9 +21,8 @@ const ressourcesLinks = [
 
 const legalLinks = [
   { label: "Mentions légales", href: "/mentions-legales/" },
-  { label: "Politique de confidentialité", href: "/confidentialite/" },
-  { label: "Politique de cookies", href: "/cookies/" },
-  { label: "Déclaration impôt particulier", href: "/declaration-impot/" },
+  { label: "Politique de confidentialité", href: "/politique-de-confidentialite/" },
+  { label: "Politique de cookies", href: "/politique-de-cookies/" },
 ];
 
 const linkClass = "block text-[14px] text-white/70 hover:text-white transition-colors py-1";

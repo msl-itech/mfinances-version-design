@@ -28,6 +28,9 @@ import APropos from "./pages/APropos.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogCategory from "./pages/BlogCategory.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
+import MentionsLegales from "./pages/MentionsLegales.tsx";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
+import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -64,6 +67,9 @@ const App = () => (
           <Route path="/blog/" element={<Blog />} />
           <Route path="/blog/:categorySlug/" element={<BlogCategory />} />
           <Route path="/blog/:categorySlug/:articleSlug/" element={<BlogArticle />} />
+          <Route path="/mentions-legales/" element={<MentionsLegales />} />
+          <Route path="/politique-de-confidentialite/" element={<PolitiqueConfidentialite />} />
+          <Route path="/politique-de-cookies/" element={<PolitiqueCookies />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
