@@ -12,6 +12,7 @@ import Comptabilite from "./pages/Comptabilite.tsx";
 import Fiscalite from "./pages/Fiscalite.tsx";
 import CreationEntreprise from "./pages/CreationEntreprise.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
+import QuiNousAccompagnons from "./pages/QuiNousAccompagnons.tsx";
 import IndependantsStartups from "./pages/IndependantsStartups.tsx";
 import CommerceHoreca from "./pages/CommerceHoreca.tsx";
 import ProfessionsSante from "./pages/ProfessionsSante.tsx";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/services/fiscalite/" element={<Fiscalite />} />
           <Route path="/services/creation-entreprise/" element={<CreationEntreprise />} />
           <Route path="/tarifs/" element={<Tarifs />} />
+          <Route path="/qui-nous-accompagnons/" element={<QuiNousAccompagnons />} />
           <Route path="/qui-nous-accompagnons/independants-et-startups/" element={<IndependantsStartups />} />
           <Route path="/qui-nous-accompagnons/commerce-et-horeca/" element={<CommerceHoreca />} />
           <Route path="/qui-nous-accompagnons/professions-de-sante/" element={<ProfessionsSante />} />
