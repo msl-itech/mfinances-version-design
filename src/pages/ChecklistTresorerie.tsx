@@ -6,7 +6,37 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
 import { sendLeadToOdoo } from "@/lib/odoo";
 
-function triggerPdfDownload() {
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
+    { "@type": "ListItem", position: 2, name: "Checklist trésorerie", item: "https://mfinances.be/checklist-tresorerie/" },
+  ],
+};
+
+const erreurs = [
+  {
+    title: "Confondre bénéfice et trésorerie",
+    desc: "Vous êtes rentable sur le papier mais à court de cash en fin de mois ? Le bénéfice est un résultat comptable — la trésorerie, c'est l'argent disponible maintenant.",
+  },
+  {
+    title: "Payer comptant tous vos investissements",
+    desc: "Acheter votre équipement cash semble raisonnable, mais si ça mobilise 80% de vos liquidités, le premier imprévu vous met en danger.",
+  },
+  {
+    title: "Ne pas provisionner la TVA et les impôts",
+    desc: "Les charges sociales, la TVA, les acomptes — ces montants arrivent toujours. Trop de dirigeants les découvrent au moment de payer.",
+  },
+  {
+    title: "Accepter des délais clients trop longs",
+    desc: "Un client à 90 jours, c'est de l'argent immobilisé pendant 3 mois. Bénéfices sur le papier, compte vide en pratique.",
+  },
+  {
+    title: "Décider sans tableau prévisionnel",
+    desc: "Recruter, investir, signer un gros contrat — sans projection à 3-6 mois, ces décisions peuvent vous fragiliser sans que vous le voyiez.",
+  },
+];
   const link = document.createElement("a");
   link.href = "/checklist-tresorerie-mfinances.pdf";
   link.download = "checklist-tresorerie-mfinances.pdf";
