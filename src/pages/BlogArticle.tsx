@@ -4,13 +4,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
@@ -34,9 +32,27 @@ export default function BlogArticle() {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (article) {
-      document.title = `${article.title} — MFinances Bruxelles`;
+      document.title = article.seoTitle || `${article.title} — MFinances Bruxelles`;
+
+      // Meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement("meta");
+        metaDesc.setAttribute("name", "description");
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.setAttribute("content", article.metaDescription || article.excerpt);
+
+      // Canonical
+      let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute("href", `https://steer-finance.lovable.app/blog/${categorySlug}/${articleSlug}/`);
     }
-  }, [article]);
+  }, [article, categorySlug, articleSlug]);
 
   if (!article || !category || !content) {
     return (
@@ -53,9 +69,41 @@ export default function BlogArticle() {
 
   const relatedArticles = getPublishedArticlesByCategory(categorySlug!).filter((a) => a.slug !== articleSlug).slice(0, 3);
 
+  // JSON-LD BreadcrumbList
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://steer-finance.lovable.app/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://steer-finance.lovable.app/blog/" },
+      { "@type": "ListItem", position: 3, name: category.label, item: `https://steer-finance.lovable.app${category.href}` },
+      { "@type": "ListItem", position: 4, name: article.title },
+    ],
+  };
+
+  // JSON-LD FAQPage
+  const faqLd = content.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: content.faq.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
+
+  const ctaLink = content.ctaLink || "/contact/";
+  const ctaLabel = content.ctaLabel || "Parler à un expert";
+
   return (
     <div className="min-h-screen">
       <Header />
+
+      {/* JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
       <main>
         {/* ── HERO ── */}
@@ -64,21 +112,15 @@ export default function BlogArticle() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                  </BreadcrumbLink>
+                  <BreadcrumbLink asChild><Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link></BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/40" />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/blog/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Blog</Link>
-                  </BreadcrumbLink>
+                  <BreadcrumbLink asChild><Link to="/blog/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Blog</Link></BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/40" />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to={category.href} className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">{category.label}</Link>
-                  </BreadcrumbLink>
+                  <BreadcrumbLink asChild><Link to={category.href} className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">{category.label}</Link></BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/40" />
                 <BreadcrumbItem>
@@ -126,14 +168,47 @@ export default function BlogArticle() {
               ))}
             </article>
 
+            {/* Pillar page link */}
+            {article.pillarPage && (
+              <ScrollRevealDiv delay={0.1} className="mt-10">
+                <Link
+                  to={article.pillarPage}
+                  className="inline-flex items-center gap-2 text-accent font-semibold text-[15px] hover:underline font-body"
+                >
+                  {ctaLabel} <ArrowRight size={16} />
+                </Link>
+              </ScrollRevealDiv>
+            )}
+
+            {/* FAQ */}
+            {content.faq && content.faq.length > 0 && (
+              <ScrollRevealDiv delay={0.12} className="mt-14">
+                <h2 className="font-display text-[22px] md:text-[26px] text-foreground mb-6 leading-[1.2]">
+                  Questions fréquentes
+                </h2>
+                <Accordion type="single" collapsible className="w-full">
+                  {content.faq.map((item, i) => (
+                    <AccordionItem key={i} value={`faq-${i}`} className="border-border/50">
+                      <AccordionTrigger className="text-left text-[15px] font-body font-semibold text-foreground hover:no-underline">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] text-foreground/80 font-body leading-[1.8]">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            )}
+
             {/* CTA in-article */}
-            <ScrollRevealDiv delay={0.1} className="mt-12">
+            <ScrollRevealDiv delay={0.14} className="mt-12">
               <div className="bg-primary rounded-2xl p-8 text-center">
                 <h3 className="font-display text-[20px] text-primary-foreground mb-3">
-                  Besoin d'un accompagnement ?
+                  {content.ctaText || "Besoin d'un accompagnement ?"}
                 </h3>
                 <p className="text-primary-foreground/70 text-[14px] font-body mb-6">
-                  Premier échange gratuit — nous analysons votre situation.
+                  {content.ctaDescription || "Premier échange gratuit — nous analysons votre situation."}
                 </p>
                 <Button variant="accent" className="rounded-full" asChild>
                   <Link to="/contact/">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>
