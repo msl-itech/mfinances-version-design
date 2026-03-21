@@ -199,35 +199,32 @@ export const articleContent: Record<string, ArticleBody> = {
   "fidelisation-tresorerie": {
     sections: [
       {
+        heading: "Le lien invisible entre fidélisation et trésorerie",
         paragraphs: [
-          "On parle souvent de fidélisation pour le marketing. Mais son impact sur la trésorerie est tout aussi important — et souvent sous-estimé.",
+          "On parle de fidélisation en termes de satisfaction client, de réputation, de marketing. Rarement en termes de trésorerie. C'est une erreur. Un client fidèle a un impact direct et mesurable sur vos flux financiers.",
         ],
       },
       {
-        heading: "Un client fidèle coûte moins cher",
+        heading: "La mécanique financière de la fidélisation",
         paragraphs: [
-          "Acquérir un nouveau client coûte en moyenne 5 à 7 fois plus cher que de conserver un client existant. Prospection, publicité, temps commercial — ces coûts pèsent sur votre trésorerie.",
-          "Un client fidèle, en revanche, génère du chiffre d'affaires récurrent avec un coût d'acquisition nul.",
+          "Coût d'acquisition vs coût de rétention — Acquérir un nouveau client coûte en moyenne 5 à 7 fois plus cher que de conserver un client existant. Pour une TPE, chaque euro investi en rétention génère un retour bien supérieur au même euro investi en acquisition.",
+          "Prévisibilité des flux — Un portefeuille de clients fidèles génère des revenus prévisibles. Vous savez à l'avance que tel client commande chaque mois, paie sous 30 jours, pour un montant moyen de X euros. Cette prévisibilité est le fondement d'un prévisionnel de trésorerie fiable.",
+          "Réduction du risque d'impayés — Les clients fidèles paient mieux et plus vite. Les impayés se concentrent massivement sur les nouveaux clients et les clients occasionnels.",
         ],
       },
       {
-        heading: "Un client fidèle paie mieux",
+        heading: "Les actions à fort impact sur la trésorerie",
         paragraphs: [
-          "Les clients de longue date ont tendance à payer plus rapidement. La relation de confiance établie réduit les litiges et les retards de paiement. Votre DSO (délai moyen de paiement) s'améliore naturellement.",
-        ],
-      },
-      {
-        heading: "Comment fidéliser pour stabiliser votre trésorerie",
-        paragraphs: ["Des actions concrètes :"],
-        list: [
-          "Mettez en place un suivi de satisfaction simple et régulier",
-          "Proposez des contrats annuels ou des abonnements pour lisser vos revenus",
-          "Offrez un service après-vente irréprochable",
-          "Communiquez régulièrement sur la valeur que vous apportez",
-          "Identifiez les clients à risque de départ — et agissez avant qu'il ne soit trop tard",
+          "Mettre en place des abonnements ou forfaits — Transformer des ventes ponctuelles en revenus récurrents est l'une des meilleures décisions financières qu'une TPE puisse prendre. Un forfait mensuel transforme votre trésorerie : vous savez exactement ce qui rentre chaque mois.",
+          "Négocier des conditions de paiement favorables avec vos clients fidèles — Un client avec qui vous travaillez depuis 3 ans acceptera plus facilement de passer de 60 à 30 jours de paiement en échange d'une remise de fidélité de 2 %. Pour votre trésorerie, cette accélération des encaissements peut valoir bien plus que le coût de la remise.",
+          "Identifier et protéger vos 20 % de clients qui génèrent 80 % de vos revenus — Ces clients sont le socle de votre trésorerie. Connaissez-les, soignez-les, anticipez leurs besoins. La perte d'un seul de ces clients peut créer une tension de trésorerie significative.",
         ],
       },
     ],
+    ctaText: "Besoin d'un accompagnement ?",
+    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
+    ctaLink: "/services/tresorerie/",
+    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "anticiper-flux-tresorerie": {
     sections: [
