@@ -21,9 +21,9 @@ export default function BeforeAfterSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28" ref={ref}>
+    <section className="py-12 md:py-28" ref={ref}>
       <div className="container-mf max-w-[900px]">
-        <h2 className={`font-display text-[26px] md:text-[36px] text-center mb-12 reveal ${isVisible ? "visible" : ""}`}>
+        <h2 className={`font-display text-[22px] md:text-[36px] text-center mb-8 md:mb-12 reveal ${isVisible ? "visible" : ""}`}>
           Ce que ça change <span className="text-accent">concrètement</span>
         </h2>
 
