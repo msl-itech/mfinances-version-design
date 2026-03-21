@@ -66,7 +66,7 @@ const stats = [
   { value: "20+", label: "années d'expérience" },
   { value: "200+", label: "entreprises accompagnées" },
   { value: "5.0", label: "note Google (16 avis)" },
-  { value: "48h", label: "délai de réponse max." },
+  { value: "72h", label: "délai de réponse max." },
 ];
 
 export default function APropos() {
