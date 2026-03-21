@@ -80,7 +80,7 @@ export default function Header() {
         }`}
         style={{ borderBottom: scrolled ? "none" : "1px solid rgba(27,43,94,0.06)" }}
       >
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 flex items-center justify-between h-[60px] md:h-[72px]">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12 flex items-center justify-between h-[60px] md:h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
@@ -91,7 +91,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
             {/* Services dropdown */}
             <DropdownWrapper label="Services">
               <div className="p-3 min-w-[220px]">
@@ -156,7 +156,7 @@ export default function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href="tel:+3228860550"
               className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors"
