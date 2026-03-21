@@ -26,7 +26,7 @@ export default function MikaSection() {
                 <div className="bg-accent text-accent-foreground text-[13px] font-bold px-4 py-2 rounded-lg shadow-md">
                   Mika MUSUNGAYI
                 </div>
-                <div className="text-primary-foreground/80 text-[11px] mt-1 px-1 font-medium">Expert-comptable certifié ITAA</div>
+                <div className="text-primary-foreground/80 text-[11px] mt-1 px-1 font-medium">Expert-comptable</div>
               </div>
             </div>
 
