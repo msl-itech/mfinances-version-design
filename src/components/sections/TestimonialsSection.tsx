@@ -1,26 +1,5 @@
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-
-const testimonials = [
-  {
-    quote: "MFINANCES est aujourd'hui plus qu'un conseiller : c'est un vrai partenaire de confiance pour la gestion financière de mon entreprise. Je peux enfin lire et comprendre mes finances.",
-    author: "Luc Jeazet",
-    role: "Dirigeant d'entreprise, Bruxelles",
-    initials: "LJ",
-  },
-  {
-    quote: "C'est un service sérieux, humain et ultra rentable. Depuis que leur équipe s'occupe de mon dossier, je récupère chaque année des montants importants grâce à l'optimisation.",
-    author: "Sandra",
-    role: "Dirigeante, Bruxelles",
-    initials: "S",
-  },
-  {
-    quote: "Grâce à leurs conseils pratiques, j'ai mis en place un plan de trésorerie efficace pour piloter mes flux financiers. Je recommande vivement aux entrepreneurs qui veulent une vraie vision sur leurs finances.",
-    author: "Rann Rann",
-    role: "Entrepreneur, Bruxelles",
-    initials: "RR",
-  },
-];
 
 export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -50,28 +29,17 @@ export default function TestimonialsSection() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {testimonials.map((t, i) => (
-            <div
-              key={t.author}
-              className={`relative bg-background rounded-2xl p-6 md:p-8 border border-border/30 hover:shadow-[0_8px_32px_rgba(27,43,94,0.06)] transition-all duration-300 reveal ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
-            >
-              <Quote size={32} className="text-accent/10 mb-3" />
-              <p className="text-[14px] text-foreground/70 leading-[1.8]">
-                "{t.quote}"
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-[12px] font-bold">
-                  {t.initials}
-                </div>
-                <div>
-                  <p className="font-bold text-[14px] text-foreground">{t.author}</p>
-                  <p className="text-[12px] text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className={`w-full flex justify-center reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.5!2d4.3517!3d50.7942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c4e2b4e5b8a7%3A0x1234567890abcdef!2sMFinances!5e0!3m2!1sfr!2sbe!4v1700000000000!5m2!1sfr!2sbe"
+            width="100%"
+            height="450"
+            style={{ border: 0, borderRadius: "1rem", maxWidth: "900px" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Avis Google MFinances"
+          />
         </div>
       </div>
     </section>
