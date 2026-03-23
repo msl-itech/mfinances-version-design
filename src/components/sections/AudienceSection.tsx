@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import imgIndependants from "@/assets/audience-independants.jpg";
-import imgHoreca from "@/assets/audience-commerce-horeca.jpg";
-import imgSante from "@/assets/audience-sante.jpg";
-import imgCroissance from "@/assets/audience-croissance.jpg";
-import imgPromoteurs from "@/assets/audience-promoteurs.jpg";
+import imgIndependants from "@/assets/audience-independants.webp";
+import imgHoreca from "@/assets/audience-commerce-horeca.webp";
+import imgSante from "@/assets/audience-sante.webp";
+import imgCroissance from "@/assets/audience-croissance.webp";
+import imgPromoteurs from "@/assets/audience-promoteurs.webp";
 
 const audiences = [
   { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-startups/", image: imgIndependants },

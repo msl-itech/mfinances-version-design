@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-scroll-reveal";
 import { ArrowRight, Star } from "lucide-react";
-import mikaPhoto from "@/assets/mika-musungayi.png";
+import mikaPhoto from "@/assets/mika-musungayi.webp";
 
 const stats = [
   { value: 200, suffix: "+", label: "entreprises accompagnées" },
