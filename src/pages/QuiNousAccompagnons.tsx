@@ -198,15 +198,15 @@ export default function QuiNousAccompagnons() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Trouvez l'accompagnement <span className="text-accent">fait pour vous</span>
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
                   Chaque profil a ses enjeux. Nous avons conçu des accompagnements spécifiques pour chaque type d'activité et de structure juridique.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
