@@ -234,12 +234,12 @@ export default function PromoteursImmobiliers() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons vos enjeux financiers et fiscaux.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
