@@ -78,18 +78,6 @@ export default function TestimonialsSection() {
   );
 }
 
-        <div className={`w-full flex justify-center reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15922.722635695913!2d11.467989950000002!3d3.8784797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1774275002021!5m2!1sfr!2scm"
-            width="100%"
-            height="450"
-            style={{ border: 0, borderRadius: "1rem", maxWidth: "900px" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Avis Google MFinances"
-          />
-        </div>
       </div>
     </section>
   );
