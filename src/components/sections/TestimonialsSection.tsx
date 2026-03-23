@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
 
         <div className={`w-full flex justify-center reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.5!2d4.3517!3d50.7942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c4e2b4e5b8a7%3A0x1234567890abcdef!2sMFinances!5e0!3m2!1sfr!2sbe!4v1700000000000!5m2!1sfr!2sbe"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15922.722635695913!2d11.467989950000002!3d3.8784797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1774275002021!5m2!1sfr!2scm"
             width="100%"
             height="450"
             style={{ border: 0, borderRadius: "1rem", maxWidth: "900px" }}
