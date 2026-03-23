@@ -139,7 +139,7 @@ export default function HeroSection() {
                 <p className="text-[11px] text-primary-foreground/70 mt-0.5">ans d'expérience</p>
               </div>
             </div>
-          </div>
+            </div>
           </div>
         </div>
 
