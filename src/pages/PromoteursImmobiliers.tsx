@@ -211,12 +211,12 @@ export default function PromoteursImmobiliers() {
                   DAF à temps partiel disponible en option — <strong className="text-foreground">150 € HTVA/heure</strong>.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full" asChild>
-                  <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
