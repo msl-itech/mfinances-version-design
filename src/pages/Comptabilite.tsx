@@ -151,7 +151,7 @@ export default function Comptabilite() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Inclus dès le forfait Essentiel
                 </span>
@@ -161,7 +161,7 @@ export default function Comptabilite() {
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
                   Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps.
                 </p>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   {["Inclus dès le forfait Essentiel", "Intégration Odoo"].map((pill) => (
                     <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                       {pill}
@@ -169,8 +169,8 @@ export default function Comptabilite() {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1" /></Link>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                   </Button>
                 </div>
               </div>
