@@ -231,7 +231,8 @@ export default function CommerceHoreca() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30 bg-secondary/40">
@@ -262,6 +263,29 @@ export default function CommerceHoreca() {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {[
+                  { label: "Comptabilité + TVA sectorielle", premium: true, excellence: true },
+                  { label: "Analyse des marges", premium: "Trimestrielle", excellence: "Mensuelle" },
+                  { label: "Trésorerie prévisionnelle", premium: false, excellence: "✓ mensuelle" },
+                ].map((row) => (
+                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="text-center">
+                        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider font-body block mb-1">Premium</span>
+                        {row.premium === true ? <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" /> : row.premium === false ? <Minus size={14} className="text-foreground/20 mx-auto" /> : <span className="text-[12px] text-foreground/70 font-body">{row.premium}</span>}
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[10px] font-semibold text-accent uppercase tracking-wider font-body block mb-1">Excellence</span>
+                        {row.excellence === true ? <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" /> : <span className="text-[12px] text-foreground/70 font-body">{row.excellence}</span>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </ScrollRevealDiv>
 
