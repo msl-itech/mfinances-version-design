@@ -240,7 +240,8 @@ export default function CreationEntreprise() {
               <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground mb-8">
                 Ce que vous obtenez <span className="text-accent">concrètement</span>
               </h2>
-              <div className="bg-secondary/60 rounded-2xl border border-border/50 overflow-hidden">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-secondary/60 rounded-2xl border border-border/50 overflow-hidden">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30">
@@ -261,6 +262,20 @@ export default function CreationEntreprise() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {tableRows.map((row, i) => (
+                  <div key={i} className={`rounded-xl border border-border/50 p-4 ${row.highlight ? "bg-accent/[0.05]" : "bg-secondary/60"}`}>
+                    <p className={`text-[14px] font-semibold font-body mb-1 ${row.highlight ? "text-accent" : row.muted ? "text-muted-foreground" : "text-foreground"}`}>
+                      {row.step}
+                    </p>
+                    <p className={`text-[13px] font-body leading-relaxed ${row.highlight ? "text-accent font-medium" : row.muted ? "text-muted-foreground italic" : "text-muted-foreground"}`}>
+                      {row.detail}
+                    </p>
+                  </div>
+                ))}
               </div>
             </ScrollRevealDiv>
 
