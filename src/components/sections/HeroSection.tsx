@@ -77,7 +77,7 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div
-              className={`mt-8 flex flex-col sm:flex-row items-start gap-3 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              className={`mt-8 flex flex-col sm:flex-row items-center sm:items-start gap-3 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: "0.5s" }}
             >
               <Button variant="accent" size="lg" className="rounded-full px-8 group" asChild>
