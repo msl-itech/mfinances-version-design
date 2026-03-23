@@ -115,6 +115,7 @@ export default function HeroSection() {
                   alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                   className="w-full h-[380px] md:h-[480px] object-cover object-top"
                   loading="eager"
+                  fetchPriority="high"
                 />
                 {/* Gradient overlay at bottom */}
                 <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-background to-transparent" />
