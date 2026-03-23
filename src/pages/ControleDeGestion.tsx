@@ -177,14 +177,14 @@ export default function ControleDeGestion() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Premium & Excellence
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Pilotez votre entreprise avec les bons chiffres, au bon moment
                 </h1>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                     Forfaits Premium & Excellence
                   </span>
@@ -243,7 +243,8 @@ export default function ControleDeGestion() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-border">
@@ -264,11 +265,30 @@ export default function ControleDeGestion() {
                 </table>
               </div>
 
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {tableRows.map((row) => (
+                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="text-center">
+                        <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider font-body block mb-1">Premium</span>
+                        <CellValue value={row.premium} />
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[11px] font-semibold text-accent uppercase tracking-wider font-body block mb-1">Excellence</span>
+                        <CellValue value={row.excellence} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="text-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">
                     Voir les tarifs détaillés
-                    <ArrowRight size={16} className="ml-1" />
+                    <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                   </Link>
                 </Button>
               </div>
@@ -353,13 +373,13 @@ export default function ControleDeGestion() {
               Discutons de vos enjeux — sans engagement, sans jargon.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/contact/">
                   Parler à un expert — c'est gratuit
-                  <ArrowRight size={16} className="ml-1" />
+                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Link>
               </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full" asChild>
+              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/tarifs/">Voir nos tarifs →</Link>
               </Button>
             </div>
