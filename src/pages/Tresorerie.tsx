@@ -377,13 +377,13 @@ export default function Tresorerie() {
               8 questions pour identifier vos points de fragilité — résultat immédiat, gratuit.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/diagnostic/">
                   Voir si mon entreprise est en danger
-                  <ArrowRight size={16} className="ml-1" />
+                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Link>
               </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full" asChild>
+              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/tarifs/">Voir nos tarifs →</Link>
               </Button>
             </div>
