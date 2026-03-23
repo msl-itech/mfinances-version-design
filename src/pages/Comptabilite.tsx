@@ -308,7 +308,8 @@ export default function Comptabilite() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px]">
                     <thead>
@@ -341,6 +342,29 @@ export default function Comptabilite() {
                     </tbody>
                   </table>
                 </div>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {planRows.map((row, ri) => (
+                  <div key={row.label} className={`bg-card rounded-xl border border-border/50 p-4 ${ri === planRows.length - 1 ? "bg-primary/[0.03]" : ""}`}>
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
+                        <div key={plan} className="text-center">
+                          <span className={`text-[10px] font-semibold uppercase tracking-wider font-body block mb-1 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
+                          {row.values[ci] === true ? (
+                            <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" />
+                          ) : row.values[ci] === "—" ? (
+                            <Minus size={14} className="text-foreground/20 mx-auto" />
+                          ) : (
+                            <span className={`font-semibold font-body text-[12px] ${ri === planRows.length - 1 ? "text-primary" : "text-foreground/70"}`}>{row.values[ci]}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </ScrollRevealDiv>
 
