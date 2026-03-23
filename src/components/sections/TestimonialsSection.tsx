@@ -77,8 +77,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-
-      </div>
-    </section>
-  );
-}
