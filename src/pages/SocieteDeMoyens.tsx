@@ -287,8 +287,8 @@ export default function SocieteDeMoyens() {
             </ScrollRevealDiv>
 
             <div className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
           </div>
