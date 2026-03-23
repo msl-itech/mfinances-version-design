@@ -104,8 +104,8 @@ export default function HeroSection() {
 
           {/* Right — Mika photo + stats */}
           <div
-            className={`relative transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            style={{ transitionDelay: "0.3s" }}
+            className="relative"
+            style={{ animationName: mounted ? "fadeSlideUp" : "none", animationDuration: "1s", animationFillMode: "both", animationDelay: "0.3s" }}
           >
             <div className="relative">
               {/* Photo container */}
