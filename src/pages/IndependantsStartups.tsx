@@ -136,18 +136,18 @@ export default function IndependantsStartups() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Essentiel — dès 350 € HTVA/mois
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Indépendant ou startup — <span className="text-accent">posez les bonnes bases financières</span> dès le départ
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
                   Vous avez fait le saut. Vous avez le projet, l'énergie, les premiers clients. Ce que personne ne vous a dit : les erreurs financières du démarrage sont les plus difficiles à corriger. Et les plus évitables.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
@@ -281,8 +281,8 @@ export default function IndependantsStartups() {
             </ScrollRevealDiv>
 
             <div className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
           </div>
@@ -299,12 +299,12 @@ export default function IndependantsStartups() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous vous accompagnons dès le premier jour.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>

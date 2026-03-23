@@ -132,18 +132,18 @@ export default function CommerceHoreca() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Premium minimum — dès 450 € HTVA/mois
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Commerce et Horeca — <span className="text-accent">maîtrisez vos marges</span> avant qu'elles ne vous échappent
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
                   Dans ce secteur, la différence entre un établissement qui prospère et un qui ferme tient souvent à un seul facteur : la maîtrise financière.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
@@ -231,7 +231,8 @@ export default function CommerceHoreca() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30 bg-secondary/40">
@@ -263,6 +264,29 @@ export default function CommerceHoreca() {
                   </tbody>
                 </table>
               </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {[
+                  { label: "Comptabilité + TVA sectorielle", premium: true, excellence: true },
+                  { label: "Analyse des marges", premium: "Trimestrielle", excellence: "Mensuelle" },
+                  { label: "Trésorerie prévisionnelle", premium: false, excellence: "✓ mensuelle" },
+                ].map((row) => (
+                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="text-center">
+                        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider font-body block mb-1">Premium</span>
+                        {row.premium === true ? <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" /> : row.premium === false ? <Minus size={14} className="text-foreground/20 mx-auto" /> : <span className="text-[12px] text-foreground/70 font-body">{row.premium}</span>}
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[10px] font-semibold text-accent uppercase tracking-wider font-body block mb-1">Excellence</span>
+                        {row.excellence === true ? <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" /> : <span className="text-[12px] text-foreground/70 font-body">{row.excellence}</span>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
@@ -274,8 +298,8 @@ export default function CommerceHoreca() {
             </ScrollRevealDiv>
 
             <div className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
           </div>
@@ -292,12 +316,12 @@ export default function CommerceHoreca() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons votre situation financière.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>

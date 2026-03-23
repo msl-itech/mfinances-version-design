@@ -100,18 +100,18 @@ export default function PromoteursImmobiliers() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Excellence — dès 650 € HTVA/mois
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Promotion immobilière — <span className="text-accent">pilotez chaque projet</span> comme une entreprise dans l'entreprise
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
                   Budgets conséquents, marges serrées, TVA complexe, flux de trésorerie décalés — la promotion immobilière est l'une des activités où la maîtrise financière fait directement la différence.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
@@ -211,12 +211,12 @@ export default function PromoteursImmobiliers() {
                   DAF à temps partiel disponible en option — <strong className="text-foreground">150 € HTVA/heure</strong>.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full" asChild>
-                  <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
@@ -234,12 +234,12 @@ export default function PromoteursImmobiliers() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons vos enjeux financiers et fiscaux.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
