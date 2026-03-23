@@ -140,9 +140,9 @@ type CaProfile = "low" | "mid" | "high";
 
 const getCaProfile = (caAnswer: number | null): CaProfile => {
   if (caAnswer === null) return "low";
-  if (caAnswer === 0) return "low";       // < 100K
-  if (caAnswer === 1) return "mid";       // 100K-500K
-  return "high";                           // 500K+ or 1M+
+  if (caAnswer === 0) return "low";
+  if (caAnswer === 1) return "mid";
+  return "high";
 };
 
 const breadcrumbJsonLd = {
@@ -157,7 +157,6 @@ const breadcrumbJsonLd = {
 /* ───── COMPONENT ───── */
 
 export default function Diagnostic() {
-  // step: -1 = intro, 0-7 = questions, 8 = result
   const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
   const [showMidMessage, setShowMidMessage] = useState(false);
@@ -191,13 +190,11 @@ export default function Diagnostic() {
     newAnswers[step] = optionIndex;
     setAnswers(newAnswers);
 
-    // After Q3 (step 2), show mid-message before advancing
     if (step === 2) {
       setShowMidMessage(true);
       return;
     }
 
-    // Auto-advance after short delay
     setTimeout(() => {
       if (step < 7) {
         setStep(step + 1);
@@ -230,7 +227,6 @@ export default function Diagnostic() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Calculate score (questions 4-8, indices 3-7)
   const score = answers.slice(3).reduce((sum, ansIdx, qIdx) => {
     if (ansIdx === null) return sum;
     const q = questions[qIdx + 3];
@@ -268,7 +264,6 @@ export default function Diagnostic() {
   };
 
   const getResultConfig = () => {
-    // 🔴 Zone rouge (0-8)
     if (score <= 8) {
       if (caProfile === "low") {
         return {
@@ -278,10 +273,10 @@ export default function Diagnostic() {
           borderColor: "hsl(0, 79%, 90%)",
           title: "Trésorerie fragile",
           desc: "Même en début d'activité, quelques outils simples changent tout. Votre trésorerie présente des points de fragilité qui méritent une attention immédiate.",
-          ctaLabel: "Télécharger la checklist gratuite →",
+          ctaLabel: "Télécharger la checklist gratuite",
           ctaHref: "/checklist-tresorerie/",
           ctaVariant: "accent" as const,
-          secondaryLabel: "Découvrir le forfait Essentiel →",
+          secondaryLabel: "Découvrir le forfait Essentiel",
           secondaryHref: "/tarifs/",
         };
       }
@@ -293,14 +288,13 @@ export default function Diagnostic() {
           borderColor: "hsl(0, 79%, 90%)",
           title: "Risques sérieux détectés",
           desc: "À ce stade de développement, le forfait Premium vous donnera la visibilité manquante sur votre trésorerie et votre rentabilité.",
-          ctaLabel: "Prendre rendez-vous →",
+          ctaLabel: "Prendre rendez-vous",
           ctaHref: "/contact/",
           ctaVariant: "accent" as const,
-          secondaryLabel: "Découvrir le forfait Premium →",
+          secondaryLabel: "Découvrir le forfait Premium",
           secondaryHref: "/tarifs/",
         };
       }
-      // high
       return {
         zone: "🔴",
         color: "hsl(0, 79%, 53%)",
@@ -308,15 +302,14 @@ export default function Diagnostic() {
         borderColor: "hsl(0, 79%, 90%)",
         title: "Trésorerie en danger",
         desc: "À ce niveau de chiffre d'affaires, chaque semaine sans prévisionnel coûte. Le forfait Excellence avec trésorerie mensuelle est indispensable.",
-        ctaLabel: "Rendez-vous urgent →",
+        ctaLabel: "Rendez-vous urgent",
         ctaHref: "/contact/",
         ctaVariant: "accent" as const,
-        secondaryLabel: "Découvrir le forfait Excellence →",
+        secondaryLabel: "Découvrir le forfait Excellence",
         secondaryHref: "/tarifs/",
       };
     }
 
-    // 🟡 Zone jaune (9-16)
     if (score <= 16) {
       if (caProfile === "low") {
         return {
@@ -326,10 +319,10 @@ export default function Diagnostic() {
           borderColor: "hsl(35, 90%, 85%)",
           title: "Bonnes bases, quelques angles morts",
           desc: "Le forfait Essentiel sécurise votre situation et vous donne les outils pour piloter sereinement.",
-          ctaLabel: "Télécharger la checklist gratuite →",
+          ctaLabel: "Télécharger la checklist gratuite",
           ctaHref: "/checklist-tresorerie/",
           ctaVariant: "default" as const,
-          secondaryLabel: "Découvrir le forfait Essentiel →",
+          secondaryLabel: "Découvrir le forfait Essentiel",
           secondaryHref: "/tarifs/",
         };
       }
@@ -341,14 +334,13 @@ export default function Diagnostic() {
           borderColor: "hsl(35, 90%, 85%)",
           title: "Vous avancez bien",
           desc: "Votre croissance mérite un suivi structuré. Le forfait Premium vous apporte la visibilité nécessaire pour passer au niveau supérieur.",
-          ctaLabel: "Découvrir le forfait Premium →",
+          ctaLabel: "Découvrir le forfait Premium",
           ctaHref: "/tarifs/",
           ctaVariant: "default" as const,
-          secondaryLabel: "Prendre rendez-vous →",
+          secondaryLabel: "Prendre rendez-vous",
           secondaryHref: "/contact/",
         };
       }
-      // high
       return {
         zone: "🟡",
         color: "hsl(35, 90%, 50%)",
@@ -356,15 +348,14 @@ export default function Diagnostic() {
         borderColor: "hsl(35, 90%, 85%)",
         title: "Bases solides, mais votre stade exige plus",
         desc: "Le forfait Excellence avec trésorerie mensuelle est l'étape suivante pour sécuriser votre croissance.",
-        ctaLabel: "Découvrir le forfait Excellence →",
+        ctaLabel: "Découvrir le forfait Excellence",
         ctaHref: "/tarifs/",
         ctaVariant: "default" as const,
-        secondaryLabel: "Prendre rendez-vous →",
+        secondaryLabel: "Prendre rendez-vous",
         secondaryHref: "/contact/",
       };
     }
 
-    // 🟢 Zone verte (17-20) — tout profil
     return {
       zone: "🟢",
       color: "hsl(145, 63%, 42%)",
@@ -372,10 +363,10 @@ export default function Diagnostic() {
       borderColor: "hsl(145, 63%, 85%)",
       title: "Trésorerie bien pilotée",
       desc: "Vous pilotez votre trésorerie avec méthode. L'étape suivante : contrôle de gestion + DAF pour passer au niveau supérieur.",
-      ctaLabel: "Découvrir le forfait Excellence →",
+      ctaLabel: "Découvrir le forfait Excellence",
       ctaHref: "/tarifs/",
       ctaVariant: "default" as const,
-      secondaryLabel: "Parler à un expert — c'est gratuit →",
+      secondaryLabel: "Parler à un expert — c'est gratuit",
       secondaryHref: "/contact/",
     };
   };
@@ -386,56 +377,56 @@ export default function Diagnostic() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-16">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
-            <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
+        <section className="bg-primary py-10 md:py-16">
+          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center">
+            <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-4 md:mb-5">
               Gratuit · 3 minutes · Confidentiel
             </span>
-            <h1 className="font-display text-[28px] md:text-[42px] leading-[1.15] text-primary-foreground">
+            <h1 className="font-display text-[24px] sm:text-[30px] md:text-[42px] leading-[1.15] text-primary-foreground">
               Votre trésorerie vous cache quelque chose. <span className="text-accent">Depuis combien de temps ?</span>
             </h1>
-            <p className="text-primary-foreground/75 text-[15px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
+            <p className="text-primary-foreground/75 text-[14px] sm:text-[15px] leading-relaxed mt-4 md:mt-5 font-body max-w-[600px] mx-auto">
               8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier — ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
             </p>
           </div>
         </section>
 
         {/* ── QUIZ AREA ── */}
-        <section className="bg-secondary py-12 md:py-16">
-          <div className="mx-auto max-w-[700px] px-6 lg:px-12">
+        <section className="bg-secondary py-8 md:py-16">
+          <div className="mx-auto max-w-[700px] px-4 sm:px-6 lg:px-12">
 
             {/* ── STEP 0: INTRO / ACCROCHE ── */}
             {step === -1 && (
-              <div className="bg-card rounded-2xl p-8 md:p-10 border border-border/50 shadow-sm text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <BarChart3 size={28} className="text-primary" />
+              <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm text-center">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 sm:mb-6">
+                  <BarChart3 size={26} className="text-primary" />
                 </div>
-                <h2 className="font-display text-[24px] md:text-[30px] text-foreground leading-[1.2] mb-3">
+                <h2 className="font-display text-[22px] sm:text-[24px] md:text-[30px] text-foreground leading-[1.2] mb-3">
                   Votre diagnostic trésorerie personnalisé
                 </h2>
-                <p className="text-[15px] text-muted-foreground font-body mb-8 max-w-[520px] mx-auto leading-relaxed">
+                <p className="text-[14px] sm:text-[15px] text-muted-foreground font-body mb-6 sm:mb-8 max-w-[520px] mx-auto leading-relaxed">
                   3 questions rapides pour personnaliser votre analyse, puis 5 questions sur votre trésorerie.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <Clock size={15} className="text-primary/60" />
+                    <Clock size={15} className="text-primary/60 flex-shrink-0" />
                     <span>Moins de 3 minutes</span>
                   </div>
                   <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
                   <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <BarChart3 size={15} className="text-primary/60" />
+                    <BarChart3 size={15} className="text-primary/60 flex-shrink-0" />
                     <span>Résultat immédiat</span>
                   </div>
                   <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
                   <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <Shield size={15} className="text-primary/60" />
+                    <Shield size={15} className="text-primary/60 flex-shrink-0" />
                     <span>100% confidentiel</span>
                   </div>
                 </div>
 
-                <Button variant="accent" size="lg" className="rounded-full px-10" onClick={startDiagnostic}>
-                  Commencer le diagnostic <ArrowRight size={16} className="ml-1" />
+                <Button variant="accent" size="lg" className="rounded-full px-8 sm:px-10 whitespace-normal text-center" onClick={startDiagnostic}>
+                  Commencer le diagnostic <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Button>
               </div>
             )}
@@ -444,16 +435,16 @@ export default function Diagnostic() {
             {step >= 0 && step <= 7 && !showMidMessage && (
               <>
                 {/* Progress bar */}
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-[13px] font-semibold text-foreground/60 font-body">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-foreground/60 font-body">
                       Question {step + 1} sur 8
                     </span>
-                    <span className="text-[13px] text-foreground/40 font-body">
+                    <span className="text-[12px] sm:text-[13px] text-foreground/40 font-body">
                       {step < 3 ? "Phase 1 — Profil" : "Phase 2 — Trésorerie"}
                     </span>
                   </div>
-                  <div className="w-full h-2.5 bg-border/50 rounded-full overflow-hidden">
+                  <div className="w-full h-2 sm:h-2.5 bg-border/50 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
                       style={{ width: `${progress}%` }}
@@ -462,36 +453,36 @@ export default function Diagnostic() {
                 </div>
 
                 {/* Question card */}
-                <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
                   <button
                     onClick={goBack}
-                    className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-5"
+                    className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-4 sm:mb-5"
                   >
                     <ArrowLeft size={14} /> Retour
                   </button>
 
-                  <h2 className="font-display text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2">
+                  <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2">
                     {questions[step].title}
                   </h2>
                   {questions[step].subtitle && (
-                    <p className="text-[14px] text-muted-foreground font-body mb-6">{questions[step].subtitle}</p>
+                    <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5 sm:mb-6">{questions[step].subtitle}</p>
                   )}
 
-                  <div className="space-y-3">
+                  <div className="space-y-2.5 sm:space-y-3">
                     {questions[step].options.map((opt, idx) => {
                       const selected = answers[step] === idx;
                       return (
                         <button
                           key={idx}
                           onClick={() => selectAnswer(idx)}
-                          className={`w-full text-left flex items-start gap-3.5 p-4 rounded-xl border transition-all duration-200 ${
+                          className={`w-full text-left flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl border transition-all duration-200 ${
                             selected
                               ? "border-primary bg-primary/5 shadow-sm"
                               : "border-border/50 bg-white hover:border-primary/30 hover:bg-primary/[0.02]"
                           }`}
                         >
-                          <span className="text-[20px] flex-shrink-0 mt-0.5">{opt.emoji}</span>
-                          <span className={`text-[14px] font-body leading-relaxed ${selected ? "text-foreground font-medium" : "text-foreground/80"}`}>
+                          <span className="text-[18px] sm:text-[20px] flex-shrink-0 mt-0.5">{opt.emoji}</span>
+                          <span className={`text-[13px] sm:text-[14px] font-body leading-relaxed ${selected ? "text-foreground font-medium" : "text-foreground/80"}`}>
                             {opt.label}
                           </span>
                         </button>
@@ -504,14 +495,14 @@ export default function Diagnostic() {
 
             {/* Mid-message after Q3 */}
             {showMidMessage && (
-              <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm text-center">
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle2 size={28} className="text-accent" />
+              <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border/50 shadow-sm text-center">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 sm:mb-5">
+                  <CheckCircle2 size={26} className="text-accent" />
                 </div>
-                <h2 className="font-display text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-3">
+                <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-3">
                   Vous êtes à mi-chemin !
                 </h2>
-                <p className="text-[15px] text-muted-foreground font-body mb-6 max-w-[480px] mx-auto">
+                <p className="text-[14px] sm:text-[15px] text-muted-foreground font-body mb-5 sm:mb-6 max-w-[480px] mx-auto">
                   Parfait ! Maintenant 5 questions sur votre trésorerie — elles définissent votre score de risque.
                 </p>
                 <Button variant="accent" size="lg" className="rounded-full" onClick={advanceFromMid}>
@@ -523,7 +514,7 @@ export default function Diagnostic() {
             {/* ── RESULTS ── */}
             {step === 8 && (() => {
               const r = getResultConfig();
-              const scoredQuestions = questions.slice(3); // Q4-Q8
+              const scoredQuestions = questions.slice(3);
               const scoredAnswers = answers.slice(3);
               const scoreIcons = [Wallet, Clock, TrendingUp, Landmark, PiggyBank];
               const percentage = Math.round((score / 20) * 100);
@@ -531,14 +522,14 @@ export default function Diagnostic() {
               const strokeOffset = circumference - (percentage / 100) * circumference;
 
               return (
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
 
                   {/* ── 1. Score principal ── */}
-                  <div className="bg-card rounded-2xl p-8 md:p-10 border border-border/50 shadow-sm text-center">
-                    <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-6 font-body">Votre résultat</p>
+                  <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm text-center">
+                    <p className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-5 sm:mb-6 font-body">Votre résultat</p>
 
                     {/* Gauge circulaire */}
-                    <div className="relative w-36 h-36 mx-auto mb-6">
+                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-5 sm:mb-6">
                       <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
                         <circle cx="60" cy="60" r="54" fill="none" stroke="hsl(var(--border))" strokeWidth="8" opacity="0.3" />
                         <circle
@@ -552,25 +543,25 @@ export default function Diagnostic() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-[32px] font-bold font-display" style={{ color: r.color }}>{score}</span>
-                        <span className="text-[13px] text-muted-foreground font-body">/20</span>
+                        <span className="text-[28px] sm:text-[32px] font-bold font-display" style={{ color: r.color }}>{score}</span>
+                        <span className="text-[12px] sm:text-[13px] text-muted-foreground font-body">/20</span>
                       </div>
                     </div>
 
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold font-body mb-3" style={{ backgroundColor: r.bgColor, color: r.color, border: `1px solid ${r.borderColor}` }}>
+                    <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-[12px] sm:text-[13px] font-semibold font-body mb-3" style={{ backgroundColor: r.bgColor, color: r.color, border: `1px solid ${r.borderColor}` }}>
                       {score <= 8 && <AlertTriangle size={14} />}
                       {score > 8 && score <= 16 && <TrendingUp size={14} />}
                       {score > 16 && <CheckCircle2 size={14} />}
                       {r.title}
                     </div>
 
-                    <p className="text-[15px] text-muted-foreground font-body max-w-[480px] mx-auto leading-relaxed mt-2">{r.desc}</p>
+                    <p className="text-[14px] sm:text-[15px] text-muted-foreground font-body max-w-[480px] mx-auto leading-relaxed mt-2">{r.desc}</p>
                   </div>
 
                   {/* ── 2. Détail par question ── */}
-                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
-                    <h3 className="font-display text-[20px] text-foreground mb-2">Détail de votre score</h3>
-                    <p className="text-[13px] text-muted-foreground font-body mb-6">Performance sur chaque indicateur clé de trésorerie</p>
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-2">Détail de votre score</h3>
+                    <p className="text-[12px] sm:text-[13px] text-muted-foreground font-body mb-5 sm:mb-6">Performance sur chaque indicateur clé de trésorerie</p>
 
                     <div className="space-y-4">
                       {scoredQuestions.map((q, i) => {
@@ -582,18 +573,19 @@ export default function Diagnostic() {
 
                         return (
                           <div key={q.id} className="group">
-                            <div className="flex items-center gap-3 mb-1.5">
-                              <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
-                                <Icon size={16} className="text-primary" />
+                            <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5">
+                              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
+                                <Icon size={14} className="text-primary sm:hidden" />
+                                <Icon size={16} className="text-primary hidden sm:block" />
                               </div>
-                              <span className="text-[14px] font-medium text-foreground font-body flex-1">{q.title}</span>
-                              <span className="text-[13px] font-bold font-body" style={{ color: barColor }}>{pts}/4</span>
+                              <span className="text-[13px] sm:text-[14px] font-medium text-foreground font-body flex-1 leading-snug">{q.title}</span>
+                              <span className="text-[12px] sm:text-[13px] font-bold font-body flex-shrink-0" style={{ color: barColor }}>{pts}/4</span>
                             </div>
-                            <div className="ml-11 h-2 bg-border/30 rounded-full overflow-hidden">
+                            <div className="ml-[38px] sm:ml-11 h-2 bg-border/30 rounded-full overflow-hidden">
                               <div className="h-full rounded-full transition-all duration-700 ease-out" style={{ width: `${pct}%`, backgroundColor: barColor }} />
                             </div>
                             {ansIdx !== null && (
-                              <p className="ml-11 text-[12px] text-muted-foreground font-body mt-1 leading-snug">
+                              <p className="ml-[38px] sm:ml-11 text-[11px] sm:text-[12px] text-muted-foreground font-body mt-1 leading-snug">
                                 {q.options[ansIdx].emoji} {q.options[ansIdx].label}
                               </p>
                             )}
@@ -604,30 +596,30 @@ export default function Diagnostic() {
                   </div>
 
                   {/* ── 3. Profil détecté ── */}
-                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
-                    <h3 className="font-display text-[20px] text-foreground mb-5">Votre profil</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Statut</p>
-                        <p className="text-[13px] font-medium text-foreground font-body">{statusLabel}</p>
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-4 sm:mb-5">Votre profil</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                      <div className="bg-secondary/50 rounded-xl p-3.5 sm:p-4 text-center">
+                        <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Statut</p>
+                        <p className="text-[12px] sm:text-[13px] font-medium text-foreground font-body">{statusLabel}</p>
                       </div>
-                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Chiffre d'affaires</p>
-                        <p className="text-[13px] font-medium text-foreground font-body">{caLabel}</p>
+                      <div className="bg-secondary/50 rounded-xl p-3.5 sm:p-4 text-center">
+                        <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Chiffre d'affaires</p>
+                        <p className="text-[12px] sm:text-[13px] font-medium text-foreground font-body">{caLabel}</p>
                       </div>
-                      <div className="bg-secondary/50 rounded-xl p-4 text-center">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Préoccupation</p>
-                        <p className="text-[13px] font-medium text-foreground font-body">{concernLabel}</p>
+                      <div className="bg-secondary/50 rounded-xl p-3.5 sm:p-4 text-center">
+                        <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.1em] text-muted-foreground mb-1 font-body">Préoccupation</p>
+                        <p className="text-[12px] sm:text-[13px] font-medium text-foreground font-body">{concernLabel}</p>
                       </div>
                     </div>
                   </div>
 
                   {/* ── 4. CTA principal ── */}
-                  <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: r.bgColor, border: `2px solid ${r.borderColor}` }}>
-                    <h3 className="font-display text-[22px] text-foreground mb-2">
+                  <div className="rounded-2xl p-5 sm:p-8 text-center" style={{ backgroundColor: r.bgColor, border: `2px solid ${r.borderColor}` }}>
+                    <h3 className="font-display text-[20px] sm:text-[22px] text-foreground mb-2">
                       {score <= 8 ? "Agissez maintenant" : score <= 16 ? "Passez au niveau supérieur" : "Continuez sur cette lancée"}
                     </h3>
-                    <p className="text-[14px] text-muted-foreground font-body mb-6 max-w-[440px] mx-auto">
+                    <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5 sm:mb-6 max-w-[440px] mx-auto">
                       {score <= 8
                         ? "Plus vous attendez, plus les fragilités s'aggravent. Prenez rendez-vous pour un premier échange gratuit."
                         : score <= 16
@@ -637,26 +629,32 @@ export default function Diagnostic() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <Button
                         size="lg"
-                        className="rounded-full px-8"
+                        className="rounded-full px-6 sm:px-8 whitespace-normal text-center w-full sm:w-auto"
                         style={{ backgroundColor: r.color, color: "white" }}
                         asChild
                       >
-                        <Link to={r.ctaHref}>{r.ctaLabel}</Link>
+                        <Link to={r.ctaHref}>
+                          {r.ctaLabel}
+                          <ArrowRight size={14} className="ml-1 flex-shrink-0" />
+                        </Link>
                       </Button>
-                      <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
-                        <Link to={r.secondaryHref}>{r.secondaryLabel}</Link>
+                      <Button variant="outline" size="lg" className="rounded-full px-6 sm:px-8 whitespace-normal text-center w-full sm:w-auto" asChild>
+                        <Link to={r.secondaryHref}>
+                          {r.secondaryLabel}
+                          <ArrowRight size={14} className="ml-1 flex-shrink-0" />
+                        </Link>
                       </Button>
                     </div>
                   </div>
 
                   {/* ── 5. Email capture ── */}
-                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
                     {!emailSubmitted ? (
                       <>
-                        <h3 className="font-display text-[20px] text-foreground mb-1">
+                        <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-1">
                           Recevez votre analyse complète par email
                         </h3>
-                        <p className="text-[14px] text-muted-foreground font-body mb-5">
+                        <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
                           Avec nos recommandations personnalisées selon votre profil.
                         </p>
                         <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -666,7 +664,7 @@ export default function Diagnostic() {
                             required
                             value={emailForm.prenom}
                             onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
-                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
                           />
                           <input
                             type="email"
@@ -674,10 +672,10 @@ export default function Diagnostic() {
                             required
                             value={emailForm.email}
                             onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
                           />
-                          <Button variant="accent" className="rounded-full px-6" type="submit">
-                            Envoyer <ArrowRight size={16} className="ml-1" />
+                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap" type="submit">
+                            Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
                         </form>
                         <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
@@ -696,24 +694,24 @@ export default function Diagnostic() {
                   </div>
 
                   {/* ── 6. Fragilités ── */}
-                  <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
-                    <h3 className="font-display text-[20px] md:text-[24px] text-foreground mb-6">
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-foreground mb-5 sm:mb-6">
                       Les 5 fragilités de trésorerie <span className="text-accent">les plus courantes</span>
                     </h3>
-                    <div className="space-y-3">
+                    <div className="space-y-2.5 sm:space-y-3">
                       {fragilites.map((f, i) => (
                         <Link
                           key={i}
                           to={f.href}
-                          className="group flex items-center gap-3 p-4 rounded-xl border border-border/30 hover:border-accent/30 hover:bg-accent/[0.02] transition-all"
+                          className="group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl border border-border/30 hover:border-accent/30 hover:bg-accent/[0.02] transition-all"
                         >
-                          <span className="w-7 h-7 rounded-full bg-primary/10 text-primary text-[13px] font-bold flex items-center justify-center flex-shrink-0">
+                          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary/10 text-primary text-[12px] sm:text-[13px] font-bold flex items-center justify-center flex-shrink-0">
                             {i + 1}
                           </span>
-                          <span className="text-[14px] font-body text-foreground/80 group-hover:text-foreground">
+                          <span className="text-[13px] sm:text-[14px] font-body text-foreground/80 group-hover:text-foreground flex-1 leading-snug">
                             {f.label}
                           </span>
-                          <ArrowRight size={14} className="ml-auto text-foreground/20 group-hover:text-accent transition-colors" />
+                          <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors flex-shrink-0" />
                         </Link>
                       ))}
                     </div>

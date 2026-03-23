@@ -54,6 +54,8 @@ const compareRows = [
   { label: "Accès DAF à temps partiel", values: ["—", "—", "✓ option"] },
 ];
 
+const planNames = ["Essentiel", "Premium", "Excellence"];
+
 const plans = [
   {
     icon: ShieldCheck,
@@ -125,6 +127,12 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
   );
 }
 
+function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
+  if (v === true) return <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto sm:mx-0" />;
+  if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto sm:mx-0" />;
+  return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v as string}</span>;
+}
+
 export default function Tarifs() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -160,10 +168,10 @@ export default function Tarifs() {
       <main>
         {/* ── HERO ── */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            <div className="text-center lg:text-left">
               <Breadcrumb>
-                <BreadcrumbList>
+                <BreadcrumbList className="justify-center lg:justify-start">
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
                       <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
@@ -176,17 +184,17 @@ export default function Tarifs() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
+              <div className="mt-6 md:mt-8">
+                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-4 md:mb-5">
                   À partir de 350 € HTVA / mois
                 </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                <h1 className="font-display text-[24px] sm:text-[30px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Des forfaits transparents, sans surprise — <span className="text-accent">adaptés à votre stade de croissance</span>
                 </h1>
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden aspect-video">
+            <div className="rounded-2xl shadow-2xl overflow-hidden aspect-video max-w-full">
               <iframe
                 width="100%"
                 height="100%"
@@ -204,7 +212,7 @@ export default function Tarifs() {
 
         {/* ── SECTION 1 — Tableau comparatif ── */}
         <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1000px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[1000px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Nos trois <span className="text-accent">forfaits</span>
@@ -212,7 +220,8 @@ export default function Tarifs() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px]">
                     <thead>
@@ -239,7 +248,7 @@ export default function Tarifs() {
                                       <PlayCircle size={18} strokeWidth={1.5} className="relative z-10 group-hover/play:scale-125 transition-transform duration-200" />
                                     </button>
                                   </PopoverTrigger>
-                                  <PopoverContent className="w-[420px] p-2" side="bottom" align="center">
+                                  <PopoverContent className="w-[min(420px,90vw)] p-2" side="bottom" align="center">
                                     <div className="aspect-video rounded-lg overflow-hidden">
                                       <iframe
                                         width="100%"
@@ -266,13 +275,7 @@ export default function Tarifs() {
                           <td className="p-4 pl-5 font-medium text-foreground/80 font-body">{row.label}</td>
                           {row.values.map((v, ci) => (
                             <td key={ci} className="p-4 text-center">
-                              {v === true ? (
-                                <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />
-                              ) : v === "—" ? (
-                                <Minus size={16} className="text-foreground/20 mx-auto" />
-                              ) : (
-                                <span className={`font-body ${row.isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v}</span>
-                              )}
+                              <CellValue v={v} isPrice={row.isPrice} />
                             </td>
                           ))}
                         </tr>
@@ -280,6 +283,23 @@ export default function Tarifs() {
                     </tbody>
                   </table>
                 </div>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-4">
+                {compareRows.map((row) => (
+                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {row.values.map((v, ci) => (
+                        <div key={ci} className="text-center">
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1 font-body">{planNames[ci]}</p>
+                          <CellValue v={v} isPrice={row.isPrice} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </ScrollRevealDiv>
 
@@ -293,18 +313,18 @@ export default function Tarifs() {
 
         {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
         <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Quel forfait est <span className="text-accent">fait pour vous ?</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {plans.map((plan, i) => {
                 const Icon = plan.icon;
                 return (
-                  <ScrollRevealDiv key={plan.name} delay={0.08 + i * 0.08} className={`bg-card rounded-2xl p-8 border ${plan.popular ? "border-primary shadow-[0_8px_40px_hsl(var(--primary)/0.1)]" : "border-border/50"} relative flex flex-col`}>
+                  <ScrollRevealDiv key={plan.name} delay={0.08 + i * 0.08} className={`bg-card rounded-2xl p-6 md:p-8 border ${plan.popular ? "border-primary shadow-[0_8px_40px_hsl(var(--primary)/0.1)]" : "border-border/50"} relative flex flex-col`}>
                     {plan.popular && (
                       <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
                         POPULAIRE
@@ -317,7 +337,7 @@ export default function Tarifs() {
                       <span className="font-display text-[11px] font-bold tracking-[0.1em] text-muted-foreground">{plan.name.toUpperCase()}</span>
                     </div>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <span className="font-display text-[40px] font-bold text-primary leading-none">{plan.price}€</span>
+                      <span className="font-display text-[36px] md:text-[40px] font-bold text-primary leading-none">{plan.price}€</span>
                       <span className="text-[13px] text-muted-foreground">/mois HTVA</span>
                     </div>
                     <p className="text-accent text-[13px] italic font-body mb-4">{plan.tagline}</p>
@@ -325,10 +345,10 @@ export default function Tarifs() {
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body flex-1">{plan.desc}</p>
                     <Button
                       variant={plan.popular ? "accent" : "outline"}
-                      className="w-full mt-6 rounded-full"
+                      className="w-full mt-6 rounded-full whitespace-normal text-center"
                       asChild
                     >
-                      <Link to="/contact/">Choisir {plan.name} <ArrowRight size={14} className="ml-1" /></Link>
+                      <Link to="/contact/">Choisir {plan.name} <ArrowRight size={14} className="ml-1 flex-shrink-0" /></Link>
                     </Button>
                   </ScrollRevealDiv>
                 );
@@ -339,19 +359,19 @@ export default function Tarifs() {
 
         {/* ── SECTION 3 — DAF option ── */}
         <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center">
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
                 <Users size={26} className="text-accent" strokeWidth={1.5} />
               </div>
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
+              <h2 className="font-display text-[22px] sm:text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Le DAF à temps partiel — <span className="text-accent">option Excellence</span>
               </h2>
               <p className="text-muted-foreground text-[15px] leading-[1.8] mt-5 font-body max-w-[640px] mx-auto">
                 Réservé exclusivement aux clients Excellence. Réunion mensuelle de pilotage + disponibilité ad hoc. Facturation : <strong className="text-foreground">150 € HTVA / heure</strong>.
               </p>
-              <Button variant="default" size="lg" className="rounded-full mt-8" asChild>
-                <Link to="/services/daf-externalise/">En savoir plus <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="default" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                <Link to="/services/daf-externalise/">En savoir plus <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </ScrollRevealDiv>
           </div>
@@ -359,7 +379,7 @@ export default function Tarifs() {
 
         {/* ── SECTION 4 — Missions ponctuelles ── */}
         <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Missions <span className="text-accent">ponctuelles</span>
@@ -367,7 +387,8 @@ export default function Tarifs() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30">
@@ -385,10 +406,20 @@ export default function Tarifs() {
                   </tbody>
                 </table>
               </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {missions.map((m, i) => (
+                  <div key={i} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-medium text-foreground/80 font-body mb-2">{m.label}</p>
+                    <p className="text-[15px] font-bold text-primary font-body">{m.tarif}</p>
+                  </div>
+                ))}
+              </div>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
-              <div className="bg-primary/[0.05] rounded-xl p-5 mt-6 border border-primary/10">
+              <div className="bg-primary/[0.05] rounded-xl p-4 sm:p-5 mt-6 border border-primary/10">
                 <p className="text-[13px] text-foreground/70 font-body">
                   <strong className="text-foreground">Engagement :</strong> Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat.
                 </p>
@@ -399,19 +430,19 @@ export default function Tarifs() {
 
         {/* ── SECTION 5 — Comment ça se passe ── */}
         <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Comment ça se passe <span className="text-accent">concrètement ?</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {steps.map((s, i) => {
                 const Icon = s.icon;
                 return (
                   <ScrollRevealDiv key={s.num} delay={0.1 + i * 0.08} className="relative">
-                    <div className="bg-secondary/60 rounded-2xl p-7 border border-border/50 text-center h-full">
+                    <div className="bg-secondary/60 rounded-2xl p-6 md:p-7 border border-border/50 text-center h-full">
                       <span className="text-[48px] font-display font-bold text-accent/15 leading-none">{s.num}</span>
                       <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mt-2 mb-4">
                         <Icon size={22} className="text-accent" strokeWidth={1.5} />
@@ -431,7 +462,7 @@ export default function Tarifs() {
 
         {/* ── SECTION FAQ ── */}
         <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
+          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
             <ScrollRevealDiv className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Questions <span className="text-accent">fréquentes</span>
@@ -444,9 +475,9 @@ export default function Tarifs() {
                   <AccordionItem
                     key={i}
                     value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
+                    className="bg-card rounded-xl border border-border/50 px-4 sm:px-6 overflow-hidden"
                   >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
+                    <AccordionTrigger className="text-[14px] sm:text-[15px] font-semibold text-foreground font-body hover:no-underline py-5 text-left">
                       {f.q}
                     </AccordionTrigger>
                     <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
@@ -462,20 +493,20 @@ export default function Tarifs() {
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
               <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Prêt à choisir votre forfait ?
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/75 text-[15px] sm:text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous vous recommandons le forfait adapté à votre situation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 md:mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
