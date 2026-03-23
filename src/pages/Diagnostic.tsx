@@ -425,7 +425,7 @@ export default function Diagnostic() {
                   </div>
                 </div>
 
-                <Button variant="accent" size="lg" className="rounded-full px-8 sm:px-10 whitespace-normal text-center" onClick={startDiagnostic}>
+                <Button variant="accent" size="lg" className="rounded-full w-full sm:w-auto px-8 sm:px-10 whitespace-normal text-center" onClick={startDiagnostic}>
                   Commencer le diagnostic <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Button>
               </div>
