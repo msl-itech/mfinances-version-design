@@ -30,8 +30,8 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-background pt-6 md:pt-16 pb-0">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-[0.04] will-change-auto" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)", contain: "layout size style" }} />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.03] will-change-auto" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)", contain: "layout size style" }} />
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
@@ -104,8 +104,8 @@ export default function HeroSection() {
 
           {/* Right — Mika photo + stats */}
           <div
-            className={`relative transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            style={{ transitionDelay: "0.3s" }}
+            className="relative"
+            style={{ animationName: mounted ? "fadeSlideUp" : "none", animationDuration: "1s", animationFillMode: "both", animationDelay: "0.3s" }}
           >
             <div className="relative">
               {/* Photo container */}
