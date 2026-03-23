@@ -138,15 +138,15 @@ export default function Asbl() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Trois forfaits · Réduction 21 % non-assujetti TVA
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Votre ASBL a une mission — <span className="text-accent">nous gérons les chiffres</span> pour que vous puissiez vous y consacrer
                 </h1>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
