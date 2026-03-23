@@ -131,18 +131,18 @@ export default function EntreprisesCroissance() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Excellence exclusivement
                 </span>
                 <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
                   Votre entreprise accélère — <span className="text-accent">votre pilotage financier</span> doit suivre
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px]">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
                   Vous avez passé un cap. Votre équipe grandit, vos décisions engagent plus, vos enjeux financiers se complexifient. La comptabilité traditionnelle ne suffit plus.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </div>
