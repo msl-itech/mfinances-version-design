@@ -303,10 +303,10 @@ export default function DafExternalise() {
                 </ul>
 
                 <div className="mt-8 text-center">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                     <Link to="/tarifs/">
                       Découvrir le forfait Excellence
-                      <ArrowRight size={16} className="ml-1" />
+                      <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                     </Link>
                   </Button>
                 </div>
