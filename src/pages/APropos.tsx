@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import mikaPhoto from "@/assets/mika-musungayi.png";
+import mikaPhoto from "@/assets/mika-musungayi.webp";
 import imgStory from "@/assets/about-story.jpg";
 import imgMeeting from "@/assets/meeting-warm.jpg";
 import imgDashboard from "@/assets/dashboard-laptop.jpg";

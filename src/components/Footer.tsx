@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logoSquare from "@/assets/logo-square.png";
+import logoSquare from "@/assets/logo-square.webp";
 
 const servicesLinks = [
   { label: "DAF à temps partiel", href: "/services/daf-externalise/" },
