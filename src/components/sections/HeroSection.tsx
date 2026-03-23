@@ -102,9 +102,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — Mika photo + stats */}
+          {/* Right — Mika photo + stats (hidden on mobile) */}
           <div
-            className="relative"
+            className="relative hidden lg:block"
             style={{ animationName: mounted ? "fadeSlideUp" : "none", animationDuration: "1s", animationFillMode: "both", animationDelay: "0.3s" }}
           >
             <div className="relative">
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 <img
                   src={mikaPhoto}
                   alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
-                  className="w-full h-[380px] md:h-[480px] object-cover object-top"
+                  className="w-full h-[480px] object-cover object-top"
                   loading="eager"
                   fetchPriority="high"
                 />
@@ -123,7 +123,7 @@ export default function HeroSection() {
 
               {/* Floating name badge */}
               <div
-                className={`absolute bottom-8 left-4 md:left-6 bg-card/90 backdrop-blur-md border border-border/50 rounded-2xl px-5 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`absolute bottom-8 left-6 bg-card/90 backdrop-blur-md border border-border/50 rounded-2xl px-5 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "0.7s" }}
               >
                 <p className="font-bold text-[14px]"><span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span></p>
@@ -132,7 +132,7 @@ export default function HeroSection() {
 
               {/* Floating stat badge */}
               <div
-                className={`absolute top-6 right-4 md:right-6 bg-primary text-primary-foreground rounded-2xl px-4 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`absolute top-6 right-6 bg-primary text-primary-foreground rounded-2xl px-4 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "0.85s" }}
               >
                 <p className="font-display text-[22px] leading-none">20+</p>
@@ -140,6 +140,7 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Stats bar */}
