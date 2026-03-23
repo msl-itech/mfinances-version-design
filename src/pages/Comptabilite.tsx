@@ -369,8 +369,8 @@ export default function Comptabilite() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2} className="text-center mt-10">
-              <Button variant="default" size="lg" className="rounded-full" asChild>
-                <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="default" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </ScrollRevealDiv>
           </div>
