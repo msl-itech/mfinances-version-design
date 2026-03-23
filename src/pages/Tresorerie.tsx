@@ -155,7 +155,7 @@ export default function Tresorerie() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Forfait Excellence
                 </span>
@@ -165,7 +165,7 @@ export default function Tresorerie() {
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
                   Un prévisionnel actualisé sur données réelles. Vous voyez les tensions 3 mois à l'avance.
                 </p>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                     Forfait Excellence
                   </span>
