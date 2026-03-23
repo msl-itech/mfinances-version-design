@@ -243,7 +243,8 @@ export default function ControleDeGestion() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-border">
@@ -264,11 +265,30 @@ export default function ControleDeGestion() {
                 </table>
               </div>
 
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {tableRows.map((row) => (
+                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="text-center">
+                        <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider font-body block mb-1">Premium</span>
+                        <CellValue value={row.premium} />
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[11px] font-semibold text-accent uppercase tracking-wider font-body block mb-1">Excellence</span>
+                        <CellValue value={row.excellence} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="text-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">
                     Voir les tarifs détaillés
-                    <ArrowRight size={16} className="ml-1" />
+                    <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                   </Link>
                 </Button>
               </div>
