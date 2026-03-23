@@ -373,13 +373,13 @@ export default function ControleDeGestion() {
               Discutons de vos enjeux — sans engagement, sans jargon.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/contact/">
                   Parler à un expert — c'est gratuit
-                  <ArrowRight size={16} className="ml-1" />
+                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Link>
               </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full" asChild>
+              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/tarifs/">Voir nos tarifs →</Link>
               </Button>
             </div>
