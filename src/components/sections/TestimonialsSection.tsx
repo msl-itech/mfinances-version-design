@@ -1,29 +1,19 @@
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-
-const testimonials = [
-  {
-    quote: "MFINANCES est aujourd'hui plus qu'un conseiller : c'est un vrai partenaire de confiance pour la gestion financière de mon entreprise. Je peux enfin lire et comprendre mes finances.",
-    author: "Luc Jeazet",
-    role: "Dirigeant d'entreprise, Bruxelles",
-    initials: "LJ",
-  },
-  {
-    quote: "C'est un service sérieux, humain et ultra rentable. Depuis que leur équipe s'occupe de mon dossier, je récupère chaque année des montants importants grâce à l'optimisation.",
-    author: "Sandra",
-    role: "Dirigeante, Bruxelles",
-    initials: "S",
-  },
-  {
-    quote: "Grâce à leurs conseils pratiques, j'ai mis en place un plan de trésorerie efficace pour piloter mes flux financiers. Je recommande vivement aux entrepreneurs qui veulent une vraie vision sur leurs finances.",
-    author: "Rann Rann",
-    role: "Entrepreneur, Bruxelles",
-    initials: "RR",
-  },
-];
+import { useEffect, useRef } from "react";
 
 export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollReveal();
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.trustindex.io/loader.js?ece505367a19866f2b46e38c4c6";
+    script.defer = true;
+    script.async = true;
+    widgetRef.current?.appendChild(script);
+    return () => { script.remove(); };
+  }, []);
 
   return (
     <section className="py-14 md:py-28 bg-card" ref={ref}>
@@ -50,28 +40,12 @@ export default function TestimonialsSection() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {testimonials.map((t, i) => (
-            <div
-              key={t.author}
-              className={`relative bg-background rounded-2xl p-6 md:p-8 border border-border/30 hover:shadow-[0_8px_32px_rgba(27,43,94,0.06)] transition-all duration-300 reveal ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
-            >
-              <Quote size={32} className="text-accent/10 mb-3" />
-              <p className="text-[14px] text-foreground/70 leading-[1.8]">
-                "{t.quote}"
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-[12px] font-bold">
-                  {t.initials}
-                </div>
-                <div>
-                  <p className="font-bold text-[14px] text-foreground">{t.author}</p>
-                  <p className="text-[12px] text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div
+          ref={widgetRef}
+          className={`reveal ${isVisible ? "visible" : ""}`}
+          style={{ transitionDelay: "0.2s" }}
+        >
+          <div data-widget-id="ece505367a19866f2b46e38c4c6" className="trustindex-widget" />
         </div>
       </div>
     </section>
