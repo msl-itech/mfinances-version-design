@@ -219,10 +219,10 @@ export default function Tresorerie() {
             </div>
 
             <ScrollRevealDiv delay={0.3} className="text-center mt-10">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                 <Link to="/diagnostic/">
                   Faire le diagnostic gratuit
-                  <ArrowRight size={16} className="ml-1" />
+                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                 </Link>
               </Button>
             </ScrollRevealDiv>
