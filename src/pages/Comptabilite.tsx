@@ -151,7 +151,7 @@ export default function Comptabilite() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Inclus dès le forfait Essentiel
                 </span>
@@ -161,7 +161,7 @@ export default function Comptabilite() {
                 <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
                   Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps.
                 </p>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   {["Inclus dès le forfait Essentiel", "Intégration Odoo"].map((pill) => (
                     <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                       {pill}
@@ -169,8 +169,8 @@ export default function Comptabilite() {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1" /></Link>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                   </Button>
                 </div>
               </div>
@@ -308,7 +308,8 @@ export default function Comptabilite() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px]">
                     <thead>
@@ -342,11 +343,34 @@ export default function Comptabilite() {
                   </table>
                 </div>
               </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {planRows.map((row, ri) => (
+                  <div key={row.label} className={`bg-card rounded-xl border border-border/50 p-4 ${ri === planRows.length - 1 ? "bg-primary/[0.03]" : ""}`}>
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
+                        <div key={plan} className="text-center">
+                          <span className={`text-[10px] font-semibold uppercase tracking-wider font-body block mb-1 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
+                          {row.values[ci] === true ? (
+                            <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" />
+                          ) : row.values[ci] === "—" ? (
+                            <Minus size={14} className="text-foreground/20 mx-auto" />
+                          ) : (
+                            <span className={`font-semibold font-body text-[12px] ${ri === planRows.length - 1 ? "text-primary" : "text-foreground/70"}`}>{row.values[ci]}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2} className="text-center mt-10">
-              <Button variant="default" size="lg" className="rounded-full" asChild>
-                <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="default" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </ScrollRevealDiv>
           </div>
@@ -393,12 +417,12 @@ export default function Comptabilite() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Demandez un devis gratuit — nous vous rappelons sous 72h pour en discuter.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>

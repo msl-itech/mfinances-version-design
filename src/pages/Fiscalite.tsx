@@ -146,7 +146,7 @@ export default function Fiscalite() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   Optimisation fiscale
                 </span>
@@ -159,7 +159,7 @@ export default function Fiscalite() {
                 <p className="text-primary-foreground/60 text-[13px] leading-relaxed mt-3 font-body italic">
                   Toute optimisation fiscale est réalisée dans le strict respect du cadre légal en vigueur et après analyse personnalisée de votre dossier. Les résultats obtenus varient selon les situations.
                 </p>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   {["ISOC · IPP · TVA", "Planification patrimoniale"].map((pill) => (
                     <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                       {pill}
@@ -167,8 +167,8 @@ export default function Fiscalite() {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                   </Button>
                 </div>
               </div>
@@ -198,8 +198,8 @@ export default function Fiscalite() {
               </p>
             </ScrollRevealDiv>
             <ScrollRevealDiv delay={0.2} className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/contact/">Faire le point sur ma fiscalité <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/contact/">Faire le point sur ma fiscalité <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </ScrollRevealDiv>
           </div>
@@ -303,12 +303,12 @@ export default function Fiscalite() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel. Nous analysons votre situation et vous présentons les leviers activables.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>

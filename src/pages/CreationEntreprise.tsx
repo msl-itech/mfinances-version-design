@@ -140,7 +140,7 @@ export default function CreationEntreprise() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8">
+              <div className="mt-8 text-center lg:text-left">
                 <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
                   800 € HTVA — Forfait tout compris
                 </span>
@@ -153,7 +153,7 @@ export default function CreationEntreprise() {
                 <p className="text-primary-foreground/60 text-[13px] leading-relaxed mt-3 font-body italic">
                   Les erreurs de départ sont les plus coûteuses — et les plus évitables.
                 </p>
-                <div className="flex flex-wrap gap-3 mt-7">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
                   {["Plan financier", "Forme juridique", "Acte authentique"].map((pill) => (
                     <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
                       {pill}
@@ -161,8 +161,8 @@ export default function CreationEntreprise() {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                   </Button>
                 </div>
               </div>
@@ -197,8 +197,8 @@ export default function CreationEntreprise() {
               </div>
             </ScrollRevealDiv>
             <ScrollRevealDiv delay={0.2} className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/contact/">Éviter ces erreurs <ArrowRight size={16} className="ml-1" /></Link>
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <Link to="/contact/">Éviter ces erreurs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </ScrollRevealDiv>
           </div>
@@ -240,7 +240,8 @@ export default function CreationEntreprise() {
               <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground mb-8">
                 Ce que vous obtenez <span className="text-accent">concrètement</span>
               </h2>
-              <div className="bg-secondary/60 rounded-2xl border border-border/50 overflow-hidden">
+              {/* Desktop table */}
+              <div className="hidden sm:block bg-secondary/60 rounded-2xl border border-border/50 overflow-hidden">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30">
@@ -261,6 +262,20 @@ export default function CreationEntreprise() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden space-y-3">
+                {tableRows.map((row, i) => (
+                  <div key={i} className={`rounded-xl border border-border/50 p-4 ${row.highlight ? "bg-accent/[0.05]" : "bg-secondary/60"}`}>
+                    <p className={`text-[14px] font-semibold font-body mb-1 ${row.highlight ? "text-accent" : row.muted ? "text-muted-foreground" : "text-foreground"}`}>
+                      {row.step}
+                    </p>
+                    <p className={`text-[13px] font-body leading-relaxed ${row.highlight ? "text-accent font-medium" : row.muted ? "text-muted-foreground italic" : "text-muted-foreground"}`}>
+                      {row.detail}
+                    </p>
+                  </div>
+                ))}
               </div>
             </ScrollRevealDiv>
 
@@ -316,12 +331,12 @@ export default function CreationEntreprise() {
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel. Nous analysons votre projet et vous présentons les étapes concrètes.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1" /></Link>
+                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
