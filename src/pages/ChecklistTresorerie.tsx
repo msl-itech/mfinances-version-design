@@ -70,7 +70,12 @@ export default function ChecklistTresorerie() {
       await submitLead({
         name: form.prenom,
         email_from: form.email,
-        description: `Lead Checklist Trésorerie\n\nPrénom: ${form.prenom}\nEmail: ${form.email}\nSource: Checklist trésorerie - Site MFinances`,
+        description: [
+          `<h3>Checklist Trésorerie</h3>`,
+          `<p><strong>Prénom:</strong> ${form.prenom}</p>`,
+          `<p><strong>Email:</strong> ${form.email}</p>`,
+          `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
+        ].join("\n"),
       });
 
       // Téléchargement du PDF

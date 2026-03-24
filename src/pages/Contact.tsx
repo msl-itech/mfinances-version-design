@@ -104,12 +104,12 @@ export default function Contact() {
     setIsLoading(true);
 
     const descParts = [
-      `📋 Lead Formulaire Contact`,
-      `\n👤 Situation: ${situation}`,
-      `🎯 Besoin: ${besoin}`,
-      `\n📞 Téléphone: ${telephone}`,
-      message ? `💬 Message: ${message}` : "",
-      `\nSource: Formulaire Contact - Site MFinances`,
+      `<h3>Informations du contact</h3>`,
+      `<p><strong>Situation actuelle:</strong> ${situation}</p>`,
+      `<p><strong>Besoin principal:</strong> ${besoin}</p>`,
+      `<p><strong>Téléphone:</strong> ${telephone}</p>`,
+      message ? `<p><strong>Message:</strong> ${message}</p>` : "",
+      `<p><strong>Source:</strong> Formulaire Contact - Site MFinances</p>`,
     ].filter(Boolean);
 
     await submitLead({

@@ -229,12 +229,12 @@ export default function Diagnostic() {
     if (!emailForm.prenom.trim() || !emailForm.email.trim()) return;
 
     const descParts = [
-      `📊 Lead Diagnostic Trésorerie`,
-      `\n📈 Score: ${score}/20`,
-      `👤 Statut: ${statusLabel}`,
-      `💰 CA: ${caLabel}`,
-      `🎯 Préoccupation: ${concernLabel}`,
-      `\nSource: Diagnostic Trésorerie - Site MFinances`,
+      `<h3>Diagnostic Trésorerie</h3>`,
+      `<p><strong>Score:</strong> ${score}/20</p>`,
+      `<p><strong>Statut:</strong> ${statusLabel}</p>`,
+      `<p><strong>Chiffre d'affaires:</strong> ${caLabel}</p>`,
+      `<p><strong>Préoccupation principale:</strong> ${concernLabel}</p>`,
+      `<p><strong>Source:</strong> Diagnostic Trésorerie - Site MFinances</p>`,
     ];
 
     await submitLead({
