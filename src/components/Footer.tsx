@@ -83,7 +83,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 3 — Ressources */}
+          {/* Col 3 — Profils */}
+          <div>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Profils</h3>
+            <nav className="space-y-0.5">
+              {profilsLinks.map((l) => (
+                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Col 4 — Ressources */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Ressources</h3>
             <nav className="space-y-0.5">
