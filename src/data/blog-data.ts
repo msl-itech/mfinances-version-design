@@ -96,8 +96,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-08-18",
-    seoTitle: "Comment Anticiper ses Flux de Trésorerie — Guide Pratique TPE Belgique",
-    metaDescription: "Tableau de trésorerie prévisionnel, scénarios financiers, outils Odoo — comment anticiper vos besoins financiers avant que les problèmes n'arrivent. MFinances, Bruxelles.",
+    seoTitle: "Anticiper ses Flux de Trésorerie — Guide TPE",
+    metaDescription: "Tableau prévisionnel, scénarios financiers et outils pour anticiper vos besoins de trésorerie avant que les problèmes n'arrivent.",
     pillarPage: "/services/tresorerie/",
   },
   // ── DAF EXTERNALISÉ (à venir) ──
