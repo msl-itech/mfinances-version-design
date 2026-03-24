@@ -292,7 +292,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "creation-societe",
     published: true,
     date: "2026-01-05",
-    seoTitle: "Combien Coûte la Création d'une Société en Belgique ? Tous les Frais",
+    seoTitle: "Coût Création Société Belgique — Tous les Frais",
     metaDescription: "Frais de notaire, BCE, Moniteur belge, comptable — tous les coûts réels de la création d'une société en Belgique. Sans surprise.",
     pillarPage: "/services/creation-entreprise/",
   },
