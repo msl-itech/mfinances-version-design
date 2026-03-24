@@ -378,7 +378,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-01-18",
-    seoTitle: "Combien Puis-je Me Payer en tant qu'Indépendant en Belgique ?",
+    seoTitle: "Combien Me Payer en Indépendant en Belgique ?",
     metaDescription: "Salaire, dividendes, cotisations sociales — combien un indépendant peut-il réellement se payer en Belgique ? Guide clair avec exemples chiffrés.",
     pillarPage: "/services/fiscalite/",
   },
