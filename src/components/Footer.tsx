@@ -11,6 +11,14 @@ const servicesLinks = [
   { label: "Création d'entreprise", href: "/services/creation-entreprise/" },
 ];
 
+const profilsLinks = [
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
+];
+
 const ressourcesLinks = [
   { label: "Blog", href: "/blog/" },
   { label: "Diagnostic gratuit", href: "/diagnostic/" },
@@ -38,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1B2B5E] text-white">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Col 1 — À propos */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-5">
             <img src={logoSquare} alt="MFinances" className="h-[60px] rounded-lg" />
@@ -75,7 +83,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 3 — Ressources */}
+          {/* Col 3 — Profils */}
+          <div>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Profils</h3>
+            <nav className="space-y-0.5">
+              {profilsLinks.map((l) => (
+                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Col 4 — Ressources */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Ressources</h3>
             <nav className="space-y-0.5">

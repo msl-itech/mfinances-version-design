@@ -274,6 +274,18 @@ export default function IndependantsStartups() {
                 <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
+
+            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+              <p className="text-[14px] text-muted-foreground font-body">
+                Voir aussi :{" "}
+                <Link to="/qui-nous-accompagnons/commerce-et-horeca/" className="text-accent font-semibold hover:underline">
+                  Commerce & Horeca
+                </Link>{" "}· {" "}
+                <Link to="/qui-nous-accompagnons/entreprises-en-croissance/" className="text-accent font-semibold hover:underline">
+                  Entreprises en croissance
+                </Link>
+              </p>
+            </ScrollRevealDiv>
           </div>
         </section>
 

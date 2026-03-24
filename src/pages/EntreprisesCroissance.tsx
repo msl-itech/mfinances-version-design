@@ -221,6 +221,16 @@ export default function EntreprisesCroissance() {
                   <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
+
+              <p className="text-[14px] text-muted-foreground font-body mt-8 text-center">
+                Voir aussi :{" "}
+                <Link to="/qui-nous-accompagnons/promoteurs-immobiliers/" className="text-accent font-semibold hover:underline">
+                  Promoteurs immobiliers
+                </Link>{" "}· {" "}
+                <Link to="/qui-nous-accompagnons/societe-exploitation/" className="text-accent font-semibold hover:underline">
+                  Société d'exploitation
+                </Link>
+              </p>
             </ScrollRevealDiv>
           </div>
         </section>
