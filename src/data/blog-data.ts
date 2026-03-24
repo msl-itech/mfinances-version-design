@@ -316,8 +316,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "creation-societe",
     published: true,
     date: "2025-12-25",
-    seoTitle: "Les 5 Erreurs à Éviter lors de la Création d'une Société en Belgique",
-    metaDescription: "Capital insuffisant, mauvaise structure juridique, TVA mal configurée — les 5 erreurs les plus courantes à la création d'une société belge et comment les éviter.",
+    seoTitle: "5 Erreurs Création Société Belgique — À Éviter",
+    metaDescription: "Capital insuffisant, mauvaise structure, TVA mal configurée — les 5 erreurs courantes à la création d'une société belge et comment les éviter.",
     pillarPage: "/services/creation-entreprise/",
   },
 
