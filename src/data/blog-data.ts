@@ -48,7 +48,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-10-28",
-    seoTitle: "Investir sans Fragiliser sa Trésorerie — Guide Pratique pour Dirigeants TPE",
+    seoTitle: "Investir sans Fragiliser sa Trésorerie — Guide TPE",
     metaDescription: "Autofinancement, emprunt ou leasing ? Comment choisir le bon mode de financement pour préserver votre trésorerie. Guide pratique MFinances, Bruxelles.",
     pillarPage: "/services/tresorerie/",
   },
