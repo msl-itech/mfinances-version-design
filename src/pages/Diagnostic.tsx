@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { sendLeadToOdoo } from "@/lib/odoo";
+import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
