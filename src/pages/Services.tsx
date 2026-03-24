@@ -136,24 +136,6 @@ function ServiceCard({
 export default function Services() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Nos Services — Expert-Comptable MFinances Bruxelles";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "DAF externalisé, contrôle de gestion, trésorerie et comptabilité pour TPE à Bruxelles. Services MFinances adaptés à votre stade de croissance.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/services/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   return (
