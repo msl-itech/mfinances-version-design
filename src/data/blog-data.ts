@@ -390,7 +390,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-01-12",
-    seoTitle: "J'ai l'impression de payer trop d'impôts en Belgique — est-ce vrai ?",
+    seoTitle: "Je Paye Trop d'Impôts en Belgique — Vrai ou Faux ?",
     metaDescription: "La charge fiscale d'un dirigeant belge peut dépasser 50%. Mais combien payez-vous vraiment — et combien pourriez-vous économiser légalement ? Calcul concret.",
     pillarPage: "/services/fiscalite/",
   },
