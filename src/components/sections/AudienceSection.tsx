@@ -8,10 +8,10 @@ import imgCroissance from "@/assets/audience-croissance.webp";
 import imgPromoteurs from "@/assets/audience-promoteurs.webp";
 
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-startups/", image: imgIndependants },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-horeca/", image: imgHoreca },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-sante/", image: imgSante },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-croissance/", image: imgCroissance },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: imgIndependants },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: imgHoreca },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: imgSante },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: imgCroissance },
   { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: imgPromoteurs },
 ];
 
