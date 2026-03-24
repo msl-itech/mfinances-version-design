@@ -84,7 +84,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-09-05",
-    seoTitle: "Fidélisation Client et Trésorerie — Le Lien que Personne ne Vous Explique",
+    seoTitle: "Fidélisation Client et Trésorerie — Le Lien Caché",
     metaDescription: "Un client fidèle coûte 5 fois moins cher qu'un nouveau client. Comment la fidélisation améliore directement votre trésorerie et stabilise vos flux financiers.",
     pillarPage: "/services/tresorerie/",
   },
