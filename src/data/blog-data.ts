@@ -36,7 +36,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-11-15",
-    seoTitle: "Trésorerie vs Bénéfices — Quelle Différence pour un Dirigeant de TPE ?",
+    seoTitle: "Trésorerie vs Bénéfices — La Différence Clé en TPE",
     metaDescription: "Comprendre pourquoi une entreprise rentable peut manquer de cash. La distinction essentielle entre bénéfice et trésorerie expliquée avec des exemples concrets.",
     pillarPage: "/services/tresorerie/",
   },
