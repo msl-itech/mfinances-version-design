@@ -349,6 +349,40 @@ export default function Tresorerie() {
           </div>
         </section>
 
+        {/* ── ARTICLES LIÉS ── */}
+        <section className="bg-card py-12 md:py-16">
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12">
+            <ScrollRevealDiv>
+              <h2 className="font-display text-[24px] md:text-[32px] text-foreground mb-8 text-center leading-[1.15]">
+                Nos articles <span className="text-accent">trésorerie</span>
+              </h2>
+            </ScrollRevealDiv>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {[
+                { slug: "pourquoi-pas-argent-sur-compte", title: "Pourquoi je n'ai jamais d'argent sur mon compte ?", excerpt: "Vous travaillez, vous facturez, et pourtant votre compte est toujours vide." },
+                { slug: "argent-disparait-fin-mois", title: "Bénéfices mais pas d'argent — pourquoi ?", excerpt: "Vous êtes rentable sur le papier mais votre compte est vide en fin de mois." },
+                { slug: "stress-fin-mois-dirigeant-tpe", title: "Le stress de fin de mois des dirigeants de TPE", excerpt: "Chaque fin de mois, vous vérifiez votre compte avec appréhension." },
+                { slug: "combien-reserve-securite-tpe", title: "Combien mettre de côté en réserve de sécurité ?", excerpt: "La règle des 3 mois expliquée simplement pour les indépendants." },
+              ].map((a, i) => (
+                <ScrollRevealDiv key={a.slug} delay={0.06 + i * 0.04}>
+                  <Link
+                    to={`/blog/tresorerie/${a.slug}/`}
+                    className="group block bg-secondary/60 rounded-2xl p-6 border border-border/50 hover:border-accent/30 transition-all"
+                  >
+                    <h3 className="text-[15px] font-bold font-body text-foreground group-hover:text-accent transition-colors leading-snug mb-2">
+                      {a.title}
+                    </h3>
+                    <p className="text-[13px] text-muted-foreground font-body leading-relaxed">{a.excerpt}</p>
+                    <span className="inline-flex items-center gap-1 text-accent text-[12px] font-semibold mt-3">
+                      Lire <ArrowRight size={12} />
+                    </span>
+                  </Link>
+                </ScrollRevealDiv>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA FINAL */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
