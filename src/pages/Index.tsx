@@ -34,7 +34,7 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Bruxelles — Pilotage TPE | MFinances"
+        title="Expert-Comptable Bruxelles — Pilotage TPE"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE en croissance."
         canonical="https://mfinances.be/"
         schemaJson={[accountingServiceSchema, createFaqSchema(homepageFaqs)]}
