@@ -255,7 +255,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-01-20",
-    seoTitle: "Déclaration ISOC Belgique — Préparer sa Déclaration Sans Mauvaise Surprise",
+    seoTitle: "Déclaration ISOC Belgique — Guide Sans Surprise",
     metaDescription: "Comment préparer sa déclaration ISOC en Belgique, éviter les erreurs courantes et optimiser sa charge fiscale. Guide pratique pour dirigeants de sociétés.",
     pillarPage: "/services/fiscalite/",
   },
