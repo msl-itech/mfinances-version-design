@@ -60,7 +60,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-10-10",
-    seoTitle: "Gestion des Stocks et Trésorerie — Libérez vos Liquidités Immobilisées",
+    seoTitle: "Stocks et Trésorerie — Libérez vos Liquidités",
     metaDescription: "Comment une mauvaise gestion des stocks immobilise des milliers d'euros de liquidités. Stratégies concrètes pour optimiser votre stock et libérer du cash.",
     pillarPage: "/services/tresorerie/",
   },
