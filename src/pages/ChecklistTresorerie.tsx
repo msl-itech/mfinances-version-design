@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
-import { sendLeadToOdoo } from "@/lib/odoo";
+import { submitLead } from "@/lib/odoo-submit";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
