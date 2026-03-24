@@ -10,11 +10,15 @@ import {
 export default function PolitiqueConfidentialite() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Politique de confidentialité — MFinances Bruxelles";
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Politique de confidentialité — MFinances Bruxelles"
+        description="Politique de confidentialité de MFinances S.R.L. concernant la collecte et le traitement de vos données personnelles."
+        canonical="https://mfinances.be/politique-de-confidentialite/"
+      />
       <Header />
       <main>
         <section className="bg-primary py-12 md:py-16">

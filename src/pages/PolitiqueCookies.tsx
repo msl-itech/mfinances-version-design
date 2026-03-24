@@ -10,11 +10,15 @@ import {
 export default function PolitiqueCookies() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Politique de cookies — MFinances Bruxelles";
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Politique de cookies — MFinances Bruxelles"
+        description="Politique de cookies de MFinances S.R.L. — types de cookies utilisés et gestion de vos préférences."
+        canonical="https://mfinances.be/politique-de-cookies/"
+      />
       <Header />
       <main>
         <section className="bg-primary py-12 md:py-16">

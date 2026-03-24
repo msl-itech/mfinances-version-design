@@ -76,28 +76,16 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function Support() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Support Clients MFinances — Assistance à Distance | AnyDesk";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Assistance à distance pour clients MFinances. Téléchargez AnyDesk et laissez votre expert-comptable vous accompagner directement dans Odoo.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/support/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Support Clients MFinances — Assistance à Distance | AnyDesk"
+        description="Assistance à distance pour clients MFinances. Téléchargez AnyDesk et laissez votre expert-comptable vous accompagner directement dans Odoo."
+        canonical="https://mfinances.be/support/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>
