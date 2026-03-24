@@ -92,13 +92,18 @@ export default function BlogArticle() {
   const ctaLink = content.ctaLink || "/contact/";
   const ctaLabel = content.ctaLabel || "Parler à un expert";
 
+  const schemas = [breadcrumbLd, ...(faqLd ? [faqLd] : [])];
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title={article.seoTitle || `${article.title} — MFinances Bruxelles`}
+        description={article.metaDescription || article.excerpt}
+        canonical={`https://mfinances.be/blog/${categorySlug}/${articleSlug}/`}
+        ogImage={categoryHeroImages[categorySlug!]}
+        schemaJson={schemas}
+      />
       <Header />
-
-      {/* JSON-LD */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
       <main>
         {/* ── HERO ── */}
