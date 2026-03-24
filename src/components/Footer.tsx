@@ -85,7 +85,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 4 — Légal */}
+          {/* Col 4 — Structures */}
+          <div>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Structures</h3>
+            <nav className="space-y-0.5">
+              {structuresLinks.map((l) => (
+                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Col 5 — Légal */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Légal</h3>
             <nav className="space-y-0.5">

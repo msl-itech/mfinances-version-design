@@ -255,6 +255,15 @@ export default function ProfessionsSante() {
                 <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
+
+            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+              <p className="text-[14px] text-muted-foreground font-body">
+                Vous exercez en cabinet partagé ? Découvrez notre accompagnement dédié aux{" "}
+                <Link to="/qui-nous-accompagnons/societe-de-moyens/" className="text-accent font-semibold hover:underline">
+                  sociétés de moyens
+                </Link>.
+              </p>
+            </ScrollRevealDiv>
           </div>
         </section>
 
