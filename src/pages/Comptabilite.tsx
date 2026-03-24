@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/compta-hero.jpg";
 import imgOdoo from "@/assets/compta-odoo.jpg";
@@ -97,33 +98,16 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function Comptabilite() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Comptabilité sur Odoo pour TPE à Bruxelles — MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Comptabilité claire, conforme et proactive intégrée dans Odoo. Encodage automatisé, déclarations fiscales, tableaux de bord. Cabinet MFinances, Bruxelles.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/services/comptabilite/";
-
-    const addJsonLd = (data: object) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.textContent = JSON.stringify(data);
-      document.head.appendChild(s);
-      return s;
-    };
-    const s1 = addJsonLd(breadcrumbJsonLd);
-    const s2 = addJsonLd(faqJsonLd);
-    return () => { s1.remove(); s2.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Comptabilité sur Odoo pour TPE à Bruxelles — MFinances"
+        description="Comptabilité claire, conforme et proactive intégrée dans Odoo. Encodage automatisé, déclarations fiscales, tableaux de bord. Cabinet MFinances, Bruxelles."
+        canonical="https://mfinances.be/services/comptabilite/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
 import imgKpi from "@/assets/controle-gestion-kpi.jpg";
@@ -123,33 +124,16 @@ function CellValue({ value }: { value: boolean | string }) {
 export default function ControleDeGestion() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Contrôle de Gestion TPE à Bruxelles — MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence. À partir de 450€/mois.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/services/controle-de-gestion/";
-
-    const addJsonLd = (data: object) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.textContent = JSON.stringify(data);
-      document.head.appendChild(s);
-      return s;
-    };
-    const s1 = addJsonLd(breadcrumbJsonLd);
-    const s2 = addJsonLd(faqJsonLd);
-    return () => { s1.remove(); s2.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Contrôle de Gestion TPE à Bruxelles — MFinances"
+        description="Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence. À partir de 450€/mois."
+        canonical="https://mfinances.be/services/controle-de-gestion/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

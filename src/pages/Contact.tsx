@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
-import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema } from "@/lib/seo-schemas";
+import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -96,24 +97,6 @@ export default function Contact() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Contactez MFinances — Expert-Comptable Bruxelles | RDV Gratuit";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Prenez rendez-vous avec MFinances, cabinet d'expertise comptable à Uccle, Bruxelles. Consultation gratuite sous 72h.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/contact/";
-
-    const s1 = injectJsonLd(createBreadcrumbSchema([
-      { name: "Accueil", url: "https://mfinances.be/" },
-      { name: "Contact", url: "https://mfinances.be/contact/" },
-    ]));
-    return () => { s1.remove(); };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -142,6 +125,15 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Contactez MFinances — Expert-Comptable Bruxelles | RDV Gratuit"
+        description="Prenez rendez-vous avec MFinances, cabinet d'expertise comptable à Uccle, Bruxelles. Consultation gratuite sous 72h."
+        canonical="https://mfinances.be/contact/"
+        schemaJson={createBreadcrumbSchema([
+          { name: "Accueil", url: "https://mfinances.be/" },
+          { name: "Contact", url: "https://mfinances.be/contact/" },
+        ])}
+      />
       <Header />
 
       <main>

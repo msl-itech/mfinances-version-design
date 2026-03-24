@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/creation-hero.jpg";
 import imgSteps from "@/assets/creation-steps.jpg";
@@ -86,33 +87,16 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function CreationEntreprise() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Création d'Entreprise à Bruxelles — Expert-Comptable MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. 800€ HTVA. Cabinet MFinances, Bruxelles.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/services/creation-entreprise/";
-
-    const addJsonLd = (data: object) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.textContent = JSON.stringify(data);
-      document.head.appendChild(s);
-      return s;
-    };
-    const s1 = addJsonLd(breadcrumbJsonLd);
-    const s2 = addJsonLd(faqJsonLd);
-    return () => { s1.remove(); s2.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Création d'Entreprise à Bruxelles — Expert-Comptable MFinances"
+        description="Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. 800€ HTVA. Cabinet MFinances, Bruxelles."
+        canonical="https://mfinances.be/services/creation-entreprise/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

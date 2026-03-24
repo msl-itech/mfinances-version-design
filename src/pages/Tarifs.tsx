@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/tarifs-hero.jpg";
 import imgMeeting from "@/assets/daf-meeting.jpg";
@@ -136,33 +137,16 @@ function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
 export default function Tarifs() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "3 forfaits transparents pour TPE à Bruxelles. Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/tarifs/";
-
-    const addJsonLd = (data: object) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.textContent = JSON.stringify(data);
-      document.head.appendChild(s);
-      return s;
-    };
-    const s1 = addJsonLd(breadcrumbJsonLd);
-    const s2 = addJsonLd(faqJsonLd);
-    return () => { s1.remove(); s2.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances"
+        description="3 forfaits transparents pour TPE à Bruxelles. Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
+        canonical="https://mfinances.be/tarifs/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

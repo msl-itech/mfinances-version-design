@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/qui-nous-accompagnons-hero.jpg";
 import imgMeeting from "@/assets/daf-meeting.jpg";
@@ -155,28 +156,16 @@ function AudienceCard({
 export default function QuiNousAccompagnons() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Qui nous accompagnons — MFinances Bruxelles";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/qui-nous-accompagnons/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Qui nous accompagnons — MFinances Bruxelles"
+        description="MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles."
+        canonical="https://mfinances.be/qui-nous-accompagnons/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -20,7 +21,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -72,28 +73,19 @@ const stats = [
 export default function APropos() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Pourquoi MFinances — Cabinet comptable Bruxelles | Mika Musungayi";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Mika Musungayi a créé MFinances après avoir vu trop de dirigeants de TPE piloter leur croissance sans visibilité financière. Découvrez sa conviction.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/a-propos/";
-
-    const s1 = injectJsonLd(createBreadcrumbSchema([
-      { name: "Accueil", url: "https://mfinances.be/" },
-      { name: "À propos", url: "https://mfinances.be/a-propos/" },
-    ]));
-    return () => { s1.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Pourquoi MFinances — Cabinet comptable Bruxelles | Mika Musungayi"
+        description="Mika Musungayi a créé MFinances après avoir vu trop de dirigeants de TPE piloter leur croissance sans visibilité financière. Découvrez sa conviction."
+        canonical="https://mfinances.be/a-propos/"
+        schemaJson={createBreadcrumbSchema([
+          { name: "Accueil", url: "https://mfinances.be/" },
+          { name: "À propos", url: "https://mfinances.be/a-propos/" },
+        ])}
+      />
       <Header />
 
       <main>

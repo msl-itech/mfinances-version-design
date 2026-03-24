@@ -1,26 +1,29 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 
 export default function MentionsLegales() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Mentions légales — MFinances Bruxelles";
-
-    const s1 = injectJsonLd(createBreadcrumbSchema([
-      { name: "Accueil", url: "https://mfinances.be/" },
-      { name: "Mentions légales", url: "https://mfinances.be/mentions-legales/" },
-    ]));
-    return () => { s1.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Mentions légales — MFinances Bruxelles"
+        description="Mentions légales du site MFinances S.R.L., cabinet d'expertise comptable à Uccle, Bruxelles."
+        canonical="https://mfinances.be/mentions-legales/"
+        schemaJson={createBreadcrumbSchema([
+          { name: "Accueil", url: "https://mfinances.be/" },
+          { name: "Mentions légales", url: "https://mfinances.be/mentions-legales/" },
+        ])}
+      />
       <Header />
       <main>
         <section className="bg-primary py-12 md:py-16">

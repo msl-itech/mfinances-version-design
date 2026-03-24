@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/independants-hero.jpg";
 import imgMeeting from "@/assets/daf-meeting.jpg";
@@ -89,28 +90,16 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function IndependantsStartups() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Indépendants Bruxelles — MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Accompagnement comptable, fiscal et financier pour indépendants et startups en Belgique. Plan financier, optimisation fiscale. Cabinet MFinances, Bruxelles.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/qui-nous-accompagnons/independants-et-startups/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Expert-Comptable Indépendants Bruxelles — MFinances"
+        description="Accompagnement comptable, fiscal et financier pour indépendants et startups en Belgique. Plan financier, optimisation fiscale. Cabinet MFinances, Bruxelles."
+        canonical="https://mfinances.be/qui-nous-accompagnons/independants-et-startups/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -55,24 +56,6 @@ export default function ChecklistTresorerie() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "5 Erreurs de Trésorerie — Guide Gratuit | MFinances Bruxelles";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Téléchargez gratuitement : pourquoi vous n'avez jamais d'argent sur votre compte — et les 5 erreurs à corriger cette semaine.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/checklist-tresorerie/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -45,32 +46,12 @@ export default function BlogArticle() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (article) {
-      document.title = article.seoTitle || `${article.title} — MFinances Bruxelles`;
-
-      // Meta description
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement("meta");
-        metaDesc.setAttribute("name", "description");
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.setAttribute("content", article.metaDescription || article.excerpt);
-
-      // Canonical
-      let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (!canonical) {
-        canonical = document.createElement("link");
-        canonical.setAttribute("rel", "canonical");
-        document.head.appendChild(canonical);
-      }
-      canonical.setAttribute("href", `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`);
-    }
-  }, [article, categorySlug, articleSlug]);
+  }, [article]);
 
   if (!article || !category || !content) {
     return (
       <div className="min-h-screen">
+        <SEOHead title="Article introuvable — MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
         <Header />
         <div className="py-20 text-center">
           <h1 className="font-display text-[32px]">Article introuvable</h1>
@@ -111,13 +92,18 @@ export default function BlogArticle() {
   const ctaLink = content.ctaLink || "/contact/";
   const ctaLabel = content.ctaLabel || "Parler à un expert";
 
+  const schemas = [breadcrumbLd, ...(faqLd ? [faqLd] : [])];
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title={article.seoTitle || `${article.title} — MFinances Bruxelles`}
+        description={article.metaDescription || article.excerpt}
+        canonical={`https://mfinances.be/blog/${categorySlug}/${articleSlug}/`}
+        ogImage={categoryHeroImages[categorySlug!]}
+        schemaJson={schemas}
+      />
       <Header />
-
-      {/* JSON-LD */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
       <main>
         {/* ── HERO ── */}
