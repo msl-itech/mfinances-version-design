@@ -440,11 +440,11 @@ export default function Contact() {
               <ScrollRevealDiv delay={0.15}>
                 {/* Mika card */}
                 <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
-                  <div className="bg-gradient-to-b from-muted/50 to-card flex justify-center pt-6">
+                  <div className="bg-gradient-to-b from-muted/50 to-card flex justify-center pt-4 px-6">
                     <img
                       src={mikaPhoto}
                       alt="Mika MUSUNGAYI, fondateur MFinances"
-                      className="h-[200px] object-contain"
+                      className="h-[280px] object-contain"
                     />
                   </div>
                   <div className="p-6">
