@@ -366,7 +366,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2026-01-05",
-    seoTitle: "Combien Mettre de Côté en Réserve de Sécurité quand on est Indépendant ?",
+    seoTitle: "Réserve de Sécurité Indépendant — Combien ?",
     metaDescription: "Combien faut-il avoir en réserve de trésorerie pour dormir tranquille ? La règle des 3 mois expliquée simplement, avec des exemples concrets pour TPE belges.",
     pillarPage: "/services/tresorerie/",
   },

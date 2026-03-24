@@ -107,7 +107,7 @@ export default function SocieteDeManagement() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Société de Management Patrimoniale à Bruxelles — MFinances"
+        title="Société de Management Bruxelles | MFinances"
         description="Société de management patrimoniale à Bruxelles : management fees, investissement immobilier et planification successorale. MFinances."
         canonical="https://mfinances.be/qui-nous-accompagnons/societe-de-management/"
         schemaJson={breadcrumbJsonLd}
