@@ -19,6 +19,13 @@ const ressourcesLinks = [
   { label: "Pourquoi MFinances", href: "/a-propos/" },
 ];
 
+const structuresLinks = [
+  { label: "Société d'exploitation", href: "/qui-nous-accompagnons/societe-exploitation/" },
+  { label: "Société de management", href: "/qui-nous-accompagnons/societe-de-management/" },
+  { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
+  { label: "ASBL", href: "/qui-nous-accompagnons/asbl/" },
+];
+
 const legalLinks = [
   { label: "Mentions légales", href: "/mentions-legales/" },
   { label: "Politique de confidentialité", href: "/politique-de-confidentialite/" },
@@ -31,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1B2B5E] text-white">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Col 1 — À propos */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-5">
             <img src={logoSquare} alt="MFinances" className="h-[60px] rounded-lg" />
@@ -78,7 +85,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 4 — Légal */}
+          {/* Col 4 — Structures */}
+          <div>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Structures</h3>
+            <nav className="space-y-0.5">
+              {structuresLinks.map((l) => (
+                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Col 5 — Légal */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Légal</h3>
             <nav className="space-y-0.5">
