@@ -54,28 +54,16 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 export default function PromoteursImmobiliers() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Expert-Comptable Promoteur Immobilier Bruxelles — MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/qui-nous-accompagnons/promoteurs-immobiliers/";
-
-    const s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.textContent = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(s);
-    return () => { s.remove(); };
   }, []);
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Expert-Comptable Promoteur Immobilier Bruxelles — MFinances"
+        description="Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles."
+        canonical="https://mfinances.be/qui-nous-accompagnons/promoteurs-immobiliers/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>
