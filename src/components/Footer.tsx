@@ -46,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1B2B5E] text-white">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Col 1 — À propos */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-5">
             <img src={logoSquare} alt="MFinances" className="h-[60px] rounded-lg" />
