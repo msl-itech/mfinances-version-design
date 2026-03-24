@@ -11,6 +11,14 @@ const servicesLinks = [
   { label: "Création d'entreprise", href: "/services/creation-entreprise/" },
 ];
 
+const profilsLinks = [
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
+];
+
 const ressourcesLinks = [
   { label: "Blog", href: "/blog/" },
   { label: "Diagnostic gratuit", href: "/diagnostic/" },
