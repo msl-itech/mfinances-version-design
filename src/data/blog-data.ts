@@ -72,7 +72,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2025-09-22",
-    seoTitle: "Concurrence et Trésorerie — Comment Résister sans Brader vos Marges",
+    seoTitle: "Concurrence et Trésorerie — Protéger vos Marges",
     metaDescription: "Un concurrent agressif attaque vos prix. Comment protéger votre trésorerie sans entrer dans une guerre des prix perdante ? Stratégies concrètes pour TPE.",
     pillarPage: "/services/tresorerie/",
   },
