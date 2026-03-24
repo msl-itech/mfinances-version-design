@@ -305,7 +305,7 @@ export const blogArticles: BlogArticle[] = [
     published: true,
     date: "2025-12-30",
     seoTitle: "Plan Financier Obligatoire en Belgique — Ce que la Loi Exige",
-    metaDescription: "Le plan financier est obligatoire pour créer une SRL ou SA en Belgique. Ce qu'il doit contenir, pourquoi il engage votre responsabilité et comment le construire.",
+    metaDescription: "Le plan financier est obligatoire pour créer une SRL ou SA en Belgique. Contenu requis, responsabilité du fondateur et conseils pratiques.",
     pillarPage: "/services/creation-entreprise/",
   },
   {
