@@ -219,7 +219,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-02-05",
-    seoTitle: "Réserve de Liquidation Belgique — Le Mécanisme Fiscal à Connaître",
+    seoTitle: "Réserve de Liquidation Belgique — Guide Fiscal",
     metaDescription: "La réserve de liquidation permet aux PME belges de distribuer des dividendes avec une fiscalité réduite. Mécanisme, conditions et stratégie d'utilisation.",
     pillarPage: "/services/fiscalite/",
   },
