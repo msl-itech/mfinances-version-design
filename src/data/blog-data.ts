@@ -243,7 +243,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-01-25",
-    seoTitle: "Voiture de Société en Belgique 2026 — Fiscalité, Avantages et Pièges",
+    seoTitle: "Voiture de Société Belgique 2026 — Guide Fiscal",
     metaDescription: "Tout sur la fiscalité de la voiture de société en Belgique en 2026. ATN, déductibilité, cotisation CO2, voiture électrique. Guide complet pour dirigeants.",
     pillarPage: "/services/fiscalite/",
   },
