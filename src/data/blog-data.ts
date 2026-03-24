@@ -145,7 +145,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "daf-externalise",
     published: true,
     date: "2026-03-05",
-    seoTitle: "Les 5 Décisions où un DAF Externalisé Change Tout pour une TPE",
+    seoTitle: "5 Décisions où un DAF Externalisé Change Tout",
     metaDescription: "Recrutement, investissement, levée de fonds, restructuration — les 5 décisions stratégiques où un DAF à temps partiel fait réellement la différence.",
     pillarPage: "/services/daf-externalise/",
   },
