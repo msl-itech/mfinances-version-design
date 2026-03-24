@@ -207,7 +207,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-02-10",
-    seoTitle: "VVPRbis en Belgique — Dividendes à Taux Réduit pour les PME",
+    seoTitle: "VVPRbis Belgique — Dividendes à Taux Réduit PME",
     metaDescription: "Le régime VVPRbis permet aux PME belges de distribuer des dividendes à 15% au lieu de 30%. Conditions, avantages et pièges à éviter. Guide complet.",
     pillarPage: "/services/fiscalite/",
   },
