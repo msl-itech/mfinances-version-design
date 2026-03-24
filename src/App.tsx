@@ -24,6 +24,7 @@ import PromoteursImmobiliers from "./pages/PromoteursImmobiliers.tsx";
 import Asbl from "./pages/Asbl.tsx";
 import SocieteExploitation from "./pages/SocieteExploitation.tsx";
 import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
+import SocieteDeManagement from "./pages/SocieteDeManagement.tsx";
 import Contact from "./pages/Contact.tsx";
 import Support from "./pages/Support.tsx";
 import APropos from "./pages/APropos.tsx";
