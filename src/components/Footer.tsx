@@ -19,6 +19,13 @@ const ressourcesLinks = [
   { label: "Pourquoi MFinances", href: "/a-propos/" },
 ];
 
+const structuresLinks = [
+  { label: "Société d'exploitation", href: "/qui-nous-accompagnons/societe-exploitation/" },
+  { label: "Société de management", href: "/qui-nous-accompagnons/societe-de-management/" },
+  { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
+  { label: "ASBL", href: "/qui-nous-accompagnons/asbl/" },
+];
+
 const legalLinks = [
   { label: "Mentions légales", href: "/mentions-legales/" },
   { label: "Politique de confidentialité", href: "/politique-de-confidentialite/" },
