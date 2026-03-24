@@ -97,6 +97,12 @@ export default function Fiscalite() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Optimisation Fiscale pour TPE à Bruxelles — MFinances"
+        description="Optimisation fiscale ISOC, IPP, TVA et planification patrimoniale pour dirigeants de TPE en Belgique. Cabinet MFinances, Bruxelles. Consultation gratuite."
+        canonical="https://mfinances.be/services/fiscalite/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

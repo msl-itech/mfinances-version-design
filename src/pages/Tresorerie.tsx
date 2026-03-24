@@ -106,6 +106,12 @@ export default function Tresorerie() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Gestion de Trésorerie TPE à Bruxelles — MFinances"
+        description="Trésorerie prévisionnelle mensuelle pour anticiper les tensions et sécuriser votre croissance. Inclus dans le forfait Excellence. MFinances, Bruxelles."
+        canonical="https://mfinances.be/services/tresorerie/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>
