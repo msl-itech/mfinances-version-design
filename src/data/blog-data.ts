@@ -170,7 +170,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-02-25",
-    seoTitle: "Les 5 KPIs Financiers que Tout Dirigeant de TPE doit Surveiller",
+    seoTitle: "5 KPIs Financiers Essentiels pour Dirigeant de TPE",
     metaDescription: "Marge brute, BFR, délai de paiement, taux d'endettement — les 5 indicateurs financiers clés pour piloter une TPE. Avec formules et seuils d'alerte.",
     pillarPage: "/services/controle-de-gestion/",
   },
