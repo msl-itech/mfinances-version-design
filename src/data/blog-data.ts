@@ -342,8 +342,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2026-01-15",
-    seoTitle: "Mon entreprise fait des bénéfices mais je n'ai jamais d'argent — pourquoi ?",
-    metaDescription: "Vous êtes rentable sur le papier mais votre compte est vide. Ce paradoxe touche 60% des TPE en croissance. Voici l'explication simple et ce que vous pouvez faire.",
+    seoTitle: "Bénéfices mais pas d'Argent — Pourquoi ?",
+    metaDescription: "Vous êtes rentable sur le papier mais votre compte est vide. Ce paradoxe touche 60% des TPE en croissance. Voici l'explication simple.",
     pillarPage: "/services/tresorerie/",
   },
   {
