@@ -356,6 +356,12 @@ export default function Diagnostic() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Diagnostic Trésorerie Gratuit pour TPE — MFinances"
+        description="Évaluez la santé de votre trésorerie en 8 questions. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles."
+        canonical="https://mfinances.be/diagnostic/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>

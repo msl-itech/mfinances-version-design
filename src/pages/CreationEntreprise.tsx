@@ -91,6 +91,12 @@ export default function CreationEntreprise() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Création d'Entreprise à Bruxelles — Expert-Comptable MFinances"
+        description="Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. 800€ HTVA. Cabinet MFinances, Bruxelles."
+        canonical="https://mfinances.be/services/creation-entreprise/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>

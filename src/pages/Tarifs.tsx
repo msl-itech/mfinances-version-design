@@ -141,6 +141,12 @@ export default function Tarifs() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances"
+        description="3 forfaits transparents pour TPE à Bruxelles. Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
+        canonical="https://mfinances.be/tarifs/"
+        schemaJson={[breadcrumbJsonLd, faqJsonLd]}
+      />
       <Header />
 
       <main>
