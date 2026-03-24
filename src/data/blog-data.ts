@@ -109,7 +109,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "daf-externalise",
     published: true,
     date: "2026-03-20",
-    seoTitle: "C'est quoi un DAF Externalisé — Définition et Rôle pour une TPE",
+    seoTitle: "DAF Externalisé — Définition et Rôle pour TPE",
     metaDescription: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
     pillarPage: "/services/daf-externalise/",
   },
