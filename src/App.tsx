@@ -24,6 +24,7 @@ import PromoteursImmobiliers from "./pages/PromoteursImmobiliers.tsx";
 import Asbl from "./pages/Asbl.tsx";
 import SocieteExploitation from "./pages/SocieteExploitation.tsx";
 import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
+import SocieteDeManagement from "./pages/SocieteDeManagement.tsx";
 import Contact from "./pages/Contact.tsx";
 import Support from "./pages/Support.tsx";
 import APropos from "./pages/APropos.tsx";
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="/qui-nous-accompagnons/asbl/" element={<Asbl />} />
           <Route path="/qui-nous-accompagnons/societe-exploitation/" element={<SocieteExploitation />} />
           <Route path="/qui-nous-accompagnons/societe-de-moyens/" element={<SocieteDeMoyens />} />
+          <Route path="/qui-nous-accompagnons/societe-de-management/" element={<SocieteDeManagement />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           <Route path="/support/" element={<Support />} />
