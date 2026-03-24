@@ -256,6 +256,18 @@ export default function Asbl() {
                 <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
               </Button>
             </div>
+
+            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+              <p className="text-[14px] text-muted-foreground font-body">
+                Voir aussi :{" "}
+                <Link to="/qui-nous-accompagnons/societe-de-moyens/" className="text-accent font-semibold hover:underline">
+                  Société de moyens
+                </Link>{" "}· {" "}
+                <Link to="/qui-nous-accompagnons/societe-exploitation/" className="text-accent font-semibold hover:underline">
+                  Société d'exploitation
+                </Link>
+              </p>
+            </ScrollRevealDiv>
           </div>
         </section>
 

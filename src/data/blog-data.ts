@@ -414,7 +414,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-01-16",
-    seoTitle: "Suis-je Vraiment Rentable ? Comment le Savoir Simplement pour une TPE",
+    seoTitle: "Suis-je Rentable ? 3 Questions Simples pour TPE",
     metaDescription: "Vous travaillez beaucoup mais vous ne savez pas si votre entreprise est vraiment rentable ? 3 questions simples pour le savoir — sans jargon comptable.",
     pillarPage: "/services/controle-de-gestion/",
   },
