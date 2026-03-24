@@ -140,6 +140,12 @@ export default function Services() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Nos Services — Expert-Comptable MFinances Bruxelles"
+        description="DAF externalisé, contrôle de gestion, trésorerie et comptabilité pour TPE à Bruxelles. Services MFinances adaptés à votre stade de croissance."
+        canonical="https://mfinances.be/services/"
+        schemaJson={breadcrumbJsonLd}
+      />
       <Header />
 
       <main>
