@@ -5,7 +5,7 @@ import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto from "@/assets/mika-contact.png";
 import {
   Phone,
   Mail,
