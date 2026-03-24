@@ -133,7 +133,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "daf-externalise",
     published: true,
     date: "2026-03-10",
-    seoTitle: "DAF Externalisé vs Expert-Comptable — Quelle Différence Concrète ?",
+    seoTitle: "DAF Externalisé vs Expert-Comptable — Comparatif",
     metaDescription: "DAF externalisé ou expert-comptable — deux rôles complémentaires mais très différents. Comparatif complet pour dirigeants de TPE en Belgique.",
     pillarPage: "/services/daf-externalise/",
   },
