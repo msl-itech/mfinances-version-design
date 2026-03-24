@@ -125,6 +125,15 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Contactez MFinances — Expert-Comptable Bruxelles | RDV Gratuit"
+        description="Prenez rendez-vous avec MFinances, cabinet d'expertise comptable à Uccle, Bruxelles. Consultation gratuite sous 72h."
+        canonical="https://mfinances.be/contact/"
+        schemaJson={createBreadcrumbSchema([
+          { name: "Accueil", url: "https://mfinances.be/" },
+          { name: "Contact", url: "https://mfinances.be/contact/" },
+        ])}
+      />
       <Header />
 
       <main>
