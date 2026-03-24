@@ -158,7 +158,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-03-01",
-    seoTitle: "Contrôle de Gestion pour TPE — C'est quoi et Pourquoi ça Change Tout",
+    seoTitle: "Contrôle de Gestion pour TPE — Définition et Impact",
     metaDescription: "Définition simple du contrôle de gestion pour une TPE. Pourquoi ce n'est pas réservé aux grandes entreprises et comment ça transforme vos décisions.",
     pillarPage: "/services/controle-de-gestion/",
   },
