@@ -182,7 +182,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-02-20",
-    seoTitle: "Comment Construire un Budget Annuel pour une TPE — Guide en 5 Étapes",
+    seoTitle: "Budget Annuel TPE — Guide Pratique en 5 Étapes",
     metaDescription: "Construire un budget annuel réaliste en 5 étapes. Méthode pratique pour dirigeants de TPE en Belgique. Sans jargon, avec exemples concrets.",
     pillarPage: "/services/controle-de-gestion/",
   },
