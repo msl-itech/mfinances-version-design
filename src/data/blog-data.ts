@@ -194,7 +194,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-02-15",
-    seoTitle: "Analyse des Écarts Budgétaires — Comment Lire et Agir sur vos Résultats",
+    seoTitle: "Analyse des Écarts Budgétaires — Lire et Agir",
     metaDescription: "Comprendre et utiliser l'analyse des écarts entre budget et réalisé. Méthode pratique pour identifier les problèmes et corriger la trajectoire.",
     pillarPage: "/services/controle-de-gestion/",
   },
