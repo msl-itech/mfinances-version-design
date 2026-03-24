@@ -304,6 +304,30 @@ export default function CreationEntreprise() {
           </div>
         </section>
 
+        {/* ── ARTICLES BLOG ── */}
+        <section className="bg-card py-10 md:py-20">
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12">
+            <ScrollRevealDiv className="text-center mb-10">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
+                Nos <span className="text-accent">articles</span> création d'entreprise
+              </h2>
+            </ScrollRevealDiv>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { title: "5 erreurs à éviter lors de la création d'une société", href: "/blog/creation-societe/erreurs-creation-societe-belgique/" },
+                { title: "Coût de création d'une société en Belgique", href: "/blog/creation-societe/cout-creation-societe-belgique/" },
+                { title: "Plan financier obligatoire — ce que la loi exige", href: "/blog/creation-societe/plan-financier-obligatoire-belgique/" },
+                { title: "Créer une SRL en Belgique en 2026", href: "/blog/creation-societe/creer-srl-belgique-2026/" },
+              ].map((a) => (
+                <Link key={a.href} to={a.href} className="group flex items-center gap-3 bg-secondary/60 rounded-xl p-4 border border-border/50 hover:border-accent/30 transition-all">
+                  <span className="text-[14px] font-semibold font-body text-foreground group-hover:text-accent transition-colors">{a.title}</span>
+                  <ArrowRight size={14} className="text-accent flex-shrink-0 ml-auto" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Accompagnement création d'entreprise" className="absolute inset-0 w-full h-full object-cover opacity-15" />

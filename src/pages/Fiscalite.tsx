@@ -276,6 +276,32 @@ export default function Fiscalite() {
           </div>
         </section>
 
+        {/* ── ARTICLES BLOG ── */}
+        <section className="bg-card py-10 md:py-20">
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12">
+            <ScrollRevealDiv className="text-center mb-10">
+              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
+                Nos <span className="text-accent">articles</span> fiscalité
+              </h2>
+            </ScrollRevealDiv>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { title: "Combien me payer en indépendant en Belgique ?", href: "/blog/fiscalite-belgique/combien-me-payer-independant-belgique/" },
+                { title: "Je paye trop d'impôts en Belgique — vrai ou faux ?", href: "/blog/fiscalite-belgique/je-paye-trop-impots-belgique/" },
+                { title: "Déclaration ISOC — guide sans surprise", href: "/blog/fiscalite-belgique/declaration-isoc-belgique/" },
+                { title: "Pourquoi mon comptable ne m'aide pas ?", href: "/blog/fiscalite-belgique/pourquoi-comptable-aide-pas/" },
+                { title: "Rémunération du dirigeant — salaire ou dividendes", href: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
+                { title: "Voiture de société Belgique 2026", href: "/blog/fiscalite-belgique/voiture-societe-belgique/" },
+              ].map((a) => (
+                <Link key={a.href} to={a.href} className="group flex items-center gap-3 bg-secondary/60 rounded-xl p-4 border border-border/50 hover:border-accent/30 transition-all">
+                  <span className="text-[14px] font-semibold font-body text-foreground group-hover:text-accent transition-colors">{a.title}</span>
+                  <ArrowRight size={14} className="text-accent flex-shrink-0 ml-auto" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation fiscale" className="absolute inset-0 w-full h-full object-cover opacity-15" />
