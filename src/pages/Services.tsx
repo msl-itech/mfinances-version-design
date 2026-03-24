@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/services-hub-hero.jpg";
 import imgMeeting from "@/assets/daf-meeting.jpg";
