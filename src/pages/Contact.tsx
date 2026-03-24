@@ -116,7 +116,7 @@ export default function Contact() {
       name: `${prenom} ${nom}`,
       email_from: email,
       phone: telephone,
-      description: descParts.join("\n"),
+      description: descParts.join(""),
     });
 
     setIsLoading(false);

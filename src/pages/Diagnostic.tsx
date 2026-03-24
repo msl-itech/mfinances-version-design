@@ -240,7 +240,7 @@ export default function Diagnostic() {
     await submitLead({
       name: emailForm.prenom,
       email_from: emailForm.email,
-      description: descParts.join("\n"),
+      description: descParts.join(""),
     });
 
     setEmailSubmitted(true);
