@@ -78,7 +78,7 @@ export default function APropos() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Pourquoi MFinances — Cabinet comptable Bruxelles | Mika Musungayi"
+        title="Pourquoi MFinances — Cabinet Comptable Bruxelles"
         description="Mika Musungayi a créé MFinances après avoir vu trop de dirigeants de TPE piloter leur croissance sans visibilité financière. Découvrez sa conviction."
         canonical="https://mfinances.be/a-propos/"
         schemaJson={createBreadcrumbSchema([
