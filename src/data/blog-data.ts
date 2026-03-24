@@ -121,7 +121,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "daf-externalise",
     published: true,
     date: "2026-03-15",
-    seoTitle: "Quand Faire Appel à un DAF Externalisé ? Les 6 Signaux qui ne Trompent Pas",
+    seoTitle: "Quand Faire Appel à un DAF Externalisé ? 6 Signaux",
     metaDescription: "6 signaux concrets qui indiquent qu'une TPE a besoin d'un DAF à temps partiel. Guide pratique pour dirigeants en croissance. MFinances, Bruxelles.",
     pillarPage: "/services/daf-externalise/",
   },
