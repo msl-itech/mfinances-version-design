@@ -69,9 +69,9 @@ export default function BlogArticle() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://steer-finance.lovable.app/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://steer-finance.lovable.app/blog/" },
-      { "@type": "ListItem", position: 3, name: category.label, item: `https://steer-finance.lovable.app${category.href}` },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://mfinances.be/blog/" },
+      { "@type": "ListItem", position: 3, name: category.label, item: `https://mfinances.be${category.href}` },
       { "@type": "ListItem", position: 4, name: article.title },
     ],
   };
