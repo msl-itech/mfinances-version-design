@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
-import { sendLeadToOdoo } from "@/lib/odoo";
+import { submitLead } from "@/lib/odoo-submit";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -83,13 +83,11 @@ export default function ChecklistTresorerie() {
     setError(null);
 
     try {
-      // Envoi vers Odoo (on ne bloque pas le téléchargement si ça échoue)
-      await sendLeadToOdoo({
+      // Envoi vers Odoo avec fallback localStorage
+      await submitLead({
         name: form.prenom,
         email_from: form.email,
         description: `Lead Checklist Trésorerie\n\nPrénom: ${form.prenom}\nEmail: ${form.email}\nSource: Checklist trésorerie - Site MFinances`,
-      }).catch((err) => {
-        console.error("Erreur Odoo (non bloquante):", err);
       });
 
       // Téléchargement du PDF

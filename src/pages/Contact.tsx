@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { sendLeadToOdoo } from "@/lib/odoo";
+import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
 import Header from "@/components/Header";
@@ -129,7 +129,7 @@ export default function Contact() {
       `\nSource: Formulaire Contact - Site MFinances`,
     ].filter(Boolean);
 
-    await sendLeadToOdoo({
+    await submitLead({
       name: `${prenom} ${nom}`,
       email_from: email,
       phone: telephone,
