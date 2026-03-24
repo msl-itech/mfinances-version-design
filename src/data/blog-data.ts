@@ -231,7 +231,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-01-30",
-    seoTitle: "Rémunération du Dirigeant en Belgique — Salaire ou Dividendes ?",
+    seoTitle: "Rémunération Dirigeant Belgique — Salaire ou Dividendes",
     metaDescription: "Salaire ou dividendes — comment optimiser la rémunération d'un dirigeant de société belge. Calcul de l'impact fiscal et social selon les situations.",
     pillarPage: "/services/fiscalite/",
   },
