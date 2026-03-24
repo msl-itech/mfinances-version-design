@@ -21,7 +21,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 import {
   Breadcrumb,
   BreadcrumbItem,
