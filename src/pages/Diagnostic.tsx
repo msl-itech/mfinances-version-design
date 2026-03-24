@@ -254,7 +254,7 @@ export default function Diagnostic() {
       `\nSource: Diagnostic Trésorerie - Site MFinances`,
     ];
 
-    await sendLeadToOdoo({
+    await submitLead({
       name: emailForm.prenom,
       email_from: emailForm.email,
       description: descParts.join("\n"),

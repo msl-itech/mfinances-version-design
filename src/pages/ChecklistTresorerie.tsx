@@ -83,13 +83,11 @@ export default function ChecklistTresorerie() {
     setError(null);
 
     try {
-      // Envoi vers Odoo (on ne bloque pas le téléchargement si ça échoue)
-      await sendLeadToOdoo({
+      // Envoi vers Odoo avec fallback localStorage
+      await submitLead({
         name: form.prenom,
         email_from: form.email,
         description: `Lead Checklist Trésorerie\n\nPrénom: ${form.prenom}\nEmail: ${form.email}\nSource: Checklist trésorerie - Site MFinances`,
-      }).catch((err) => {
-        console.error("Erreur Odoo (non bloquante):", err);
       });
 
       // Téléchargement du PDF

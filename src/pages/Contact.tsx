@@ -129,7 +129,7 @@ export default function Contact() {
       `\nSource: Formulaire Contact - Site MFinances`,
     ].filter(Boolean);
 
-    await sendLeadToOdoo({
+    await submitLead({
       name: `${prenom} ${nom}`,
       email_from: email,
       phone: telephone,
