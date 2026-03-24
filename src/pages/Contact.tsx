@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
-import { createBreadcrumbSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema } from "@/lib/seo-schemas";
+import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
