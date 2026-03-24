@@ -52,7 +52,7 @@ export default function Blog() {
     window.scrollTo(0, 0);
   }, []);
 
-  const latestPublished = blogArticles.filter((a) => a.published).slice(0, 6);
+  const latestPublished = blogArticles.filter((a) => a.published);
 
   return (
     <div className="min-h-screen">
