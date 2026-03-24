@@ -52,6 +52,11 @@ export default function BlogCategory() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title={`${category.label} — Blog MFinances Bruxelles`}
+        description={category.description}
+        canonical={`https://mfinances.be/blog/${categorySlug}/`}
+      />
       <Header />
 
       <main>
