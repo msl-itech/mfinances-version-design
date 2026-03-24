@@ -330,7 +330,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2026-01-20",
-    seoTitle: "Pourquoi je n'ai jamais d'argent sur mon compte malgré mon activité ?",
+    seoTitle: "Jamais d'Argent sur mon Compte — Pourquoi ?",
     metaDescription: "Vous travaillez beaucoup, vous facturez, et pourtant votre compte est toujours vide. Voici les vraies raisons — et ce que vous pouvez faire cette semaine.",
     pillarPage: "/services/tresorerie/",
   },
