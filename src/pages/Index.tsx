@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import HeroSection from "@/components/sections/HeroSection";
 import EntryPointsSection from "@/components/sections/EntryPointsSection";
 import PainSection from "@/components/sections/PainSection";
@@ -16,7 +17,7 @@ import DisqualificationSection from "@/components/sections/DisqualificationSecti
 import PricingSection from "@/components/sections/PricingSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import SeoLocalSection from "@/components/sections/SeoLocalSection";
-import { accountingServiceSchema, createFaqSchema, injectJsonLd } from "@/lib/seo-schemas";
+import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
 
 const homepageFaqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
@@ -27,25 +28,17 @@ const homepageFaqs = [
 
 export default function Index() {
   useEffect(() => {
-    document.title = "Expert-Comptable Bruxelles — Pilotage financier TPE | MFinances";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
-      el.content = content;
-    };
-    setMeta("description", "Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE en croissance.");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://mfinances.be/";
-
-    const s1 = injectJsonLd(accountingServiceSchema);
-    const s2 = injectJsonLd(createFaqSchema(homepageFaqs));
-    return () => { s1.remove(); s2.remove(); };
+    window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Expert-Comptable Bruxelles — Pilotage financier TPE | MFinances"
+        description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE en croissance."
+        canonical="https://mfinances.be/"
+        schemaJson={[accountingServiceSchema, createFaqSchema(homepageFaqs)]}
+      />
       <Header />
       <main>
         <HeroSection />
