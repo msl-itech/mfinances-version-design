@@ -354,8 +354,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "tresorerie",
     published: true,
     date: "2026-01-10",
-    seoTitle: "Le Stress de Fin de Mois des Dirigeants de TPE — Vous n'êtes pas Seul",
-    metaDescription: "Chaque fin de mois, vous vérifiez votre compte avec appréhension. C'est plus courant qu'on ne le dit. Voici ce que font différemment les dirigeants qui dorment bien.",
+    seoTitle: "Stress Fin de Mois Dirigeant TPE — Solutions",
+    metaDescription: "Chaque fin de mois, vous vérifiez votre compte avec appréhension. C'est courant. Voici ce que font les dirigeants qui dorment bien.",
     pillarPage: "/services/tresorerie/",
   },
   {
