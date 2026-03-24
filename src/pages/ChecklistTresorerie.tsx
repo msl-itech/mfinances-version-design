@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
