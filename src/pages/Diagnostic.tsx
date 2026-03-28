@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
@@ -163,7 +165,8 @@ export default function Diagnostic() {
   const [showMidMessage, setShowMidMessage] = useState(false);
   const [emailForm, setEmailForm] = useState({ prenom: "", email: "" });
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -226,8 +229,14 @@ export default function Diagnostic() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!emailForm.prenom.trim() || !emailForm.email.trim()) return;
+    if (!emailForm.prenom.trim() || !emailForm.email.trim() || !recaptchaToken) return;
 
+    const isHuman = await verifyRecaptchaToken(recaptchaToken);
+    if (!isHuman) {
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+      return;
+    }
     const descParts = [
       `<h3>Diagnostic Trésorerie</h3>`,
       `<p><strong>Score:</strong> ${score}/20</p>`,
@@ -646,7 +655,8 @@ export default function Diagnostic() {
                         <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
                           Avec nos recommandations personnalisées selon votre profil.
                         </p>
-                        <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
+                        <form onSubmit={handleEmailSubmit} className="space-y-3">
+                          <div className="flex flex-col sm:flex-row gap-3">
                           <input
                             type="text"
                             placeholder="Prénom"
@@ -663,7 +673,16 @@ export default function Diagnostic() {
                             onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
                             className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
                           />
-                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap" type="submit">
+                          </div>
+                          <div className="flex justify-center">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setRecaptchaToken(token)}
+                              onExpired={() => setRecaptchaToken(null)}
+                            />
+                          </div>
+                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap w-full sm:w-auto" type="submit" disabled={!recaptchaToken}>
                             Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
                         </form>

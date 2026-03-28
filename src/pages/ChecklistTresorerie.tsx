@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import ReCAPTCHA from "react-google-recaptcha";
+import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -53,6 +55,8 @@ export default function ChecklistTresorerie() {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,12 +64,20 @@ export default function ChecklistTresorerie() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.prenom.trim() || !form.email.trim()) return;
+    if (!form.prenom.trim() || !form.email.trim() || !recaptchaToken) return;
 
     setIsLoading(true);
     setError(null);
 
     try {
+      const isHuman = await verifyRecaptchaToken(recaptchaToken);
+      if (!isHuman) {
+        setError("Vérification reCAPTCHA échouée. Réessayez.");
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
+        setIsLoading(false);
+        return;
+      }
       // Envoi vers Odoo avec fallback localStorage
       await submitLead({
         name: form.prenom,
@@ -165,7 +177,15 @@ export default function ChecklistTresorerie() {
                       {error && (
                         <p className="text-[13px] text-accent font-body">{error}</p>
                       )}
-                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading}>
+                      <div className="flex justify-center">
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={RECAPTCHA_SITE_KEY}
+                          onChange={(token) => setRecaptchaToken(token)}
+                          onExpired={() => setRecaptchaToken(null)}
+                        />
+                      </div>
+                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading || !recaptchaToken}>
                         {isLoading ? (
                           <>
                             <Loader2 size={16} className="mr-1 animate-spin" />

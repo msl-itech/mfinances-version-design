@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { submitLead } from "@/lib/odoo-submit";
+import ReCAPTCHA from "react-google-recaptcha";
+import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import { Link } from "react-router-dom";
 import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 import SEOHead from "@/components/SEOHead";
@@ -94,14 +96,24 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!recaptchaToken) return;
     setIsLoading(true);
+
+    const isHuman = await verifyRecaptchaToken(recaptchaToken);
+    if (!isHuman) {
+      setIsLoading(false);
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+      return;
+    }
 
     const descParts = [
       `<h3>Informations du contact</h3>`,
@@ -393,12 +405,21 @@ export default function Contact() {
                             />
                           </div>
 
+                          <div className="mt-5 flex justify-center">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setRecaptchaToken(token)}
+                              onExpired={() => setRecaptchaToken(null)}
+                            />
+                          </div>
+
                           <Button
                             variant="accent"
                             size="lg"
                             type="submit"
-                            disabled={isLoading}
-                            className="rounded-full w-full mt-7 whitespace-normal text-center leading-snug text-[15px]"
+                            disabled={isLoading || !recaptchaToken}
+                            className="rounded-full w-full mt-5 whitespace-normal text-center leading-snug text-[15px]"
                           >
                             {isLoading ? "Envoi en cours..." : "Envoyer ma demande — Mika me rappelle sous 72h"}
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
