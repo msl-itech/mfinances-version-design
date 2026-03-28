@@ -55,6 +55,8 @@ export default function ChecklistTresorerie() {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,12 +64,20 @@ export default function ChecklistTresorerie() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.prenom.trim() || !form.email.trim()) return;
+    if (!form.prenom.trim() || !form.email.trim() || !recaptchaToken) return;
 
     setIsLoading(true);
     setError(null);
 
     try {
+      const isHuman = await verifyRecaptchaToken(recaptchaToken);
+      if (!isHuman) {
+        setError("Vérification reCAPTCHA échouée. Réessayez.");
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
+        setIsLoading(false);
+        return;
+      }
       // Envoi vers Odoo avec fallback localStorage
       await submitLead({
         name: form.prenom,

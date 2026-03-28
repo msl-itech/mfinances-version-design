@@ -165,7 +165,8 @@ export default function Diagnostic() {
   const [showMidMessage, setShowMidMessage] = useState(false);
   const [emailForm, setEmailForm] = useState({ prenom: "", email: "" });
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
