@@ -96,14 +96,24 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!recaptchaToken) return;
     setIsLoading(true);
+
+    const isHuman = await verifyRecaptchaToken(recaptchaToken);
+    if (!isHuman) {
+      setIsLoading(false);
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+      return;
+    }
 
     const descParts = [
       `<h3>Informations du contact</h3>`,
