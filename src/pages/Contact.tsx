@@ -405,12 +405,21 @@ export default function Contact() {
                             />
                           </div>
 
+                          <div className="mt-5 flex justify-center">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setRecaptchaToken(token)}
+                              onExpired={() => setRecaptchaToken(null)}
+                            />
+                          </div>
+
                           <Button
                             variant="accent"
                             size="lg"
                             type="submit"
-                            disabled={isLoading}
-                            className="rounded-full w-full mt-7 whitespace-normal text-center leading-snug text-[15px]"
+                            disabled={isLoading || !recaptchaToken}
+                            className="rounded-full w-full mt-5 whitespace-normal text-center leading-snug text-[15px]"
                           >
                             {isLoading ? "Envoi en cours..." : "Envoyer ma demande — Mika me rappelle sous 72h"}
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
