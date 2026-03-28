@@ -177,7 +177,15 @@ export default function ChecklistTresorerie() {
                       {error && (
                         <p className="text-[13px] text-accent font-body">{error}</p>
                       )}
-                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading}>
+                      <div className="flex justify-center">
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={RECAPTCHA_SITE_KEY}
+                          onChange={(token) => setRecaptchaToken(token)}
+                          onExpired={() => setRecaptchaToken(null)}
+                        />
+                      </div>
+                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading || !recaptchaToken}>
                         {isLoading ? (
                           <>
                             <Loader2 size={16} className="mr-1 animate-spin" />
