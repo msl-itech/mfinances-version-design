@@ -26,6 +26,13 @@ export default function SEOHead({
       : [schemaJson]
     : [];
 
+  // Merge all schemas into a single @graph to avoid duplicate structured data warnings
+  const mergedSchema = schemas.length > 0
+    ? schemas.length === 1
+      ? schemas[0]
+      : { "@context": "https://schema.org", "@graph": schemas.map(({ "@context": _, ...rest }) => rest) }
+    : null;
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -49,12 +56,12 @@ export default function SEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* JSON-LD Schemas */}
-      {schemas.map((schema, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(schema)}
+      {/* JSON-LD Schema — single block */}
+      {mergedSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(mergedSchema)}
         </script>
-      ))}
+      )}
     </Helmet>
   );
 }
