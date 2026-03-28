@@ -229,8 +229,14 @@ export default function Diagnostic() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!emailForm.prenom.trim() || !emailForm.email.trim()) return;
+    if (!emailForm.prenom.trim() || !emailForm.email.trim() || !recaptchaToken) return;
 
+    const isHuman = await verifyRecaptchaToken(recaptchaToken);
+    if (!isHuman) {
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+      return;
+    }
     const descParts = [
       `<h3>Diagnostic Trésorerie</h3>`,
       `<p><strong>Score:</strong> ${score}/20</p>`,
