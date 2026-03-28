@@ -655,7 +655,8 @@ export default function Diagnostic() {
                         <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
                           Avec nos recommandations personnalisées selon votre profil.
                         </p>
-                        <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
+                        <form onSubmit={handleEmailSubmit} className="space-y-3">
+                          <div className="flex flex-col sm:flex-row gap-3">
                           <input
                             type="text"
                             placeholder="Prénom"
@@ -672,7 +673,16 @@ export default function Diagnostic() {
                             onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
                             className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
                           />
-                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap" type="submit">
+                          </div>
+                          <div className="flex justify-center">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setRecaptchaToken(token)}
+                              onExpired={() => setRecaptchaToken(null)}
+                            />
+                          </div>
+                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap w-full sm:w-auto" type="submit" disabled={!recaptchaToken}>
                             Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
                         </form>
