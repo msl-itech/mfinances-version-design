@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { submitLead } from "@/lib/odoo-submit";
+import ReCAPTCHA from "react-google-recaptcha";
+import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import { Link } from "react-router-dom";
 import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 import SEOHead from "@/components/SEOHead";
