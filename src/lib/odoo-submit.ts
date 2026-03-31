@@ -5,7 +5,7 @@ const TIMEOUT_MS = 8000;
 
 const ODOO_HEADERS: Record<string, string> = {
   "Content-Type": "application/json",
-  "x-signature": "3474874aae52a3c1dcc5e58ede71fa9973bc8ba992064aec7460affc75461f62",
+  "x-signature": "746b22e105d43521fc87e9ebc40fa1f88524855a7b54a311c4c3a37bcfec886a",
   "x-client-id": "client_mfinances",
   "x-company-id": "3",
 };
