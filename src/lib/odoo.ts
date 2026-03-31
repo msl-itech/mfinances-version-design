@@ -2,7 +2,7 @@ const ODOO_API_URL = "https://api-connect-odoo.vercel.app/api";
 
 const ODOO_HEADERS: Record<string, string> = {
   "Content-Type": "application/json",
-  "x-signature": "f48fc94a838ab87d65de288bfcb037d109d1141fd981f70f378be51c91c764bd",
+  "x-signature": "3474874aae52a3c1dcc5e58ede71fa9973bc8ba992064aec7460affc75461f62",
   "x-client-id": "client_mfinances",
   "x-company-id": "3",
 };
