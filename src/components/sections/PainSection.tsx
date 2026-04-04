@@ -24,12 +24,12 @@ const painPoints = [
 function PainCard({ pain }: { pain: typeof painPoints[0] }) {
   const Icon = pain.icon;
   return (
-    <div className="bg-background rounded-2xl p-6 md:p-7 border border-accent/10 h-full">
-      <div className="w-10 h-10 rounded-xl bg-accent/8 flex items-center justify-center mb-4">
-        <Icon size={20} className="text-accent" strokeWidth={1.5} />
+    <div className="bg-background rounded-2xl p-5 border border-accent/10 h-full">
+      <div className="w-9 h-9 rounded-lg bg-accent/8 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-accent" strokeWidth={1.5} />
       </div>
-      <h3 className="font-bold text-[16px] font-body text-foreground mb-2">{pain.title}</h3>
-      <p className="text-[14px] text-muted-foreground leading-[1.75]">{pain.desc}</p>
+      <h3 className="font-bold text-[15px] font-body text-foreground mb-1.5">{pain.title}</h3>
+      <p className="text-[13px] text-muted-foreground leading-[1.7]">{pain.desc}</p>
     </div>
   );
 }
@@ -66,7 +66,7 @@ export default function PainSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[270px]">
+          <MobileCarousel>
             {painPoints.map((pain) => (
               <PainCard key={pain.title} pain={pain} />
             ))}

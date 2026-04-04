@@ -38,7 +38,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
   return (
     <Link
       to={card.ctaHref}
-      className={`group relative bg-card rounded-2xl p-6 md:p-7 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
+      className={`group relative bg-card rounded-2xl p-5 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
         card.accent
           ? "border-accent/30 shadow-[0_4px_24px_rgba(232,57,58,0.08)] hover:shadow-[0_12px_40px_rgba(232,57,58,0.12)]"
           : "border-border/40 shadow-sm hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)]"
@@ -49,14 +49,14 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
           Recommandé
         </span>
       )}
-      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${
+      <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
         card.accent ? "bg-accent/10" : "bg-primary/5"
       }`}>
         <Icon size={22} className={card.accent ? "text-accent" : "text-primary"} strokeWidth={1.5} />
       </div>
-      <h3 className="font-bold text-[17px] font-body text-foreground">{card.title}</h3>
-      <p className="text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">{card.desc}</p>
-      <div className="mt-5 flex items-center justify-between">
+      <h3 className="font-bold text-[15px] font-body text-foreground">{card.title}</h3>
+      <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed flex-1">{card.desc}</p>
+      <div className="mt-3 flex items-center justify-between">
         <span className={`text-[13px] font-semibold flex items-center gap-1.5 ${
           card.accent ? "text-accent" : "text-primary"
         }`}>
@@ -64,7 +64,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
           <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
         </span>
       </div>
-      <span className="mt-4 block text-[10px] text-muted-foreground/50 font-bold tracking-[0.1em] uppercase">
+      <span className="mt-2 block text-[10px] text-muted-foreground/50 font-bold tracking-[0.1em] uppercase">
         {card.badge}
       </span>
     </Link>
@@ -104,7 +104,7 @@ export default function EntryPointsSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[280px]">
+          <MobileCarousel>
             {cards.map((card) => (
               <EntryCard key={card.title} card={card} />
             ))}

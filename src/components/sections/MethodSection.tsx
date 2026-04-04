@@ -57,7 +57,7 @@ export default function MethodSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[260px]">
+          <MobileCarousel>
             {steps.map((step) => (
               <StepCard key={step.num} step={step} />
             ))}
