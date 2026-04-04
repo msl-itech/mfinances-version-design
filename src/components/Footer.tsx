@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import logoSquare from "@/assets/logo-square.webp";
 
 const servicesLinks = [
@@ -42,13 +42,78 @@ const legalLinks = [
 
 const linkClass = "block text-[14px] text-white/70 hover:text-white transition-colors py-1";
 
+interface FooterAccordionProps {
+  title: string;
+  links: { label: string; href: string }[];
+}
+
+function FooterAccordion({ title, links }: FooterAccordionProps) {
+  return (
+    <>
+      {/* Mobile: accordéon */}
+      <details className="md:hidden group border-b border-white/10">
+        <summary className="flex items-center justify-between py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          <h3 className="font-semibold text-[14px] tracking-wide">{title}</h3>
+          <ChevronDown size={16} className="text-white/50 transition-transform group-open:rotate-180" />
+        </summary>
+        <nav className="pb-3 space-y-0.5">
+          {links.map((l) => (
+            <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+          ))}
+        </nav>
+      </details>
+
+      {/* Desktop: colonnes classiques */}
+      <div className="hidden md:block">
+        <h3 className="font-semibold text-[15px] mb-4 tracking-wide">{title}</h3>
+        <nav className="space-y-0.5">
+          {links.map((l) => (
+            <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+          ))}
+        </nav>
+      </div>
+    </>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-[#1B2B5E] text-white">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
-          {/* Col 1 — À propos */}
-          <div className="sm:col-span-2 lg:col-span-1 space-y-5">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-10 md:py-20">
+        {/* Mobile layout */}
+        <div className="md:hidden space-y-0">
+          {/* Logo + contact compact */}
+          <div className="flex items-center gap-4 pb-6">
+            <img src={logoSquare} alt="MFinances" className="h-[48px] rounded-lg shrink-0" />
+            <div className="space-y-1 text-[13px] text-white/70">
+              <a href="tel:+3228860550" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <Phone size={13} className="shrink-0 text-white/50" />
+                +32 2 886 05 50
+              </a>
+              <a href="mailto:info@mfinances.be" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <Mail size={13} className="shrink-0 text-white/50" />
+                info@mfinances.be
+              </a>
+            </div>
+          </div>
+
+          {/* Accordéons de liens */}
+          <FooterAccordion title="Services" links={servicesLinks} />
+          <FooterAccordion title="Profils" links={profilsLinks} />
+          <FooterAccordion title="Structures" links={structuresLinks} />
+          <FooterAccordion title="Ressources" links={ressourcesLinks} />
+          <FooterAccordion title="Légal" links={legalLinks} />
+
+          {/* Badges */}
+          <div className="flex flex-wrap gap-2 pt-5">
+            <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">ITAA 50.624.805</span>
+            <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">BCE 0827.635.870</span>
+          </div>
+        </div>
+
+        {/* Desktop layout — inchangé */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
+          <div className="col-span-2 lg:col-span-1 space-y-5">
             <img src={logoSquare} alt="MFinances" className="h-[60px] rounded-lg" />
             <p className="text-accent text-sm italic leading-relaxed">
               "Transformez votre stress en succès."
@@ -73,62 +138,18 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2 — Services */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Services</h3>
-            <nav className="space-y-0.5">
-              {servicesLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Col 3 — Profils */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Profils</h3>
-            <nav className="space-y-0.5">
-              {profilsLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Col 4 — Ressources */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Ressources</h3>
-            <nav className="space-y-0.5">
-              {ressourcesLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Col 4 — Structures */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Structures</h3>
-            <nav className="space-y-0.5">
-              {structuresLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Col 5 — Légal */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Légal</h3>
-            <nav className="space-y-0.5">
-              {legalLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
-          </div>
+          <FooterAccordion title="Services" links={servicesLinks} />
+          <FooterAccordion title="Profils" links={profilsLinks} />
+          <FooterAccordion title="Ressources" links={ressourcesLinks} />
+          <FooterAccordion title="Structures" links={structuresLinks} />
+          <FooterAccordion title="Légal" links={legalLinks} />
         </div>
       </div>
 
       {/* Copyright bar */}
       <div className="border-t-2 border-accent">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px] text-white/40">
-          <span>© 2026 MFinances S.R.L. — Tous droits réservés | mfinances.be | info@mfinances.be</span>
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-4 md:py-5 flex flex-col items-center gap-1.5 md:flex-row md:justify-between text-[11px] md:text-[12px] text-white/40 text-center md:text-left">
+          <span>© 2026 MFinances S.R.L. — Tous droits réservés</span>
           <span>TVA BE 0827.635.870 | ITAA 50.624.805 | Design by <a href="https://msl-itech.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-accent transition-colors">msl-itech.com</a></span>
         </div>
       </div>
