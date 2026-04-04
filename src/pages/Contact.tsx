@@ -457,8 +457,8 @@ export default function Contact() {
               </ScrollRevealDiv>
             </div>
 
-            {/* RIGHT — Sidebar (2/5) */}
-            <div className="lg:col-span-2 order-1 lg:order-2">
+            {/* RIGHT — Sidebar (2/5) — hidden on mobile */}
+            <div className="lg:col-span-2 order-2 lg:order-2 hidden lg:block">
               <ScrollRevealDiv delay={0.15}>
                 {/* Mika card */}
                 <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
