@@ -157,7 +157,7 @@ export default function Contact() {
               <p className="text-accent font-body text-[12px] md:text-[13px] font-bold uppercase tracking-widest mb-2 md:mb-4">
                 Premier échange gratuit
               </p>
-              <h1 className="font-display text-[26px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto">
+              <h1 className="font-display text-[26px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto text-primary-foreground">
                 Parlons de votre entreprise
               </h1>
               <p className="text-primary-foreground/70 font-body text-[14px] md:text-[18px] mt-2 md:mt-4 max-w-[560px] mx-auto leading-relaxed">
