@@ -38,7 +38,7 @@ export default function HeroSection() {
       <div className="container-mf relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           {/* Left — Copy */}
-          <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <div className={`text-center lg:text-left transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             {/* Social proof badge */}
             <div
               className={`inline-flex items-center gap-2 bg-card border border-border/60 rounded-full px-4 py-2 mb-6 shadow-sm transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
