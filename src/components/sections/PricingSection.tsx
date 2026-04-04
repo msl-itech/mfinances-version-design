@@ -31,7 +31,7 @@ const plans = [
 function PlanCard({ plan }: { plan: typeof plans[0] }) {
   return (
     <div
-      className={`relative bg-card rounded-3xl p-6 md:p-8 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
+      className={`relative bg-card rounded-3xl p-5 md:p-8 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
         plan.popular
           ? "border-primary/30 shadow-[0_8px_40px_rgba(27,43,94,0.1)] hover:shadow-[0_12px_48px_rgba(27,43,94,0.14)]"
           : "border-border/40 hover:shadow-[0_6px_24px_rgba(27,43,94,0.06)]"
