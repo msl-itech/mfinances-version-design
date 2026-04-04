@@ -8,12 +8,12 @@ export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-28" ref={ref}>
+    <section className="py-10 md:py-28" ref={ref}>
       <div className="container-mf">
         <div className={`bg-primary rounded-3xl overflow-hidden shadow-[0_8px_48px_rgba(27,43,94,0.15)] reveal ${isVisible ? "visible" : ""}`}>
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
-            {/* Left — Photo */}
-            <div className="relative h-[280px] lg:h-auto">
+            {/* Left — Photo (hidden on mobile) */}
+            <div className="relative hidden md:block h-[280px] lg:h-auto">
               <img
                 src={mikaPhoto}
                 alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
@@ -21,7 +21,6 @@ export default function MikaSection() {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-primary/20" />
-              {/* Name badge */}
               <div className="absolute bottom-4 left-4">
                 <div className="bg-accent text-accent-foreground text-[13px] font-bold px-4 py-2 rounded-lg shadow-md">
                   Mika MUSUNGAYI
@@ -31,7 +30,7 @@ export default function MikaSection() {
             </div>
 
             {/* Right — Bio */}
-            <div className="p-7 md:p-12 flex flex-col justify-center">
+            <div className="p-6 md:p-12 flex flex-col justify-center">
               <span className="text-accent/70 text-[11px] font-bold tracking-[0.15em] uppercase">
                 VOTRE EXPERT-COMPTABLE À BRUXELLES
               </span>

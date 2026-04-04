@@ -1,5 +1,6 @@
 import { X, Check, ShieldX, Handshake } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import MobileCarousel from "@/components/MobileCarousel";
 
 const notUs = [
   "Vous cherchez le comptable le moins cher possible",
@@ -15,13 +16,58 @@ const yesUs = [
   "Vous voulez anticiper plutôt que subir",
 ];
 
+function DisqualCard({ items, type }: { items: string[]; type: "not" | "yes" }) {
+  const isNot = type === "not";
+  return (
+    <div className={`rounded-3xl overflow-hidden h-full ${
+      isNot
+        ? "border border-accent/15 bg-gradient-to-b from-accent/[0.03] to-background"
+        : "border-2 border-primary/20 bg-gradient-to-b from-primary/[0.04] to-background shadow-[0_4px_24px_rgba(27,43,94,0.06)]"
+    }`}>
+      {!isNot && <div className="h-1 bg-gradient-to-r from-primary to-primary-light" />}
+      <div className="px-6 md:px-7 pt-6 md:pt-7 pb-2 flex items-center gap-3">
+        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+          isNot ? "bg-accent/10" : "bg-primary/10"
+        }`}>
+          {isNot ? (
+            <ShieldX size={20} className="text-accent" strokeWidth={1.5} />
+          ) : (
+            <Handshake size={20} className="text-primary" strokeWidth={1.5} />
+          )}
+        </div>
+        <span className={`font-bold text-[15px] ${isNot ? "text-accent" : "text-primary"}`}>
+          {isNot ? "Ce n'est pas nous si…" : "C'est nous si…"}
+        </span>
+      </div>
+      <div className="px-6 md:px-7 pb-6 md:pb-7 pt-4 space-y-4">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-3">
+            <div className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 ${
+              isNot ? "bg-accent/10" : "bg-emerald-500/10"
+            }`}>
+              {isNot ? (
+                <X size={11} className="text-accent" strokeWidth={3} />
+              ) : (
+                <Check size={11} className="text-emerald-600" strokeWidth={3} />
+              )}
+            </div>
+            <span className={`text-[14px] leading-snug ${
+              isNot ? "text-muted-foreground" : "text-primary font-medium"
+            }`}>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DisqualificationSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-28 bg-card" ref={ref}>
+    <section className="py-10 md:py-28 bg-card" ref={ref}>
       <div className="container-mf max-w-[960px]">
-        <div className={`text-center mb-10 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
+        <div className={`text-center mb-8 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
             TRANSPARENCE
           </span>
@@ -35,53 +81,22 @@ export default function DisqualificationSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          {/* NOT US */}
-          <div
-            className={`rounded-3xl overflow-hidden border border-accent/15 bg-gradient-to-b from-accent/[0.03] to-background reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.15s" }}
-          >
-            <div className="px-6 md:px-7 pt-6 md:pt-7 pb-2 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                <ShieldX size={20} className="text-accent" strokeWidth={1.5} />
-              </div>
-              <span className="font-bold text-accent text-[15px]">Ce n'est pas nous si…</span>
-            </div>
-            <div className="px-6 md:px-7 pb-6 md:pb-7 pt-4 space-y-4">
-              {notUs.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <X size={11} className="text-accent" strokeWidth={3} />
-                  </div>
-                  <span className="text-[14px] text-muted-foreground leading-snug">{item}</span>
-                </div>
-              ))}
-            </div>
+        {/* Desktop */}
+        <div className="hidden md:grid grid-cols-2 gap-6">
+          <div className={`reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+            <DisqualCard items={notUs} type="not" />
           </div>
+          <div className={`reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.25s" }}>
+            <DisqualCard items={yesUs} type="yes" />
+          </div>
+        </div>
 
-          {/* YES US */}
-          <div
-            className={`rounded-3xl overflow-hidden border-2 border-primary/20 bg-gradient-to-b from-primary/[0.04] to-background shadow-[0_4px_24px_rgba(27,43,94,0.06)] reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.25s" }}
-          >
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-light" />
-            <div className="px-6 md:px-7 pt-6 md:pt-7 pb-2 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Handshake size={20} className="text-primary" strokeWidth={1.5} />
-              </div>
-              <span className="font-bold text-primary text-[15px]">C'est nous si…</span>
-            </div>
-            <div className="px-6 md:px-7 pb-6 md:pb-7 pt-4 space-y-4">
-              {yesUs.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <Check size={11} className="text-emerald-600" strokeWidth={3} />
-                  </div>
-                  <span className="text-[14px] text-primary font-medium leading-snug">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Mobile carousel */}
+        <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+          <MobileCarousel itemClassName="min-w-[300px]">
+            <DisqualCard items={notUs} type="not" />
+            <DisqualCard items={yesUs} type="yes" />
+          </MobileCarousel>
         </div>
       </div>
     </section>

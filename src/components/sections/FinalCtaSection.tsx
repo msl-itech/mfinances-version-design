@@ -7,9 +7,8 @@ export default function FinalCtaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-14 md:py-28 relative overflow-hidden" ref={ref}>
-      {/* Decorative */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
+    <section className="bg-primary py-10 md:py-28 relative overflow-hidden" ref={ref}>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03] hidden md:block" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
 
       <div className="container-mf text-center relative z-10">
         <div className={`reveal ${isVisible ? "visible" : ""}`}>
@@ -21,12 +20,12 @@ export default function FinalCtaSection() {
             <br className="hidden md:block" />
             avec <span className="text-accent">clarté</span> ?
           </h2>
-          <p className="text-primary-foreground/55 text-[15px] max-w-[520px] mx-auto mt-5 leading-relaxed">
+          <p className="text-primary-foreground/55 text-[15px] max-w-[520px] mx-auto mt-4 md:mt-5 leading-relaxed">
             Un premier échange confidentiel de 30 minutes pour analyser votre situation et voir comment nous pouvons vous aider.
           </p>
         </div>
 
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 md:mt-10 reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
           <Button variant="accent" size="lg" className="rounded-full px-8 group" asChild>
             <Link to="/diagnostic/">
               Lancer le diagnostic gratuit
@@ -38,7 +37,7 @@ export default function FinalCtaSection() {
           </Button>
         </div>
 
-        <div className={`flex flex-wrap items-center justify-center gap-6 mt-10 text-primary-foreground/35 text-[12px] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.25s" }}>
+        <div className={`flex flex-wrap items-center justify-center gap-6 mt-8 md:mt-10 text-primary-foreground/35 text-[12px] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.25s" }}>
           <span>🔒 Confidentiel</span>
           <span>⏱️ Sous 72h</span>
           <span>✓ Sans engagement</span>
