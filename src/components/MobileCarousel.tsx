@@ -6,7 +6,7 @@ interface MobileCarouselProps {
   itemClassName?: string;
 }
 
-export default function MobileCarousel({ children, className = "", itemClassName = "min-w-[260px]" }: MobileCarouselProps) {
+export default function MobileCarousel({ children, className = "", itemClassName = "" }: MobileCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const total = children.length;
@@ -25,6 +25,8 @@ export default function MobileCarousel({ children, className = "", itemClassName
     return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const defaultItem = "w-[80vw] max-w-[320px]";
+
   return (
     <div className={className}>
       <div
@@ -33,12 +35,11 @@ export default function MobileCarousel({ children, className = "", itemClassName
         style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {children.map((child, i) => (
-          <div key={i} className={`${itemClassName} flex-shrink-0 snap-center`}>
+          <div key={i} className={`${itemClassName || defaultItem} flex-shrink-0 snap-center`}>
             {child}
           </div>
         ))}
       </div>
-      {/* Dots */}
       {total > 1 && (
         <div className="flex justify-center gap-1.5 mt-3">
           {Array.from({ length: total }).map((_, i) => (
