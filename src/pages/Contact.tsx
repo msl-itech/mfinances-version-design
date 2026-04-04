@@ -219,12 +219,12 @@ export default function Contact() {
         </section>
 
         {/* Form + sidebar */}
-        <section className="bg-background pb-16 md:pb-24">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
+        <section className="bg-background pb-10 md:pb-24">
+          <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14">
             {/* LEFT — Formulaire (3/5) */}
-            <div className="lg:col-span-3 order-2 lg:order-1">
+            <div className="lg:col-span-3 order-1 lg:order-1">
               <ScrollRevealDiv>
-                <div className="bg-card rounded-3xl p-7 md:p-10 shadow-[0_8px_40px_rgba(27,43,94,0.08)] border border-border/50">
+                <div className="bg-card rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-[0_8px_40px_rgba(27,43,94,0.08)] border border-border/50">
                   {submitted ? (
                     <div className="text-center py-10">
                       <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
