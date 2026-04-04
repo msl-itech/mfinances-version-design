@@ -56,7 +56,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
       </div>
       <h3 className="font-bold text-[15px] font-body text-foreground">{card.title}</h3>
       <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed flex-1">{card.desc}</p>
-      <div className="mt-5 flex items-center justify-between">
+      <div className="mt-3 flex items-center justify-between">
         <span className={`text-[13px] font-semibold flex items-center gap-1.5 ${
           card.accent ? "text-accent" : "text-primary"
         }`}>
