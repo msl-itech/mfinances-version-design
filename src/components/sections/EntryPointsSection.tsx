@@ -49,7 +49,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
           Recommandé
         </span>
       )}
-      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${
+      <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
         card.accent ? "bg-accent/10" : "bg-primary/5"
       }`}>
         <Icon size={22} className={card.accent ? "text-accent" : "text-primary"} strokeWidth={1.5} />
