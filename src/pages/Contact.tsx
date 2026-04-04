@@ -43,12 +43,12 @@ const besoins = [
 function ProgressBar({ current }: { current: number }) {
   const progress = (current / 3) * 100;
   return (
-    <div className="mb-8">
-      <div className="flex items-center justify-between mb-3">
+    <div className="mb-5 md:mb-8">
+      <div className="flex items-center justify-between mb-2 md:mb-3">
         {[1, 2, 3].map((step) => (
-          <div key={step} className="flex items-center gap-2">
+          <div key={step} className="flex items-center gap-1.5 md:gap-2">
             <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-bold font-body transition-all duration-300 ${
+              className={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-[12px] md:text-[13px] font-bold font-body transition-all duration-300 ${
                 step === current
                   ? "bg-accent text-accent-foreground shadow-md scale-110"
                   : step < current
@@ -58,7 +58,7 @@ function ProgressBar({ current }: { current: number }) {
             >
               {step < current ? "✓" : step}
             </div>
-            <span className={`text-[12px] font-body hidden sm:inline ${
+            <span className={`text-[11px] md:text-[12px] font-body hidden sm:inline ${
               step === current ? "text-foreground font-semibold" : "text-muted-foreground"
             }`}>
               {step === 1 ? "Situation" : step === 2 ? "Besoin" : "Coordonnées"}
@@ -66,7 +66,7 @@ function ProgressBar({ current }: { current: number }) {
           </div>
         ))}
       </div>
-      <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
+      <div className="w-full h-1 md:h-1.5 bg-border rounded-full overflow-hidden">
         <div
           className="h-full bg-accent rounded-full transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
