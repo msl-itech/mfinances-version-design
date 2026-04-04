@@ -54,8 +54,8 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
       }`}>
         <Icon size={22} className={card.accent ? "text-accent" : "text-primary"} strokeWidth={1.5} />
       </div>
-      <h3 className="font-bold text-[17px] font-body text-foreground">{card.title}</h3>
-      <p className="text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">{card.desc}</p>
+      <h3 className="font-bold text-[15px] font-body text-foreground">{card.title}</h3>
+      <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed flex-1">{card.desc}</p>
       <div className="mt-5 flex items-center justify-between">
         <span className={`text-[13px] font-semibold flex items-center gap-1.5 ${
           card.accent ? "text-accent" : "text-primary"
