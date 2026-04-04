@@ -149,60 +149,69 @@ export default function Contact() {
       <Header />
 
       <main>
-        {/* Hero banner */}
-        <section className="bg-primary text-primary-foreground py-14 md:py-20 relative overflow-hidden">
+        {/* Hero banner — compact on mobile */}
+        <section className="bg-primary text-primary-foreground py-8 md:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.12),transparent_60%)]" />
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10 text-center">
             <ScrollRevealDiv>
-              <p className="text-accent font-body text-[13px] font-bold uppercase tracking-widest mb-4">
+              <p className="text-accent font-body text-[12px] md:text-[13px] font-bold uppercase tracking-widest mb-2 md:mb-4">
                 Premier échange gratuit
               </p>
-              <h1 className="font-display text-[32px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto">
+              <h1 className="font-display text-[26px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto">
                 Parlons de votre entreprise
               </h1>
-              <p className="text-primary-foreground/70 font-body text-[16px] md:text-[18px] mt-4 max-w-[560px] mx-auto leading-relaxed">
+              <p className="text-primary-foreground/70 font-body text-[14px] md:text-[18px] mt-2 md:mt-4 max-w-[560px] mx-auto leading-relaxed">
                 Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous 72h — gratuit, confidentiel, sans engagement.
               </p>
+              {/* Inline trust badges on mobile */}
+              <div className="flex items-center justify-center gap-4 mt-3 md:hidden text-[11px] text-primary-foreground/50">
+                <span>🔒 Confidentiel</span>
+                <span>⏱ Sous 72h</span>
+                <span>✓ Gratuit</span>
+              </div>
             </ScrollRevealDiv>
           </div>
         </section>
 
-        {/* 3 contact methods */}
-        <section className="bg-background py-10 md:py-14">
+        {/* 3 contact methods — horizontal row on mobile */}
+        <section className="bg-background py-4 md:py-14">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
                 <a
                   href="tel:+3228860550"
-                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Phone size={22} className="text-accent" strokeWidth={1.5} />
+                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Phone size={18} className="text-accent md:hidden" strokeWidth={1.5} />
+                    <Phone size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-display text-[17px] text-foreground">Par téléphone</h3>
-                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">+32 2 886 05 50</p>
-                  <p className="text-[12px] text-muted-foreground font-body mt-1">Lun-Ven · 9h-18h</p>
+                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Téléphone</h3>
+                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">+32 2 886 05 50</p>
+                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Lun-Ven · 9h-18h</p>
                 </a>
 
                 <a
                   href="mailto:info@mfinances.be"
-                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Mail size={22} className="text-accent" strokeWidth={1.5} />
+                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Mail size={18} className="text-accent md:hidden" strokeWidth={1.5} />
+                    <Mail size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-display text-[17px] text-foreground">Par email</h3>
-                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">info@mfinances.be</p>
-                  <p className="text-[12px] text-muted-foreground font-body mt-1">Réponse sous 24h</p>
+                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Email</h3>
+                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">info@mfinances.be</p>
+                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Réponse sous 24h</p>
                 </a>
 
-                <div className="group flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border/50">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                    <MapPin size={22} className="text-accent" strokeWidth={1.5} />
+                <div className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 snap-center">
+                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4">
+                    <MapPin size={18} className="text-accent md:hidden" strokeWidth={1.5} />
+                    <MapPin size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-display text-[17px] text-foreground">En personne</h3>
-                  <p className="text-[15px] font-semibold text-foreground mt-1 font-body">20 Rue de la Magnanerie</p>
-                  <p className="text-[12px] text-muted-foreground font-body mt-1">1180 Uccle · Sur RDV uniquement</p>
+                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">En personne</h3>
+                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">Uccle, Bruxelles</p>
+                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Sur RDV uniquement</p>
                 </div>
               </div>
             </ScrollRevealDiv>
