@@ -38,7 +38,7 @@ export default function HeroSection() {
       <div className="container-mf relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           {/* Left — Copy */}
-          <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <div className={`text-center lg:text-left transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             {/* Social proof badge */}
             <div
               className={`inline-flex items-center gap-2 bg-card border border-border/60 rounded-full px-4 py-2 mb-6 shadow-sm transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
@@ -67,7 +67,7 @@ export default function HeroSection() {
             </h1>
 
             <p
-              className={`text-[15px] md:text-[16px] text-muted-foreground leading-[1.75] mt-6 max-w-[480px] transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
+              className={`text-[15px] md:text-[16px] text-muted-foreground leading-[1.75] mt-6 max-w-[480px] mx-auto lg:mx-0 transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
               style={{ transitionDelay: "0.3s" }}
             >
               La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div
-              className={`mt-8 flex flex-col sm:flex-row items-center sm:items-start gap-3 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              className={`mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: "0.5s" }}
             >
               <Button variant="accent" size="lg" className="rounded-full px-8 group" asChild>
@@ -93,7 +93,7 @@ export default function HeroSection() {
 
             {/* Trust badges */}
             <div
-              className={`mt-6 flex items-center gap-4 text-[12px] text-muted-foreground transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
+              className={`mt-6 flex items-center justify-center lg:justify-start gap-4 text-[12px] text-muted-foreground transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
               style={{ transitionDelay: "0.65s" }}
             >
               <span className="flex items-center gap-1.5">🔒 Confidentiel</span>
