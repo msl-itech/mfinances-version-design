@@ -93,7 +93,7 @@ export default function HeroSection() {
 
             {/* Trust badges */}
             <div
-              className={`mt-6 flex items-center gap-4 text-[12px] text-muted-foreground transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
+              className={`mt-6 flex items-center justify-center lg:justify-start gap-4 text-[12px] text-muted-foreground transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
               style={{ transitionDelay: "0.65s" }}
             >
               <span className="flex items-center gap-1.5">🔒 Confidentiel</span>
