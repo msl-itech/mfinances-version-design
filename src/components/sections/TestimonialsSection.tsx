@@ -16,9 +16,9 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="py-14 md:py-28 bg-card" ref={ref}>
+    <section className="py-10 md:py-28 bg-card" ref={ref}>
       <div className="container-mf">
-        <div className={`text-center mb-10 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
+        <div className={`text-center mb-8 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
             TÉMOIGNAGES
           </span>

@@ -19,9 +19,9 @@ export default function DiagnosticSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-secondary py-14 md:py-28" ref={ref}>
+    <section className="bg-secondary py-10 md:py-28" ref={ref}>
       <div className="container-mf">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
             <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
@@ -33,12 +33,12 @@ export default function DiagnosticSection() {
               <span className="text-accent">sans le savoir ?</span>
             </h2>
 
-            <p className="text-[15px] text-muted-foreground leading-[1.75] mt-5 max-w-[440px]">
+            <p className="text-[15px] text-muted-foreground leading-[1.75] mt-4 md:mt-5 max-w-[440px]">
               La plupart des crises de trésorerie ne surviennent pas du jour au lendemain.
               Elles s'accumulent silencieusement. Notre diagnostic identifie vos fragilités.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-6">
+            <div className="flex flex-wrap gap-4 mt-5 md:mt-6">
               {features.map((f) => {
                 const Icon = f.icon;
                 return (
@@ -50,7 +50,7 @@ export default function DiagnosticSection() {
               })}
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-start gap-4">
               <Button variant="accent" size="lg" className="rounded-full group" asChild>
                 <Link to="/diagnostic/">
                   Lancer le diagnostic
@@ -66,8 +66,8 @@ export default function DiagnosticSection() {
             </div>
           </div>
 
-          {/* Right — Interactive preview card */}
-          <div className={`reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+          {/* Right — Interactive preview card (hidden on mobile) */}
+          <div className={`hidden md:block reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
             <div className="bg-card rounded-3xl p-7 md:p-8 border-2 border-accent/20 shadow-[0_8px_40px_rgba(232,57,58,0.06)]">
               <div className="flex items-center justify-between mb-5">
                 <p className="font-bold text-[15px] text-foreground font-body">
@@ -78,7 +78,6 @@ export default function DiagnosticSection() {
                 </span>
               </div>
 
-              {/* Progress bar */}
               <div className="flex gap-1.5">
                 <div className="h-2 flex-1 rounded-full bg-accent" />
                 <div className="h-2 flex-1 rounded-full bg-border" />
@@ -87,7 +86,6 @@ export default function DiagnosticSection() {
               </div>
               <p className="text-[11px] text-muted-foreground mt-1.5 font-body">Question 1 sur 8</p>
 
-              {/* Preview questions */}
               <div className="mt-6 space-y-2.5">
                 {previewQuestions.map((q, i) => (
                   <div
