@@ -38,7 +38,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
   return (
     <Link
       to={card.ctaHref}
-      className={`group relative bg-card rounded-2xl p-6 md:p-7 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
+      className={`group relative bg-card rounded-2xl p-5 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
         card.accent
           ? "border-accent/30 shadow-[0_4px_24px_rgba(232,57,58,0.08)] hover:shadow-[0_12px_40px_rgba(232,57,58,0.12)]"
           : "border-border/40 shadow-sm hover:shadow-[0_8px_32px_rgba(27,43,94,0.08)]"
