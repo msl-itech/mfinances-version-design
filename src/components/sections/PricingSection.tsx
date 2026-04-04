@@ -112,7 +112,7 @@ export default function PricingSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[280px]">
+          <MobileCarousel>
             {plans.map((plan) => (
               <PlanCard key={plan.label} plan={plan} />
             ))}

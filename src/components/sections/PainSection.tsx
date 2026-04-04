@@ -66,7 +66,7 @@ export default function PainSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[270px]">
+          <MobileCarousel>
             {painPoints.map((pain) => (
               <PainCard key={pain.title} pain={pain} />
             ))}

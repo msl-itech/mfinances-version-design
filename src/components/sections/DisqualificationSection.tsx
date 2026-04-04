@@ -93,7 +93,7 @@ export default function DisqualificationSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
-          <MobileCarousel itemClassName="min-w-[300px]">
+          <MobileCarousel>
             <DisqualCard items={notUs} type="not" />
             <DisqualCard items={yesUs} type="yes" />
           </MobileCarousel>

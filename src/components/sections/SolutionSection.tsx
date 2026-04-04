@@ -100,7 +100,7 @@ export default function SolutionSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[280px]">
+          <MobileCarousel>
             {services.map((s) => (
               <ServiceCard key={s.title} s={s} />
             ))}

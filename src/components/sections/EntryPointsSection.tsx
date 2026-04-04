@@ -104,7 +104,7 @@ export default function EntryPointsSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <MobileCarousel itemClassName="min-w-[280px]">
+          <MobileCarousel>
             {cards.map((card) => (
               <EntryCard key={card.title} card={card} />
             ))}

@@ -68,7 +68,7 @@ export default function AudienceSection() {
 
         {/* Mobile carousel */}
         <div className={`md:hidden reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
-          <MobileCarousel itemClassName="min-w-[200px]">
+          <MobileCarousel itemClassName="w-[45vw] max-w-[200px]">
             {audiences.map((a) => (
               <AudienceCard key={a.label} a={a} />
             ))}
