@@ -64,7 +64,7 @@ function EntryCard({ card }: { card: typeof cards[0] }) {
           <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
         </span>
       </div>
-      <span className="mt-4 block text-[10px] text-muted-foreground/50 font-bold tracking-[0.1em] uppercase">
+      <span className="mt-2 block text-[10px] text-muted-foreground/50 font-bold tracking-[0.1em] uppercase">
         {card.badge}
       </span>
     </Link>
