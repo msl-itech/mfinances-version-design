@@ -1714,4 +1714,129 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/",
     ctaLabel: "Parler à un expert",
   },
+  "bfr-definition-formule-tpe": {
+    showCalculator: true,
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez peut-être entendu ce mot chez votre comptable, dans un article financier, ou lors d'un rendez-vous bancaire. Le BFR — besoin en fonds de roulement — est l'un des indicateurs les plus importants pour la santé de votre entreprise. Et pourtant, il reste mystérieux pour la plupart des dirigeants de TPE.",
+          "Cet article vous donne une définition claire, la formule exacte, et un exemple chiffré tiré de la réalité d'une TPE belge. À la fin, vous pourrez calculer votre propre BFR en deux minutes.",
+        ],
+      },
+      {
+        heading: "C'est quoi le BFR — la définition en trois phrases",
+        paragraphs: [
+          "Le besoin en fonds de roulement (BFR) représente le montant d'argent que votre entreprise doit mobiliser pour financer son cycle d'exploitation — c'est-à-dire la période entre le moment où vous payez vos charges (fournisseurs, salaires, stocks) et le moment où vous encaissez vos clients.",
+          "En clair : c'est le décalage entre ce que vous devez payer et ce que vous avez déjà reçu. Plus ce décalage est important, plus votre trésorerie est sous pression — même si votre entreprise est rentable.",
+          "Un BFR positif signifie que vous devez avancer de l'argent pour faire tourner votre activité. Un BFR négatif signifie que vous êtes payé avant de payer — un avantage de trésorerie précieux.",
+          "La question que posent le plus souvent les dirigeants que nous rencontrons : « Comment mon entreprise peut-elle faire des bénéfices et avoir un compte bancaire aussi serré ? » La réponse, presque toujours, commence par le BFR.",
+        ],
+      },
+      {
+        heading: "La formule du BFR — simple et directe",
+        paragraphs: [
+          "BFR = Stocks + Créances clients − Dettes fournisseurs",
+        ],
+        list: [
+          "Stocks : la valeur de tout ce que vous avez acheté et pas encore vendu.",
+          "Créances clients : le montant des factures émises mais pas encore encaissées.",
+          "Dettes fournisseurs : le montant des factures reçues mais pas encore payées.",
+        ],
+      },
+      {
+        heading: "Un exemple chiffré — la TPE de Sophie à Liège",
+        paragraphs: [
+          "Sophie dirige une agence de communication B2B à Liège, 7 collaborateurs, CA annuel de 780 000 €. Voici sa situation au 31 mars :",
+        ],
+        table: {
+          headers: ["Élément", "Montant"],
+          rows: [
+            ["Stocks (fournitures et matériel non facturé)", "5 200 €"],
+            ["Créances clients (factures émises non payées)", "68 000 €"],
+            ["Dettes fournisseurs (factures reçues non payées)", "11 500 €"],
+            ["BFR = 5 200 + 68 000 − 11 500", "= 61 700 €"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "Sophie doit disposer de 61 700 € en permanence pour financer son cycle d'exploitation. Ce montant représente près de 2,9 mois de CA mensuel moyen — une charge de trésorerie significative. La principale cause : ses clients paient en moyenne à 52 jours, alors que ses fournisseurs sont réglés à 30 jours.",
+          "Action MFinances : mise en place d'une procédure de relance systématique à J+30 + J+45. Résultat 3 mois plus tard : DSO réduit à 38 jours, BFR allégé de 28 000 €. Impact concret : Sophie a pu financer le recrutement d'un chef de projet sans avoir recours à une ligne de crédit supplémentaire.",
+        ],
+      },
+      {
+        heading: "BFR positif ou négatif — lequel est dangereux ?",
+        paragraphs: [],
+        table: {
+          headers: ["Situation", "Ce que ça signifie"],
+          rows: [
+            ["BFR positif modéré", "Vous financez votre cycle d'activité — normal. Surveiller que le BFR ne croît pas plus vite que le CA."],
+            ["BFR positif élevé (> 2 mois de CA)", "Signal d'attention : vos clients paient trop tard, vos stocks sont trop lourds, ou votre croissance consomme plus de cash qu'elle n'en génère."],
+            ["BFR négatif", "Avantage de trésorerie — typique du commerce ou des abonnements prépayés. À préserver."],
+            ["BFR en hausse rapide", "Urgence : chaque mois sans action alourdit la structure. C'est ce qui précède les crises de trésorerie."],
+          ],
+        },
+      },
+      {
+        heading: "Pourquoi le BFR augmente quand votre entreprise grandit",
+        paragraphs: [
+          "C'est le paradoxe que beaucoup de dirigeants découvrent trop tard : plus votre activité croît, plus votre BFR augmente mécaniquement. Vous décrochez un nouveau contrat important ? Vous devez acheter des fournitures, recruter, livrer — avant d'être payé.",
+          "L'entreprise est rentable sur le papier. Le compte en banque, lui, flirte avec le rouge. C'est précisément à ce stade que le pilotage financier devient indispensable — pas quand la crise arrive, mais trois mois avant.",
+          "Parmi nos clients en phase de croissance active (CA > 500K€), 7 sur 10 ont un BFR qui croît plus vite que leur CA au moment où ils nous contactent. L'entreprise type qui nous appelle : rentable, bien gérée opérationnellement, mais pilotée à l'intuition sur la trésorerie. Le BFR non maîtrisé est presque toujours l'angle mort.",
+        ],
+      },
+      {
+        heading: "Les 3 leviers pour réduire votre BFR",
+        paragraphs: [],
+        list: [
+          "Réduire les délais de paiement clients : facturer dès la livraison, relancer à J+30, proposer des escomptes pour paiement rapide. Chaque semaine gagnée libère de la trésorerie.",
+          "Optimiser vos stocks : identifier les articles à faible rotation, négocier des livraisons plus fréquentes en plus petites quantités, mettre en place un suivi des rotations par référence.",
+          "Négocier des délais fournisseurs : allonger vos délais de paiement de 30 à 45 jours là où c'est possible réduit directement votre BFR sans toucher à votre activité.",
+        ],
+      },
+      {
+        heading: "BFR, trésorerie nette et fonds de roulement — les 3 notions à ne pas confondre",
+        paragraphs: [],
+        table: {
+          headers: ["Notion", "Définition", "Ce que ça mesure"],
+          rows: [
+            ["Fonds de roulement (FR)", "Capitaux permanents − Actif immobilisé", "Capacité de financement à long terme"],
+            ["BFR", "Stocks + Créances − Dettes fournisseurs", "Besoin de financement du cycle d'activité"],
+            ["Trésorerie nette", "FR − BFR", "Ce qu'il vous reste réellement disponible"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "La trésorerie nette est la résultante des deux : si votre FR est inférieur à votre BFR, votre trésorerie est en déficit structurel — quelle que soit votre rentabilité. C'est le diagnostic que pose MFinances dès le premier rendez-vous.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "C'est quoi le BFR (besoin en fonds de roulement) ?",
+        answer: "Le BFR est le montant d'argent qu'une entreprise doit mobiliser en permanence pour financer le décalage entre ses dépenses (stocks, salaires, fournisseurs) et ses encaissements clients. Formule : BFR = Stocks + Créances clients − Dettes fournisseurs. Un BFR positif signifie que votre trésorerie finance votre activité avant d'être remboursée.",
+      },
+      {
+        question: "Comment calculer son BFR ?",
+        answer: "Additionnez vos stocks et vos créances clients, puis soustrayez vos dettes fournisseurs. Exemple belge : une agence de communication à Liège avec 5 200 € de stocks, 68 000 € de créances et 11 500 € de dettes fournisseurs obtient un BFR de 61 700 €.",
+      },
+      {
+        question: "Un BFR négatif est-il bon ou mauvais ?",
+        answer: "Un BFR négatif est généralement un avantage : vous encaissez vos clients avant de payer vos fournisseurs. C'est typique des commerces à paiement comptant et des abonnements prépayés. Attention : un BFR négatif artificiel peut signaler une pression excessive sur les fournisseurs.",
+      },
+      {
+        question: "Pourquoi mon BFR augmente quand mon chiffre d'affaires croît ?",
+        answer: "La croissance consomme mécaniquement plus de trésorerie : plus de stocks à financer, plus de créances en attente. C'est le « cash trap » de la croissance. Une TPE qui double son CA sans anticiper l'augmentation de son BFR peut se retrouver en tension de trésorerie malgré une activité florissante.",
+      },
+      {
+        question: "Quelle différence entre BFR et trésorerie ?",
+        answer: "Le BFR mesure le besoin de financement du cycle d'exploitation. La trésorerie nette est la différence entre le fonds de roulement (capacité de financement structurelle) et le BFR. Une entreprise peut avoir un BFR élevé mais une bonne trésorerie si ses capitaux permanents sont suffisants — et inversement.",
+      },
+    ],
+    ctaText: "Un expert MFinances analyse votre BFR avec vous — gratuitement",
+    ctaDescription: "Premier échange offert, sans engagement.",
+    ctaLink: "/contact/",
+    ctaLabel: "Parler à un expert",
+  },
 };
