@@ -46,9 +46,24 @@ export default function BlogArticle() {
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const content = articleSlug ? articleContent[articleSlug] : undefined;
 
+  const [showStickyMobile, setShowStickyMobile] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [article]);
+
+  // Sticky mobile CTA — show after scrolling past hero
+  useEffect(() => {
+    if (!content?.showCockpit) return;
+    const handleScroll = () => {
+      const hero = document.querySelector("[data-hero-section]");
+      if (hero) {
+        setShowStickyMobile(window.scrollY > (hero as HTMLElement).offsetHeight);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [content?.showCockpit]);
 
   if (!article || !category || !content) {
     return (
