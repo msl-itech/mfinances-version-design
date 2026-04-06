@@ -136,7 +136,7 @@ export default function BlogArticle() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-16">
+        <section data-hero-section className="bg-primary py-12 md:py-16">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>
