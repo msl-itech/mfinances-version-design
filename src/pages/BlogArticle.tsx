@@ -338,6 +338,20 @@ export default function BlogArticle() {
       </main>
 
       <Footer />
+
+      {/* Sticky mobile CTA — cockpit articles only */}
+      {content.showCockpit && showStickyMobile && (
+        <div className="fixed bottom-0 left-0 right-0 z-[80] bg-card border-t border-border p-2.5 px-4 sm:!hidden">
+          <Button variant="accent" className="rounded-full w-full" asChild>
+            <Link to="/contact/">
+              Prendre RDV gratuit <ArrowRight size={16} className="ml-1" />
+            </Link>
+          </Button>
+        </div>
+      )}
+
+      {/* Body padding for sticky mobile */}
+      {content.showCockpit && <div className="h-[70px] sm:hidden" />}
     </div>
   );
 }
