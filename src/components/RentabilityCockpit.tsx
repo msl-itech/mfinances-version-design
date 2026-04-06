@@ -242,21 +242,44 @@ export default function RentabilityCockpit() {
             </div>
           )}
 
-          {/* Dynamic CTA based on results */}
-          <div className="bg-primary rounded-xl p-6 text-center">
-            <p className="text-[14px] text-primary-foreground/80 font-body mb-3">
-              {results.couverture >= 110
-                ? "Votre rentabilité semble solide — optimisons votre mix pour maximiser vos marges."
-                : results.couverture >= 80
-                  ? "Vous êtes proche du seuil — un ajustement de votre mix peut sécuriser vos marges."
-                  : "Attention : votre CA actuel ne couvre pas votre seuil. Agissons ensemble."}
-            </p>
-            <Button variant="accent" className="rounded-full" asChild>
-              <Link to="/contact/">
-                Prendre rendez-vous <ArrowRight size={16} className="ml-1" />
-              </Link>
-            </Button>
-          </div>
+          {/* Dynamic CTA based on profile */}
+          {results.couverture < 80 ? (
+            /* Profil 'below' */
+            <div className="bg-card border border-accent/20 rounded-xl p-6 text-center">
+              <p className="text-[14px] text-foreground/80 font-body mb-4">
+                Attention : votre CA actuel ne couvre pas votre seuil. Agissons ensemble.
+              </p>
+              <Button variant="accent" className="rounded-full w-full" asChild>
+                <Link to="/contact/">
+                  Parler de ma situation à un expert <ArrowRight size={16} className="ml-1" />
+                </Link>
+              </Button>
+            </div>
+          ) : results.couverture < 110 || results.angleMort ? (
+            /* Profil 'blind' — angle mort ou juste au-dessus du seuil */
+            <div className="bg-card border border-accent/20 rounded-xl p-6 text-center">
+              <p className="text-[14px] text-foreground/80 font-body mb-2">
+                Je veux comprendre ce que ça signifie pour mon entreprise
+              </p>
+              <Button variant="accent" className="rounded-full w-full" asChild>
+                <Link to="/contact/">
+                  Prendre RDV gratuitement <ArrowRight size={16} className="ml-1" />
+                </Link>
+              </Button>
+            </div>
+          ) : (
+            /* Profil 'ok' */
+            <div className="bg-card border border-border/50 rounded-xl p-6 text-center">
+              <p className="text-[14px] text-foreground/80 font-body mb-4">
+                Votre rentabilité semble solide — optimisons votre mix pour maximiser vos marges.
+              </p>
+              <Button className="rounded-full w-full bg-primary hover:bg-primary-light text-primary-foreground" asChild>
+                <Link to="/services/controle-de-gestion/">
+                  Découvrir comment piloter cette performance <ArrowRight size={16} className="ml-1" />
+                </Link>
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>
