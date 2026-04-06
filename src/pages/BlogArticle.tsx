@@ -148,6 +148,18 @@ export default function BlogArticle() {
               <h1 className="font-display text-[24px] md:text-[40px] leading-[1.15] text-primary-foreground mt-2">
                 {article.title}
               </h1>
+
+              {/* Hero CTAs for cockpit article */}
+              {content.showCockpit && (
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <Button variant="accent" className="rounded-full" asChild>
+                    <a href="#cockpit">Calculer ma rentabilité <ArrowRight size={16} className="ml-1" /></a>
+                  </Button>
+                  <Button className="rounded-full border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" asChild>
+                    <a href="#cockpit">Découvrir mon angle mort <ArrowRight size={16} className="ml-1" /></a>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </section>
