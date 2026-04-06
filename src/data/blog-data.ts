@@ -432,6 +432,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Votre banquier analyse votre BFR avant tout crédit. Comment le lire, l'améliorer et défendre votre dossier. Guide MFinances, Bruxelles.",
     pillarPage: "/services/daf-externalise/",
   },
+  {
+    slug: "bfr-definition-formule-tpe",
+    title: "BFR — définition simple, formule et exemples concrets pour une TPE belge",
+    excerpt: "BFR : définition simple, formule et exemple chiffré pour une TPE belge. Calculez votre besoin en fonds de roulement en 2 minutes. MFinances, Bruxelles.",
+    category: "Trésorerie",
+    categorySlug: "tresorerie",
+    published: true,
+    date: "2026-04-01",
+    seoTitle: "BFR : définition, formule et exemples pour TPE belge | MFinances",
+    metaDescription: "BFR : définition simple, formule et exemple chiffré pour une TPE belge. Calculez votre besoin en fonds de roulement en 2 minutes. MFinances, Bruxelles.",
+    pillarPage: "/services/tresorerie/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
