@@ -64,6 +64,18 @@ export default function BlogArticle() {
 
   const relatedArticles = getPublishedArticlesByCategory(categorySlug!).filter((a) => a.slug !== articleSlug).slice(0, 3);
 
+  // JSON-LD Article
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.seoTitle || article.title,
+    "description": article.metaDescription || article.excerpt,
+    "url": `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`,
+    "datePublished": article.date,
+    "author": { "@type": "Person", "name": "Mika Musungayi", "jobTitle": "Expert-comptable ITAA" },
+    "publisher": { "@type": "Organization", "name": "MFinances", "url": "https://mfinances.be" },
+  };
+
   // JSON-LD BreadcrumbList
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -92,7 +104,7 @@ export default function BlogArticle() {
   const ctaLink = content.ctaLink || "/contact/";
   const ctaLabel = content.ctaLabel || "Parler à un expert";
 
-  const schemas = [breadcrumbLd, ...(faqLd ? [faqLd] : [])];
+  const schemas = [articleLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])];
 
   return (
     <div className="min-h-screen">
