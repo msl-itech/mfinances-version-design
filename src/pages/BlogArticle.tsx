@@ -15,6 +15,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
 import BfrCalculator from "@/components/BfrCalculator";
+import RentabilityCockpit from "@/components/RentabilityCockpit";
 
 import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
 import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
@@ -219,13 +220,13 @@ export default function BlogArticle() {
               ))}
             </article>
 
-            {/* BFR Calculator */}
-            {content.showCalculator && (
+            {/* Interactive tools */}
+            {(content.showCalculator || content.showCockpit) && (
               <ScrollRevealDiv delay={0.08} className="mt-4">
-                <BfrCalculator />
+                {content.showCalculator && <BfrCalculator />}
+                {content.showCockpit && <RentabilityCockpit />}
               </ScrollRevealDiv>
             )}
-
             {/* Pillar page link */}
             {article.pillarPage && (
               <ScrollRevealDiv delay={0.1} className="mt-10">
