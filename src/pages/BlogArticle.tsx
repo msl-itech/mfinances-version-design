@@ -223,9 +223,9 @@ export default function BlogArticle() {
             {/* BFR Calculator */}
             {content.showCalculator && (
               <ScrollRevealDiv delay={0.08} className="mt-4">
-                <BfrCalculator />
+                {content.showCalculator && <BfrCalculator />}
+                {content.showCockpit && <RentabilityCockpit />}
               </ScrollRevealDiv>
-            )}
 
             {/* Pillar page link */}
             {article.pillarPage && (

@@ -1948,4 +1948,97 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/",
     ctaLabel: "Parler à un expert",
   },
+  "seuil-de-rentabilite-multi-services": {
+    showCockpit: true,
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez calculé votre seuil de rentabilité. Vous atteignez le chiffre. Vous pensez être dans le vert.",
+          "Pourtant, quelque chose cloche. La trésorerie reste tendue. Certains mois sont difficiles sans que vous compreniez pourquoi. Et cette sensation persistante que vous travaillez beaucoup — pour un résultat qui ne reflète pas l'effort fourni.",
+          "Voici ce que personne ne vous dit : le seuil de rentabilité global d'une entreprise multi-services est une moyenne. Et comme toute moyenne, il peut masquer des réalités très différentes selon les lignes qui le composent.",
+          "Un service ultra-rentable peut compenser un autre qui, lui, ne couvre même pas ses coûts directs. Résultat : votre chiffre global semble sain — mais une partie de votre activité vous coûte de l'argent en silence. C'est ce qu'on appelle l'angle mort de rentabilité.",
+          "Dans cet article, vous allez comprendre pourquoi le calcul classique ne suffit pas dès que vous avez plusieurs offres — et comment utiliser notre Cockpit de Rentabilité pour voir, en moins de 60 secondes, quelle ligne porte votre business et laquelle le pèse.",
+        ],
+      },
+      {
+        heading: "Pourquoi le seuil de rentabilité classique ne fonctionne plus avec plusieurs services",
+        paragraphs: [
+          "Le seuil de rentabilité classique repose sur une formule simple : Charges fixes / Taux de marge sur coûts variables. Résultat : le chiffre d'affaires minimum à atteindre pour ne pas perdre d'argent.",
+          "Cette formule est parfaite quand vous vendez un seul produit ou service à prix fixe. Elle devient trompeuse dès que votre offre se diversifie. Pourquoi ? Parce qu'elle suppose que chaque euro de CA contribue de la même façon à couvrir vos charges fixes — ce qui est rarement vrai.",
+          "Exemple : un cabinet de conseil qui vend à la fois des formations (marge 70 %) et des audits ponctuels (marge 30 %) ne peut pas utiliser le même taux pour l'ensemble de son activité sans fausser le calcul.",
+        ],
+      },
+      {
+        heading: "L'effet de mix : la variable que personne ne surveille",
+        paragraphs: [
+          "L'effet de mix, c'est l'impact du changement de composition de vos ventes sur votre rentabilité globale. Si vous vendez davantage de votre service à faible marge ce mois-ci, votre seuil de rentabilité réel monte — même si votre CA est identique.",
+          "Concrètement : vous pouvez atteindre votre point mort théorique et pourtant terminer le mois avec moins de cash qu'attendu. C'est l'effet de mix en action. Pour un dirigeant de TPE, ne pas comprendre cet effet, c'est naviguer avec un tableau de bord qui affiche une vitesse moyenne — sans voir que deux roues tournent à 200 km/h et deux autres à 40 km/h.",
+        ],
+      },
+      {
+        heading: "La méthode MSCV : calculer votre point mort quand vous avez plusieurs offres",
+        paragraphs: [
+          "La Marge Sur Coûts Variables (MSCV) est la part de chaque euro encaissé qui reste disponible pour couvrir vos charges fixes, après déduction des coûts directement liés à la production ou à la livraison du service.",
+          "Quand vous avez plusieurs services, vous calculez cette marge pour chacun — puis vous pondérez par le poids de chaque service dans votre CA total. Vous obtenez un taux de marge pondéré, qui reflète la réalité de votre mix actuel.",
+          "La formule du seuil de rentabilité devient alors : Charges fixes totales / Taux de marge pondéré = CA minimum à atteindre, compte tenu de votre mix actuel.",
+        ],
+      },
+      {
+        heading: "Exemple concret — 3 services",
+        paragraphs: [],
+        table: {
+          headers: ["Service", "CA mensuel", "Marge", "Poids"],
+          rows: [
+            ["Service A (Formations)", "4 000 €", "70 %", "40 %"],
+            ["Service B (Conseil)", "4 000 €", "55 %", "40 %"],
+            ["Service C (Audits ponctuels)", "2 000 €", "30 %", "20 %"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "Taux pondéré = (70 % × 0,40) + (55 % × 0,40) + (30 % × 0,20) = 28 % + 22 % + 6 % = 56 %. Charges fixes : 5 000 €/mois. Seuil de rentabilité = 5 000 € / 56 % = 8 929 €/mois.",
+          "⚠ Si le mix change (moins de formations, plus d'audits) : Nouveau taux pondéré = 48 % → Nouveau seuil = 10 417 €/mois. Le même CA peut ne plus suffire — simplement parce que le mix a évolué.",
+        ],
+      },
+      {
+        heading: "La contribution par service : identifier qui porte le business",
+        paragraphs: [
+          "Au-delà du seuil global, la vraie question est : quelle part de vos charges fixes chaque service contribue-t-il à couvrir ? Calculez, pour chaque service : Marge dégagée / Total des marges × 100. Vous obtenez le taux de contribution de chaque ligne.",
+          "Un service qui représente 40 % de votre CA mais seulement 15 % de votre marge totale est un signal d'alerte. Il génère du volume mais pas de valeur. C'est l'angle mort qui pèse sur votre rentabilité — et qui est souvent invisible sans cet outil.",
+        ],
+      },
+      {
+        heading: "Ce que votre angle mort révèle sur votre pilotage",
+        paragraphs: [
+          "Découvrir un angle mort de rentabilité n'est pas une mauvaise nouvelle. C'est une information stratégique que la plupart de vos concurrents n'ont pas.",
+          "Elle vous permet de prendre trois types de décisions concrètes : repriser ce service pour le rendre contributif, en réduire le volume pour concentrer votre énergie sur les lignes qui portent, ou l'éliminer si sa contribution nette est négative ou nulle.",
+          "Ces décisions ont un impact direct sur votre trésorerie, votre capacité d'investissement et votre tranquillité d'esprit. Un dirigeant qui connaît ses marges par service ne pilote plus à l'aveugle — il pilote avec confiance.",
+          "C'est précisément ce que nous construisons avec chaque client MFinances dans le cadre de nos forfaits contrôle de gestion : un tableau de bord de pilotage de votre rentabilité visible, compréhensible et actionnable — chaque mois.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Comment calculer le seuil de rentabilité avec plusieurs services ?",
+        answer: "Calculez le taux de marge sur coûts variables de chaque service, pondérez par le poids de chaque service dans votre CA total, puis divisez vos charges fixes par ce taux pondéré. Cette méthode (MSCV) donne un seuil qui reflète votre mix réel — pas une moyenne trompeuse.",
+      },
+      {
+        question: "Qu'est-ce que l'effet de mix en contrôle de gestion ?",
+        answer: "L'effet de mix est l'impact du changement de composition de vos ventes sur votre rentabilité. Si vous vendez plus de services à faible marge, votre seuil de rentabilité réel augmente — même si votre CA reste identique. C'est la variable que la plupart des dirigeants de TPE ne surveillent pas.",
+      },
+      {
+        question: "Comment identifier un angle mort de rentabilité ?",
+        answer: "Comparez le poids de chaque service dans votre CA et sa contribution à votre marge totale. Un service qui représente 40 % du CA mais seulement 15 % de la marge est un angle mort : il génère du volume sans couvrir les charges fixes.",
+      },
+      {
+        question: "Quel outil pour piloter la rentabilité d'une TPE multi-services ?",
+        answer: "Le Cockpit de Rentabilité MFinances calcule votre seuil pondéré, identifie votre meilleur contributeur et révèle vos angles morts en 60 secondes. Pour un suivi continu, nos forfaits contrôle de gestion incluent un tableau de bord mensuel personnalisé.",
+      },
+    ],
+    ctaText: "Un expert MFinances analyse votre rentabilité avec vous",
+    ctaDescription: "Premier échange offert — sans engagement.",
+    ctaLink: "/contact/",
+    ctaLabel: "Prendre rendez-vous",
+  },
 };

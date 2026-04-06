@@ -456,6 +456,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
     pillarPage: "/services/tresorerie/",
   },
+  {
+    slug: "seuil-de-rentabilite-multi-services",
+    title: "Votre seuil de rentabilité ment — si vous vendez plusieurs services",
+    excerpt: "Votre entreprise vend plusieurs services ? Calculez votre seuil de rentabilité pondéré et détectez l'angle mort qui pèse sur vos marges. Outil gratuit.",
+    category: "Contrôle de gestion",
+    categorySlug: "controle-de-gestion",
+    published: true,
+    date: "2026-04-06",
+    seoTitle: "Seuil de Rentabilité Multi-Services : le Cockpit pour TPE — MFinances",
+    metaDescription: "Votre entreprise vend plusieurs services ? Calculez votre seuil de rentabilité pondéré et détectez l'angle mort qui pèse sur vos marges. Outil gratuit.",
+    pillarPage: "/services/controle-de-gestion/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
