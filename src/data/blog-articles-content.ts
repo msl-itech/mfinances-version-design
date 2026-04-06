@@ -2020,20 +2020,24 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     faq: [
       {
-        question: "Comment calculer le seuil de rentabilité avec plusieurs services ?",
-        answer: "Calculez le taux de marge sur coûts variables de chaque service, pondérez par le poids de chaque service dans votre CA total, puis divisez vos charges fixes par ce taux pondéré. Cette méthode (MSCV) donne un seuil qui reflète votre mix réel — pas une moyenne trompeuse.",
+        question: "Comment calculer le seuil de rentabilité quand on a plusieurs produits ?",
+        answer: "Calculez la marge sur coûts variables de chaque service séparément, puis pondérez par le poids de chaque service dans votre CA total. Divisez vos charges fixes totales par ce taux pondéré. Résultat : votre point mort réel, tenant compte de votre mix commercial actuel. Notre Cockpit de Rentabilité réalise ce calcul automatiquement.",
       },
       {
-        question: "Qu'est-ce que l'effet de mix en contrôle de gestion ?",
-        answer: "L'effet de mix est l'impact du changement de composition de vos ventes sur votre rentabilité. Si vous vendez plus de services à faible marge, votre seuil de rentabilité réel augmente — même si votre CA reste identique. C'est la variable que la plupart des dirigeants de TPE ne surveillent pas.",
+        question: "Qu'est-ce que la marge sur coûts variables pondérée ?",
+        answer: "C'est la moyenne pondérée des marges de chaque service, où chaque marge est multipliée par le poids de ce service dans le CA total. Elle reflète la rentabilité réelle de votre mix d'activité — contrairement à une simple moyenne arithmétique qui ignorerait la composition de vos ventes.",
       },
       {
-        question: "Comment identifier un angle mort de rentabilité ?",
-        answer: "Comparez le poids de chaque service dans votre CA et sa contribution à votre marge totale. Un service qui représente 40 % du CA mais seulement 15 % de la marge est un angle mort : il génère du volume sans couvrir les charges fixes.",
+        question: "Mon seuil de rentabilité change-t-il si je vends plus d'un service que d'un autre ?",
+        answer: "Oui — c'est l'effet de mix. Si vous vendez davantage d'un service à faible marge, votre taux pondéré baisse et votre seuil monte. Vous pouvez atteindre le même CA qu'un bon mois et pourtant être moins rentable. C'est pourquoi surveiller son mix est aussi important que surveiller son chiffre d'affaires.",
       },
       {
-        question: "Quel outil pour piloter la rentabilité d'une TPE multi-services ?",
-        answer: "Le Cockpit de Rentabilité MFinances calcule votre seuil pondéré, identifie votre meilleur contributeur et révèle vos angles morts en 60 secondes. Pour un suivi continu, nos forfaits contrôle de gestion incluent un tableau de bord mensuel personnalisé.",
+        question: "Comment savoir si un de mes services pèse sur ma rentabilité ?",
+        answer: "Calculez sa marge contributive (CA du service × taux de marge) et divisez-la par la marge totale de l'entreprise. Si ce ratio est très inférieur à son poids dans le CA, c'est un signal d'alerte. Un service qui représente 35 % du CA mais seulement 12 % de la marge est un angle mort à corriger en priorité.",
+      },
+      {
+        question: "Un expert-comptable peut-il m'aider à analyser ma rentabilité par service ?",
+        answer: "Oui — c'est précisément le rôle du contrôle de gestion, l'un des services différenciants de MFinances. Nous construisons avec chaque client un tableau de bord de pilotage qui rend visible la rentabilité par ligne d'activité, chaque mois. C'est intégré dans nos forfaits dès l'offre Premium.",
       },
     ],
     ctaText: "Un expert MFinances analyse votre rentabilité avec vous",

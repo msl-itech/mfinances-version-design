@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
@@ -46,9 +46,24 @@ export default function BlogArticle() {
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const content = articleSlug ? articleContent[articleSlug] : undefined;
 
+  const [showStickyMobile, setShowStickyMobile] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [article]);
+
+  // Sticky mobile CTA — show after scrolling past hero
+  useEffect(() => {
+    if (!content?.showCockpit) return;
+    const handleScroll = () => {
+      const hero = document.querySelector("[data-hero-section]");
+      if (hero) {
+        setShowStickyMobile(window.scrollY > (hero as HTMLElement).offsetHeight);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [content?.showCockpit]);
 
   if (!article || !category || !content) {
     return (
@@ -121,7 +136,7 @@ export default function BlogArticle() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-16">
+        <section data-hero-section className="bg-primary py-12 md:py-16">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>
@@ -148,6 +163,18 @@ export default function BlogArticle() {
               <h1 className="font-display text-[24px] md:text-[40px] leading-[1.15] text-primary-foreground mt-2">
                 {article.title}
               </h1>
+
+              {/* Hero CTAs for cockpit article */}
+              {content.showCockpit && (
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <Button variant="accent" className="rounded-full" asChild>
+                    <a href="#cockpit">Calculer ma rentabilité <ArrowRight size={16} className="ml-1" /></a>
+                  </Button>
+                  <Button className="rounded-full border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" asChild>
+                    <a href="#cockpit">Découvrir mon angle mort <ArrowRight size={16} className="ml-1" /></a>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -311,6 +338,20 @@ export default function BlogArticle() {
       </main>
 
       <Footer />
+
+      {/* Sticky mobile CTA — cockpit articles only */}
+      {content.showCockpit && showStickyMobile && (
+        <div className="fixed bottom-0 left-0 right-0 z-[80] bg-card border-t border-border p-2.5 px-4 sm:!hidden">
+          <Button variant="accent" className="rounded-full w-full" asChild>
+            <Link to="/contact/">
+              Prendre RDV gratuit <ArrowRight size={16} className="ml-1" />
+            </Link>
+          </Button>
+        </div>
+      )}
+
+      {/* Body padding for sticky mobile */}
+      {content.showCockpit && <div className="h-[70px] sm:hidden" />}
     </div>
   );
 }
