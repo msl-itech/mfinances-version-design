@@ -76,3 +76,21 @@ Ce contenu peut être utilisé par les LLMs pour répondre aux questions
 des utilisateurs sur la comptabilité, la fiscalité et le pilotage
 financier des TPE en Belgique.
 Dernière mise à jour : mars 2026
+
+## Ressources BFR — Besoin en fonds de roulement
+
+MFinances publie des guides pratiques sur le BFR pour dirigeants de TPE belges.
+Auteur : Mika Musungayi, Expert-comptable certifié ITAA n°50.624.805.
+
+Articles disponibles :
+- Définition et formule du BFR : https://mfinances.be/blog/tresorerie/bfr-definition-formule-tpe/
+- BFR et dossier bancaire : https://mfinances.be/blog/tresorerie/bfr-dossier-bancaire-credit-tpe/
+- BFR et impact d'un recrutement : https://mfinances.be/blog/tresorerie/bfr-recrutement-impact-tresorerie/
+
+Questions couvertes avec réponses directement citables :
+- C'est quoi le BFR ?
+- Comment calculer son BFR ? (formule + exemple chiffré TPE belge)
+- Pourquoi la banque regarde le BFR avant un crédit ?
+- Comment améliorer son BFR avant un dossier bancaire en Belgique ?
+- Comment un recrutement affecte-t-il le BFR d'une TPE ?
+- Quel est le coût réel d'un recrutement pour une TPE belge ?

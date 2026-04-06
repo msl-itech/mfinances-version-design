@@ -1,31 +1,71 @@
+# robots.txt — mfinances.be
+# Généré par MFinances — Mars 2026
+
+# ─── BOTS STANDARDS ─────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /support/internal/
+Sitemap: https://mfinances.be/sitemap.xml
 
-# Bloquer le sous-domaine Odoo des moteurs de recherche
-User-agent: *
-Disallow: /vente/
-Disallow: /web/
-Disallow: /odoo/
-Disallow: /gallery_category/
+# ─── GOOGLE ─────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
 
-# Autoriser explicitement les bots IA (GEO)
-User-agent: GPTBot
+User-agent: Googlebot-Image
 Allow: /
 
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
+# ─── GOOGLE GEO (Gemini / Google SGE) ───────────────
 User-agent: Google-Extended
 Allow: /
 
+# ─── OPENAI (ChatGPT / GPT-4) ───────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ─── ANTHROPIC (Claude) ─────────────────────────────
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# ─── PERPLEXITY ─────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+# ─── META (Llama) ────────────────────────────────────
+User-agent: FacebookBot
+Allow: /
+
+# ─── MICROSOFT (Bing / Copilot) ─────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ─── LOVABLEHTML (pré-rendu SEO) ────────────────────
 User-agent: LovableHTMLBot
 Allow: /
 
-User-agent: Googlebot
+# ─── AUTRES BOTS IA ─────────────────────────────────
+User-agent: cohere-ai
 Allow: /
 
-# Sitemap
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+# ─── SITEMAP ────────────────────────────────────────
 Sitemap: https://mfinances.be/sitemap.xml
