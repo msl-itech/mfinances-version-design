@@ -18,6 +18,7 @@ export interface ArticleBody {
   ctaLink?: string;
   ctaLabel?: string;
   showCalculator?: boolean;
+  showCockpit?: boolean;
 }
 
 export const articleContent: Record<string, ArticleBody> = {
