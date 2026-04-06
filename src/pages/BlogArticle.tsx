@@ -219,6 +219,13 @@ export default function BlogArticle() {
               ))}
             </article>
 
+            {/* BFR Calculator */}
+            {content.showCalculator && (
+              <ScrollRevealDiv delay={0.08} className="mt-4">
+                <BfrCalculator />
+              </ScrollRevealDiv>
+            )}
+
             {/* Pillar page link */}
             {article.pillarPage && (
               <ScrollRevealDiv delay={0.1} className="mt-10">
