@@ -1609,4 +1609,108 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/diagnostic/",
     ctaLabel: "Prendre rendez-vous — premier échange gratuit →",
   },
+  "bfr-dossier-bancaire-credit-tpe": {
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez décroché un rendez-vous avec votre conseiller bancaire. Crédit d'investissement, ligne de crédit, leasing — peu importe. La première chose qu'il va analyser, c'est votre BFR. Et si vous n'êtes pas préparé à cette question, vous perdez votre crédibilité avant même d'avoir parlé de votre projet.",
+          "Ce guide vous explique ce que votre banquier cherche vraiment derrière ce chiffre, comment interpréter votre propre BFR, et les 3 leviers pour améliorer votre position avant de vous asseoir en face de lui.",
+        ],
+      },
+      {
+        heading: "Ce que votre banquier lit dans votre BFR avant même de vous écouter",
+        paragraphs: [
+          "Pour une banque, votre BFR est un indicateur de risque opérationnel. Un BFR élevé et non maîtrisé lui dit que votre entreprise a besoin de financement juste pour faire tourner son activité quotidienne — avant même de rembourser un crédit supplémentaire.",
+          "Beaucoup de dirigeants arrivent en rendez-vous bancaire avec leurs bilans comptables sous le bras. La banque, elle, regarde surtout l'évolution du BFR sur 3 ans — pas le solde d'une année. Une tendance à la hausse sans explication, c'est le signal qui bloque les dossiers.",
+          "Concrètement, le banquier se pose trois questions :",
+        ],
+        list: [
+          "Votre BFR est-il cohérent avec votre secteur et votre taille ? Un BFR de 60 jours de CA est normal dans le bâtiment. Il serait inquiétant dans la restauration.",
+          "Votre BFR est-il stable, en baisse ou en hausse ? Un BFR qui augmente plus vite que le CA signale une perte de contrôle.",
+          "Comment votre BFR est-il financé ? Fonds propres, ligne de crédit court terme, découvert ? La structure du financement dit beaucoup sur la santé réelle.",
+        ],
+      },
+      {
+        heading: "Mini-cas — Société de services B2B, 12 employés, Liège",
+        paragraphs: [
+          "Situation : demande de crédit d'investissement de 120 000 € pour acquérir un outil de production. Problème : BFR passé de 35 000 € à 78 000 € en 18 mois — sans explication préparée.",
+          "Réaction de la banque : dossier mis en attente. « Expliquez-nous d'abord pourquoi votre BFR a doublé. »",
+          "Ce que MFinances a fait : reconstitution de l'historique BFR, narration sectorielle (croissance CA +40 %), plan de réduction sur 6 mois. Dossier accepté 3 semaines après.",
+          "Leçon : ce n'est pas le BFR qui a bloqué le crédit. C'est l'absence d'explication.",
+        ],
+      },
+      {
+        heading: "Ce que votre BFR dit à votre banquier — la lecture derrière les chiffres",
+        paragraphs: [],
+        table: {
+          headers: ["Ce que voit le banquier", "Ce qu'il en déduit"],
+          rows: [
+            ["BFR stable, bien financé, cohérent avec le secteur", "Entreprise bien gérée. Risque modéré. Crédit envisageable."],
+            ["BFR en hausse rapide sans explication claire", "Perte de contrôle opérationnel. Risque d'impayés clients. Prudence."],
+            ["BFR négatif", "Modèle favorable — encaissements avant décaissements. Bon signal."],
+            ["BFR financé principalement par découvert", "Signal d'alarme : la tréso courante dépend du crédit. Risque systémique."],
+            ["BFR présenté sans contexte sectoriel", "Dirigeant peu au fait de sa situation financière. Perte de confiance."],
+          ],
+        },
+      },
+      {
+        heading: "3 erreurs fréquentes qui font échouer un dossier de crédit",
+        paragraphs: [
+          "Erreur 1 — Présenter un BFR brut sans contexte sectoriel. Votre banquier ne connaît pas forcément les spécificités de votre secteur. Si votre BFR de 60 jours est la norme dans votre activité, dites-le explicitement — avec des références si possible.",
+          "Erreur 2 — Arriver avec un BFR en hausse sans plan d'action. Une tendance à la hausse est acceptable si elle est expliquée (croissance du CA) et accompagnée d'un plan de stabilisation. Sans ce plan, c'est un facteur de refus.",
+          "Erreur 3 — Confondre BFR et trésorerie disponible. Plusieurs dirigeants présentent leur solde bancaire comme preuve de bonne santé. La banque sait que trésorerie et BFR sont deux choses différentes — et elle notera que vous confondez les deux.",
+          "Chez les dirigeants que nous accompagnons, la troisième erreur est la plus fréquente. Un compte bien approvisionné peut coexister avec un BFR structurellement problématique — c'est précisément ce que la banque cherche à détecter.",
+        ],
+      },
+      {
+        heading: "Les 3 leviers pour améliorer votre BFR avant un dossier de crédit",
+        paragraphs: [
+          "Si vous avez 2 à 3 mois avant votre rendez-vous bancaire, ces trois actions peuvent améliorer significativement votre BFR :",
+        ],
+        list: [
+          "Accélérer les encaissements clients : facturer immédiatement à la livraison, relancer à J+30 sans exception, proposer un escompte de 1 à 2 % pour paiement sous 10 jours. Réduire le DSO de 45 à 30 jours sur un CA de 600 000 € libère 25 000 € de trésorerie.",
+          "Solder les stocks dormants : identifier les références à faible rotation et les liquider avant la clôture présentée à la banque. Chaque euro de stock vendu améliore directement le BFR.",
+          "Allonger les délais fournisseurs : renégocier de 30 à 45 jours là où vos relations le permettent. C'est le levier le plus rapide — et il n'a aucun impact sur votre activité.",
+        ],
+      },
+      {
+        heading: "Vu chez nos clients MFinances",
+        paragraphs: [
+          "Un client commerce Bruxelles a réduit son DSO de 52 à 34 jours en 2 mois via une procédure de relance systématique — libérant 31 000 € de trésorerie visible dans son bilan avant son dossier bancaire.",
+          "Un client services B2B Liège a négocié ses délais fournisseurs de 30 à 45 jours avec ses 4 principaux prestataires — améliorant son BFR de 18 000 € sans toucher à son activité commerciale.",
+          "Un client Horeca Anvers a soldé 22 références à rotation inférieure à 3 fois par an, récupérant 14 000 € de stocks immobilisés avant sa demande de ligne de crédit.",
+        ],
+      },
+      {
+        heading: "Ce qu'un DAF externalisé apporte dans la préparation d'un dossier bancaire",
+        paragraphs: [
+          "Préparer un dossier bancaire solide ne se résume pas à imprimer vos bilans. Le banquier attend une narration financière cohérente : voici d'où vous venez, voici où vous en êtes, voici où vous allez, et voici comment vous allez y arriver sans risquer votre structure.",
+          "C'est exactement ce que construit un DAF à temps partiel. Il modélise votre BFR prévisionnel, construit vos projections à 18 mois, identifie les angles faibles de votre dossier avant que le banquier ne les pointe — et vous prépare aux questions difficiles.",
+          "« Arrêtez de vous présenter en demandeur de crédit. Présentez-vous en chef d'entreprise qui pilote. La banque prête à ceux qui prouvent qu'ils maîtrisent leurs chiffres. » — Mika Musungayi, fondateur MFinances",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Pourquoi la banque regarde mon BFR avant de m'accorder un crédit ?",
+        answer: "Votre BFR indique à la banque comment vous financez votre cycle d'activité quotidien. Un BFR élevé et non maîtrisé signale que votre entreprise a besoin de financement avant même d'absorber une nouvelle dette. La banque analyse la stabilité, la tendance sur 2 à 3 ans, et le mode de financement du BFR pour évaluer votre risque opérationnel réel.",
+      },
+      {
+        question: "Quel BFR est acceptable pour obtenir un crédit en Belgique ?",
+        answer: "Il n'existe pas de seuil universel — la banque compare votre BFR à votre secteur. Ce qui importe : que votre BFR soit stable, documenté et cohérent avec votre activité. Un BFR élevé mais maîtrisé et en baisse est meilleur qu'un BFR modéré mais croissant sans explication. En Belgique, les banques regardent particulièrement le ratio BFR/CA mensuel et son évolution sur 3 exercices.",
+      },
+      {
+        question: "Comment améliorer son BFR rapidement avant un dossier bancaire ?",
+        answer: "Trois leviers rapides et cumulables : (1) accélérer les encaissements clients en facturant immédiatement et en relançant à J+30 — réduire le DSO de 45 à 30 jours sur 600K€ de CA libère 25 000 € ; (2) solder les stocks à faible rotation avant la clôture présentée ; (3) négocier un allongement des délais fournisseurs de 30 à 45 jours. Avec 2 à 3 mois de préparation, ces actions combinées peuvent transformer significativement votre dossier.",
+      },
+      {
+        question: "Un DAF externalisé peut-il m'aider à préparer mon dossier de crédit ?",
+        answer: "Oui — c'est l'une de ses missions les plus courantes chez MFinances. Le DAF externalisé construit la narration financière attendue par la banque : modélisation du BFR prévisionnel, projections à 18 mois, identification des points faibles, préparation aux questions du banquier. Il transforme un dossier comptable en dossier financier stratégique — celui d'un dirigeant qui pilote.",
+      },
+    ],
+    ctaText: "Mon dossier bancaire mérite mieux qu'un bilan",
+    ctaDescription: "En discuter avec MFinances — premier échange offert, sans engagement.",
+    ctaLink: "/contact/",
+    ctaLabel: "Parler à un expert",
+  },
 };
