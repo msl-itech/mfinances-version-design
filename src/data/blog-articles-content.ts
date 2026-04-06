@@ -1839,4 +1839,112 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/",
     ctaLabel: "Parler à un expert",
   },
+  "bfr-recrutement-impact-tresorerie": {
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez décidé de recruter. C'est une bonne nouvelle — cela signifie que votre activité croît. Mais avant de signer ce contrat, il y a un calcul que la plupart des dirigeants de TPE ne font pas. Et son absence peut transformer votre plus belle décision de croissance en une tension de trésorerie sévère.",
+          "Ce calcul, c'est l'impact du recrutement sur votre BFR — et par ricochet, sur votre trésorerie disponible dans les 3 à 6 mois qui suivent l'embauche.",
+        ],
+      },
+      {
+        heading: "Pourquoi recruter augmente mécaniquement votre BFR",
+        paragraphs: [
+          "Un recrutement ne se limite pas à un salaire mensuel. Il génère une série de charges immédiates et différées qui alourdissent votre BFR avant que le nouveau collaborateur ne contribue à vos revenus :",
+        ],
+        list: [
+          "Les charges sociales patronales : en Belgique, le coût employeur total représente environ 1,33 fois le salaire brut. Pour un salaire brut de 3 000 €, le coût réel mensuel est de 3 990 €.",
+          "Le délai de montée en compétences : selon le poste, un nouveau collaborateur atteint sa pleine productivité entre 1 et 6 mois après son arrivée. Pendant cette période, vous payez sans percevoir la contrepartie.",
+          "L'augmentation du cycle d'activité : un collaborateur supplémentaire génère souvent plus de projets, plus de stocks, plus de créances — donc un BFR plus élevé avant que les encaissements suivent.",
+          "Les coûts de recrutement et d'équipement : matériel, formation, cabinet éventuel — ces dépenses ponctuelles s'ajoutent à la charge de trésorerie de la période de lancement.",
+        ],
+      },
+      {
+        paragraphs: [
+          "La question qu'on nous pose le plus souvent : « J'ai les bénéfices, mais est-ce que j'ai la trésorerie ? » C'est exactement la bonne question — et la réponse passe par le calcul de l'impact BFR du recrutement, pas par le solde bancaire du jour.",
+        ],
+      },
+      {
+        heading: "Le calcul que personne ne fait avant d'embaucher",
+        paragraphs: [
+          "Mini-cas — David — entreprise de sécurité, Namur, 9 salariés. Contexte : carnet de commandes plein, décision de recruter un technicien supplémentaire.",
+        ],
+        table: {
+          headers: ["Élément", "Montant"],
+          rows: [
+            ["Salaire brut mensuel", "2 800 €"],
+            ["Coût employeur réel (×1,33)", "3 724 € / mois"],
+            ["Délai de montée en charge", "4 mois"],
+            ["Coût total montée en charge", "14 896 €"],
+            ["Équipement + tenue + formation", "3 200 €"],
+            ["Impact BFR immédiat total", "18 096 €"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "Trésorerie disponible de David au moment de la décision : 21 000 €. Verdict MFinances : recrutement possible, mais à monitorer mensuellement. Un second recrutement simultané aurait été déconseillé.",
+          "Ce n'est pas un argument contre le recrutement. C'est un argument pour ne pas recruter sans avoir modélisé cet impact sur votre trésorerie disponible.",
+        ],
+      },
+      {
+        heading: "3 scénarios selon votre situation de trésorerie actuelle",
+        paragraphs: [],
+        table: {
+          headers: ["Scénario", "Ce que ça implique"],
+          rows: [
+            ["Tréso disponible > 2× le coût de montée en charge", "✅ Feu vert. Vous absorbez l'impact BFR sans risque. Recrutez et suivez mensuellement."],
+            ["Tréso disponible entre 1× et 2× le coût", "⚠️ Feu orange. Recrutement possible avec suivi renforcé. Mettez en place le prévisionnel avant de signer."],
+            ["Tréso disponible < 1× le coût de montée en charge", "🚨 Feu rouge. Recrutez en finançant l'impact BFR (ligne crédit, timing décalé) ou attendez 1 à 2 mois."],
+          ],
+        },
+      },
+      {
+        heading: "Le délai de rentabilisation — comment le calculer",
+        paragraphs: [
+          "Délai (mois) = Coût total montée en charge ÷ Contribution mensuelle nette attendue",
+          "Exemple : coût de montée en charge de 18 096 € ÷ contribution mensuelle nette attendue de 5 500 € = 3,3 mois. Votre recrutement est rentabilisé au bout de 3,3 mois — à condition que la contribution soit au rendez-vous.",
+          "C'est ce calcul que réalise un DAF à temps partiel avant chaque décision de recrutement structurant. Pas pour bloquer la décision — pour la prendre avec les yeux ouverts.",
+        ],
+      },
+      {
+        heading: "3 erreurs fréquentes avant de recruter",
+        paragraphs: [
+          "Erreur 1 — Se baser sur le solde bancaire du jour. Votre compte peut sembler bien approvisionné aujourd'hui. Mais votre trésorerie dans 3 mois, après les charges de début de trimestre, la TVA et le premier mois de salaire — c'est une autre histoire.",
+          "Erreur 2 — Sous-estimer le délai de montée en productivité. Pour un poste commercial ou technique, 2 à 3 mois est souvent optimiste. Modélisez le scénario à 5 mois, et vérifiez que vous tenez.",
+          "Erreur 3 — Recruter deux postes en simultané sans simulation. L'impact BFR se cumule. Deux recrutements simultanés peuvent représenter 35 000 à 40 000 € d'impact trésorerie en quelques semaines — sur une TPE de 600K€ de CA, c'est critique.",
+        ],
+      },
+      {
+        heading: "Vu chez nos clients MFinances",
+        paragraphs: [
+          "Un client services informatiques (Gand, 11 salariés) a simulé 3 scénarios de recrutement avec MFinances avant de décider. Il a choisi de décaler le second poste de 2 mois — évitant une tension de trésorerie qui aurait mis en danger le versement du 13e mois.",
+          "Un client conseil (Bruxelles, 6 collaborateurs) a découvert lors de notre simulation que son recrutement commercial prévu serait rentabilisé en 4,8 mois — pas 2 comme il l'estimait. Il a ajusté sa projection de CA en conséquence.",
+          "« Le meilleur recrutement est celui que vous avez modélisé avant de signer. Pas après avoir découvert la tension. » — Mika Musungayi, fondateur MFinances",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Comment un recrutement affecte-t-il la trésorerie d'une TPE ?",
+        answer: "Un recrutement augmente immédiatement le BFR : charges patronales dès le premier mois (≈ +33 % du salaire brut), délai de montée en productivité de 1 à 6 mois selon le poste, coûts d'équipement et de formation. En Belgique, l'impact trésorerie total avant retour sur investissement dépasse régulièrement 15 000 à 20 000 € pour un poste à 3 000 € de salaire brut.",
+      },
+      {
+        question: "Quel est le coût réel d'un recrutement pour une TPE belge ?",
+        answer: "Le coût employeur mensuel réel est d'environ 1,33 fois le salaire brut en Belgique (charges patronales incluses). Pour un salaire brut de 3 000 €, le coût mensuel réel est de 3 990 €. En ajoutant le délai de montée en charge (2 à 5 mois selon le poste) et les frais annexes, l'impact total sur la trésorerie avant retour sur investissement dépasse souvent 15 000 à 20 000 €.",
+      },
+      {
+        question: "Comment savoir si ma trésorerie peut supporter un recrutement ?",
+        answer: "Calculez votre coût total de montée en charge (coût mensuel × délai de productivité + équipement). Comparez-le à votre trésorerie projetée dans 3 mois (pas aujourd'hui). Si elle couvre 2 fois ce montant : feu vert. Entre 1 et 2 fois : suivi renforcé nécessaire. En dessous : financez ou décalez le recrutement.",
+      },
+      {
+        question: "À quel moment faut-il recruter dans une TPE en croissance ?",
+        answer: "Le bon moment est celui où votre trésorerie prévisionnelle (sur 3 à 6 mois) peut absorber l'impact BFR sans tension. Recruter 2 mois trop tôt, au mauvais moment du cycle de trésorerie, peut fragiliser une entreprise par ailleurs solide. Un prévisionnel actualisé est l'outil indispensable pour prendre cette décision avec clarté.",
+      },
+    ],
+    ctaText: "Modélisez votre recrutement avec un DAF MFinances",
+    ctaDescription: "Premier échange offert — sans engagement.",
+    ctaLink: "/contact/",
+    ctaLabel: "Parler à un expert",
+  },
 };
