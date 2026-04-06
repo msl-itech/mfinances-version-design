@@ -444,6 +444,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "BFR : définition simple, formule et exemple chiffré pour une TPE belge. Calculez votre besoin en fonds de roulement en 2 minutes. MFinances, Bruxelles.",
     pillarPage: "/services/tresorerie/",
   },
+  {
+    slug: "bfr-recrutement-impact-tresorerie",
+    title: "Recruter en période de croissance — l'impact caché sur votre BFR et votre trésorerie",
+    excerpt: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
+    category: "Trésorerie",
+    categorySlug: "tresorerie",
+    published: true,
+    date: "2026-04-01",
+    seoTitle: "Recruter en TPE : l'impact caché sur votre BFR et votre trésorerie",
+    metaDescription: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
+    pillarPage: "/services/tresorerie/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
