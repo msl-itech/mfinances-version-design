@@ -14,6 +14,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
+import BfrCalculator from "@/components/BfrCalculator";
 
 import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
 import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
@@ -217,6 +218,13 @@ export default function BlogArticle() {
                 </ScrollRevealDiv>
               ))}
             </article>
+
+            {/* BFR Calculator */}
+            {content.showCalculator && (
+              <ScrollRevealDiv delay={0.08} className="mt-4">
+                <BfrCalculator />
+              </ScrollRevealDiv>
+            )}
 
             {/* Pillar page link */}
             {article.pillarPage && (
