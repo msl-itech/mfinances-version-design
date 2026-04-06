@@ -418,6 +418,20 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Vous travaillez beaucoup mais vous ne savez pas si votre entreprise est vraiment rentable ? 3 questions simples pour le savoir — sans jargon comptable.",
     pillarPage: "/services/controle-de-gestion/",
   },
+
+  // ── BFR & DOSSIER BANCAIRE ──
+  {
+    slug: "bfr-dossier-bancaire-credit-tpe",
+    title: "Votre banquier vous demande votre BFR — voici comment répondre (et négocier)",
+    excerpt: "Votre banquier analyse votre BFR avant tout crédit. Comment le lire, l'améliorer et défendre votre dossier. Guide MFinances, Bruxelles.",
+    category: "Trésorerie",
+    categorySlug: "tresorerie",
+    published: true,
+    date: "2026-04-01",
+    seoTitle: "BFR et dossier bancaire — ce que votre banquier regarde vraiment",
+    metaDescription: "Votre banquier analyse votre BFR avant tout crédit. Comment le lire, l'améliorer et défendre votre dossier. Guide MFinances, Bruxelles.",
+    pillarPage: "/services/daf-externalise/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
