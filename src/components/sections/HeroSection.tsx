@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-scroll-reveal";
 import { ArrowRight, Star } from "lucide-react";
-import mikaPhoto from "@/assets/mika-musungayi.webp";
+import equipePhoto from "@/assets/mfinances-equipe-travail.png";
 
 const stats = [
   { value: 200, suffix: "+", label: "entreprises accompagnées" },
@@ -111,8 +111,8 @@ export default function HeroSection() {
               {/* Photo container */}
               <div className="relative bg-gradient-to-b from-primary/5 to-transparent rounded-3xl overflow-hidden">
                 <img
-                  src={mikaPhoto}
-                  alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
+                  src={equipePhoto}
+                  alt="Équipe MFinances en réunion de travail"
                   className="w-full h-[480px] object-cover object-top"
                   loading="eager"
                   fetchPriority="high"
@@ -126,8 +126,8 @@ export default function HeroSection() {
                 className={`absolute bottom-8 left-6 bg-card/90 backdrop-blur-md border border-border/50 rounded-2xl px-5 py-3 shadow-lg transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "0.7s" }}
               >
-                <p className="font-bold text-[14px]"><span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span></p>
-                <p className="text-[12px] text-muted-foreground">Expert-comptable</p>
+                <p className="font-bold text-[14px]"><span className="text-accent">L'équipe</span> <span className="text-primary">MFinances</span></p>
+                <p className="text-[12px] text-muted-foreground">Vos partenaires financiers</p>
               </div>
 
               {/* Floating stat badge */}
