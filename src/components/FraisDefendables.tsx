@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useRef } from "react";
+import { Car, UtensilsCrossed, Home, Laptop, BookOpen, ClipboardList, Target, Eye, BarChart3, AlertTriangle, FileText, Search, Shield, Mail, Scale } from "lucide-react";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 interface FraisItem {
@@ -59,12 +60,12 @@ const DATA: Record<string, FraisItem[]> = {
 };
 
 const CATEGORIES = [
-  { key: "mobilite", label: "🚗 Mobilité" },
-  { key: "representation", label: "🍽️ Représentation" },
-  { key: "bureau", label: "🏠 Bureau" },
-  { key: "equipement", label: "💻 Équipement" },
-  { key: "formation", label: "📚 Formation" },
-  { key: "divers", label: "📋 Divers" },
+  { key: "mobilite", label: "Mobilité", icon: Car },
+  { key: "representation", label: "Représentation", icon: UtensilsCrossed },
+  { key: "bureau", label: "Bureau", icon: Home },
+  { key: "equipement", label: "Équipement", icon: Laptop },
+  { key: "formation", label: "Formation", icon: BookOpen },
+  { key: "divers", label: "Divers", icon: ClipboardList },
 ];
 
 const QUESTIONS = [
@@ -229,8 +230,9 @@ export default function FraisDefendables() {
                   <button
                     key={cat.key} type="button"
                     onClick={() => { setCurrentCat(cat.key); setSelectedItem(null); }}
-                    className={`rounded-xl px-3 py-3 text-[13px] font-bold text-left border-2 transition-all duration-200 ${currentCat === cat.key ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]" : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-primary hover:shadow-sm"}`}
+                    className={`rounded-xl px-3 py-3 text-[13px] font-bold text-left border-2 transition-all duration-200 flex items-center gap-2 ${currentCat === cat.key ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]" : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-primary hover:shadow-sm"}`}
                   >
+                    <cat.icon size={15} strokeWidth={2.5} />
                     {cat.label}
                   </button>
                 ))}
@@ -369,14 +371,14 @@ export default function FraisDefendables() {
                 {/* Detail grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
                   {[
-                    { label: "Régime applicable", val: v.regime, icon: "📋" },
-                    { label: "Justification attendue", val: v.justif, icon: "📄" },
-                    { label: "Ce que le fisc vérifie", val: v.fisc, icon: "🔍" },
-                    { label: "Pour défendre ce frais", val: v.defend, icon: "🛡️" },
+                    { label: "Régime applicable", val: v.regime, icon: ClipboardList },
+                    { label: "Justification attendue", val: v.justif, icon: FileText },
+                    { label: "Ce que le fisc vérifie", val: v.fisc, icon: Search },
+                    { label: "Pour défendre ce frais", val: v.defend, icon: Shield },
                   ].map(d => (
                     <div key={d.label} className="bg-muted border border-border rounded-2xl p-4 hover:shadow-sm transition-shadow">
                       <div className="text-[10.5px] uppercase tracking-widest text-muted-foreground font-bold mb-1.5 flex items-center gap-1.5">
-                        <span>{d.icon}</span> {d.label}
+                        <d.icon size={13} strokeWidth={2.5} /> {d.label}
                       </div>
                       <div className="text-[13px] text-foreground leading-relaxed">{d.val}</div>
                     </div>
@@ -387,7 +389,7 @@ export default function FraisDefendables() {
                 {captureNeeded ? (
                   submitted ? (
                     <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground rounded-2xl p-6 text-center">
-                      <div className="text-3xl mb-3">✉️</div>
+                      <Mail className="mx-auto mb-3" size={32} />
                       <h3 className="font-display text-xl text-white mb-2">Reçu — merci.</h3>
                       <p className="text-white/80 text-sm">Votre demande a bien été notée. Nos experts vous répondent rapidement.</p>
                     </div>
@@ -466,26 +468,26 @@ export default function FraisDefendables() {
       {/* ════════════════ SIDEBAR ════════════════ */}
       <aside className="grid gap-4 lg:sticky lg:top-24" aria-label="Informations sur l'outil">
         {[
-          { title: "Ce que l'outil fait", icon: "🎯", content: <p className="text-muted-foreground text-sm leading-relaxed">Il vous aide à faire un premier tri rapide. Vous voyez quels frais sont les plus simples, lesquels demandent une méthode, et lesquels méritent un avis expert avant déduction.</p> },
-          { title: "Ce que le fisc regarde", icon: "👁️", content: (
+          { title: "Ce que l'outil fait", Icon: Target, content: <p className="text-muted-foreground text-sm leading-relaxed">Il vous aide à faire un premier tri rapide. Vous voyez quels frais sont les plus simples, lesquels demandent une méthode, et lesquels méritent un avis expert avant déduction.</p> },
+          { title: "Ce que le fisc regarde", Icon: Eye, content: (
             <ul className="pl-0 text-muted-foreground text-sm space-y-2.5">
               {["Le lien réel avec l'activité", "La qualité du justificatif", "La part privée éventuelle", "La cohérence du dossier dans le temps"].map(t => (
                 <li key={t} className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />{t}</li>
               ))}
             </ul>
           )},
-          { title: "30 frais couverts", icon: "📊", content: (
+          { title: "30 frais couverts", Icon: BarChart3, content: (
             <ul className="pl-0 text-muted-foreground text-sm space-y-2">
               {["Mobilité (voiture, carburant, vélo, voyages)", "Représentation (repas, cadeaux, réceptions)", "Bureau (domicile, loyer, mobilier, travaux)", "Équipement (IT, téléphone, SaaS)", "Formation (séminaires, livres)", "Divers (bancaire, sous-traitants, prime)"].map(t => (
                 <li key={t} className="flex items-start gap-2"><span className="text-xs">•</span>{t}</li>
               ))}
             </ul>
           )},
-          { title: "Ce que cet outil ne fait pas", icon: "⚠️", content: <p className="text-muted-foreground text-sm leading-relaxed">Il ne remplace pas une analyse personnalisée. Un cas complexe dépend de votre statut, de vos justificatifs et de la structure réelle de votre activité. MFinances analyse votre dossier complet.</p> },
+          { title: "Ce que cet outil ne fait pas", Icon: AlertTriangle, content: <p className="text-muted-foreground text-sm leading-relaxed">Il ne remplace pas une analyse personnalisée. Un cas complexe dépend de votre statut, de vos justificatifs et de la structure réelle de votre activité. MFinances analyse votre dossier complet.</p> },
         ].map(card => (
           <div key={card.title} className="bg-card border border-border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
             <h3 className="text-[15px] font-bold text-primary mb-3 flex items-center gap-2">
-              <span>{card.icon}</span> {card.title}
+              <card.Icon size={16} strokeWidth={2.5} /> {card.title}
             </h3>
             {card.content}
           </div>
