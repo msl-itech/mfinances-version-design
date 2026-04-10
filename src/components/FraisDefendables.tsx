@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useRef } from "react";
+import { Car, UtensilsCrossed, Home, Laptop, BookOpen, ClipboardList, Target, Eye, BarChart3, AlertTriangle, FileText, Search, Shield, Mail, Scale } from "lucide-react";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 interface FraisItem {
@@ -59,12 +60,12 @@ const DATA: Record<string, FraisItem[]> = {
 };
 
 const CATEGORIES = [
-  { key: "mobilite", label: "🚗 Mobilité" },
-  { key: "representation", label: "🍽️ Représentation" },
-  { key: "bureau", label: "🏠 Bureau" },
-  { key: "equipement", label: "💻 Équipement" },
-  { key: "formation", label: "📚 Formation" },
-  { key: "divers", label: "📋 Divers" },
+  { key: "mobilite", label: "Mobilité", icon: Car },
+  { key: "representation", label: "Représentation", icon: UtensilsCrossed },
+  { key: "bureau", label: "Bureau", icon: Home },
+  { key: "equipement", label: "Équipement", icon: Laptop },
+  { key: "formation", label: "Formation", icon: BookOpen },
+  { key: "divers", label: "Divers", icon: ClipboardList },
 ];
 
 const QUESTIONS = [
