@@ -5,6 +5,7 @@ export interface ArticleSection {
   list?: string[];
   table?: { headers: string[]; rows: string[][] };
   ctaInline?: { text: string; link: string };
+  relatedLinks?: { text: string; link: string }[];
 }
 
 export interface ArticleFaq {
@@ -2059,6 +2060,9 @@ export const articleContent: Record<string, ArticleBody> = {
           "En Belgique, un frais professionnel peut être légalement déductible et pourtant difficile à défendre sans la bonne documentation. L'administration fiscale ne vérifie pas seulement la loi — elle vérifie la cohérence globale de votre dossier : usage réel, justificatifs, proportionnalité, logique d'ensemble.",
           "Ce guide couvre les 30 catégories de frais les plus fréquentes pour les indépendants (IPP) et les dirigeants de société (ISOC). Pour chaque frais, nous précisons le régime légal, ce que le fisc vérifie concrètement, et comment défendre votre déduction.",
         ],
+        relatedLinks: [
+          { text: "Comment défendre un frais mixte", link: "/blog/fiscalite-belgique/frais-mixtes-belgique/" },
+        ],
       },
       {
         heading: "Les trois niveaux de lecture d'un frais professionnel",
@@ -2123,6 +2127,9 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Utilisez l'outil gratuit Frais Défendables pour analyser votre dépense en 3 questions et obtenir un premier niveau de lecture : défendable, à encadrer, ou zone sensible.",
         ],
+        relatedLinks: [
+          { text: "DAF à temps partiel — comment MFinances accompagne les dirigeants", link: "/services/daf-externalise/" },
+        ],
         ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
     ],
@@ -2148,6 +2155,9 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "La question n'est pas de savoir si vous pouvez déduire ces frais. La vraie question est : ce frais est-il défendable — et votre justification tiendrait-elle face à un contrôleur qui ne connaît pas votre activité ?",
           "En Belgique, les frais mixtes — ceux qui ont à la fois un usage professionnel et un usage privé — sont légaux et courants. Ce qui crée des problèmes, c'est l'absence de méthode documentée pour établir la part professionnelle. Le fisc belge vérifie la cohérence globale du dossier, pas chaque frais isolément. Une méthode de ventilation cohérente et appliquée de manière constante est votre meilleure protection.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet des frais professionnels", link: "/blog/fiscalite-belgique/frais-professionnels-deductibles-belgique/" },
         ],
       },
       {
