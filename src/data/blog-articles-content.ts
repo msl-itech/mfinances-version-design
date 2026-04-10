@@ -5,6 +5,7 @@ export interface ArticleSection {
   list?: string[];
   table?: { headers: string[]; rows: string[][] };
   ctaInline?: { text: string; link: string };
+  relatedLinks?: { text: string; link: string }[];
 }
 
 export interface ArticleFaq {
