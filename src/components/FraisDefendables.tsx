@@ -487,7 +487,7 @@ export default function FraisDefendables() {
         ].map(card => (
           <div key={card.title} className="bg-card border border-border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
             <h3 className="text-[15px] font-bold text-primary mb-3 flex items-center gap-2">
-              <span>{card.icon}</span> {card.title}
+              <card.Icon size={16} strokeWidth={2.5} /> {card.title}
             </h3>
             {card.content}
           </div>
