@@ -10,18 +10,16 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqData = [
   { q: "Qu'est-ce qu'un frais professionnel défendable en Belgique ?", a: "Un frais défendable est une dépense liée à l'activité professionnelle, justifiée par un document probant (facture, note) et proportionnée au volume d'activité. Défendable signifie que la déduction résisterait à un contrôle fiscal approfondi." },
-  { q: "Un repas au restaurant est-il défendable fiscalement en Belgique ?", a: "Oui, sous conditions. La déductibilité est plafonnée à 69% (art. 53, 7° CIR). Il faut conserver la souche TVA et rédiger une note mentionnant l'identité des convives et l'objet professionnel du repas." },
-  { q: "Ma voiture de société est-elle toujours défendable fiscalement ?", a: "Pas automatiquement. La déductibilité dépend des émissions CO₂ et de la date d'acquisition. Si le dirigeant utilise le véhicule à des fins privées, un ATN doit être calculé et déclaré à l'IPP." },
-  { q: "Quels frais sont refusés systématiquement par le fisc belge ?", a: "Les amendes et pénalités fiscales (jamais déductibles), les frais de sport personnels, les vêtements classiques, et les repas de midi sans déplacement professionnel avéré." },
-  { q: "Qu'est-ce que la fiche 281.50 et quand est-elle obligatoire ?", a: "La fiche 281.50 est obligatoire pour toute rémunération versée à des tiers indépendants dépassant 250 EUR par bénéficiaire et par an. Son absence peut entraîner une cotisation spéciale de 100% sur le montant versé." },
-  { q: "Puis-je déduire mon bureau à domicile en Belgique ?", a: "Oui, si une pièce est dédiée exclusivement ou principalement à votre activité professionnelle. La méthode standard est le prorata de superficie : m² bureau ÷ m² total logement × charges éligibles." },
+  { q: "Comment fonctionne l'outil Frais Défendables ?", a: "L'outil analyse 30 catégories de frais professionnels en 3 questions : statut fiscal (IPP ou société), usage réel de la dépense, justificatif disponible. Verdict : défendable, à encadrer, ou zone sensible." },
+  { q: "C'est quoi un DAF à temps partiel ?", a: "Un DAF (Directeur Administratif et Financier) à temps partiel accompagne le dirigeant sans être salarié à plein temps. Chez MFinances, le DAF à temps partiel est intégré dans tous les forfaits." },
+  { q: "Combien coûte un expert-comptable pour une PME en Belgique ?", a: "Chez MFinances, les forfaits pour TPE en croissance incluent comptabilité complète, contrôle de gestion et accès à un DAF à temps partiel. Contactez-nous pour un devis adapté à votre structure." },
 ];
 
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "Frais Défendables",
-  description: "Analyseur de frais professionnels belges. 30 catégories de frais analysées en 3 questions.",
+  description: "Analyseur de frais professionnels belges. 30 catégories analysées en 3 questions.",
   url: "https://mfinances.be/frais-defendables/",
   applicationCategory: "BusinessApplication",
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
