@@ -160,6 +160,14 @@ export default function BlogArticle() {
 
             <div className="mt-6">
               <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
+
+              {/* Hero CTA above H1 */}
+              {content.heroCta && (
+                <Link to={content.heroCta.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mt-3 mb-4 hover:underline">
+                  {content.heroCta.text} <ArrowRight size={14} />
+                </Link>
+              )}
+
               <h1 className="font-display text-[24px] md:text-[40px] leading-[1.15] text-primary-foreground mt-2">
                 {article.title}
               </h1>
@@ -202,6 +210,11 @@ export default function BlogArticle() {
                       {section.heading}
                     </h2>
                   )}
+                  {section.subheading && (
+                    <h3 className="font-display text-[18px] md:text-[21px] text-foreground mt-8 mb-3 leading-[1.25]">
+                      {section.subheading}
+                    </h3>
+                  )}
                   {section.paragraphs.map((p, pi) => (
                     <p key={pi} className="text-[15px] text-foreground/80 leading-[1.8] font-body mb-4">
                       {p}
@@ -216,6 +229,11 @@ export default function BlogArticle() {
                         </li>
                       ))}
                     </ul>
+                  )}
+                  {section.ctaInline && (
+                    <Link to={section.ctaInline.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mb-4 hover:underline">
+                      {section.ctaInline.text} <ArrowRight size={14} />
+                    </Link>
                   )}
                   {section.table && (
                     <div className="overflow-x-auto mb-6">

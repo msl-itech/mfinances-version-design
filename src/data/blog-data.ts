@@ -468,6 +468,19 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Votre entreprise vend plusieurs services ? Calculez votre seuil de rentabilité pondéré et détectez l'angle mort qui pèse sur vos marges. Outil gratuit.",
     pillarPage: "/services/controle-de-gestion/",
   },
+  // ── FISCALITÉ (frais professionnels) ──
+  {
+    slug: "frais-professionnels-deductibles-belgique",
+    title: "Frais professionnels déductibles en Belgique — ce qui est défendable, ce qui fragilise votre dossier",
+    excerpt: "Quels frais professionnels sont réellement défendables en Belgique ? Guide complet IPP et société : restaurant, voiture, bureau, téléphone.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-10",
+    seoTitle: "Frais professionnels déductibles en Belgique — Guide complet | MFinances",
+    metaDescription: "Quels frais professionnels sont réellement défendables en Belgique ? Guide complet IPP et société : restaurant, voiture, bureau, téléphone — MFinances, Uccle.",
+    pillarPage: "/frais-defendables/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
