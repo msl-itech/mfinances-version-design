@@ -481,6 +481,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Quels frais professionnels sont réellement défendables en Belgique ? Guide complet IPP et société : restaurant, voiture, bureau, téléphone — MFinances, Uccle.",
     pillarPage: "/frais-defendables/",
   },
+  {
+    slug: "frais-mixtes-belgique",
+    title: "Frais professionnels mixtes en Belgique — comment justifier la part déductible",
+    excerpt: "Comment justifier la part professionnelle d'un frais mixte en Belgique ? Voiture, téléphone, bureau à domicile : méthodes et justificatifs.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-10",
+    seoTitle: "Frais mixtes professionnels en Belgique — comment les défendre | MFinances",
+    metaDescription: "Comment justifier la part professionnelle d'un frais mixte en Belgique ? Voiture, téléphone, bureau à domicile : méthodes et justificatifs — MFinances, expert-comptable à Uccle.",
+    pillarPage: "/frais-defendables/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {

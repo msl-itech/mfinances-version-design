@@ -2139,4 +2139,80 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/",
     ctaLabel: "Prendre rendez-vous avec MFinances",
   },
+
+  "frais-mixtes-belgique": {
+    heroCta: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+    sections: [
+      {
+        heading: "La vraie question sur les frais mixtes",
+        paragraphs: [
+          "La question n'est pas de savoir si vous pouvez déduire ces frais. La vraie question est : ce frais est-il défendable — et votre justification tiendrait-elle face à un contrôleur qui ne connaît pas votre activité ?",
+          "En Belgique, les frais mixtes — ceux qui ont à la fois un usage professionnel et un usage privé — sont légaux et courants. Ce qui crée des problèmes, c'est l'absence de méthode documentée pour établir la part professionnelle. Le fisc belge vérifie la cohérence globale du dossier, pas chaque frais isolément. Une méthode de ventilation cohérente et appliquée de manière constante est votre meilleure protection.",
+        ],
+      },
+      {
+        heading: "Les quatre frais mixtes les plus contrôlés en Belgique",
+        paragraphs: [],
+      },
+      {
+        subheading: "Le téléphone — pas de taux légal fixe",
+        paragraphs: [
+          "Il n'existe pas de pourcentage universel pour le téléphone en Belgique. La déduction dépend de l'usage réel et de la cohérence de la ventilation. Un repère peut exister en pratique — mais il doit être défendable au regard de votre activité concrète.",
+          "Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage mixte réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
+        ],
+        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "Le bureau à domicile — une méthode, pas un taux standard",
+        paragraphs: [
+          "La ventilation au prorata de superficie est une base possible, mais elle doit correspondre à un espace réellement dédié et identifiable. Un espace partagé ou occasionnel est beaucoup plus difficile à défendre.",
+          "Méthode recommandée : m² bureau ÷ m² total du logement × charges éligibles (loyer ou valeur locative + énergie + assurance + entretien). Exemple : bureau de 15 m² dans un appartement de 100 m² = 15% des charges. Ce pourcentage doit être appliqué de manière constante d'un exercice à l'autre et documenté dans votre dossier fiscal.",
+        ],
+        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "L'ordinateur — la part professionnelle doit refléter l'usage réel",
+        paragraphs: [
+          "La part professionnelle doit refléter l'usage réel. Plus l'usage privé est significatif, plus la justification doit être solide. Un ordinateur familial passé en charges sans documentation constitue un DNA (Dépense Non Admise) dans le chef du dirigeant.",
+          "Pour les sociétés, l'achat direct au nom de la société simplifie la déductibilité et peut ouvrir droit à la déduction pour investissement numérique — à vérifier selon les conditions applicables.",
+        ],
+        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "La voiture — le suivi structuré comme protection principale",
+        paragraphs: [
+          "La justification de l'usage professionnel est centrale. Un suivi structuré — comme un carnet de route — renforce fortement la défendabilité du frais. Sans suivi, le pourcentage revendiqué doit rester cohérent avec la réalité de l'activité — pas avec ce que « tout le monde fait ».",
+          "Un carnet de route numérique (application mobile, relevé GPS) est aujourd'hui la méthode la plus robuste. Sans lui, le fisc peut remettre en cause l'intégralité du pourcentage professionnel revendiqué.",
+        ],
+        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+      },
+      {
+        heading: "Ce que le fisc vérifie vraiment sur les frais mixtes",
+        paragraphs: [
+          "L'administration fiscale belge ne cherche pas un pourcentage parfait. Elle cherche une cohérence entre le pourcentage revendiqué et la nature réelle de l'activité déclarée. Un commercial qui déclare 95% d'usage professionnel pour son téléphone sera moins questionné qu'un administratif qui déclare le même taux.",
+          "Le deuxième point de contrôle est la constance : un contribuable qui applique la même méthode chaque année est moins suspect que celui qui change de taux selon l'exercice.",
+          "Le troisième point est la proportionnalité globale : si le total des frais mixtes représente une proportion anormalement élevée du chiffre d'affaires, cela déclenche systématiquement un examen plus approfondi de l'ensemble du dossier.",
+        ],
+      },
+      {
+        heading: "Conclusion — un frais mixte mal encadré fragilise tout le dossier",
+        paragraphs: [
+          "Un frais mixte mal encadré ne pose pas seulement un problème isolé. Il peut fragiliser la crédibilité de l'ensemble de votre dossier fiscal — notamment si le contrôleur détecte une tendance à la surdéduction systématique.",
+        ],
+        ctaInline: { text: "→ Vérifier la défendabilité de vos frais mixtes", link: "/frais-defendables/" },
+      },
+    ],
+    faq: [
+      { question: "Comment justifier la part professionnelle d'un frais mixte en Belgique ?", answer: "Pour un frais mixte, vous devez établir une méthode de ventilation documentée et cohérente avec la nature réelle de votre activité. Voiture : carnet de route ou ventilation justifiée par la nature de l'activité. Téléphone : part professionnelle cohérente avec l'usage réel — il n'existe pas de taux universel. La méthode doit être appliquée de manière constante." },
+      { question: "Quel niveau de déduction est défendable pour un téléphone professionnel en Belgique ?", answer: "Il n'existe pas de pourcentage légal fixé. La part professionnelle déductible dépend de l'usage réel et doit pouvoir être justifiée au regard de la nature de l'activité concrète. Un taux de 100% sur une ligne personnelle est statistiquement difficile à défendre." },
+      { question: "Comment déduire son bureau à domicile en Belgique ?", answer: "Méthode standard : m² du bureau ÷ m² total du logement × charges éligibles. Une pièce réellement dédiée à l'activité est requise. Un espace partagé ou occasionnel est beaucoup plus difficile à défendre." },
+      { question: "Peut-on déduire 100% de l'ordinateur si on l'utilise aussi en privé ?", answer: "Non. En cas d'usage mixte, seule la part professionnelle est déductible. Cette ventilation doit être documentée. Un ordinateur familial passé en charges sans documentation constitue une dépense non admise." },
+      { question: "Qu'est-ce qu'un frais mixte mal encadré peut provoquer lors d'un contrôle fiscal ?", answer: "Un frais mixte mal documenté peut fragiliser l'ensemble du dossier fiscal. Si le contrôleur détecte une tendance à la surdéduction systématique, il peut remettre en cause plusieurs exercices simultanément." },
+      { question: "La méthode de ventilation peut-elle changer d'une année à l'autre ?", answer: "Non, ou très rarement avec justification. Le fisc vérifie la constance de la méthode. Un contribuable qui change de taux d'une année à l'autre est plus suspect que celui qui applique une méthode cohérente." },
+    ],
+    ctaText: "Recevoir la checklist des frais sensibles",
+    ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
+    ctaLink: "/contact/",
+    ctaLabel: "Recevoir la checklist des frais sensibles",
+  },
 };
