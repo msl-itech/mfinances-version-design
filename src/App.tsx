@@ -35,6 +35,7 @@ import MentionsLegales from "./pages/MentionsLegales.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
+import FraisDefendables from "./pages/FraisDefendables.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
