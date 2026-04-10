@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import mikaPhoto from "@/assets/mika-musungayi.webp";
+import equipePhoto from "@/assets/mfinances-equipe-sourire.jpg";
 import imgStory from "@/assets/about-story.jpg";
 import imgMeeting from "@/assets/meeting-warm.jpg";
 import imgDashboard from "@/assets/dashboard-laptop.jpg";
@@ -121,7 +121,7 @@ export default function APropos() {
             </div>
 
             <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={mikaPhoto} alt="Mika MUSUNGAYI, fondateur MFinances" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
+              <img src={equipePhoto} alt="Équipe MFinances — Expertise comptable à Uccle" className="w-full h-[340px] md:h-[400px] object-cover object-center" />
             </div>
           </div>
         </section>
