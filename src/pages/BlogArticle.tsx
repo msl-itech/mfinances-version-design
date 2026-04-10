@@ -230,6 +230,15 @@ export default function BlogArticle() {
                       ))}
                     </ul>
                   )}
+                  {section.relatedLinks && section.relatedLinks.length > 0 && (
+                    <div className="flex flex-col gap-1.5 mb-4">
+                      {section.relatedLinks.map((rl, rli) => (
+                        <Link key={rli} to={rl.link} className="inline-flex items-center gap-1.5 text-accent font-semibold text-[14px] hover:underline">
+                          {rl.text} <ArrowRight size={13} />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                   {section.ctaInline && (
                     <Link to={section.ctaInline.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mb-4 hover:underline">
                       {section.ctaInline.text} <ArrowRight size={14} />
