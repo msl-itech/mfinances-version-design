@@ -1,8 +1,10 @@
 export interface ArticleSection {
   heading?: string;
+  subheading?: string;
   paragraphs: string[];
   list?: string[];
   table?: { headers: string[]; rows: string[][] };
+  ctaInline?: { text: string; link: string };
 }
 
 export interface ArticleFaq {
@@ -19,6 +21,7 @@ export interface ArticleBody {
   ctaLabel?: string;
   showCalculator?: boolean;
   showCockpit?: boolean;
+  heroCta?: { text: string; link: string };
 }
 
 export const articleContent: Record<string, ArticleBody> = {
@@ -2044,5 +2047,96 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaDescription: "Premier échange offert — sans engagement.",
     ctaLink: "/contact/",
     ctaLabel: "Prendre rendez-vous",
+  },
+
+  "frais-professionnels-deductibles-belgique": {
+    heroCta: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+    sections: [
+      {
+        heading: "La vraie question n'est pas « qu'est-ce qui est déductible ? »",
+        paragraphs: [
+          "Quels frais sont réellement défendables en Belgique — et lesquels peuvent fragiliser votre dossier ? La vraie question n'est pas « qu'est-ce qui est déductible ? » C'est : ce frais est-il cohérent, justifiable et défendable en cas de contrôle ?",
+          "En Belgique, un frais professionnel peut être légalement déductible et pourtant difficile à défendre sans la bonne documentation. L'administration fiscale ne vérifie pas seulement la loi — elle vérifie la cohérence globale de votre dossier : usage réel, justificatifs, proportionnalité, logique d'ensemble.",
+          "Ce guide couvre les 30 catégories de frais les plus fréquentes pour les indépendants (IPP) et les dirigeants de société (ISOC). Pour chaque frais, nous précisons le régime légal, ce que le fisc vérifie concrètement, et comment défendre votre déduction.",
+        ],
+      },
+      {
+        heading: "Les trois niveaux de lecture d'un frais professionnel",
+        paragraphs: [
+          "Avant d'analyser frais par frais, comprendre la logique globale du contrôle fiscal belge.",
+          "🟢 Défendable — cohérent, bien justifié, solide en cas de contrôle. La déduction peut être maintenue sans risque si la documentation est en ordre.",
+          "🟡 À encadrer — des éléments manquent pour déduire sereinement. Avec la bonne méthode de ventilation et les justificatifs appropriés, la déduction peut être sécurisée.",
+          "🔴 Zone sensible — ce frais peut fragiliser l'ensemble de votre dossier fiscal. Ne pas déduire sans analyse experte préalable.",
+        ],
+        ctaInline: { text: "→ Vérifier où se situe votre frais avec l'outil Frais Défendables", link: "/frais-defendables/" },
+      },
+      {
+        heading: "Les principales catégories de frais professionnels — avec leur niveau de sensibilité fiscale",
+        paragraphs: [],
+      },
+      {
+        subheading: "Frais de mobilité",
+        paragraphs: [
+          "La voiture de société est le poste le plus complexe et le plus surveillé du dossier fiscal d'un dirigeant belge. Sa déductibilité dépend des émissions CO₂ du véhicule et de la date d'acquisition — le taux n'est pas fixe et évolue dans le temps. Si le véhicule est mis à disposition du dirigeant à des fins privées, un Avantage de Toute Nature (ATN) doit être calculé et déclaré à l'IPP. Un véhicule sans ATN déclaré constitue un risque fiscal majeur.",
+          "Le carburant est déductible en corrélation directe avec le taux de déductibilité du véhicule. Le parking professionnel est déductible à 100% si le lien avec un déplacement professionnel est documenté. Le vélo électrique bénéficie d'un régime fiscal généralement favorable — à vérifier selon les modalités exactes de mise à disposition.",
+        ],
+        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "Frais de représentation",
+        paragraphs: [
+          "Les repas d'affaires sont déductibles à 69% (art. 53, 7° CIR). Ce taux s'applique à la totalité de la dépense, y compris les boissons alcoolisées. Pour que la déduction soit défendable, la note du repas doit mentionner l'identité des convives et l'objet professionnel de la rencontre. Sans cette note, la déduction est fragile même si la souche TVA est disponible.",
+          "Les cadeaux clients sont déductibles à 50% (art. 53, 1° CIR). La TVA n'est pas récupérable si le cadeau dépasse 50 EUR HTVA par bénéficiaire et par an. Un cadeau à la famille du dirigeant sans lien professionnel constitue un Avantage de Toute Nature.",
+        ],
+        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "Frais de bureau",
+        paragraphs: [
+          "Le bureau à domicile est déductible si une pièce est réellement dédiée à l'activité professionnelle. Méthode standard : m² bureau ÷ m² total logement × charges éligibles (loyer ou valeur locative, énergie, assurance, entretien). Cette méthode doit être documentée et appliquée de manière cohérente d'un exercice à l'autre.",
+          "Pour une société, le dirigeant propriétaire peut sous-louer une partie de son logement à la société. Ce loyer est déductible dans la limite de 5/3 du revenu cadastral indexé net imposable — au-delà, requalification en rémunération.",
+        ],
+        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+      },
+      {
+        subheading: "Frais d'équipement et de téléphonie",
+        paragraphs: [
+          "Il n'existe pas de taux légal fixe pour la déduction du téléphone en Belgique. Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage privé réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
+          "L'ordinateur est déductible à 100% si l'usage est exclusivement professionnel. En cas d'usage mixte, une ventilation justifiée est nécessaire.",
+        ],
+        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+      },
+      {
+        heading: "Les 6 erreurs les plus fréquentes en matière de frais professionnels",
+        paragraphs: [],
+        list: [
+          "Déduire les amendes et pénalités — exclusion absolue par l'art. 53, 2° CIR, sans exception possible.",
+          "Passer des frais de sport ou fitness en frais professionnels — systématiquement rejeté par l'administration belge.",
+          "Déduire des vêtements classiques (costume, tailleur, chaussures de ville) — non déductibles selon la jurisprudence constante.",
+          "Omettre la fiche 281.50 pour les sous-traitants — risque de cotisation spéciale de 100% sur le montant.",
+          "Passer un véhicule privé en charges sociétaires sans structure adaptée — DNA quasi certaine.",
+          "Croire qu'un pourcentage « habituel » suffit à justifier un frais — un repère pratique n'est pas une norme légale. Ce qui compte, c'est la cohérence entre le pourcentage revendiqué et l'usage réel.",
+        ],
+      },
+      {
+        heading: "Vérifiez si vos frais sont défendables",
+        paragraphs: [
+          "Utilisez l'outil gratuit Frais Défendables pour analyser votre dépense en 3 questions et obtenir un premier niveau de lecture : défendable, à encadrer, ou zone sensible.",
+        ],
+        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+      },
+    ],
+    faq: [
+      { question: "Dans quelles conditions un repas au restaurant est-il réellement défendable ?", answer: "Un repas d'affaires est défendable si vous conservez la souche TVA et rédigez une note mentionnant l'identité des convives et l'objet professionnel de la rencontre. La déductibilité est plafonnée à 69% (art. 53, 7° CIR). Sans note rédigée, la déduction peut être rejetée intégralement même avec la souche TVA." },
+      { question: "Quel niveau de déduction est défendable pour un téléphone professionnel en Belgique ?", answer: "Il n'existe pas de pourcentage légal fixé pour la déduction du téléphone en Belgique. La part professionnelle déductible dépend de l'usage réel et doit pouvoir être justifiée au regard de la nature de l'activité. Un taux de 100% sur une ligne personnelle est statistiquement difficile à défendre." },
+      { question: "Une voiture de société est-elle toujours défendable fiscalement ?", answer: "Non. La déductibilité dépend des émissions CO₂ et de la date d'acquisition. Si le dirigeant utilise le véhicule à des fins privées, un ATN doit être calculé et déclaré à l'IPP. Un véhicule sans ATN déclaré constitue un risque fiscal majeur." },
+      { question: "Comment défendre un frais mixte en Belgique ?", answer: "Pour défendre un frais mixte, vous devez établir une méthode de ventilation documentée et cohérente avec la nature réelle de votre activité. Cette méthode doit être appliquée de manière constante. Le fisc vérifie la cohérence globale du dossier, pas chaque frais isolément." },
+      { question: "Quels frais sont refusés systématiquement par le fisc belge ?", answer: "Certains frais sont exclus de manière absolue par le CIR (art. 53) : amendes et pénalités fiscales, frais de sport personnels, vêtements classiques (costumes, tailleurs), repas de midi sans déplacement professionnel avéré." },
+      { question: "Qu'est-ce que la fiche 281.50 et quand est-elle obligatoire ?", answer: "La fiche 281.50 est obligatoire pour toute rémunération versée à des tiers indépendants dépassant 250 EUR par bénéficiaire et par an. Son absence peut entraîner une cotisation spéciale de 100% sur le montant versé." },
+    ],
+    ctaText: "Besoin d'un avis clair sur vos frais ?",
+    ctaDescription: "MFinances vous aide à sécuriser vos dépenses professionnelles — premier échange gratuit.",
+    ctaLink: "/contact/",
+    ctaLabel: "Prendre rendez-vous avec MFinances",
   },
 };
