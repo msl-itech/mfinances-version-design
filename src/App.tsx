@@ -35,6 +35,7 @@ import MentionsLegales from "./pages/MentionsLegales.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
+import FraisDefendables from "./pages/FraisDefendables.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/politique-de-confidentialite/" element={<PolitiqueConfidentialite />} />
           <Route path="/politique-de-cookies/" element={<PolitiqueCookies />} />
           <Route path="/checklist-tresorerie/" element={<ChecklistTresorerie />} />
+          <Route path="/frais-defendables/" element={<FraisDefendables />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
