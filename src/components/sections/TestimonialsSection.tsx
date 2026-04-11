@@ -6,82 +6,66 @@ const reviews = [
   {
     name: "Mari Carmen Rejas Martin",
     text: "Sans hésitation, je ne peux que recommander MFinances, tant pour son professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité etc.",
-    date: "Il y a 5 semaines",
   },
   {
     name: "Audrey Pepka épouse Mbog",
     text: "Tellement satisfaite du service accordé par MFinances ! Je recommande vivement.",
-    date: "Il y a 23 semaines",
   },
   {
     name: "Luc Jeazet",
     text: "MFINANCES MERCI !! Avec Mika et sa merveilleuse équipe, mon entreprise a pris un vrai tournant.",
-    date: "Il y a 28 semaines",
   },
   {
     name: "rann rann",
     text: "En tant qu'entrepreneur à Bruxelles avec plusieurs activités dans des secteurs différents, j'avais besoin d'un accompagnement sur mesure. MFinances a parfaitement répondu à mes attentes.",
-    date: "Il y a 28 semaines",
   },
   {
     name: "fitness Move",
     text: "Super expérience avec MFINANCES ! En tant qu'indépendant basé à Lot, je n'ai aucune formation en finance et j'avais besoin d'un vrai accompagnement. Service impeccable.",
-    date: "Il y a 28 semaines",
   },
   {
     name: "Sandra",
     text: "Je fais appel à MFINANCES depuis plusieurs années pour ma déclaration d'impôt, et c'est l'une des meilleures décisions que j'ai prises.",
-    date: "Il y a 28 semaines",
   },
   {
     name: "Sophie acdp",
     text: "J'utilise les services de MFinances depuis près de 3 ans. Plus qu'un comptable, Mika se montre disponible pour mes questions et m'accompagne au quotidien.",
-    date: "Il y a 28 semaines",
   },
   {
     name: "Yannick Nguangu",
     text: "Mon entreprise se porte mieux grâce à Mfinances. Suivi et conseils exceptionnels et personnalisés : tout est clair et transparent.",
-    date: "Il y a 29 semaines",
   },
   {
     name: "Verdilamil",
     text: "J'ai la chance d'avoir croisé le chemin de MFINANCES. Cela fait déjà trois ans que je ne me fais plus de soucis pour ma comptabilité.",
-    date: "Il y a 30 semaines",
   },
   {
     name: "Rkia Chadili",
     text: "Excellent service, rapidité, efficacité, professionnalisme, bref tout ce qu'un(e) professionnel(le) a besoin pour mener son activité sereinement.",
-    date: "Il y a 30 semaines",
   },
   {
     name: "Paulo Verwacht",
     text: "En tant qu'étudiant on ne s'attend pas à devoir rentrer une déclaration d'impôts. Sans l'assistance de Mr Mika, je n'y serais jamais arrivé. Merci !",
-    date: "Il y a 31 semaines",
   },
   {
     name: "Cindie Adonai",
     text: "Un service de qualité, mais surtout complet, ce qui est très rare. Je recommande à 100 %.",
-    date: "Il y a 32 semaines",
   },
   {
     name: "Hayat Karim",
     text: "MFinances fait preuve d'un sérieux et d'une précision exemplaire. Mika et ses collaborateurs sont très professionnels.",
-    date: "Il y a 32 semaines",
   },
   {
     name: "Magalie Kanga",
     text: "Service au top.",
-    date: "27 août 2024",
   },
   {
     name: "Pedro Soares",
     text: "Très satisfaits de leurs services. Des prix raisonnables et un service au top !",
-    date: "18 déc. 2020",
   },
   {
     name: "The Global Bird",
     text: "Very nice staff, thank you!",
-    date: "23 déc. 2020",
   },
 ];
 
@@ -148,7 +132,7 @@ export default function TestimonialsSection() {
                   </div>
                   <div>
                     <p className="text-[14px] font-semibold text-foreground leading-tight">{r.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{r.date}</p>
+                    
                   </div>
                 </div>
                 <div className="flex gap-0.5">
@@ -157,7 +141,7 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
                 <p className="text-[14px] text-foreground/80 leading-relaxed font-body flex-1">
-                  "{r.text}"
+                  {r.text}
                 </p>
               </div>
             ))}
