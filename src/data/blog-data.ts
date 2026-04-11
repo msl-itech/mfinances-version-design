@@ -493,6 +493,19 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Comment justifier la part professionnelle d'un frais mixte en Belgique ? Voiture, téléphone, bureau à domicile : méthodes et justificatifs — MFinances, expert-comptable à Uccle.",
     pillarPage: "/frais-defendables/",
   },
+  // ── BUREAU À DOMICILE (Hub) ──
+  {
+    slug: "bureau-a-domicile",
+    title: "Bureau à domicile en Belgique : le guide complet du dirigeant (2026)",
+    excerpt: "Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Bureau à domicile Belgique 2026 — Guide complet du dirigeant",
+    metaDescription: "Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.",
+    pillarPage: "/services/fiscalite/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
