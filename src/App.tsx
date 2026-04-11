@@ -39,6 +39,8 @@ import FraisDefendables from "./pages/FraisDefendables.tsx";
 import BureauADomicileHub from "./pages/BureauADomicileHub.tsx";
 import CalculateurBureau from "./pages/CalculateurBureau.tsx";
 import GenerateurBailPage from "./pages/GenerateurBailPage.tsx";
+import ChecklistControleBureau from "./pages/ChecklistControleBureau.tsx";
+import ChecklistControleBureauConfirmation from "./pages/ChecklistControleBureauConfirmation.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
