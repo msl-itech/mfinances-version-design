@@ -519,6 +519,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Comment calculer la déduction bureau à domicile en Belgique ? Méthode surfaces pondérées, exemple chiffré et rapport PDF gratuit. Cabinet MFinances Uccle.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "piece-usage-mixte-bureau",
+    title: "Pièce à usage mixte : comment calculer la part professionnelle ?",
+    excerpt: "Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Pièce à usage mixte bureau à domicile Belgique — Calcul et documentation",
+    metaDescription: "Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation. Cabinet MFinances.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {

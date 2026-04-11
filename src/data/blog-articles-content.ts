@@ -2319,4 +2319,75 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/ressources/calculateur-bureau/",
     ctaLabel: "Calculer ma quotiété gratuitement →",
   },
+
+  "piece-usage-mixte-bureau": {
+    heroCta: { text: "Calculer ma quotiété avec pièces mixtes →", link: "/ressources/calculateur-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux.",
+          "L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre quotiété.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+          { text: "méthode de calcul de la quotiété", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Qu'est-ce qu'un usage mixte reconnu ?",
+        paragraphs: [
+          "Une pièce est considérée à usage mixte lorsqu'elle est utilisée à la fois à des fins professionnelles et privées. L'administration l'accepte si l'usage professionnel est régulier (pas seulement occasionnel), effectif (réel et proportionné à votre activité) et justifiable (vous pouvez l'expliquer et le documenter).",
+          "Un salon où vous recevez des clients trois fois par semaine répond à ces critères. Un salon où vous consultez vos emails depuis le canapé le soir, non.",
+        ],
+      },
+      {
+        heading: "La méthode temporelle : comment estimer le pourcentage",
+        paragraphs: [
+          "La méthode la plus défendable : vous estimez le rapport entre heures d'usage professionnel et heures totales d'occupation de la pièce.",
+        ],
+      },
+      {
+        subheading: "Exemples chiffrés par type de pièce",
+        paragraphs: [],
+        list: [
+          "Salon : 8h de présence quotidienne en semaine, dont 3h de travail → 37,5 % d'usage pro",
+          "Cuisine : 1h30 de travail le matin sur 4h d'occupation → environ 25 %",
+          "Chambre principale : aucun usage professionnel → 0 %",
+        ],
+      },
+      {
+        subheading: "La règle de prudence",
+        paragraphs: [
+          "Pour les pièces mixtes, retenez un pourcentage conservateur — généralement entre 10 % et 30 %. Une déduction modeste et solide vaut mieux qu'une déduction agressive et fragile.",
+          "En cas de contrôle, le contrôleur vérifiera la cohérence entre votre usage déclaré et la réalité de votre activité (agenda, factures clients, réunions documentées).",
+        ],
+        relatedLinks: [
+          { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Comment documenter une pièce mixte ?",
+        paragraphs: [
+          "Conservez ces éléments pendant 7 ans — durée légale de conservation des pièces comptables en Belgique.",
+        ],
+        list: [
+          "Relevé hebdomadaire des heures de travail par espace (agenda, outil de time-tracking)",
+          "Photos de l'espace montrant l'aménagement professionnel (bureau, écran, matériel)",
+          "Factures d'achat du mobilier professionnel installé dans l'espace",
+          "Contrats ou factures clients mentionnant des réunions tenues à votre domicile",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Puis-je déduire le même espace à la fois dans mon IPP et dans ma société ?", answer: "Non. Une même dépense ne peut pas être déduite deux fois. Si votre société vous rembourse les frais de bureau via un bail de sous-location, vous ne pouvez pas déduire les mêmes charges dans votre déclaration personnelle. Choisissez le mécanisme le plus avantageux selon votre situation globale." },
+      { question: "Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos quotiétés ?", answer: "Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre quotiété — mais sans chevaucher les espaces déjà comptabilisés dans votre quotiété personnelle." },
+      { question: "Y a-t-il un minimum de surface pour prétendre à la déduction ?", answer: "Aucun minimum légal. Ce qui compte : la réalité et la régularité de l'usage professionnel. Un bureau de 6 m² utilisé quotidiennement est plus défendable qu'un salon de 30 m² utilisé une fois par semaine pour un email." },
+    ],
+    ctaText: "Calculer ma quotiété",
+    ctaDescription: "Résultat en 2 minutes avec pièces mixtes incluses. Rapport PDF documenté.",
+    ctaLink: "/ressources/calculateur-bureau/",
+    ctaLabel: "Calculer ma quotiété avec pièces mixtes →",
+  },
 };
