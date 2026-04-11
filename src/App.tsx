@@ -92,6 +92,8 @@ const App = () => {
           <Route path="/frais-defendables/" element={<FraisDefendables />} />
           <Route path="/ressources/calculateur-bureau/" element={<CalculateurBureau />} />
           <Route path="/ressources/generateur-bail/" element={<GenerateurBailPage />} />
+          <Route path="/ressources/checklist-controle-bureau/" element={<ChecklistControleBureau />} />
+          <Route path="/ressources/checklist-controle-bureau/confirmation/" element={<ChecklistControleBureauConfirmation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
