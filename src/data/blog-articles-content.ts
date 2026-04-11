@@ -2646,7 +2646,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
         ],
         relatedLinks: [{ text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" }],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
         heading: "Erreur 2 — Aucun bail écrit pour la sous-location",
@@ -2663,7 +2662,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
         ],
         relatedLinks: [{ text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" }],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
         heading: "Erreur 4 — Des paiements sans trace bancaire",
@@ -2678,7 +2676,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Votre société déduit le loyer. Vous devez le déclarer dans votre IPP. Cette symétrie est contrôlée par recoupement automatique entre les déclarations. Si votre société déclare une charge de loyer versé à son dirigeant et que ce dernier ne déclare rien dans son IPP, le système le détecte.",
           "Le loyer doit être déclaré comme revenu immobilier (part immeuble) et revenu mobilier (part meubles si bail meublé). Votre expert-comptable doit s'assurer de la cohérence entre vos deux déclarations.",
         ],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
     ],
     faq: [
