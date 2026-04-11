@@ -591,6 +591,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds. Cabinet MFinances Uccle.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "requalification-loyer-remuneration",
+    title: "Requalification du loyer en rémunération de dirigeant : comment l'éviter",
+    excerpt: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Requalification loyer en rémunération de dirigeant Belgique — Comment l'éviter",
+    metaDescription: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention. Cabinet MFinances Uccle.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {

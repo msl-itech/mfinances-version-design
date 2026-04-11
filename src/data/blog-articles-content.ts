@@ -2645,9 +2645,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "C'est la première vérification d'un contrôleur fiscal : la cohérence entre la quotiété déclarée et la réalité du logement. Une quotiété de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même quotiété dans un loft de 200 m² avec un bureau de 80 m² sera défendable.",
           "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
         ],
-        relatedLinks: [
-          { text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" },
-        ],
+        relatedLinks: [{ text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" }],
         ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
@@ -2656,9 +2654,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Si votre société vous verse un loyer mensuel sans bail écrit, l'administration requalifie ces paiements en rémunération de dirigeant — soumise aux cotisations sociales et imposée différemment. Le bail est la pièce maîtresse du dossier de sous-location.",
           "Un bail sous seing privé est suffisant — pas besoin de notaire. Il doit être signé avant le premier paiement de loyer. Notre générateur de bail produit un document conforme en 6 étapes.",
         ],
-        relatedLinks: [
-          { text: "générer un bail conforme", link: "/ressources/generateur-bail/" },
-        ],
+        relatedLinks: [{ text: "générer un bail conforme", link: "/ressources/generateur-bail/" }],
       },
       {
         heading: "Erreur 3 — Un loyer supérieur au plafond légal",
@@ -2666,9 +2662,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "⚠️ Plafond légal (CIR 1992, art. 32) : le loyer versé par une société à son dirigeant ne peut pas dépasser 5/3 du revenu cadastral revalorisé annuel de la partie du bien concernée. Au-delà de ce seuil → requalification automatique en rémunération de dirigeant.",
           "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
         ],
-        relatedLinks: [
-          { text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
-        ],
+        relatedLinks: [{ text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" }],
         ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
@@ -2705,9 +2699,7 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Trois mécanismes légaux. Une seule pièce. Une économie fiscale qui peut dépasser 1 500 € par an pour un dirigeant avec un loyer mensuel de 1 200 €. C'est ce que permet la combinaison optimale — celle que votre expert-comptable devrait déjà avoir mise en place si vous avez une société.",
         ],
-        relatedLinks: [
-          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
-        ],
+        relatedLinks: [{ text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" }],
       },
       {
         heading: "Pourquoi combiner les 3 mécanismes ?",
@@ -2719,24 +2711,15 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
         ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
       },
-      {
-        heading: "La stratégie en 4 étapes",
-        paragraphs: [],
-      },
+      { heading: "La stratégie en 4 étapes", paragraphs: [] },
       {
         subheading: "Étape 1 — Calculer la quotiété exacte",
-        paragraphs: [
-          "C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal.",
-        ],
-        relatedLinks: [
-          { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
-        ],
+        paragraphs: ["C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal."],
+        relatedLinks: [{ text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" }],
       },
       {
         subheading: "Étape 2 — Établir un bail de sous-location",
-        paragraphs: [
-          "Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine.",
-        ],
+        paragraphs: ["Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine."],
         relatedLinks: [
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
           { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
@@ -2744,18 +2727,12 @@ export const articleContent: Record<string, ArticleBody> = {
       },
       {
         subheading: "Étape 3 — Ajouter un inventaire de meubles",
-        paragraphs: [
-          "Si vous avez du mobilier professionnel dans l'espace loué (bureau, chaises, armoires, matériel fixe), transformez le bail en bail meublé avec répartition 60/40. La part meubles sera taxée à ~7,5 % effectif dans votre IPP.",
-        ],
-        relatedLinks: [
-          { text: "bail meublé 60/40", link: "/blog/fiscalite-belgique/louer-meubles-bureau-societe/" },
-        ],
+        paragraphs: ["Si vous avez du mobilier professionnel dans l'espace loué (bureau, chaises, armoires, matériel fixe), transformez le bail en bail meublé avec répartition 60/40. La part meubles sera taxée à ~7,5 % effectif dans votre IPP."],
+        relatedLinks: [{ text: "bail meublé 60/40", link: "/blog/fiscalite-belgique/louer-meubles-bureau-societe/" }],
       },
       {
         subheading: "Étape 4 — Documenter et déclarer",
-        paragraphs: [
-          "Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP.",
-        ],
+        paragraphs: ["Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP."],
         ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
       },
       {
@@ -2783,5 +2760,108 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
     ctaLink: "/ressources/calculateur-bureau/",
     ctaLabel: "Calculer ma quotiété — première étape →",
+  },
+
+  "requalification-loyer-remuneration": {
+    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/rendez-vous" },
+    sections: [
+      {
+        paragraphs: [
+          "Votre expert-comptable vous en a peut-être déjà parlé. La requalification du loyer en rémunération de dirigeant : un risque réel, mais entièrement maîtrisable si vous connaissez les règles exactes. Voici comment ce mécanisme fonctionne, quand il s'applique — et comment l'éviter définitivement.",
+        ],
+        relatedLinks: [{ text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" }],
+      },
+      {
+        heading: "Le principe de la requalification",
+        paragraphs: [
+          "En Belgique, l'administration fiscale dispose du pouvoir de requalifier un loyer versé par une société à son dirigeant en rémunération de dirigeant — si ce loyer dépasse un plafond légal défini par le Code des impôts sur les revenus 1992 (art. 32).",
+          "Conséquences d'une requalification :",
+        ],
+        list: [
+          "Pour le dirigeant (IPP) : l'excédent est imposé comme rémunération, à son taux marginal, avec cotisations sociales INASTI",
+          "Pour la société (ISOC) : la déductibilité de l'excédent peut être remise en cause",
+          "Rétroactivité possible sur 3 à 7 exercices selon la nature de l'erreur",
+        ],
+      },
+      {
+        heading: "Le plafond légal anti-requalification",
+        paragraphs: [
+          "Règle CIR 1992, art. 32 : le loyer versé par une société à son dirigeant est requalifié en rémunération professionnelle pour la part excédant 5/3 du revenu cadastral revalorisé annuel de la partie du bien effectivement donnée en location.",
+        ],
+      },
+      {
+        subheading: "La formule de calcul du plafond",
+        paragraphs: [
+          "Plafond annuel = RC du bien × coefficient de revalorisation × fraction louée × 5/3",
+          "Le coefficient de revalorisation est réévalué annuellement par le SPF Finances. En 2026, il s'établit à 5,46. Le revenu cadastral (RC) est une valeur administrative, généralement bien inférieure à la valeur locative réelle du marché.",
+        ],
+      },
+      {
+        subheading: "Exemple chiffré",
+        paragraphs: [
+          "⚠️ Dans cet exemple, un loyer de 150 €/mois (1 800 €/an) dépasse déjà le plafond. L'excédent de 343 €/an serait automatiquement requalifié en rémunération de dirigeant. Le plafond légal est souvent plus bas que ce que les dirigeants imaginent.",
+        ],
+        list: [
+          "RC du bien total : 800 €",
+          "RC revalorisé : 800 × 5,46 = 4 368 €/an",
+          "Fraction louée (bureau = 20 % du bien) : 4 368 × 20 % = 874 €/an",
+          "Plafond légal : 874 × 5/3 = 1 457 €/an → 121 €/mois",
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+      {
+        heading: "Les principales causes de requalification",
+        paragraphs: [],
+        list: [
+          "Loyer fixé sans référence au revenu cadastral revalorisé de la partie louée",
+          "Loyer calqué sur la valeur locative de marché — souvent supérieure au plafond légal",
+          "Bail absent ou non daté — l'administration ne peut pas vérifier le moment où le montant a été fixé",
+          "Absence de lien documenté entre le loyer et la surface réellement allouée à la société",
+        ],
+        relatedLinks: [{ text: "5 erreurs à éviter", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" }],
+      },
+      {
+        heading: "Comment éviter la requalification",
+        paragraphs: [],
+      },
+      {
+        subheading: "1. Calculer le plafond légal avant de fixer le loyer",
+        paragraphs: [
+          "Demandez à votre expert-comptable de calculer le plafond sur base du RC de votre bien (disponible sur MyMinfin), du coefficient de revalorisation en vigueur, et de la proportion du bien louée à votre société.",
+        ],
+      },
+      {
+        subheading: "2. Fixer un loyer inférieur au plafond",
+        paragraphs: [
+          "Même si le marché justifierait un loyer plus élevé, rester sous le plafond légal sécurise entièrement votre déduction. La différence peut souvent être compensée par le mécanisme du bail meublé : la part meubles n'entre pas dans le calcul de la requalification.",
+        ],
+      },
+      {
+        subheading: "3. Établir un bail écrit et daté avant le premier paiement",
+        paragraphs: [
+          "Le bail formalise le montant du loyer et sa justification. En cas de contrôle, il démontre que le loyer a été fixé de bonne foi selon des critères objectifs et conformes. Notre générateur produit un bail incluant tous les éléments requis.",
+        ],
+        relatedLinks: [
+          { text: "bail conforme avec loyer sécurisé", link: "/ressources/generateur-bail/" },
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+        ],
+      },
+      {
+        subheading: "4. Payer par virement bancaire et déclarer dans l'IPP",
+        paragraphs: [
+          "Paiement mensuel par virement tracé avec référence claire. Déclaration du loyer dans votre IPP (revenus immobiliers pour la part immeuble, revenus mobiliers pour la part meubles). Cohérence assurée entre la déclaration ISOC de votre société et votre IPP personnel.",
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+    ],
+    faq: [
+      { question: "La requalification s'applique-t-elle aussi aux indépendants ?", answer: "Non. La règle de requalification de l'art. 32 CIR 1992 vise spécifiquement les loyers versés par une société à son dirigeant. Un indépendant en personne physique qui déduit un bureau à domicile directement dans son IPP n'est pas soumis à ce mécanisme de requalification." },
+      { question: "Le bail meublé modifie-t-il le calcul du plafond de requalification ?", answer: "Oui, avantageusement. Le plafond s'applique à la part immeuble du loyer. La part meubles est traitée séparément comme revenu mobilier divers — elle n'entre pas dans le calcul de la requalification. C'est l'un des avantages structurels du bail meublé : il permet d'allouer une partie du loyer total hors du plafond RC." },
+      { question: "Mon loyer actuel dépasse le plafond légal. Que faire ?", answer: "Si aucun contrôle n'est en cours, une régularisation volontaire est possible : réduisez le loyer au niveau du plafond pour les exercices futurs et discutez avec votre expert-comptable des options pour les exercices passés. MFinances réalise ce type d'audit de mise en conformité dans le cadre d'un diagnostic financier — sans jugement, avec un plan d'action concret." },
+    ],
+    ctaText: "Faire le diagnostic de ma situation",
+    ctaDescription: "Premier échange gratuit — nous analysons votre loyer et votre plafond légal.",
+    ctaLink: "/rendez-vous",
+    ctaLabel: "Faire le diagnostic de ma situation →",
   },
 };
