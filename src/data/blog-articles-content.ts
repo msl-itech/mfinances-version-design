@@ -2225,4 +2225,98 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/",
     ctaLabel: "Recevoir la checklist des frais sensibles",
   },
+
+  "calcul-bureau-a-domicile": {
+    heroCta: { text: "Calculer ma quotiété gratuitement →", link: "/ressources/calculateur-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre quotiété.",
+          "La quotiété professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une quotiété de 20 % sur 20 000 € de charges annuelles : 4 000 € de déductions, soit plus de 1 600 € d'économie nette pour un dirigeant belge à l'ISOC 25 %.",
+          "Voici la méthode utilisée en cabinet — vérifiable et défendable lors d'un contrôle.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "La méthode des surfaces pondérées",
+        paragraphs: [
+          "L'administration fiscale belge ne fixe pas de barème officiel. En pratique, la méthode des surfaces pondérées est la plus reconnue et la plus défendable. Elle repose sur trois paramètres par pièce : la surface en m², le coefficient de pondération selon le type de pièce, et le pourcentage d'usage professionnel réel.",
+        ],
+      },
+      {
+        subheading: "Les coefficients de pondération",
+        paragraphs: [],
+        list: [
+          "Pièces de vie (salon, chambre, bureau, cuisine) : coefficient 100 %",
+          "Pièces mansardées (sous les combles, hauteur réduite) : coefficient 80 %",
+          "Caves et greniers non aménagés : coefficient 20 %",
+        ],
+      },
+      {
+        subheading: "La formule de calcul",
+        paragraphs: [
+          "Quotiété = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)",
+        ],
+      },
+      {
+        subheading: "Exemple chiffré complet",
+        paragraphs: [
+          "Appartement de 90 m² : bureau de 12 m² à 100 % pro, salon de 25 m² à 10 % pro, reste à 0 %.",
+        ],
+        list: [
+          "Bureau : 12 × 1,0 × 100 % = 12,0 m² pondérés pro",
+          "Salon : 25 × 1,0 × 10 % = 2,5 m² pondérés pro",
+          "Autres pièces : 0 m² pondérés pro",
+          "Quotiété = 14,5 ÷ 90 = 16,1 %",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Quelles charges sont déductibles ?",
+        paragraphs: [
+          "Avec une quotiété de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : 724 €/an — soit plus que le coût d'un forfait comptable annuel.",
+        ],
+        list: [
+          "Loyer mensuel (si locataire) — multiplié par 12",
+          "Factures d'énergie : électricité, gaz, mazout (annuel)",
+          "Connexion internet (annuelle)",
+          "Assurance habitation (part proportionnelle)",
+          "Précompte immobilier (si propriétaire)",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Ce qui change selon votre statut",
+        paragraphs: [],
+      },
+      {
+        subheading: "Indépendant (IPP)",
+        paragraphs: [
+          "Vous déduisez directement la part professionnelle dans votre déclaration à l'impôt des personnes physiques. Elle réduit votre bénéfice net imposable. Condition : usage professionnel réel et régulier, documentable.",
+        ],
+      },
+      {
+        subheading: "Dirigeant de société (ISOC)",
+        paragraphs: [
+          "Votre société peut rembourser vos frais de bureau sur note de frais justifiée (option simple), ou vous verser un loyer via un bail de sous-location (option plus avantageuse fiscalement). La seconde option est détaillée dans notre article sur la sous-location professionnelle.",
+        ],
+        relatedLinks: [
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+          { text: "pièce à usage mixte", link: "/blog/fiscalite-belgique/piece-usage-mixte-bureau/" },
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Dois-je conserver des justificatifs pour chaque charge déductible ?", answer: "Oui. L'administration peut les demander lors d'un contrôle (délai de 3 à 7 ans). Conservez baux, factures d'énergie, relevés bancaires et quittances de loyer. Notre rapport PDF inclut le calcul détaillé avec toutes les surfaces — conservez-le comme pièce de documentation." },
+      { question: "Ma quotiété peut-elle dépasser 30 % ?", answer: "Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile." },
+      { question: "Puis-je recalculer ma quotiété chaque année ?", answer: "Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice." },
+    ],
+    ctaText: "Calculer ma quotiété gratuitement",
+    ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Zéro engagement.",
+    ctaLink: "/ressources/calculateur-bureau/",
+    ctaLabel: "Calculer ma quotiété gratuitement →",
+  },
 };

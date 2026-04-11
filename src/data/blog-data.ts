@@ -506,6 +506,19 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.",
     pillarPage: "/services/fiscalite/",
   },
+  // ── BUREAU À DOMICILE (articles) ──
+  {
+    slug: "calcul-bureau-a-domicile",
+    title: "Comment calculer la déduction bureau à domicile en Belgique (2026)",
+    excerpt: "Méthode des surfaces pondérées, exemple chiffré et rapport PDF personnalisé. Gratuit et sans inscription.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Calcul bureau à domicile Belgique 2026 — Méthode et exemples chiffrés",
+    metaDescription: "Comment calculer la déduction bureau à domicile en Belgique ? Méthode surfaces pondérées, exemple chiffré et rapport PDF gratuit. Cabinet MFinances Uccle.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
