@@ -2549,4 +2549,82 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/ressources/generateur-bail/",
     ctaLabel: "Générer mon bail meublé 60/40 →",
   },
+
+  "comparatif-bureau-a-domicile-statut": {
+    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/rendez-vous" },
+    sections: [
+      {
+        paragraphs: [
+          "\"Mes charges de bureau, je peux les déduire dans mon IPP ou dans ma société ?\" Cette question revient dans tous les premiers rendez-vous chez MFinances. La réponse dépend entièrement de votre statut — et si vous cumulez les deux, les règles diffèrent selon de quel côté la dépense est traitée.",
+          "Ce comparatif vous donne une vue claire des mécanismes disponibles selon votre situation. Chaque statut a ses avantages — et ses contraintes spécifiques.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Vue d'ensemble : tableau comparatif des 3 statuts",
+        paragraphs: [],
+        table: {
+          headers: ["Critère", "Indépendant (IPP)", "Dirigeant de société (ISOC)", "Double statut"],
+          rows: [
+            ["Mécanisme principal", "Quotiété directe sur charges réelles", "Remboursement de frais OU bail de sous-location/location", "Combiner selon l'affectation réelle"],
+            ["Déduction dans", "Déclaration IPP", "Comptabilité société", "IPP et/ou société (sans doublon)"],
+            ["Bail requis", "Non", "Oui (option B)", "Selon mécanisme choisi"],
+            ["Taux effectif le plus bas", "Taux marginal IPP (jusqu'à 50 %+)", "~7,5 % sur part meubles (bail meublé)", "Dépend de la répartition"],
+          ],
+        },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+      {
+        heading: "L'indépendant en personne physique",
+        paragraphs: [
+          "Vous déduisez vos frais professionnels directement dans votre déclaration IPP. La déduction du bureau à domicile est permise à condition que l'usage soit réel, régulier et documentable.",
+          "Avantage : simple à mettre en œuvre, aucun bail requis, pas d'interlocuteur tiers. Limite : avec un taux marginal IPP élevé (50 % + additionnels communaux), l'économie nette est proportionnellement plafonnée.",
+        ],
+        relatedLinks: [
+          { text: "méthode de calcul de la quotiété", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Le dirigeant de société",
+        paragraphs: [],
+      },
+      {
+        subheading: "Option A — Remboursement de frais",
+        paragraphs: [
+          "Vous payez les charges de votre logement personnellement. Votre société vous rembourse la part professionnelle sur base de la quotiété, via une note de frais justifiée. Ce remboursement est une charge déductible pour la société. Pour vous, il est non imposable à condition d'être documenté et justifié.",
+        ],
+      },
+      {
+        subheading: "Option B — Bail de sous-location ou location",
+        paragraphs: [
+          "Vous louez formellement une partie de votre domicile à votre société. La société paie un loyer mensuel déductible comme charge. Vous déclarez ce loyer dans votre IPP comme revenu immobilier. Cette option est fiscalement plus avantageuse pour des montants significatifs, car une partie du loyer (la part meubles si bail meublé) est taxée à un taux très favorable.",
+        ],
+        relatedLinks: [
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+      {
+        heading: "Le double statut : indépendant ET dirigeant",
+        paragraphs: [
+          "De nombreux dirigeants belges cumulent les deux statuts. Dans ce cas, la règle absolue est de ne pas déduire deux fois la même charge.",
+          "Règle fondamentale : si votre société rembourse ou loue votre bureau, vous ne pouvez pas déduire les mêmes charges dans votre IPP indépendant. Répartissez les charges selon leur affectation réelle à chaque activité, ou choisissez le mécanisme le plus avantageux selon votre structure globale.",
+        ],
+        relatedLinks: [
+          { text: "stratégie optimale de combinaison", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+    ],
+    faq: [
+      { question: "Quel statut bénéficie du meilleur traitement fiscal pour le bureau à domicile ?", answer: "En règle générale, le dirigeant de société avec un bail meublé bénéficie du traitement le plus favorable : une partie du loyer est taxée à ~7,5 % effectif. Un indépendant IPP à taux marginal élevé paiera davantage sur la même base déductible — mais n'a pas de société à alimenter avec son argent pour y accéder." },
+      { question: "Mon comptable ne m'a jamais parlé de sous-location. Est-ce normal ?", answer: "La sous-location est légale et courante, mais nécessite un bail rédigé, un suivi fiscal rigoureux et la connaissance des règles de requalification. Certains cabinets préfèrent la quotiété directe par simplicité. C'est exactement le type d'optimisation qu'un cabinet de pilotage financier comme MFinances analyse dans le cadre d'un diagnostic complet." },
+    ],
+    ctaText: "Faire le diagnostic de ma situation",
+    ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
+    ctaLink: "/rendez-vous",
+    ctaLabel: "Faire le diagnostic de ma situation →",
+  },
 };
