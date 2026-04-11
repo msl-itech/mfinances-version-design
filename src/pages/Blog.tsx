@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -12,8 +12,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import { blogCategories, blogArticles } from "@/data/blog-data";
 import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
 import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
@@ -52,7 +54,32 @@ export default function Blog() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ARTICLES_PER_PAGE = 6;
+
   const latestPublished = blogArticles.filter((a) => a.published);
+
+  const filteredArticles = useMemo(() => {
+    if (!searchQuery.trim()) return latestPublished;
+    const q = searchQuery.toLowerCase();
+    return latestPublished.filter(
+      (a) =>
+        a.title.toLowerCase().includes(q) ||
+        a.excerpt.toLowerCase().includes(q) ||
+        a.category.toLowerCase().includes(q)
+    );
+  }, [searchQuery, latestPublished]);
+
+  const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE);
+  const paginatedArticles = filteredArticles.slice(
+    (currentPage - 1) * ARTICLES_PER_PAGE,
+    currentPage * ARTICLES_PER_PAGE
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
   return (
     <div className="min-h-screen">
@@ -153,25 +180,78 @@ export default function Blog() {
                 </h2>
               </ScrollRevealDiv>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {latestPublished.map((article, i) => (
-                  <ScrollRevealDiv key={article.slug} delay={0.08 + i * 0.05}>
-                    <Link
-                      to={`/blog/${article.categorySlug}/${article.slug}/`}
-                      className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
-                    >
-                      <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
-                      <h3 className="text-[16px] font-bold font-body text-foreground mt-2 mb-2 group-hover:text-accent transition-colors leading-snug">
-                        {article.title}
-                      </h3>
-                      <p className="text-[13px] text-muted-foreground leading-[1.7] font-body">{article.excerpt}</p>
-                      <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
-                        Lire <ArrowRight size={14} />
-                      </span>
-                    </Link>
-                  </ScrollRevealDiv>
-                ))}
+              {/* Search */}
+              <div className="relative max-w-[480px] mx-auto mb-10">
+                <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Rechercher un article…"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-11 h-12 rounded-full border-border/60 bg-secondary/60 font-body text-[15px]"
+                />
               </div>
+
+              {paginatedArticles.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {paginatedArticles.map((article, i) => (
+                    <ScrollRevealDiv key={article.slug} delay={0.08 + i * 0.05}>
+                      <Link
+                        to={`/blog/${article.categorySlug}/${article.slug}/`}
+                        className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
+                      >
+                        <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
+                        <h3 className="text-[16px] font-bold font-body text-foreground mt-2 mb-2 group-hover:text-accent transition-colors leading-snug">
+                          {article.title}
+                        </h3>
+                        <p className="text-[13px] text-muted-foreground leading-[1.7] font-body">{article.excerpt}</p>
+                        <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
+                          Lire <ArrowRight size={14} />
+                        </span>
+                      </Link>
+                    </ScrollRevealDiv>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-center text-muted-foreground font-body py-12">
+                  Aucun article trouvé pour « {searchQuery} »
+                </p>
+              )}
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <nav className="flex items-center justify-center gap-2 mt-12" aria-label="Pagination des articles">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="rounded-full font-body"
+                  >
+                    ← Précédent
+                  </Button>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Button
+                      key={page}
+                      variant={page === currentPage ? "accent" : "ghost"}
+                      size="icon"
+                      onClick={() => setCurrentPage(page)}
+                      className="rounded-full w-9 h-9 text-[14px] font-body"
+                    >
+                      {page}
+                    </Button>
+                  ))}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="rounded-full font-body"
+                  >
+                    Suivant →
+                  </Button>
+                </nav>
+              )}
             </div>
           </section>
         )}
