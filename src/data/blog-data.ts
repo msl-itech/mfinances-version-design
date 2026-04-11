@@ -555,6 +555,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Louez vos meubles professionnels à votre société. Répartition 60/40, taxation effective 7,5 %. Exemple chiffré et générateur de bail meublé. Cabinet MFinances.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "comparatif-bureau-a-domicile-statut",
+    title: "Bureau à domicile : les différences entre indépendant, dirigeant et les deux",
+    excerpt: "Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Quotiété, remboursement, sous-location, double statut.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Bureau à domicile Belgique : indépendant, dirigeant ou les deux — Comparatif 2026",
+    metaDescription: "Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Quotiété, remboursement, sous-location, double statut. Cabinet MFinances.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
