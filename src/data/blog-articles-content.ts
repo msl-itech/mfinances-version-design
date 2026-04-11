@@ -2390,4 +2390,79 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/ressources/calculateur-bureau/",
     ctaLabel: "Calculer ma quotiété avec pièces mixtes →",
   },
+
+  "locataire-societe-sous-location-loyer": {
+    heroCta: { text: "Générer mon bail de sous-location →", link: "/ressources/generateur-bail/" },
+    sections: [
+      {
+        paragraphs: [
+          "Vous êtes locataire. Vous dirigez une société. Chaque mois, vous payez un loyer à votre propriétaire — et votre société rembourse vos frais de bureau sur note de frais, ou paie ses propres locaux. Mais avez-vous envisagé la sous-location professionnelle ?",
+          "Ce mécanisme légal permet à un dirigeant locataire de louer une partie de son domicile à sa propre société. La société déduit le loyer comme charge professionnelle. Vous percevez un revenu de sous-location moins lourdement imposé qu'une rémunération. Légal, fréquent, et souvent mal connu des dirigeants belges.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Comment fonctionne la sous-location professionnelle ?",
+        paragraphs: [
+          "Vous payez 1 500 €/mois à votre propriétaire. Vous sous-louez à votre société une pièce représentant 20 % de la surface totale. Vous lui facturez 300 €/mois.",
+          "La sous-location est structurellement plus avantageuse que la rémunération pour rémunérer le dirigeant via l'usage de son logement, dans les limites légales.",
+        ],
+        list: [
+          "Côté société : elle déduit 300 €/mois comme charge → économie ISOC 25 % : 75 €/mois (900 €/an)",
+          "Côté vous (IPP) : vous percevez 300 €/mois → imposé sur 180 € après abattement 40 % → environ 81 €/mois au taux marginal de 45 %",
+          "Comparaison : si vous perceviez ces 300 € en rémunération brute, charges sociales + IPP représenteraient environ 180 €/mois — soit 2,2× plus cher",
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "La condition d'autorisation préalable",
+        paragraphs: [
+          "⚠️ POINT CRITIQUE — sans l'autorisation de votre propriétaire, la sous-location est nulle. L'absence d'autorisation expose à la résiliation du bail principal et à l'invalidation fiscale.",
+          "L'autorisation doit être :",
+        ],
+        list: [
+          "Expresse : clause dans le bail ou accord écrit du propriétaire",
+          "Préalable : avant la signature du bail de sous-location avec votre société",
+          "Documentée : conservez une trace écrite de cet accord",
+        ],
+      },
+      {
+        heading: "Les conditions de validité fiscale du bail",
+        paragraphs: [
+          "L'absence de bail écrit est la première cause de redressement fiscal sur la sous-location. Notre générateur produit un bail conforme au contexte belge en 6 étapes — PDF envoyé par email.",
+        ],
+        list: [
+          "Bail écrit signé entre vous et votre société, avant le premier paiement de loyer",
+          "Loyer correspondant à la réalité économique de l'espace loué — pas fictif, pas excessif",
+          "Paiement effectif par virement bancaire mensuel (traçabilité obligatoire en cas de contrôle)",
+          "Enregistrement du bail recommandé pour lui conférer date certaine",
+          "Déclaration du loyer perçu dans votre IPP (rubrique revenus immobiliers)",
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Le plafond légal anti-requalification",
+        paragraphs: [
+          "Le loyer ne peut pas dépasser 5/3 du revenu cadastral revalorisé annuel de la partie du bien concernée. Au-delà, l'excédent est automatiquement requalifié en rémunération de dirigeant — soumise aux cotisations sociales et imposée différemment.",
+          "En pratique, pour un bureau de 15 m² à Bruxelles, un loyer de 200 à 400 €/mois est généralement défendable. Votre expert-comptable peut calculer ce plafond sur base du revenu cadastral de votre bien.",
+        ],
+        relatedLinks: [
+          { text: "requalification du loyer", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
+          { text: "télécharger le modèle", link: "/ressources/modele-bail-sous-location/" },
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+    ],
+    faq: [
+      { question: "Mon propriétaire refuse l'autorisation. Quelles alternatives ?", answer: "Vous pouvez utiliser le remboursement de frais : votre société vous rembourse la part professionnelle de vos charges sur note de frais justifiée. Pas d'accord propriétaire requis. Moins avantageux fiscalement que la sous-location, mais parfaitement légal et sans contrainte juridique." },
+      { question: "Le loyer perçu de ma société est-il soumis aux cotisations sociales ?", answer: "Non. Le loyer immobilier est un revenu immobilier, pas un revenu professionnel. Il n'est pas soumis aux cotisations sociales INASTI — c'est l'un de ses avantages structurels par rapport à la rémunération." },
+      { question: "Puis-je établir un bail de location même si je suis propriétaire de mon logement ?", answer: "Oui. Si vous êtes propriétaire, le mécanisme s'appelle bail de location (et non sous-location). Il fonctionne de façon identique : vous louez à votre société. La condition d'autorisation d'un tiers ne s'applique pas — vous êtes libre de louer votre bien. Notre générateur de bail couvre les deux situations." },
+    ],
+    ctaText: "Générer mon bail de sous-location",
+    ctaDescription: "Bail conforme au contexte belge en 6 étapes. PDF envoyé par email. Gratuit.",
+    ctaLink: "/ressources/generateur-bail/",
+    ctaLabel: "Générer mon bail de sous-location →",
+  },
 };
