@@ -2551,7 +2551,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "comparatif-bureau-a-domicile-statut": {
-    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/rendez-vous" },
+    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/contact" },
     sections: [
       {
         paragraphs: [
@@ -2574,7 +2574,7 @@ export const articleContent: Record<string, ArticleBody> = {
             ["Taux effectif le plus bas", "Taux marginal IPP (jusqu'à 50 %+)", "~7,5 % sur part meubles (bail meublé)", "Dépend de la répartition"],
           ],
         },
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
       {
         heading: "L'indépendant en personne physique",
@@ -2604,7 +2604,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
       {
         heading: "Le double statut : indépendant ET dirigeant",
@@ -2615,7 +2615,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "stratégie optimale de combinaison", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
     ],
     faq: [
@@ -2624,7 +2624,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
-    ctaLink: "/rendez-vous",
+    ctaLink: "/contact",
     ctaLabel: "Faire le diagnostic de ma situation →",
   },
 
@@ -2763,7 +2763,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "requalification-loyer-remuneration": {
-    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/rendez-vous" },
+    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/contact" },
     sections: [
       {
         paragraphs: [
@@ -2807,7 +2807,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Fraction louée (bureau = 20 % du bien) : 4 368 × 20 % = 874 €/an",
           "Plafond légal : 874 × 5/3 = 1 457 €/an → 121 €/mois",
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
       {
         heading: "Les principales causes de requalification",
@@ -2851,7 +2851,7 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Paiement mensuel par virement tracé avec référence claire. Déclaration du loyer dans votre IPP (revenus immobiliers pour la part immeuble, revenus mobiliers pour la part meubles). Cohérence assurée entre la déclaration ISOC de votre société et votre IPP personnel.",
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
     ],
     faq: [
@@ -2861,7 +2861,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre loyer et votre plafond légal.",
-    ctaLink: "/rendez-vous",
+    ctaLink: "/contact",
     ctaLabel: "Faire le diagnostic de ma situation →",
   },
 };
