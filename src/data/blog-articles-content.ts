@@ -2319,4 +2319,234 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/ressources/calculateur-bureau/",
     ctaLabel: "Calculer ma quotiété gratuitement →",
   },
+
+  "piece-usage-mixte-bureau": {
+    heroCta: { text: "Calculer ma quotiété avec pièces mixtes →", link: "/ressources/calculateur-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux.",
+          "L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre quotiété.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+          { text: "méthode de calcul de la quotiété", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Qu'est-ce qu'un usage mixte reconnu ?",
+        paragraphs: [
+          "Une pièce est considérée à usage mixte lorsqu'elle est utilisée à la fois à des fins professionnelles et privées. L'administration l'accepte si l'usage professionnel est régulier (pas seulement occasionnel), effectif (réel et proportionné à votre activité) et justifiable (vous pouvez l'expliquer et le documenter).",
+          "Un salon où vous recevez des clients trois fois par semaine répond à ces critères. Un salon où vous consultez vos emails depuis le canapé le soir, non.",
+        ],
+      },
+      {
+        heading: "La méthode temporelle : comment estimer le pourcentage",
+        paragraphs: [
+          "La méthode la plus défendable : vous estimez le rapport entre heures d'usage professionnel et heures totales d'occupation de la pièce.",
+        ],
+      },
+      {
+        subheading: "Exemples chiffrés par type de pièce",
+        paragraphs: [],
+        list: [
+          "Salon : 8h de présence quotidienne en semaine, dont 3h de travail → 37,5 % d'usage pro",
+          "Cuisine : 1h30 de travail le matin sur 4h d'occupation → environ 25 %",
+          "Chambre principale : aucun usage professionnel → 0 %",
+        ],
+      },
+      {
+        subheading: "La règle de prudence",
+        paragraphs: [
+          "Pour les pièces mixtes, retenez un pourcentage conservateur — généralement entre 10 % et 30 %. Une déduction modeste et solide vaut mieux qu'une déduction agressive et fragile.",
+          "En cas de contrôle, le contrôleur vérifiera la cohérence entre votre usage déclaré et la réalité de votre activité (agenda, factures clients, réunions documentées).",
+        ],
+        relatedLinks: [
+          { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Comment documenter une pièce mixte ?",
+        paragraphs: [
+          "Conservez ces éléments pendant 7 ans — durée légale de conservation des pièces comptables en Belgique.",
+        ],
+        list: [
+          "Relevé hebdomadaire des heures de travail par espace (agenda, outil de time-tracking)",
+          "Photos de l'espace montrant l'aménagement professionnel (bureau, écran, matériel)",
+          "Factures d'achat du mobilier professionnel installé dans l'espace",
+          "Contrats ou factures clients mentionnant des réunions tenues à votre domicile",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Puis-je déduire le même espace à la fois dans mon IPP et dans ma société ?", answer: "Non. Une même dépense ne peut pas être déduite deux fois. Si votre société vous rembourse les frais de bureau via un bail de sous-location, vous ne pouvez pas déduire les mêmes charges dans votre déclaration personnelle. Choisissez le mécanisme le plus avantageux selon votre situation globale." },
+      { question: "Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos quotiétés ?", answer: "Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre quotiété — mais sans chevaucher les espaces déjà comptabilisés dans votre quotiété personnelle." },
+      { question: "Y a-t-il un minimum de surface pour prétendre à la déduction ?", answer: "Aucun minimum légal. Ce qui compte : la réalité et la régularité de l'usage professionnel. Un bureau de 6 m² utilisé quotidiennement est plus défendable qu'un salon de 30 m² utilisé une fois par semaine pour un email." },
+    ],
+    ctaText: "Calculer ma quotiété",
+    ctaDescription: "Résultat en 2 minutes avec pièces mixtes incluses. Rapport PDF documenté.",
+    ctaLink: "/ressources/calculateur-bureau/",
+    ctaLabel: "Calculer ma quotiété avec pièces mixtes →",
+  },
+
+  "locataire-societe-sous-location-loyer": {
+    heroCta: { text: "Générer mon bail de sous-location →", link: "/ressources/generateur-bail/" },
+    sections: [
+      {
+        paragraphs: [
+          "Vous êtes locataire. Vous dirigez une société. Chaque mois, vous payez un loyer à votre propriétaire — et votre société rembourse vos frais de bureau sur note de frais, ou paie ses propres locaux. Mais avez-vous envisagé la sous-location professionnelle ?",
+          "Ce mécanisme légal permet à un dirigeant locataire de louer une partie de son domicile à sa propre société. La société déduit le loyer comme charge professionnelle. Vous percevez un revenu de sous-location moins lourdement imposé qu'une rémunération. Légal, fréquent, et souvent mal connu des dirigeants belges.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Comment fonctionne la sous-location professionnelle ?",
+        paragraphs: [
+          "Vous payez 1 500 €/mois à votre propriétaire. Vous sous-louez à votre société une pièce représentant 20 % de la surface totale. Vous lui facturez 300 €/mois.",
+          "La sous-location est structurellement plus avantageuse que la rémunération pour rémunérer le dirigeant via l'usage de son logement, dans les limites légales.",
+        ],
+        list: [
+          "Côté société : elle déduit 300 €/mois comme charge → économie ISOC 25 % : 75 €/mois (900 €/an)",
+          "Côté vous (IPP) : vous percevez 300 €/mois → imposé sur 180 € après abattement 40 % → environ 81 €/mois au taux marginal de 45 %",
+          "Comparaison : si vous perceviez ces 300 € en rémunération brute, charges sociales + IPP représenteraient environ 180 €/mois — soit 2,2× plus cher",
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "La condition d'autorisation préalable",
+        paragraphs: [
+          "⚠️ POINT CRITIQUE — sans l'autorisation de votre propriétaire, la sous-location est nulle. L'absence d'autorisation expose à la résiliation du bail principal et à l'invalidation fiscale.",
+          "L'autorisation doit être :",
+        ],
+        list: [
+          "Expresse : clause dans le bail ou accord écrit du propriétaire",
+          "Préalable : avant la signature du bail de sous-location avec votre société",
+          "Documentée : conservez une trace écrite de cet accord",
+        ],
+      },
+      {
+        heading: "Les conditions de validité fiscale du bail",
+        paragraphs: [
+          "L'absence de bail écrit est la première cause de redressement fiscal sur la sous-location. Notre générateur produit un bail conforme au contexte belge en 6 étapes — PDF envoyé par email.",
+        ],
+        list: [
+          "Bail écrit signé entre vous et votre société, avant le premier paiement de loyer",
+          "Loyer correspondant à la réalité économique de l'espace loué — pas fictif, pas excessif",
+          "Paiement effectif par virement bancaire mensuel (traçabilité obligatoire en cas de contrôle)",
+          "Enregistrement du bail recommandé pour lui conférer date certaine",
+          "Déclaration du loyer perçu dans votre IPP (rubrique revenus immobiliers)",
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Le plafond légal anti-requalification",
+        paragraphs: [
+          "Le loyer ne peut pas dépasser 5/3 du revenu cadastral revalorisé annuel de la partie du bien concernée. Au-delà, l'excédent est automatiquement requalifié en rémunération de dirigeant — soumise aux cotisations sociales et imposée différemment.",
+          "En pratique, pour un bureau de 15 m² à Bruxelles, un loyer de 200 à 400 €/mois est généralement défendable. Votre expert-comptable peut calculer ce plafond sur base du revenu cadastral de votre bien.",
+        ],
+        relatedLinks: [
+          { text: "requalification du loyer", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
+        ],
+        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+      },
+    ],
+    faq: [
+      { question: "Mon propriétaire refuse l'autorisation. Quelles alternatives ?", answer: "Vous pouvez utiliser le remboursement de frais : votre société vous rembourse la part professionnelle de vos charges sur note de frais justifiée. Pas d'accord propriétaire requis. Moins avantageux fiscalement que la sous-location, mais parfaitement légal et sans contrainte juridique." },
+      { question: "Le loyer perçu de ma société est-il soumis aux cotisations sociales ?", answer: "Non. Le loyer immobilier est un revenu immobilier, pas un revenu professionnel. Il n'est pas soumis aux cotisations sociales INASTI — c'est l'un de ses avantages structurels par rapport à la rémunération." },
+      { question: "Puis-je établir un bail de location même si je suis propriétaire de mon logement ?", answer: "Oui. Si vous êtes propriétaire, le mécanisme s'appelle bail de location (et non sous-location). Il fonctionne de façon identique : vous louez à votre société. La condition d'autorisation d'un tiers ne s'applique pas — vous êtes libre de louer votre bien. Notre générateur de bail couvre les deux situations." },
+    ],
+    ctaText: "Générer mon bail de sous-location",
+    ctaDescription: "Bail conforme au contexte belge en 6 étapes. PDF envoyé par email. Gratuit.",
+    ctaLink: "/ressources/generateur-bail/",
+    ctaLabel: "Générer mon bail de sous-location →",
+  },
+
+  "louer-meubles-bureau-societe": {
+    heroCta: { text: "Générer mon bail meublé 60/40 →", link: "/ressources/generateur-bail/" },
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez un bureau, une chaise ergonomique, des étagères dans votre pièce professionnelle. Ces meubles ont une valeur. Et en Belgique, vous pouvez les louer à votre société — en plus du loyer de l'espace lui-même. Résultat : une déduction supplémentaire pour votre société, et un revenu taxé pour vous à un taux effectif d'environ 7,5 %.",
+          "C'est le mécanisme du bail meublé avec répartition 60/40. Peu connu des dirigeants, il peut générer plusieurs centaines d'euros d'économie fiscale supplémentaire par an — entièrement légale et documentable.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+        ],
+      },
+      {
+        heading: "Le principe du bail meublé 60/40",
+        paragraphs: [
+          "Quand un bien est loué avec son mobilier, le Code civil belge prévoit par défaut une répartition du loyer total : 60 % pour l'immeuble, 40 % pour les meubles. Les deux parties sont fiscalement traitées différemment :",
+        ],
+        list: [
+          "Part immeuble (60 %) : revenu immobilier — imposé sur 60 % du montant brut (abattement forfaitaire 40 %), à votre taux marginal IPP",
+          "Part meubles (40 %) : revenu mobilier divers — imposé à ~7,5 % effectif (base 50 % × précompte mobilier libératoire 15 %)",
+          "Côté société : elle déduit l'intégralité du loyer (immeuble + meubles) comme charge professionnelle déductible",
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Exemple chiffré : l'impact du bail meublé",
+        paragraphs: [],
+      },
+      {
+        subheading: "Sans bail meublé — loyer 300 €/mois (3 600 €/an)",
+        paragraphs: [],
+        list: [
+          "Imposé sur 2 160 € (après abattement 40 %) → à 45 % → charge IPP ≈ 972 €/an",
+          "Économie ISOC 25 % : 900 €/an",
+        ],
+      },
+      {
+        subheading: "Avec bail meublé 60/40 — même loyer 300 €/mois",
+        paragraphs: [
+          "Le bail meublé génère ici 281 € d'économie fiscale supplémentaire par an sans modifier le montant du loyer — uniquement en ajoutant un inventaire de meubles.",
+        ],
+        list: [
+          "Part immeuble (60 %, 2 160 €) → imposé sur 1 296 € → à 45 % → ≈ 583 €/an",
+          "Part meubles (40 %, 1 440 €) → taxé à ~7,5 % effectif → ≈ 108 €/an",
+          "Total charge IPP : ≈ 691 € (vs 972 € sans meubles) → économie : +281 €/an",
+          "Économie ISOC inchangée : 900 €/an",
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Quels meubles inclure dans l'inventaire ?",
+        paragraphs: [
+          "Les appareils nomades (ordinateur portable, smartphone) ne font pas partie de l'inventaire — ils ne sont pas attachés à l'espace loué.",
+        ],
+        list: [
+          "Bureau et chaises de bureau",
+          "Armoires, bibliothèques, étagères",
+          "Luminaires spécifiques à l'espace professionnel",
+          "Écrans et périphériques informatiques fixés à l'espace (non nomades)",
+          "Mobilier de réunion si la pièce sert à des réunions clients",
+        ],
+      },
+      {
+        heading: "La répartition 60/40 est-elle obligatoire ?",
+        paragraphs: [
+          "Non. C'est la valeur par défaut du Code civil belge. Les parties peuvent l'ajuster si la réalité économique le justifie : si vos meubles représentent 50 % de la valeur totale du bien meublé, vous pouvez retenir 50/50 — à condition de le documenter avec des factures d'achat ou une estimation. En pratique, la répartition 60/40 est la plus simple à défendre et la plus utilisée en cabinet.",
+        ],
+        relatedLinks: [
+          { text: "stratégie de combinaison optimale", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+    ],
+    faq: [
+      { question: "Les meubles que je loue à ma société peuvent-ils être amortis par elle ?", answer: "Non. Si votre société loue les meubles (bail meublé), ils ne lui appartiennent pas : elle déduit les loyers comme charges. C'est différent si elle les achète — dans ce cas, elle les amortit mais en est propriétaire et ne peut plus les louer." },
+      { question: "Faut-il faire évaluer les meubles par un expert ?", answer: "Pour une répartition 60/40 standard, une liste descriptive avec valeurs estimées (ou prix d'achat) est suffisante. Pour une répartition personnalisée différente du 60/40, une justification plus solide est recommandée." },
+      { question: "Le bail meublé doit-il être enregistré comme le bail immeuble ?", answer: "L'enregistrement n'est pas légalement obligatoire pour un bail à usage professionnel, mais il est fortement recommandé pour lui conférer date certaine. Sans date certaine, l'administration peut contester la réalité d'un bail présenté a posteriori lors d'un contrôle." },
+    ],
+    ctaText: "Générer mon bail meublé",
+    ctaDescription: "Bail meublé 60/40 conforme au contexte belge. PDF généré en 6 étapes.",
+    ctaLink: "/ressources/generateur-bail/",
+    ctaLabel: "Générer mon bail meublé 60/40 →",
+  },
 };
