@@ -37,6 +37,7 @@ import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
 import FraisDefendables from "./pages/FraisDefendables.tsx";
 import BureauADomicileHub from "./pages/BureauADomicileHub.tsx";
+import CalculateurBureau from "./pages/CalculateurBureau.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/politique-de-cookies/" element={<PolitiqueCookies />} />
           <Route path="/checklist-tresorerie/" element={<ChecklistTresorerie />} />
           <Route path="/frais-defendables/" element={<FraisDefendables />} />
+          <Route path="/ressources/calculateur-bureau/" element={<CalculateurBureau />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
