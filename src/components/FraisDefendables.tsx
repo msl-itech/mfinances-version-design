@@ -1,5 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import { Car, UtensilsCrossed, Home, Laptop, BookOpen, ClipboardList, Target, Eye, BarChart3, AlertTriangle, FileText, Search, Shield, Mail, Scale } from "lucide-react";
+import { submitLead } from "@/lib/odoo-submit";
+import { toast } from "@/hooks/use-toast";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 interface FraisItem {
@@ -152,8 +154,38 @@ export default function FraisDefendables() {
     else goToStep(3);
   };
 
-  const handleSubmitLead = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); setSubmitted(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmitLead = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting || !selectedItem) return;
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const prenom = (form.elements.namedItem("firstname") as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+    const statut = (form.elements.namedItem("cap-statut") as HTMLSelectElement).value;
+    const verdict = getVerdict();
+
+    const description = [
+      `<h3>Outil Frais Défendables</h3>`,
+      `<p><strong>Frais analysé :</strong> ${selectedItem.n}</p>`,
+      `<p><strong>Catégorie :</strong> ${selectedItem.tag}</p>`,
+      `<p><strong>Verdict :</strong> ${VERDICTS[verdict].label}</p>`,
+      `<p><strong>Statut fiscal :</strong> ${statut}</p>`,
+      `<p><strong>Score de risque :</strong> ${selectedItem.score}/3</p>`,
+      `<p><strong>Priorité CRM :</strong> ${selectedItem.priority}</p>`,
+    ].join("");
+
+    await submitLead({
+      name: prenom,
+      email_from: email,
+      description,
+    });
+
+    setSubmitted(true);
+    setIsSubmitting(false);
+    toast({ title: "Demande envoyée", description: "Nos experts vous répondent rapidement." });
   };
 
   const progressWidth = step === 1 ? "33%" : step === 2 ? "66%" : "100%";
@@ -427,8 +459,8 @@ export default function FraisDefendables() {
                       <input type="hidden" name="cap-verdict" value={verdictKey} />
                       <input type="hidden" name="cap-crm-tag" value={selectedItem.tag} />
                       <input type="hidden" name="cap-source" value="outil-frais-defendables" />
-                      <button type="submit" className="w-full px-6 py-4 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/30 hover:brightness-110 active:scale-[0.98]">
-                        {v.cta} →
+                      <button type="submit" disabled={isSubmitting} className="w-full px-6 py-4 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/30 hover:brightness-110 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed">
+                        {isSubmitting ? "Envoi en cours…" : `${v.cta} →`}
                       </button>
                       <div className="mt-3 text-xs text-white/50 text-center">🔒 Vos données sont transmises uniquement à MFinances, Uccle.</div>
                     </form>
