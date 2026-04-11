@@ -2627,4 +2627,241 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/rendez-vous",
     ctaLabel: "Faire le diagnostic de ma situation →",
   },
+
+  "erreurs-bureau-a-domicile-controle-fiscal": {
+    heroCta: { text: "Télécharger la checklist contrôle fiscal →", link: "/ressources/checklist-controle-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Le contrôle fiscal sur le bureau à domicile est rarissime s'il est bien géré. Mais quand il survient, il ne porte jamais sur une seule année — il remonte souvent sur 3 à 5 exercices, avec amendes et intérêts de retard. La bonne nouvelle : les 5 erreurs qui déclenchent ces contrôles sont toutes évitables.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Erreur 1 — Une quotiété disproportionnée par rapport à la surface réelle",
+        paragraphs: [
+          "C'est la première vérification d'un contrôleur fiscal : la cohérence entre la quotiété déclarée et la réalité du logement. Une quotiété de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même quotiété dans un loft de 200 m² avec un bureau de 80 m² sera défendable.",
+          "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
+        ],
+        relatedLinks: [{ text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" }],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+      {
+        heading: "Erreur 2 — Aucun bail écrit pour la sous-location",
+        paragraphs: [
+          "Si votre société vous verse un loyer mensuel sans bail écrit, l'administration requalifie ces paiements en rémunération de dirigeant — soumise aux cotisations sociales et imposée différemment. Le bail est la pièce maîtresse du dossier de sous-location.",
+          "Un bail sous seing privé est suffisant — pas besoin de notaire. Il doit être signé avant le premier paiement de loyer. Notre générateur de bail produit un document conforme en 6 étapes.",
+        ],
+        relatedLinks: [{ text: "générer un bail conforme", link: "/ressources/generateur-bail/" }],
+      },
+      {
+        heading: "Erreur 3 — Un loyer supérieur au plafond légal",
+        paragraphs: [
+          "⚠️ Plafond légal (CIR 1992, art. 32) : le loyer versé par une société à son dirigeant ne peut pas dépasser 5/3 du revenu cadastral revalorisé annuel de la partie du bien concernée. Au-delà de ce seuil → requalification automatique en rémunération de dirigeant.",
+          "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
+        ],
+        relatedLinks: [{ text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" }],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+      {
+        heading: "Erreur 4 — Des paiements sans trace bancaire",
+        paragraphs: [
+          "Un loyer payé en espèces ou par compensation interne sans virement bancaire ne laisse aucune trace opposable. Le contrôleur peut simplement nier la réalité du paiement et requalifier l'ensemble.",
+          "Chaque loyer doit être payé par virement bancaire, avec référence claire. Exemple : 'Loyer bureau juin 2026 — Bail du 01/01/2026'. Ce réflexe évite de nombreux redressements.",
+        ],
+      },
+      {
+        heading: "Erreur 5 — Ne pas déclarer le loyer perçu dans l'IPP",
+        paragraphs: [
+          "Votre société déduit le loyer. Vous devez le déclarer dans votre IPP. Cette symétrie est contrôlée par recoupement automatique entre les déclarations. Si votre société déclare une charge de loyer versé à son dirigeant et que ce dernier ne déclare rien dans son IPP, le système le détecte.",
+          "Le loyer doit être déclaré comme revenu immobilier (part immeuble) et revenu mobilier (part meubles si bail meublé). Votre expert-comptable doit s'assurer de la cohérence entre vos deux déclarations.",
+        ],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Combien d'années en arrière peut remonter un contrôle fiscal belge ?", answer: "Délai ordinaire : 3 ans à partir du 1er janvier de l'exercice d'imposition. En cas de fraude avérée : 7 ans. Pour des revenus mobiliers non déclarés : jusqu'à 10 ans. La régularisation spontanée avant contrôle est toujours préférable et moins coûteuse." },
+      { question: "Si je commets une erreur de bonne foi, quelle est la sanction ?", answer: "Erreur de bonne foi sans intention frauduleuse : redressement + intérêts de retard (actuellement 4 %/an). L'amende administrative est réduite ou supprimée si la bonne foi est démontrée. Déclarer spontanément une erreur passée est fortement conseillé." },
+      { question: "Est-ce que télécharger la checklist m'expose davantage à un contrôle ?", answer: "Non. La checklist est un outil de mise en conformité. Se documenter sur ses droits et obligations ne constitue aucun signal pour l'administration fiscale. Au contraire, avoir ses dossiers en ordre est la meilleure protection en cas de contrôle." },
+    ],
+    ctaText: "Télécharger la checklist contrôle fiscal",
+    ctaDescription: "5 points à vérifier avant chaque exercice. PDF gratuit et immédiat.",
+    ctaLink: "/ressources/checklist-controle-bureau/",
+    ctaLabel: "Télécharger la checklist contrôle fiscal →",
+  },
+
+  "combinaison-bureau-a-domicile": {
+    heroCta: { text: "Calculer ma quotiété — première étape →", link: "/ressources/calculateur-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Trois mécanismes légaux. Une seule pièce. Une économie fiscale qui peut dépasser 1 500 € par an pour un dirigeant avec un loyer mensuel de 1 200 €. C'est ce que permet la combinaison optimale — celle que votre expert-comptable devrait déjà avoir mise en place si vous avez une société.",
+        ],
+        relatedLinks: [{ text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" }],
+      },
+      {
+        heading: "Pourquoi combiner les 3 mécanismes ?",
+        paragraphs: [],
+        list: [
+          "La quotiété couvre les charges d'occupation du logement — base de tout calcul",
+          "La sous-location crée un loyer déductible pour la société, moins imposé que la rémunération",
+          "Le bail meublé ajoute un revenu mobilier taxé à ~7,5 % effectif — le niveau le plus favorable",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      { heading: "La stratégie en 4 étapes", paragraphs: [] },
+      {
+        subheading: "Étape 1 — Calculer la quotiété exacte",
+        paragraphs: ["C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal."],
+        relatedLinks: [{ text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" }],
+      },
+      {
+        subheading: "Étape 2 — Établir un bail de sous-location",
+        paragraphs: ["Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine."],
+        relatedLinks: [
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+          { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+        ],
+      },
+      {
+        subheading: "Étape 3 — Ajouter un inventaire de meubles",
+        paragraphs: ["Si vous avez du mobilier professionnel dans l'espace loué (bureau, chaises, armoires, matériel fixe), transformez le bail en bail meublé avec répartition 60/40. La part meubles sera taxée à ~7,5 % effectif dans votre IPP."],
+        relatedLinks: [{ text: "bail meublé 60/40", link: "/blog/fiscalite-belgique/louer-meubles-bureau-societe/" }],
+      },
+      {
+        subheading: "Étape 4 — Documenter et déclarer",
+        paragraphs: ["Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP."],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Exemple chiffré complet",
+        paragraphs: [
+          "Dirigeant de SRL, locataire à Bruxelles, loyer 1 500 €/mois. Bureau 20 m² à 100 % pro, salon 30 m² à 15 % pro, appartement 100 m² total.",
+          "Gain net combiné : 1 104 € (économie ISOC) − 847 € (charge IPP) = +257 € net annuel. Vs rémunération équivalente (charges sociales + IPP ≈ 2 800 €) : gain réel >1 500 €/an. Ce gain augmente mécaniquement avec le montant du loyer et le taux marginal IPP.",
+        ],
+        list: [
+          "Quotiété calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %",
+          "Loyer de sous-location à la société : 1 500 × 24,5 % = 368 €/mois (4 416 €/an)",
+          "Part immeuble (2 650 €/an) → imposé sur 1 590 € → à 45 % → ≈ 715 €",
+          "Part meubles (1 766 €/an) → taxé à 7,5 % effectif → ≈ 132 €",
+          "Total charge IPP : ≈ 847 €",
+          "Économie ISOC : 4 416 € × 25 % = 1 104 €",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Faut-il être comptable pour mettre en place cette stratégie ?", answer: "Les outils (calculateur + générateur de bail) vous permettent de calculer et de documenter votre situation. Mais pour la mise en place complète — choix du montant du loyer, vérification du plafond légal, coordination des déclarations IPP et ISOC — l'accompagnement d'un expert-comptable est fortement recommandé. C'est ce que MFinances propose dans ses forfaits de pilotage financier." },
+      { question: "Cette stratégie est-elle réservée aux grandes structures ?", answer: "Non. Elle est pertinente dès que vous avez un espace de travail à domicile et une société, quelle que soit sa taille. Même pour une micro-société à 100 000 € de CA, l'économie annuelle peut dépasser 1 000 € — ce qui couvre largement le coût d'un accompagnement comptable annuel." },
+    ],
+    ctaText: "Calculer ma quotiété — première étape",
+    ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
+    ctaLink: "/ressources/calculateur-bureau/",
+    ctaLabel: "Calculer ma quotiété — première étape →",
+  },
+
+  "requalification-loyer-remuneration": {
+    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/rendez-vous" },
+    sections: [
+      {
+        paragraphs: [
+          "Votre expert-comptable vous en a peut-être déjà parlé. La requalification du loyer en rémunération de dirigeant : un risque réel, mais entièrement maîtrisable si vous connaissez les règles exactes. Voici comment ce mécanisme fonctionne, quand il s'applique — et comment l'éviter définitivement.",
+        ],
+        relatedLinks: [{ text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" }],
+      },
+      {
+        heading: "Le principe de la requalification",
+        paragraphs: [
+          "En Belgique, l'administration fiscale dispose du pouvoir de requalifier un loyer versé par une société à son dirigeant en rémunération de dirigeant — si ce loyer dépasse un plafond légal défini par le Code des impôts sur les revenus 1992 (art. 32).",
+          "Conséquences d'une requalification :",
+        ],
+        list: [
+          "Pour le dirigeant (IPP) : l'excédent est imposé comme rémunération, à son taux marginal, avec cotisations sociales INASTI",
+          "Pour la société (ISOC) : la déductibilité de l'excédent peut être remise en cause",
+          "Rétroactivité possible sur 3 à 7 exercices selon la nature de l'erreur",
+        ],
+      },
+      {
+        heading: "Le plafond légal anti-requalification",
+        paragraphs: [
+          "Règle CIR 1992, art. 32 : le loyer versé par une société à son dirigeant est requalifié en rémunération professionnelle pour la part excédant 5/3 du revenu cadastral revalorisé annuel de la partie du bien effectivement donnée en location.",
+        ],
+      },
+      {
+        subheading: "La formule de calcul du plafond",
+        paragraphs: [
+          "Plafond annuel = RC du bien × coefficient de revalorisation × fraction louée × 5/3",
+          "Le coefficient de revalorisation est réévalué annuellement par le SPF Finances. En 2026, il s'établit à 5,46. Le revenu cadastral (RC) est une valeur administrative, généralement bien inférieure à la valeur locative réelle du marché.",
+        ],
+      },
+      {
+        subheading: "Exemple chiffré",
+        paragraphs: [
+          "⚠️ Dans cet exemple, un loyer de 150 €/mois (1 800 €/an) dépasse déjà le plafond. L'excédent de 343 €/an serait automatiquement requalifié en rémunération de dirigeant. Le plafond légal est souvent plus bas que ce que les dirigeants imaginent.",
+        ],
+        list: [
+          "RC du bien total : 800 €",
+          "RC revalorisé : 800 × 5,46 = 4 368 €/an",
+          "Fraction louée (bureau = 20 % du bien) : 4 368 × 20 % = 874 €/an",
+          "Plafond légal : 874 × 5/3 = 1 457 €/an → 121 €/mois",
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+      {
+        heading: "Les principales causes de requalification",
+        paragraphs: [],
+        list: [
+          "Loyer fixé sans référence au revenu cadastral revalorisé de la partie louée",
+          "Loyer calqué sur la valeur locative de marché — souvent supérieure au plafond légal",
+          "Bail absent ou non daté — l'administration ne peut pas vérifier le moment où le montant a été fixé",
+          "Absence de lien documenté entre le loyer et la surface réellement allouée à la société",
+        ],
+        relatedLinks: [{ text: "5 erreurs à éviter", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" }],
+      },
+      {
+        heading: "Comment éviter la requalification",
+        paragraphs: [],
+      },
+      {
+        subheading: "1. Calculer le plafond légal avant de fixer le loyer",
+        paragraphs: [
+          "Demandez à votre expert-comptable de calculer le plafond sur base du RC de votre bien (disponible sur MyMinfin), du coefficient de revalorisation en vigueur, et de la proportion du bien louée à votre société.",
+        ],
+      },
+      {
+        subheading: "2. Fixer un loyer inférieur au plafond",
+        paragraphs: [
+          "Même si le marché justifierait un loyer plus élevé, rester sous le plafond légal sécurise entièrement votre déduction. La différence peut souvent être compensée par le mécanisme du bail meublé : la part meubles n'entre pas dans le calcul de la requalification.",
+        ],
+      },
+      {
+        subheading: "3. Établir un bail écrit et daté avant le premier paiement",
+        paragraphs: [
+          "Le bail formalise le montant du loyer et sa justification. En cas de contrôle, il démontre que le loyer a été fixé de bonne foi selon des critères objectifs et conformes. Notre générateur produit un bail incluant tous les éléments requis.",
+        ],
+        relatedLinks: [
+          { text: "bail conforme avec loyer sécurisé", link: "/ressources/generateur-bail/" },
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+        ],
+      },
+      {
+        subheading: "4. Payer par virement bancaire et déclarer dans l'IPP",
+        paragraphs: [
+          "Paiement mensuel par virement tracé avec référence claire. Déclaration du loyer dans votre IPP (revenus immobiliers pour la part immeuble, revenus mobiliers pour la part meubles). Cohérence assurée entre la déclaration ISOC de votre société et votre IPP personnel.",
+        ],
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/rendez-vous" },
+      },
+    ],
+    faq: [
+      { question: "La requalification s'applique-t-elle aussi aux indépendants ?", answer: "Non. La règle de requalification de l'art. 32 CIR 1992 vise spécifiquement les loyers versés par une société à son dirigeant. Un indépendant en personne physique qui déduit un bureau à domicile directement dans son IPP n'est pas soumis à ce mécanisme de requalification." },
+      { question: "Le bail meublé modifie-t-il le calcul du plafond de requalification ?", answer: "Oui, avantageusement. Le plafond s'applique à la part immeuble du loyer. La part meubles est traitée séparément comme revenu mobilier divers — elle n'entre pas dans le calcul de la requalification. C'est l'un des avantages structurels du bail meublé : il permet d'allouer une partie du loyer total hors du plafond RC." },
+      { question: "Mon loyer actuel dépasse le plafond légal. Que faire ?", answer: "Si aucun contrôle n'est en cours, une régularisation volontaire est possible : réduisez le loyer au niveau du plafond pour les exercices futurs et discutez avec votre expert-comptable des options pour les exercices passés. MFinances réalise ce type d'audit de mise en conformité dans le cadre d'un diagnostic financier — sans jugement, avec un plan d'action concret." },
+    ],
+    ctaText: "Faire le diagnostic de ma situation",
+    ctaDescription: "Premier échange gratuit — nous analysons votre loyer et votre plafond légal.",
+    ctaLink: "/rendez-vous",
+    ctaLabel: "Faire le diagnostic de ma situation →",
+  },
 };
