@@ -148,7 +148,7 @@ export default function TestimonialsSection() {
                   </div>
                   <div>
                     <p className="text-[14px] font-semibold text-foreground leading-tight">{r.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{r.date}</p>
+                    
                   </div>
                 </div>
                 <div className="flex gap-0.5">
@@ -157,7 +157,7 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
                 <p className="text-[14px] text-foreground/80 leading-relaxed font-body flex-1">
-                  "{r.text}"
+                  {r.text}
                 </p>
               </div>
             ))}
