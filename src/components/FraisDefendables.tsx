@@ -462,8 +462,6 @@ export default function FraisDefendables() {
                       <button type="submit" disabled={isSubmitting} className="w-full px-6 py-4 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/30 hover:brightness-110 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed">
                         {isSubmitting ? "Envoi en cours…" : `${v.cta} →`}
                       </button>
-                        {v.cta} →
-                      </button>
                       <div className="mt-3 text-xs text-white/50 text-center">🔒 Vos données sont transmises uniquement à MFinances, Uccle.</div>
                     </form>
                   )
