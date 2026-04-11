@@ -531,6 +531,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation. Cabinet MFinances.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "locataire-societe-sous-location-loyer",
+    title: "Locataire et dirigeant : comment louer votre bureau à votre société",
+    excerpt: "Locataire et dirigeant en Belgique ? Sous-louez votre bureau à votre société légalement. Conditions, bail, plafonds fiscaux et générateur gratuit.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Sous-location bureau à domicile à sa société Belgique — Guide complet 2026",
+    metaDescription: "Locataire et dirigeant en Belgique ? Sous-louez votre bureau à votre société légalement. Conditions, bail, plafonds fiscaux et générateur gratuit. MFinances.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
