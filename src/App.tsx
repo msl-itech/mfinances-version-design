@@ -37,6 +37,8 @@ import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
 import FraisDefendables from "./pages/FraisDefendables.tsx";
 import BureauADomicileHub from "./pages/BureauADomicileHub.tsx";
+import CalculateurBureau from "./pages/CalculateurBureau.tsx";
+import GenerateurBailPage from "./pages/GenerateurBailPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
