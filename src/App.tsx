@@ -36,6 +36,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
 import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
 import FraisDefendables from "./pages/FraisDefendables.tsx";
+import BureauADomicileHub from "./pages/BureauADomicileHub.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/a-propos/" element={<APropos />} />
           <Route path="/support/" element={<Support />} />
           <Route path="/blog/" element={<Blog />} />
+          <Route path="/blog/fiscalite-belgique/bureau-a-domicile/" element={<BureauADomicileHub />} />
           <Route path="/blog/:categorySlug/" element={<BlogCategory />} />
           <Route path="/blog/:categorySlug/:articleSlug/" element={<BlogArticle />} />
           <Route path="/mentions-legales/" element={<MentionsLegales />} />
