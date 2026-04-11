@@ -2627,4 +2627,74 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/rendez-vous",
     ctaLabel: "Faire le diagnostic de ma situation →",
   },
+
+  "erreurs-bureau-a-domicile-controle-fiscal": {
+    heroCta: { text: "Télécharger la checklist contrôle fiscal →", link: "/ressources/checklist-controle-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Le contrôle fiscal sur le bureau à domicile est rarissime s'il est bien géré. Mais quand il survient, il ne porte jamais sur une seule année — il remonte souvent sur 3 à 5 exercices, avec amendes et intérêts de retard. La bonne nouvelle : les 5 erreurs qui déclenchent ces contrôles sont toutes évitables.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Erreur 1 — Une quotiété disproportionnée par rapport à la surface réelle",
+        paragraphs: [
+          "C'est la première vérification d'un contrôleur fiscal : la cohérence entre la quotiété déclarée et la réalité du logement. Une quotiété de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même quotiété dans un loft de 200 m² avec un bureau de 80 m² sera défendable.",
+          "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
+        ],
+        relatedLinks: [
+          { text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" },
+        ],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+      {
+        heading: "Erreur 2 — Aucun bail écrit pour la sous-location",
+        paragraphs: [
+          "Si votre société vous verse un loyer mensuel sans bail écrit, l'administration requalifie ces paiements en rémunération de dirigeant — soumise aux cotisations sociales et imposée différemment. Le bail est la pièce maîtresse du dossier de sous-location.",
+          "Un bail sous seing privé est suffisant — pas besoin de notaire. Il doit être signé avant le premier paiement de loyer. Notre générateur de bail produit un document conforme en 6 étapes.",
+        ],
+        relatedLinks: [
+          { text: "générer un bail conforme", link: "/ressources/generateur-bail/" },
+        ],
+      },
+      {
+        heading: "Erreur 3 — Un loyer supérieur au plafond légal",
+        paragraphs: [
+          "⚠️ Plafond légal (CIR 1992, art. 32) : le loyer versé par une société à son dirigeant ne peut pas dépasser 5/3 du revenu cadastral revalorisé annuel de la partie du bien concernée. Au-delà de ce seuil → requalification automatique en rémunération de dirigeant.",
+          "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
+        ],
+        relatedLinks: [
+          { text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
+        ],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+      {
+        heading: "Erreur 4 — Des paiements sans trace bancaire",
+        paragraphs: [
+          "Un loyer payé en espèces ou par compensation interne sans virement bancaire ne laisse aucune trace opposable. Le contrôleur peut simplement nier la réalité du paiement et requalifier l'ensemble.",
+          "Chaque loyer doit être payé par virement bancaire, avec référence claire. Exemple : 'Loyer bureau juin 2026 — Bail du 01/01/2026'. Ce réflexe évite de nombreux redressements.",
+        ],
+      },
+      {
+        heading: "Erreur 5 — Ne pas déclarer le loyer perçu dans l'IPP",
+        paragraphs: [
+          "Votre société déduit le loyer. Vous devez le déclarer dans votre IPP. Cette symétrie est contrôlée par recoupement automatique entre les déclarations. Si votre société déclare une charge de loyer versé à son dirigeant et que ce dernier ne déclare rien dans son IPP, le système le détecte.",
+          "Le loyer doit être déclaré comme revenu immobilier (part immeuble) et revenu mobilier (part meubles si bail meublé). Votre expert-comptable doit s'assurer de la cohérence entre vos deux déclarations.",
+        ],
+        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Combien d'années en arrière peut remonter un contrôle fiscal belge ?", answer: "Délai ordinaire : 3 ans à partir du 1er janvier de l'exercice d'imposition. En cas de fraude avérée : 7 ans. Pour des revenus mobiliers non déclarés : jusqu'à 10 ans. La régularisation spontanée avant contrôle est toujours préférable et moins coûteuse." },
+      { question: "Si je commets une erreur de bonne foi, quelle est la sanction ?", answer: "Erreur de bonne foi sans intention frauduleuse : redressement + intérêts de retard (actuellement 4 %/an). L'amende administrative est réduite ou supprimée si la bonne foi est démontrée. Déclarer spontanément une erreur passée est fortement conseillé." },
+      { question: "Est-ce que télécharger la checklist m'expose davantage à un contrôle ?", answer: "Non. La checklist est un outil de mise en conformité. Se documenter sur ses droits et obligations ne constitue aucun signal pour l'administration fiscale. Au contraire, avoir ses dossiers en ordre est la meilleure protection en cas de contrôle." },
+    ],
+    ctaText: "Télécharger la checklist contrôle fiscal",
+    ctaDescription: "5 points à vérifier avant chaque exercice. PDF gratuit et immédiat.",
+    ctaLink: "/ressources/checklist-controle-bureau/",
+    ctaLabel: "Télécharger la checklist contrôle fiscal →",
+  },
 };
