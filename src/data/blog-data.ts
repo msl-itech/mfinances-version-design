@@ -579,6 +579,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Quotiété excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile. Guide et checklist MFinances.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "combinaison-bureau-a-domicile",
+    title: "Quotiété + sous-location + meubles : la stratégie bureau à domicile optimale",
+    excerpt: "Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Quotiété + sous-location + meubles : la stratégie bureau à domicile optimale Belgique",
+    metaDescription: "Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds. Cabinet MFinances Uccle.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {

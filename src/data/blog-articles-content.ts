@@ -2697,4 +2697,91 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/ressources/checklist-controle-bureau/",
     ctaLabel: "Télécharger la checklist contrôle fiscal →",
   },
+
+  "combinaison-bureau-a-domicile": {
+    heroCta: { text: "Calculer ma quotiété — première étape →", link: "/ressources/calculateur-bureau/" },
+    sections: [
+      {
+        paragraphs: [
+          "Trois mécanismes légaux. Une seule pièce. Une économie fiscale qui peut dépasser 1 500 € par an pour un dirigeant avec un loyer mensuel de 1 200 €. C'est ce que permet la combinaison optimale — celle que votre expert-comptable devrait déjà avoir mise en place si vous avez une société.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+        ],
+      },
+      {
+        heading: "Pourquoi combiner les 3 mécanismes ?",
+        paragraphs: [],
+        list: [
+          "La quotiété couvre les charges d'occupation du logement — base de tout calcul",
+          "La sous-location crée un loyer déductible pour la société, moins imposé que la rémunération",
+          "Le bail meublé ajoute un revenu mobilier taxé à ~7,5 % effectif — le niveau le plus favorable",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "La stratégie en 4 étapes",
+        paragraphs: [],
+      },
+      {
+        subheading: "Étape 1 — Calculer la quotiété exacte",
+        paragraphs: [
+          "C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal.",
+        ],
+        relatedLinks: [
+          { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ],
+      },
+      {
+        subheading: "Étape 2 — Établir un bail de sous-location",
+        paragraphs: [
+          "Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine.",
+        ],
+        relatedLinks: [
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+          { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+        ],
+      },
+      {
+        subheading: "Étape 3 — Ajouter un inventaire de meubles",
+        paragraphs: [
+          "Si vous avez du mobilier professionnel dans l'espace loué (bureau, chaises, armoires, matériel fixe), transformez le bail en bail meublé avec répartition 60/40. La part meubles sera taxée à ~7,5 % effectif dans votre IPP.",
+        ],
+        relatedLinks: [
+          { text: "bail meublé 60/40", link: "/blog/fiscalite-belgique/louer-meubles-bureau-societe/" },
+        ],
+      },
+      {
+        subheading: "Étape 4 — Documenter et déclarer",
+        paragraphs: [
+          "Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP.",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+      {
+        heading: "Exemple chiffré complet",
+        paragraphs: [
+          "Dirigeant de SRL, locataire à Bruxelles, loyer 1 500 €/mois. Bureau 20 m² à 100 % pro, salon 30 m² à 15 % pro, appartement 100 m² total.",
+          "Gain net combiné : 1 104 € (économie ISOC) − 847 € (charge IPP) = +257 € net annuel. Vs rémunération équivalente (charges sociales + IPP ≈ 2 800 €) : gain réel >1 500 €/an. Ce gain augmente mécaniquement avec le montant du loyer et le taux marginal IPP.",
+        ],
+        list: [
+          "Quotiété calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %",
+          "Loyer de sous-location à la société : 1 500 × 24,5 % = 368 €/mois (4 416 €/an)",
+          "Part immeuble (2 650 €/an) → imposé sur 1 590 € → à 45 % → ≈ 715 €",
+          "Part meubles (1 766 €/an) → taxé à 7,5 % effectif → ≈ 132 €",
+          "Total charge IPP : ≈ 847 €",
+          "Économie ISOC : 4 416 € × 25 % = 1 104 €",
+        ],
+        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+      },
+    ],
+    faq: [
+      { question: "Faut-il être comptable pour mettre en place cette stratégie ?", answer: "Les outils (calculateur + générateur de bail) vous permettent de calculer et de documenter votre situation. Mais pour la mise en place complète — choix du montant du loyer, vérification du plafond légal, coordination des déclarations IPP et ISOC — l'accompagnement d'un expert-comptable est fortement recommandé. C'est ce que MFinances propose dans ses forfaits de pilotage financier." },
+      { question: "Cette stratégie est-elle réservée aux grandes structures ?", answer: "Non. Elle est pertinente dès que vous avez un espace de travail à domicile et une société, quelle que soit sa taille. Même pour une micro-société à 100 000 € de CA, l'économie annuelle peut dépasser 1 000 € — ce qui couvre largement le coût d'un accompagnement comptable annuel." },
+    ],
+    ctaText: "Calculer ma quotiété — première étape",
+    ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
+    ctaLink: "/ressources/calculateur-bureau/",
+    ctaLabel: "Calculer ma quotiété — première étape →",
+  },
 };
