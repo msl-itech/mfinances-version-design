@@ -567,6 +567,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Quotiété, remboursement, sous-location, double statut. Cabinet MFinances.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "erreurs-bureau-a-domicile-controle-fiscal",
+    title: "5 erreurs qui déclenchent un contrôle fiscal sur votre bureau à domicile",
+    excerpt: "Quotiété excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "5 erreurs qui déclenchent un contrôle fiscal sur votre bureau à domicile — Belgique",
+    metaDescription: "Quotiété excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile. Guide et checklist MFinances.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
