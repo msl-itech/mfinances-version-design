@@ -2450,7 +2450,6 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
         relatedLinks: [
           { text: "requalification du loyer", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
-          { text: "télécharger le modèle", link: "/ressources/modele-bail-sous-location/" },
         ],
         ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
       },
@@ -2464,5 +2463,90 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaDescription: "Bail conforme au contexte belge en 6 étapes. PDF envoyé par email. Gratuit.",
     ctaLink: "/ressources/generateur-bail/",
     ctaLabel: "Générer mon bail de sous-location →",
+  },
+
+  "louer-meubles-bureau-societe": {
+    heroCta: { text: "Générer mon bail meublé 60/40 →", link: "/ressources/generateur-bail/" },
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez un bureau, une chaise ergonomique, des étagères dans votre pièce professionnelle. Ces meubles ont une valeur. Et en Belgique, vous pouvez les louer à votre société — en plus du loyer de l'espace lui-même. Résultat : une déduction supplémentaire pour votre société, et un revenu taxé pour vous à un taux effectif d'environ 7,5 %.",
+          "C'est le mécanisme du bail meublé avec répartition 60/40. Peu connu des dirigeants, il peut générer plusieurs centaines d'euros d'économie fiscale supplémentaire par an — entièrement légale et documentable.",
+        ],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
+        ],
+      },
+      {
+        heading: "Le principe du bail meublé 60/40",
+        paragraphs: [
+          "Quand un bien est loué avec son mobilier, le Code civil belge prévoit par défaut une répartition du loyer total : 60 % pour l'immeuble, 40 % pour les meubles. Les deux parties sont fiscalement traitées différemment :",
+        ],
+        list: [
+          "Part immeuble (60 %) : revenu immobilier — imposé sur 60 % du montant brut (abattement forfaitaire 40 %), à votre taux marginal IPP",
+          "Part meubles (40 %) : revenu mobilier divers — imposé à ~7,5 % effectif (base 50 % × précompte mobilier libératoire 15 %)",
+          "Côté société : elle déduit l'intégralité du loyer (immeuble + meubles) comme charge professionnelle déductible",
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Exemple chiffré : l'impact du bail meublé",
+        paragraphs: [],
+      },
+      {
+        subheading: "Sans bail meublé — loyer 300 €/mois (3 600 €/an)",
+        paragraphs: [],
+        list: [
+          "Imposé sur 2 160 € (après abattement 40 %) → à 45 % → charge IPP ≈ 972 €/an",
+          "Économie ISOC 25 % : 900 €/an",
+        ],
+      },
+      {
+        subheading: "Avec bail meublé 60/40 — même loyer 300 €/mois",
+        paragraphs: [
+          "Le bail meublé génère ici 281 € d'économie fiscale supplémentaire par an sans modifier le montant du loyer — uniquement en ajoutant un inventaire de meubles.",
+        ],
+        list: [
+          "Part immeuble (60 %, 2 160 €) → imposé sur 1 296 € → à 45 % → ≈ 583 €/an",
+          "Part meubles (40 %, 1 440 €) → taxé à ~7,5 % effectif → ≈ 108 €/an",
+          "Total charge IPP : ≈ 691 € (vs 972 € sans meubles) → économie : +281 €/an",
+          "Économie ISOC inchangée : 900 €/an",
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+      {
+        heading: "Quels meubles inclure dans l'inventaire ?",
+        paragraphs: [
+          "Les appareils nomades (ordinateur portable, smartphone) ne font pas partie de l'inventaire — ils ne sont pas attachés à l'espace loué.",
+        ],
+        list: [
+          "Bureau et chaises de bureau",
+          "Armoires, bibliothèques, étagères",
+          "Luminaires spécifiques à l'espace professionnel",
+          "Écrans et périphériques informatiques fixés à l'espace (non nomades)",
+          "Mobilier de réunion si la pièce sert à des réunions clients",
+        ],
+      },
+      {
+        heading: "La répartition 60/40 est-elle obligatoire ?",
+        paragraphs: [
+          "Non. C'est la valeur par défaut du Code civil belge. Les parties peuvent l'ajuster si la réalité économique le justifie : si vos meubles représentent 50 % de la valeur totale du bien meublé, vous pouvez retenir 50/50 — à condition de le documenter avec des factures d'achat ou une estimation. En pratique, la répartition 60/40 est la plus simple à défendre et la plus utilisée en cabinet.",
+        ],
+        relatedLinks: [
+          { text: "stratégie de combinaison optimale", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
+        ],
+        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
+      },
+    ],
+    faq: [
+      { question: "Les meubles que je loue à ma société peuvent-ils être amortis par elle ?", answer: "Non. Si votre société loue les meubles (bail meublé), ils ne lui appartiennent pas : elle déduit les loyers comme charges. C'est différent si elle les achète — dans ce cas, elle les amortit mais en est propriétaire et ne peut plus les louer." },
+      { question: "Faut-il faire évaluer les meubles par un expert ?", answer: "Pour une répartition 60/40 standard, une liste descriptive avec valeurs estimées (ou prix d'achat) est suffisante. Pour une répartition personnalisée différente du 60/40, une justification plus solide est recommandée." },
+      { question: "Le bail meublé doit-il être enregistré comme le bail immeuble ?", answer: "L'enregistrement n'est pas légalement obligatoire pour un bail à usage professionnel, mais il est fortement recommandé pour lui conférer date certaine. Sans date certaine, l'administration peut contester la réalité d'un bail présenté a posteriori lors d'un contrôle." },
+    ],
+    ctaText: "Générer mon bail meublé",
+    ctaDescription: "Bail meublé 60/40 conforme au contexte belge. PDF généré en 6 étapes.",
+    ctaLink: "/ressources/generateur-bail/",
+    ctaLabel: "Générer mon bail meublé 60/40 →",
   },
 };

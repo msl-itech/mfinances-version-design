@@ -543,6 +543,18 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "Locataire et dirigeant en Belgique ? Sous-louez votre bureau à votre société légalement. Conditions, bail, plafonds fiscaux et générateur gratuit. MFinances.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "louer-meubles-bureau-societe",
+    title: "Louer vos meubles à votre société : la déduction à 7,5 %",
+    excerpt: "Louez vos meubles professionnels à votre société. Répartition 60/40, taxation effective 7,5 %. Exemple chiffré et générateur de bail meublé.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-04-11",
+    seoTitle: "Louer ses meubles à sa société Belgique — Bail meublé 60/40 et déduction 7,5 %",
+    metaDescription: "Louez vos meubles professionnels à votre société. Répartition 60/40, taxation effective 7,5 %. Exemple chiffré et générateur de bail meublé. Cabinet MFinances.",
+    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+  },
 ];
 
 export function getArticlesByCategory(categorySlug: string) {
