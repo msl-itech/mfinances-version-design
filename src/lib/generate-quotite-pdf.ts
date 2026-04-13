@@ -521,24 +521,30 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     text: "Recalculez votre quotiété à chaque exercice fiscal si votre situation change.",
   });
 
-  rappels.forEach((r, i) => {
+  let maxRappelH = 22;
+  const rappelData = rappels.map((r, i) => {
     const rx = M + i * (cardW + 3);
+    const tl = doc.splitTextToSize(r.text, cardW - 10);
+    const h = Math.max(22, tl.length * 3 + 12);
+    if (h > maxRappelH) maxRappelH = h;
+    return { ...r, rx, tl };
+  });
+  rappelData.forEach((r) => {
     setFill(BG);
     setDraw(BORDER);
-    doc.roundedRect(rx, y, cardW, 22, 2, 2, "FD");
+    doc.roundedRect(r.rx, y, cardW, maxRappelH, 2, 2, "FD");
     doc.setFontSize(8);
     setTextC(NAVY);
-    doc.text(r.icon, rx + 4, y + 6);
+    doc.text(r.icon, r.rx + 4, y + 6);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
-    doc.text(r.title, rx + 12, y + 6);
+    doc.text(r.title, r.rx + 12, y + 6);
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
-    const tl = doc.splitTextToSize(r.text, cardW - 10);
-    doc.text(tl, rx + 4, y + 11);
+    doc.setFontSize(6);
+    doc.text(r.tl, r.rx + 4, y + 11);
   });
-  y += 28;
+  y += maxRappelH + 6;
 
   // ── CTA prochaine étape ──
   setFill(NAVY);
