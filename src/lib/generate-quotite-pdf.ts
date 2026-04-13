@@ -338,11 +338,11 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     }
     doc.setFont("helvetica", "normal");
     setTextC(MID);
-    doc.setFontSize(7.5);
-    doc.text(c.label, M + 2, y + 4.5);
+    doc.setFontSize(7);
+    doc.text(c.label, M + 2, y + 4.5, { maxWidth: 94 });
     doc.text(`${fmt(c.montant)} €`, M + 100, y + 4.5);
     setTextC(GRAY);
-    doc.text(`× ${fmtDec(quotite)} %`, M + 120, y + 4.5);
+    doc.text(`× ${fmtDec(quotite)} %`, M + 118, y + 4.5);
     doc.setFont("helvetica", "bold");
     setTextC(RED);
     doc.text(`${fmt(Math.round((c.montant * quotite) / 100))} €`, W - M - 2, y + 4.5, { align: "right" });
