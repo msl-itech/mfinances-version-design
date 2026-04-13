@@ -273,7 +273,9 @@ export default function GenerateurBail() {
 
   const goNext = (s: number) => {
     setStep(s);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      document.getElementById("generateur")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
   };
 
   const handleSubmit = async () => {
