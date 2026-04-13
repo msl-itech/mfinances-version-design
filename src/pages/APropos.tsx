@@ -92,8 +92,8 @@ export default function APropos() {
       <main>
         {/* ── HERO ── */}
         <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+            <div className="lg:col-span-2">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -121,8 +121,8 @@ export default function APropos() {
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={equipePhoto} alt="Mika Musungayi — Fondateur MFinances, expert-comptable à Uccle" className="w-full h-[340px] md:h-[400px] object-cover object-top" />
+            <div className="lg:col-span-3 rounded-2xl shadow-2xl overflow-hidden">
+              <img src={equipePhoto} alt="Mika Musungayi — Fondateur MFinances, expert-comptable à Uccle" className="w-full h-[340px] md:h-[440px] object-cover object-top" />
             </div>
           </div>
         </section>
