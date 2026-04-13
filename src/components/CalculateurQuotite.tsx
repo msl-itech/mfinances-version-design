@@ -310,7 +310,7 @@ export default function CalculateurQuotite() {
 
   /* ── STEP 2 ── */
   const Step2 = () => (
-    <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-2xl p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+    <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
       <div className="mb-5">
         <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
           Étape 2 / 4
@@ -402,7 +402,7 @@ export default function CalculateurQuotite() {
 
   /* ── STEP 3 ── */
   const Step3 = () => (
-    <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-2xl p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+    <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
       <div className="mb-5">
         <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
           Étape 3 / 4
@@ -502,7 +502,7 @@ export default function CalculateurQuotite() {
 
   /* ── STEP 4 ── */
   const Step4 = () => (
-    <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-2xl p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+    <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
       <div className="mb-5">
         <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 mb-2.5">
           ✓ Calcul terminé
