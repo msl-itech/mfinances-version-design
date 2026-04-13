@@ -95,6 +95,7 @@ const App = () => {
           <Route path="/ressources/generateur-bail/" element={<GenerateurBailPage />} />
           <Route path="/ressources/checklist-controle-bureau/" element={<ChecklistControleBureau />} />
           <Route path="/ressources/checklist-controle-bureau/confirmation/" element={<ChecklistControleBureauConfirmation />} />
+          <Route path="/unsubscribe/" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
