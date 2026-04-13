@@ -551,7 +551,7 @@ export default function CalculateurQuotite() {
               <ArrowLeft size={14} /> Retour
             </button>
             <Button
-              onClick={() => { handleSubmit(); setStep(4); }}
+              onClick={() => setStep(4)}
               disabled={!prenom.trim() || !email.trim()}
               variant="accent"
               className="rounded-lg"
