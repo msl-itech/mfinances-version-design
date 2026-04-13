@@ -128,10 +128,10 @@ export default function ChecklistControleBureau() {
               </Link>{" "}
               n'ont pas la documentation nécessaire pour défendre leur dossier. Cette checklist vous dit exactement où vous en êtes.
             </p>
-            <Button variant="accent" size="lg" className="rounded-full group" asChild>
+            <Button variant="accent" size="lg" className="rounded-full group whitespace-normal max-w-full" asChild>
               <a href="#formulaire">
                 Recevoir ma checklist gratuitement
-                <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="ml-1.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
