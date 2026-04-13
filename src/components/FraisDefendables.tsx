@@ -191,11 +191,35 @@ export default function FraisDefendables() {
   const progressWidth = step === 1 ? "33%" : step === 2 ? "66%" : "100%";
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-7 items-start" id="frais-defendables-widget" ref={toolRef}>
+    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-5 lg:gap-7 items-start" id="frais-defendables-widget" ref={toolRef}>
+      {/* ════════════════ SIDEBAR ON MOBILE (collapsed accordion) ════════════════ */}
+      <aside className="lg:hidden" aria-label="Informations sur l'outil">
+        <details className="bg-card border border-border rounded-2xl shadow-sm group [&[open]>summary_.info-chevron]:rotate-180">
+          <summary className="px-4 py-3.5 font-bold text-primary text-sm flex items-center justify-between cursor-pointer list-none">
+            <span className="flex items-center gap-2"><Target size={16} strokeWidth={2.5} /> À propos de cet outil</span>
+            <svg className="info-chevron w-4 h-4 text-muted-foreground transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div className="px-4 pb-4 grid gap-3">
+            {[
+              { title: "Ce que l'outil fait", Icon: Target, text: "Il vous aide à faire un premier tri rapide. Vous voyez quels frais sont les plus simples, lesquels demandent une méthode, et lesquels méritent un avis expert." },
+              { title: "Ce que le fisc regarde", Icon: Eye, text: "Le lien réel avec l'activité · La qualité du justificatif · La part privée éventuelle · La cohérence du dossier dans le temps." },
+              { title: "Ce que cet outil ne fait pas", Icon: AlertTriangle, text: "Il ne remplace pas une analyse personnalisée. Un cas complexe dépend de votre statut et de la structure de votre activité." },
+            ].map(card => (
+              <div key={card.title} className="bg-muted border border-border rounded-xl p-4">
+                <h3 className="text-[13px] font-bold text-primary mb-1.5 flex items-center gap-2">
+                  <card.Icon size={14} strokeWidth={2.5} /> {card.title}
+                </h3>
+                <p className="text-muted-foreground text-[13px] leading-relaxed">{card.text}</p>
+              </div>
+            ))}
+          </div>
+        </details>
+      </aside>
+
       {/* ════════════════ TOOL CARD ════════════════ */}
-      <div className="bg-card border border-border rounded-3xl overflow-hidden shadow-lg" id="outil-frais">
+      <div className="bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg" id="outil-frais">
         {/* Header — gradient navy */}
-        <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground px-6 py-5 flex items-center justify-between gap-4">
+        <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur grid place-items-center flex-shrink-0 border border-white/20">
               <svg viewBox="0 0 100 100" width="30" height="30">
@@ -256,13 +280,13 @@ export default function FraisDefendables() {
                 </div>
               </div>
 
-              {/* Categories */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-5">
+              {/* Categories — horizontal scroll on mobile */}
+              <div className="flex sm:grid sm:grid-cols-3 gap-2 sm:gap-2.5 mb-5 overflow-x-auto sm:overflow-visible -mx-1 px-1 sm:mx-0 sm:px-0 pb-1 sm:pb-0 no-scrollbar">
                 {CATEGORIES.map(cat => (
                   <button
                     key={cat.key} type="button"
                     onClick={() => { setCurrentCat(cat.key); setSelectedItem(null); }}
-                    className={`rounded-xl px-3 py-3 text-[13px] font-bold text-left border-2 transition-all duration-200 flex items-center gap-2 ${currentCat === cat.key ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]" : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-primary hover:shadow-sm"}`}
+                    className={`rounded-xl px-3 py-3 text-[13px] font-bold text-left border-2 transition-all duration-200 flex items-center gap-2 whitespace-nowrap flex-shrink-0 sm:flex-shrink sm:whitespace-normal min-h-[48px] ${currentCat === cat.key ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]" : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-primary hover:shadow-sm"}`}
                   >
                     <cat.icon size={15} strokeWidth={2.5} />
                     {cat.label}
@@ -271,7 +295,7 @@ export default function FraisDefendables() {
               </div>
 
               {/* Items list */}
-              <div className="border border-border rounded-2xl overflow-hidden bg-card mb-5 max-h-[320px] overflow-y-auto shadow-sm">
+              <div className="border border-border rounded-2xl overflow-hidden bg-card mb-5 max-h-[280px] sm:max-h-[320px] overflow-y-auto shadow-sm">
                 {filteredItems.length === 0 ? (
                   <div className="p-5 text-muted-foreground italic text-sm text-center">Aucun frais trouvé dans cette catégorie.</div>
                 ) : (
@@ -279,7 +303,7 @@ export default function FraisDefendables() {
                     <button
                       key={item.id} type="button"
                       onClick={() => setSelectedItem(item)}
-                      className={`w-full text-left border-b border-border last:border-b-0 px-4 py-3.5 flex items-center justify-between gap-3 text-sm transition-all duration-200 cursor-pointer group ${selectedItem?.id === item.id ? "bg-primary text-primary-foreground" : "bg-card text-foreground/70 hover:bg-muted hover:text-foreground"}`}
+                      className={`w-full text-left border-b border-border last:border-b-0 px-4 py-3.5 min-h-[48px] flex items-center justify-between gap-3 text-sm transition-all duration-200 cursor-pointer group ${selectedItem?.id === item.id ? "bg-primary text-primary-foreground" : "bg-card text-foreground/70 hover:bg-muted hover:text-foreground"}`}
                       style={{ animationDelay: `${i * 30}ms` }}
                     >
                       <span className="font-medium">{item.n}</span>
@@ -497,8 +521,8 @@ export default function FraisDefendables() {
         </div>
       </div>
 
-      {/* ════════════════ SIDEBAR ════════════════ */}
-      <aside className="grid gap-4 lg:sticky lg:top-24" aria-label="Informations sur l'outil">
+      {/* ════════════════ SIDEBAR — desktop only ════════════════ */}
+      <aside className="hidden lg:grid gap-4 lg:sticky lg:top-24" aria-label="Informations sur l'outil">
         {[
           { title: "Ce que l'outil fait", Icon: Target, content: <p className="text-muted-foreground text-sm leading-relaxed">Il vous aide à faire un premier tri rapide. Vous voyez quels frais sont les plus simples, lesquels demandent une méthode, et lesquels méritent un avis expert avant déduction.</p> },
           { title: "Ce que le fisc regarde", Icon: Eye, content: (
