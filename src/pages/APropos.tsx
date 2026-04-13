@@ -281,7 +281,7 @@ export default function APropos() {
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-center">
             <SR className="lg:col-span-2">
               <img
-                src={equipePhoto}
+src={mikaPortrait}
                 alt="Équipe MFinances — Expertise comptable à Uccle"
                 className="rounded-2xl w-full h-[300px] md:h-[380px] object-cover object-center shadow-lg"
               />
