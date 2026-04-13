@@ -137,12 +137,57 @@ export default function GenerateurBail() {
       `Garantie : ${garantie} mois`,
     ].filter(Boolean).join("\n");
 
-    await submitLead({
-      name: prenom,
-      email_from: email,
-      phone: telephone || undefined,
-      description,
-    });
+    try {
+      // 1. Generate PDF
+      const pdfBlob = generateBailPdf({
+        bailType, qualite, civilite, prenomBailleur, nomBailleur,
+        adresseBailleur, cpBailleur, villeBailleur, paysBailleur,
+        denomination, formeJuridique, siegeSocial, numeroBce, representant,
+        adresseBien, surfaceBien, descriptionBien,
+        loyerMensuel: loyerNum, garantie, duree, dateDebut, indexation,
+        partImmeuble, partMeubles, loyerImmeuble, loyerMeubles,
+        meubles: meubles.map(m => ({ designation: m.designation, valeur: m.valeur })),
+      });
+
+      // 2. Upload to storage
+      const fileName = `bail-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.pdf`;
+      const { error: uploadError } = await supabase.storage
+        .from("bail-pdfs")
+        .upload(fileName, pdfBlob, { contentType: "application/pdf" });
+
+      let downloadUrl = "";
+      if (!uploadError) {
+        const { data: urlData } = supabase.storage.from("bail-pdfs").getPublicUrl(fileName);
+        downloadUrl = urlData?.publicUrl || "";
+      }
+
+      // 3. Send email with download link
+      if (downloadUrl) {
+        const idempotencyKey = `bail-pdf-${fileName}`;
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "bail-pdf-ready",
+            recipientEmail: email,
+            idempotencyKey,
+            templateData: {
+              name: prenom,
+              bailType: bailLabel,
+              downloadUrl,
+            },
+          },
+        });
+      }
+
+      // 4. Submit lead to Odoo
+      await submitLead({
+        name: prenom,
+        email_from: email,
+        phone: telephone || undefined,
+        description,
+      });
+    } catch (err) {
+      console.error("Erreur lors de la génération du bail:", err);
+    }
 
     setSending(false);
     setSent(true);
