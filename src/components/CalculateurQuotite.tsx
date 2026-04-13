@@ -147,6 +147,56 @@ export default function CalculateurQuotite() {
       `Pièces : ${pieces.map((p) => `${p.name} (${p.surface}m², ${p.usagePro}% pro, ${PIECE_TYPES[p.type].label})`).join(" | ")}`,
     ].filter(Boolean).join("\n");
 
+    // Generate PDF
+    try {
+      const pdfBlob = generateQuotitePdf({
+        prenom,
+        email,
+        telephone,
+        adresse,
+        statut,
+        logement,
+        pieces: pieces.map(p => ({ name: p.name, surface: p.surface, type: p.type, usagePro: p.usagePro })),
+        loyerMensuel: typeof loyerMensuel === "number" ? loyerMensuel : 0,
+        energie: typeof energie === "number" ? energie : 0,
+        internet: typeof internet === "number" ? internet : 0,
+        assurance: typeof assurance === "number" ? assurance : 0,
+        precompte: typeof precompte === "number" ? precompte : 0,
+      });
+
+      const fileName = `quotite-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.pdf`;
+      const { error: uploadError } = await supabase.storage
+        .from("bail-pdfs")
+        .upload(fileName, pdfBlob, { contentType: "application/pdf" });
+
+      let downloadUrl = "";
+      if (!uploadError) {
+        const { data: urlData } = supabase.storage.from("bail-pdfs").getPublicUrl(fileName);
+        downloadUrl = urlData?.publicUrl || "";
+      }
+
+      // Send email with PDF link
+      if (downloadUrl) {
+        const idempotencyKey = `quotite-pdf-${fileName}`;
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "quotite-pdf-ready",
+            recipientEmail: email,
+            idempotencyKey,
+            templateData: {
+              name: prenom,
+              quotite: fmtDec(quotite),
+              deduction: fmt(Math.round(deductionAnnuelle)),
+              downloadUrl,
+            },
+          },
+        });
+      }
+    } catch (err) {
+      console.error("PDF generation/upload error:", err);
+    }
+
+    // Submit lead to Odoo
     await submitLead({
       name: prenom,
       email_from: email,
