@@ -644,7 +644,7 @@ export default function CalculateurQuotite() {
               </Button>
             )}
             <Button variant="outline" className="w-full rounded-lg border-2 border-primary" asChild>
-              <Link to="/contact/">Faire le diagnostic de ma situation <ArrowRight size={16} className="ml-1" /></Link>
+              <Link to="/diagnostic/">Faire le diagnostic de ma situation <ArrowRight size={16} className="ml-1" /></Link>
             </Button>
             <Link to="/contact/" className="block text-center text-[12px] text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors">
               Parler directement à Mika →
