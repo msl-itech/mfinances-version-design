@@ -33,27 +33,27 @@ export default function CalculateurBureau() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-14 md:py-20">
-          <div className="mx-auto max-w-[760px] px-6 lg:px-12">
-            <span className="inline-flex items-center gap-1.5 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/70 text-[11px] font-medium px-3 py-1 rounded-full mb-5">
+        <section className="bg-primary py-10 md:py-20">
+          <div className="mx-auto max-w-[760px] px-4 sm:px-6 lg:px-12 text-center sm:text-left">
+            <span className="inline-flex items-center gap-1.5 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/70 text-[11px] font-medium px-3 py-1 rounded-full mb-4 sm:mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               Outil gratuit · Rapport PDF par email
             </span>
 
-            <h1 className="font-display text-[26px] md:text-[34px] leading-[1.25] text-primary-foreground mb-4">
+            <h1 className="font-display text-[22px] sm:text-[26px] md:text-[34px] leading-[1.25] text-primary-foreground mb-3 sm:mb-4">
               Calculez votre quotiété professionnelle en ligne en 2 minutes
             </h1>
 
-            <p className="text-primary-foreground/70 text-[16px] leading-relaxed mb-7 max-w-[560px] font-body">
+            <p className="text-primary-foreground/70 text-[15px] sm:text-[16px] leading-relaxed mb-5 sm:mb-7 max-w-[560px] font-body sm:mx-0 mx-auto">
               Méthode des surfaces pondérées, utilisée en cabinet. Rapport PDF personnalisé envoyé par email. 100 % confidentiel — aucune revente de données.
             </p>
 
-            <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 border-l-[3px] border-l-accent rounded-lg p-3 text-primary-foreground/85 text-[13px] leading-relaxed mb-7 max-w-[580px]">
-              💡 Une quotiété de 20 % sur 20 000 € de charges annuelles = <strong className="text-primary-foreground">4 000 € de déductions</strong>. Soit ~1 600 € d'économie fiscale nette à l'ISOC. Notre calculateur vous donne le chiffre exact.
+            <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 border-l-[3px] border-l-accent rounded-lg p-3 text-primary-foreground/85 text-[13px] leading-relaxed mb-5 sm:mb-7 max-w-[580px] text-left sm:mx-0 mx-auto">
+              💡 Une quotiété de 20 % sur 20 000 € de charges annuelles = <strong className="text-primary-foreground">4 000 € de déductions</strong>. Soit ~1 600 € d'économie fiscale nette à l'ISOC.
             </div>
 
-            <div className="flex items-center gap-3 flex-wrap">
-              <Button variant="accent" className="rounded-lg" asChild>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:flex-wrap">
+              <Button variant="accent" className="rounded-lg w-full sm:w-auto" asChild>
                 <a href="#calculateur">Lancer le calculateur <ArrowRight size={16} className="ml-1" /></a>
               </Button>
               <Link to="/contact/" className="text-primary-foreground/75 text-[13px] underline underline-offset-2 hover:text-primary-foreground transition-colors font-body">
@@ -73,15 +73,15 @@ export default function CalculateurBureau() {
         </section>
 
         {/* ── SEO SECTION ── */}
-        <section className="bg-secondary py-12 md:py-16">
-          <div className="mx-auto max-w-[720px] px-6 lg:px-12">
-            <h2 className="font-display text-[22px] md:text-[26px] text-foreground mb-4">
+        <section className="bg-secondary py-10 md:py-16">
+          <div className="mx-auto max-w-[720px] px-4 sm:px-6 lg:px-12">
+            <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground mb-3 sm:mb-4">
               Pourquoi calculer correctement votre quotiété ?
             </h2>
-            <p className="text-[15px] text-foreground/70 leading-[1.75] font-body mb-3.5">
+            <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-3.5">
               La quotiété professionnelle détermine quelle fraction de vos charges — loyer, énergie, internet, assurance — vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
             </p>
-            <p className="text-[15px] text-foreground/70 leading-[1.75] font-body mb-5">
+            <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-5 hidden sm:block">
               Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce — y compris les pièces à usage mixte.
             </p>
             <Link to="/blog/fiscalite-belgique/bureau-a-domicile/" className="inline-flex items-center gap-1.5 text-primary font-semibold text-[14px] hover:underline">
