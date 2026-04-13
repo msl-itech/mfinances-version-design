@@ -412,16 +412,22 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   sectionTitle("Recommandations selon votre profil");
 
   // Status block
-  const drawStatusBox = (icon: string, title: string, text: string) => {
+  const drawStatusBox = (_icon: string, title: string, text: string) => {
     const lines = doc.splitTextToSize(text, CW - 20);
     const boxH = Math.max(20, lines.length * 3.5 + 14);
     setDraw(NAVY);
     doc.roundedRect(M, y, CW, boxH, 2, 2, "S");
+    // Draw a simple square icon placeholder
     setFill(BG);
     doc.roundedRect(M + 5, y + 5, 12, 12, 2, 2, "F");
-    doc.setFontSize(10);
-    setTextC(NAVY);
-    doc.text(icon, M + 8, y + 13);
+    setDraw(NAVY);
+    doc.setLineWidth(0.4);
+    // small house/building shape
+    doc.line(M + 8, y + 14, M + 8, y + 10);
+    doc.line(M + 8, y + 10, M + 11, y + 8);
+    doc.line(M + 11, y + 8, M + 14, y + 10);
+    doc.line(M + 14, y + 10, M + 14, y + 14);
+    doc.line(M + 8, y + 14, M + 14, y + 14);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8.5);
     setTextC(NAVY);
