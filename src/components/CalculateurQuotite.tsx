@@ -156,9 +156,9 @@ export default function CalculateurQuotite() {
     setSent(true);
   };
 
-  /* ── Stepper ── */
+  /* ── Stepper — hidden on mobile, replaced by progress bar ── */
   const Stepper = () => (
-    <div className="flex items-center max-w-[720px] mx-auto mb-8">
+    <div className="hidden sm:flex items-center max-w-[720px] mx-auto mb-8">
       {[1, 2, 3, 4].map((s, i) => (
         <div key={s} className="flex items-center flex-1 last:flex-none">
           <div
@@ -195,7 +195,7 @@ export default function CalculateurQuotite() {
 
   /* ── STEP 1 ── */
   const Step1 = () => (
-    <div className="bg-card border border-border rounded-2xl p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+    <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
       <div className="mb-5">
         <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
           Étape 1 / 4
@@ -228,28 +228,42 @@ export default function CalculateurQuotite() {
       {/* Rows */}
       {pieces.map((piece) => (
         <div key={piece.id} className="grid grid-cols-1 md:grid-cols-[1fr_68px_140px_120px_26px] gap-2 md:gap-2 items-center py-3 border-b border-border/30">
-          <Input
-            value={piece.name}
-            onChange={(e) => updatePiece(piece.id, "name", e.target.value)}
-            className="h-8 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none"
-          />
-          <Input
-            type="number"
-            value={piece.surface || ""}
-            onChange={(e) => updatePiece(piece.id, "surface", numVal(e.target.value) || 0)}
-            className="h-[30px] text-[12px] font-semibold text-primary text-center bg-secondary border-border rounded-md"
-          />
-          <Select value={piece.type} onValueChange={(v) => updatePiece(piece.id, "type", v)}>
-            <SelectTrigger className="h-[30px] text-[11px] bg-secondary border-border">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(PIECE_TYPES).map(([k, v]) => (
-                <SelectItem key={k} value={k} className="text-[12px]">{v.label}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex items-center gap-2">
+            <Input
+              value={piece.name}
+              onChange={(e) => updatePiece(piece.id, "name", e.target.value)}
+              className="h-8 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none flex-1"
+            />
+            <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[28px] min-h-[28px] flex items-center justify-center">
+              <X size={14} />
+            </button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
+            <div>
+              <span className="text-[10px] text-muted-foreground md:hidden">Surface</span>
+              <Input
+                type="number"
+                value={piece.surface || ""}
+                onChange={(e) => updatePiece(piece.id, "surface", numVal(e.target.value) || 0)}
+                className="h-[34px] sm:h-[30px] text-[12px] font-semibold text-primary text-center bg-secondary border-border rounded-md"
+              />
+            </div>
+            <div>
+              <span className="text-[10px] text-muted-foreground md:hidden">Type</span>
+              <Select value={piece.type} onValueChange={(v) => updatePiece(piece.id, "type", v)}>
+                <SelectTrigger className="h-[34px] sm:h-[30px] text-[11px] bg-secondary border-border">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(PIECE_TYPES).map(([k, v]) => (
+                    <SelectItem key={k} value={k} className="text-[12px]">{v.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
           <div className="flex items-center gap-1.5">
+            <span className="text-[10px] text-muted-foreground md:hidden mr-1">Pro</span>
             <Slider
               value={[piece.usagePro]}
               onValueChange={([v]) => updatePiece(piece.id, "usagePro", v)}
@@ -259,13 +273,13 @@ export default function CalculateurQuotite() {
             />
             <span className="text-[11px] font-semibold text-primary min-w-[32px] text-right">{piece.usagePro} %</span>
           </div>
-          <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors">
+          <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors hidden md:block">
             <X size={14} />
           </button>
         </div>
       ))}
 
-      <button onClick={addPiece} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 hover:underline">
+      <button onClick={addPiece} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 min-h-[48px] hover:underline">
         <div className="w-[22px] h-[22px] border-[1.5px] border-dashed border-primary rounded-full flex items-center justify-center">
           <Plus size={13} />
         </div>
@@ -273,7 +287,7 @@ export default function CalculateurQuotite() {
       </button>
 
       {/* Résultat live */}
-      <div className="bg-secondary border border-border rounded-xl p-3 mt-4 flex justify-between items-center">
+      <div className="bg-secondary border border-border rounded-xl p-3 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
         <div>
           <div className="text-[12px] text-muted-foreground">Surface pondérée professionnelle</div>
           <div className="text-[13px] font-semibold text-primary mt-0.5">
@@ -582,7 +596,7 @@ export default function CalculateurQuotite() {
   );
 
   return (
-    <div className="bg-secondary py-10 md:py-12 px-6 lg:px-12">
+    <div className="bg-secondary py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-12">
       <Stepper />
       {step === 1 && <Step1 />}
       {step === 2 && <Step2 />}
