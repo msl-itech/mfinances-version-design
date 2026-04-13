@@ -181,9 +181,12 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   setTextC(WHITE);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(38);
-  doc.text(`${fmtDec(quotite)}`, W / 2 - 6, y + 28, { align: "center" });
-  doc.setFontSize(18);
-  doc.text("%", W / 2 + doc.getTextWidth(fmtDec(quotite)) / 2 - 2, y + 22);
+  const qText = fmtDec(quotite);
+  const qTextW = doc.getTextWidth(qText);
+  const qX = W / 2 - qTextW / 2 - 4;
+  doc.text(qText, qX, y + 28);
+  doc.setFontSize(16);
+  doc.text("%", qX + qTextW + 1, y + 18);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(8);
