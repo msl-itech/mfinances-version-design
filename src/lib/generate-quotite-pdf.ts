@@ -539,11 +539,17 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     setFill(BG);
     setDraw(BORDER);
     doc.roundedRect(r.rx, y, cardW, maxRappelH, 2, 2, "FD");
-    doc.setFontSize(8);
-    setTextC(NAVY);
-    doc.text(r.icon, r.rx + 4, y + 6);
+    // Draw small icon instead of emoji
+    setDraw(NAVY);
+    doc.setLineWidth(0.3);
+    const ix = r.rx + 5;
+    const iy = y + 3;
+    doc.roundedRect(ix, iy, 4, 5, 0.5, 0.5, "S");
+    doc.line(ix + 1, iy + 1.5, ix + 3, iy + 1.5);
+    doc.line(ix + 1, iy + 3, ix + 3, iy + 3);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
+    setTextC(NAVY);
     doc.text(r.title, r.rx + 12, y + 6);
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
