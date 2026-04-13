@@ -13,6 +13,8 @@ import {
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info, AlertTriangle } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
+import { generateBailPdf } from "@/lib/generate-bail-pdf";
+import { supabase } from "@/integrations/supabase/client";
 
 /* ── Types ── */
 interface Meuble {
