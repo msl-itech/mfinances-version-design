@@ -521,13 +521,13 @@ export default function CalculateurQuotite() {
       <ProgressBar />
 
       {/* Grand résultat */}
-      <div className="bg-primary rounded-xl p-7 text-center mb-5">
+      <div className="bg-primary rounded-xl p-5 sm:p-7 text-center mb-5">
         <div className="text-[12px] text-muted-foreground/70 mb-2">Quotiété professionnelle calculée</div>
-        <div className="font-display text-[64px] font-light text-primary-foreground leading-none">
-          {fmtDec(quotite)}<sup className="text-[28px] align-super">%</sup>
+        <div className="font-display text-[48px] sm:text-[64px] font-light text-primary-foreground leading-none">
+          {fmtDec(quotite)}<sup className="text-[22px] sm:text-[28px] align-super">%</sup>
         </div>
-        <div className="text-[13px] text-muted-foreground/70 mt-2">
-          {fmtDec(surfacePro)} m² professionnels pondérés / {fmtDec(surfaceTotal)} m² totaux pondérés
+        <div className="text-[12px] sm:text-[13px] text-muted-foreground/70 mt-2">
+          {fmtDec(surfacePro)} m² pro / {fmtDec(surfaceTotal)} m² totaux
         </div>
       </div>
 
