@@ -282,7 +282,7 @@ export default function APropos() {
             <SR className="lg:col-span-2">
               <img
 src={mikaPortrait}
-                alt="Équipe MFinances — Expertise comptable à Uccle"
+alt="Mika MUSUNGAYI — Fondateur de MFinances"
                 className="rounded-2xl w-full h-[300px] md:h-[380px] object-cover object-center shadow-lg"
               />
             </SR>
