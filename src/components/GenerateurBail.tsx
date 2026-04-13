@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +25,166 @@ interface Meuble {
 
 type BailType = "immeuble" | "meuble";
 type Qualite = "proprietaire" | "locataire";
+
+type StepDefinition = {
+  num: number;
+  label: string;
+};
+
+const STEPS: StepDefinition[] = [
+  { num: 1, label: "Type" },
+  { num: 2, label: "Bailleur" },
+  { num: 3, label: "Preneur" },
+  { num: 4, label: "Bien" },
+  { num: 5, label: "Conditions" },
+  { num: 6, label: "Finaliser" },
+];
+
+function Stepper({ step }: { step: number }) {
+  return (
+    <div className="flex items-center max-w-[760px] mx-auto mb-8">
+      {STEPS.map((s, i) => (
+        <div key={s.num} className="flex items-center flex-1 last:flex-none">
+          <div className="flex flex-col items-center">
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
+                s.num < step
+                  ? "bg-green-700 text-white"
+                  : s.num === step
+                    ? "bg-accent text-accent-foreground shadow-[0_0_0_4px_hsl(var(--accent)/0.2)]"
+                    : "bg-border text-muted-foreground"
+              }`}
+            >
+              {s.num < step ? <Check size={14} /> : s.num}
+            </div>
+            <span className="hidden md:block text-[9px] text-muted-foreground mt-1">{s.label}</span>
+          </div>
+          {i < STEPS.length - 1 && (
+            <div className={`flex-1 h-0.5 mx-1 ${s.num < step ? "bg-green-700" : "bg-border"}`} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ProgressBar({ step }: { step: number }) {
+  return (
+    <div className="flex gap-1 mb-5">
+      {STEPS.map((s) => (
+        <div
+          key={s.num}
+          className={`flex-1 h-1 rounded-full ${
+            s.num < step ? "bg-primary" : s.num === step ? "bg-accent" : "bg-border"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
+function NavRow({
+  prev,
+  next,
+  nextLabel,
+  nextAccent,
+  onNavigate,
+}: {
+  prev?: number;
+  next?: number;
+  nextLabel: string;
+  nextAccent?: boolean;
+  onNavigate: (step: number) => void;
+}) {
+  return (
+    <div className="flex justify-between items-center mt-6">
+      {prev ? (
+        <button
+          type="button"
+          onClick={() => onNavigate(prev)}
+          className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+        >
+          <ArrowLeft size={14} /> Retour
+        </button>
+      ) : (
+        <span />
+      )}
+      {next && (
+        <Button onClick={() => onNavigate(next)} variant={nextAccent ? "accent" : "default"} className="rounded-lg">
+          {nextLabel} <ArrowRight size={16} className="ml-1" />
+        </Button>
+      )}
+    </div>
+  );
+}
+
+function TypeCard({
+  selected,
+  onClick,
+  title,
+  desc,
+  badge,
+}: {
+  selected: boolean;
+  onClick: () => void;
+  title: string;
+  desc: string;
+  badge?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`border rounded-xl p-4 text-left transition-all ${
+        selected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40"
+      }`}
+    >
+      <div className={`w-2.5 h-2.5 rounded-full mb-2.5 ${selected ? "bg-primary" : "border-[1.5px] border-muted-foreground/30"}`} />
+      <div className="text-[13px] font-semibold text-foreground mb-1 flex items-center gap-2">
+        {title}
+        {badge && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">{badge}</span>}
+      </div>
+      <div className="text-[11px] text-muted-foreground leading-relaxed">{desc}</div>
+    </button>
+  );
+}
+
+function Card({ children, accent, showStepBorder }: { children: ReactNode; accent?: boolean; showStepBorder?: boolean }) {
+  return (
+    <div
+      className={`bg-card border border-border ${showStepBorder ? "border-t-[3px]" : ""} ${accent ? "border-t-accent" : "border-t-primary"} rounded-2xl p-6 md:p-7 max-w-[760px] mx-auto shadow-sm`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function StepHeader({ label, title, step }: { label: string; title: string; step: number }) {
+  return (
+    <div className="mb-5">
+      <span
+        className={`inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full mb-2.5 ${
+          step === 6 ? "bg-green-50 text-green-800" : "bg-primary/10 text-primary"
+        }`}
+      >
+        {step === 6 ? "✓ Bail prêt à générer" : `Étape ${step} / 6`}
+      </span>
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-semibold flex-shrink-0 ${
+            step === 6 ? "bg-green-700 text-white" : "bg-primary text-primary-foreground"
+          }`}
+        >
+          {step === 6 ? <Check size={16} /> : step}
+        </div>
+        <div>
+          <div className="text-[11px] text-muted-foreground">{label}</div>
+          <div className="text-[16px] font-semibold text-foreground">{title}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 let meubleCounter = 4;
 
@@ -193,129 +353,18 @@ export default function GenerateurBail() {
     setSent(true);
   };
 
-  /* ── Stepper ── */
-  const STEPS = [
-    { num: 1, label: "Type" },
-    { num: 2, label: "Bailleur" },
-    { num: 3, label: "Preneur" },
-    { num: 4, label: "Bien" },
-    { num: 5, label: "Conditions" },
-    { num: 6, label: "Finaliser" },
-  ];
-
-  const Stepper = () => (
-    <div className="flex items-center max-w-[760px] mx-auto mb-8">
-      {STEPS.map((s, i) => (
-        <div key={s.num} className="flex items-center flex-1 last:flex-none">
-          <div className="flex flex-col items-center">
-            <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
-                s.num < step
-                  ? "bg-green-700 text-white"
-                  : s.num === step
-                  ? "bg-accent text-accent-foreground shadow-[0_0_0_4px_hsl(var(--accent)/0.2)]"
-                  : "bg-border text-muted-foreground"
-              }`}
-            >
-              {s.num < step ? <Check size={14} /> : s.num}
-            </div>
-            <span className="hidden md:block text-[9px] text-muted-foreground mt-1">{s.label}</span>
-          </div>
-          {i < 5 && (
-            <div className={`flex-1 h-0.5 mx-1 ${s.num < step ? "bg-green-700" : "bg-border"}`} />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-
-  const ProgressBar = () => (
-    <div className="flex gap-1 mb-5">
-      {STEPS.map((s) => (
-        <div
-          key={s.num}
-          className={`flex-1 h-1 rounded-full ${
-            s.num < step ? "bg-primary" : s.num === step ? "bg-accent" : "bg-border"
-          }`}
-        />
-      ))}
-    </div>
-  );
-
-  const NavRow = ({ prev, next, nextLabel, nextAccent }: { prev?: number; next?: number; nextLabel: string; nextAccent?: boolean }) => (
-    <div className="flex justify-between items-center mt-6">
-      {prev ? (
-        <button onClick={() => goNext(prev)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-          <ArrowLeft size={14} /> Retour
-        </button>
-      ) : <span />}
-      {next && (
-        <Button onClick={() => goNext(next)} variant={nextAccent ? "accent" : "default"} className="rounded-lg">
-          {nextLabel} <ArrowRight size={16} className="ml-1" />
-        </Button>
-      )}
-    </div>
-  );
-
-  /* ── Type Card ── */
-  const TypeCard = ({ selected, onClick, title, desc, badge }: { selected: boolean; onClick: () => void; title: string; desc: string; badge?: string }) => (
-    <button
-      onClick={onClick}
-      className={`border rounded-xl p-4 text-left transition-all ${
-        selected
-          ? "border-primary bg-primary/5 shadow-sm"
-          : "border-border bg-card hover:border-primary/40"
-      }`}
-    >
-      <div className={`w-2.5 h-2.5 rounded-full mb-2.5 ${selected ? "bg-primary" : "border-[1.5px] border-muted-foreground/30"}`} />
-      <div className="text-[13px] font-semibold text-foreground mb-1 flex items-center gap-2">
-        {title}
-        {badge && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">{badge}</span>}
-      </div>
-      <div className="text-[11px] text-muted-foreground leading-relaxed">{desc}</div>
-    </button>
-  );
-
-  /* ── Card wrapper ── */
-  const Card = ({ children, accent }: { children: React.ReactNode; accent?: boolean }) => (
-    <div className={`bg-card border border-border ${step > 1 ? "border-t-[3px]" : ""} ${accent ? "border-t-accent" : "border-t-primary"} rounded-2xl p-6 md:p-7 max-w-[760px] mx-auto shadow-sm`}>
-      {children}
-    </div>
-  );
-
-  const StepHeader = ({ label, title }: { label: string; title: string }) => (
-    <div className="mb-5">
-      <span className={`inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full mb-2.5 ${
-        step === 6 ? "bg-green-50 text-green-800" : "bg-primary/10 text-primary"
-      }`}>
-        {step === 6 ? "✓ Bail prêt à générer" : `Étape ${step} / 6`}
-      </span>
-      <div className="flex items-center gap-3">
-        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-semibold flex-shrink-0 ${
-          step === 6 ? "bg-green-700 text-white" : "bg-primary text-primary-foreground"
-        }`}>
-          {step === 6 ? <Check size={16} /> : step}
-        </div>
-        <div>
-          <div className="text-[11px] text-muted-foreground">{label}</div>
-          <div className="text-[16px] font-semibold text-foreground">{title}</div>
-        </div>
-      </div>
-    </div>
-  );
-
   const bailLabel6 = bailType === "meuble" ? `Location meublée (${partImmeuble}/${partMeubles})` : "Location d'espace seul";
   const qualiteLabel6 = qualite === "proprietaire" ? "Propriétaire" : "Locataire (sous-location)";
 
   return (
     <div className="bg-secondary py-10 md:py-12 px-4 md:px-6 lg:px-12">
-      <Stepper />
+      <Stepper step={step} />
 
       {/* ── STEP 1 ── */}
       {step === 1 && (
-        <Card>
-          <StepHeader label="Configuration" title="Type de bail" />
-          <ProgressBar />
+        <Card showStepBorder={step > 1}>
+          <StepHeader label="Configuration" title="Type de bail" step={step} />
+          <ProgressBar step={step} />
           <p className="text-[13px] text-muted-foreground mb-4">Quel type de bail souhaitez-vous générer ?</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
             <TypeCard selected={bailType === "immeuble"} onClick={() => setBailType("immeuble")} title="Location d'espace seul" desc="Bail portant uniquement sur une surface professionnelle. Vous louez votre bureau à votre société." />
@@ -326,15 +375,15 @@ export default function GenerateurBail() {
             <TypeCard selected={qualite === "proprietaire"} onClick={() => setQualite("proprietaire")} title="Propriétaire" desc="Vous êtes propriétaire du logement. Bail direct entre vous et votre société." />
             <TypeCard selected={qualite === "locataire"} onClick={() => setQualite("locataire")} title="Locataire (sous-location)" desc="Vous êtes locataire. La clause légale de sous-location est insérée automatiquement." />
           </div>
-          <NavRow next={2} nextLabel="Suivant — Le bailleur" />
+          <NavRow next={2} nextLabel="Suivant — Le bailleur" onNavigate={goNext} />
         </Card>
       )}
 
       {/* ── STEP 2 ── */}
       {step === 2 && (
-        <Card>
-          <StepHeader label="Le bailleur" title="Vos coordonnées" />
-          <ProgressBar />
+        <Card showStepBorder={step > 1}>
+          <StepHeader label="Le bailleur" title="Vos coordonnées" step={step} />
+          <ProgressBar step={step} />
           <div className="grid grid-cols-[80px_1fr_1fr] gap-2.5 mb-3">
             <div>
               <Label className="text-[11px] text-muted-foreground font-medium">Civilité</Label>
@@ -377,15 +426,15 @@ export default function GenerateurBail() {
             <input type="checkbox" checked={coBailleur} onChange={(e) => setCoBailleur(e.target.checked)} className="w-4 h-4 rounded border-border accent-primary" />
             Ajouter un co-bailleur (conjoint / co-propriétaire)
           </label>
-          <NavRow prev={1} next={3} nextLabel="Suivant — Le preneur" />
+          <NavRow prev={1} next={3} nextLabel="Suivant — Le preneur" onNavigate={goNext} />
         </Card>
       )}
 
       {/* ── STEP 3 ── */}
       {step === 3 && (
-        <Card>
-          <StepHeader label="Le preneur" title="Votre société" />
-          <ProgressBar />
+        <Card showStepBorder={step > 1}>
+          <StepHeader label="Le preneur" title="Votre société" step={step} />
+          <ProgressBar step={step} />
           <div className="bg-blue-50 border-l-[3px] border-blue-700 rounded-r-lg p-3 text-[12px] text-blue-800 leading-relaxed mb-5">
             <Info size={14} className="inline mr-1.5 -mt-0.5" />
             Entrez les données officielles de votre société telles qu'elles apparaissent dans la Banque-Carrefour des Entreprises (BCE).
@@ -423,15 +472,15 @@ export default function GenerateurBail() {
               <Input value={representant} onChange={(e) => setRepresentant(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean Dupont (gérant)" />
             </div>
           </div>
-          <NavRow prev={2} next={4} nextLabel="Suivant — Le bien" />
+          <NavRow prev={2} next={4} nextLabel="Suivant — Le bien" onNavigate={goNext} />
         </Card>
       )}
 
       {/* ── STEP 4 ── */}
       {step === 4 && (
-        <Card>
-          <StepHeader label="Le bien" title="Description de l'espace loué" />
-          <ProgressBar />
+        <Card showStepBorder={step > 1}>
+          <StepHeader label="Le bien" title="Description de l'espace loué" step={step} />
+          <ProgressBar step={step} />
           <div className="grid grid-cols-[1fr_110px] gap-2.5 mb-3">
             <div>
               <Label className="text-[11px] text-muted-foreground font-medium">Adresse du bien *</Label>
@@ -462,10 +511,10 @@ export default function GenerateurBail() {
                 <div key={m.id} className="grid grid-cols-[1fr_120px_28px] gap-2 items-center py-2 border-b border-border/30">
                   <Input value={m.designation} onChange={(e) => updateMeuble(m.id, "designation", e.target.value)} className="h-[30px] text-[12px]" placeholder="Bureau en bois chêne" />
                   <Input type="number" value={m.valeur} onChange={(e) => updateMeuble(m.id, "valeur", numVal(e.target.value))} className="h-[30px] text-[12px] text-center" placeholder="450" />
-                  <button onClick={() => removeMeuble(m.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors"><X size={14} /></button>
+                  <button type="button" onClick={() => removeMeuble(m.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors"><X size={14} /></button>
                 </div>
               ))}
-              <button onClick={addMeuble} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 hover:underline">
+              <button type="button" onClick={addMeuble} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 hover:underline">
                 <div className="w-[22px] h-[22px] border-[1.5px] border-dashed border-primary rounded-full flex items-center justify-center"><Plus size={13} /></div>
                 Ajouter un meuble
               </button>
@@ -477,15 +526,15 @@ export default function GenerateurBail() {
               )}
             </>
           )}
-          <NavRow prev={3} next={5} nextLabel="Suivant — Conditions" />
+          <NavRow prev={3} next={5} nextLabel="Suivant — Conditions" onNavigate={goNext} />
         </Card>
       )}
 
       {/* ── STEP 5 ── */}
       {step === 5 && (
-        <Card>
-          <StepHeader label="Conditions" title="Loyer et modalités" />
-          <ProgressBar />
+        <Card showStepBorder={step > 1}>
+          <StepHeader label="Conditions" title="Loyer et modalités" step={step} />
+          <ProgressBar step={step} />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3">
             <div>
               <Label className="text-[11px] text-muted-foreground font-medium">Loyer mensuel *</Label>
@@ -563,15 +612,15 @@ export default function GenerateurBail() {
             <input type="checkbox" checked={indexation} onChange={(e) => setIndexation(e.target.checked)} className="w-4 h-4 rounded border-border accent-primary" />
             Indexation annuelle sur l'indice santé belge (art. 1728bis Code civil)
           </label>
-          <NavRow prev={4} next={6} nextLabel="Suivant — Finaliser" nextAccent />
+          <NavRow prev={4} next={6} nextLabel="Suivant — Finaliser" nextAccent onNavigate={goNext} />
         </Card>
       )}
 
       {/* ── STEP 6 ── */}
       {step === 6 && (
-        <Card accent>
-          <StepHeader label="Finalisation" title="Recevoir votre bail par email" />
-          <ProgressBar />
+        <Card accent showStepBorder={step > 1}>
+          <StepHeader label="Finalisation" title="Recevoir votre bail par email" step={step} />
+          <ProgressBar step={step} />
           <div className="bg-secondary border border-border rounded-xl p-4 mb-5">
             <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-3">Récapitulatif</div>
             {[
