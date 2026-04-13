@@ -13,6 +13,8 @@ import {
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
+import { generateQuotitePdf } from "@/lib/generate-quotite-pdf";
+import { supabase } from "@/integrations/supabase/client";
 
 /* ── Types ── */
 interface Piece {
