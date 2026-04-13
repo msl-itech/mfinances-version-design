@@ -219,7 +219,7 @@ export default function FraisDefendables() {
       {/* ════════════════ TOOL CARD ════════════════ */}
       <div className="bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg" id="outil-frais">
         {/* Header — gradient navy */}
-        <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground px-6 py-5 flex items-center justify-between gap-4">
+        <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur grid place-items-center flex-shrink-0 border border-white/20">
               <svg viewBox="0 0 100 100" width="30" height="30">
