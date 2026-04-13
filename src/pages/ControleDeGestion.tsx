@@ -3,7 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
 import imgKpi from "@/assets/controle-gestion-kpi.jpg";
-import imgMeeting from "@/assets/daf-meeting.jpg";
+import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
