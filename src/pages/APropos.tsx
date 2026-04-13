@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-equipe-sourire.jpg";
+import mikaPortrait from "@/assets/mika-portrait.jpg";
 import imgStory from "@/assets/about-story.jpg";
 import imgMeeting from "@/assets/meeting-warm.jpg";
 import imgDashboard from "@/assets/dashboard-laptop.jpg";
