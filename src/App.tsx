@@ -41,6 +41,7 @@ import CalculateurBureau from "./pages/CalculateurBureau.tsx";
 import GenerateurBailPage from "./pages/GenerateurBailPage.tsx";
 import ChecklistControleBureau from "./pages/ChecklistControleBureau.tsx";
 import ChecklistControleBureauConfirmation from "./pages/ChecklistControleBureauConfirmation.tsx";
+import Unsubscribe from "./pages/Unsubscribe.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -94,6 +95,7 @@ const App = () => {
           <Route path="/ressources/generateur-bail/" element={<GenerateurBailPage />} />
           <Route path="/ressources/checklist-controle-bureau/" element={<ChecklistControleBureau />} />
           <Route path="/ressources/checklist-controle-bureau/confirmation/" element={<ChecklistControleBureauConfirmation />} />
+          <Route path="/unsubscribe/" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
