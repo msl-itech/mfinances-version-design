@@ -191,9 +191,33 @@ export default function FraisDefendables() {
   const progressWidth = step === 1 ? "33%" : step === 2 ? "66%" : "100%";
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-7 items-start" id="frais-defendables-widget" ref={toolRef}>
+    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-5 lg:gap-7 items-start" id="frais-defendables-widget" ref={toolRef}>
+      {/* ════════════════ SIDEBAR ON MOBILE (collapsed accordion) ════════════════ */}
+      <aside className="lg:hidden" aria-label="Informations sur l'outil">
+        <details className="bg-card border border-border rounded-2xl shadow-sm group [&[open]>summary_.info-chevron]:rotate-180">
+          <summary className="px-4 py-3.5 font-bold text-primary text-sm flex items-center justify-between cursor-pointer list-none">
+            <span className="flex items-center gap-2"><Target size={16} strokeWidth={2.5} /> À propos de cet outil</span>
+            <svg className="info-chevron w-4 h-4 text-muted-foreground transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div className="px-4 pb-4 grid gap-3">
+            {[
+              { title: "Ce que l'outil fait", Icon: Target, text: "Il vous aide à faire un premier tri rapide. Vous voyez quels frais sont les plus simples, lesquels demandent une méthode, et lesquels méritent un avis expert." },
+              { title: "Ce que le fisc regarde", Icon: Eye, text: "Le lien réel avec l'activité · La qualité du justificatif · La part privée éventuelle · La cohérence du dossier dans le temps." },
+              { title: "Ce que cet outil ne fait pas", Icon: AlertTriangle, text: "Il ne remplace pas une analyse personnalisée. Un cas complexe dépend de votre statut et de la structure de votre activité." },
+            ].map(card => (
+              <div key={card.title} className="bg-muted border border-border rounded-xl p-4">
+                <h3 className="text-[13px] font-bold text-primary mb-1.5 flex items-center gap-2">
+                  <card.Icon size={14} strokeWidth={2.5} /> {card.title}
+                </h3>
+                <p className="text-muted-foreground text-[13px] leading-relaxed">{card.text}</p>
+              </div>
+            ))}
+          </div>
+        </details>
+      </aside>
+
       {/* ════════════════ TOOL CARD ════════════════ */}
-      <div className="bg-card border border-border rounded-3xl overflow-hidden shadow-lg" id="outil-frais">
+      <div className="bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg" id="outil-frais">
         {/* Header — gradient navy */}
         <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground px-6 py-5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
