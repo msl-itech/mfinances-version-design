@@ -118,12 +118,9 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     /* skip */
   }
   doc.setFont("helvetica", "bold");
-  setTextC(RED);
-  doc.setFontSize(14);
-  // doc.text("M", M + 12, 14);
   setTextC(WHITE);
   doc.setFontSize(9);
-  doc.text("MFINANCES", M + 18, 14);
+  doc.text("MFINANCES", M + 13, 14);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(7.5);
