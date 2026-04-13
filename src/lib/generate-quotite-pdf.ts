@@ -412,16 +412,22 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   sectionTitle("Recommandations selon votre profil");
 
   // Status block
-  const drawStatusBox = (icon: string, title: string, text: string) => {
+  const drawStatusBox = (_icon: string, title: string, text: string) => {
     const lines = doc.splitTextToSize(text, CW - 20);
     const boxH = Math.max(20, lines.length * 3.5 + 14);
     setDraw(NAVY);
     doc.roundedRect(M, y, CW, boxH, 2, 2, "S");
+    // Draw a simple square icon placeholder
     setFill(BG);
     doc.roundedRect(M + 5, y + 5, 12, 12, 2, 2, "F");
-    doc.setFontSize(10);
-    setTextC(NAVY);
-    doc.text(icon, M + 8, y + 13);
+    setDraw(NAVY);
+    doc.setLineWidth(0.4);
+    // small house/building shape
+    doc.line(M + 8, y + 14, M + 8, y + 10);
+    doc.line(M + 8, y + 10, M + 11, y + 8);
+    doc.line(M + 11, y + 8, M + 14, y + 10);
+    doc.line(M + 14, y + 10, M + 14, y + 14);
+    doc.line(M + 8, y + 14, M + 14, y + 14);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8.5);
     setTextC(NAVY);
@@ -533,11 +539,17 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     setFill(BG);
     setDraw(BORDER);
     doc.roundedRect(r.rx, y, cardW, maxRappelH, 2, 2, "FD");
-    doc.setFontSize(8);
-    setTextC(NAVY);
-    doc.text(r.icon, r.rx + 4, y + 6);
+    // Draw small icon instead of emoji
+    setDraw(NAVY);
+    doc.setLineWidth(0.3);
+    const ix = r.rx + 5;
+    const iy = y + 3;
+    doc.roundedRect(ix, iy, 4, 5, 0.5, 0.5, "S");
+    doc.line(ix + 1, iy + 1.5, ix + 3, iy + 1.5);
+    doc.line(ix + 1, iy + 3, ix + 3, iy + 3);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
+    setTextC(NAVY);
     doc.text(r.title, r.rx + 12, y + 6);
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
@@ -547,13 +559,25 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   y += maxRappelH + 6;
 
   // ── CTA prochaine étape ──
+  const ctaBoxH = 24;
   setFill(NAVY);
-  doc.roundedRect(M, y, CW, 22, 3, 3, "F");
-  doc.setFontSize(10);
-  setTextC(WHITE);
-  doc.text("📋", M + 6, y + 12);
+  doc.roundedRect(M, y, CW, ctaBoxH, 3, 3, "F");
+
+  // Icon: draw a simple clipboard shape instead of emoji
+  const iconX = M + 7;
+  const iconY = y + 7;
+  setFill(WHITE);
+  setDraw(WHITE);
+  doc.setLineWidth(0.3);
+  doc.roundedRect(iconX, iconY, 6, 8, 0.8, 0.8, "S");
+  doc.roundedRect(iconX + 1.5, iconY - 1, 3, 2, 0.5, 0.5, "FD");
+  // clipboard lines
+  doc.line(iconX + 1.5, iconY + 3, iconX + 4.5, iconY + 3);
+  doc.line(iconX + 1.5, iconY + 5, iconX + 4.5, iconY + 5);
+
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
+  setTextC(WHITE);
   doc.text("Votre prochaine étape recommandée", M + 18, y + 8);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
@@ -561,32 +585,42 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
 
   let ctaText = "";
   let ctaBtn = "";
+  let ctaUrl = "";
   if (data.statut === "dirigeant" || data.statut === "les-deux") {
     if (data.logement === "locataire") {
       ctaText =
         "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel — gratuit et conforme.";
-      ctaBtn = "Générer mon bail →";
+      ctaBtn = "Générer mon bail !";
+      ctaUrl = "https://mfinances.be/ressources/generateur-bail/";
     } else {
       ctaText =
         "Vous êtes dirigeant de société et propriétaire. Formalisez la location d'une partie de votre bien à votre société avec un bail conforme.";
-      ctaBtn = "Générer mon bail →";
+      ctaBtn = "Générer mon bail !";
+      ctaUrl = "https://mfinances.be/ressources/generateur-bail/";
     }
   } else {
     ctaText =
       "Transmettez ce rapport à votre expert-comptable. Il dispose de toutes les données pour intégrer la déduction dans votre déclaration IPP.";
-    ctaBtn = "Contacter MFinances →";
+    ctaBtn = "Contacter MFinances";
+    ctaUrl = "https://mfinances.be/contact/";
   }
   const ctaLines = doc.splitTextToSize(ctaText, CW - 70);
+  setTextC([200, 210, 230]);
   doc.text(ctaLines, M + 18, y + 13);
 
-  // CTA button
+  // CTA button — clickable link
+  const btnW = 42;
+  const btnH = 13;
+  const btnX = W - M - btnW - 4;
+  const btnY = y + (ctaBoxH - btnH) / 2;
   setFill(RED);
-  doc.roundedRect(W - M - 45, y + 5, 40, 12, 2, 2, "F");
+  doc.roundedRect(btnX, btnY, btnW, btnH, 2, 2, "F");
   setTextC(WHITE);
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(7);
-  doc.text(ctaBtn, W - M - 25, y + 12.5, { align: "center" });
-  y += 28;
+  doc.setFontSize(7.5);
+  doc.text(ctaBtn, btnX + btnW / 2, btnY + btnH / 2 + 1.5, { align: "center" });
+  doc.link(btnX, btnY, btnW, btnH, { url: ctaUrl });
+  y += ctaBoxH + 6;
 
   // ── Disclaimer ──
   setDraw(BORDER);
