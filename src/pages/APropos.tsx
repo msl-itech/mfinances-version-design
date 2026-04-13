@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-equipe-sourire.jpg";
+import mikaPortrait from "@/assets/mika-portrait.jpg";
 import imgStory from "@/assets/about-story.jpg";
 import imgMeeting from "@/assets/meeting-warm.jpg";
 import imgDashboard from "@/assets/dashboard-laptop.jpg";
@@ -280,8 +281,8 @@ export default function APropos() {
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-center">
             <SR className="lg:col-span-2">
               <img
-                src={equipePhoto}
-                alt="Équipe MFinances — Expertise comptable à Uccle"
+src={mikaPortrait}
+alt="Mika MUSUNGAYI — Fondateur de MFinances"
                 className="rounded-2xl w-full h-[300px] md:h-[380px] object-cover object-center shadow-lg"
               />
             </SR>
