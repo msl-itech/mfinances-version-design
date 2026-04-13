@@ -10,7 +10,9 @@ export interface TemplateEntry {
 }
 
 import { template as bailPdf } from './bail-pdf-ready.tsx'
+import { template as quotitePdf } from './quotite-pdf-ready.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'bail-pdf-ready': bailPdf,
+  'quotite-pdf-ready': quotitePdf,
 }
