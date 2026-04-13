@@ -547,13 +547,25 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   y += maxRappelH + 6;
 
   // ── CTA prochaine étape ──
+  const ctaBoxH = 24;
   setFill(NAVY);
-  doc.roundedRect(M, y, CW, 22, 3, 3, "F");
-  doc.setFontSize(10);
-  setTextC(WHITE);
-  doc.text("📋", M + 6, y + 12);
+  doc.roundedRect(M, y, CW, ctaBoxH, 3, 3, "F");
+
+  // Icon: draw a simple clipboard shape instead of emoji
+  const iconX = M + 7;
+  const iconY = y + 7;
+  setFill(WHITE);
+  setDraw(WHITE);
+  doc.setLineWidth(0.3);
+  doc.roundedRect(iconX, iconY, 6, 8, 0.8, 0.8, "S");
+  doc.roundedRect(iconX + 1.5, iconY - 1, 3, 2, 0.5, 0.5, "FD");
+  // clipboard lines
+  doc.line(iconX + 1.5, iconY + 3, iconX + 4.5, iconY + 3);
+  doc.line(iconX + 1.5, iconY + 5, iconX + 4.5, iconY + 5);
+
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
+  setTextC(WHITE);
   doc.text("Votre prochaine étape recommandée", M + 18, y + 8);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
@@ -561,32 +573,42 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
 
   let ctaText = "";
   let ctaBtn = "";
+  let ctaUrl = "";
   if (data.statut === "dirigeant" || data.statut === "les-deux") {
     if (data.logement === "locataire") {
       ctaText =
         "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel — gratuit et conforme.";
-      ctaBtn = "Générer mon bail →";
+      ctaBtn = "Générer mon bail !";
+      ctaUrl = "https://mfinances.be/ressources/generateur-bail/";
     } else {
       ctaText =
         "Vous êtes dirigeant de société et propriétaire. Formalisez la location d'une partie de votre bien à votre société avec un bail conforme.";
-      ctaBtn = "Générer mon bail →";
+      ctaBtn = "Générer mon bail !";
+      ctaUrl = "https://mfinances.be/ressources/generateur-bail/";
     }
   } else {
     ctaText =
       "Transmettez ce rapport à votre expert-comptable. Il dispose de toutes les données pour intégrer la déduction dans votre déclaration IPP.";
-    ctaBtn = "Contacter MFinances →";
+    ctaBtn = "Contacter MFinances";
+    ctaUrl = "https://mfinances.be/contact/";
   }
   const ctaLines = doc.splitTextToSize(ctaText, CW - 70);
+  setTextC([200, 210, 230]);
   doc.text(ctaLines, M + 18, y + 13);
 
-  // CTA button
+  // CTA button — clickable link
+  const btnW = 42;
+  const btnH = 13;
+  const btnX = W - M - btnW - 4;
+  const btnY = y + (ctaBoxH - btnH) / 2;
   setFill(RED);
-  doc.roundedRect(W - M - 45, y + 5, 40, 12, 2, 2, "F");
+  doc.roundedRect(btnX, btnY, btnW, btnH, 2, 2, "F");
   setTextC(WHITE);
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(7);
-  doc.text(ctaBtn, W - M - 25, y + 12.5, { align: "center" });
-  y += 28;
+  doc.setFontSize(7.5);
+  doc.text(ctaBtn, btnX + btnW / 2, btnY + btnH / 2 + 1.5, { align: "center" });
+  doc.link(btnX, btnY, btnW, btnH, { url: ctaUrl });
+  y += ctaBoxH + 6;
 
   // ── Disclaimer ──
   setDraw(BORDER);
