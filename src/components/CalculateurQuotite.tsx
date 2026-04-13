@@ -270,41 +270,44 @@ export default function CalculateurQuotite() {
           </div>
 
           {/* Header */}
-          <div className="hidden md:grid grid-cols-[1fr_68px_140px_120px_26px] gap-2 pb-2 border-b border-border mb-2">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">Pièce</span>
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">m²</span>
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">Type</span>
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">Usage pro</span>
+          <div className="hidden md:grid grid-cols-[minmax(160px,1.2fr)_72px_170px_minmax(140px,1fr)_28px] gap-3 pb-2 border-b border-border mb-1">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Pièce</span>
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider text-center">M²</span>
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Type de pièce</span>
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Usage pro</span>
             <span />
           </div>
 
           {/* Rows */}
           {pieces.map((piece) => (
-            <div key={piece.id} className="grid grid-cols-1 md:grid-cols-[1fr_68px_140px_120px_26px] gap-2 md:gap-2 items-center py-3 border-b border-border/30">
+            <div key={piece.id} className="group grid grid-cols-1 md:grid-cols-[minmax(160px,1.2fr)_72px_170px_minmax(140px,1fr)_28px] gap-3 items-center py-3 border-b border-border/30 hover:bg-secondary/40 transition-colors rounded-md px-1 -mx-1">
+              {/* Nom de la pièce */}
               <div className="flex items-center gap-2">
                 <Input
                   value={piece.name}
                   onChange={(e) => updatePiece(piece.id, "name", e.target.value)}
-                  className="h-8 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none flex-1"
+                  className="h-9 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none flex-1"
                 />
-                <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[28px] min-h-[28px] flex items-center justify-center">
+                <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[36px] min-h-[36px] flex items-center justify-center">
                   <X size={14} />
                 </button>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
+
+              {/* Mobile: 2-col layout for m² + type */}
+              <div className="grid grid-cols-2 md:contents gap-2">
                 <div>
-                  <span className="text-[10px] text-muted-foreground md:hidden">Surface</span>
+                  <span className="text-[10px] text-muted-foreground md:hidden mb-0.5 block">Surface (m²)</span>
                   <Input
                     type="number"
                     value={piece.surface || ""}
                     onChange={(e) => updatePiece(piece.id, "surface", numVal(e.target.value) || 0)}
-                    className="h-[34px] sm:h-[30px] text-[12px] font-semibold text-primary text-center bg-secondary border-border rounded-md"
+                    className="h-[36px] text-[13px] font-semibold text-primary text-center bg-secondary border-border rounded-md w-full"
                   />
                 </div>
                 <div>
-                  <span className="text-[10px] text-muted-foreground md:hidden">Type</span>
+                  <span className="text-[10px] text-muted-foreground md:hidden mb-0.5 block">Type de pièce</span>
                   <Select value={piece.type} onValueChange={(v) => updatePiece(piece.id, "type", v)}>
-                    <SelectTrigger className="h-[34px] sm:h-[30px] text-[11px] bg-secondary border-border">
+                    <SelectTrigger className="h-[36px] text-[11px] bg-secondary border-border">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -315,8 +318,10 @@ export default function CalculateurQuotite() {
                   </Select>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-muted-foreground md:hidden mr-1">Pro</span>
+
+              {/* Slider usage pro */}
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-muted-foreground md:hidden mr-1">Usage pro</span>
                 <Slider
                   value={[piece.usagePro]}
                   onValueChange={([v]) => updatePiece(piece.id, "usagePro", v)}
@@ -324,9 +329,11 @@ export default function CalculateurQuotite() {
                   step={5}
                   className="flex-1"
                 />
-                <span className="text-[11px] font-semibold text-primary min-w-[32px] text-right">{piece.usagePro} %</span>
+                <span className="text-[12px] font-semibold text-primary min-w-[38px] text-right tabular-nums">{piece.usagePro} %</span>
               </div>
-              <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors hidden md:block">
+
+              {/* Bouton supprimer (desktop) */}
+              <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/30 hover:text-destructive transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <X size={14} />
               </button>
             </div>
