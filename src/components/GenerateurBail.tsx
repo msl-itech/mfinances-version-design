@@ -266,6 +266,11 @@ export default function GenerateurBail() {
     return isNaN(n) ? "" : n;
   };
 
+  const setRepartitionValue = useCallback((value: number) => {
+    const safeValue = Math.min(80, Math.max(40, Math.round(value / 5) * 5));
+    setRepartition([safeValue]);
+  }, []);
+
   const goNext = (s: number) => {
     setStep(s);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -580,11 +585,36 @@ export default function GenerateurBail() {
                 Le Code civil belge prévoit par défaut 60 % immeuble / 40 % meubles. Ajustez si la réalité économique le justifie.
               </div>
               <div className="mb-4">
-                <div className="flex justify-between text-[11px] text-muted-foreground mb-2">
-                  <span>Immeuble</span>
-                  <span className="font-semibold text-primary text-[13px]">{partImmeuble} %</span>
+                <div className="flex items-end justify-between gap-3 mb-2">
+                  <div className="text-[11px] text-muted-foreground">
+                    <span>Immeuble</span>
+                  </div>
+                  <div className="w-[92px]">
+                    <Label className="text-[11px] text-muted-foreground font-medium">%</Label>
+                    <Input
+                      type="number"
+                      min={40}
+                      max={80}
+                      step={5}
+                      value={partImmeuble}
+                      onChange={(e) => setRepartitionValue(Number(e.target.value || 60))}
+                      className="mt-1 h-9 text-[13px] text-center"
+                    />
+                  </div>
                 </div>
-                <Slider value={repartition} onValueChange={setRepartition} min={40} max={80} step={5} />
+                <Slider value={repartition} onValueChange={(value) => setRepartitionValue(value[0] ?? 60)} min={40} max={80} step={5} />
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {[40, 50, 60, 70, 80].map((value) => (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => setRepartitionValue(value)}
+                      className={value === partImmeuble ? "rounded-full border border-primary bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary" : "rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"}
+                    >
+                      {value} / {100 - value}
+                    </button>
+                  ))}
+                </div>
                 <div className="flex justify-between text-[12px] font-semibold text-primary mt-2">
                   <span>Immeuble : {partImmeuble} %</span>
                   <span>Meubles : {partMeubles} %</span>
