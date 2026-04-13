@@ -181,9 +181,12 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   setTextC(WHITE);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(38);
-  doc.text(`${fmtDec(quotite)}`, W / 2 - 6, y + 28, { align: "center" });
-  doc.setFontSize(18);
-  doc.text("%", W / 2 + doc.getTextWidth(fmtDec(quotite)) / 2 - 2, y + 22);
+  const qText = fmtDec(quotite);
+  const qTextW = doc.getTextWidth(qText);
+  const qX = W / 2 - qTextW / 2 - 4;
+  doc.text(qText, qX, y + 28);
+  doc.setFontSize(16);
+  doc.text("%", qX + qTextW + 1, y + 18);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(8);
@@ -210,15 +213,16 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     setDraw(BORDER);
     doc.roundedRect(kx, y, kpiW, 24, 2, 2, "FD");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
-    doc.text(kpi.label.toUpperCase(), kx + kpiW / 2, y + 6, { align: "center" });
+    doc.setFontSize(6);
+    const labelLines = doc.splitTextToSize(kpi.label.toUpperCase(), kpiW - 4);
+    doc.text(labelLines, kx + kpiW / 2, y + 5, { align: "center" });
     doc.setFont("helvetica", "bold");
     setTextC(kpi.red ? RED : TEXT_C);
-    doc.setFontSize(13);
-    doc.text(kpi.val, kx + kpiW / 2, y + 15, { align: "center" });
+    doc.setFontSize(12);
+    doc.text(kpi.val, kx + kpiW / 2, y + 15, { align: "center", maxWidth: kpiW - 4 });
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
+    doc.setFontSize(6);
     doc.text(kpi.sub, kx + kpiW / 2, y + 20, { align: "center" });
   });
 
@@ -334,11 +338,11 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     }
     doc.setFont("helvetica", "normal");
     setTextC(MID);
-    doc.setFontSize(7.5);
-    doc.text(c.label, M + 2, y + 4.5);
+    doc.setFontSize(7);
+    doc.text(c.label, M + 2, y + 4.5, { maxWidth: 94 });
     doc.text(`${fmt(c.montant)} €`, M + 100, y + 4.5);
     setTextC(GRAY);
-    doc.text(`× ${fmtDec(quotite)} %`, M + 120, y + 4.5);
+    doc.text(`× ${fmtDec(quotite)} %`, M + 118, y + 4.5);
     doc.setFont("helvetica", "bold");
     setTextC(RED);
     doc.text(`${fmt(Math.round((c.montant * quotite) / 100))} €`, W - M - 2, y + 4.5, { align: "right" });
@@ -517,24 +521,30 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     text: "Recalculez votre quotiété à chaque exercice fiscal si votre situation change.",
   });
 
-  rappels.forEach((r, i) => {
+  let maxRappelH = 22;
+  const rappelData = rappels.map((r, i) => {
     const rx = M + i * (cardW + 3);
+    const tl = doc.splitTextToSize(r.text, cardW - 10);
+    const h = Math.max(22, tl.length * 3 + 12);
+    if (h > maxRappelH) maxRappelH = h;
+    return { ...r, rx, tl };
+  });
+  rappelData.forEach((r) => {
     setFill(BG);
     setDraw(BORDER);
-    doc.roundedRect(rx, y, cardW, 22, 2, 2, "FD");
+    doc.roundedRect(r.rx, y, cardW, maxRappelH, 2, 2, "FD");
     doc.setFontSize(8);
     setTextC(NAVY);
-    doc.text(r.icon, rx + 4, y + 6);
+    doc.text(r.icon, r.rx + 4, y + 6);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
-    doc.text(r.title, rx + 12, y + 6);
+    doc.text(r.title, r.rx + 12, y + 6);
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
-    const tl = doc.splitTextToSize(r.text, cardW - 10);
-    doc.text(tl, rx + 4, y + 11);
+    doc.setFontSize(6);
+    doc.text(r.tl, r.rx + 4, y + 11);
   });
-  y += 28;
+  y += maxRappelH + 6;
 
   // ── CTA prochaine étape ──
   setFill(NAVY);
