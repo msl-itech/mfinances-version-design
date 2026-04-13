@@ -213,15 +213,16 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     setDraw(BORDER);
     doc.roundedRect(kx, y, kpiW, 24, 2, 2, "FD");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
-    doc.text(kpi.label.toUpperCase(), kx + kpiW / 2, y + 6, { align: "center" });
+    doc.setFontSize(6);
+    const labelLines = doc.splitTextToSize(kpi.label.toUpperCase(), kpiW - 4);
+    doc.text(labelLines, kx + kpiW / 2, y + 5, { align: "center" });
     doc.setFont("helvetica", "bold");
     setTextC(kpi.red ? RED : TEXT_C);
-    doc.setFontSize(13);
-    doc.text(kpi.val, kx + kpiW / 2, y + 15, { align: "center" });
+    doc.setFontSize(12);
+    doc.text(kpi.val, kx + kpiW / 2, y + 15, { align: "center", maxWidth: kpiW - 4 });
     doc.setFont("helvetica", "normal");
     setTextC(GRAY);
-    doc.setFontSize(6.5);
+    doc.setFontSize(6);
     doc.text(kpi.sub, kx + kpiW / 2, y + 20, { align: "center" });
   });
 
