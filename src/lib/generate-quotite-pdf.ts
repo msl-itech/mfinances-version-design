@@ -70,7 +70,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   /* ── Calculations ── */
   let surfacePro = 0;
   let surfaceTotal = 0;
-  const piecesCalc = data.pieces.map(p => {
+  const piecesCalc = data.pieces.map((p) => {
     const coeff = COEFFS[p.type] ?? 1;
     const pondere = p.surface * coeff;
     const proPond = pondere * (p.usagePro / 100);
@@ -91,9 +91,16 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   const deductionAn = chargesTotal * (quotite / 100);
   const deductionMois = deductionAn / 12;
 
-  const hasNonStandardPond = data.pieces.some(p => p.type !== "vie");
+  const hasNonStandardPond = data.pieces.some((p) => p.type !== "vie");
   const dateStr = nowFr();
-  const statutLabel = data.statut === "dirigeant" ? "Dirigeant(e) de société" : data.statut === "independant" ? "Indépendant(e)" : data.statut === "les-deux" ? "Les deux" : "Profession libérale";
+  const statutLabel =
+    data.statut === "dirigeant"
+      ? "Dirigeant(e) de société"
+      : data.statut === "independant"
+        ? "Indépendant(e)"
+        : data.statut === "les-deux"
+          ? "Les deux"
+          : "Profession libérale";
 
   /* ═══════════════════════════════════════════════
      PAGE 1
@@ -105,11 +112,15 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   y = 12;
 
   // Logo
-  try { doc.addImage(LOGO_BASE64, "PNG", M, 8, 10, 10); } catch { /* skip */ }
+  try {
+    doc.addImage(LOGO_BASE64, "PNG", M, 8, 10, 10);
+  } catch {
+    /* skip */
+  }
   doc.setFont("helvetica", "bold");
   setTextC(RED);
   doc.setFontSize(14);
-  doc.text("M", M + 12, 14);
+  // doc.text("M", M + 12, 14);
   setTextC(WHITE);
   doc.setFontSize(9);
   doc.text("MFINANCES", M + 18, 14);
@@ -176,7 +187,12 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(8);
-  doc.text(`${fmtDec(surfacePro)} m² professionnels pondérés  /  ${fmtDec(surfaceTotal)} m² surface totale pondérée`, W / 2, y + 35, { align: "center" });
+  doc.text(
+    `${fmtDec(surfacePro)} m² professionnels pondérés  /  ${fmtDec(surfaceTotal)} m² surface totale pondérée`,
+    W / 2,
+    y + 35,
+    { align: "center" },
+  );
 
   y += 46;
 
@@ -282,8 +298,11 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   // ── Note pondération (conditionnel) ──
   if (hasNonStandardPond) {
     const noteText = data.pieces
-      .filter(p => p.type !== "vie")
-      .map(p => `« ${p.name} » → ${COEFF_LABELS[p.type]} (${p.type === "mansardee" ? "mansardée, hauteur réduite" : "cave/grenier"})`)
+      .filter((p) => p.type !== "vie")
+      .map(
+        (p) =>
+          `« ${p.name} » → ${COEFF_LABELS[p.type]} (${p.type === "mansardee" ? "mansardée, hauteur réduite" : "cave/grenier"})`,
+      )
       .join(", ");
 
     setFill(WARN_BG);
@@ -298,7 +317,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     doc.setFontSize(6.5);
     const wrapNote = doc.splitTextToSize(
       `Pièce(s) pondérée(s) : ${noteText}. Cette pondération est couramment appliquée par les cabinets comptables belges. Elle n'est pas un barème officiel, mais reflète une pratique habituelle défendable en cas de contrôle.`,
-      CW - 10
+      CW - 10,
     );
     doc.text(wrapNote, M + 5, y + 9);
     y += Math.max(16, wrapNote.length * 3.5 + 6);
@@ -322,7 +341,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     doc.text(`× ${fmtDec(quotite)} %`, M + 120, y + 4.5);
     doc.setFont("helvetica", "bold");
     setTextC(RED);
-    doc.text(`${fmt(Math.round(c.montant * quotite / 100))} €`, W - M - 2, y + 4.5, { align: "right" });
+    doc.text(`${fmt(Math.round((c.montant * quotite) / 100))} €`, W - M - 2, y + 4.5, { align: "right" });
     y += 6.5;
   });
 
@@ -357,7 +376,11 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   setTextC(GRAY);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
-  doc.text("MFinances · Expert-comptable agréé · ITAA n°50.624.805 · Uccle, Bruxelles · info@mfinances.be · mfinances.be", M, 286);
+  doc.text(
+    "MFinances · Expert-comptable agréé · ITAA n°50.624.805 · Uccle, Bruxelles · info@mfinances.be · mfinances.be",
+    M,
+    286,
+  );
   doc.text("Page 1 / 2", W - M, 286, { align: "right" });
 
   /* ═══════════════════════════════════════════════
@@ -407,17 +430,29 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   };
 
   if (data.statut === "dirigeant" && data.logement === "locataire") {
-    drawStatusBox("🏢", "Vous êtes dirigeant de société et locataire",
-      "Vous pouvez potentiellement aller plus loin que la simple quotiété. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC — et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.");
+    drawStatusBox(
+      "🏢",
+      "Vous êtes dirigeant de société et locataire",
+      "Vous pouvez potentiellement aller plus loin que la simple quotiété. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC — et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.",
+    );
   } else if (data.statut === "dirigeant" && data.logement === "proprietaire") {
-    drawStatusBox("🏠", "Vous êtes dirigeant de société et propriétaire",
-      "En tant que propriétaire, vous pouvez louer une partie de votre bien à votre société. Le loyer perçu est imposé comme revenu immobilier dans votre IPP, tandis que la société déduit ce loyer comme charge professionnelle à l'ISOC. Un bail écrit entre vous et votre société est indispensable.\n\nProchaine étape recommandée : générer un bail de location conforme avec notre outil gratuit.");
+    drawStatusBox(
+      "🏠",
+      "Vous êtes dirigeant de société et propriétaire",
+      "En tant que propriétaire, vous pouvez louer une partie de votre bien à votre société. Le loyer perçu est imposé comme revenu immobilier dans votre IPP, tandis que la société déduit ce loyer comme charge professionnelle à l'ISOC. Un bail écrit entre vous et votre société est indispensable.\n\nProchaine étape recommandée : générer un bail de location conforme avec notre outil gratuit.",
+    );
   } else if (data.statut === "independant" || data.statut === "liberal") {
-    drawStatusBox("🧾", "Vous êtes indépendant(e)",
-      "Déduisez la quotiété directement dans votre déclaration IPP comme frais professionnels. Conservez ce rapport PDF comme documentation justificative. Aucun bail n'est requis pour ce mécanisme.");
+    drawStatusBox(
+      "🧾",
+      "Vous êtes indépendant(e)",
+      "Déduisez la quotiété directement dans votre déclaration IPP comme frais professionnels. Conservez ce rapport PDF comme documentation justificative. Aucun bail n'est requis pour ce mécanisme.",
+    );
   } else {
-    drawStatusBox("⚖️", "Vous exercez les deux activités",
-      "Attention à la règle de non-double déduction : une même charge ne peut être déduite qu'une seule fois, que ce soit via votre société (ISOC) ou via votre activité indépendante (IPP). Nous vous recommandons de choisir le mécanisme le plus avantageux pour chaque poste de charge, avec l'aide de votre expert-comptable.\n\nProchaine étape recommandée : faire un diagnostic personnalisé avec MFinances.");
+    drawStatusBox(
+      "⚖️",
+      "Vous exercez les deux activités",
+      "Attention à la règle de non-double déduction : une même charge ne peut être déduite qu'une seule fois, que ce soit via votre société (ISOC) ou via votre activité indépendante (IPP). Nous vous recommandons de choisir le mécanisme le plus avantageux pour chaque poste de charge, avec l'aide de votre expert-comptable.\n\nProchaine étape recommandée : faire un diagnostic personnalisé avec MFinances.",
+    );
   }
 
   // ── Bloc quotiété contextuel ──
@@ -436,14 +471,26 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   };
 
   if (quotite <= 10) {
-    drawContextBox(INFO_BG, INFO_BORDER, INFO_TEXT,
-      `Votre quotiété est faible (${fmtDec(quotite)} %). Si vous utilisez un espace plus important à titre professionnel, ou si vous avez des pièces à usage mixte non comptabilisées, il peut être judicieux de revoir le calcul. Une pièce mixte à 15-20 % d'usage pro peut faire une différence notable.`);
+    drawContextBox(
+      INFO_BG,
+      INFO_BORDER,
+      INFO_TEXT,
+      `Votre quotiété est faible (${fmtDec(quotite)} %). Si vous utilisez un espace plus important à titre professionnel, ou si vous avez des pièces à usage mixte non comptabilisées, il peut être judicieux de revoir le calcul. Une pièce mixte à 15-20 % d'usage pro peut faire une différence notable.`,
+    );
   } else if (quotite < 30) {
-    drawContextBox(OK_BG, OK, OK,
-      `Votre quotiété de ${fmtDec(quotite)} % est dans la fourchette habituelle pour un appartement avec bureau dédié en Belgique. Elle est bien documentée et défendable en cas de contrôle fiscal, à condition de conserver ce rapport par exercice fiscal.`);
+    drawContextBox(
+      OK_BG,
+      OK,
+      OK,
+      `Votre quotiété de ${fmtDec(quotite)} % est dans la fourchette habituelle pour un appartement avec bureau dédié en Belgique. Elle est bien documentée et défendable en cas de contrôle fiscal, à condition de conserver ce rapport par exercice fiscal.`,
+    );
   } else {
-    drawContextBox(WARN_BG, [245, 158, 11], WARN,
-      `Attention — quotiété élevée (${fmtDec(quotite)} %). Une quotiété supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`);
+    drawContextBox(
+      WARN_BG,
+      [245, 158, 11],
+      WARN,
+      `Attention — quotiété élevée (${fmtDec(quotite)} %). Une quotiété supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`,
+    );
   }
 
   // ── Rappels pour la suite ──
@@ -451,12 +498,24 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
 
   const cardW = (CW - 6) / (data.logement === "locataire" ? 3 : 2);
   const rappels = [
-    { icon: "📁", title: "Conservation", text: "Conservez ce rapport PDF dans vos archives fiscales. Délai légal : 7 ans." },
+    {
+      icon: "📁",
+      title: "Conservation",
+      text: "Conservez ce rapport PDF dans vos archives fiscales. Délai légal : 7 ans.",
+    },
   ];
   if (data.logement === "locataire") {
-    rappels.push({ icon: "📄", title: "Bail de sous-location", text: "Un bail écrit est obligatoire avant tout paiement de loyer de votre société." });
+    rappels.push({
+      icon: "📄",
+      title: "Bail de sous-location",
+      text: "Un bail écrit est obligatoire avant tout paiement de loyer de votre société.",
+    });
   }
-  rappels.push({ icon: "🔄", title: "Recalcul annuel", text: "Recalculez votre quotiété à chaque exercice fiscal si votre situation change." });
+  rappels.push({
+    icon: "🔄",
+    title: "Recalcul annuel",
+    text: "Recalculez votre quotiété à chaque exercice fiscal si votre situation change.",
+  });
 
   rappels.forEach((r, i) => {
     const rx = M + i * (cardW + 3);
@@ -494,14 +553,17 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   let ctaBtn = "";
   if (data.statut === "dirigeant" || data.statut === "les-deux") {
     if (data.logement === "locataire") {
-      ctaText = "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel — gratuit et conforme.";
+      ctaText =
+        "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel — gratuit et conforme.";
       ctaBtn = "Générer mon bail →";
     } else {
-      ctaText = "Vous êtes dirigeant de société et propriétaire. Formalisez la location d'une partie de votre bien à votre société avec un bail conforme.";
+      ctaText =
+        "Vous êtes dirigeant de société et propriétaire. Formalisez la location d'une partie de votre bien à votre société avec un bail conforme.";
       ctaBtn = "Générer mon bail →";
     }
   } else {
-    ctaText = "Transmettez ce rapport à votre expert-comptable. Il dispose de toutes les données pour intégrer la déduction dans votre déclaration IPP.";
+    ctaText =
+      "Transmettez ce rapport à votre expert-comptable. Il dispose de toutes les données pour intégrer la déduction dans votre déclaration IPP.";
     ctaBtn = "Contacter MFinances →";
   }
   const ctaLines = doc.splitTextToSize(ctaText, CW - 70);
@@ -527,7 +589,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFontSize(6);
   const discLines = doc.splitTextToSize(
     "Ce rapport est un outil d'estimation basé exclusivement sur les données saisies par l'utilisateur. La quotiété et les déductions calculées constituent une base de documentation, mais ne remplacent pas une analyse personnalisée par un expert-comptable agréé qui connaît l'ensemble de votre situation fiscale. MFinances SPRL décline toute responsabilité quant à l'utilisation de ce rapport sans validation professionnelle préalable.\n\nLes montants indiqués sont des estimations. Les déductions effectives peuvent varier selon votre situation fiscale complète, le régime d'imposition applicable et les éventuelles limitations légales. Conservez ce document comme pièce justificative — délai légal : 7 ans.",
-    CW - 8
+    CW - 8,
   );
   doc.text(discLines, M + 4, y + 9);
   y += 32;
@@ -540,7 +602,11 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   setTextC(GRAY);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
-  doc.text("MFinances · Expert-comptable agréé · ITAA n°50.624.805 · Uccle, Bruxelles · info@mfinances.be · mfinances.be", M, 286);
+  doc.text(
+    "MFinances · Expert-comptable agréé · ITAA n°50.624.805 · Uccle, Bruxelles · info@mfinances.be · mfinances.be",
+    M,
+    286,
+  );
   doc.text("Document confidentiel généré automatiquement · mfinances.be/ressources/calculateur-bureau/", M, 290);
   doc.text("Page 2 / 2", W - M, 286, { align: "right" });
 
