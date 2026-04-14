@@ -175,7 +175,7 @@ export default function APropos() {
               <img
                 src={imgStory}
                 alt="Un dirigeant face à ses chiffres"
-                className="rounded-2xl w-full h-[280px] md:h-[340px] object-cover object-top shadow-lg"
+                className="rounded-2xl w-full h-[360px] md:h-[480px] object-cover object-top shadow-lg"
               />
             </SR>
           </div>
