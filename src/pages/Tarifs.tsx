@@ -129,8 +129,8 @@ function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.R
 }
 
 function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
-  if (v === true) return <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto sm:mx-0" />;
-  if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto sm:mx-0" />;
+  if (v === true) return <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />;
+  if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
   return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v as string}</span>;
 }
 
