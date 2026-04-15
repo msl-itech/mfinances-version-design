@@ -35,6 +35,38 @@ const SCORE_KEYWORDS: { regex: RegExp; points: number }[] = [
   { regex: /\b(contrôle fiscal|redressement|amende|TVA|ISOC|IPP|déclaration|retard|problème)\b/i, points: 3 },
 ];
 
+// ── Profanity / abuse filter (client-side, saves tokens) ──
+const PROFANITY_PATTERNS = [
+  /\b(putain|merde|connard|connasse|enculé|fdp|ntm|nique|salaud|salope|bordel|batard|bâtard|pd|pute|cul|bite|chier|foutre|enfoiré|abruti|crétin|débile|imbécile|con\b)/i,
+  /\b(fuck|shit|bitch|asshole|dick|bastard|damn|crap|idiot|stupid|dumb)\b/i,
+];
+
+const VALID_INTERNAL_ROUTES = new Set([
+  "/", "/tarifs/", "/services/", "/services/daf-externalise/", "/services/controle-de-gestion/",
+  "/services/tresorerie/", "/services/comptabilite/", "/services/fiscalite/",
+  "/services/creation-entreprise/", "/qui-nous-accompagnons/",
+  "/qui-nous-accompagnons/independants-et-startups/", "/qui-nous-accompagnons/commerce-et-horeca/",
+  "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
+  "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
+  "/qui-nous-accompagnons/societe-exploitation/", "/qui-nous-accompagnons/societe-de-management/",
+  "/qui-nous-accompagnons/societe-de-moyens/", "/diagnostic/", "/checklist-tresorerie/",
+  "/ressources/calculateur-bureau/", "/ressources/generateur-bail/",
+  "/ressources/checklist-controle-bureau/", "/frais-defendables/", "/blog/", "/a-propos/",
+  "/contact/", "/support/",
+]);
+
+const isProfane = (text: string) => PROFANITY_PATTERNS.some((p) => p.test(text));
+
+// Sanitize AI response: replace any internal links not in whitelist
+const sanitizeLinks = (text: string): string => {
+  return text.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, (match, label, url) => {
+    const normalized = url.endsWith("/") ? url : url + "/";
+    if (VALID_INTERNAL_ROUTES.has(normalized)) return match;
+    // Replace invalid link with contact page
+    return `[${label}](/contact/)`;
+  });
+};
+
 // ── Contextual suggestions based on current page ──
 const PAGE_SUGGESTIONS: Record<string, string[]> = {
   "/": [
