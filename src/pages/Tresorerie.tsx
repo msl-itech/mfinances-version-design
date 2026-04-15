@@ -7,8 +7,6 @@ import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SchemaFAQ from "@/components/SchemaFAQ";
-import { faqTresorerie } from "@/data/faq-data";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -411,7 +409,6 @@ export default function Tresorerie() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqTresorerie} />
       <Footer />
     </div>
   );

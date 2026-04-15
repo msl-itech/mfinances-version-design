@@ -6,8 +6,6 @@ import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SchemaFAQ from "@/components/SchemaFAQ";
-import { faqTarifs } from "@/data/faq-data";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -500,7 +498,6 @@ export default function Tarifs() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqTarifs} />
       <Footer />
     </div>
   );

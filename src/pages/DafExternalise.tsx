@@ -7,8 +7,6 @@ import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SchemaFAQ from "@/components/SchemaFAQ";
-import { faqDafExternalise } from "@/data/faq-data";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -355,7 +353,7 @@ export default function DafExternalise() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqDafExternalise} />
+      
       <Footer />
     </div>
   );
