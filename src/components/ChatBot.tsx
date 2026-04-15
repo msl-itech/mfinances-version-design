@@ -4,13 +4,25 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
-import { getMFContext } from "@/lib/visitor-tracker";
+import { getMFContext, type MFContext } from "@/lib/visitor-tracker";
 
 // ── Palier helper (mirrors Edge Function logic) ──
 function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
   if (totalScore >= 12) return "chaud";
   if (totalScore >= 5) return "tiede";
   return "froid";
+}
+
+// Build pre-filled diagnostic URL with collected data
+function buildDiagnosticURL(ctx: MFContext, email?: string): string {
+  const params = new URLSearchParams();
+  if (ctx.prenom) params.set("prenom", ctx.prenom);
+  if (email) params.set("email", email);
+  if (ctx.sector) params.set("secteur", ctx.sector);
+  const totalScore = ctx.behaviorScore || 0;
+  if (totalScore > 0) params.set("score", String(totalScore));
+  const qs = params.toString();
+  return `/diagnostic/${qs ? "?" + qs : ""}`;
 }
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -23,7 +35,9 @@ const WELCOME_MESSAGE: Msg = {
     "Bonjour ! 👋 Je suis l'assistant MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
 };
 
-const MAX_MESSAGES_PER_SESSION = 10;
+const MAX_MESSAGES_FROID = 15;
+const MAX_MESSAGES_TIEDE = 10;
+const MAX_MESSAGES_CHAUD = 6;
 const LEAD_CAPTURE_AFTER = 3;
 const PROACTIVE_DELAY_MS = 30_000;
 
@@ -180,7 +194,15 @@ export default function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
-  const limitReached = userMsgCount >= MAX_MESSAGES_PER_SESSION;
+  // Dynamic session limit based on palier
+  const currentPalier = getPalierFromScore(
+    (getMFContext().behaviorScore || 0) + leadScore
+  );
+  const sessionLimit =
+    currentPalier === "chaud" ? MAX_MESSAGES_CHAUD :
+    currentPalier === "tiede" ? MAX_MESSAGES_TIEDE :
+    MAX_MESSAGES_FROID;
+  const limitReached = userMsgCount >= sessionLimit;
   const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
 
   // Score a message against keyword patterns (each pattern scores only once per session)
@@ -413,15 +435,6 @@ export default function ChatBot() {
     setLeadSubmitted(true);
     setShowLeadCapture(false);
 
-    // Add as a system-like message
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](/diagnostic/).`,
-      },
-    ]);
-
     // Build conversation summary for Odoo description
     const conversationSummary = messages
       .filter((m) => m !== WELCOME_MESSAGE)
@@ -431,6 +444,17 @@ export default function ChatBot() {
 
     // Send lead to Odoo CRM
     const visitorCtx = getMFContext();
+    const diagURL = buildDiagnosticURL(visitorCtx, email);
+
+    // Add as a system-like message
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](${diagURL}).`,
+      },
+    ]);
+
     const palier = getPalierFromScore(visitorCtx.behaviorScore + leadScore);
     const priorite = palier === "chaud" ? "HAUTE" : palier === "tiede" ? "MOYENNE" : "BASSE";
     const outils = [
@@ -657,7 +681,7 @@ export default function ChatBot() {
           {isHotLead && !limitReached && (
             <div className="border-t border-accent/20 bg-accent/5 px-4 py-2.5 animate-fade-in">
               <a
-                href="/diagnostic/"
+                href={buildDiagnosticURL(getMFContext())}
                 className="flex items-center justify-center gap-2 text-[13px] font-bold text-accent hover:underline"
               >
                 🔥 Réservez votre diagnostic gratuit (30 min) →
@@ -670,10 +694,10 @@ export default function ChatBot() {
             {limitReached ? (
               <div className="text-center py-2">
                 <p className="text-[12px] text-muted-foreground mb-2">
-                  Vous avez atteint la limite de {MAX_MESSAGES_PER_SESSION} messages.
+                  Vous avez atteint la limite de {sessionLimit} messages.
                 </p>
                 <a
-                  href={isHotLead ? "/diagnostic/" : "/contact/"}
+                  href={isHotLead ? buildDiagnosticURL(getMFContext()) : "/contact/"}
                   className="text-[13px] text-accent font-medium underline underline-offset-2"
                 >
                   {isHotLead
