@@ -233,6 +233,24 @@ export default function ChatBot() {
   const sendMessageWithText = useCallback(
     async (text: string) => {
       if (!text.trim() || isLoading || limitReached) return;
+
+      // ── Profanity filter (blocks before API call = saves tokens) ──
+      if (isProfane(text.trim())) {
+        const userMsg: Msg = { role: "user", content: text.trim() };
+        setMessages((prev) => [
+          ...prev,
+          userMsg,
+          {
+            role: "assistant",
+            content:
+              "Je reste à votre disposition pour toute question professionnelle concernant nos services. Comment puis-je vous aider ?",
+          },
+        ]);
+        setUserMsgCount((c) => c + 1);
+        setInput("");
+        return;
+      }
+
       scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
 
