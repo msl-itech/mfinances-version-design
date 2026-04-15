@@ -136,18 +136,32 @@ const DEFAULT_SUGGESTIONS = [
   "Combien ça coûte ?",
 ];
 
-// ── Proactive messages based on page ──
+// ── Proactive messages — targeted micro-hooks per page ──
 const PROACTIVE_MESSAGES: Record<string, string> = {
-  "/": "💡 Besoin d'un expert-comptable qui pilote vraiment vos finances ?",
-  "/tarifs/": "🤔 Besoin d'aide pour choisir le bon forfait ?",
-  "/services/": "👋 Un question sur nos services ? Je peux vous guider !",
-  "/services/daf-externalise/": "📊 Le DAF externalisé vous intéresse ? Posez-moi vos questions !",
-  "/qui-nous-accompagnons/": "🎯 Vous cherchez un accompagnement sur-mesure ?",
-  "/blog/": "📚 Besoin d'un conseil sur un sujet précis ?",
-  "/contact/": "📞 Je peux répondre à vos questions avant votre prise de contact !",
+  "/": "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.",
+  "/tarifs/": "Vous comparez nos tarifs ? Je peux vous expliquer ce qui est inclus dans chaque formule selon votre situation. Qu'est-ce qui vous intéresse le plus ?",
+  "/services/": "Nos services vont au-delà de la comptabilité classique. Quel est votre besoin principal : optimiser vos charges, piloter votre trésorerie, ou structurer votre croissance ?",
+  "/services/daf-externalise/": "Le DAF externalisé, c'est souvent la question du bon moment. Vous pilotez votre trésorerie vous-même actuellement ?",
+  "/services/controle-de-gestion/": "Le contrôle de gestion permet d'anticiper plutôt que de subir. Vous avez une visibilité claire sur vos marges aujourd'hui ?",
+  "/services/tresorerie/": "La trésorerie, c'est le nerf de la guerre. Vous avez un prévisionnel actualisé ou vous naviguez à vue ?",
+  "/services/comptabilite/": "Votre comptabilité vous donne une vision claire de votre activité, ou c'est juste une obligation ?",
+  "/services/fiscalite/": "L'optimisation fiscale peut représenter plusieurs milliers d'euros par an. Vous connaissez votre taux effectif d'imposition ?",
+  "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
+  "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
+  "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
+  "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
+  "/diagnostic/": "",
 };
 
-const DEFAULT_PROACTIVE = "💬 Une question ? Je suis là pour vous aider !";
+const DEFAULT_PROACTIVE = "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.";
+
+// ── Exit-intent messages ──
+const EXIT_MESSAGES: Record<string, string> = {
+  "/tarifs/": "Avant de partir — si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
+  "/services/daf-externalise/": "Avant de partir — saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
+  "/services/creation-entreprise/": "Avant de partir — une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
+  default: "Avant de partir — vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
+};
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
@@ -157,6 +171,7 @@ export default function ChatBot() {
   const [userMsgCount, setUserMsgCount] = useState(0);
   const [showProactive, setShowProactive] = useState(false);
   const [proactiveDismissed, setProactiveDismissed] = useState(false);
+  const [proactiveText, setProactiveText] = useState("");
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSubmitted, setLeadSubmitted] = useState(false);
@@ -189,11 +204,23 @@ export default function ChatBot() {
     DEFAULT_SUGGESTIONS;
 
   // Proactive message after 30s
+  const getProactiveForPage = useCallback((path: string) => {
+    return PROACTIVE_MESSAGES[path] ||
+      Object.entries(PROACTIVE_MESSAGES).find(([key]) => path.startsWith(key) && key !== "/")?.[1] ||
+      DEFAULT_PROACTIVE;
+  }, []);
+
   useEffect(() => {
     if (open || proactiveDismissed) return;
-    const timer = setTimeout(() => setShowProactive(true), PROACTIVE_DELAY_MS);
+    const timer = setTimeout(() => {
+      const msg = getProactiveForPage(currentPath);
+      if (msg) {
+        setProactiveText(msg);
+        setShowProactive(true);
+      }
+    }, PROACTIVE_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [open, proactiveDismissed, currentPath]);
+  }, [open, proactiveDismissed, currentPath, getProactiveForPage]);
 
   // Hide proactive when chat opens
   useEffect(() => {
@@ -204,11 +231,28 @@ export default function ChatBot() {
   useEffect(() => {
     setShowProactive(false);
     setProactiveDismissed(false);
-    const timer = setTimeout(() => {
-      if (!open) setShowProactive(true);
-    }, PROACTIVE_DELAY_MS);
-    return () => clearTimeout(timer);
   }, [currentPath]);
+
+  // Exit-intent: show targeted message when cursor leaves window
+  useEffect(() => {
+    if (open) return;
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY > 50) return; // only trigger when leaving from top
+      if (sessionStorage.getItem("mf_exit_shown")) return;
+      sessionStorage.setItem("mf_exit_shown", "1");
+
+      const exitMsg =
+        EXIT_MESSAGES[currentPath] ||
+        Object.entries(EXIT_MESSAGES).find(([key]) => currentPath.startsWith(key) && key !== "default")?.[1] ||
+        EXIT_MESSAGES.default;
+
+      setProactiveText(exitMsg);
+      setShowProactive(true);
+      setProactiveDismissed(false);
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, [open, currentPath]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -437,11 +481,6 @@ export default function ChatBot() {
   // Don't show on diagnostic page (form page)
   if (location.pathname === "/diagnostic/") return null;
 
-  const proactiveMessage =
-    PROACTIVE_MESSAGES[currentPath] ||
-    Object.entries(PROACTIVE_MESSAGES).find(([key]) => currentPath.startsWith(key) && key !== "/")?.[1] ||
-    DEFAULT_PROACTIVE;
-
   const showSuggestions = messages.length <= 1 && !isLoading;
 
   return (
@@ -467,7 +506,7 @@ export default function ChatBot() {
             >
               ✕
             </button>
-            <p className="text-[13px] text-foreground leading-snug">{proactiveMessage}</p>
+            <p className="text-[13px] text-foreground leading-snug">{proactiveText}</p>
             {/* Triangle pointer */}
             <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-card" />
           </div>
