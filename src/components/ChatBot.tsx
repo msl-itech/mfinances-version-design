@@ -6,6 +6,13 @@ import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
 import { getMFContext } from "@/lib/visitor-tracker";
 
+// ── Palier helper (mirrors Edge Function logic) ──
+function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
+  if (totalScore >= 12) return "chaud";
+  if (totalScore >= 5) return "tiede";
+  return "froid";
+}
+
 type Msg = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chatbot`;
@@ -215,12 +222,17 @@ export default function ChatBot() {
     }
   }, [open]);
 
-  // Check if we should show lead capture
+  // Check if we should show lead capture — adaptive per palier
   useEffect(() => {
-    if (userMsgCount === LEAD_CAPTURE_AFTER && !leadSubmitted && !showLeadCapture) {
+    if (leadSubmitted || showLeadCapture) return;
+    const ctx = getMFContext();
+    const palier = getPalierFromScore(ctx.behaviorScore + leadScore);
+    const threshold =
+      palier === "chaud" ? 1 : palier === "tiede" ? 2 : LEAD_CAPTURE_AFTER;
+    if (userMsgCount >= threshold) {
       setShowLeadCapture(true);
     }
-  }, [userMsgCount, leadSubmitted, showLeadCapture]);
+  }, [userMsgCount, leadSubmitted, showLeadCapture, leadScore]);
 
   const handleSuggestionClick = (text: string) => {
     setInput(text);
@@ -375,22 +387,30 @@ export default function ChatBot() {
 
     // Send lead to Odoo CRM
     const visitorCtx = getMFContext();
+    const palier = getPalierFromScore(visitorCtx.behaviorScore + leadScore);
+    const priorite = palier === "chaud" ? "HAUTE" : palier === "tiede" ? "MOYENNE" : "BASSE";
+    const outils = [
+      visitorCtx.diagnosticDone ? "diagnostic" : null,
+      visitorCtx.checklistDownloaded ? "checklist" : null,
+    ].filter(Boolean).join(", ");
+
     submitLead({
       name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
       description: [
-        `<h3>Lead Chatbot</h3>`,
-        `<p><strong>Email:</strong> ${email}</p>`,
-        `<p><strong>Page visitée:</strong> ${currentPath}</p>`,
-        `<p><strong>Score qualification:</strong> ${leadScore}</p>`,
-        `<p><strong>Score comportemental:</strong> ${visitorCtx.behaviorScore}</p>`,
-        `<p><strong>Pages vues:</strong> ${visitorCtx.pages.join(", ")}</p>`,
-        `<p><strong>Visite n°${visitorCtx.visitCount}</strong> | Temps : ${Math.floor(visitorCtx.timeSeconds / 60)} min</p>`,
-        `<p><strong>Source:</strong> ${visitorCtx.source}${visitorCtx.utmCampaign ? ` (${visitorCtx.utmCampaign})` : ""}</p>`,
-        `<p><strong>Outils:</strong> ${visitorCtx.diagnosticDone ? "Diagnostic ✓" : ""} ${visitorCtx.checklistDownloaded ? "Checklist ✓" : ""}</p>`,
-        `<p><strong>Messages échangés:</strong> ${userMsgCount}</p>`,
+        `<h3>Lead Chatbot — Priorité ${priorite}</h3>`,
+        `<table style="border-collapse:collapse;width:100%">`,
+        `<tr><td><strong>Palier</strong></td><td>${palier.toUpperCase()}</td></tr>`,
+        `<tr><td><strong>Score total</strong></td><td>${visitorCtx.behaviorScore + leadScore} (comportemental: ${visitorCtx.behaviorScore} | conversationnel: ${leadScore})</td></tr>`,
+        `<tr><td><strong>Secteur</strong></td><td>${visitorCtx.sector || "non identifié"}</td></tr>`,
+        `<tr><td><strong>Pages vues</strong></td><td>${visitorCtx.pages.join(", ")}</td></tr>`,
+        `<tr><td><strong>Visite n°</strong></td><td>${visitorCtx.visitCount} | Temps : ${Math.floor(visitorCtx.timeSeconds / 60)} min</td></tr>`,
+        `<tr><td><strong>Source</strong></td><td>${visitorCtx.source}${visitorCtx.utmCampaign ? ` (${visitorCtx.utmCampaign})` : ""}</td></tr>`,
+        `<tr><td><strong>Outils</strong></td><td>${outils || "aucun"}</td></tr>`,
+        `<tr><td><strong>Messages</strong></td><td>${userMsgCount}</td></tr>`,
+        `</table>`,
         `<hr/>`,
-        `<p><strong>Résumé conversation:</strong></p>`,
+        `<p><strong>Résumé conversation :</strong></p>`,
         `<pre>${conversationSummary}</pre>`,
       ].join(""),
     }).catch(() => {});
