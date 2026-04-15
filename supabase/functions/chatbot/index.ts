@@ -50,29 +50,63 @@ function getPalier(totalScore: number): string {
   return "FROID";
 }
 
-function getPalierInstructions(palier: string): string {
+// ── Social proof library ──
+const SOCIAL_PROOF: Record<string, string> = {
+  horeca: "Un restaurateur bruxellois a récupéré 3 400 € de charges mal déduites en 8 mois avec nous.",
+  independant: "Un développeur indépendant a réduit ses cotisations de 28% après notre audit.",
+  commerce: "Un gérant de boutique retail a évité un redressement de 12 000 €.",
+  immobilier: "Un promoteur immobilier a optimisé sa fiscalité SCI et économisé 8 500 €/an.",
+  sante: "Un médecin spécialiste a structuré son assujettissement mixte TVA et récupéré 4 200 €/an.",
+  asbl: "Une ASBL culturelle a bénéficié de la réduction -21% et économisé 1 100 €/an sur son forfait.",
+  default: "Nos clients récupèrent en moyenne 2 800 € sur la première année de collaboration. Note Google 5/5 par nos clients.",
+};
+
+function getSocialProof(sector: string | null): string {
+  if (!sector) return SOCIAL_PROOF.default;
+  const key = sector.toLowerCase();
+  for (const [k, v] of Object.entries(SOCIAL_PROOF)) {
+    if (key.includes(k)) return v;
+  }
+  return SOCIAL_PROOF.default;
+}
+
+function getPalierInstructions(palier: string, ctx: any, messageCount: number): string {
+  const socialProof = getSocialProof(ctx?.sector);
+
   switch (palier) {
     case "FROID":
-      return `[INSTRUCTIONS PALIER FROID]
-- Ton informatif et bienveillant
-- Présente les services sans pression
-- Propose un lead magnet adapté (checklist, calculateur)
-- CTA doux : "Si vous souhaitez approfondir, notre diagnostic gratuit de 30 min est un bon point de départ → /diagnostic/"
+      return `[INSTRUCTIONS PALIER FROID — score 0 à 4]
+- Ton éducatif et bienveillant. Tu donnes de la valeur avant de demander quoi que ce soit.
+- Termine chaque réponse par UNE seule question de découverte ouverte.
+- Exemples de questions : "Vous êtes à quelle étape de votre activité ?" / "Vous cherchez plutôt à optimiser vos charges ou à mieux piloter votre trésorerie ?"
+- Au message 3 : propose le lead magnet correspondant à la page visitée :
+  * Page trésorerie → "Je peux vous envoyer notre checklist trésorerie gratuite"
+  * Page DAF → "Souhaitez-vous en savoir plus sur le DAF externalisé pour TPE ?"
+  * Page création → "Je peux vous orienter sur les étapes de création d'entreprise"
+- Capture email : "Quel email pour vous l'envoyer ?"
 - Ne demande PAS d'email avant le 3e message`;
+
     case "TIÈDE":
-      return `[INSTRUCTIONS PALIER TIÈDE]
-- Ton persuasif, montre la valeur ajoutée
-- Pose des questions de qualification : "Quel est votre chiffre d'affaires approximatif ?" "Avez-vous déjà un comptable ?"
-- Mentionne des résultats concrets de clients similaires
-- CTA clair : "Réservez votre diagnostic gratuit pour qu'on analyse votre situation → /diagnostic/"
-- Propose le lead magnet le plus pertinent selon les pages visitées`;
+      return `[INSTRUCTIONS PALIER TIÈDE — score 5 à 11]
+- Ton persuasif. Tu identifies le problème et tu montres que tu as la solution.
+- Questions de qualification à poser (une par réponse, espacées) :
+  * "Vous êtes dans quel secteur d'activité ?"
+  * "Vous avez déjà un expert-comptable ou vous cherchez à changer ?"
+  * "Votre CA se situe à quel niveau approximativement ?"
+- Une fois le secteur connu, cite ce témoignage : "${socialProof}"
+- CTA : lien vers /diagnostic/ avec mention du prénom si connu
+- Capture email dès le 2e message (pas le 3e comme en mode froid)`;
+
     case "CHAUD":
-      return `[INSTRUCTIONS PALIER CHAUD]
-- Ton directif et orienté action
-- Le visiteur est prêt : raccourcis la conversation
-- Propose directement le rendez-vous diagnostic : "Je vous propose de réserver 30 min avec Mika pour analyser votre situation → /diagnostic/"
-- Si urgence détectée, insiste sur la réactivité : "Nous pouvons vous rappeler sous 24h"
-- Utilise la preuve sociale : "Nos clients dirigeants de TPE économisent en moyenne 15% sur leur charge fiscale"`;
+      return `[INSTRUCTIONS PALIER CHAUD — score 12+]
+- Ton directif. Ce visiteur est prêt. Ne l'éduque pas — close.
+- Structure de chaque réponse : 1) Réponse courte et directe. 2) Chiffre ou résultat concret. 3) Preuve sociale. 4) CTA unique et clair.
+- Preuve sociale à utiliser : "${socialProof}"
+- Propose directement le rendez-vous : "Je vous propose de réserver 30 min avec Mika → /diagnostic/"
+- Si urgence détectée : "Nous pouvons vous rappeler sous 24h, laissez-moi votre email"
+- Capture email dès le 1er message
+- Exemple de closing : "On peut régler ça rapidement. ${SOCIAL_PROOF.default} [Réserver 30 min →](/diagnostic/)"`;
+
     default:
       return "";
   }
