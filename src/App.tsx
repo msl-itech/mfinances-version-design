@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { retryPendingLeads } from "@/lib/odoo-submit";
+import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -47,9 +48,18 @@ import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
 
+// Track route changes
+function RouteTracker() {
+  const location = useLocation();
+  useEffect(() => {
+    trackPageVisit(location.pathname);
+  }, [location.pathname]);
+  return null;
+}
+
 const App = () => {
   useEffect(() => {
-    // Retente l'envoi des leads en attente si Odoo était indisponible
+    initTracker();
     retryPendingLeads().catch(() => {});
   }, []);
 
@@ -59,6 +69,7 @@ const App = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouteTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services/" element={<Services />} />
