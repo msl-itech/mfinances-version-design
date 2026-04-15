@@ -374,14 +374,20 @@ export default function ChatBot() {
       .join("\n");
 
     // Send lead to Odoo CRM
+    const visitorCtx = getMFContext();
     submitLead({
-      name: email.split("@")[0],
+      name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
       description: [
         `<h3>Lead Chatbot</h3>`,
         `<p><strong>Email:</strong> ${email}</p>`,
         `<p><strong>Page visitée:</strong> ${currentPath}</p>`,
         `<p><strong>Score qualification:</strong> ${leadScore}</p>`,
+        `<p><strong>Score comportemental:</strong> ${visitorCtx.behaviorScore}</p>`,
+        `<p><strong>Pages vues:</strong> ${visitorCtx.pages.join(", ")}</p>`,
+        `<p><strong>Visite n°${visitorCtx.visitCount}</strong> | Temps : ${Math.floor(visitorCtx.timeSeconds / 60)} min</p>`,
+        `<p><strong>Source:</strong> ${visitorCtx.source}${visitorCtx.utmCampaign ? ` (${visitorCtx.utmCampaign})` : ""}</p>`,
+        `<p><strong>Outils:</strong> ${visitorCtx.diagnosticDone ? "Diagnostic ✓" : ""} ${visitorCtx.checklistDownloaded ? "Checklist ✓" : ""}</p>`,
         `<p><strong>Messages échangés:</strong> ${userMsgCount}</p>`,
         `<hr/>`,
         `<p><strong>Résumé conversation:</strong></p>`,
