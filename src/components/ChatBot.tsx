@@ -435,16 +435,6 @@ export default function ChatBot() {
     setLeadSubmitted(true);
     setShowLeadCapture(false);
 
-    // Add as a system-like message
-    const diagURL = buildDiagnosticURL(visitorCtx, email);
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](${diagURL}).`,
-      },
-    ]);
-
     // Build conversation summary for Odoo description
     const conversationSummary = messages
       .filter((m) => m !== WELCOME_MESSAGE)
@@ -454,6 +444,17 @@ export default function ChatBot() {
 
     // Send lead to Odoo CRM
     const visitorCtx = getMFContext();
+    const diagURL = buildDiagnosticURL(visitorCtx, email);
+
+    // Add as a system-like message
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](${diagURL}).`,
+      },
+    ]);
+
     const palier = getPalierFromScore(visitorCtx.behaviorScore + leadScore);
     const priorite = palier === "chaud" ? "HAUTE" : palier === "tiede" ? "MOYENNE" : "BASSE";
     const outils = [
