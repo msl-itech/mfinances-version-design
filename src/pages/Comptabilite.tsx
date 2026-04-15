@@ -7,6 +7,8 @@ import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SchemaFAQ from "@/components/SchemaFAQ";
+import { faqComptabilite } from "@/data/faq-data";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -414,6 +416,7 @@ export default function Comptabilite() {
         </section>
       </main>
 
+      <SchemaFAQ items={faqComptabilite} />
       <Footer />
     </div>
   );
