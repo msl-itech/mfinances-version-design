@@ -42,7 +42,9 @@ export default function ChatBot() {
 
   const sendMessage = useCallback(async () => {
     const text = input.trim();
-    if (!text || isLoading) return;
+    if (!text || isLoading || limitReached) return;
+
+    setUserMsgCount((c) => c + 1);
 
     const userMsg: Msg = { role: "user", content: text };
     const newMessages = [...messages, userMsg];
@@ -218,30 +220,44 @@ export default function ChatBot() {
 
           {/* Input */}
           <div className="border-t border-border p-3">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                sendMessage();
-              }}
-              className="flex items-center gap-2"
-            >
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Posez votre question..."
-                className="flex-1 bg-muted rounded-full px-4 py-2.5 text-[13px] outline-none focus:ring-2 focus:ring-accent/30 text-foreground placeholder:text-muted-foreground"
-                disabled={isLoading}
-              />
-              <button
-                type="submit"
-                disabled={!input.trim() || isLoading}
-                className="w-9 h-9 rounded-full bg-accent text-accent-foreground flex items-center justify-center disabled:opacity-40 hover:brightness-105 transition-all"
+            {limitReached ? (
+              <div className="text-center py-2">
+                <p className="text-[12px] text-muted-foreground mb-2">
+                  Vous avez atteint la limite de {MAX_MESSAGES_PER_SESSION} messages.
+                </p>
+                <a
+                  href="/contact/"
+                  className="text-[13px] text-accent font-medium underline underline-offset-2"
+                >
+                  Contactez-nous directement →
+                </a>
+              </div>
+            ) : (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  sendMessage();
+                }}
+                className="flex items-center gap-2"
               >
-                <Send size={15} />
-              </button>
-            </form>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Posez votre question..."
+                  className="flex-1 bg-muted rounded-full px-4 py-2.5 text-[13px] outline-none focus:ring-2 focus:ring-accent/30 text-foreground placeholder:text-muted-foreground"
+                  disabled={isLoading}
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim() || isLoading}
+                  className="w-9 h-9 rounded-full bg-accent text-accent-foreground flex items-center justify-center disabled:opacity-40 hover:brightness-105 transition-all"
+                >
+                  <Send size={15} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
