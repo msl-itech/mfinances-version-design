@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
+import { getMFContext } from "@/lib/visitor-tracker";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -264,6 +265,7 @@ export default function ChatBot() {
       let assistantSoFar = "";
 
       try {
+        const visitorContext = getMFContext();
         const resp = await fetch(CHAT_URL, {
           method: "POST",
           headers: {
@@ -272,6 +274,7 @@ export default function ChatBot() {
           },
           body: JSON.stringify({
             messages: newMessages.filter((m) => m !== WELCOME_MESSAGE),
+            context: visitorContext,
           }),
         });
 
@@ -371,14 +374,20 @@ export default function ChatBot() {
       .join("\n");
 
     // Send lead to Odoo CRM
+    const visitorCtx = getMFContext();
     submitLead({
-      name: email.split("@")[0],
+      name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
       description: [
         `<h3>Lead Chatbot</h3>`,
         `<p><strong>Email:</strong> ${email}</p>`,
         `<p><strong>Page visitée:</strong> ${currentPath}</p>`,
         `<p><strong>Score qualification:</strong> ${leadScore}</p>`,
+        `<p><strong>Score comportemental:</strong> ${visitorCtx.behaviorScore}</p>`,
+        `<p><strong>Pages vues:</strong> ${visitorCtx.pages.join(", ")}</p>`,
+        `<p><strong>Visite n°${visitorCtx.visitCount}</strong> | Temps : ${Math.floor(visitorCtx.timeSeconds / 60)} min</p>`,
+        `<p><strong>Source:</strong> ${visitorCtx.source}${visitorCtx.utmCampaign ? ` (${visitorCtx.utmCampaign})` : ""}</p>`,
+        `<p><strong>Outils:</strong> ${visitorCtx.diagnosticDone ? "Diagnostic ✓" : ""} ${visitorCtx.checklistDownloaded ? "Checklist ✓" : ""}</p>`,
         `<p><strong>Messages échangés:</strong> ${userMsgCount}</p>`,
         `<hr/>`,
         `<p><strong>Résumé conversation:</strong></p>`,
