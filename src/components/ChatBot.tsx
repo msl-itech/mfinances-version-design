@@ -14,14 +14,19 @@ const WELCOME_MESSAGE: Msg = {
     "Bonjour ! 👋 Je suis l'assistant MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
 };
 
+const MAX_MESSAGES_PER_SESSION = 10;
+
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [userMsgCount, setUserMsgCount] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
+
+  const limitReached = userMsgCount >= MAX_MESSAGES_PER_SESSION;
 
   useEffect(() => {
     if (scrollRef.current) {
