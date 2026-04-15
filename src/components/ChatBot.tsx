@@ -215,12 +215,17 @@ export default function ChatBot() {
     }
   }, [open]);
 
-  // Check if we should show lead capture
+  // Check if we should show lead capture — adaptive per palier
   useEffect(() => {
-    if (userMsgCount === LEAD_CAPTURE_AFTER && !leadSubmitted && !showLeadCapture) {
+    if (leadSubmitted || showLeadCapture) return;
+    const ctx = getMFContext();
+    const palier = getPalierFromScore(ctx.behaviorScore + leadScore);
+    const threshold =
+      palier === "chaud" ? 1 : palier === "tiede" ? 2 : LEAD_CAPTURE_AFTER;
+    if (userMsgCount >= threshold) {
       setShowLeadCapture(true);
     }
-  }, [userMsgCount, leadSubmitted, showLeadCapture]);
+  }, [userMsgCount, leadSubmitted, showLeadCapture, leadScore]);
 
   const handleSuggestionClick = (text: string) => {
     setInput(text);
