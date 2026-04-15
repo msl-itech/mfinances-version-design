@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, Loader2, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
+import { submitLead } from "@/lib/odoo-submit";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
