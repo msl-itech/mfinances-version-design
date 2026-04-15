@@ -43,6 +43,7 @@ import ChecklistControleBureau from "./pages/ChecklistControleBureau.tsx";
 import ChecklistControleBureauConfirmation from "./pages/ChecklistControleBureauConfirmation.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
 
@@ -99,6 +100,7 @@ const App = () => {
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ChatBot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
