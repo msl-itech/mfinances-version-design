@@ -35,6 +35,38 @@ const SCORE_KEYWORDS: { regex: RegExp; points: number }[] = [
   { regex: /\b(contrôle fiscal|redressement|amende|TVA|ISOC|IPP|déclaration|retard|problème)\b/i, points: 3 },
 ];
 
+// ── Profanity / abuse filter (client-side, saves tokens) ──
+const PROFANITY_PATTERNS = [
+  /\b(putain|merde|connard|connasse|enculé|fdp|ntm|nique|salaud|salope|bordel|batard|bâtard|pd|pute|cul|bite|chier|foutre|enfoiré|abruti|crétin|débile|imbécile|con\b)/i,
+  /\b(fuck|shit|bitch|asshole|dick|bastard|damn|crap|idiot|stupid|dumb)\b/i,
+];
+
+const VALID_INTERNAL_ROUTES = new Set([
+  "/", "/tarifs/", "/services/", "/services/daf-externalise/", "/services/controle-de-gestion/",
+  "/services/tresorerie/", "/services/comptabilite/", "/services/fiscalite/",
+  "/services/creation-entreprise/", "/qui-nous-accompagnons/",
+  "/qui-nous-accompagnons/independants-et-startups/", "/qui-nous-accompagnons/commerce-et-horeca/",
+  "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
+  "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
+  "/qui-nous-accompagnons/societe-exploitation/", "/qui-nous-accompagnons/societe-de-management/",
+  "/qui-nous-accompagnons/societe-de-moyens/", "/diagnostic/", "/checklist-tresorerie/",
+  "/ressources/calculateur-bureau/", "/ressources/generateur-bail/",
+  "/ressources/checklist-controle-bureau/", "/frais-defendables/", "/blog/", "/a-propos/",
+  "/contact/", "/support/",
+]);
+
+const isProfane = (text: string) => PROFANITY_PATTERNS.some((p) => p.test(text));
+
+// Sanitize AI response: replace any internal links not in whitelist
+const sanitizeLinks = (text: string): string => {
+  return text.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, (match, label, url) => {
+    const normalized = url.endsWith("/") ? url : url + "/";
+    if (VALID_INTERNAL_ROUTES.has(normalized)) return match;
+    // Replace invalid link with contact page
+    return `[${label}](/contact/)`;
+  });
+};
+
 // ── Contextual suggestions based on current page ──
 const PAGE_SUGGESTIONS: Record<string, string[]> = {
   "/": [
@@ -201,6 +233,24 @@ export default function ChatBot() {
   const sendMessageWithText = useCallback(
     async (text: string) => {
       if (!text.trim() || isLoading || limitReached) return;
+
+      // ── Profanity filter (blocks before API call = saves tokens) ──
+      if (isProfane(text.trim())) {
+        const userMsg: Msg = { role: "user", content: text.trim() };
+        setMessages((prev) => [
+          ...prev,
+          userMsg,
+          {
+            role: "assistant",
+            content:
+              "Je reste à votre disposition pour toute question professionnelle concernant nos services. Comment puis-je vous aider ?",
+          },
+        ]);
+        setUserMsgCount((c) => c + 1);
+        setInput("");
+        return;
+      }
+
       scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
 
@@ -256,14 +306,15 @@ export default function ChatBot() {
               const content = parsed.choices?.[0]?.delta?.content as string | undefined;
               if (content) {
                 assistantSoFar += content;
+                const sanitized = sanitizeLinks(assistantSoFar);
                 setMessages((prev) => {
                   const last = prev[prev.length - 1];
                   if (last?.role === "assistant" && last !== WELCOME_MESSAGE) {
                     return prev.map((m, i) =>
-                      i === prev.length - 1 ? { ...m, content: assistantSoFar } : m
+                      i === prev.length - 1 ? { ...m, content: sanitized } : m
                     );
                   }
-                  return [...prev, { role: "assistant", content: assistantSoFar }];
+                  return [...prev, { role: "assistant", content: sanitized }];
                 });
               }
             } catch {
