@@ -216,12 +216,24 @@ serve(async (req) => {
     const userMessageCount = messages.filter((m: any) => m.role === "user").length;
     const palierInstructions = getPalierInstructions(palier, context, userMessageCount);
 
+    const socialProofBlock = `===== BIBLIOTHÈQUE SOCIAL PROOF =====
+Horeca : ${SOCIAL_PROOF.horeca}
+Indépendant : ${SOCIAL_PROOF.independant}
+Commerce : ${SOCIAL_PROOF.commerce}
+Immobilier : ${SOCIAL_PROOF.immobilier}
+Santé : ${SOCIAL_PROOF.sante}
+ASBL : ${SOCIAL_PROOF.asbl}
+Défaut : ${SOCIAL_PROOF.default}`;
+
     const systemPrompt = `${BASE_PROMPT}
 
+===== CONTEXTE VISITEUR =====
 ${contextBlock}
 
 [PALIER ACTUEL : ${palier}]
-${palierInstructions}`;
+${palierInstructions}
+
+${socialProofBlock}`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
