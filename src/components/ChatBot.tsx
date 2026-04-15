@@ -680,7 +680,7 @@ export default function ChatBot() {
             {limitReached ? (
               <div className="text-center py-2">
                 <p className="text-[12px] text-muted-foreground mb-2">
-                  Vous avez atteint la limite de {MAX_MESSAGES_PER_SESSION} messages.
+                  Vous avez atteint la limite de {sessionLimit} messages.
                 </p>
                 <a
                   href={isHotLead ? "/diagnostic/" : "/contact/"}
