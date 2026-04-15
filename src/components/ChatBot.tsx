@@ -15,8 +15,25 @@ const WELCOME_MESSAGE: Msg = {
 };
 
 const MAX_MESSAGES_PER_SESSION = 10;
-const LEAD_CAPTURE_AFTER = 3; // Propose lead capture after N user messages
-const PROACTIVE_DELAY_MS = 30_000; // 30 seconds
+const LEAD_CAPTURE_AFTER = 3;
+const PROACTIVE_DELAY_MS = 30_000;
+
+// ── Invisible Lead Scoring ──
+const SCORE_THRESHOLD_HOT = 7; // Switch CTA to diagnostic
+const SCORE_KEYWORDS: { regex: RegExp; points: number }[] = [
+  // Urgence (+4)
+  { regex: /\b(urgent|rapidement|vite|pressé|deadline|dès que possible|asap|au plus vite|tout de suite)\b/i, points: 4 },
+  // Budget / prix mentionné (+3)
+  { regex: /\b(budget|prix|coût|tarif|combien|devis|factur|investir|investissement|€|euros?)\b/i, points: 3 },
+  // Taille entreprise / CA (+2)
+  { regex: /\b(salarié|employé|équipe|chiffre d'affaires|CA|revenus?|bénéfice|croissance|clients?|personnel)\b/i, points: 2 },
+  // Recherche active de comptable (+3)
+  { regex: /\b(cherch|besoin d'un comptable|changer de comptable|nouveau comptable|accompagnement|mission)\b/i, points: 3 },
+  // Structure juridique (+2)
+  { regex: /\b(SRL|SA|SPRL|ASBL|société|indépendant|complémentaire|personne physique|management)\b/i, points: 2 },
+  // Problème fiscal / contrôle (+3)
+  { regex: /\b(contrôle fiscal|redressement|amende|TVA|ISOC|IPP|déclaration|retard|problème)\b/i, points: 3 },
+];
 
 // ── Contextual suggestions based on current page ──
 const PAGE_SUGGESTIONS: Record<string, string[]> = {
