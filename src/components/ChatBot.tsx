@@ -506,7 +506,7 @@ export default function ChatBot() {
             >
               ✕
             </button>
-            <p className="text-[13px] text-foreground leading-snug">{proactiveMessage}</p>
+            <p className="text-[13px] text-foreground leading-snug">{proactiveText}</p>
             {/* Triangle pointer */}
             <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-card" />
           </div>
