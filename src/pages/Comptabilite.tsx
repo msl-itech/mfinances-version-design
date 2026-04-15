@@ -414,7 +414,7 @@ export default function Comptabilite() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqComptabilite} />
+      
       <Footer />
     </div>
   );
