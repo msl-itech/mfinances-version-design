@@ -326,7 +326,6 @@ export default function Fiscalite() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqFiscalite} />
       <Footer />
     </div>
   );

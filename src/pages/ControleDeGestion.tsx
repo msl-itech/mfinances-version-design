@@ -371,7 +371,6 @@ export default function ControleDeGestion() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqControleDeGestion} />
       <Footer />
     </div>
   );

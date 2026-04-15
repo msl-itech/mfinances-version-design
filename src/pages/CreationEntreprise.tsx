@@ -352,7 +352,6 @@ export default function CreationEntreprise() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqCreationEntreprise} />
       <Footer />
     </div>
   );

@@ -498,7 +498,6 @@ export default function Tarifs() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqTarifs} />
       <Footer />
     </div>
   );

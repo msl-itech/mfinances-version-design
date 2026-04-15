@@ -409,7 +409,6 @@ export default function Tresorerie() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqTresorerie} />
       <Footer />
     </div>
   );
