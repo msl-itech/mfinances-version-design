@@ -436,11 +436,12 @@ export default function ChatBot() {
     setShowLeadCapture(false);
 
     // Add as a system-like message
+    const diagURL = buildDiagnosticURL(visitorCtx, email);
     setMessages((prev) => [
       ...prev,
       {
         role: "assistant",
-        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](/diagnostic/).`,
+        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](${diagURL}).`,
       },
     ]);
 
