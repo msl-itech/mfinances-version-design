@@ -183,15 +183,16 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    // Build dynamic system prompt with visitor context and palier
+    // Compute conversational score from messages
+    const conversationalScore = computeConversationalScore(messages);
     const behaviorScore = context?.behaviorScore || 0;
-    const palier = getPalier(behaviorScore);
-    const contextBlock = buildContextBlock(context);
+    const totalScore = conversationalScore + behaviorScore;
+    const palier = getPalier(totalScore);
+    const contextBlock = buildContextBlock(context, conversationalScore);
     const palierInstructions = getPalierInstructions(palier);
 
     const systemPrompt = `${BASE_PROMPT}
 
-[CONTEXTE VISITEUR]
 ${contextBlock}
 
 [PALIER ACTUEL : ${palier}]
