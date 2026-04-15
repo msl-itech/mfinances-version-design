@@ -481,11 +481,6 @@ export default function ChatBot() {
   // Don't show on diagnostic page (form page)
   if (location.pathname === "/diagnostic/") return null;
 
-  const proactiveMessage =
-    PROACTIVE_MESSAGES[currentPath] ||
-    Object.entries(PROACTIVE_MESSAGES).find(([key]) => currentPath.startsWith(key) && key !== "/")?.[1] ||
-    DEFAULT_PROACTIVE;
-
   const showSuggestions = messages.length <= 1 && !isLoading;
 
   return (
