@@ -204,11 +204,23 @@ export default function ChatBot() {
     DEFAULT_SUGGESTIONS;
 
   // Proactive message after 30s
+  const getProactiveForPage = useCallback((path: string) => {
+    return PROACTIVE_MESSAGES[path] ||
+      Object.entries(PROACTIVE_MESSAGES).find(([key]) => path.startsWith(key) && key !== "/")?.[1] ||
+      DEFAULT_PROACTIVE;
+  }, []);
+
   useEffect(() => {
     if (open || proactiveDismissed) return;
-    const timer = setTimeout(() => setShowProactive(true), PROACTIVE_DELAY_MS);
+    const timer = setTimeout(() => {
+      const msg = getProactiveForPage(currentPath);
+      if (msg) {
+        setProactiveText(msg);
+        setShowProactive(true);
+      }
+    }, PROACTIVE_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [open, proactiveDismissed, currentPath]);
+  }, [open, proactiveDismissed, currentPath, getProactiveForPage]);
 
   // Hide proactive when chat opens
   useEffect(() => {
@@ -219,11 +231,28 @@ export default function ChatBot() {
   useEffect(() => {
     setShowProactive(false);
     setProactiveDismissed(false);
-    const timer = setTimeout(() => {
-      if (!open) setShowProactive(true);
-    }, PROACTIVE_DELAY_MS);
-    return () => clearTimeout(timer);
   }, [currentPath]);
+
+  // Exit-intent: show targeted message when cursor leaves window
+  useEffect(() => {
+    if (open) return;
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY > 50) return; // only trigger when leaving from top
+      if (sessionStorage.getItem("mf_exit_shown")) return;
+      sessionStorage.setItem("mf_exit_shown", "1");
+
+      const exitMsg =
+        EXIT_MESSAGES[currentPath] ||
+        Object.entries(EXIT_MESSAGES).find(([key]) => currentPath.startsWith(key) && key !== "default")?.[1] ||
+        EXIT_MESSAGES.default;
+
+      setProactiveText(exitMsg);
+      setShowProactive(true);
+      setProactiveDismissed(false);
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, [open, currentPath]);
 
   useEffect(() => {
     if (scrollRef.current) {
