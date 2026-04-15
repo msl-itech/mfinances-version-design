@@ -510,6 +510,18 @@ export default function ChatBot() {
             )}
           </div>
 
+          {/* Hot lead CTA banner */}
+          {isHotLead && !limitReached && (
+            <div className="border-t border-accent/20 bg-accent/5 px-4 py-2.5 animate-fade-in">
+              <a
+                href="/diagnostic/"
+                className="flex items-center justify-center gap-2 text-[13px] font-bold text-accent hover:underline"
+              >
+                🔥 Réservez votre diagnostic gratuit (30 min) →
+              </a>
+            </div>
+          )}
+
           {/* Input */}
           <div className="border-t border-border p-3">
             {limitReached ? (
@@ -518,10 +530,12 @@ export default function ChatBot() {
                   Vous avez atteint la limite de {MAX_MESSAGES_PER_SESSION} messages.
                 </p>
                 <a
-                  href="/contact/"
+                  href={isHotLead ? "/diagnostic/" : "/contact/"}
                   className="text-[13px] text-accent font-medium underline underline-offset-2"
                 >
-                  Contactez-nous directement →
+                  {isHotLead
+                    ? "Réservez votre diagnostic gratuit →"
+                    : "Contactez-nous directement →"}
                 </a>
               </div>
             ) : (
