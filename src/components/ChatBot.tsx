@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
+import { getMFContext } from "@/lib/visitor-tracker";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -264,6 +265,7 @@ export default function ChatBot() {
       let assistantSoFar = "";
 
       try {
+        const visitorContext = getMFContext();
         const resp = await fetch(CHAT_URL, {
           method: "POST",
           headers: {
@@ -272,6 +274,7 @@ export default function ChatBot() {
           },
           body: JSON.stringify({
             messages: newMessages.filter((m) => m !== WELCOME_MESSAGE),
+            context: visitorContext,
           }),
         });
 
