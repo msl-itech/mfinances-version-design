@@ -15,8 +15,25 @@ const WELCOME_MESSAGE: Msg = {
 };
 
 const MAX_MESSAGES_PER_SESSION = 10;
-const LEAD_CAPTURE_AFTER = 3; // Propose lead capture after N user messages
-const PROACTIVE_DELAY_MS = 30_000; // 30 seconds
+const LEAD_CAPTURE_AFTER = 3;
+const PROACTIVE_DELAY_MS = 30_000;
+
+// ── Invisible Lead Scoring ──
+const SCORE_THRESHOLD_HOT = 7; // Switch CTA to diagnostic
+const SCORE_KEYWORDS: { regex: RegExp; points: number }[] = [
+  // Urgence (+4)
+  { regex: /\b(urgent|rapidement|vite|pressé|deadline|dès que possible|asap|au plus vite|tout de suite)\b/i, points: 4 },
+  // Budget / prix mentionné (+3)
+  { regex: /\b(budget|prix|coût|tarif|combien|devis|factur|investir|investissement|€|euros?)\b/i, points: 3 },
+  // Taille entreprise / CA (+2)
+  { regex: /\b(salarié|employé|équipe|chiffre d'affaires|CA|revenus?|bénéfice|croissance|clients?|personnel)\b/i, points: 2 },
+  // Recherche active de comptable (+3)
+  { regex: /\b(cherch|besoin d'un comptable|changer de comptable|nouveau comptable|accompagnement|mission)\b/i, points: 3 },
+  // Structure juridique (+2)
+  { regex: /\b(SRL|SA|SPRL|ASBL|société|indépendant|complémentaire|personne physique|management)\b/i, points: 2 },
+  // Problème fiscal / contrôle (+3)
+  { regex: /\b(contrôle fiscal|redressement|amende|TVA|ISOC|IPP|déclaration|retard|problème)\b/i, points: 3 },
+];
 
 // ── Contextual suggestions based on current page ──
 const PAGE_SUGGESTIONS: Record<string, string[]> = {
@@ -102,11 +119,26 @@ export default function ChatBot() {
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadScore, setLeadScore] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
   const limitReached = userMsgCount >= MAX_MESSAGES_PER_SESSION;
+  const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
+
+  // Score a message against keyword patterns (each pattern scores only once per session)
+  const scoredPatternsRef = useRef<Set<number>>(new Set());
+  const scoreMessage = useCallback((text: string) => {
+    let added = 0;
+    SCORE_KEYWORDS.forEach((kw, idx) => {
+      if (!scoredPatternsRef.current.has(idx) && kw.regex.test(text)) {
+        scoredPatternsRef.current.add(idx);
+        added += kw.points;
+      }
+    });
+    if (added > 0) setLeadScore((prev) => prev + added);
+  }, []);
 
   // Get suggestions for current page
   const currentPath = location.pathname;
@@ -169,6 +201,7 @@ export default function ChatBot() {
   const sendMessageWithText = useCallback(
     async (text: string) => {
       if (!text.trim() || isLoading || limitReached) return;
+      scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
 
       const userMsg: Msg = { role: "user", content: text.trim() };
@@ -477,6 +510,18 @@ export default function ChatBot() {
             )}
           </div>
 
+          {/* Hot lead CTA banner */}
+          {isHotLead && !limitReached && (
+            <div className="border-t border-accent/20 bg-accent/5 px-4 py-2.5 animate-fade-in">
+              <a
+                href="/diagnostic/"
+                className="flex items-center justify-center gap-2 text-[13px] font-bold text-accent hover:underline"
+              >
+                🔥 Réservez votre diagnostic gratuit (30 min) →
+              </a>
+            </div>
+          )}
+
           {/* Input */}
           <div className="border-t border-border p-3">
             {limitReached ? (
@@ -485,10 +530,12 @@ export default function ChatBot() {
                   Vous avez atteint la limite de {MAX_MESSAGES_PER_SESSION} messages.
                 </p>
                 <a
-                  href="/contact/"
+                  href={isHotLead ? "/diagnostic/" : "/contact/"}
                   className="text-[13px] text-accent font-medium underline underline-offset-2"
                 >
-                  Contactez-nous directement →
+                  {isHotLead
+                    ? "Réservez votre diagnostic gratuit →"
+                    : "Contactez-nous directement →"}
                 </a>
               </div>
             ) : (
