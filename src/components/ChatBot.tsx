@@ -681,7 +681,7 @@ export default function ChatBot() {
           {isHotLead && !limitReached && (
             <div className="border-t border-accent/20 bg-accent/5 px-4 py-2.5 animate-fade-in">
               <a
-                href="/diagnostic/"
+                href={buildDiagnosticURL(getMFContext())}
                 className="flex items-center justify-center gap-2 text-[13px] font-bold text-accent hover:underline"
               >
                 🔥 Réservez votre diagnostic gratuit (30 min) →
@@ -697,7 +697,7 @@ export default function ChatBot() {
                   Vous avez atteint la limite de {sessionLimit} messages.
                 </p>
                 <a
-                  href={isHotLead ? "/diagnostic/" : "/contact/"}
+                  href={isHotLead ? buildDiagnosticURL(getMFContext()) : "/contact/"}
                   className="text-[13px] text-accent font-medium underline underline-offset-2"
                 >
                   {isHotLead
