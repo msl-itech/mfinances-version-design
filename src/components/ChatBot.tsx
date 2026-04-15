@@ -171,6 +171,7 @@ export default function ChatBot() {
   const [userMsgCount, setUserMsgCount] = useState(0);
   const [showProactive, setShowProactive] = useState(false);
   const [proactiveDismissed, setProactiveDismissed] = useState(false);
+  const [proactiveText, setProactiveText] = useState("");
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSubmitted, setLeadSubmitted] = useState(false);
