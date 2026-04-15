@@ -122,7 +122,7 @@ export default function APropos() {
             </div>
 
             <div className="lg:col-span-3 rounded-2xl shadow-2xl overflow-hidden">
-              <img src={equipePhoto} alt="Mika Musungayi — Fondateur MFinances, expert-comptable à Uccle" className="w-full h-[340px] md:h-[440px] object-cover object-top" />
+              <img src={equipePhoto} alt="Équipe MFinances — Cabinet comptable à Uccle, Bruxelles" className="w-full h-auto object-contain rounded-2xl" />
             </div>
           </div>
         </section>
