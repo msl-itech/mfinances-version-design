@@ -119,11 +119,26 @@ export default function ChatBot() {
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadScore, setLeadScore] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
   const limitReached = userMsgCount >= MAX_MESSAGES_PER_SESSION;
+  const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
+
+  // Score a message against keyword patterns (each pattern scores only once per session)
+  const scoredPatternsRef = useRef<Set<number>>(new Set());
+  const scoreMessage = useCallback((text: string) => {
+    let added = 0;
+    SCORE_KEYWORDS.forEach((kw, idx) => {
+      if (!scoredPatternsRef.current.has(idx) && kw.regex.test(text)) {
+        scoredPatternsRef.current.add(idx);
+        added += kw.points;
+      }
+    });
+    if (added > 0) setLeadScore((prev) => prev + added);
+  }, []);
 
   // Get suggestions for current page
   const currentPath = location.pathname;
