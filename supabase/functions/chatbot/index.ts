@@ -223,7 +223,8 @@ serve(async (req) => {
     const totalScore = conversationalScore + behaviorScore;
     const palier = getPalier(totalScore);
     const contextBlock = buildContextBlock(context, conversationalScore);
-    const palierInstructions = getPalierInstructions(palier);
+    const userMessageCount = messages.filter((m: any) => m.role === "user").length;
+    const palierInstructions = getPalierInstructions(palier, context, userMessageCount);
 
     const systemPrompt = `${BASE_PROMPT}
 
