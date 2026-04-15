@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
 import { submitLead } from "@/lib/odoo-submit";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -160,10 +160,14 @@ const breadcrumbJsonLd = {
 /* ───── COMPONENT ───── */
 
 export default function Diagnostic() {
+  const [searchParams] = useSearchParams();
   const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
   const [showMidMessage, setShowMidMessage] = useState(false);
-  const [emailForm, setEmailForm] = useState({ prenom: "", email: "" });
+  const [emailForm, setEmailForm] = useState({
+    prenom: searchParams.get("prenom") || "",
+    email: searchParams.get("email") || "",
+  });
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
