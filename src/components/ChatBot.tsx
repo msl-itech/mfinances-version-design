@@ -13,6 +13,18 @@ function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
   return "froid";
 }
 
+// Build pre-filled diagnostic URL with collected data
+function buildDiagnosticURL(ctx: MFContext, email?: string): string {
+  const params = new URLSearchParams();
+  if (ctx.prenom) params.set("prenom", ctx.prenom);
+  if (email) params.set("email", email);
+  if (ctx.sector) params.set("secteur", ctx.sector);
+  const totalScore = ctx.behaviorScore || 0;
+  if (totalScore > 0) params.set("score", String(totalScore));
+  const qs = params.toString();
+  return `/diagnostic/${qs ? "?" + qs : ""}`;
+}
+
 type Msg = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chatbot`;
