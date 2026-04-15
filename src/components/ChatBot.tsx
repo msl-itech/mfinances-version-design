@@ -136,18 +136,32 @@ const DEFAULT_SUGGESTIONS = [
   "Combien ça coûte ?",
 ];
 
-// ── Proactive messages based on page ──
+// ── Proactive messages — targeted micro-hooks per page ──
 const PROACTIVE_MESSAGES: Record<string, string> = {
-  "/": "💡 Besoin d'un expert-comptable qui pilote vraiment vos finances ?",
-  "/tarifs/": "🤔 Besoin d'aide pour choisir le bon forfait ?",
-  "/services/": "👋 Un question sur nos services ? Je peux vous guider !",
-  "/services/daf-externalise/": "📊 Le DAF externalisé vous intéresse ? Posez-moi vos questions !",
-  "/qui-nous-accompagnons/": "🎯 Vous cherchez un accompagnement sur-mesure ?",
-  "/blog/": "📚 Besoin d'un conseil sur un sujet précis ?",
-  "/contact/": "📞 Je peux répondre à vos questions avant votre prise de contact !",
+  "/": "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.",
+  "/tarifs/": "Vous comparez nos tarifs ? Je peux vous expliquer ce qui est inclus dans chaque formule selon votre situation. Qu'est-ce qui vous intéresse le plus ?",
+  "/services/": "Nos services vont au-delà de la comptabilité classique. Quel est votre besoin principal : optimiser vos charges, piloter votre trésorerie, ou structurer votre croissance ?",
+  "/services/daf-externalise/": "Le DAF externalisé, c'est souvent la question du bon moment. Vous pilotez votre trésorerie vous-même actuellement ?",
+  "/services/controle-de-gestion/": "Le contrôle de gestion permet d'anticiper plutôt que de subir. Vous avez une visibilité claire sur vos marges aujourd'hui ?",
+  "/services/tresorerie/": "La trésorerie, c'est le nerf de la guerre. Vous avez un prévisionnel actualisé ou vous naviguez à vue ?",
+  "/services/comptabilite/": "Votre comptabilité vous donne une vision claire de votre activité, ou c'est juste une obligation ?",
+  "/services/fiscalite/": "L'optimisation fiscale peut représenter plusieurs milliers d'euros par an. Vous connaissez votre taux effectif d'imposition ?",
+  "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
+  "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
+  "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
+  "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
+  "/diagnostic/": "",
 };
 
-const DEFAULT_PROACTIVE = "💬 Une question ? Je suis là pour vous aider !";
+const DEFAULT_PROACTIVE = "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.";
+
+// ── Exit-intent messages ──
+const EXIT_MESSAGES: Record<string, string> = {
+  "/tarifs/": "Avant de partir — si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
+  "/services/daf-externalise/": "Avant de partir — saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
+  "/services/creation-entreprise/": "Avant de partir — une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
+  default: "Avant de partir — vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
+};
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
