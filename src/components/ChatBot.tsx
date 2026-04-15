@@ -306,6 +306,7 @@ export default function ChatBot() {
               const content = parsed.choices?.[0]?.delta?.content as string | undefined;
               if (content) {
                 assistantSoFar += content;
+                const sanitized = sanitizeLinks(assistantSoFar);
                 setMessages((prev) => {
                   const last = prev[prev.length - 1];
                   if (last?.role === "assistant" && last !== WELCOME_MESSAGE) {
