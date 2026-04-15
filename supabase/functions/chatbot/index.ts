@@ -21,13 +21,32 @@ const VALID_ROUTES = new Set([
   "/contact/", "/support/",
 ]);
 
-// ── Palier thresholds ──
-const PALIER_TIEDE = 5;
-const PALIER_CHAUD = 11;
+// ── Conversational keyword scoring (server-side) ──
+const KEYWORDS: Record<string, { words: string[]; score: number }> = {
+  urgence:   { words: ["urgent", "contrôle", "redressement", "dette", "pénalité", "amende", "retard"], score: 4 },
+  fiscal:    { words: ["tva", "impôt", "isoc", "ipp", "déclaration", "fiscal", "vvprbis", "liasse"], score: 3 },
+  budget:    { words: ["budget", "investir", "trésorerie", "financer", "cash", "prix", "coût", "tarif", "combien", "devis"], score: 3 },
+  taille:    { words: ["salariés", "employés", "équipe", "collaborateurs", "chiffre d'affaires", "croissance"], score: 2 },
+  juridique: { words: ["srl", "sa", "sprl", "asbl", "société", "indépendant", "management", "holding", "exploitation"], score: 2 },
+  recherche: { words: ["cherch", "besoin d'un comptable", "changer de comptable", "nouveau comptable", "accompagnement", "mission"], score: 3 },
+  negatif:   { words: ["juste regarder", "curieux", "étudiant", "stagiaire", "gratuit seulement"], score: -3 },
+};
 
-function getPalier(score: number): string {
-  if (score >= PALIER_CHAUD) return "CHAUD";
-  if (score >= PALIER_TIEDE) return "TIÈDE";
+function computeConversationalScore(messages: Array<{ role: string; content: string }>): number {
+  let score = 0;
+  const allText = messages.map((m) => m.content.toLowerCase()).join(" ");
+  for (const cfg of Object.values(KEYWORDS)) {
+    if (cfg.words.some((w) => allText.includes(w))) {
+      score += cfg.score;
+    }
+  }
+  return Math.max(0, score);
+}
+
+// ── Palier thresholds ──
+function getPalier(totalScore: number): string {
+  if (totalScore >= 12) return "CHAUD";
+  if (totalScore >= 5) return "TIÈDE";
   return "FROID";
 }
 
@@ -59,23 +78,26 @@ function getPalierInstructions(palier: string): string {
   }
 }
 
-function buildContextBlock(ctx: any): string {
-  if (!ctx) return "Aucun contexte visiteur disponible.";
+function buildContextBlock(ctx: any, conversationalScore: number): string {
+  if (!ctx && conversationalScore === 0) return "Aucun contexte visiteur disponible.";
 
-  const parts: string[] = [];
-  if (ctx.prenom) parts.push(`Prénom : ${ctx.prenom}`);
-  if (ctx.pages?.length) parts.push(`Pages visitées : ${ctx.pages.join(", ")}`);
-  parts.push(`Visite n°${ctx.visitCount || 1} | Temps sur le site : ${Math.floor((ctx.timeSeconds || 0) / 60)} min`);
-  if (ctx.source) parts.push(`Source : ${ctx.source}${ctx.utmCampaign ? ` (campagne : ${ctx.utmCampaign})` : ""}`);
+  const behaviorScore = ctx?.behaviorScore || 0;
+  const total = conversationalScore + behaviorScore;
+  const palier = getPalier(total);
+  const mins = Math.floor((ctx?.timeSeconds || 0) / 60);
+  const secs = (ctx?.timeSeconds || 0) % 60;
 
-  const tools: string[] = [];
-  if (ctx.diagnosticDone) tools.push("Diagnostic complété");
-  if (ctx.checklistDownloaded) tools.push("Checklist téléchargée");
-  if (tools.length) parts.push(`Outils utilisés : ${tools.join(", ")}`);
-  if (ctx.sector) parts.push(`Secteur détecté : ${ctx.sector}`);
+  const lines: string[] = [];
+  if (ctx?.prenom) lines.push(`Prénom : ${ctx.prenom}`);
+  lines.push(`Pages vues : ${(ctx?.pages || []).join(", ") || "accueil"}`);
+  lines.push(`Visite n°${ctx?.visitCount || 1} | Temps : ${mins}m${secs}s | ${ctx?.pages?.length || 1} page(s)`);
+  lines.push(`Source : ${ctx?.source || "direct"}${ctx?.utmCampaign ? " — " + ctx.utmCampaign : ""}`);
+  lines.push(`Outils : ${ctx?.diagnosticDone ? "Diagnostic fait" : "—"} ${ctx?.checklistDownloaded ? "/ Checklist téléchargée" : ""}`);
+  if (ctx?.sector) lines.push(`Secteur identifié : ${ctx.sector}`);
+  lines.push(`Score conversationnel : ${conversationalScore} | Score comportemental : ${behaviorScore}`);
+  lines.push(`Score total : ${total} — PALIER ${palier}`);
 
-  parts.push(`Score comportemental : ${ctx.behaviorScore || 0}`);
-  return parts.join("\n");
+  return lines.join("\n");
 }
 
 const BASE_PROMPT = `Tu es le conseiller expert de MFinances, cabinet d'expertise comptable premium basé à Bruxelles (Uccle).
