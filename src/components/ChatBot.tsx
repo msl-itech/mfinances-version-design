@@ -201,6 +201,7 @@ export default function ChatBot() {
   const sendMessageWithText = useCallback(
     async (text: string) => {
       if (!text.trim() || isLoading || limitReached) return;
+      scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
 
       const userMsg: Msg = { role: "user", content: text.trim() };
