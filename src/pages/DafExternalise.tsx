@@ -353,7 +353,7 @@ export default function DafExternalise() {
         </section>
       </main>
 
-      <SchemaFAQ items={faqDafExternalise} />
+      
       <Footer />
     </div>
   );
