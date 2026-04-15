@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, Loader2, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
+import { submitLead } from "@/lib/odoo-submit";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -361,6 +362,29 @@ export default function ChatBot() {
         content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](/diagnostic/).`,
       },
     ]);
+
+    // Build conversation summary for Odoo description
+    const conversationSummary = messages
+      .filter((m) => m !== WELCOME_MESSAGE)
+      .map((m) => `${m.role === "user" ? "Visiteur" : "Bot"}: ${m.content}`)
+      .slice(-6)
+      .join("\n");
+
+    // Send lead to Odoo CRM
+    submitLead({
+      name: email.split("@")[0],
+      email_from: email,
+      description: [
+        `<h3>Lead Chatbot</h3>`,
+        `<p><strong>Email:</strong> ${email}</p>`,
+        `<p><strong>Page visitée:</strong> ${currentPath}</p>`,
+        `<p><strong>Score qualification:</strong> ${leadScore}</p>`,
+        `<p><strong>Messages échangés:</strong> ${userMsgCount}</p>`,
+        `<hr/>`,
+        `<p><strong>Résumé conversation:</strong></p>`,
+        `<pre>${conversationSummary}</pre>`,
+      ].join(""),
+    }).catch(() => {});
 
     // Send lead email to chatbot edge function for logging
     fetch(CHAT_URL, {
