@@ -311,10 +311,10 @@ export default function ChatBot() {
                   const last = prev[prev.length - 1];
                   if (last?.role === "assistant" && last !== WELCOME_MESSAGE) {
                     return prev.map((m, i) =>
-                      i === prev.length - 1 ? { ...m, content: assistantSoFar } : m
+                      i === prev.length - 1 ? { ...m, content: sanitized } : m
                     );
                   }
-                  return [...prev, { role: "assistant", content: assistantSoFar }];
+                  return [...prev, { role: "assistant", content: sanitized }];
                 });
               }
             } catch {
