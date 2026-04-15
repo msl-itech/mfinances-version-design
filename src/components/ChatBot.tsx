@@ -23,7 +23,9 @@ const WELCOME_MESSAGE: Msg = {
     "Bonjour ! 👋 Je suis l'assistant MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
 };
 
-const MAX_MESSAGES_PER_SESSION = 10;
+const MAX_MESSAGES_FROID = 15;
+const MAX_MESSAGES_TIEDE = 10;
+const MAX_MESSAGES_CHAUD = 6;
 const LEAD_CAPTURE_AFTER = 3;
 const PROACTIVE_DELAY_MS = 30_000;
 
@@ -180,7 +182,15 @@ export default function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
-  const limitReached = userMsgCount >= MAX_MESSAGES_PER_SESSION;
+  // Dynamic session limit based on palier
+  const currentPalier = getPalierFromScore(
+    (getMFContext().behaviorScore || 0) + leadScore
+  );
+  const sessionLimit =
+    currentPalier === "chaud" ? MAX_MESSAGES_CHAUD :
+    currentPalier === "tiede" ? MAX_MESSAGES_TIEDE :
+    MAX_MESSAGES_FROID;
+  const limitReached = userMsgCount >= sessionLimit;
   const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
 
   // Score a message against keyword patterns (each pattern scores only once per session)
