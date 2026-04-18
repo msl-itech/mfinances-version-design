@@ -36,6 +36,34 @@ export const accountingServiceSchema = {
     "description": "Fondateur de MFinances, expert-comptable membre ITAA (n° 50.624.805), plus de 20 ans d'expérience auprès des TPE et PME à Bruxelles."
   },
   "priceRange": "350€ - 650€ HTVA/mois",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "16",
+    "reviewCount": "16"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Mari Carmen Rejas Martin" },
+      "reviewBody": "Sans hésitation, je ne peux que recommander MFinances, tant pour son professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité etc."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Audrey Pepka épouse Mbog" },
+      "reviewBody": "Tellement satisfaite du service accordé par MFinances ! Je recommande vivement."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Luc Jeazet" },
+      "reviewBody": "MFINANCES MERCI !! Avec Mika et sa merveilleuse équipe, mon entreprise a pris un vrai tournant."
+    }
+  ],
   "areaServed": {
     "@type": "City",
     "name": "Bruxelles"

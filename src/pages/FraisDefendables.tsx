@@ -52,7 +52,7 @@ export default function FraisDefendablesPage() {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Frais Défendables — Analyseur de frais professionnels | MFinances"
-        description="Vérifiez en 3 questions si votre frais professionnel est défendable, à encadrer ou en zone sensible en cas de contrôle fiscal belge. 30 catégories — Outil gratuit MFinances, Uccle."
+        description="Vérifiez en 3 questions si un frais professionnel est défendable en cas de contrôle fiscal belge. 30 catégories — outil gratuit MFinances."
         canonical="https://mfinances.be/frais-defendables/"
         schemaJson={[webAppSchema, breadcrumbSchema, createFaqSchema(faqData)]}
       />
