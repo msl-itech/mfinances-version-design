@@ -33,10 +33,21 @@ export default function DiagnosticSection() {
               <span className="text-accent">sans le savoir ?</span>
             </h2>
 
-            <p className="text-[15px] text-muted-foreground leading-[1.75] mt-4 md:mt-5 max-w-[440px]">
+            <p className="text-[15px] text-muted-foreground leading-[1.75] mt-4 md:mt-5 max-w-[460px]">
               La plupart des crises de trésorerie ne surviennent pas du jour au lendemain.
               Elles s'accumulent silencieusement. Notre diagnostic identifie vos fragilités.
             </p>
+
+            <div className="mt-5 bg-card border border-border/50 rounded-2xl p-4 max-w-[460px]">
+              <p className="text-[12px] font-bold tracking-[0.1em] text-accent uppercase mb-2">
+                Ce que vous recevez immédiatement
+              </p>
+              <ul className="space-y-1.5 text-[13.5px] text-foreground/80">
+                <li className="flex gap-2"><span className="text-accent font-bold">→</span> Votre <strong>score de risque trésorerie</strong> sur 20</li>
+                <li className="flex gap-2"><span className="text-accent font-bold">→</span> 3 <strong>priorités d'action</strong> adaptées à votre profil</li>
+                <li className="flex gap-2"><span className="text-accent font-bold">→</span> Une <strong>grille de lecture</strong> financière personnalisée</li>
+              </ul>
+            </div>
 
             <div className="flex flex-wrap gap-4 mt-5 md:mt-6">
               {features.map((f) => {

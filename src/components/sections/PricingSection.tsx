@@ -119,8 +119,8 @@ export default function PricingSection() {
           </MobileCarousel>
         </div>
 
-        <p className="text-center mt-8 text-[12px] text-muted-foreground italic">
-          Tous les prix sont indicatifs. Un devis personnalisé est établi après le premier échange.
+        <p className="text-center mt-8 text-[12px] text-muted-foreground italic max-w-[640px] mx-auto">
+          Forfaits de départ. Le tarif final est fixé après une analyse gratuite de votre dossier (volume d'écritures, secteur, complexité). Aucun engagement avant validation du devis.
         </p>
       </div>
     </section>

@@ -82,7 +82,7 @@ export default function HeroSection() {
             >
               <Button variant="accent" size="lg" className="rounded-full px-8 group" asChild>
                 <Link to="/diagnostic/">
-                  Diagnostic gratuit — 3 min
+                  Lancer mon diagnostic gratuit
                   <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -90,6 +90,12 @@ export default function HeroSection() {
                 <Link to="/services/">Découvrir nos services</Link>
               </Button>
             </div>
+            <p
+              className={`mt-3 text-[12px] text-muted-foreground/80 max-w-[480px] mx-auto lg:mx-0 transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
+              style={{ transitionDelay: "0.55s" }}
+            >
+              <span className="font-semibold text-foreground/80">Vous recevez :</span> votre score de risque trésorerie sur 20, 3 priorités d'action et une grille de lecture financière personnalisée — en 3 minutes.
+            </p>
 
             {/* Trust badges */}
             <div
