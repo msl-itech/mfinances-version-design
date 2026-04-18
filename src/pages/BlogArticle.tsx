@@ -14,6 +14,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
+import { getArticleGeoFaqs } from "@/data/article-geo-faqs";
 import BfrCalculator from "@/components/BfrCalculator";
 import RentabilityCockpit from "@/components/RentabilityCockpit";
 
@@ -105,12 +106,20 @@ export default function BlogArticle() {
     ],
   };
 
-  // JSON-LD FAQPage
-  const faqLd = content.faq?.length
+  // Bloc GEO-citable (haut d'article) — pour LLMs (ChatGPT, Claude, Perplexity)
+  const geoFaqs = getArticleGeoFaqs(articleSlug);
+
+  // JSON-LD FAQPage : on fusionne les Q/R GEO + FAQ de fin d'article
+  const allFaqs = [
+    ...(geoFaqs ?? []),
+    ...(content.faq ?? []),
+  ];
+
+  const faqLd = allFaqs.length
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: content.faq.map((f) => ({
+        mainEntity: allFaqs.map((f) => ({
           "@type": "Question",
           name: f.question,
           acceptedAnswer: { "@type": "Answer", text: f.answer },
@@ -202,6 +211,36 @@ export default function BlogArticle() {
         {/* ── ARTICLE BODY ── */}
         <section className="bg-card py-12 md:py-16">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
+            {/* ── BLOC GEO-CITABLE (haut d'article) ── */}
+            {geoFaqs && (
+              <ScrollRevealDiv delay={0.04} className="mb-10">
+                <div className="bg-secondary/50 border border-border/60 rounded-2xl p-5 md:p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="inline-block w-1.5 h-5 bg-accent rounded-full" />
+                    <h2 className="font-display text-[18px] md:text-[20px] text-foreground leading-tight">
+                      Réponses directes
+                    </h2>
+                  </div>
+                  <Accordion type="single" collapsible defaultValue="geo-0" className="w-full">
+                    {geoFaqs.map((item, i) => (
+                      <AccordionItem
+                        key={i}
+                        value={`geo-${i}`}
+                        className="border-border/40 last:border-b-0"
+                      >
+                        <AccordionTrigger className="text-left text-[14px] md:text-[15px] font-body font-semibold text-foreground hover:no-underline py-3.5">
+                          {item.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-[14px] text-foreground/80 font-body leading-[1.75] pb-4">
+                          {item.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              </ScrollRevealDiv>
+            )}
+
             <article className="prose-mf">
               {content.sections.map((section, i) => (
                 <ScrollRevealDiv key={i} delay={0.06 + i * 0.04}>
