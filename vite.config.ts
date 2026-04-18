@@ -96,7 +96,7 @@ export default defineConfig(async ({ mode }) => {
           renderer: "@prerenderer/renderer-puppeteer",
           rendererOptions: {
             renderAfterTime: 1500,
-            headless: "new",
+            headless: true,
             maxConcurrentRoutes: 4,
           },
           postProcess(renderedRoute: any) {
