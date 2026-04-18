@@ -14,6 +14,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
+import { getArticleGeoFaqs } from "@/data/article-geo-faqs";
 import BfrCalculator from "@/components/BfrCalculator";
 import RentabilityCockpit from "@/components/RentabilityCockpit";
 
