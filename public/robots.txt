@@ -7,7 +7,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 Disallow: /support/internal/
-Sitemap: https://mfinances.be/sitemap.xml
 
 # ─── GOOGLE ─────────────────────────────────────────
 User-agent: Googlebot
