@@ -106,12 +106,20 @@ export default function BlogArticle() {
     ],
   };
 
-  // JSON-LD FAQPage
-  const faqLd = content.faq?.length
+  // Bloc GEO-citable (haut d'article) — pour LLMs (ChatGPT, Claude, Perplexity)
+  const geoFaqs = getArticleGeoFaqs(articleSlug);
+
+  // JSON-LD FAQPage : on fusionne les Q/R GEO + FAQ de fin d'article
+  const allFaqs = [
+    ...(geoFaqs ?? []),
+    ...(content.faq ?? []),
+  ];
+
+  const faqLd = allFaqs.length
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: content.faq.map((f) => ({
+        mainEntity: allFaqs.map((f) => ({
           "@type": "Question",
           name: f.question,
           acceptedAnswer: { "@type": "Answer", text: f.answer },
