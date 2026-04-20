@@ -130,7 +130,7 @@ export default function ControleDeGestion() {
     <div className="min-h-screen">
       <SEOHead
         title="Contrôle de Gestion TPE à Bruxelles — MFinances"
-        description="Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence. À partir de 450€/mois."
+        description="Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence."
         canonical="https://mfinances.be/services/controle-de-gestion/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd]}
       />

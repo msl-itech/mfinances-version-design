@@ -78,7 +78,7 @@ export default function ProfessionsSante() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Professions de Santé Bruxelles — MFinances"
+        title="Comptable Professions de Santé Bruxelles | MFinances"
         description="Comptabilité, fiscalité et optimisation patrimoniale pour médecins, dentistes, kinés et paramédicaux en Belgique. Cabinet MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/professions-de-sante/"
         schemaJson={breadcrumbJsonLd}
