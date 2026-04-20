@@ -37,7 +37,7 @@ export const accountingServiceSchema = {
   "name": "MFinances S.R.L.",
   "description": "Cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé, trésorerie prévisionnelle.",
   "url": "https://mfinances.be",
-  "hasMap": "", // TODO: ajouter l'URL de la fiche Google Business Profile (ex: https://www.google.com/maps/place/?q=place_id:XXXX)
+  "hasMap": "https://www.google.com/maps/place/MFinances+%7C+Expert-Comptable/@50.7977112,4.3255262,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c5d9d41dc777:0x4287de38397fa316!8m2!3d50.7977112!4d4.3255262!16s%2Fg%2F11m__cnb4_",
   "telephone": "+3228860550",
   "email": "info@mfinances.be",
   "address": {
@@ -50,8 +50,8 @@ export const accountingServiceSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 50.8020,
-    "longitude": 4.3562
+    "latitude": 50.7977112,
+    "longitude": 4.3255262
   },
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
@@ -127,8 +127,8 @@ export const accountingServiceSchema = {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": 50.8020,
-      "longitude": 4.3562
+      "latitude": 50.7977112,
+      "longitude": 4.3255262
     },
     "geoRadius": "15000"
   },
