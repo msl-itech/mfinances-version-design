@@ -61,7 +61,13 @@ export const accountingServiceSchema = {
     "@type": "Person",
     "name": "Mika Musungayi",
     "jobTitle": "Expert-comptable",
-    "description": "Fondateur de MFinances, expert-comptable membre ITAA (n° 50.624.805), plus de 20 ans d'expérience auprès des TPE et PME à Bruxelles."
+    "url": "https://mfinances.be/a-propos/",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "professional certification",
+      "name": "Expert-comptable ITAA",
+      "identifier": "50.624.805"
+    }
   },
   "priceRange": "350€ - 650€ HTVA/mois",
   "aggregateRating": {
