@@ -50,8 +50,8 @@ export const accountingServiceSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 50.8020,
-    "longitude": 4.3562
+    "latitude": 50.7977112,
+    "longitude": 4.3255262
   },
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
