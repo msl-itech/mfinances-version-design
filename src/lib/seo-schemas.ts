@@ -32,10 +32,12 @@ export const personMikaSchema = {
 
 export const accountingServiceSchema = {
   "@context": "https://schema.org",
-  "@type": ["AccountingService", "ProfessionalService"],
+  "@type": ["AccountingService", "ProfessionalService", "LocalBusiness"],
+  "@id": "https://mfinances.be/#organization",
   "name": "MFinances S.R.L.",
   "description": "Cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé, trésorerie prévisionnelle.",
   "url": "https://mfinances.be",
+  "hasMap": "", // TODO: ajouter l'URL de la fiche Google Business Profile (ex: https://www.google.com/maps/place/?q=place_id:XXXX)
   "telephone": "+3228860550",
   "email": "info@mfinances.be",
   "address": {
