@@ -7,8 +7,8 @@ const cards = [
   {
     icon: FileText,
     title: "Checklist gratuite",
-    desc: "Les 5 erreurs qui vident votre compte — et comment les corriger.",
-    cta: "Télécharger la checklist",
+    desc: "Les 5 erreurs silencieuses qui vident la trésorerie des dirigeants — identifiez-les en 2 minutes.",
+    cta: "Télécharger — PDF gratuit, immédiat",
     ctaHref: "/checklist-tresorerie/",
     badge: "PDF gratuit",
     accent: false,
