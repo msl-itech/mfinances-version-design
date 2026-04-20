@@ -502,7 +502,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-04-11",
-    seoTitle: "Bureau à domicile Belgique 2026 — Guide complet du dirigeant",
+    seoTitle: "Bureau à domicile Belgique 2026 — Guide dirigeant",
     metaDescription: "Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.",
     pillarPage: "/services/fiscalite/",
   },

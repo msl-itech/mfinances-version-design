@@ -24,8 +24,8 @@ export default function GenerateurBailPage() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Générateur de bail professionnel Belgique — Immeuble ou meublé | MFinances"
-        description="Générez votre bail de location professionnel en 6 étapes. Bail immeuble ou meublé 60/40, clause sous-location, PDF en 13 articles. Outil gratuit — Cabinet MFinances."
+        title="Générateur de bail professionnel Belgique | MFinances"
+        description="Générez un bail de location pro en 6 étapes : immeuble ou meublé 60/40, clause sous-location, PDF en 13 articles. Outil gratuit MFinances."
         canonical="https://mfinances.be/ressources/generateur-bail/"
         schemaJson={schemaJson}
       />

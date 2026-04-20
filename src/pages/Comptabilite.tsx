@@ -104,7 +104,7 @@ export default function Comptabilite() {
     <div className="min-h-screen">
       <SEOHead
         title="Comptabilité sur Odoo pour TPE à Bruxelles — MFinances"
-        description="Comptabilité claire, conforme et proactive intégrée dans Odoo. Encodage automatisé, déclarations fiscales, tableaux de bord. Cabinet MFinances, Bruxelles."
+        description="Comptabilité claire et proactive intégrée dans Odoo : encodage automatisé, déclarations fiscales et tableaux de bord. MFinances, Bruxelles."
         canonical="https://mfinances.be/services/comptabilite/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd]}
       />
