@@ -22,7 +22,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { createBreadcrumbSchema } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema, personMikaSchema } from "@/lib/seo-schemas";
 import {
   Breadcrumb,
   BreadcrumbItem,
