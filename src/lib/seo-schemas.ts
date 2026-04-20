@@ -2,9 +2,37 @@
  * JSON-LD Schema.org helpers for GEO/SEO
  */
 
+export const personMikaSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mika Musungayi",
+  "jobTitle": "Expert-comptable",
+  "description": "Fondateur de MFinances, expert-comptable membre ITAA, plus de 20 ans d'expérience auprès des TPE et PME à Bruxelles.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "MFinances S.R.L.",
+    "url": "https://mfinances.be"
+  },
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "professional certification",
+    "name": "Expert-comptable ITAA",
+    "identifier": "50.624.805",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Institut des Conseillers fiscaux et des Experts-comptables (ITAA)",
+      "url": "https://www.itaa.be"
+    }
+  },
+  "url": "https://mfinances.be/a-propos/",
+  "sameAs": [
+    "https://www.linkedin.com/company/mfinances"
+  ]
+};
+
 export const accountingServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "AccountingService",
+  "@type": ["AccountingService", "ProfessionalService"],
   "name": "MFinances S.R.L.",
   "description": "Cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé, trésorerie prévisionnelle.",
   "url": "https://mfinances.be",
@@ -33,7 +61,13 @@ export const accountingServiceSchema = {
     "@type": "Person",
     "name": "Mika Musungayi",
     "jobTitle": "Expert-comptable",
-    "description": "Fondateur de MFinances, expert-comptable membre ITAA (n° 50.624.805), plus de 20 ans d'expérience auprès des TPE et PME à Bruxelles."
+    "url": "https://mfinances.be/a-propos/",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "professional certification",
+      "name": "Expert-comptable ITAA",
+      "identifier": "50.624.805"
+    }
   },
   "priceRange": "350€ - 650€ HTVA/mois",
   "aggregateRating": {
@@ -64,10 +98,16 @@ export const accountingServiceSchema = {
       "reviewBody": "MFINANCES MERCI !! Avec Mika et sa merveilleuse équipe, mon entreprise a pris un vrai tournant."
     }
   ],
-  "areaServed": {
-    "@type": "City",
-    "name": "Bruxelles"
-  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Bruxelles"
+    },
+    {
+      "@type": "Country",
+      "name": "Belgique"
+    }
+  ],
   "knowsAbout": [
     "Contrôle de gestion TPE",
     "DAF externalisé",
@@ -107,13 +147,3 @@ export function createFaqSchema(faqs: { q: string; a: string }[]) {
   };
 }
 
-/**
- * Inject JSON-LD script into <head>. Returns the element for cleanup.
- */
-export function injectJsonLd(data: object): HTMLScriptElement {
-  const s = document.createElement("script");
-  s.type = "application/ld+json";
-  s.textContent = JSON.stringify(data);
-  document.head.appendChild(s);
-  return s;
-}
