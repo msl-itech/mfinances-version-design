@@ -99,15 +99,37 @@ export const accountingServiceSchema = {
     }
   ],
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Bruxelles"
-    },
-    {
-      "@type": "Country",
-      "name": "Belgique"
-    }
+    { "@type": "AdministrativeArea", "name": "Région de Bruxelles-Capitale" },
+    { "@type": "City", "name": "Bruxelles" },
+    { "@type": "City", "name": "Anderlecht" },
+    { "@type": "City", "name": "Auderghem" },
+    { "@type": "City", "name": "Berchem-Sainte-Agathe" },
+    { "@type": "City", "name": "Etterbeek" },
+    { "@type": "City", "name": "Evere" },
+    { "@type": "City", "name": "Forest" },
+    { "@type": "City", "name": "Ganshoren" },
+    { "@type": "City", "name": "Ixelles" },
+    { "@type": "City", "name": "Jette" },
+    { "@type": "City", "name": "Koekelberg" },
+    { "@type": "City", "name": "Molenbeek-Saint-Jean" },
+    { "@type": "City", "name": "Saint-Gilles" },
+    { "@type": "City", "name": "Saint-Josse-ten-Noode" },
+    { "@type": "City", "name": "Schaerbeek" },
+    { "@type": "City", "name": "Uccle" },
+    { "@type": "City", "name": "Watermael-Boitsfort" },
+    { "@type": "City", "name": "Woluwe-Saint-Lambert" },
+    { "@type": "City", "name": "Woluwe-Saint-Pierre" },
+    { "@type": "Country", "name": "Belgique" }
   ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.8020,
+      "longitude": 4.3562
+    },
+    "geoRadius": "15000"
+  },
   "knowsAbout": [
     "Contrôle de gestion TPE",
     "DAF externalisé",
