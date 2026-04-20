@@ -95,9 +95,18 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, nos forfaits démarrent à 350 € HTVA par mois. Le Premium est à partir de 450 € HTVA/mois. L'Excellence est à partir de 650 € HTVA/mois." },
-  { q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?", a: "Oui — les structures non assujetties à la TVA bénéficient d'une réduction de 21% sur nos tarifs." },
-  { q: "Faut-il s'engager sur une durée minimum ?", a: "Nos forfaits sont conclus pour une durée d'un an avec tacite reconduction. Un préavis de 3 mois avant l'échéance annuelle est requis." },
+  {
+    q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
+    a: "Chez MFinances, les forfaits pour une TPE démarrent à 350 € HTVA/mois (Essentiel : comptabilité + déclarations), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation — le forfait proposé ne change jamais de catégorie sans votre accord.",
+  },
+  {
+    q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
+    a: "Oui. Les structures non assujetties à la TVA — notamment les ASBL et certaines professions médicales (médecins, kinésithérapeutes, infirmiers) — bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
+  },
+  {
+    q: "Faut-il s'engager sur une durée minimum ?",
+    a: "Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat. Cet engagement dans la durée n'est pas une contrainte — c'est ce qui nous permet de vraiment vous connaître, d'anticiper vos besoins et d'être un partenaire efficace. Un client suivi depuis 2 ans bénéficie d'un niveau de conseil qu'un nouveau client ne peut pas avoir.",
+  },
 ];
 
 const breadcrumbJsonLd = {
@@ -288,7 +297,10 @@ export default function Tarifs() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
-              <p className="text-center mt-6 text-[13px] text-muted-foreground italic font-body">
+              <p className="text-center mt-6 text-[13px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto">
+                Les tarifs affichés sont nos forfaits de base — ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
+              </p>
+              <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground">réduction de 21%</strong> sur nos tarifs.
               </p>
             </ScrollRevealDiv>
@@ -404,8 +416,8 @@ export default function Tarifs() {
 
             <ScrollRevealDiv delay={0.2}>
               <div className="bg-primary/[0.05] rounded-xl p-4 sm:p-5 mt-6 border border-primary/10">
-                <p className="text-[13px] text-foreground/70 font-body">
-                  <strong className="text-foreground">Engagement :</strong> Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat.
+                <p className="text-[13px] text-foreground/70 font-body leading-relaxed">
+                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître : votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte — c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
                 </p>
               </div>
             </ScrollRevealDiv>
@@ -454,7 +466,11 @@ export default function Tarifs() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
+              <Accordion
+                type="multiple"
+                defaultValue={faqs.map((_, i) => `faq-${i}`)}
+                className="space-y-3"
+              >
                 {faqs.map((f, i) => (
                   <AccordionItem
                     key={i}
