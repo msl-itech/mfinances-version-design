@@ -82,10 +82,13 @@ export default function APropos() {
         title="Cabinet Comptable Bruxelles Spécialisé Pilotage TPE & DAF | MFinances"
         description="MFinances, fondé par Mika MUSUNGAYI, expert-comptable ITAA avec 20 ans d'expérience. Pilotage financier, contrôle de gestion et DAF externalisé pour les TPE à Uccle, Bruxelles."
         canonical="https://mfinances.be/a-propos/"
-        schemaJson={createBreadcrumbSchema([
-          { name: "Accueil", url: "https://mfinances.be/" },
-          { name: "À propos", url: "https://mfinances.be/a-propos/" },
-        ])}
+        schemaJson={[
+          createBreadcrumbSchema([
+            { name: "Accueil", url: "https://mfinances.be/" },
+            { name: "À propos", url: "https://mfinances.be/a-propos/" },
+          ]),
+          personMikaSchema,
+        ]}
       />
       <Header />
 
