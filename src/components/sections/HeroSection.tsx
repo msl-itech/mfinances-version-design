@@ -87,8 +87,8 @@ export default function HeroSection() {
 
             {/* MASSIVE editorial H1 */}
             <h1
-              className="font-display font-bold text-primary leading-[0.92] tracking-[-0.025em]"
-              style={{ fontSize: "clamp(44px, 7.2vw, 104px)" }}
+              className="font-display font-bold text-primary leading-[0.95] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(34px, 4.6vw, 64px)" }}
             >
               <span className="block">Vous travaillez</span>
               <span className="block">
