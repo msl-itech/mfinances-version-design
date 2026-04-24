@@ -22,11 +22,6 @@ export default function HomepageEnhancer() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isFine = window.matchMedia("(pointer: fine)").matches;
 
-    // Hide native cursor only on fine pointers (desktop)
-    if (isFine && !reduced) {
-      document.documentElement.classList.add("cursor-none-root");
-    }
-
     // Reveal fallback: ensure any .reveal in viewport gets .visible
     const revealEls = Array.from(document.querySelectorAll<HTMLElement>("main .reveal"));
     const io = new IntersectionObserver(
