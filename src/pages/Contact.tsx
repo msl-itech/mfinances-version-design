@@ -480,63 +480,66 @@ export default function Contact() {
             {/* RIGHT — Sidebar (2/5) — hidden on mobile */}
             <div className="lg:col-span-2 order-2 lg:order-2 hidden lg:block">
               <ScrollRevealDiv delay={0.15}>
-                {/* Mika card */}
-                <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
-                  <div className="overflow-hidden">
+                {/* Mika card — éditorial */}
+                <div className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none select-none absolute -top-4 right-2 font-display italic text-primary-foreground/[0.07] text-[88px] leading-none z-10"
+                  >
+                    Mika
+                  </span>
+                  <div className="relative overflow-hidden">
                     <img
                       src={mikaPhoto}
                       alt="Mika MUSUNGAYI, fondateur MFinances"
-                      className="w-full h-[300px] object-cover object-top"
+                      className="w-full h-[320px] object-cover object-top"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
+                    <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-3 py-1.5">
+                      <Sparkles size={12} className="text-accent" strokeWidth={1.8} />
+                      <span className="font-body text-[10px] font-bold tracking-[0.2em] uppercase text-primary-foreground">ITAA · 20 ans</span>
+                    </span>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <MessageCircle size={16} className="text-accent" />
-                      <p className="text-[13px] font-bold text-accent font-body uppercase tracking-wider">Votre interlocuteur</p>
+                  <div className="relative p-6 pt-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="h-px w-6 bg-accent" />
+                      <p className="text-[10px] font-bold text-accent font-body uppercase tracking-[0.25em]">Votre interlocuteur</p>
                     </div>
-                    <p className="text-[15px] italic text-foreground/80 leading-relaxed font-body">
-                      "Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit."
+                    <Quote size={20} className="text-accent/60 mb-2" strokeWidth={1.5} />
+                    <p className="text-[15px] italic font-display text-primary-foreground/90 leading-[1.5] font-light">
+                      Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit.
                     </p>
-                     <p className="text-[14px] font-semibold mt-3 font-body">
-                       <span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span>
-                     </p>
-                    <p className="text-[12px] text-muted-foreground font-body">
-                      Fondateur · Expert-Comptable
-                    </p>
+                    <div className="mt-5 pt-4 border-t border-primary-foreground/15">
+                      <p className="font-display text-[18px] tracking-tight">
+                        <span className="italic font-light text-accent">Mika</span> <span className="text-primary-foreground">MUSUNGAYI</span>
+                      </p>
+                      <p className="text-[12px] text-primary-foreground/60 font-body mt-0.5">
+                        Fondateur · Expert-Comptable
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 {/* Trust badges */}
                 <div className="mt-6 space-y-3">
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle size={18} className="text-green-600" strokeWidth={1.5} />
+                  {[
+                    { Icon: CheckCircle, title: "100% gratuit", sub: "Premier échange sans engagement" },
+                    { Icon: Clock, title: "Rappel sous 72h", sub: "Par Mika personnellement" },
+                    { Icon: Shield, title: "Confidentiel", sub: "Vos données restent privées" },
+                  ].map(({ Icon, title, sub }) => (
+                    <div
+                      key={title}
+                      className="group flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                        <Icon size={18} className="text-accent" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-[13px] font-semibold text-foreground font-body">{title}</p>
+                        <p className="text-[11px] text-muted-foreground font-body">{sub}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">100% gratuit</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Premier échange sans engagement</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                      <Clock size={18} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">Rappel sous 72h</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Par Mika personnellement</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
-                      <Shield size={18} className="text-purple-600" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">Confidentiel</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Vos données restent privées</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Google badge */}
@@ -544,7 +547,7 @@ export default function Contact() {
                   href="https://g.page/mfinances"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all"
+                  className="group mt-6 flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-20px_hsl(var(--primary)/0.25)] transition-all duration-300"
                 >
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
@@ -553,11 +556,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold text-foreground font-body">5,0 / 5 · 16 avis Google</p>
+                    <p className="text-[11px] text-muted-foreground font-body">Voir tous les avis</p>
                   </div>
-                  <ArrowRight size={14} className="text-muted-foreground ml-auto" />
+                  <ArrowRight size={14} className="text-accent ml-auto group-hover:translate-x-1 transition-transform" />
                 </a>
               </ScrollRevealDiv>
             </div>
+
           </div>
         </section>
       </main>
