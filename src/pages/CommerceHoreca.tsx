@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Minus,
   Receipt,
@@ -99,69 +100,116 @@ export default function CommerceHoreca() {
       <Header />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink className="text-primary-foreground/60 text-[13px]">Qui nous accompagnons</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Commerce & Horeca</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        {/* ── HERO ÉDITORIAL ── */}
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
+            <span className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">
+              Marges
+            </span>
+          </div>
+          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-accent/20 blur-[120px]" />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Forfait Premium minimum — dès 450 € HTVA/mois
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Commerce et Horeca — <span className="text-accent">maîtrisez vos marges</span> avant qu'elles ne vous échappent
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground text-[12px] tracking-wider uppercase">Commerce & Horeca</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-px w-10 bg-accent" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil — N°02</span>
+                </div>
+                <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
+                  Commerce et Horeca —<br />
+                  <span className="italic text-accent">maîtrisez vos marges</span><br />
+                  avant qu'elles ne vous échappent.
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
+                <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-8 font-body max-w-[560px]">
                   Dans ce secteur, la différence entre un établissement qui prospère et un qui ferme tient souvent à un seul facteur : la maîtrise financière.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
+                <div className="flex flex-wrap items-center gap-5 mt-10">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                    <Link to="/contact/">
+                      Consultation gratuite
+                      <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                  </Button>
+                  <span className="text-primary-foreground/60 text-[13px] font-body">
+                    Forfait Premium minimum — <span className="text-primary-foreground font-semibold">dès 450 €</span> HTVA/mois
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={imgHero} alt="Restaurant élégant à Bruxelles — secteur Horeca" className="w-full h-full object-cover" />
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/5] group">
+                  <img src={imgHero} alt="Restaurant élégant à Bruxelles — secteur Horeca" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                  <div className="absolute top-5 left-5 bg-primary-foreground/95 backdrop-blur-sm rounded-full px-4 py-2">
+                    <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary">Multi-taux TVA</span>
+                  </div>
+                </div>
+                <div className="hidden lg:block absolute -bottom-6 -left-6 bg-accent text-accent-foreground rounded-2xl px-5 py-4 shadow-xl rotate-[-3deg]">
+                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase opacity-80">Suivi</div>
+                  <div className="font-display text-[22px] font-bold leading-none mt-1">Trimestriel</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── CE QUE MFINANCES FAIT POUR VOUS ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que MFinances fait <span className="text-accent">pour vous</span>
+        {/* ── SERVICES ── */}
+        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute top-10 -right-10 select-none hidden md:block">
+            <span className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
+              Pilotage
+            </span>
+          </div>
+
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="max-w-[680px] mb-12 md:mb-16">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Notre approche</span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
+                Ce que MFinances fait <span className="italic text-accent">pour vous.</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7">
               {services.map((s, i) => {
                 const Icon = s.icon;
+                const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                    <div className="group relative bg-secondary/40 hover:bg-secondary/70 rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 transition-all duration-500 overflow-hidden h-full">
+                      <div className="pointer-events-none absolute -top-6 -right-6 w-32 h-32 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-2xl transition-all duration-500" />
+                      <div className="relative flex items-start justify-between mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-accent/10 group-hover:bg-accent/15 flex items-center justify-center transition-all duration-500 group-hover:rotate-[-6deg] group-hover:scale-110">
+                          <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                        </div>
+                        <span className="font-display text-[28px] font-bold text-foreground/10 leading-none">{num}</span>
+                      </div>
+                      <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
+                      <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -170,24 +218,42 @@ export default function CommerceHoreca() {
         </section>
 
         {/* ── RÉSULTATS CONCRETS ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1000px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Résultats <span className="text-accent">concrets</span>
+        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden md:block">
+            <span className="font-display italic text-[140px] lg:text-[200px] leading-none text-accent/[0.06] tracking-tight">
+              Résultats
+            </span>
+          </div>
+
+          <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-12 md:mb-16">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Cas réels</span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
+                Résultats <span className="italic text-accent">concrets.</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
               {caseStudies.map((c, i) => {
                 const Icon = c.icon;
+                const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={c.title} delay={0.08 + i * 0.08} className="bg-card rounded-2xl p-7 border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                  <ScrollRevealDiv key={c.title} delay={0.08 + i * 0.08}>
+                    <div className="group relative bg-card rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
+                      <div className="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-3xl transition-all duration-700" />
+                      <div className="relative flex items-start justify-between mb-6">
+                        <div className="w-14 h-14 rounded-2xl bg-accent/10 group-hover:bg-accent group-hover:text-accent-foreground flex items-center justify-center transition-all duration-300">
+                          <Icon size={24} className="text-accent group-hover:text-accent-foreground transition-colors duration-300" strokeWidth={1.5} />
+                        </div>
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent">Cas {num}</span>
+                      </div>
+                      <h3 className="text-[19px] font-bold font-body text-foreground mb-3">{c.title}</h3>
+                      <p className="text-[14px] text-muted-foreground leading-[1.75] font-body">{c.desc}</p>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-3">{c.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{c.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -196,72 +262,90 @@ export default function CommerceHoreca() {
         </section>
 
         {/* ── TÉMOIGNAGE ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                <Quote size={26} className="text-accent" strokeWidth={1.5} />
+        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv>
+              <div className="relative bg-primary text-primary-foreground rounded-[28px] p-8 md:p-14 overflow-hidden">
+                <div className="pointer-events-none absolute -top-10 -right-10 w-64 h-64 rounded-full bg-accent/20 blur-3xl" />
+                <Quote size={56} className="text-accent/30 mb-6" strokeWidth={1.2} />
+                <blockquote className="text-[20px] md:text-[26px] text-primary-foreground leading-[1.5] font-display italic max-w-[700px]">
+                  « Gérer une activité Horeca implique beaucoup de flux. MFinances a su intégrer Odoo à notre gestion quotidienne. Je garde le contrôle sans m'enliser dans l'administratif. »
+                </blockquote>
+                <div className="flex items-center gap-4 mt-8 relative z-10">
+                  <div className="w-px h-10 bg-accent" />
+                  <div>
+                    <p className="text-accent font-bold font-body text-[15px]">Yanis</p>
+                    <p className="text-primary-foreground/60 text-[13px] font-body">Restaurateur à Bruxelles</p>
+                  </div>
+                </div>
               </div>
-              <blockquote className="text-[18px] md:text-[20px] text-foreground leading-[1.7] font-body italic max-w-[640px] mx-auto">
-                « Gérer une activité Horeca implique beaucoup de flux. MFinances a su intégrer Odoo à notre gestion quotidienne. Je garde le contrôle sans m'enliser dans l'administratif. »
-              </blockquote>
-              <p className="text-accent font-bold font-body mt-5 text-[15px]">Yanis, restaurateur à Bruxelles</p>
             </ScrollRevealDiv>
           </div>
         </section>
 
         {/* ── FORFAITS DISPONIBLES ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Forfaits disponibles — <span className="text-accent">Premium minimum</span>
+        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute top-20 -right-10 select-none hidden md:block">
+            <span className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
+              Forfaits
+            </span>
+          </div>
+
+          <div className="mx-auto max-w-[920px] px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Tarification</span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
+                Forfaits — <span className="italic text-accent">Premium minimum.</span>
               </h2>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              <div className="hidden sm:block bg-card rounded-3xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30 bg-secondary/40">
                       <th className="text-left p-5 font-body font-normal text-muted-foreground w-[40%]" />
                       <th className="p-5 text-center">
-                        <span className="font-display font-bold text-[16px] text-primary">Premium — 450 €/mois</span>
+                        <span className="font-display font-bold text-[17px] text-primary block">Premium</span>
+                        <span className="text-[12px] text-muted-foreground font-body">450 €/mois</span>
                       </th>
-                      <th className="p-5 text-center">
-                        <span className="font-display font-bold text-[16px] text-accent">Excellence — 650 €/mois</span>
+                      <th className="p-5 text-center bg-accent/[0.05]">
+                        <span className="font-display font-bold text-[17px] text-accent block">Excellence</span>
+                        <span className="text-[12px] text-muted-foreground font-body">650 €/mois</span>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-border/20">
-                      <td className="p-4 pl-5 font-medium text-foreground/80 font-body">Comptabilité + TVA sectorielle</td>
+                      <td className="p-4 pl-6 font-medium text-foreground/80 font-body">Comptabilité + TVA sectorielle</td>
                       <td className="p-4 text-center"><Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" /></td>
-                      <td className="p-4 text-center"><Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" /></td>
+                      <td className="p-4 text-center bg-accent/[0.03]"><Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" /></td>
                     </tr>
                     <tr className="border-b border-border/20">
-                      <td className="p-4 pl-5 font-medium text-foreground/80 font-body">Analyse des marges</td>
+                      <td className="p-4 pl-6 font-medium text-foreground/80 font-body">Analyse des marges</td>
                       <td className="p-4 text-center text-[13px] text-foreground/70 font-body">Trimestrielle</td>
-                      <td className="p-4 text-center text-[13px] text-foreground/70 font-body">Mensuelle</td>
+                      <td className="p-4 text-center text-[13px] text-foreground/70 font-body bg-accent/[0.03]">Mensuelle</td>
                     </tr>
                     <tr>
-                      <td className="p-4 pl-5 font-medium text-foreground/80 font-body">Trésorerie prévisionnelle</td>
+                      <td className="p-4 pl-6 font-medium text-foreground/80 font-body">Trésorerie prévisionnelle</td>
                       <td className="p-4 text-center"><Minus size={16} className="text-foreground/20 mx-auto" /></td>
-                      <td className="p-4 text-center text-[13px] text-foreground/70 font-body">✓ mensuelle</td>
+                      <td className="p-4 text-center text-[13px] text-foreground/70 font-body bg-accent/[0.03]">✓ mensuelle</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              {/* Mobile cards */}
               <div className="sm:hidden space-y-3">
                 {[
                   { label: "Comptabilité + TVA sectorielle", premium: true, excellence: true },
                   { label: "Analyse des marges", premium: "Trimestrielle", excellence: "Mensuelle" },
                   { label: "Trésorerie prévisionnelle", premium: false, excellence: "✓ mensuelle" },
                 ].map((row) => (
-                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
+                  <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4">
                     <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="text-center">
@@ -279,26 +363,30 @@ export default function CommerceHoreca() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
-              <div className="bg-accent/[0.07] rounded-xl p-5 mt-6 border border-accent/15">
-                <p className="text-[13px] text-foreground/70 font-body">
+              <div className="bg-accent/[0.07] rounded-2xl p-5 mt-6 border border-accent/15">
+                <p className="text-[13.5px] text-foreground/70 font-body leading-relaxed">
                   <strong className="text-foreground">Important :</strong> Le secteur Commerce & Horeca requiert un suivi minimum trimestriel. Le forfait Essentiel n'est pas proposé pour ce secteur.
                 </p>
               </div>
             </ScrollRevealDiv>
 
-            <div className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+            <div className="text-center mt-10">
+              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                <Link to="/tarifs/">
+                  Voir tous les tarifs
+                  <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
-              <p className="text-[14px] text-muted-foreground font-body">
-                Voir aussi :{" "}
-                <Link to="/qui-nous-accompagnons/independants-et-startups/" className="text-accent font-semibold hover:underline">
+            <ScrollRevealDiv delay={0.2} className="mt-12 text-center">
+              <p className="text-[13px] text-muted-foreground font-body uppercase tracking-wider">Voir aussi</p>
+              <p className="text-[15px] text-foreground font-body mt-2">
+                <Link to="/qui-nous-accompagnons/independants-et-startups/" className="text-accent font-semibold hover:underline underline-offset-4">
                   Indépendants & Startups
-                </Link>{" "}· {" "}
-                <Link to="/qui-nous-accompagnons/professions-de-sante/" className="text-accent font-semibold hover:underline">
+                </Link>
+                <span className="text-muted-foreground mx-3">·</span>
+                <Link to="/qui-nous-accompagnons/professions-de-sante/" className="text-accent font-semibold hover:underline underline-offset-4">
                   Professions de santé
                 </Link>
               </p>
@@ -307,19 +395,33 @@ export default function CommerceHoreca() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+        <section className="bg-primary py-16 md:py-28 relative overflow-hidden">
+          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
+          <div className="pointer-events-none absolute -bottom-12 right-0 select-none hidden md:block">
+            <span className="font-display italic text-[160px] lg:text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">
+              Marges
+            </span>
+          </div>
+
+          <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Prêt à reprendre le contrôle de vos marges ?
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Reprenez le contrôle</span>
+              </div>
+              <h2 className="font-display text-[34px] md:text-[56px] text-primary-foreground leading-[1.05] tracking-tight max-w-[820px]">
+                Prêt à reprendre le contrôle <span className="italic text-accent">de vos marges ?</span>
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-6 font-body max-w-[600px]">
                 Premier échange gratuit et confidentiel — nous analysons votre situation financière.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">
+                    Consultation gratuite
+                    <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
