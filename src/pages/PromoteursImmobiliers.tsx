@@ -17,10 +17,14 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Percent,
   Building,
   Rocket,
+  Check,
+  Quote,
+  TrendingUp,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
