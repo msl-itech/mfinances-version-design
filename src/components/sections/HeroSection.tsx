@@ -118,7 +118,7 @@ export default function HeroSection() {
             <div className="mt-10 max-w-[620px]">
               <div className="h-px w-12 bg-accent mb-5" />
               <p
-                className={`text-[16px] md:text-[18px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
+                className={`text-[15px] md:text-[16px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
                 style={{ transitionDelay: "0.3s" }}
               >
                 La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
