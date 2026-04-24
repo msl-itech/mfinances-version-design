@@ -19,19 +19,31 @@ export default function DiagnosticSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-secondary py-10 md:py-28" ref={ref}>
-      <div className="container-mf">
+    <section className="bg-secondary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+      {/* Editorial backdrop */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+      >
+        Diagnostic
+      </div>
+
+      <div className="container-mf relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
-            <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
-              DIAGNOSTIC GRATUIT
-            </span>
-            <h2 className="font-display text-[24px] md:text-[38px] leading-[1.12] mt-3">
+            <div className="inline-flex items-center gap-4 mb-5">
+              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
+              <span className="text-accent/80 text-[11px] font-bold tracking-[0.18em] uppercase">
+                Diagnostic gratuit · 3 min
+              </span>
+            </div>
+            <h2 className="font-display text-[28px] md:text-[42px] leading-[1.08]">
               Suis-je en danger
               <br className="hidden md:block" />
-              <span className="text-accent">sans le savoir ?</span>
+              <span className="text-accent italic">sans le savoir</span> ?
             </h2>
+            <div className="h-px w-12 bg-accent mt-6 mb-5" />
 
             <p className="text-[15px] text-muted-foreground leading-[1.75] mt-4 md:mt-5 max-w-[460px]">
               La plupart des crises de trésorerie ne surviennent pas du jour au lendemain.
