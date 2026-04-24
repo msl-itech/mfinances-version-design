@@ -343,7 +343,7 @@ export default function ChatBot() {
 
       scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
-
+      trackChatbotEvent("message_sent");
       const userMsg: Msg = { role: "user", content: text.trim() };
       const newMessages = [...messages, userMsg];
       setMessages(newMessages);
