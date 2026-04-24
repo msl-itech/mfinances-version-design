@@ -237,34 +237,58 @@ export default function Tarifs() {
 
 
         {/* ── SECTION 1 — Tableau comparatif ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1000px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Nos trois <span className="text-accent">forfaits</span>
+        <section id="forfaits" className="bg-card py-14 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.035] text-[120px] md:text-[200px] leading-none tracking-tight"
+          >
+            Comparer
+          </span>
+
+          <div className="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-10 md:mb-16 max-w-[680px] mx-auto">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="h-px w-8 bg-accent" />
+                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">01 · Comparatif</span>
+                <span className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
+                Nos trois <span className="italic font-light text-accent">forfaits</span>
               </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+                Une lecture côte à côte, pour choisir en quelques secondes le niveau d'accompagnement qui vous correspond.
+              </p>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
               {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+              <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]">
                 <div className="overflow-x-auto">
-                  <table className="w-full text-[14px]">
+                  <table className="w-full text-[14px] table-fixed">
+                    <colgroup>
+                      <col style={{ width: "40%" }} />
+                      <col style={{ width: "20%" }} />
+                      <col style={{ width: "20%" }} />
+                      <col style={{ width: "20%" }} />
+                    </colgroup>
                     <thead>
-                      <tr className="border-b border-border/30 bg-secondary/40">
-                        <th className="text-left p-5 font-body font-normal text-muted-foreground w-[40%]" />
+                      <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
+                        <th className="text-left p-6 font-body font-normal text-muted-foreground" />
                         {[
-                          { name: "Essentiel", videoUrl: null },
-                          { name: "Premium", videoUrl: "https://www.youtube.com/embed/hZplCFSNXlk" },
-                          { name: "Excellence", videoUrl: "https://www.youtube.com/embed/XJrFJicX7S0" },
+                          { name: "Essentiel", videoUrl: null, accent: false },
+                          { name: "Premium", videoUrl: "https://www.youtube.com/embed/hZplCFSNXlk", accent: false },
+                          { name: "Excellence", videoUrl: "https://www.youtube.com/embed/XJrFJicX7S0", accent: true },
                         ].map((plan, i) => (
-                          <th key={plan.name} className="p-5 text-center relative">
+                          <th key={plan.name} className={`p-6 text-center relative ${i === 2 ? "bg-primary/[0.04]" : ""}`}>
                             {i === 1 && (
-                              <span className="absolute -top-0 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold px-2.5 py-0.5 rounded-b-md">
+                              <span className="absolute top-0 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.15em] px-3 py-1 rounded-b-md">
                                 POPULAIRE
                               </span>
                             )}
-                            <span className={`font-display font-bold text-[16px] ${i === 2 ? "text-accent" : "text-primary"} inline-flex items-center gap-1.5`}>
+                            <span className="block font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 mb-1.5">
+                              0{i + 1}
+                            </span>
+                            <span className={`font-display font-bold text-[18px] ${plan.accent ? "text-accent" : "text-primary"} inline-flex items-center gap-1.5`}>
                               {plan.name}
                               {plan.videoUrl && (
                                 <Popover>
@@ -297,10 +321,10 @@ export default function Tarifs() {
                     </thead>
                     <tbody>
                       {compareRows.map((row, ri) => (
-                        <tr key={row.label} className={`border-b border-border/20 last:border-0 ${ri === 0 ? "bg-primary/[0.03]" : ""}`}>
-                          <td className="p-4 pl-5 font-medium text-foreground/80 font-body">{row.label}</td>
+                        <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "bg-primary/[0.04]" : ""}`}>
+                          <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
                           {row.values.map((v, ci) => (
-                            <td key={ci} className="p-4 text-center">
+                            <td key={ci} className={`p-4 text-center ${ci === 2 ? "bg-primary/[0.025]" : ""}`}>
                               <CellValue v={v} isPrice={row.isPrice} />
                             </td>
                           ))}
@@ -314,12 +338,12 @@ export default function Tarifs() {
               {/* Mobile cards */}
               <div className="sm:hidden space-y-4">
                 {compareRows.map((row) => (
-                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
-                    <p className="text-[14px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
+                  <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
+                    <p className="text-[13.5px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
                     <div className="grid grid-cols-3 gap-2">
                       {row.values.map((v, ci) => (
                         <div key={ci} className="text-center">
-                          <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1 font-body">{planNames[ci]}</p>
+                          <p className={`text-[10px] font-bold uppercase tracking-wider mb-1 font-body ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
                           <CellValue v={v} isPrice={row.isPrice} />
                         </div>
                       ))}
@@ -330,15 +354,16 @@ export default function Tarifs() {
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
-              <p className="text-center mt-6 text-[13px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto">
+              <p className="text-center mt-8 text-[13px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto">
                 Les tarifs affichés sont nos forfaits de base — ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
-                Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground">réduction de 21%</strong> sur nos tarifs.
+                Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground not-italic">réduction de 21%</strong> sur nos tarifs.
               </p>
             </ScrollRevealDiv>
           </div>
         </section>
+
 
         {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
         <section className="bg-secondary py-10 md:py-20">
