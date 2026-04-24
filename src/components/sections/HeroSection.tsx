@@ -88,7 +88,7 @@ export default function HeroSection() {
             {/* Editorial H1 */}
             <h1
               className="font-display font-bold text-primary leading-[1.05] tracking-[-0.015em]"
-              style={{ fontSize: "clamp(28px, 3.2vw, 44px)" }}
+              style={{ fontSize: "clamp(32px, 3.8vw, 54px)" }}
             >
               Vous travaillez{" "}
               <span className="italic font-normal text-foreground/80">dur.</span>
@@ -118,7 +118,7 @@ export default function HeroSection() {
             <div className="mt-10 max-w-[620px]">
               <div className="h-px w-12 bg-accent mb-5" />
               <p
-                className={`text-[15px] md:text-[16px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
+                className={`text-[16px] md:text-[18px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
                 style={{ transitionDelay: "0.3s" }}
               >
                 La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
@@ -135,7 +135,7 @@ export default function HeroSection() {
                 <Button
                   variant="accent"
                   size="lg"
-                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[14px] whitespace-nowrap"
+                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[15px] whitespace-nowrap"
                   asChild
                 >
                   <Link to="/diagnostic/" data-magnetic>
@@ -150,13 +150,13 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full px-7 h-14 text-[14px] border-primary/20 hover:bg-primary hover:text-primary-foreground whitespace-nowrap"
+                  className="rounded-full px-7 h-14 text-[15px] border-primary/20 hover:bg-primary hover:text-primary-foreground whitespace-nowrap"
                   asChild
                 >
                   <Link to="/services/">Découvrir nos services</Link>
                 </Button>
               </div>
-              <p className="text-[12px] text-foreground/55 leading-relaxed max-w-[560px]">
+              <p className="text-[13px] md:text-[14px] text-foreground/55 leading-relaxed max-w-[600px]">
                 <span className="font-semibold text-foreground/75">Vous recevez :</span>{" "}
                 votre score de risque trésorerie sur 20, 3 priorités d'action et une grille de
                 lecture financière personnalisée — en 3 minutes.
