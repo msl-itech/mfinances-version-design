@@ -152,27 +152,60 @@ export default function ControleDeGestion() {
         />
 
 
-        {/* SECTION 1 — Ce que comprend le service */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que comprend notre
-                <br />
-                <span className="text-accent">contrôle de gestion</span>
+        {/* SECTION 1 — Cycle de pilotage (3 étapes éditoriales) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-10 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
+            >
+              Cycle
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[680px] mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  02 — Cycle de pilotage
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                Trois temps pour{" "}
+                <span className="italic font-normal text-accent">décider</span>
+                <br />sur des bases factuelles
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.1 * i} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                  <ScrollRevealDiv
+                    key={s.title}
+                    delay={0.1 * i}
+                    className="group relative bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
+                  >
+                    <span
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      style={{ fontSize: "120px" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="flex items-center gap-2 mb-6 relative">
+                      <div className="h-px w-6 bg-accent" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                        Étape {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{s.desc}</p>
+
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500 relative">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-[19px] font-display font-bold text-foreground mb-3 leading-tight relative">{s.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -180,50 +213,82 @@ export default function ControleDeGestion() {
           </div>
         </section>
 
-        {/* SECTION 2 — Tableau comparatif */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Niveau de service selon votre forfait
+        {/* SECTION 2 — Tableau comparatif (éditorial) */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
+            >
+              Forfaits
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-14 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Niveaux de service
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Le bon niveau de pilotage,{" "}
+                <span className="italic font-normal text-accent">selon votre forfait</span>
               </h2>
             </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+            <ScrollRevealDiv delay={0.1} className="max-w-[920px] mx-auto">
+              <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
                 <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-border">
-                      <th className="px-6 py-4 text-[13px] font-semibold text-muted-foreground uppercase tracking-wider font-body">Fonctionnalité</th>
-                      <th className="px-6 py-4 text-center text-[13px] font-semibold text-muted-foreground uppercase tracking-wider font-body">Premium</th>
-                      <th className="px-6 py-4 text-center text-[13px] font-semibold uppercase tracking-wider font-body text-accent">Excellence</th>
+                  <thead className="bg-gradient-to-b from-secondary/40 to-transparent">
+                    <tr className="border-b border-border/60">
+                      <th className="px-8 py-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                        <div className="flex items-center gap-2">
+                          <div className="h-px w-6 bg-accent" />
+                          Fonctionnalité
+                        </div>
+                      </th>
+                      <th className="px-6 py-6 text-center text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">Premium</th>
+                      <th className="px-6 py-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] font-body text-accent">
+                        <span className="flex items-center justify-center gap-2">
+                          Excellence
+                          <span className="text-accent">★</span>
+                        </span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {tableRows.map((row, i) => (
-                      <tr key={row.label} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-secondary/30" : ""}`}>
-                        <td className="px-6 py-4 text-[14px] text-foreground font-medium font-body">{row.label}</td>
-                        <td className="px-6 py-4 text-center"><CellValue value={row.premium} /></td>
-                        <td className="px-6 py-4 text-center"><CellValue value={row.excellence} /></td>
+                      <tr key={row.label} className="border-b border-border/40 last:border-b-0 hover:bg-secondary/30 transition-colors">
+                        <td className="px-8 py-5 text-[14px] text-foreground font-medium font-body">
+                          <span className="flex items-center gap-3">
+                            <span className="font-display italic text-muted-foreground/40 text-[12px]">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            {row.label}
+                          </span>
+                        </td>
+                        <td className="px-6 py-5 text-center"><CellValue value={row.premium} /></td>
+                        <td className="px-6 py-5 text-center bg-accent/[0.03]"><CellValue value={row.excellence} /></td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              {/* Mobile cards */}
               <div className="sm:hidden space-y-3">
                 {tableRows.map((row) => (
-                  <div key={row.label} className="bg-card rounded-xl border border-border/50 p-4">
-                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                  <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5">
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="text-center">
-                        <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider font-body block mb-1">Premium</span>
+                      <div className="text-center p-3 rounded-xl bg-secondary/40">
+                        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.18em] font-body block mb-2">Premium</span>
                         <CellValue value={row.premium} />
                       </div>
-                      <div className="text-center">
-                        <span className="text-[11px] font-semibold text-accent uppercase tracking-wider font-body block mb-1">Excellence</span>
+                      <div className="text-center p-3 rounded-xl bg-accent/5 border border-accent/20">
+                        <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.18em] font-body block mb-2">Excellence</span>
                         <CellValue value={row.excellence} />
                       </div>
                     </div>
@@ -231,11 +296,11 @@ export default function ControleDeGestion() {
                 ))}
               </div>
 
-              <div className="text-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+              <div className="text-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                   <Link to="/tarifs/">
                     Voir les tarifs détaillés
-                    <ArrowRight size={16} className="ml-1 flex-shrink-0" />
+                    <ArrowRight size={16} className="ml-1.5" />
                   </Link>
                 </Button>
               </div>
@@ -243,69 +308,124 @@ export default function ControleDeGestion() {
           </div>
         </section>
 
-        {/* SECTION 3 — 5 KPIs */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
-                Vos 5 indicateurs clés
-                <br />
-                <span className="text-accent">surveillés chaque mois</span>
-              </h2>
-              <img
-                src={imgKpi}
-                alt="Dashboard KPI financier sur tablette"
-                className="rounded-2xl mt-8 w-full h-[240px] object-cover shadow-md"
-                loading="lazy"
-              />
-            </ScrollRevealDiv>
+        {/* SECTION 3 — 5 KPIs (split sticky) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
+            >
+              KPIs
+            </span>
+          </div>
 
-            <div className="space-y-4">
-              {kpis.map((k, i) => {
-                const Icon = k.icon;
-                return (
-                  <ScrollRevealDiv key={k.label} delay={0.05 * i} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60 border border-border/50">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={18} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-[15px] font-bold font-body text-foreground">{k.label}</h3>
-                      <p className="text-[13px] text-muted-foreground leading-relaxed font-body mt-0.5">{k.desc}</p>
-                    </div>
-                  </ScrollRevealDiv>
-                );
-              })}
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    04 — Indicateurs
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Vos 5 indicateurs{" "}
+                  <span className="italic font-normal text-accent">essentiels</span>
+                  <br />surveillés chaque mois
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[440px]">
+                  Cinq chiffres qui résument la santé financière réelle de votre entreprise — pas vingt indicateurs, juste ceux qui comptent.
+                </p>
+                <div className="mt-8 relative rounded-2xl overflow-hidden">
+                  <img
+                    src={imgKpi}
+                    alt="Dashboard KPI financier sur tablette"
+                    className="w-full h-[280px] object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-white/80 font-medium">
+                      Vue cockpit
+                    </span>
+                    <div className="h-px flex-1 ml-4 bg-white/30" />
+                  </div>
+                </div>
+              </ScrollRevealDiv>
+
+              <div className="lg:col-span-7 space-y-3">
+                {kpis.map((k, i) => {
+                  const Icon = k.icon;
+                  return (
+                    <ScrollRevealDiv
+                      key={k.label}
+                      delay={0.06 * i}
+                      className="group relative flex items-start gap-5 p-6 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
+                    >
+                      <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:-rotate-6 transition-all duration-500">
+                        <Icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-[16px] font-display font-bold text-foreground leading-tight">{k.label}</h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.65] font-body mt-1.5">{k.desc}</p>
+                      </div>
+                    </ScrollRevealDiv>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION FAQ */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions fréquentes
-              </h2>
-            </ScrollRevealDiv>
+        {/* SECTION FAQ (éditoriale numérotée) */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    05 — FAQ
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Questions{" "}
+                  <span className="italic font-normal text-accent">fréquentes</span>
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
+                  Tout ce qu'il faut savoir avant de mettre en place un contrôle de gestion structuré.
+                </p>
+              </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
-                  >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+                <Accordion type="single" collapsible className="border-t border-border/60">
+                  {faqs.map((f, i) => (
+                    <AccordionItem
+                      key={i}
+                      value={`faq-${i}`}
+                      className="border-b border-border/60 border-t-0"
+                    >
+                      <AccordionTrigger className="text-left hover:no-underline py-7 group">
+                        <div className="flex items-start gap-5 w-full pr-4">
+                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
+                            {f.q}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75] font-body pb-7 pl-12 pr-4">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
