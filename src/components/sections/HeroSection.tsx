@@ -57,22 +57,7 @@ export default function HeroSection() {
         style={{ backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
       />
 
-      {/* Top meta bar */}
-      <div className="container-mf relative pt-6 md:pt-10">
-        <div
-          className={`flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-foreground/50 transition-opacity duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
-        >
-          <span className="hidden md:inline-flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Bruxelles · BE
-          </span>
-          <span className="font-medium">© MMXXV — N°01</span>
-          <span className="hidden md:inline">Pilotage financier TPE</span>
-        </div>
-        <div className="mt-4 h-px w-full bg-border/60" />
-      </div>
-
-      <div className="container-mf relative pt-10 md:pt-16 pb-0">
+      <div className="container-mf relative pt-8 md:pt-12 pb-0">
         {/* Giant editorial watermark */}
         <div
           aria-hidden="true"
@@ -102,8 +87,8 @@ export default function HeroSection() {
 
             {/* MASSIVE editorial H1 */}
             <h1
-              className="font-display font-bold text-primary leading-[0.92] tracking-[-0.025em]"
-              style={{ fontSize: "clamp(44px, 7.2vw, 104px)" }}
+              className="font-display font-bold text-primary leading-[0.95] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(34px, 4.6vw, 64px)" }}
             >
               <span className="block">Vous travaillez</span>
               <span className="block">
