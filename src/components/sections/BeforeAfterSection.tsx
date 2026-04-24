@@ -83,7 +83,7 @@ export default function BeforeAfterSection() {
           </h2>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-0 rounded-[32px] overflow-hidden shadow-[0_16px_60px_rgba(27,43,94,0.10)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+        <div className={`relative grid grid-cols-1 md:grid-cols-2 gap-0 rounded-[32px] overflow-hidden shadow-[0_16px_60px_rgba(27,43,94,0.10)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
           {/* AVANT */}
           <div className="bg-card relative">
             <div className="bg-gradient-to-br from-accent to-accent/85 text-accent-foreground px-7 py-5">
@@ -110,13 +110,13 @@ export default function BeforeAfterSection() {
             </div>
           </div>
 
-          {/* Arrow connector */}
-          <div className="hidden md:flex items-center justify-center px-2 bg-card">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_8px_24px_rgba(27,43,94,0.25)]">
-              <ArrowRight size={20} className="text-primary-foreground" strokeWidth={2.5} />
+          {/* Arrow connector - overlay centered */}
+          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+            <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-[0_8px_24px_rgba(27,43,94,0.35)] ring-4 ring-card">
+              <ArrowRight size={22} className="text-primary-foreground" strokeWidth={2.5} />
             </div>
           </div>
-          <div className="flex md:hidden justify-center bg-card py-3">
+          <div className="flex md:hidden justify-center bg-card py-3 col-span-1">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center rotate-90 shadow-md">
               <ArrowRight size={16} className="text-primary-foreground" />
             </div>
