@@ -125,6 +125,26 @@
     filter: blur(0);
   }
 
+  /* Emerge — Awwwards-style soft rise + fade for content blocks */
+  .emerge {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: blur(6px);
+    will-change: opacity, transform, filter;
+  }
+  .emerge.emerged {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .emerge { opacity: 1; transform: none; filter: none; transition: none; }
+  }
+
   /* Link underline animation */
   .link-underline {
     @apply relative;
@@ -191,9 +211,19 @@
   border: 1px solid hsl(var(--border) / 0.4);
 }
 
-/* Smooth scroll for the whole page (native, perf-friendly) */
+/* Smooth scroll for the whole page (native, perf-friendly).
+   Disabled when Lenis is active (it owns the scroll) to avoid double-easing. */
 @media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+  html:not(.lenis-active) { scroll-behavior: smooth; }
+}
+
+/* Lenis smooth-scroll integration */
+html.lenis-active,
+html.lenis-active body {
+  height: auto;
+}
+html.lenis-active.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 /* Liquid morph hover for CTAs flagged with .btn-liquid */

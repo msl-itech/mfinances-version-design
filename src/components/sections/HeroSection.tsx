@@ -30,10 +30,10 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-background pt-6 md:pt-16 pb-0">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-[0.04] will-change-auto" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)", contain: "layout size style" }} />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.03] will-change-auto" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)", contain: "layout size style" }} />
+      <div data-parallax="0.18" className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-[0.04] will-change-transform" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)", contain: "layout size style" }} />
+      <div data-parallax="0.12" className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.03] will-change-transform" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)", contain: "layout size style" }} />
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+      <div data-parallax="0.06" className="absolute inset-0 opacity-[0.02] will-change-transform" style={{ backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
       <div className="container-mf relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
