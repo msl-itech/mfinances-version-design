@@ -38,6 +38,8 @@ import {
   FileText,
   Headphones,
   PlayCircle,
+  Sparkles,
+  Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
