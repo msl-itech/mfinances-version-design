@@ -20,6 +20,8 @@ import {
   Shield,
   Clock,
   MessageCircle,
+  Sparkles,
+  Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
