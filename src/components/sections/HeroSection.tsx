@@ -88,7 +88,7 @@ export default function HeroSection() {
             {/* Editorial H1 */}
             <h1
               className="font-display font-bold text-primary leading-[1.05] tracking-[-0.015em]"
-              style={{ fontSize: "clamp(28px, 3.2vw, 44px)" }}
+              style={{ fontSize: "clamp(32px, 3.8vw, 54px)" }}
             >
               Vous travaillez{" "}
               <span className="italic font-normal text-foreground/80">dur.</span>
