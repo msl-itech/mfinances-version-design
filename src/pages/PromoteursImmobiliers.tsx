@@ -131,101 +131,253 @@ export default function PromoteursImmobiliers() {
         </section>
 
         {/* ── SERVICES ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que MFinances fait <span className="text-accent">pour vous</span>
+        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-12 -left-10 select-none hidden lg:block">
+            <span className="font-display italic text-[200px] leading-none text-foreground/[0.035] tracking-tight">Méthode</span>
+          </div>
+
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv className="mb-12 md:mb-20 max-w-[760px]">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
+                Ce que MFinances fait <span className="text-accent italic">pour vous</span>
               </h2>
+              <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body max-w-[560px]">
+                Deux piliers indissociables pour piloter une opération de promotion : visibilité sur les marges, maîtrise des régimes fiscaux.
+              </p>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ScrollRevealDiv delay={0.08} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <BarChart3 size={22} className="text-accent" strokeWidth={1.5} />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+              {/* Card 1 */}
+              <ScrollRevealDiv delay={0.08} className="lg:col-span-5">
+                <div className="group relative bg-secondary/40 rounded-3xl p-8 md:p-10 border border-border/60 h-full overflow-hidden transition-all duration-500 hover:border-accent/40 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]">
+                  <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-3xl transition-all duration-700" />
+                  <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-foreground/[0.06] select-none">01</div>
+
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center mb-7 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
+                      <BarChart3 size={24} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-display text-[22px] md:text-[26px] text-foreground leading-[1.15] mb-4">
+                      Comptabilité <span className="italic text-accent">analytique</span> par projet
+                    </h3>
+                    <p className="text-[14.5px] text-muted-foreground leading-[1.75] font-body">
+                      Chaque projet est traité comme une entité distincte — ventilation des coûts par projet et par unité, suivi des marges à chaque phase, tableaux de bord clairs pour chaque opération.
+                    </p>
+
+                    <div className="mt-8 pt-6 border-t border-border/50 flex items-center justify-between">
+                      <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/50 font-body">Pilotage opérationnel</span>
+                      <ArrowUpRight size={18} className="text-accent transition-transform duration-500 group-hover:rotate-45" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-[17px] font-bold font-body text-foreground mb-2">Comptabilité analytique par projet</h3>
-                <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">
-                  Chaque projet traité comme une entité distincte — ventilation des coûts par projet et par unité, suivi des marges à chaque phase.
-                </p>
               </ScrollRevealDiv>
 
-              <ScrollRevealDiv delay={0.14} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <Percent size={22} className="text-accent" strokeWidth={1.5} />
+              {/* Card 2 */}
+              <ScrollRevealDiv delay={0.16} className="lg:col-span-7">
+                <div className="group relative bg-primary text-primary-foreground rounded-3xl p-8 md:p-10 h-full overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.45)]">
+                  <div className="pointer-events-none absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-accent/15 blur-3xl" />
+                  <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-primary-foreground/[0.08] select-none">02</div>
+
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-accent text-accent-foreground flex items-center justify-center mb-7 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
+                      <Percent size={24} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-display text-[22px] md:text-[26px] text-primary-foreground leading-[1.15] mb-4">
+                      Maîtrise de la <span className="italic text-accent">TVA immobilière</span>
+                    </h3>
+                    <p className="text-[14.5px] text-primary-foreground/75 leading-[1.75] font-body mb-6">
+                      Les régimes TVA en promotion dépendent de la nature de l'opération, de l'affectation du bien et du régime juridique. À titre indicatif :
+                    </p>
+
+                    <ul className="space-y-3">
+                      {tvaRegimes.map((r, i) => (
+                        <li key={i} className="flex items-start gap-3 text-[13.5px] text-primary-foreground/85 font-body leading-[1.6]">
+                          <span className="mt-[2px] w-5 h-5 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center shrink-0">
+                            <Check size={11} className="text-accent" strokeWidth={2.5} />
+                          </span>
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="text-[12.5px] text-primary-foreground/55 italic font-body mt-6 pt-5 border-t border-primary-foreground/10">
+                      Chaque situation étant spécifique, une analyse personnalisée est indispensable avant toute décision.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-[17px] font-bold font-body text-foreground mb-3">Maîtrise de la TVA immobilière</h3>
-                <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mb-4">
-                  Les régimes TVA applicables en promotion immobilière dépendent de la nature de l'opération, de l'affectation du bien et du régime juridique choisi. À titre indicatif :
-                </p>
-                <ul className="space-y-2">
-                  {tvaRegimes.map((r, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[13px] text-foreground/70 font-body leading-[1.6]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-[7px] shrink-0" />
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[13px] text-foreground/50 italic font-body mt-4">
-                  Chaque situation étant spécifique, une analyse personnalisée est indispensable avant toute décision.
-                </p>
               </ScrollRevealDiv>
             </div>
           </div>
         </section>
 
         {/* ── RÉSULTAT CONCRET ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Résultat <span className="text-accent">concret</span>
+        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
+            <span className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Impact</span>
+          </div>
+
+          <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
+              <div className="flex items-center gap-3 mb-5 justify-center">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
+                Résultat <span className="italic text-accent">concret</span>
               </h2>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
-              <div className="bg-card rounded-2xl p-7 border border-border/50">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <Building size={22} className="text-accent" strokeWidth={1.5} />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_30px_70px_-40px_hsl(var(--primary)/0.25)]">
+                {/* Left visual band */}
+                <div className="lg:col-span-4 bg-primary text-primary-foreground p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[260px]">
+                  <div className="pointer-events-none absolute -bottom-12 -left-8 w-60 h-60 rounded-full bg-accent/15 blur-3xl" />
+                  <Quote size={64} className="text-accent/40 -ml-2" strokeWidth={1} />
+                  <div className="relative">
+                    <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-accent font-body mb-2">Cas n°01</p>
+                    <p className="font-display text-[20px] md:text-[24px] italic text-primary-foreground leading-[1.2]">
+                      Un projet relancé sans financement externe.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-[17px] font-bold font-body text-foreground mb-3">Promoteur — comptabilité analytique et optimisation des ventes</h3>
-                <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">
-                  Un promoteur immobilier gérant plusieurs projets résidentiels a mis en place une comptabilité analytique par projet et une optimisation du calendrier des ventes. Résultat : amélioration significative de la rentabilité globale et trésorerie renforcée — nouveau projet lancé sans financement externe.
-                </p>
-                <p className="text-[13px] text-foreground/50 italic font-body mt-3">
-                  Les gains obtenus varient selon la nature et la taille des projets.
-                </p>
+
+                {/* Right content */}
+                <div className="lg:col-span-8 p-8 md:p-12">
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                      <Building size={22} className="text-accent" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/50 font-body mb-1">Promoteur résidentiel</p>
+                      <h3 className="font-display text-[20px] md:text-[24px] text-foreground leading-[1.2]">
+                        Comptabilité analytique <span className="italic text-accent">+ optimisation des ventes</span>
+                      </h3>
+                    </div>
+                  </div>
+
+                  <p className="text-[14.5px] text-muted-foreground leading-[1.75] font-body">
+                    Un promoteur immobilier gérant plusieurs projets résidentiels a mis en place une comptabilité analytique par projet et une optimisation du calendrier des ventes. Résultat : amélioration significative de la rentabilité globale et trésorerie renforcée — nouveau projet lancé sans financement externe.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mt-7 pt-7 border-t border-border/50">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <TrendingUp size={14} className="text-accent" strokeWidth={2} />
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Rentabilité</p>
+                      </div>
+                      <p className="font-display text-[20px] text-foreground">Améliorée</p>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Rocket size={14} className="text-accent" strokeWidth={2} />
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Nouveau projet</p>
+                      </div>
+                      <p className="font-display text-[20px] text-foreground">Autofinancé</p>
+                    </div>
+                  </div>
+
+                  <p className="text-[12.5px] text-foreground/45 italic font-body mt-5">
+                    Les gains obtenus varient selon la nature et la taille des projets.
+                  </p>
+                </div>
               </div>
             </ScrollRevealDiv>
           </div>
         </section>
 
         {/* ── OFFRE EXCELLENCE ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[600px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                <Rocket size={26} className="text-accent" strokeWidth={1.5} />
+        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none hidden md:block">
+            <span className="font-display italic text-[280px] leading-none text-foreground/[0.03] tracking-tight whitespace-nowrap">Excellence</span>
+          </div>
+
+          <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv className="text-center mb-12 max-w-[640px] mx-auto">
+              <div className="flex items-center gap-3 mb-5 justify-center">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
+                <span className="h-px w-10 bg-accent/60" />
               </div>
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Une seule offre — <span className="text-accent">Excellence</span>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
+                Une seule offre — <span className="italic text-accent">Excellence</span>
               </h2>
-              <div className="mt-6 bg-secondary/60 rounded-2xl p-8 border border-border/50">
-                <div className="flex items-baseline justify-center gap-1 mb-2">
-                  <span className="font-display text-[44px] font-bold text-primary leading-none">650€</span>
-                  <span className="text-[13px] text-muted-foreground">/mois HTVA</span>
+              <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body">
+                Un accompagnement unique, calibré pour la complexité des opérations de promotion.
+              </p>
+            </ScrollRevealDiv>
+
+            <ScrollRevealDiv delay={0.1}>
+              <div className="relative bg-primary text-primary-foreground rounded-3xl overflow-hidden shadow-[0_40px_80px_-30px_hsl(var(--primary)/0.5)]">
+                <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/15 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-accent/10 blur-3xl" />
+                <Rocket size={280} className="absolute -bottom-12 -right-8 text-primary-foreground/[0.04]" strokeWidth={0.5} />
+
+                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0">
+                  {/* Left: identity + price */}
+                  <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 border-b lg:border-b-0 lg:border-r border-primette-foreground/10 lg:border-primary-foreground/10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.2em] uppercase font-body">Excellence</span>
+                      <span className="text-primary-foreground/50 text-[11px] tracking-[0.2em] uppercase font-body">Offre unique</span>
+                    </div>
+                    <h3 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.1] mb-8">
+                      Le pilotage <span className="italic text-accent">complet</span> pour promoteurs.
+                    </h3>
+
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="font-display text-[80px] md:text-[110px] font-bold text-primary-foreground leading-none">650</span>
+                      <span className="font-display text-[40px] text-accent leading-none">€</span>
+                      <span className="text-primary-foreground/60 text-[14px] font-body ml-1">/ mois HTVA</span>
+                    </div>
+
+                    <div className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary-foreground/5 border border-primary-foreground/15">
+                      <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                      <p className="text-[13px] text-primary-foreground/85 font-body">
+                        DAF temps partiel — <strong className="text-primary-foreground">150 € HTVA / heure</strong>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right: includes */}
+                  <div className="lg:col-span-5 p-8 md:p-12 lg:p-14 bg-primary-foreground/[0.03]">
+                    <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-accent font-body mb-5">Ce qui est inclus</p>
+                    <ul className="space-y-3.5">
+                      {[
+                        "Comptabilité analytique par projet",
+                        "Suivi TVA immobilière",
+                        "Tableaux de bord & marges",
+                        "Trésorerie prévisionnelle",
+                        "Reporting périodique dédié",
+                      ].map((f, i) => (
+                        <li key={i} className="flex items-start gap-3 text-[14px] text-primary-foreground/90 font-body">
+                          <span className="mt-[2px] w-5 h-5 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center shrink-0">
+                            <Check size={11} className="text-accent" strokeWidth={2.5} />
+                          </span>
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="text-[14px] text-muted-foreground font-body mt-3">
-                  DAF à temps partiel disponible en option — <strong className="text-foreground">150 € HTVA/heure</strong>.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-                <Button variant="outline" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/tarifs/">Voir tous les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
+
+                {/* Footer CTA bar */}
+                <div className="relative border-t border-primary-foreground/10 px-8 md:px-12 lg:px-14 py-6 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+                  <p className="text-[13px] text-primary-foreground/70 font-body">
+                    Prêt à passer à l'<span className="italic text-accent">Excellence</span> ?
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                      <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
+                    </Button>
+                    <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                      <Link to="/tarifs/">Voir tous les tarifs <ArrowUpRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
             </ScrollRevealDiv>
           </div>
