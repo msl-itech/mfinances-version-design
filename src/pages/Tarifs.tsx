@@ -366,43 +366,113 @@ export default function Tarifs() {
 
 
         {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Quel forfait est <span className="text-accent">fait pour vous ?</span>
+        <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -bottom-8 -left-4 font-display italic text-primary/[0.04] text-[110px] md:text-[200px] leading-none tracking-tight"
+          >
+            Choisir
+          </span>
+
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-10 md:mb-16 max-w-[680px] mx-auto">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="h-px w-8 bg-accent" />
+                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">02 · Détail</span>
+                <span className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
+                Quel forfait est <span className="italic font-light text-accent">fait pour vous</span> ?
               </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+                Trois philosophies d'accompagnement, pensées pour suivre la trajectoire de votre entreprise.
+              </p>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
               {plans.map((plan, i) => {
                 const Icon = plan.icon;
+                const isExcellence = plan.name === "Excellence";
+                const isPopular = plan.popular;
                 return (
-                  <ScrollRevealDiv key={plan.name} delay={0.08 + i * 0.08} className={`bg-card rounded-2xl p-6 md:p-8 border ${plan.popular ? "border-primary shadow-[0_8px_40px_hsl(var(--primary)/0.1)]" : "border-border/50"} relative flex flex-col`}>
-                    {plan.popular && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
+                  <ScrollRevealDiv
+                    key={plan.name}
+                    delay={0.08 + i * 0.08}
+                    className={`group relative rounded-3xl p-7 md:p-9 flex flex-col transition-all duration-500 ${
+                      isExcellence
+                        ? "bg-primary text-primary-foreground border border-primary shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.6)] hover:-translate-y-1"
+                        : isPopular
+                          ? "bg-card border-2 border-accent/40 shadow-[0_20px_60px_-25px_hsl(var(--accent)/0.4)] hover:-translate-y-1"
+                          : "bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]"
+                    }`}
+                  >
+                    {/* Numéro éditorial en filigrane */}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${
+                        isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
+                      }`}
+                    >
+                      0{i + 1}
+                    </span>
+
+                    {isPopular && !isExcellence && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
                         POPULAIRE
                       </span>
                     )}
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-300 group-hover:scale-110 ${
+                        isExcellence ? "bg-accent/15 ring-1 ring-accent/30" : "bg-accent/10"
+                      }`}
+                    >
                       <Icon size={22} className="text-accent" strokeWidth={1.5} />
                     </div>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="font-display text-[11px] font-bold tracking-[0.1em] text-muted-foreground">{plan.name.toUpperCase()}</span>
+
+                    <span
+                      className={`font-body text-[10px] font-bold tracking-[0.25em] uppercase mb-2 ${
+                        isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"
+                      }`}
+                    >
+                      {plan.name}
+                    </span>
+
+                    <div className="flex items-baseline gap-1.5 mb-2">
+                      <span
+                        className={`font-display text-[44px] md:text-[52px] font-bold leading-none tracking-tight ${
+                          isExcellence ? "text-primary-foreground" : "text-primary"
+                        }`}
+                      >
+                        {plan.price}€
+                      </span>
+                      <span className={`text-[13px] ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                        /mois HTVA
+                      </span>
                     </div>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="font-display text-[36px] md:text-[40px] font-bold text-primary leading-none">{plan.price}€</span>
-                      <span className="text-[13px] text-muted-foreground">/mois HTVA</span>
-                    </div>
-                    <p className="text-accent text-[13px] italic font-body mb-4">{plan.tagline}</p>
-                    <hr className="border-border/30 mb-5" />
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body flex-1">{plan.desc}</p>
+
+                    <p className={`text-[13px] italic font-body mb-5 ${isExcellence ? "text-accent" : "text-accent"}`}>
+                      — {plan.tagline}
+                    </p>
+
+                    <hr className={`mb-5 ${isExcellence ? "border-primary-foreground/15" : "border-border/40"}`} />
+
+                    <p
+                      className={`text-[14px] leading-[1.75] font-body flex-1 ${
+                        isExcellence ? "text-primary-foreground/75" : "text-muted-foreground"
+                      }`}
+                    >
+                      {plan.desc}
+                    </p>
+
                     <Button
-                      variant={plan.popular ? "accent" : "outline"}
-                      className="w-full mt-6 rounded-full whitespace-normal text-center"
+                      variant={isExcellence ? "accent" : isPopular ? "accent" : "outline"}
+                      className="w-full mt-7 rounded-full whitespace-normal text-center"
                       asChild
                     >
-                      <Link to="/contact/">Choisir {plan.name} <ArrowRight size={14} className="ml-1 flex-shrink-0" /></Link>
+                      <Link to="/contact/">
+                        Choisir {plan.name} <ArrowRight size={14} className="ml-1 flex-shrink-0" />
+                      </Link>
                     </Button>
                   </ScrollRevealDiv>
                 );
@@ -410,6 +480,7 @@ export default function Tarifs() {
             </div>
           </div>
         </section>
+
 
         {/* ── SECTION 3 — DAF option ── */}
         <section className="bg-card py-10 md:py-20">
