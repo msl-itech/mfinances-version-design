@@ -43,6 +43,7 @@ import GenerateurBailPage from "./pages/GenerateurBailPage.tsx";
 import ChecklistControleBureau from "./pages/ChecklistControleBureau.tsx";
 import ChecklistControleBureauConfirmation from "./pages/ChecklistControleBureauConfirmation.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
+import AdminAnalytics from "./pages/AdminAnalytics.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatBot from "./components/ChatBot";
 
