@@ -343,30 +343,15 @@ export default function Tresorerie() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <AlertTriangle size={32} className="text-accent mx-auto mb-4" strokeWidth={1.5} />
-            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-              Votre trésorerie est-elle vraiment sous contrôle ?
-            </h2>
-            <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">
-              8 questions pour identifier vos points de fragilité — résultat immédiat, gratuit.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/diagnostic/">
-                  Voir si mon entreprise est en danger
-                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Link>
-              </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/tarifs/">Voir nos tarifs →</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Votre trésorerie est-elle"
+          titleItalic="vraiment"
+          titleEnd="sous contrôle ?"
+          description="8 questions pour identifier vos points de fragilité — résultat immédiat, gratuit. Premier échange confidentiel pour voir comment sécuriser votre cash."
+          watermark="Anticipons"
+          ctaPrimary={{ label: "Faire le diagnostic", href: "/diagnostic/" }}
+          ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}
+        />
       </main>
 
       <Footer />
