@@ -43,7 +43,39 @@ export default function HomepageEnhancer() {
     );
     revealEls.forEach((el) => io.observe(el));
 
-    // Parallax
+    // Auto-emerge: tag eligible blocks inside <main> with .emerge so they
+    // softly rise + fade in as they enter the viewport (Awwwards-style).
+    const emergeSelectors = [
+      "main h2",
+      "main h3",
+      "main p",
+      "main [data-emerge]",
+      "main .rounded-2xl",
+      "main .rounded-3xl",
+    ].join(",");
+    const emergeCandidates = Array.from(
+      document.querySelectorAll<HTMLElement>(emergeSelectors)
+    ).filter((el) => !el.classList.contains("reveal") && !el.closest(".reveal"));
+    emergeCandidates.forEach((el, i) => {
+      el.classList.add("emerge");
+      // Subtle stagger based on DOM order within parent
+      const delay = Math.min((i % 6) * 60, 300);
+      el.style.transitionDelay = `${delay}ms`;
+    });
+    const emergeIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("emerged");
+            emergeIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
+    );
+    if (!reduced) emergeCandidates.forEach((el) => emergeIO.observe(el));
+
+    // Parallax (multi-speed for depth) — uses [data-parallax] on text/images
     let raf = 0;
     const parallaxEls = Array.from(
       document.querySelectorAll<HTMLElement>("main [data-parallax]")
@@ -68,6 +100,7 @@ export default function HomepageEnhancer() {
     return () => {
       document.documentElement.classList.remove("cursor-none-root");
       io.disconnect();
+      emergeIO.disconnect();
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(raf);
     };
@@ -75,6 +108,7 @@ export default function HomepageEnhancer() {
 
   return (
     <>
+      <SmoothScroll />
       <ScrollProgress />
       <CustomCursor />
       <MagneticLayer scope="main" />
