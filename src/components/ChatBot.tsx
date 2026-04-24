@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
 import { getMFContext, type MFContext } from "@/lib/visitor-tracker";
+import { trackChatbotEvent } from "@/lib/chatbot-analytics";
 
 // ── Palier helper (mirrors Edge Function logic) ──
 function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
@@ -282,9 +283,18 @@ export default function ChatBot() {
     }
   }, [messages]);
 
+  const wasOpenRef = useRef(false);
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus();
+    }
+    // Track open/close events (skip initial mount)
+    if (open) {
+      trackChatbotEvent("opened");
+      wasOpenRef.current = true;
+    } else if (wasOpenRef.current) {
+      trackChatbotEvent("closed");
+      wasOpenRef.current = false;
     }
   }, [open]);
 
@@ -333,7 +343,7 @@ export default function ChatBot() {
 
       scoreMessage(text.trim());
       setUserMsgCount((c) => c + 1);
-
+      trackChatbotEvent("message_sent");
       const userMsg: Msg = { role: "user", content: text.trim() };
       const newMessages = [...messages, userMsg];
       setMessages(newMessages);
