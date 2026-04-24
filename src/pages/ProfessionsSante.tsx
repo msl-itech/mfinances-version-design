@@ -300,19 +300,28 @@ export default function ProfessionsSante() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
+          <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
+            <span className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+          </div>
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Prêt à optimiser votre situation ?
+              <div className="flex items-center gap-3 mb-5 justify-center">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">
+                Prêt à <span className="text-accent italic">optimiser</span> votre situation ?
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons votre situation fiscale et patrimoniale.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
