@@ -3,10 +3,11 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
 import imgKpi from "@/assets/controle-gestion-kpi.jpg";
-import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/services/ServicePageHero";
+import ServicePageCTA from "@/components/services/ServicePageCTA";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -14,14 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   BarChart2,
   TrendingUp,
@@ -137,57 +130,27 @@ export default function ControleDeGestion() {
       <Header />
 
       <main>
-        {/* HERO */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Services</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Contrôle de gestion</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        <ServicePageHero
+          breadcrumbLabel="Contrôle de gestion"
+          eyebrow="Premium & Excellence"
+          number="02"
+          sectionLabel="Pilotage par les chiffres"
+          titleStart="Pilotez votre entreprise avec les bons"
+          titleItalic="chiffres"
+          titleEnd="au bon moment"
+          description="Budget annuel, situations intermédiaires et analyse des écarts — un cycle de pilotage complet pour décider sur des bases factuelles, pas sur des intuitions."
+          pills={["Forfaits Premium & Excellence", "Budget annuel", "5 KPIs surveillés"]}
+          image={imgHero}
+          imageAlt="Tableaux de bord et rapports financiers pour le contrôle de gestion"
+          plaque="N°02 / Contrôle de gestion"
+          cardTitlePrefix="Vos chiffres,"
+          cardTitleAccent="actionnables"
+          cardSubtitle="Budget · Écarts · KPIs"
+          ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir les tarifs", href: "/tarifs/" }}
+          watermark="Pilotage"
+        />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Premium & Excellence
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Pilotez votre entreprise avec les bons chiffres, au bon moment
-                </h1>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    Forfaits Premium & Excellence
-                  </span>
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    Bruxelles
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Tableaux de bord et rapports financiers pour le contrôle de gestion"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* SECTION 1 — Ce que comprend le service */}
         <section className="bg-card py-10 md:py-20">
@@ -346,29 +309,15 @@ export default function ControleDeGestion() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-              Prêt à piloter votre entreprise avec les bons chiffres ?
-            </h2>
-            <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">
-              Discutons de vos enjeux — sans engagement, sans jargon.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/contact/">
-                  Parler à un expert — c'est gratuit
-                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Link>
-              </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/tarifs/">Voir nos tarifs →</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Prêt à piloter avec les"
+          titleItalic="bons chiffres"
+          titleEnd="?"
+          description="Discutons de vos enjeux — sans engagement, sans jargon. Premier échange gratuit pour identifier les KPIs qui comptent vraiment pour votre activité."
+          watermark="Décidons"
+          ctaPrimary={{ label: "Parler à un expert", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}
+        />
       </main>
 
       <Footer />

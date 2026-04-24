@@ -3,10 +3,11 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/creation-hero.jpg";
 import imgSteps from "@/assets/creation-steps.jpg";
-import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/services/ServicePageHero";
+import ServicePageCTA from "@/components/services/ServicePageCTA";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -14,14 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
   FileText,
@@ -100,67 +93,28 @@ export default function CreationEntreprise() {
       <Header />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Services</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Création d'entreprise</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        <ServicePageHero
+          breadcrumbLabel="Création d'entreprise"
+          eyebrow="800 € HTVA — Forfait tout compris"
+          number="06"
+          sectionLabel="Création d'entreprise"
+          titleStart="Lancez votre entreprise sur des bases"
+          titleItalic="solides"
+          titleEnd="dès le premier jour"
+          description="Créer une entreprise en Belgique, c'est excitant. C'est aussi une série de décisions structurantes qui engagent votre avenir financier, fiscal et juridique pour des années."
+          disclaimer="Les erreurs de départ sont les plus coûteuses — et les plus évitables."
+          pills={["Plan financier", "Forme juridique", "Acte authentique"]}
+          image={imgHero}
+          imageAlt="Création d'entreprise à Bruxelles — MFinances"
+          plaque="N°06 / Création"
+          cardTitlePrefix="Démarrage"
+          cardTitleAccent="propre"
+          cardSubtitle="800 € HTVA · Tout compris"
+          ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir les tarifs", href: "/tarifs/" }}
+          watermark="Création"
+        />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  800 € HTVA — Forfait tout compris
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Lancez votre entreprise sur des bases solides — <span className="text-accent">dès le premier jour</span>
-                </h1>
-                <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
-                  Créer une entreprise en Belgique, c'est excitant. C'est aussi une série de décisions structurantes qui engagent votre avenir financier, fiscal et juridique pour des années.
-                </p>
-                <p className="text-primary-foreground/60 text-[13px] leading-relaxed mt-3 font-body italic">
-                  Les erreurs de départ sont les plus coûteuses — et les plus évitables.
-                </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
-                  {["Plan financier", "Forme juridique", "Acte authentique"].map((pill) => (
-                    <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                      {pill}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Création d'entreprise à Bruxelles — MFinances"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* ── SECTION 1 — Le problème ── */}
         <section className="bg-card py-10 md:py-20">

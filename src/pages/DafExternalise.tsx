@@ -3,10 +3,11 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/daf-hero.jpg";
 import imgDashboard from "@/assets/daf-dashboard.jpg";
-import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/services/ServicePageHero";
+import ServicePageCTA from "@/components/services/ServicePageCTA";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -14,14 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   BarChart2,
   Calculator,
@@ -127,64 +120,26 @@ export default function DafExternalise() {
       <Header />
 
       <main>
-        {/* HERO */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
-                        Accueil
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">
-                        Services
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">DAF à temps partiel</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        <ServicePageHero
+          breadcrumbLabel="DAF à temps partiel"
+          eyebrow="Service Excellence"
+          number="01"
+          sectionLabel="Direction financière externalisée"
+          titleStart="Un copilote financier pour les décisions"
+          titleItalic="qui comptent"
+          description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
+          pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
+          image={imgHero}
+          imageAlt="Réunion de pilotage financier avec un DAF externalisé MFinances"
+          plaque="N°01 / Pilotage stratégique"
+          cardTitlePrefix="Copilote"
+          cardTitleAccent="financier"
+          cardSubtitle="Décisions · Bancaires · Stratégie"
+          ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir les tarifs", href: "/tarifs/" }}
+          watermark="DAF"
+        />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Service Excellence
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Un copilote financier à vos côtés pour les décisions qui comptent
-                </h1>
-                <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
-                  Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement.
-                </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    150 € HTVA / heure
-                  </span>
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    Réservé aux clients Excellence
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Réunion de pilotage financier avec un DAF externalisé MFinances"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* SECTION 1 — Missions */}
         <section className="bg-card py-10 md:py-20">
@@ -328,29 +283,15 @@ export default function DafExternalise() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-              Prêt à avoir un copilote financier ?
-            </h2>
-            <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">
-              Discutons de vos enjeux — sans engagement, sans jargon.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/contact/">
-                  Parler à un expert — c'est gratuit
-                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Link>
-              </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/tarifs/">Voir nos tarifs →</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Prêt à avoir un"
+          titleItalic="copilote financier"
+          titleEnd="?"
+          description="Discutons de vos enjeux — sans engagement, sans jargon. Premier échange gratuit et confidentiel pour identifier ensemble les leviers de votre pilotage financier."
+          watermark="Pilotons"
+          ctaPrimary={{ label: "Parler à un expert", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}
+        />
       </main>
 
       
