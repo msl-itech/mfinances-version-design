@@ -115,60 +115,58 @@ export default function HeroSection() {
             </h1>
 
             {/* Description + CTAs in asymmetric row */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
-              <div className="md:col-span-5">
-                <div className="h-px w-12 bg-accent mb-5" />
-                <p
-                  className={`text-[15px] md:text-[16px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
-                  style={{ transitionDelay: "0.3s" }}
-                >
-                  La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
-                  résultats découverts trop tard. MFinances change ça : un vrai pilotage financier,
-                  à un prix de PME.
-                </p>
-              </div>
-
-              <div
-                className={`md:col-span-7 flex flex-col gap-4 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                style={{ transitionDelay: "0.5s" }}
+            <div className="mt-10 max-w-[620px]">
+              <div className="h-px w-12 bg-accent mb-5" />
+              <p
+                className={`text-[15px] md:text-[16px] text-foreground/70 leading-[1.7] transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
+                style={{ transitionDelay: "0.3s" }}
               >
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    variant="accent"
-                    size="lg"
-                    className="rounded-full px-7 group btn-liquid h-14 text-[14px]"
-                    asChild
-                  >
-                    <Link to="/diagnostic/" data-magnetic>
-                      <span className="flex items-center gap-3">
-                        Lancer mon diagnostic gratuit
-                        <span className="w-7 h-7 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
-                          <ArrowUpRight size={14} />
-                        </span>
+                La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
+                résultats découverts trop tard. MFinances change ça : un vrai pilotage financier,
+                à un prix de PME.
+              </p>
+            </div>
+
+            <div
+              className={`mt-8 flex flex-col gap-5 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ transitionDelay: "0.5s" }}
+            >
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  variant="accent"
+                  size="lg"
+                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[14px] whitespace-nowrap"
+                  asChild
+                >
+                  <Link to="/diagnostic/" data-magnetic>
+                    <span className="flex items-center gap-3">
+                      Lancer mon diagnostic gratuit
+                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
+                        <ArrowUpRight size={14} />
                       </span>
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="rounded-full px-6 h-14 text-[14px] border-primary/20 hover:bg-primary hover:text-primary-foreground"
-                    asChild
-                  >
-                    <Link to="/services/">Découvrir nos services</Link>
-                  </Button>
-                </div>
-                <p className="text-[12px] text-foreground/55 leading-relaxed">
-                  <span className="font-semibold text-foreground/75">Vous recevez :</span>{" "}
-                  votre score de risque trésorerie sur 20, 3 priorités d'action et une grille de
-                  lecture financière personnalisée — en 3 minutes.
-                </p>
-                <div className="flex items-center gap-5 text-[11px] uppercase tracking-[0.15em] text-foreground/45 font-medium pt-1">
-                  <span>🔒 Confidentiel</span>
-                  <span className="w-px h-3 bg-border" />
-                  <span>⏱ Immédiat</span>
-                  <span className="w-px h-3 bg-border" />
-                  <span>✓ Sans engagement</span>
-                </div>
+                    </span>
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-7 h-14 text-[14px] border-primary/20 hover:bg-primary hover:text-primary-foreground whitespace-nowrap"
+                  asChild
+                >
+                  <Link to="/services/">Découvrir nos services</Link>
+                </Button>
+              </div>
+              <p className="text-[12px] text-foreground/55 leading-relaxed max-w-[560px]">
+                <span className="font-semibold text-foreground/75">Vous recevez :</span>{" "}
+                votre score de risque trésorerie sur 20, 3 priorités d'action et une grille de
+                lecture financière personnalisée — en 3 minutes.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.15em] text-foreground/45 font-medium pt-1">
+                <span>🔒 Confidentiel</span>
+                <span className="w-px h-3 bg-border" />
+                <span>⏱ Immédiat</span>
+                <span className="w-px h-3 bg-border" />
+                <span>✓ Sans engagement</span>
               </div>
             </div>
           </div>
