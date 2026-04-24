@@ -188,50 +188,45 @@ export default function Contact() {
         </section>
 
 
-        {/* 3 contact methods — horizontal row on mobile */}
-        <section className="bg-background py-4 md:py-14">
+        {/* 3 contact methods — premium */}
+        <section className="bg-background py-6 md:py-16 relative">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv>
-              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
-                <a
-                  href="tel:+3228860550"
-                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
-                >
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Phone size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <Phone size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Téléphone</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">+32 2 886 05 50</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Lun-Ven · 9h-18h</p>
-                </a>
-
-                <a
-                  href="mailto:info@mfinances.be"
-                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
-                >
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Mail size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <Mail size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Email</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">info@mfinances.be</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Réponse sous 24h</p>
-                </a>
-
-                <div className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 snap-center">
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4">
-                    <MapPin size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <MapPin size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">En personne</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">Uccle, Bruxelles</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Sur RDV uniquement</p>
-                </div>
+              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
+                {[
+                  { Icon: Phone, num: "01", title: "Téléphone", value: "+32 2 886 05 50", sub: "Lun-Ven · 9h-18h", href: "tel:+3228860550" },
+                  { Icon: Mail, num: "02", title: "Email", value: "info@mfinances.be", sub: "Réponse sous 24h", href: "mailto:info@mfinances.be" },
+                  { Icon: MapPin, num: "03", title: "En personne", value: "Uccle, Bruxelles", sub: "Sur RDV uniquement", href: null },
+                ].map(({ Icon, num, title, value, sub, href }) => {
+                  const Tag = (href ? "a" : "div") as React.ElementType;
+                  const props = href ? { href } : {};
+                  return (
+                    <Tag
+                      key={title}
+                      {...props}
+                      className={`group relative flex-shrink-0 w-[160px] md:w-auto flex flex-col items-center text-center p-4 md:p-7 rounded-2xl md:rounded-3xl bg-card border border-border/60 ${href ? "hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]" : ""} transition-all duration-500 snap-center overflow-hidden`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute -top-3 right-4 font-display italic text-accent/[0.10] text-[56px] md:text-[72px] leading-none group-hover:text-accent/[0.15] transition-colors duration-500"
+                      >
+                        {num}
+                      </span>
+                      <div className="relative w-10 h-10 md:w-13 md:h-13 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                        <Icon size={20} className="text-accent md:hidden" strokeWidth={1.5} />
+                        <Icon size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="relative font-display text-[14px] md:text-[18px] text-foreground tracking-tight">{title}</h3>
+                      <p className="relative text-[12px] md:text-[15px] font-semibold text-foreground mt-1 md:mt-1.5 font-body">{value}</p>
+                      <p className="relative text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1.5">{sub}</p>
+                    </Tag>
+                  );
+                })}
               </div>
             </ScrollRevealDiv>
           </div>
         </section>
+
 
         {/* Form + sidebar */}
         <section className="bg-background pb-10 md:pb-24">
