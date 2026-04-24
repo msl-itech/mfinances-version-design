@@ -3,6 +3,7 @@ import CustomCursor from "./CustomCursor";
 import MagneticLayer from "./MagneticLayer";
 import TiltLayer from "./TiltLayer";
 import ScrollProgress from "./ScrollProgress";
+import SmoothScroll from "./SmoothScroll";
 
 /**
  * Layers premium visual/motion enhancements on top of the homepage
