@@ -92,7 +92,6 @@ export default function HomepageEnhancer() {
     }
 
     return () => {
-      document.documentElement.classList.remove("cursor-none-root");
       io.disconnect();
       emergeIO.disconnect();
       window.removeEventListener("scroll", onScroll);
@@ -104,7 +103,6 @@ export default function HomepageEnhancer() {
     <>
       <SmoothScroll />
       <ScrollProgress />
-      <CustomCursor />
       <MagneticLayer scope="main" />
       <TiltLayer scope="main" />
       {/* Grain overlay — fixed, ultra subtle */}
