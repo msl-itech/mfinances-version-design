@@ -28,7 +28,8 @@ export default function DiagnosticSection() {
         Diagnostic
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="container-mf relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
             <div className="inline-flex items-center gap-4 mb-5">
