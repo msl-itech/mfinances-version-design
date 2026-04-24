@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import CustomCursor from "./CustomCursor";
 import MagneticLayer from "./MagneticLayer";
 import TiltLayer from "./TiltLayer";
 import ScrollProgress from "./ScrollProgress";
@@ -22,11 +21,6 @@ export default function HomepageEnhancer() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isFine = window.matchMedia("(pointer: fine)").matches;
-
-    // Hide native cursor only on fine pointers (desktop)
-    if (isFine && !reduced) {
-      document.documentElement.classList.add("cursor-none-root");
-    }
 
     // Reveal fallback: ensure any .reveal in viewport gets .visible
     const revealEls = Array.from(document.querySelectorAll<HTMLElement>("main .reveal"));
@@ -98,7 +92,6 @@ export default function HomepageEnhancer() {
     }
 
     return () => {
-      document.documentElement.classList.remove("cursor-none-root");
       io.disconnect();
       emergeIO.disconnect();
       window.removeEventListener("scroll", onScroll);
@@ -110,7 +103,6 @@ export default function HomepageEnhancer() {
     <>
       <SmoothScroll />
       <ScrollProgress />
-      <CustomCursor />
       <MagneticLayer scope="main" />
       <TiltLayer scope="main" />
       {/* Grain overlay — fixed, ultra subtle */}
