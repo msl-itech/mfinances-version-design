@@ -58,17 +58,24 @@ export default function AudienceSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-background py-14 md:py-28 relative overflow-hidden" ref={ref}>
-      <div className="container-mf">
-        <div className={`text-center mb-12 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
-          <div className="inline-flex items-center gap-2 mb-5">
-            <span className="w-8 h-px bg-accent" />
-            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
-              Pour qui
+    <section className="bg-background py-14 md:py-32 relative overflow-hidden" ref={ref}>
+      {/* Editorial backdrop */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+      >
+        Pour qui
+      </div>
+
+      <div className="container-mf relative">
+        <div className={`max-w-[820px] mx-auto text-center mb-12 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
+          <div className="inline-flex items-center gap-4 mb-5">
+            <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 06</span>
+            <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+              Pour qui · Profils accompagnés
             </span>
-            <span className="w-8 h-px bg-accent" />
           </div>
-          <h2 className="font-display text-[28px] md:text-[44px] leading-[1.08]">
+          <h2 className="font-display text-[28px] md:text-[46px] leading-[1.08]">
             Nous accompagnons les dirigeants
             <br className="hidden md:block" />
             qui ont décidé de <span className="text-accent italic">grandir</span>
