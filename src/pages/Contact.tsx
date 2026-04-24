@@ -206,16 +206,11 @@ export default function Contact() {
                       {...props}
                       className={`group relative flex-shrink-0 w-[160px] md:w-auto flex flex-col items-center text-center p-4 md:p-7 rounded-2xl md:rounded-3xl bg-card border border-border/60 ${href ? "hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]" : ""} transition-all duration-500 snap-center overflow-hidden`}
                     >
-                      <span
-                        aria-hidden="true"
-                        className="absolute -top-3 right-4 font-display italic text-accent/[0.10] text-[56px] md:text-[72px] leading-none group-hover:text-accent/[0.15] transition-colors duration-500"
-                      >
-                        {num}
-                      </span>
                       <div className="relative w-10 h-10 md:w-13 md:h-13 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
                         <Icon size={20} className="text-accent md:hidden" strokeWidth={1.5} />
                         <Icon size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
                       </div>
+
                       <h3 className="relative font-display text-[14px] md:text-[18px] text-foreground tracking-tight">{title}</h3>
                       <p className="relative text-[12px] md:text-[15px] font-semibold text-foreground mt-1 md:mt-1.5 font-body">{value}</p>
                       <p className="relative text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1.5">{sub}</p>
