@@ -211,9 +211,19 @@
   border: 1px solid hsl(var(--border) / 0.4);
 }
 
-/* Smooth scroll for the whole page (native, perf-friendly) */
+/* Smooth scroll for the whole page (native, perf-friendly).
+   Disabled when Lenis is active (it owns the scroll) to avoid double-easing. */
 @media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+  html:not(.lenis-active) { scroll-behavior: smooth; }
+}
+
+/* Lenis smooth-scroll integration */
+html.lenis-active,
+html.lenis-active body {
+  height: auto;
+}
+html.lenis-active.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 /* Liquid morph hover for CTAs flagged with .btn-liquid */
