@@ -25,6 +25,9 @@ import {
   Building2,
   Monitor,
   Headphones,
+  Quote,
+  Sparkles,
+  TrendingDown,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
