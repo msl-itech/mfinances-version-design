@@ -135,7 +135,7 @@ export default function Asbl() {
               <div className="mt-8 text-center lg:text-left">
                 <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°07 / Non-marchand</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°01 / Non-marchand</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
                   Votre ASBL a une mission —<br className="hidden md:block" /> nous gérons les <span className="text-accent italic">chiffres</span>.
