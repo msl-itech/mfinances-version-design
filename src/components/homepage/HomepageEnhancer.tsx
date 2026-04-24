@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import CustomCursor from "./CustomCursor";
 import MagneticLayer from "./MagneticLayer";
 import TiltLayer from "./TiltLayer";
 import ScrollProgress from "./ScrollProgress";
