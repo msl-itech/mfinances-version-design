@@ -135,7 +135,7 @@ export default function HeroSection() {
                 <Button
                   variant="accent"
                   size="lg"
-                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[14px] whitespace-nowrap"
+                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[15px] whitespace-nowrap"
                   asChild
                 >
                   <Link to="/diagnostic/" data-magnetic>
