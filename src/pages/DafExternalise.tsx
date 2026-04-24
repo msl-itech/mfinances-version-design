@@ -3,10 +3,11 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/daf-hero.jpg";
 import imgDashboard from "@/assets/daf-dashboard.jpg";
-import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/services/ServicePageHero";
+import ServicePageCTA from "@/components/services/ServicePageCTA";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -14,14 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   BarChart2,
   Calculator,
