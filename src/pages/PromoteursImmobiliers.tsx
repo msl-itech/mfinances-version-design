@@ -319,7 +319,7 @@ export default function PromoteursImmobiliers() {
 
                 <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0">
                   {/* Left: identity + price */}
-                  <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 border-b lg:border-b-0 lg:border-r border-primette-foreground/10 lg:border-primary-foreground/10">
+                  <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 border-b lg:border-b-0 lg:border-r border-primary-foreground/10">
                     <div className="flex items-center gap-3 mb-6">
                       <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.2em] uppercase font-body">Excellence</span>
                       <span className="text-primary-foreground/50 text-[11px] tracking-[0.2em] uppercase font-body">Offre unique</span>
