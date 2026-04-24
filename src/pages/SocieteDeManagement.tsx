@@ -165,7 +165,7 @@ export default function SocieteDeManagement() {
               <div className="rounded-2xl shadow-2xl overflow-hidden relative">
                 <img src={imgHero} alt="Société de management patrimoniale à Bruxelles" className="w-full h-full object-cover" />
                 <div className="absolute top-4 left-4 bg-primary-foreground/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°05</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°03</p>
                   <p className="text-[12px] font-display text-primary leading-tight">Mgmt fees / Patrimoine</p>
                 </div>
               </div>
