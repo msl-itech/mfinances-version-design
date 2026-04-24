@@ -482,50 +482,100 @@ export default function Tarifs() {
         </section>
 
 
-        {/* ── SECTION 3 — DAF option ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                <Users size={26} className="text-accent" strokeWidth={1.5} />
+        {/* ── SECTION 3 — DAF option (split card éditorial) ── */}
+        <section className="bg-card py-14 md:py-24">
+          <div className="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-12">
+            <ScrollRevealDiv>
+              <div className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                {/* Watermark */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none select-none absolute -top-6 -right-4 font-display italic text-primary-foreground/[0.06] text-[120px] md:text-[200px] leading-none tracking-tight"
+                >
+                  DAF
+                </span>
+                <div className="absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+
+                <div className="relative grid md:grid-cols-[1fr_1.3fr] gap-0">
+                  {/* Colonne gauche — visuel + badge */}
+                  <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-primary-foreground/10 flex flex-col justify-center">
+                    <div className="inline-flex items-center gap-2 mb-5">
+                      <Sparkles size={14} className="text-accent" strokeWidth={1.5} />
+                      <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Option Excellence</span>
+                    </div>
+                    <div className="w-16 h-16 rounded-2xl bg-accent/15 ring-1 ring-accent/30 flex items-center justify-center mb-6">
+                      <Users size={28} className="text-accent" strokeWidth={1.5} />
+                    </div>
+                    <span className="font-display text-[44px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
+                      150€
+                    </span>
+                    <span className="text-primary-foreground/60 text-[13px] font-body mt-1">HTVA / heure</span>
+                  </div>
+
+                  {/* Colonne droite — narration */}
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h2 className="font-display text-[26px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
+                      Le DAF à temps partiel — <span className="italic font-light text-accent">au plus près de vos décisions</span>
+                    </h2>
+                    <p className="text-primary-foreground/75 text-[15px] leading-[1.8] mt-5 font-body">
+                      Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée — comme un directeur financier interne, sans le coût fixe.
+                    </p>
+                    <div>
+                      <Button variant="accent" size="lg" className="rounded-full mt-7 whitespace-normal text-center" asChild>
+                        <Link to="/services/daf-externalise/">En savoir plus <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2 className="font-display text-[22px] sm:text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Le DAF à temps partiel — <span className="text-accent">option Excellence</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] leading-[1.8] mt-5 font-body max-w-[640px] mx-auto">
-                Réservé exclusivement aux clients Excellence. Réunion mensuelle de pilotage + disponibilité ad hoc. Facturation : <strong className="text-foreground">150 € HTVA / heure</strong>.
-              </p>
-              <Button variant="default" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                <Link to="/services/daf-externalise/">En savoir plus <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-              </Button>
             </ScrollRevealDiv>
           </div>
         </section>
 
         {/* ── SECTION 4 — Missions ponctuelles ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Missions <span className="text-accent">ponctuelles</span>
+        <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-6 -right-4 font-display italic text-primary/[0.04] text-[110px] md:text-[180px] leading-none tracking-tight"
+          >
+            Ponctuel
+          </span>
+
+          <div className="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-12 max-w-[640px] mx-auto">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="h-px w-8 bg-accent" />
+                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">03 · Au-delà des forfaits</span>
+                <span className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[42px] text-foreground leading-[1.12] tracking-tight">
+                Missions <span className="italic font-light text-accent">ponctuelles</span>
               </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+                Pour les besoins spécifiques qui s'ajoutent ou se substituent à un forfait mensuel.
+              </p>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.1}>
               {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.2)]">
                 <table className="w-full text-[14px]">
                   <thead>
-                    <tr className="border-b border-border/30">
-                      <th className="text-left p-5 font-body font-semibold text-foreground/70 text-[12px] uppercase tracking-wider">Mission</th>
-                      <th className="text-right p-5 font-body font-semibold text-foreground/70 text-[12px] uppercase tracking-wider">Tarif</th>
+                    <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
+                      <th className="text-left p-5 pl-7 font-body font-bold text-foreground/70 text-[10px] uppercase tracking-[0.25em]">Mission</th>
+                      <th className="text-right p-5 pr-7 font-body font-bold text-foreground/70 text-[10px] uppercase tracking-[0.25em]">Tarif</th>
                     </tr>
                   </thead>
                   <tbody>
                     {missions.map((m, i) => (
-                      <tr key={i} className="border-b border-border/20 last:border-0">
-                        <td className="p-5 font-medium text-foreground/80 font-body">{m.label}</td>
-                        <td className="p-5 text-right font-semibold text-primary font-body">{m.tarif}</td>
+                      <tr key={i} className="border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/40 group">
+                        <td className="p-5 pl-7 font-medium text-foreground/85 font-body">
+                          <span className="inline-flex items-center gap-3">
+                            <span className="font-display italic text-accent/50 text-[13px] w-5">0{i + 1}</span>
+                            {m.label}
+                          </span>
+                        </td>
+                        <td className="p-5 pr-7 text-right font-display font-bold text-primary text-[16px]">{m.tarif}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -535,18 +585,20 @@ export default function Tarifs() {
               {/* Mobile cards */}
               <div className="sm:hidden space-y-3">
                 {missions.map((m, i) => (
-                  <div key={i} className="bg-card rounded-xl border border-border/50 p-4">
-                    <p className="text-[14px] font-medium text-foreground/80 font-body mb-2">{m.label}</p>
-                    <p className="text-[15px] font-bold text-primary font-body">{m.tarif}</p>
+                  <div key={i} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
+                    <span className="font-display italic text-accent/60 text-[12px]">0{i + 1}</span>
+                    <p className="text-[14px] font-medium text-foreground/85 font-body mb-2 mt-1">{m.label}</p>
+                    <p className="font-display text-[18px] font-bold text-primary">{m.tarif}</p>
                   </div>
                 ))}
               </div>
             </ScrollRevealDiv>
 
             <ScrollRevealDiv delay={0.2}>
-              <div className="bg-primary/[0.05] rounded-xl p-4 sm:p-5 mt-6 border border-primary/10">
-                <p className="text-[13px] text-foreground/70 font-body leading-relaxed">
-                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître : votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte — c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
+              <div className="bg-card rounded-2xl p-5 sm:p-6 mt-6 border border-border/50 flex gap-4 items-start">
+                <Quote size={28} className="text-accent/40 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                <p className="text-[13.5px] text-foreground/75 font-body leading-relaxed italic">
+                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte — c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
                 </p>
               </div>
             </ScrollRevealDiv>
@@ -554,35 +606,60 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 5 — Comment ça se passe ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Comment ça se passe <span className="text-accent">concrètement ?</span>
+        <section className="bg-card py-14 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -bottom-6 left-0 font-display italic text-primary/[0.035] text-[110px] md:text-[200px] leading-none tracking-tight"
+          >
+            Démarrer
+          </span>
+
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="text-center mb-12 md:mb-16 max-w-[680px] mx-auto">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="h-px w-8 bg-accent" />
+                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">04 · Démarrage</span>
+                <span className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
+                Comment ça se passe <span className="italic font-light text-accent">concrètement</span> ?
               </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+                Trois étapes simples — et 48 heures pour démarrer notre collaboration.
+              </p>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 relative">
+              {/* Ligne de connexion subtile */}
+              <div className="hidden md:block absolute top-[88px] left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+
               {steps.map((s, i) => {
                 const Icon = s.icon;
                 return (
                   <ScrollRevealDiv key={s.num} delay={0.1 + i * 0.08} className="relative">
-                    <div className="bg-secondary/60 rounded-2xl p-6 md:p-7 border border-border/50 text-center h-full">
-                      <span className="text-[48px] font-display font-bold text-accent/15 leading-none">{s.num}</span>
-                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mt-2 mb-4">
-                        <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                    <div className="group bg-card rounded-3xl p-7 md:p-8 border border-border/60 text-center h-full transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)] relative overflow-hidden">
+                      {/* Numéro filigrane */}
+                      <span
+                        aria-hidden="true"
+                        className="absolute -top-4 right-4 font-display italic text-accent/[0.12] text-[88px] leading-none group-hover:text-accent/20 transition-colors duration-500"
+                      >
+                        0{s.num}
+                      </span>
+
+                      <div className="relative z-10">
+                        <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:bg-accent/15 transition-all duration-300">
+                          <Icon size={24} className="text-accent" strokeWidth={1.5} />
+                        </div>
+                        <h3 className="text-[18px] font-display font-bold text-foreground mb-3 tracking-tight">{s.title}</h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                       </div>
-                      <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                      <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{s.desc}</p>
                     </div>
-                    {i < steps.length - 1 && (
-                      <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
-                    )}
                   </ScrollRevealDiv>
                 );
               })}
             </div>
           </div>
+
         </section>
 
         {/* ── SECTION FAQ ── */}
