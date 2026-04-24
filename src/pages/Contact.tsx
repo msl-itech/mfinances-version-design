@@ -229,12 +229,22 @@ export default function Contact() {
 
 
         {/* Form + sidebar */}
-        <section className="bg-background pb-10 md:pb-24">
-          <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14">
+        <section className="bg-background pb-14 md:pb-28 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.03] text-[110px] md:text-[200px] leading-none tracking-tight hidden md:block"
+          >
+            Échangeons
+          </span>
+
+          <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14 relative z-10">
             {/* LEFT — Formulaire (3/5) */}
             <div className="lg:col-span-3 order-1 lg:order-1">
               <ScrollRevealDiv>
-                <div className="bg-card rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-[0_8px_40px_rgba(27,43,94,0.08)] border border-border/50">
+                <div className="relative bg-card rounded-3xl p-6 md:p-10 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.25)] border border-border/60 overflow-hidden">
+                  {/* Accent bar top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/60 to-accent" />
+
                   {submitted ? (
                     <div className="text-center py-10">
                       <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
