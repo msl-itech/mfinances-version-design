@@ -256,28 +256,15 @@ export default function Fiscalite() {
           </div>
         </section>
 
-        {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation fiscale" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Optimisez votre fiscalité — en toute légalité
-              </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel. Nous analysons votre situation et vous présentons les leviers activables.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-              </div>
-            </ScrollRevealDiv>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Optimisez votre fiscalité —"
+          titleItalic="en toute légalité"
+          description="Premier échange gratuit et confidentiel. Nous analysons votre situation et vous présentons les leviers activables."
+          watermark="Optimisons"
+          ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
+          ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}
+          bgImageAlt="Consultation fiscale — MFinances"
+        />
       </main>
 
       <Footer />
