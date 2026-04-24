@@ -346,28 +346,16 @@ export default function Comptabilite() {
           </div>
         </section>
 
-        {/* ── CTA FINAL (with background image) ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Partenariat comptable" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Prêt à simplifier votre comptabilité ?
-              </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
-                Demandez un devis gratuit — nous vous rappelons sous 72h pour en discuter.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-              </div>
-            </ScrollRevealDiv>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Prêt à simplifier"
+          titleItalic="votre comptabilité"
+          titleEnd="?"
+          description="Demandez un devis gratuit — nous vous rappelons sous 72h pour en discuter."
+          watermark="Comptons"
+          ctaPrimary={{ label: "Demander un devis gratuit", href: "/contact/" }}
+          ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}
+          bgImageAlt="Partenariat comptable — MFinances"
+        />
       </main>
 
       
