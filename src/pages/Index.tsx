@@ -17,6 +17,7 @@ import DisqualificationSection from "@/components/sections/DisqualificationSecti
 import PricingSection from "@/components/sections/PricingSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import SeoLocalSection from "@/components/sections/SeoLocalSection";
+import HomepageEnhancer from "@/components/homepage/HomepageEnhancer";
 import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
 
 const homepageFaqs = [
@@ -32,7 +33,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <SEOHead
         title="Expert-Comptable Bruxelles — Pilotage TPE"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE en croissance."
@@ -58,6 +59,8 @@ export default function Index() {
         <SeoLocalSection />
       </main>
       <Footer />
+      <HomepageEnhancer />
     </div>
   );
 }
+
