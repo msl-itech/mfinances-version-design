@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   Rocket,
   UtensilsCrossed,
   Stethoscope,
@@ -116,6 +117,7 @@ function AudienceCard({
   desc,
   href,
   badge,
+  index,
   delay,
 }: {
   icon: React.ElementType;
@@ -123,31 +125,52 @@ function AudienceCard({
   desc: string;
   href: string;
   badge?: string;
+  index: number;
   delay: number;
 }) {
   return (
-    <ScrollRevealDiv delay={delay}>
+    <ScrollRevealDiv delay={delay} className="h-full">
       <Link
         to={href}
-        className="group block bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
+        className="group relative block h-full bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 overflow-hidden"
       >
-        <div className="flex items-start justify-between mb-5">
-          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-            <Icon size={22} className="text-accent" strokeWidth={1.5} />
-          </div>
-          {badge && (
-            <span className="text-[10px] font-bold tracking-[0.1em] uppercase bg-primary/10 text-primary px-2.5 py-1 rounded-full">
-              {badge}
-            </span>
-          )}
-        </div>
-        <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
-          {title}
-        </h3>
-        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{desc}</p>
-        <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
-          Découvrir <ArrowRight size={14} />
+        {/* gradient blob hover */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 -right-20 w-56 h-56 rounded-full bg-accent/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+        />
+
+        {/* numéro éditorial */}
+        <span className="absolute top-4 right-5 font-display italic text-muted-foreground/30 group-hover:text-accent/60 transition-colors text-[13px] tracking-wide">
+          {String(index + 1).padStart(2, "0")}
         </span>
+
+        <div className="relative">
+          <div className="flex items-start justify-between mb-5">
+            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+              <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+            </div>
+            {badge && (
+              <span className="text-[10px] font-bold tracking-[0.12em] uppercase bg-primary/10 text-primary px-2.5 py-1 rounded-full mt-1 mr-6">
+                {badge}
+              </span>
+            )}
+          </div>
+          <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
+            {title}
+          </h3>
+          <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{desc}</p>
+
+          {/* hairline + CTA */}
+          <div className="mt-5 pt-4 border-t border-border/50 group-hover:border-accent/30 transition-colors flex items-center justify-between">
+            <span className="text-[12px] uppercase tracking-[0.2em] font-semibold text-accent">
+              Découvrir
+            </span>
+            <span className="w-8 h-8 rounded-full border border-accent/30 flex items-center justify-center text-accent group-hover:bg-accent group-hover:border-accent group-hover:text-accent-foreground group-hover:rotate-45 transition-all duration-500">
+              <ArrowUpRight size={14} strokeWidth={2} />
+            </span>
+          </div>
+        </div>
       </Link>
     </ScrollRevealDiv>
   );
@@ -169,10 +192,22 @@ export default function QuiNousAccompagnons() {
       <Header />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+        {/* ── HERO ÉDITORIAL ── */}
+        <section className="relative bg-primary overflow-hidden py-16 md:py-28">
+          {/* watermark */}
+          <div aria-hidden className="pointer-events-none absolute -bottom-10 -right-6 select-none">
+            <span
+              className="font-display italic font-bold text-primary-foreground/[0.05] leading-none block"
+              style={{ fontSize: "clamp(160px, 22vw, 360px)", letterSpacing: "-0.04em" }}
+            >
+              Profils
+            </span>
+          </div>
+          {/* gradient halo */}
+          <div aria-hidden className="pointer-events-none absolute top-1/3 -left-32 w-[500px] h-[500px] rounded-full bg-accent/15 blur-[120px]" />
+
+          <div className="relative mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -187,68 +222,166 @@ export default function QuiNousAccompagnons() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-8 text-center lg:text-left">
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Trouvez l'accompagnement <span className="text-accent">fait pour vous</span>
+              <div className="mt-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                    01 — Audiences accompagnées
+                  </span>
+                </div>
+                <h1 className="font-display font-bold text-primary-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(34px, 5.4vw, 64px)" }}>
+                  Trouvez l'accompagnement{" "}
+                  <span className="italic font-normal text-accent">fait pour vous</span>
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
+                <p className="text-primary-foreground/75 text-[16px] md:text-[17px] leading-[1.75] mt-7 font-body max-w-[560px]">
                   Chaque profil a ses enjeux. Nous avons conçu des accompagnements spécifiques pour chaque type d'activité et de structure juridique.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
+                <div className="flex flex-wrap items-center gap-3 mt-8">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                  </Button>
+                  <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/tarifs/">Voir les tarifs</Link>
+                  </Button>
+                </div>
+
+                {/* pills meta */}
+                <div className="flex flex-wrap gap-2 mt-8">
+                  {["5 profils d'activité", "4 structures juridiques", "Bruxelles"].map((p) => (
+                    <span
+                      key={p}
+                      className="text-[11px] uppercase tracking-[0.18em] text-primary-foreground/70 border border-primary-foreground/20 rounded-full px-3 py-1.5 font-medium backdrop-blur-sm"
+                    >
+                      {p}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={imgHero} alt="Les profils accompagnés par MFinances à Bruxelles" className="w-full h-full object-cover" />
+            {/* visual card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.5)] border border-primary-foreground/10">
+                <img src={imgHero} alt="Les profils accompagnés par MFinances à Bruxelles" className="w-full h-[420px] md:h-[520px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/85 font-semibold">
+                    N°01 / Tous secteurs
+                  </span>
+                  <div className="h-px flex-1 ml-4 bg-primary-foreground/30" />
+                </div>
+              </div>
+              {/* corner plaque */}
+              <div className="hidden md:flex absolute -top-4 -left-4 items-center gap-2 bg-card rounded-full px-4 py-2 shadow-xl border border-border">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-foreground">Sur mesure</span>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── PAR PROFIL D'ACTIVITÉ ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Par <span className="text-accent">profil d'activité</span>
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-32 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Activité
+            </span>
+          </div>
+
+          <div className="relative mx-auto max-w-[1200px] px-6 lg:px-12">
+            <ScrollRevealDiv className="text-center mb-14 max-w-[700px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  02 — Par profil d'activité
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}>
+                Chaque métier,{" "}
+                <span className="italic font-normal text-accent">son accompagnement</span>
               </h2>
+              <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-5 font-body">
+                Un cabinet, mais des expertises sectorielles distinctes. Identifiez le profil qui ressemble au vôtre.
+              </p>
             </ScrollRevealDiv>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {profilCards.map((c, i) => (
-                <AudienceCard key={c.title} {...c} delay={0.08 + i * 0.05} />
+                <AudienceCard key={c.title} {...c} index={i} delay={0.05 + i * 0.05} />
               ))}
             </div>
           </div>
         </section>
 
         {/* ── PAR STRUCTURE JURIDIQUE ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Par <span className="text-accent">structure juridique</span>
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-10 bottom-20 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.04] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Structure
+            </span>
+          </div>
+
+          <div className="relative mx-auto max-w-[1200px] px-6 lg:px-12">
+            <ScrollRevealDiv className="text-center mb-14 max-w-[700px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Par structure juridique
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}>
+                Une approche adaptée à{" "}
+                <span className="italic font-normal text-accent">votre forme juridique</span>
               </h2>
+              <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-5 font-body">
+                ASBL, société d'exploitation, management ou de moyens — chaque structure a sa logique fiscale et comptable.
+              </p>
             </ScrollRevealDiv>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {structureCards.map((c, i) => (
-                <AudienceCard key={c.title} {...c} delay={0.08 + i * 0.05} />
+                <AudienceCard key={c.title} {...c} index={i} delay={0.05 + i * 0.05} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+        {/* ── CTA FINAL éditorial ── */}
+        <section className="relative bg-primary py-24 md:py-36 overflow-hidden">
+          <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/70" />
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-primary-foreground/[0.05] leading-none"
+              style={{ fontSize: "clamp(140px, 22vw, 360px)", letterSpacing: "-0.04em" }}
+            >
+              Discutons
+            </span>
+          </div>
+
+          <div className="relative mx-auto max-w-[820px] px-6 lg:px-12 text-center">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Vous ne savez pas quel accompagnement choisir ?
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                  04 — Premier échange
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-primary-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(30px, 4.2vw, 52px)" }}>
+                Vous ne savez pas{" "}
+                <span className="italic font-normal text-accent">quel accompagnement</span>{" "}
+                choisir ?
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/75 text-[16px] md:text-[17px] leading-[1.75] mt-6 font-body max-w-[620px] mx-auto">
                 Premier échange gratuit et confidentiel — nous identifions ensemble le forfait et les services adaptés à votre situation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
