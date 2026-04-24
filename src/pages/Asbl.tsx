@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Minus,
   HeartHandshake,
@@ -26,6 +27,7 @@ import {
   CreditCard,
   Lightbulb,
   Scale,
+  Sparkles,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
