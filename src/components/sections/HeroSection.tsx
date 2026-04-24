@@ -85,37 +85,33 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* MASSIVE editorial H1 */}
+            {/* Editorial H1 */}
             <h1
-              className="font-display font-bold text-primary leading-[0.95] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(34px, 4.6vw, 64px)" }}
+              className="font-display font-bold text-primary leading-[1.05] tracking-[-0.015em]"
+              style={{ fontSize: "clamp(28px, 3.2vw, 44px)" }}
             >
-              <span className="block">Vous travaillez</span>
-              <span className="block">
-                <span className="italic font-normal text-foreground/80">dur.</span>
-              </span>
-              <span className="block mt-2 md:mt-3">Mais votre</span>
-              <span className="block relative">
-                <span className="italic font-normal text-accent relative inline-block">
-                  entreprise
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full h-[14px]"
-                    viewBox="0 0 300 14"
-                    fill="none"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M2 10 Q 75 2, 150 8 T 298 6"
-                      stroke="hsl(var(--accent))"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      opacity="0.55"
-                    />
-                  </svg>
-                </span>{" "}
-                <span className="text-primary">gagne-t-elle</span>
-              </span>
-              <span className="block">vraiment de l'argent ?</span>
+              Vous travaillez{" "}
+              <span className="italic font-normal text-foreground/80">dur.</span>
+              <br />
+              Mais votre{" "}
+              <span className="italic font-normal text-accent relative inline-block">
+                entreprise
+                <svg
+                  className="absolute -bottom-1.5 left-0 w-full h-[10px]"
+                  viewBox="0 0 300 14"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 10 Q 75 2, 150 8 T 298 6"
+                    stroke="hsl(var(--accent))"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    opacity="0.55"
+                  />
+                </svg>
+              </span>{" "}
+              gagne-t-elle vraiment de l'argent&nbsp;?
             </h1>
 
             {/* Description + CTAs in asymmetric row */}
