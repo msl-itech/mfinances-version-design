@@ -83,7 +83,7 @@ export default function BeforeAfterSection() {
           </h2>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-0 rounded-[32px] overflow-hidden shadow-[0_16px_60px_rgba(27,43,94,0.10)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+        <div className={`relative grid grid-cols-1 md:grid-cols-2 gap-0 rounded-[32px] overflow-hidden shadow-[0_16px_60px_rgba(27,43,94,0.10)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
           {/* AVANT */}
           <div className="bg-card relative">
             <div className="bg-gradient-to-br from-accent to-accent/85 text-accent-foreground px-7 py-5">
