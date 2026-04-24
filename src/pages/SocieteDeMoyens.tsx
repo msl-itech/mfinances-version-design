@@ -90,9 +90,14 @@ export default function SocieteDeMoyens() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
+            <span className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Partager</span>
+          </div>
+          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
+
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div className="lg:col-span-7">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -112,23 +117,33 @@ export default function SocieteDeMoyens() {
               </Breadcrumb>
 
               <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Les trois forfaits disponibles
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Société de moyens — <span className="text-accent">mutualisez vos ressources</span> sans créer de tensions entre associés
+                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
+                  <span className="h-px w-10 bg-accent/60" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°06 / Mutualisation</span>
+                </div>
+                <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
+                  Mutualisez vos ressources<br className="hidden md:block" /> sans <span className="text-accent italic">tensions</span> entre associés.
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
                   Une structure juridique qui permet à plusieurs professionnels de mutualiser certains moyens matériels, financiers ou humains sans exercer leur activité en commun. Elle ne génère pas de bénéfices.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
                 </Button>
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={imgHero} alt="Professionnels partageant un espace de travail à Bruxelles" className="w-full h-full object-cover" />
+            <div className="lg:col-span-5 relative">
+              <div className="rounded-2xl shadow-2xl overflow-hidden relative">
+                <img src={imgHero} alt="Professionnels partageant un espace de travail à Bruxelles" className="w-full h-full object-cover" />
+                <div className="absolute top-4 left-4 bg-primary-foreground/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°06</p>
+                  <p className="text-[12px] font-display text-primary leading-tight">Mutualisation / Cash</p>
+                </div>
+              </div>
+              <div className="hidden lg:block absolute -bottom-5 -left-5 bg-accent text-accent-foreground rounded-full px-5 py-3 shadow-xl rotate-[-4deg]">
+                <p className="text-[11px] font-bold tracking-[0.15em] uppercase font-body">Cash collecting inclus</p>
+              </div>
             </div>
           </div>
         </section>
@@ -284,19 +299,28 @@ export default function SocieteDeMoyens() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
+          <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
+            <span className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+          </div>
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Simplifiez la gestion de votre société de moyens
+              <div className="flex items-center gap-3 mb-5 justify-center">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">
+                <span className="text-accent italic">Simplifiez</span> la gestion de votre société de moyens
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons votre situation et proposons une organisation comptable adaptée.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>

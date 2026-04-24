@@ -87,9 +87,16 @@ export default function ProfessionsSante() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+          {/* Watermark géant */}
+          <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
+            <span className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Soigner</span>
+          </div>
+          {/* Halo accent */}
+          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
+
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div className="lg:col-span-7">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -109,33 +116,50 @@ export default function ProfessionsSante() {
               </Breadcrumb>
 
               <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Les trois forfaits disponibles
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Professions de santé — <span className="text-accent">concentrez-vous sur vos patients</span>, pas sur vos chiffres
+                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
+                  <span className="h-px w-10 bg-accent/60" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°02 / Santé</span>
+                </div>
+                <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
+                  Concentrez-vous sur vos <span className="text-accent italic">patients</span>,<br className="hidden md:block" /> nous gérons vos chiffres.
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
+                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
                   Médecin, dentiste, kinésithérapeute, vétérinaire — votre quotidien oscille entre la prise en charge de vos patients et la gestion de vos obligations comptables et fiscales.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
                 </Button>
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={imgHero} alt="Professionnel de santé en consultation à Bruxelles" className="w-full h-full object-cover" />
+            <div className="lg:col-span-5 relative">
+              <div className="rounded-2xl shadow-2xl overflow-hidden relative">
+                <img src={imgHero} alt="Professionnel de santé en consultation à Bruxelles" className="w-full h-full object-cover" />
+                <div className="absolute top-4 left-4 bg-primary-foreground/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°02</p>
+                  <p className="text-[12px] font-display text-primary leading-tight">Santé / Patrimoine</p>
+                </div>
+              </div>
+              <div className="hidden lg:block absolute -bottom-5 -left-5 bg-accent text-accent-foreground rounded-full px-5 py-3 shadow-xl rotate-[-4deg]">
+                <p className="text-[11px] font-bold tracking-[0.15em] uppercase font-body">TVA mixte maîtrisée</p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── SERVICES ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que MFinances fait <span className="text-accent">pour vous</span>
+        <section className="bg-card py-12 md:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 select-none hidden md:block">
+            <span className="font-display italic text-[200px] leading-none text-foreground/[0.025] tracking-tight whitespace-nowrap">Expertise</span>
+          </div>
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10">
+            <ScrollRevealDiv className="mb-10 md:mb-16">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="h-px w-12 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
+              </div>
+              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.1] max-w-[800px]">
+                Ce que MFinances fait <span className="text-accent italic">pour vous</span>
               </h2>
             </ScrollRevealDiv>
 
@@ -143,12 +167,20 @@ export default function ProfessionsSante() {
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                    <div className="group relative bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/40 hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
+                      <div className="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-2xl transition-all duration-700" />
+                      <div className="relative">
+                        <div className="flex items-start justify-between mb-5">
+                          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
+                            <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors duration-500" strokeWidth={1.5} />
+                          </div>
+                          <span className="font-display text-[14px] text-foreground/30 group-hover:text-accent/60 transition-colors">0{i + 1}</span>
+                        </div>
+                        <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
+                      </div>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -268,19 +300,28 @@ export default function ProfessionsSante() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
+          <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
+            <span className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+          </div>
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Prêt à optimiser votre situation ?
+              <div className="flex items-center gap-3 mb-5 justify-center">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">
+                Prêt à <span className="text-accent italic">optimiser</span> votre situation ?
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
                 Premier échange gratuit et confidentiel — nous analysons votre situation fiscale et patrimoniale.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
