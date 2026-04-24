@@ -314,9 +314,6 @@ export default function CreationEntreprise() {
                     className="w-full h-auto"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur-sm border border-border/60">
-                    <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">800 € HTVA</span>
-                  </div>
                 </div>
               </ScrollRevealDiv>
             </div>
