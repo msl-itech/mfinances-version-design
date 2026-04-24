@@ -287,6 +287,8 @@ export default function ChatBot() {
     if (open && inputRef.current) {
       inputRef.current.focus();
     }
+    // Track open/close events
+    trackChatbotEvent(open ? "opened" : "closed");
   }, [open]);
 
   // Check if we should show lead capture — adaptive per palier
