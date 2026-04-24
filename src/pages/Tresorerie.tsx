@@ -108,60 +108,27 @@ export default function Tresorerie() {
       <Header />
 
       <main>
-        {/* HERO */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Services</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Trésorerie</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        <ServicePageHero
+          breadcrumbLabel="Trésorerie"
+          eyebrow="Forfait Excellence"
+          number="03"
+          sectionLabel="Trésorerie prévisionnelle"
+          titleStart="Votre trésorerie sous contrôle —"
+          titleItalic="sans mauvaise"
+          titleEnd="surprise"
+          description="Un prévisionnel actualisé chaque mois sur vos données réelles Odoo. Vous voyez les tensions 3 mois à l'avance et avez le temps de réagir, plutôt que de subir."
+          pills={["Forfait Excellence", "Mise à jour mensuelle", "Synchro Odoo"]}
+          image={imgHero}
+          imageAlt="Prévisionnel de trésorerie sur écran — MFinances"
+          plaque="N°03 / Trésorerie"
+          cardTitlePrefix="Le cash,"
+          cardTitleAccent="anticipé"
+          cardSubtitle="3 mois d'avance · Alertes"
+          ctaPrimary={{ label: "Diagnostic gratuit", href: "/diagnostic/" }}
+          ctaSecondary={{ label: "Voir les tarifs", href: "/tarifs/" }}
+          watermark="Cash"
+        />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Forfait Excellence
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Votre trésorerie sous contrôle — chaque mois, sans mauvaise surprise
-                </h1>
-                <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
-                  Un prévisionnel actualisé sur données réelles. Vous voyez les tensions 3 mois à l'avance.
-                </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    Forfait Excellence
-                  </span>
-                  <span className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                    Mise à jour mensuelle
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Prévisionnel de trésorerie sur écran — MFinances"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* SECTION 1 — Douleur trésorerie */}
         <section className="bg-card py-10 md:py-20">
