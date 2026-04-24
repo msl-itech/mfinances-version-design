@@ -162,8 +162,18 @@ export default function Tarifs() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+          {/* Watermark éditorial */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
+          >
+            Tarifs
+          </span>
+          {/* Glow accent */}
+          <div className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-accent/10 blur-3xl" />
+
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center relative z-10">
             <div className="text-center lg:text-left">
               <Breadcrumb>
                 <BreadcrumbList className="justify-center lg:justify-start">
@@ -179,31 +189,52 @@ export default function Tarifs() {
                 </BreadcrumbList>
               </Breadcrumb>
 
-              <div className="mt-6 md:mt-8">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-4 md:mb-5">
-                  À partir de 350 € HTVA / mois
-                </span>
-                <h1 className="font-display text-[24px] sm:text-[30px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Des forfaits transparents, sans surprise — <span className="text-accent">adaptés à votre stade de croissance</span>
+              <div className="mt-7 md:mt-9">
+                <div className="inline-flex items-center gap-2 mb-5 md:mb-6">
+                  <span className="h-px w-10 bg-accent" />
+                  <span className="font-body text-[11px] font-bold tracking-[0.25em] uppercase text-accent">
+                    Tarifs · 03 forfaits
+                  </span>
+                </div>
+
+                <h1 className="font-display text-[28px] sm:text-[34px] md:text-[52px] leading-[1.08] text-primary-foreground tracking-tight">
+                  Des forfaits <span className="italic font-light text-accent">transparents</span>,<br className="hidden md:block" /> sans surprise — adaptés à votre <span className="italic font-light">stade de croissance</span>.
                 </h1>
+
+                <p className="mt-6 md:mt-7 text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body max-w-[520px] mx-auto lg:mx-0">
+                  Trois niveaux d'accompagnement, un seul engagement&nbsp;: vous donner une vision claire et anticipée de vos finances. À partir de <strong className="text-primary-foreground">350 € HTVA / mois</strong>.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                  </Button>
+                  <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                    <a href="#forfaits">Comparer les forfaits</a>
+                  </Button>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden aspect-video max-w-full">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/gAF_Jw6_T7Q"
-                title="Pilotez vos finances avec Mfinances - Bruxelles : Formule Base, Premium ou Excellence"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="w-full h-full"
-              />
+            <div className="relative">
+              <div className="absolute -inset-2 bg-accent/20 blur-2xl rounded-3xl" aria-hidden="true" />
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden aspect-video max-w-full ring-1 ring-primary-foreground/10">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/gAF_Jw6_T7Q"
+                  title="Pilotez vos finances avec Mfinances - Bruxelles : Formule Base, Premium ou Excellence"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </section>
+
 
         {/* ── SECTION 1 — Tableau comparatif ── */}
         <section className="bg-card py-10 md:py-20">
