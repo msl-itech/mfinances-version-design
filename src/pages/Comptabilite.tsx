@@ -104,64 +104,27 @@ export default function Comptabilite() {
       <Header />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/services/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Services</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Comptabilité</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        <ServicePageHero
+          breadcrumbLabel="Comptabilité"
+          eyebrow="Inclus dès le forfait Essentiel"
+          number="04"
+          sectionLabel="Comptabilité Odoo"
+          titleStart="Votre comptabilité, claire et"
+          titleItalic="sans stress"
+          titleEnd="— intégrée dans Odoo"
+          description="Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps."
+          pills={["Inclus dès le forfait Essentiel", "Intégration Odoo", "Encodage automatisé"]}
+          image={imgHero}
+          imageAlt="Tableau de bord comptable Odoo — MFinances"
+          plaque="N°04 / Comptabilité"
+          cardTitlePrefix="Compta"
+          cardTitleAccent="centralisée"
+          cardSubtitle="Odoo · Temps réel · Zéro ressaisie"
+          ctaPrimary={{ label: "Demander un devis", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir les tarifs", href: "/tarifs/" }}
+          watermark="Compta"
+        />
 
-              <div className="mt-8 text-center lg:text-left">
-                <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-5">
-                  Inclus dès le forfait Essentiel
-                </span>
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Votre comptabilité, claire et sans stress — <span className="text-accent">intégrée dans Odoo</span>
-                </h1>
-                <p className="text-primary-foreground/85 text-[16px] md:text-[18px] leading-relaxed mt-5 font-body">
-                  Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps.
-                </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-7">
-                  {["Inclus dès le forfait Essentiel", "Intégration Odoo"].map((pill) => (
-                    <span key={pill} className="bg-primary-foreground/15 text-primary-foreground text-[13px] font-medium px-4 py-2 rounded-full backdrop-blur-sm border border-primary-foreground/20">
-                      {pill}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-8">
-                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                    <Link to="/contact/">Demander un devis gratuit <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <img
-                src={imgHero}
-                alt="Tableau de bord comptable Odoo — MFinances"
-                className="rounded-2xl shadow-2xl w-full h-[380px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* ── SECTION 1 — Pourquoi Odoo ── */}
         <section className="bg-card py-10 md:py-20">
