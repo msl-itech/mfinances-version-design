@@ -194,10 +194,10 @@ export default function Contact() {
             <ScrollRevealDiv>
               <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
                 {[
-                  { Icon: Phone, num: "01", title: "Téléphone", value: "+32 2 886 05 50", sub: "Lun-Ven · 9h-18h", href: "tel:+3228860550" },
-                  { Icon: Mail, num: "02", title: "Email", value: "info@mfinances.be", sub: "Réponse sous 24h", href: "mailto:info@mfinances.be" },
-                  { Icon: MapPin, num: "03", title: "En personne", value: "Uccle, Bruxelles", sub: "Sur RDV uniquement", href: null },
-                ].map(({ Icon, num, title, value, sub, href }) => {
+                  { Icon: Phone, title: "Téléphone", value: "+32 2 886 05 50", sub: "Lun-Ven · 9h-18h", href: "tel:+3228860550" },
+                  { Icon: Mail, title: "Email", value: "info@mfinances.be", sub: "Réponse sous 24h", href: "mailto:info@mfinances.be" },
+                  { Icon: MapPin, title: "En personne", value: "Uccle, Bruxelles", sub: "Sur RDV uniquement", href: null },
+                ].map(({ Icon, title, value, sub, href }) => {
                   const Tag = (href ? "a" : "div") as React.ElementType;
                   const props = href ? { href } : {};
                   return (
