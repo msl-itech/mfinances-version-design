@@ -122,49 +122,97 @@ export default function Fiscalite() {
         />
 
 
-        {/* ── SECTION 1 — Le problème ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Le problème avec la fiscalité <span className="text-accent">des dirigeants de TPE</span>
-              </h2>
-            </ScrollRevealDiv>
-            <ScrollRevealDiv delay={0.1}>
-              <p className="text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground text-center font-body">
-                La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année — quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
-              </p>
-            </ScrollRevealDiv>
-            <ScrollRevealDiv delay={0.2} className="text-center mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/contact/">Faire le point sur ma fiscalité <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-              </Button>
-            </ScrollRevealDiv>
+        {/* ── SECTION 1 — Le problème (manifesto) ── */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
+            >
+              Subir
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  02 — Le problème
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <ScrollRevealDiv>
+                <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
+                  Le problème avec la fiscalité{" "}
+                  <span className="italic font-normal text-accent">des dirigeants de TPE</span>
+                </h2>
+              </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1}>
+                <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
+                  La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année — quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
+                </p>
+              </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.2} className="mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
+                  <Link to="/contact/">Faire le point sur ma fiscalité <ArrowRight size={16} className="ml-1.5" /></Link>
+                </Button>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — Accompagnement (6 cards) ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que comprend notre <span className="text-accent">accompagnement fiscal</span>
+        {/* ── SECTION 2 — Accompagnement (6 cards éditoriales) ── */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              ISOC
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[680px] mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Accompagnement
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                Ce que comprend notre{" "}
+                <span className="italic font-normal text-accent">accompagnement fiscal</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06} className="bg-card rounded-2xl p-7 border border-border/50 relative hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)] transition-shadow">
-                    <span className="text-[48px] font-display font-bold text-accent/10 absolute top-4 right-5 leading-none">
+                  <ScrollRevealDiv
+                    key={s.title}
+                    delay={0.06 + i * 0.05}
+                    className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
+                  >
+                    <span
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      style={{ fontSize: "110px" }}
+                    >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                    <div className="flex items-center gap-2 mb-5 relative">
+                      <div className="h-px w-6 bg-accent" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{s.desc}</p>
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500 relative">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-[17px] font-display font-bold text-foreground mb-2 leading-tight relative">{s.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -172,61 +220,108 @@ export default function Fiscalite() {
           </div>
         </section>
 
-        {/* ── SECTION 3 — Leviers fiscaux (with image) ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
-                Les leviers fiscaux belges <span className="text-accent">que nous maîtrisons</span>
-              </h2>
-              <ul className="mt-8 space-y-3">
-                {leviers.map((l) => (
-                  <li key={l} className="flex items-start gap-3 font-body text-[14px] text-foreground/80">
-                    <ChevronRight size={16} className="text-accent mt-0.5 flex-shrink-0" />
-                    <span>{l}</span>
-                  </li>
-                ))}
-              </ul>
-            </ScrollRevealDiv>
+        {/* ── SECTION 3 — Leviers fiscaux (split éditorial) ── */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Leviers
+            </span>
+          </div>
 
-            <ScrollRevealDiv delay={0.15}>
-              <img
-                src={imgLeviers}
-                alt="Leviers d'optimisation fiscale belge — MFinances"
-                className="rounded-2xl w-full h-auto shadow-md"
-                loading="lazy"
-              />
-            </ScrollRevealDiv>
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <ScrollRevealDiv className="lg:col-span-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    04 — Dispositifs belges
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Les leviers fiscaux belges{" "}
+                  <span className="italic font-normal text-accent">que nous maîtrisons</span>
+                </h2>
+                <ul className="mt-10 space-y-4">
+                  {leviers.map((l, i) => (
+                    <li key={l} className="flex items-start gap-4 group">
+                      <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-7">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[14px] md:text-[15px] text-foreground/85 font-body leading-[1.7] flex-1 border-b border-border/40 pb-3 group-hover:border-accent/30 transition-colors duration-300">
+                        {l}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollRevealDiv>
+
+              <ScrollRevealDiv delay={0.15} className="lg:col-span-6 relative">
+                <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
+                <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
+                  <img
+                    src={imgLeviers}
+                    alt="Leviers d'optimisation fiscale belge — MFinances"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur-sm border border-border/60">
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">Cadre légal belge</span>
+                  </div>
+                </div>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-        {/* ── SECTION FAQ ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions <span className="text-accent">fréquentes</span>
-              </h2>
-            </ScrollRevealDiv>
+        {/* ── SECTION FAQ (éditoriale) ── */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    05 — FAQ
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Questions{" "}
+                  <span className="italic font-normal text-accent">fréquentes</span>
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
+                  Les questions que les dirigeants nous posent le plus souvent sur la fiscalité belge.
+                </p>
+              </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
-                  >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+                <Accordion type="single" collapsible className="border-t border-border/60">
+                  {faqs.map((f, i) => (
+                    <AccordionItem
+                      key={i}
+                      value={`faq-${i}`}
+                      className="border-b border-border/60 border-t-0"
+                    >
+                      <AccordionTrigger className="text-left hover:no-underline py-7 group">
+                        <div className="flex items-start gap-5 w-full pr-4">
+                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
+                            {f.q}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75] font-body pb-7 pl-12 pr-4">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 

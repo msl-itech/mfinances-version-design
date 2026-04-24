@@ -126,44 +126,92 @@ export default function Comptabilite() {
         />
 
 
-        {/* ── SECTION 1 — Pourquoi Odoo ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Pourquoi Odoo <span className="text-accent">change tout</span>
-              </h2>
-            </ScrollRevealDiv>
-            <ScrollRevealDiv delay={0.1}>
-              <p className="text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground text-center font-body">
-                La plupart des cabinets comptables travaillent en silo — vous envoyez vos documents, ils produisent vos chiffres, vous attendez. <strong className="text-foreground">Odoo casse ce modèle.</strong> Vos données sont centralisées, votre comptabilité est en temps réel.
-              </p>
-            </ScrollRevealDiv>
+        {/* ── SECTION 1 — Pourquoi Odoo (manifesto éditorial) ── */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
+            >
+              Odoo
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  02 — Manifesto
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <ScrollRevealDiv>
+                <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
+                  Pourquoi Odoo{" "}
+                  <span className="italic font-normal text-accent">change tout</span>
+                </h2>
+              </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1}>
+                <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
+                  La plupart des cabinets comptables travaillent en silo — vous envoyez vos documents, ils produisent vos chiffres, vous attendez. <strong className="text-foreground">Odoo casse ce modèle.</strong> Vos données sont centralisées, votre comptabilité est en temps réel.
+                </p>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — Services (6 cards) ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que comprend notre <span className="text-accent">service comptable</span>
+        {/* ── SECTION 2 — Services (6 cards éditoriales) ── */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Service
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[680px] mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Notre service comptable
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                Ce que comprend notre{" "}
+                <span className="italic font-normal text-accent">service comptable</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06} className="bg-card rounded-2xl p-7 border border-border/50 relative hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)] transition-shadow">
-                    <span className="text-[48px] font-display font-bold text-accent/10 absolute top-4 right-5 leading-none">
+                  <ScrollRevealDiv
+                    key={s.title}
+                    delay={0.06 + i * 0.05}
+                    className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
+                  >
+                    <span
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      style={{ fontSize: "110px" }}
+                    >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                    <div className="flex items-center gap-2 mb-5 relative">
+                      <div className="h-px w-6 bg-accent" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{s.desc}</p>
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500 relative">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-[17px] font-display font-bold text-foreground mb-2 leading-tight relative">{s.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -171,25 +219,51 @@ export default function Comptabilite() {
           </div>
         </section>
 
-        {/* ── SECTION 3 — Témoignages ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ils nous font <span className="text-accent">confiance</span>
+        {/* ── SECTION 3 — Témoignages éditoriaux ── */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Confiance
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  04 — Témoignages
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Ils nous font{" "}
+                <span className="italic font-normal text-accent">confiance</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {testimonials.map((t, i) => (
-                <ScrollRevealDiv key={t.author} delay={0.1 + i * 0.08} className="bg-secondary/60 rounded-2xl p-8 border border-border/50 hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)] transition-shadow flex flex-col">
-                  <Quote size={24} className="text-accent/30 mb-4" />
-                  <p className="text-[14px] text-muted-foreground leading-[1.75] italic font-body flex-1">
-                    « {t.quote} »
+                <ScrollRevealDiv
+                  key={t.author}
+                  delay={0.1 + i * 0.08}
+                  className="group relative bg-secondary/40 hover:bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] flex flex-col"
+                >
+                  <span className="font-display italic text-accent text-[44px] leading-none mb-6 group-hover:scale-110 transition-transform duration-500 origin-left">"</span>
+                  <p className="text-[14px] md:text-[15px] text-foreground/85 leading-[1.75] font-body italic flex-1">
+                    {t.quote}
                   </p>
-                  <div className="mt-5 pt-4 border-t border-border/30">
-                    <p className="font-bold text-[14px] text-primary font-body">{t.author}</p>
-                    <p className="text-[12px] text-muted-foreground font-body">{t.role}</p>
+                  <div className="mt-7 pt-5 border-t border-border/40 flex items-center justify-between">
+                    <div>
+                      <p className="font-display font-bold text-[14px] text-foreground">{t.author}</p>
+                      <p className="text-[12px] text-muted-foreground font-body mt-0.5">{t.role}</p>
+                    </div>
+                    <span className="font-display italic text-muted-foreground/30 text-[14px]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                   </div>
                 </ScrollRevealDiv>
               ))}
@@ -197,77 +271,130 @@ export default function Comptabilite() {
           </div>
         </section>
 
-        {/* ── SECTION 4 — Odoo integration (with image) ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <ScrollRevealDiv>
-              <div className="flex items-center gap-2 mb-4">
-                <RefreshCw size={18} className="text-accent" strokeWidth={1.5} />
-                <span className="text-[12px] font-bold text-accent uppercase tracking-wider font-body">Intégration</span>
-              </div>
-              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
-                Tout est centralisé <span className="text-accent">dans Odoo</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body">
-                Vos factures, vos relevés bancaires, vos déclarations — tout est connecté dans un seul environnement. Plus de ressaisie, plus de doublons, plus d'erreurs.
-              </p>
-              <ul className="mt-6 space-y-3 font-body text-[14px] text-foreground/80">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Plan comptable belge pré-configuré
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Encodage automatisé des documents
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Tableaux de bord accessibles en temps réel
-                </li>
-              </ul>
-            </ScrollRevealDiv>
+        {/* ── SECTION 4 — Odoo split éditorial ── */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
+            >
+              Sync
+            </span>
+          </div>
 
-            <ScrollRevealDiv delay={0.15}>
-              <img
-                src={imgOdoo}
-                alt="Centralisation comptable dans Odoo — MFinances"
-                className="rounded-2xl w-full h-auto shadow-md"
-                loading="lazy"
-              />
-            </ScrollRevealDiv>
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <ScrollRevealDiv className="lg:col-span-5">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    05 — Intégration
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Tout est{" "}
+                  <span className="italic font-normal text-accent">centralisé</span>
+                  <br />dans Odoo
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[460px]">
+                  Vos factures, vos relevés bancaires, vos déclarations — tout est connecté dans un seul environnement. Plus de ressaisie, plus de doublons, plus d'erreurs.
+                </p>
+                <ul className="mt-8 space-y-4">
+                  {[
+                    "Plan comptable belge pré-configuré",
+                    "Encodage automatisé des documents",
+                    "Tableaux de bord accessibles en temps réel",
+                  ].map((item, i) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <span className="font-display italic text-accent text-[16px] leading-none mt-1 flex-shrink-0 w-6">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[14px] md:text-[15px] text-foreground/85 font-body leading-[1.65]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollRevealDiv>
+
+              <ScrollRevealDiv delay={0.15} className="lg:col-span-7 relative">
+                <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
+                <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
+                  <img
+                    src={imgOdoo}
+                    alt="Centralisation comptable dans Odoo — MFinances"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur-sm border border-border/60">
+                    <RefreshCw size={12} className="text-accent" strokeWidth={2} />
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">All-in-one</span>
+                  </div>
+                </div>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-        {/* ── SECTION 5 — Tableau comparatif forfaits ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Inclus dans <span className="text-accent">tous nos forfaits</span>
+        {/* ── SECTION 5 — Tableau forfaits éditorial ── */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
+            >
+              Forfaits
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-14 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  06 — Niveaux
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Inclus dans{" "}
+                <span className="italic font-normal text-accent">tous nos forfaits</span>
               </h2>
             </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
+            <ScrollRevealDiv delay={0.1} className="max-w-[920px] mx-auto">
+              <div className="hidden sm:block bg-secondary/30 rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px]">
-                    <thead>
-                      <tr className="border-b border-border/30">
-                        <th className="text-left p-5 font-body font-normal text-muted-foreground" />
+                    <thead className="bg-gradient-to-b from-card to-transparent">
+                      <tr className="border-b border-border/60">
+                        <th className="text-left p-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                          <div className="flex items-center gap-2">
+                            <div className="h-px w-6 bg-accent" />
+                            Fonctionnalité
+                          </div>
+                        </th>
                         {["Essentiel", "Premium", "Excellence"].map((plan, i) => (
-                          <th key={plan} className={`p-5 text-center font-display font-bold text-[15px] ${i === 2 ? "text-accent" : "text-primary"}`}>
-                            {plan}
+                          <th key={plan} className={`p-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] font-body ${i === 2 ? "text-accent" : "text-muted-foreground"}`}>
+                            <span className="flex items-center justify-center gap-2">
+                              {plan}
+                              {i === 2 && <span>★</span>}
+                            </span>
                           </th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {planRows.map((row, ri) => (
-                        <tr key={row.label} className={`border-b border-border/20 last:border-0 ${ri === planRows.length - 1 ? "bg-primary/[0.03]" : ""}`}>
-                          <td className="p-5 font-medium text-foreground/80 font-body">{row.label}</td>
+                        <tr key={row.label} className={`border-b border-border/40 last:border-b-0 hover:bg-card/50 transition-colors ${ri === planRows.length - 1 ? "bg-primary/[0.04]" : ""}`}>
+                          <td className="p-5 font-medium text-foreground/85 font-body">
+                            <span className="flex items-center gap-3">
+                              <span className="font-display italic text-muted-foreground/40 text-[12px]">
+                                {String(ri + 1).padStart(2, "0")}
+                              </span>
+                              {row.label}
+                            </span>
+                          </td>
                           {row.values.map((v, ci) => (
-                            <td key={ci} className="p-5 text-center">
+                            <td key={ci} className={`p-5 text-center ${ci === 2 ? "bg-accent/[0.03]" : ""}`}>
                               {v === true ? (
                                 <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />
                               ) : v === "—" ? (
@@ -284,15 +411,14 @@ export default function Comptabilite() {
                 </div>
               </div>
 
-              {/* Mobile cards */}
               <div className="sm:hidden space-y-3">
                 {planRows.map((row, ri) => (
-                  <div key={row.label} className={`bg-card rounded-xl border border-border/50 p-4 ${ri === planRows.length - 1 ? "bg-primary/[0.03]" : ""}`}>
-                    <p className="text-[14px] font-semibold text-foreground font-body mb-3">{row.label}</p>
+                  <div key={row.label} className={`bg-secondary/40 rounded-2xl border border-border/50 p-5 ${ri === planRows.length - 1 ? "border-accent/30" : ""}`}>
+                    <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
                     <div className="grid grid-cols-3 gap-2">
                       {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
-                        <div key={plan} className="text-center">
-                          <span className={`text-[10px] font-semibold uppercase tracking-wider font-body block mb-1 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
+                        <div key={plan} className={`text-center p-2.5 rounded-xl ${ci === 2 ? "bg-accent/5 border border-accent/20" : "bg-card"}`}>
+                          <span className={`text-[10px] font-semibold uppercase tracking-[0.18em] font-body block mb-1.5 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
                           {row.values[ci] === true ? (
                             <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" />
                           ) : row.values[ci] === "—" ? (
@@ -306,43 +432,62 @@ export default function Comptabilite() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.2} className="text-center mt-10">
-              <Button variant="default" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-              </Button>
+              <div className="text-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
+                  <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1.5" /></Link>
+                </Button>
+              </div>
             </ScrollRevealDiv>
           </div>
         </section>
 
-        {/* ── SECTION FAQ ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions <span className="text-accent">fréquentes</span>
-              </h2>
-            </ScrollRevealDiv>
+        {/* ── SECTION FAQ (éditoriale) ── */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    07 — FAQ
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Questions{" "}
+                  <span className="italic font-normal text-accent">fréquentes</span>
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
+                  Tout ce qu'il faut savoir avant de confier votre comptabilité.
+                </p>
+              </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
-                  >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+                <Accordion type="single" collapsible className="border-t border-border/60">
+                  {faqs.map((f, i) => (
+                    <AccordionItem
+                      key={i}
+                      value={`faq-${i}`}
+                      className="border-b border-border/60 border-t-0"
+                    >
+                      <AccordionTrigger className="text-left hover:no-underline py-7 group">
+                        <div className="flex items-start gap-5 w-full pr-4">
+                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
+                            {f.q}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75] font-body pb-7 pl-12 pr-4">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 

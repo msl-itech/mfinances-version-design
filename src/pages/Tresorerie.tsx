@@ -130,73 +130,122 @@ export default function Tresorerie() {
         />
 
 
-        {/* SECTION 1 — Douleur trésorerie */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Pourquoi la trésorerie est le principal stress
-                <br />
-                <span className="text-accent">des dirigeants de TPE</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body max-w-[640px] mx-auto">
-                Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire.
-                Ce n'est pas un problème de performance — c'est un problème de visibilité.
-              </p>
-            </ScrollRevealDiv>
+        {/* SECTION 1 — Douleur trésorerie (split éditorial) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Tension
+            </span>
+          </div>
 
-            <div className="space-y-5">
-              {painPoints.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <ScrollRevealDiv key={p.title} delay={0.08 * i} className="flex items-start gap-4 p-5 rounded-xl bg-secondary/60 border border-border/50">
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={18} className="text-accent" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-[15px] font-bold font-body text-foreground">{p.title}</h3>
-                      <p className="text-[14px] text-muted-foreground leading-relaxed font-body mt-1">{p.desc}</p>
-                    </div>
-                  </ScrollRevealDiv>
-                );
-              })}
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    02 — Le problème
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Pourquoi la trésorerie est{" "}
+                  <span className="italic font-normal text-accent">le principal stress</span>{" "}
+                  des dirigeants
+                </h2>
+                <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
+                  Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire. Ce n'est pas un problème de performance — c'est un problème de visibilité.
+                </p>
+                <div className="mt-8">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
+                    <Link to="/diagnostic/">
+                      Faire le diagnostic gratuit <ArrowRight size={16} className="ml-1.5" />
+                    </Link>
+                  </Button>
+                </div>
+              </ScrollRevealDiv>
+
+              <div className="lg:col-span-7 space-y-4">
+                {painPoints.map((p, i) => {
+                  const Icon = p.icon;
+                  return (
+                    <ScrollRevealDiv
+                      key={p.title}
+                      delay={0.08 * i}
+                      className="group relative flex items-start gap-5 p-7 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
+                    >
+                      <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500">
+                        <Icon size={20} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-[17px] font-display font-bold text-foreground leading-tight">{p.title}</h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mt-2">{p.desc}</p>
+                      </div>
+                    </ScrollRevealDiv>
+                  );
+                })}
+              </div>
             </div>
-
-            <ScrollRevealDiv delay={0.3} className="text-center mt-10">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/diagnostic/">
-                  Faire le diagnostic gratuit
-                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Link>
-              </Button>
-            </ScrollRevealDiv>
           </div>
         </section>
 
         {/* SECTION 2 — Ce qu'on met en place */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que comprend votre
-                <br />
-                <span className="text-accent">trésorerie prévisionnelle</span>
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
+            >
+              Dispositif
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Notre dispositif
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Ce que comprend votre{" "}
+                <span className="italic font-normal text-accent">trésorerie prévisionnelle</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {cards.map((c, i) => {
                 const Icon = c.icon;
                 return (
-                  <ScrollRevealDiv key={c.title} delay={0.1 * i} className="bg-card rounded-2xl p-7 border border-border/50 relative">
-                    <span className="text-[48px] font-display font-bold text-accent/10 absolute top-4 right-5 leading-none">
+                  <ScrollRevealDiv
+                    key={c.title}
+                    delay={0.1 * i}
+                    className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
+                  >
+                    <span
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      style={{ fontSize: "120px" }}
+                    >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                    <div className="flex items-center gap-2 mb-6 relative">
+                      <div className="h-px w-6 bg-accent" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                        Volet {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{c.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{c.desc}</p>
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500 relative">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-[19px] font-display font-bold text-foreground mb-3 leading-tight relative">{c.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{c.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
@@ -204,108 +253,167 @@ export default function Tresorerie() {
           </div>
         </section>
 
-        {/* SECTION 3 — Périodes critiques */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Les périodes critiques
-                <br />
-                <span className="text-accent">à anticiper en Belgique</span>
+        {/* SECTION 3 — Périodes critiques (timeline horizontale) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Calendrier
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[680px] mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  04 — Calendrier belge
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                Les périodes critiques{" "}
+                <span className="italic font-normal text-accent">à anticiper</span>{" "}
+                en Belgique
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {timeline.map((t, i) => (
-                <ScrollRevealDiv key={t.period} delay={0.1 * i} className="relative">
-                  <div className="bg-secondary/60 rounded-2xl p-6 border border-border/50 h-full">
-                    <div className="flex items-center gap-2 mb-3">
-                      <CalendarDays size={16} className="text-accent" strokeWidth={1.5} />
-                      <span className="text-[12px] font-bold text-accent uppercase tracking-wider font-body">{t.period}</span>
+            <div className="relative">
+              <div aria-hidden className="hidden lg:block absolute top-[42px] left-[6%] right-[6%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+                {timeline.map((t, i) => (
+                  <ScrollRevealDiv key={t.period} delay={0.1 * i} className="relative">
+                    {/* dot */}
+                    <div className="hidden lg:flex justify-center mb-6 relative">
+                      <div className="w-[18px] h-[18px] rounded-full bg-card border-2 border-accent flex items-center justify-center relative z-10">
+                        <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+                      </div>
                     </div>
-                    <h3 className="text-[16px] font-bold font-body text-foreground mb-1.5">{t.label}</h3>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed font-body">{t.desc}</p>
-                  </div>
-                  {i < timeline.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
-                  )}
-                </ScrollRevealDiv>
-              ))}
+                    <div className="bg-secondary/40 hover:bg-card group rounded-2xl p-6 border border-border/50 hover:border-accent/30 transition-all duration-500 h-full">
+                      <div className="flex items-center gap-2 mb-3">
+                        <CalendarDays size={14} className="text-accent" strokeWidth={1.5} />
+                        <span className="text-[10px] font-bold text-accent uppercase tracking-[0.22em] font-body">{t.period}</span>
+                      </div>
+                      <h3 className="text-[16px] font-display font-bold text-foreground mb-2 leading-tight">{t.label}</h3>
+                      <p className="text-[13px] text-muted-foreground leading-[1.65] font-body">{t.desc}</p>
+                    </div>
+                  </ScrollRevealDiv>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 4 — Odoo */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <ScrollRevealDiv>
-              <div className="flex items-center gap-2 mb-4">
-                <RefreshCw size={18} className="text-accent" strokeWidth={1.5} />
-                <span className="text-[12px] font-bold text-accent uppercase tracking-wider font-body">Intégration</span>
-              </div>
-              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
-                Synchronisation automatique
-                <br />
-                <span className="text-accent">avec Odoo</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body">
-                Vos données réelles alimentent automatiquement votre prévisionnel.
-                Pas de ressaisie manuelle, pas d'erreurs, pas de perte de temps.
-              </p>
-              <ul className="mt-6 space-y-3 font-body text-[14px] text-foreground/80">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Factures clients et fournisseurs synchronisées
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Mouvements bancaires intégrés automatiquement
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Prévisionnel mis à jour en temps réel
-                </li>
-              </ul>
-            </ScrollRevealDiv>
+        {/* SECTION 4 — Odoo (split + grand visuel) */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
+            >
+              Sync
+            </span>
+          </div>
 
-            <ScrollRevealDiv delay={0.15}>
-              <img
-                src={imgOdoo}
-                alt="Synchronisation automatique Odoo vers le prévisionnel de trésorerie"
-                className="rounded-2xl w-full h-auto shadow-md"
-                loading="lazy"
-              />
-            </ScrollRevealDiv>
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <ScrollRevealDiv className="lg:col-span-5">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    05 — Intégration Odoo
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Synchronisation{" "}
+                  <span className="italic font-normal text-accent">automatique</span>
+                  <br />avec Odoo
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[460px]">
+                  Vos données réelles alimentent automatiquement votre prévisionnel. Pas de ressaisie manuelle, pas d'erreurs, pas de perte de temps.
+                </p>
+                <ul className="mt-8 space-y-4">
+                  {[
+                    "Factures clients et fournisseurs synchronisées",
+                    "Mouvements bancaires intégrés automatiquement",
+                    "Prévisionnel mis à jour en temps réel",
+                  ].map((item, i) => (
+                    <li key={item} className="flex items-start gap-4 group">
+                      <span className="font-display italic text-accent text-[16px] leading-none mt-1 flex-shrink-0 w-6">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[14px] md:text-[15px] text-foreground/85 font-body leading-[1.65]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollRevealDiv>
+
+              <ScrollRevealDiv delay={0.15} className="lg:col-span-7 relative">
+                <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
+                <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
+                  <img
+                    src={imgOdoo}
+                    alt="Synchronisation automatique Odoo vers le prévisionnel de trésorerie"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur-sm border border-border/60">
+                    <RefreshCw size={12} className="text-accent" strokeWidth={2} />
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">Live sync</span>
+                  </div>
+                </div>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-        {/* SECTION FAQ */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions fréquentes
-              </h2>
-            </ScrollRevealDiv>
+        {/* SECTION FAQ (éditoriale numérotée) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    06 — FAQ
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Questions{" "}
+                  <span className="italic font-normal text-accent">fréquentes</span>
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
+                  Tout ce que les dirigeants nous demandent avant de mettre en place un prévisionnel de trésorerie.
+                </p>
+              </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="bg-secondary/60 rounded-xl border border-border/50 px-6 overflow-hidden"
-                  >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+                <Accordion type="single" collapsible className="border-t border-border/60">
+                  {faqs.map((f, i) => (
+                    <AccordionItem
+                      key={i}
+                      value={`faq-${i}`}
+                      className="border-b border-border/60 border-t-0"
+                    >
+                      <AccordionTrigger className="text-left hover:no-underline py-7 group">
+                        <div className="flex items-start gap-5 w-full pr-4">
+                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
+                            {f.q}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75] font-body pb-7 pl-12 pr-4">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
