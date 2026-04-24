@@ -61,25 +61,39 @@ export default function BeforeAfterSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-10 md:py-28 bg-secondary" ref={ref}>
-      <div className="container-mf max-w-[960px]">
-        <div className={`text-center mb-8 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
-          <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
-            LA TRANSFORMATION
-          </span>
-          <h2 className="font-display text-[24px] md:text-[38px] mt-3 leading-[1.15]">
-            Ce que ça change <span className="text-accent">concrètement</span>
+    <section className="py-14 md:py-32 bg-secondary relative overflow-hidden" ref={ref}>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.025] pointer-events-none select-none whitespace-nowrap"
+      >
+        Avant / Après
+      </div>
+
+      <div className="container-mf max-w-[1000px] relative">
+        <div className={`text-center mb-12 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="w-8 h-px bg-accent" />
+            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+              La transformation
+            </span>
+            <span className="w-8 h-px bg-accent" />
+          </div>
+          <h2 className="font-display text-[28px] md:text-[46px] leading-[1.08]">
+            Ce que ça change <span className="text-accent italic">concrètement</span>
           </h2>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 rounded-3xl overflow-hidden shadow-[0_4px_32px_rgba(27,43,94,0.06)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
+        <div className={`grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-0 rounded-[32px] overflow-hidden shadow-[0_16px_60px_rgba(27,43,94,0.10)] reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.15s" }}>
           {/* AVANT */}
-          <div className="bg-card">
-            <div className="bg-gradient-to-r from-accent/90 to-accent text-accent-foreground font-bold text-[13px] px-6 py-4 tracking-wide uppercase">
-              ✕ Avant MFinances
+          <div className="bg-card relative">
+            <div className="bg-gradient-to-br from-accent to-accent/85 text-accent-foreground px-7 py-5">
+              <span className="text-[10px] font-bold tracking-[0.2em] opacity-80">SITUATION ACTUELLE</span>
+              <p className="font-display text-[20px] mt-1 flex items-center gap-2">
+                <X size={18} strokeWidth={2.5} />
+                Avant MFinances
+              </p>
             </div>
-            <div className="p-6 md:p-8">
-              {/* Desktop: show all */}
+            <div className="p-7 md:p-9">
               <div className="hidden md:block space-y-4">
                 {before.map((item) => (
                   <div key={item} className="flex items-start gap-3">
@@ -90,32 +104,34 @@ export default function BeforeAfterSection() {
                   </div>
                 ))}
               </div>
-              {/* Mobile: collapsible */}
               <div className="md:hidden">
                 <BeforeAfterList items={before} type="before" />
               </div>
             </div>
           </div>
 
-          {/* Arrow */}
-          <div className="hidden md:flex items-center justify-center px-4 bg-card">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <ArrowRight size={18} className="text-primary-foreground" />
+          {/* Arrow connector */}
+          <div className="hidden md:flex items-center justify-center px-2 bg-card">
+            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_8px_24px_rgba(27,43,94,0.25)]">
+              <ArrowRight size={20} className="text-primary-foreground" strokeWidth={2.5} />
             </div>
           </div>
-          <div className="flex md:hidden justify-center bg-card py-2">
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center rotate-90">
-              <ArrowRight size={14} className="text-primary-foreground" />
+          <div className="flex md:hidden justify-center bg-card py-3">
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center rotate-90 shadow-md">
+              <ArrowRight size={16} className="text-primary-foreground" />
             </div>
           </div>
 
           {/* APRÈS */}
-          <div className="bg-card">
-            <div className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground font-bold text-[13px] px-6 py-4 tracking-wide uppercase">
-              ✓ Après MFinances
+          <div className="bg-card relative">
+            <div className="bg-gradient-to-br from-primary to-primary-dark text-primary-foreground px-7 py-5">
+              <span className="text-[10px] font-bold tracking-[0.2em] opacity-70">AVEC MFINANCES</span>
+              <p className="font-display text-[20px] mt-1 flex items-center gap-2">
+                <Check size={18} strokeWidth={2.5} />
+                Après MFinances
+              </p>
             </div>
-            <div className="p-6 md:p-8">
-              {/* Desktop: show all */}
+            <div className="p-7 md:p-9">
               <div className="hidden md:block space-y-4">
                 {after.map((item) => (
                   <div key={item} className="flex items-start gap-3">
@@ -126,7 +142,6 @@ export default function BeforeAfterSection() {
                   </div>
                 ))}
               </div>
-              {/* Mobile: collapsible */}
               <div className="md:hidden">
                 <BeforeAfterList items={after} type="after" />
               </div>
