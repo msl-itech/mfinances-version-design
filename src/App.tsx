@@ -109,6 +109,7 @@ const App = () => {
           <Route path="/ressources/checklist-controle-bureau/" element={<ChecklistControleBureau />} />
           <Route path="/ressources/checklist-controle-bureau/confirmation/" element={<ChecklistControleBureauConfirmation />} />
           <Route path="/unsubscribe/" element={<Unsubscribe />} />
+          <Route path="/admin/analytics/" element={<AdminAnalytics />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
