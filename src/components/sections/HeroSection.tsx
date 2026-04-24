@@ -150,7 +150,7 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full px-7 h-14 text-[14px] border-primary/20 hover:bg-primary hover:text-primary-foreground whitespace-nowrap"
+                  className="rounded-full px-7 h-14 text-[15px] border-primary/20 hover:bg-primary hover:text-primary-foreground whitespace-nowrap"
                   asChild
                 >
                   <Link to="/services/">Découvrir nos services</Link>
