@@ -26,6 +26,8 @@ import {
   Landmark,
   CheckCircle2,
   AlertTriangle,
+  Quote,
+  Sparkles,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
