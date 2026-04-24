@@ -193,24 +193,68 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── SERVICES ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Ce que MFinances fait <span className="text-accent">pour vous</span>
-              </h2>
+        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-12 -right-10 select-none hidden lg:block">
+            <span className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Patrimoine</span>
+          </div>
+
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv className="mb-12 md:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="h-px w-10 bg-accent/60" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                </div>
+                <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
+                  Ce que MFinances fait <span className="text-accent italic">pour vous</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-[15px] leading-relaxed font-body">
+                  Quatre piliers pour transformer vos revenus de dirigeant en patrimoine durable, structuré et conforme.
+                </p>
+              </div>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
               {services.map((s, i) => {
                 const Icon = s.icon;
+                const isDark = i === 1 || i === 2;
+                const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06} className="bg-card rounded-2xl p-7 border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                  <ScrollRevealDiv key={s.title} delay={0.06 + i * 0.06}>
+                    <div className={`group relative rounded-3xl p-7 md:p-8 h-full overflow-hidden transition-all duration-500 border ${
+                      isDark
+                        ? "bg-primary text-primary-foreground border-primary hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.45)]"
+                        : "bg-card border-border/60 hover:border-accent/40 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.2)]"
+                    }`}>
+                      <div className={`pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl transition-all duration-700 ${
+                        isDark ? "bg-accent/15" : "bg-accent/0 group-hover:bg-accent/10"
+                      }`} />
+                      <div className={`absolute top-6 right-6 font-display text-[44px] leading-none select-none ${
+                        isDark ? "text-primary-foreground/[0.1]" : "text-foreground/[0.07]"
+                      }`}>{num}</div>
+
+                      <div className="relative">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105 ${
+                          isDark ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
+                        }`}>
+                          <Icon size={20} strokeWidth={1.5} />
+                        </div>
+                        <h3 className={`font-display text-[18px] md:text-[20px] leading-[1.2] mb-3 ${isDark ? "text-primary-foreground" : "text-foreground"}`}>
+                          {s.title}
+                        </h3>
+                        <p className={`text-[13.5px] leading-[1.7] font-body ${isDark ? "text-primary-foreground/75" : "text-muted-foreground"}`}>
+                          {s.desc}
+                        </p>
+
+                        <div className={`mt-6 pt-5 border-t ${isDark ? "border-primary-foreground/15" : "border-border/50"}`}>
+                          <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-body ${isDark ? "text-primary-foreground/50" : "text-foreground/50"}`}>
+                            Pilier {num}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
