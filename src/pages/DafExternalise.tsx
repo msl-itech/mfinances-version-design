@@ -141,110 +141,189 @@ export default function DafExternalise() {
         />
 
 
-        {/* SECTION 1 — Missions */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] leading-[1.15] text-foreground">
-                Ce que fait vraiment un DAF
-                <br />
-                <span className="text-accent">à temps partiel</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] leading-relaxed mt-4 font-body">
-                Un DAF externalisé ne remplace pas votre comptable. Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.
-              </p>
-              <img
-                src={imgDashboard}
-                alt="Tableau de bord financier personnalisé"
-                className="rounded-2xl mt-8 w-full h-[220px] object-cover shadow-md"
-                loading="lazy"
-              />
-            </ScrollRevealDiv>
+        {/* SECTION 1 — Missions (split éditorial + watermark) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
+            >
+              Missions
+            </span>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {missions.map((m, i) => {
-                const Icon = m.icon;
-                return (
-                  <ScrollRevealDiv key={m.text} delay={0.05 * i} className="flex items-start gap-3 p-4 rounded-xl bg-secondary/60 border border-border/50">
-                    <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={18} className="text-accent" strokeWidth={1.5} />
-                    </div>
-                    <p className="text-[14px] text-foreground/80 leading-snug font-body">{m.text}</p>
-                  </ScrollRevealDiv>
-                );
-              })}
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    02 — Périmètre
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Ce que fait vraiment{" "}
+                  <span className="italic font-normal text-accent">un DAF</span>
+                  <br />à temps partiel
+                </h2>
+                <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
+                  Un DAF externalisé ne remplace pas votre comptable. Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.
+                </p>
+                <div className="mt-8 relative rounded-2xl overflow-hidden">
+                  <img
+                    src={imgDashboard}
+                    alt="Tableau de bord financier personnalisé"
+                    className="w-full h-[260px] object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-white/80 font-medium">
+                      Dashboard MFinances
+                    </span>
+                    <div className="h-px flex-1 ml-4 bg-white/30" />
+                  </div>
+                </div>
+              </ScrollRevealDiv>
+
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {missions.map((m, i) => {
+                  const Icon = m.icon;
+                  return (
+                    <ScrollRevealDiv
+                      key={m.text}
+                      delay={0.05 * i}
+                      className="group relative bg-secondary/50 hover:bg-card border border-border/50 hover:border-accent/30 rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)]"
+                    >
+                      <span className="absolute top-3 right-4 text-[11px] font-display italic text-muted-foreground/40 tracking-wide">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-500">
+                        <Icon size={20} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                      </div>
+                      <p className="text-[14px] text-foreground/85 leading-[1.6] font-body">{m.text}</p>
+                    </ScrollRevealDiv>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 2 — Fonctionnement */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-12">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Concrètement, comment ça fonctionne
+        {/* SECTION 2 — Fonctionnement (timeline éditoriale connectée) */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              style={{ fontSize: "clamp(140px, 20vw, 300px)", letterSpacing: "-0.04em" }}
+            >
+              Rituel
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  03 — Fonctionnement
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Concrètement,{" "}
+                <span className="italic font-normal text-accent">comment ça fonctionne</span>
               </h2>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {steps.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <ScrollRevealDiv key={s.number} delay={0.1 * i} className="bg-card rounded-2xl p-7 border border-border/50 relative">
-                    <span className="text-[48px] font-display font-bold text-accent/10 absolute top-4 right-5 leading-none">
-                      {s.number}
-                    </span>
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed font-body">{s.desc}</p>
-                  </ScrollRevealDiv>
-                );
-              })}
+            <div className="relative">
+              {/* hairline connecteur */}
+              <div aria-hidden className="hidden md:block absolute top-[88px] left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                {steps.map((s, i) => {
+                  const Icon = s.icon;
+                  return (
+                    <ScrollRevealDiv key={s.number} delay={0.12 * i} className="relative">
+                      {/* Number medallion */}
+                      <div className="relative flex justify-center mb-8">
+                        <div className="relative w-[72px] h-[72px] rounded-full bg-card border border-accent/20 flex items-center justify-center shadow-[0_4px_24px_hsl(var(--primary)/0.06)]">
+                          <span className="font-display italic font-bold text-accent text-[26px] leading-none">{s.number}</span>
+                          <div className="absolute -inset-2 rounded-full border border-accent/10" />
+                        </div>
+                      </div>
+
+                      <div className="bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/30 transition-colors">
+                        <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center mb-4">
+                          <Icon size={18} className="text-primary" strokeWidth={1.5} />
+                        </div>
+                        <h3 className="text-[18px] font-display font-bold text-foreground mb-2 leading-tight">{s.title}</h3>
+                        <p className="text-[14px] text-muted-foreground leading-[1.65] font-body">{s.desc}</p>
+                      </div>
+                    </ScrollRevealDiv>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 3 — Conditions */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Conditions d'accès
+        {/* SECTION 3 — Conditions (card éditoriale + watermark Excellence) */}
+        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 flex items-end justify-center select-none pb-8">
+            <span
+              className="font-display italic font-bold text-foreground/[0.04] leading-none"
+              style={{ fontSize: "clamp(120px, 18vw, 260px)", letterSpacing: "-0.04em" }}
+            >
+              Excellence
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="text-center mb-12 max-w-[680px] mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                  04 — Conditions d'accès
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+              <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                Un service{" "}
+                <span className="italic font-normal text-accent">sur invitation</span>
               </h2>
             </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1} className="max-w-[720px] mx-auto">
-              <div className="border-2 border-accent rounded-2xl p-8 md:p-10 bg-card">
-                <ul className="space-y-5 font-body text-[15px] text-foreground/80 leading-relaxed">
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                    <span>
-                      Réservé exclusivement aux clients titulaires d'un{" "}
-                      <strong className="text-foreground">forfait Excellence</strong> (à partir de 650 € HTVA/mois).
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                    <span>
-                      Facturation : <strong className="text-foreground">150 € HTVA / heure</strong> — temps réel passé.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                    <span>
-                      Engagement : inclus dans les disponibilités mensuelles, facturation à l'heure pour les interventions
-                      supplémentaires.
-                    </span>
-                  </li>
+            <ScrollRevealDiv delay={0.1} className="max-w-[760px] mx-auto">
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary/95 p-10 md:p-14 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.4)]">
+                {/* corner mark */}
+                <div aria-hidden className="absolute top-6 right-6 flex items-center gap-2">
+                  <div className="h-px w-8 bg-accent" />
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">N°01</span>
+                </div>
+
+                <ul className="space-y-6 font-body text-[15px] md:text-[16px] text-primary-foreground/85 leading-[1.7] mt-4">
+                  {[
+                    <>Réservé exclusivement aux clients titulaires d'un <strong className="text-primary-foreground">forfait Excellence</strong> (à partir de 650 € HTVA / mois).</>,
+                    <>Facturation : <strong className="text-primary-foreground">150 € HTVA / heure</strong> — temps réel passé.</>,
+                    <>Engagement : inclus dans les disponibilités mensuelles, facturation à l'heure pour les interventions supplémentaires.</>,
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-5 group">
+                      <span className="font-display italic text-accent text-[20px] leading-none mt-1 flex-shrink-0 w-6">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1">{item}</span>
+                    </li>
+                  ))}
                 </ul>
 
-                <div className="mt-8 text-center">
-                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
+                <div className="mt-10 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <span className="text-[12px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">
+                    Forfait Excellence — 650 € HTVA / mois
+                  </span>
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                     <Link to="/tarifs/">
-                      Découvrir le forfait Excellence
-                      <ArrowRight size={16} className="ml-1 flex-shrink-0" />
+                      Découvrir le forfait <ArrowRight size={16} className="ml-1.5" />
                     </Link>
                   </Button>
                 </div>
@@ -253,33 +332,52 @@ export default function DafExternalise() {
           </div>
         </section>
 
-        {/* SECTION 4 — FAQ */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions fréquentes
-              </h2>
-            </ScrollRevealDiv>
+        {/* SECTION 4 — FAQ (hairlines éditoriaux) */}
+        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+          <div className="container-mf relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-10 bg-accent" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                    05 — FAQ
+                  </span>
+                </div>
+                <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
+                  Questions{" "}
+                  <span className="italic font-normal text-accent">fréquentes</span>
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
+                  Tout ce que les dirigeants nous demandent avant de démarrer un DAF externalisé.
+                </p>
+              </ScrollRevealDiv>
 
-            <ScrollRevealDiv delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
-                  >
-                    <AccordionTrigger className="text-[15px] font-semibold text-foreground font-body hover:no-underline py-5">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollRevealDiv>
+              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+                <Accordion type="single" collapsible className="border-t border-border/60">
+                  {faqs.map((f, i) => (
+                    <AccordionItem
+                      key={i}
+                      value={`faq-${i}`}
+                      className="border-b border-border/60 border-t-0"
+                    >
+                      <AccordionTrigger className="text-left hover:no-underline py-7 group">
+                        <div className="flex items-start gap-5 w-full pr-4">
+                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
+                            {f.q}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75] font-body pb-7 pl-12 pr-4">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
