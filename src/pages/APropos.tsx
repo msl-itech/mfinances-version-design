@@ -20,6 +20,7 @@ import {
   Users,
   Clock,
   BarChart3,
+  Sparkles,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { createBreadcrumbSchema, personMikaSchema } from "@/lib/seo-schemas";
