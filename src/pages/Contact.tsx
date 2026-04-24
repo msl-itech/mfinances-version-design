@@ -20,6 +20,8 @@ import {
   Shield,
   Clock,
   MessageCircle,
+  Sparkles,
+  Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -149,82 +151,100 @@ export default function Contact() {
       <Header />
 
       <main>
-        {/* Hero banner — compact on mobile */}
-        <section className="bg-primary text-primary-foreground py-8 md:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.12),transparent_60%)]" />
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10 text-center">
+        {/* Hero banner — éditorial premium */}
+        <section className="bg-primary text-primary-foreground py-12 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
+          >
+            Contact
+          </span>
+          <div className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-accent/10 blur-3xl" />
+
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative z-10 text-center">
             <ScrollRevealDiv>
-              <p className="text-accent font-body text-[12px] md:text-[13px] font-bold uppercase tracking-widest mb-2 md:mb-4">
-                Premier échange gratuit
-              </p>
-              <h1 className="font-display text-[26px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto text-primary-foreground">
-                Parlons de votre entreprise
+              <div className="inline-flex items-center gap-2 mb-5 md:mb-6">
+                <span className="h-px w-10 bg-accent" />
+                <span className="font-body text-[11px] font-bold tracking-[0.25em] uppercase text-accent">
+                  Premier échange · Gratuit
+                </span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+              <h1 className="font-display text-[28px] sm:text-[36px] md:text-[56px] leading-[1.08] text-primary-foreground tracking-tight">
+                Parlons de votre <span className="italic font-light text-accent">entreprise</span>
               </h1>
-              <p className="text-primary-foreground/70 font-body text-[14px] md:text-[18px] mt-2 md:mt-4 max-w-[560px] mx-auto leading-relaxed">
-                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous 72h — gratuit, confidentiel, sans engagement.
+              <p className="text-primary-foreground/75 font-body text-[15px] md:text-[17px] mt-5 md:mt-7 max-w-[620px] mx-auto leading-[1.75]">
+                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous <strong className="text-primary-foreground">72h</strong> — gratuit, confidentiel, sans engagement.
               </p>
-              {/* Inline trust badges on mobile */}
-              <div className="flex items-center justify-center gap-4 mt-3 md:hidden text-[11px] text-primary-foreground/50">
-                <span>🔒 Confidentiel</span>
-                <span>⏱ Sous 72h</span>
-                <span>✓ Gratuit</span>
+              <div className="flex items-center justify-center gap-4 md:gap-6 mt-7 text-[12px] md:text-[13px] text-primary-foreground/70 font-body">
+                <span className="inline-flex items-center gap-1.5"><Shield size={13} className="text-accent" strokeWidth={1.8} /> Confidentiel</span>
+                <span className="w-px h-3 bg-primary-foreground/20" />
+                <span className="inline-flex items-center gap-1.5"><Clock size={13} className="text-accent" strokeWidth={1.8} /> Sous 72h</span>
+                <span className="w-px h-3 bg-primary-foreground/20" />
+                <span className="inline-flex items-center gap-1.5"><CheckCircle size={13} className="text-accent" strokeWidth={1.8} /> Gratuit</span>
               </div>
             </ScrollRevealDiv>
           </div>
         </section>
 
-        {/* 3 contact methods — horizontal row on mobile */}
-        <section className="bg-background py-4 md:py-14">
+
+        {/* 3 contact methods — premium */}
+        <section className="bg-background py-6 md:py-16 relative">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <ScrollRevealDiv>
-              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
-                <a
-                  href="tel:+3228860550"
-                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
-                >
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Phone size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <Phone size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Téléphone</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">+32 2 886 05 50</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Lun-Ven · 9h-18h</p>
-                </a>
-
-                <a
-                  href="mailto:info@mfinances.be"
-                  className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300 snap-center"
-                >
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Mail size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <Mail size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">Email</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">info@mfinances.be</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Réponse sous 24h</p>
-                </a>
-
-                <div className="group flex-shrink-0 w-[140px] md:w-auto flex flex-col items-center text-center p-3 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border/50 snap-center">
-                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-2 md:mb-4">
-                    <MapPin size={18} className="text-accent md:hidden" strokeWidth={1.5} />
-                    <MapPin size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[14px] md:text-[17px] text-foreground">En personne</h3>
-                  <p className="text-[12px] md:text-[15px] font-semibold text-foreground mt-0.5 md:mt-1 font-body">Uccle, Bruxelles</p>
-                  <p className="text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1">Sur RDV uniquement</p>
-                </div>
+              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
+                {[
+                  { Icon: Phone, num: "01", title: "Téléphone", value: "+32 2 886 05 50", sub: "Lun-Ven · 9h-18h", href: "tel:+3228860550" },
+                  { Icon: Mail, num: "02", title: "Email", value: "info@mfinances.be", sub: "Réponse sous 24h", href: "mailto:info@mfinances.be" },
+                  { Icon: MapPin, num: "03", title: "En personne", value: "Uccle, Bruxelles", sub: "Sur RDV uniquement", href: null },
+                ].map(({ Icon, num, title, value, sub, href }) => {
+                  const Tag = (href ? "a" : "div") as React.ElementType;
+                  const props = href ? { href } : {};
+                  return (
+                    <Tag
+                      key={title}
+                      {...props}
+                      className={`group relative flex-shrink-0 w-[160px] md:w-auto flex flex-col items-center text-center p-4 md:p-7 rounded-2xl md:rounded-3xl bg-card border border-border/60 ${href ? "hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]" : ""} transition-all duration-500 snap-center overflow-hidden`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute -top-3 right-4 font-display italic text-accent/[0.10] text-[56px] md:text-[72px] leading-none group-hover:text-accent/[0.15] transition-colors duration-500"
+                      >
+                        {num}
+                      </span>
+                      <div className="relative w-10 h-10 md:w-13 md:h-13 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                        <Icon size={20} className="text-accent md:hidden" strokeWidth={1.5} />
+                        <Icon size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="relative font-display text-[14px] md:text-[18px] text-foreground tracking-tight">{title}</h3>
+                      <p className="relative text-[12px] md:text-[15px] font-semibold text-foreground mt-1 md:mt-1.5 font-body">{value}</p>
+                      <p className="relative text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1.5">{sub}</p>
+                    </Tag>
+                  );
+                })}
               </div>
             </ScrollRevealDiv>
           </div>
         </section>
 
+
         {/* Form + sidebar */}
-        <section className="bg-background pb-10 md:pb-24">
-          <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14">
+        <section className="bg-background pb-14 md:pb-28 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.03] text-[110px] md:text-[200px] leading-none tracking-tight hidden md:block"
+          >
+            Échangeons
+          </span>
+
+          <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14 relative z-10">
             {/* LEFT — Formulaire (3/5) */}
             <div className="lg:col-span-3 order-1 lg:order-1">
               <ScrollRevealDiv>
-                <div className="bg-card rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-[0_8px_40px_rgba(27,43,94,0.08)] border border-border/50">
+                <div className="relative bg-card rounded-3xl p-6 md:p-10 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.25)] border border-border/60 overflow-hidden">
+                  {/* Accent bar top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/60 to-accent" />
+
                   {submitted ? (
                     <div className="text-center py-10">
                       <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
@@ -460,63 +480,66 @@ export default function Contact() {
             {/* RIGHT — Sidebar (2/5) — hidden on mobile */}
             <div className="lg:col-span-2 order-2 lg:order-2 hidden lg:block">
               <ScrollRevealDiv delay={0.15}>
-                {/* Mika card */}
-                <div className="bg-card rounded-3xl overflow-hidden border border-border/50 shadow-[0_4px_20px_rgba(27,43,94,0.06)]">
-                  <div className="overflow-hidden">
+                {/* Mika card — éditorial */}
+                <div className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none select-none absolute -top-4 right-2 font-display italic text-primary-foreground/[0.07] text-[88px] leading-none z-10"
+                  >
+                    Mika
+                  </span>
+                  <div className="relative overflow-hidden">
                     <img
                       src={mikaPhoto}
                       alt="Mika MUSUNGAYI, fondateur MFinances"
-                      className="w-full h-[300px] object-cover object-top"
+                      className="w-full h-[320px] object-cover object-top"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
+                    <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-3 py-1.5">
+                      <Sparkles size={12} className="text-accent" strokeWidth={1.8} />
+                      <span className="font-body text-[10px] font-bold tracking-[0.2em] uppercase text-primary-foreground">ITAA · 20 ans</span>
+                    </span>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <MessageCircle size={16} className="text-accent" />
-                      <p className="text-[13px] font-bold text-accent font-body uppercase tracking-wider">Votre interlocuteur</p>
+                  <div className="relative p-6 pt-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="h-px w-6 bg-accent" />
+                      <p className="text-[10px] font-bold text-accent font-body uppercase tracking-[0.25em]">Votre interlocuteur</p>
                     </div>
-                    <p className="text-[15px] italic text-foreground/80 leading-relaxed font-body">
-                      "Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit."
+                    <Quote size={20} className="text-accent/60 mb-2" strokeWidth={1.5} />
+                    <p className="text-[15px] italic font-display text-primary-foreground/90 leading-[1.5] font-light">
+                      Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit.
                     </p>
-                     <p className="text-[14px] font-semibold mt-3 font-body">
-                       <span className="text-accent">Mika</span> <span className="text-primary">MUSUNGAYI</span>
-                     </p>
-                    <p className="text-[12px] text-muted-foreground font-body">
-                      Fondateur · Expert-Comptable
-                    </p>
+                    <div className="mt-5 pt-4 border-t border-primary-foreground/15">
+                      <p className="font-display text-[18px] tracking-tight">
+                        <span className="italic font-light text-accent">Mika</span> <span className="text-primary-foreground">MUSUNGAYI</span>
+                      </p>
+                      <p className="text-[12px] text-primary-foreground/60 font-body mt-0.5">
+                        Fondateur · Expert-Comptable
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 {/* Trust badges */}
                 <div className="mt-6 space-y-3">
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle size={18} className="text-green-600" strokeWidth={1.5} />
+                  {[
+                    { Icon: CheckCircle, title: "100% gratuit", sub: "Premier échange sans engagement" },
+                    { Icon: Clock, title: "Rappel sous 72h", sub: "Par Mika personnellement" },
+                    { Icon: Shield, title: "Confidentiel", sub: "Vos données restent privées" },
+                  ].map(({ Icon, title, sub }) => (
+                    <div
+                      key={title}
+                      className="group flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                        <Icon size={18} className="text-accent" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-[13px] font-semibold text-foreground font-body">{title}</p>
+                        <p className="text-[11px] text-muted-foreground font-body">{sub}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">100% gratuit</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Premier échange sans engagement</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                      <Clock size={18} className="text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">Rappel sous 72h</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Par Mika personnellement</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50">
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
-                      <Shield size={18} className="text-purple-600" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-foreground font-body">Confidentiel</p>
-                      <p className="text-[11px] text-muted-foreground font-body">Vos données restent privées</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Google badge */}
@@ -524,7 +547,7 @@ export default function Contact() {
                   href="https://g.page/mfinances"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all"
+                  className="group mt-6 flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-20px_hsl(var(--primary)/0.25)] transition-all duration-300"
                 >
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
@@ -533,11 +556,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold text-foreground font-body">5,0 / 5 · 16 avis Google</p>
+                    <p className="text-[11px] text-muted-foreground font-body">Voir tous les avis</p>
                   </div>
-                  <ArrowRight size={14} className="text-muted-foreground ml-auto" />
+                  <ArrowRight size={14} className="text-accent ml-auto group-hover:translate-x-1 transition-transform" />
                 </a>
               </ScrollRevealDiv>
             </div>
+
           </div>
         </section>
       </main>
