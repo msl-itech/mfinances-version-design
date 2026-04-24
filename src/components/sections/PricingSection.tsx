@@ -31,51 +31,107 @@ const plans = [
 function PlanCard({ plan }: { plan: typeof plans[0] }) {
   return (
     <div
-      className={`relative bg-card rounded-3xl p-5 md:p-8 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
+      className={`group relative rounded-[28px] p-7 md:p-9 h-full flex flex-col transition-all duration-500 overflow-hidden ${
         plan.popular
-          ? "border-primary/30 shadow-[0_8px_40px_rgba(27,43,94,0.1)] hover:shadow-[0_12px_48px_rgba(27,43,94,0.14)]"
-          : "border-border/40 hover:shadow-[0_6px_24px_rgba(27,43,94,0.06)]"
+          ? "bg-primary text-primary-foreground shadow-[0_24px_60px_rgba(27,43,94,0.25)] hover:shadow-[0_32px_80px_rgba(27,43,94,0.32)]"
+          : "bg-card border border-border/50 hover:border-primary/20 hover:shadow-[0_16px_40px_rgba(27,43,94,0.08)]"
       }`}
     >
       {plan.popular && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-4 py-1.5 rounded-full shadow-md">
-          LE PLUS POPULAIRE
-        </span>
+        <>
+          {/* Decorative gradient blob */}
+          <div
+            aria-hidden="true"
+            className="absolute -top-20 -right-20 w-[260px] h-[260px] rounded-full opacity-30 pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 60%)" }}
+          />
+          <span className="absolute top-6 right-6 z-10 bg-accent text-accent-foreground text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] shadow-[0_4px_16px_rgba(232,57,58,0.4)]">
+            POPULAIRE
+          </span>
+        </>
       )}
 
-      <span className="text-[11px] font-bold tracking-[0.12em] text-muted-foreground">
-        {plan.label}
-      </span>
-      <div className="mt-3 flex items-baseline gap-1">
-        <span className="font-display text-[40px] md:text-[48px] font-bold text-primary leading-none">
-          {plan.price}€
+      <div className="relative z-10">
+        <span
+          className={`text-[10px] font-bold tracking-[0.2em] ${
+            plan.popular ? "text-accent" : "text-accent"
+          }`}
+        >
+          {plan.label}
         </span>
-        <span className="text-[13px] text-muted-foreground">/mois HTVA</span>
+        <p
+          className={`text-[13px] italic mt-2 ${
+            plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"
+          }`}
+        >
+          {plan.subtitle}
+        </p>
+
+        <div className="mt-6 flex items-baseline gap-1.5">
+          <span
+            className={`font-display text-[52px] md:text-[64px] font-bold leading-none ${
+              plan.popular ? "text-primary-foreground" : "text-primary"
+            }`}
+          >
+            {plan.price}
+          </span>
+          <span
+            className={`font-display text-[28px] font-bold ${
+              plan.popular ? "text-accent" : "text-accent"
+            }`}
+          >
+            €
+          </span>
+          <span
+            className={`text-[12px] ml-1 ${
+              plan.popular ? "text-primary-foreground/55" : "text-muted-foreground"
+            }`}
+          >
+            /mois HTVA
+          </span>
+        </div>
+
+        <div
+          className={`my-7 h-px ${
+            plan.popular ? "bg-primary-foreground/15" : "bg-border/60"
+          }`}
+        />
+
+        <ul className="space-y-3.5 flex-1">
+          {plan.features.map((f) => (
+            <li key={f} className="flex items-center gap-3 text-[14px]">
+              <div
+                className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  plan.popular ? "bg-accent" : "bg-accent/10"
+                }`}
+              >
+                <Check
+                  size={11}
+                  className={plan.popular ? "text-accent-foreground" : "text-accent"}
+                  strokeWidth={3}
+                />
+              </div>
+              <span
+                className={
+                  plan.popular ? "text-primary-foreground/85" : "text-foreground/80"
+                }
+              >
+                {f}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <p className="text-accent text-[13px] font-medium italic mt-1">{plan.subtitle}</p>
-
-      <hr className="my-6 border-border/30" />
-
-      <ul className="space-y-3 flex-1">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-center gap-3 text-[13px]">
-            <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
-              <Check size={11} className="text-emerald-600" strokeWidth={3} />
-            </div>
-            <span className="text-foreground/80">{f}</span>
-          </li>
-        ))}
-      </ul>
 
       <Button
         variant={plan.popular ? "accent" : "outline"}
-        className="w-full mt-7 rounded-full group"
+        className="w-full mt-8 rounded-full group/cta relative z-10"
         size="lg"
         asChild
       >
         <Link to="/tarifs/">
           Choisir {plan.label.charAt(0) + plan.label.slice(1).toLowerCase()}
-          <ArrowRight size={14} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={14} className="ml-1.5 group-hover/cta:translate-x-1 transition-transform" />
         </Link>
       </Button>
     </div>
@@ -86,23 +142,36 @@ export default function PricingSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-background py-10 md:py-28" ref={ref}>
-      <div className="container-mf">
-        <div className={`text-center mb-8 md:mb-14 reveal ${isVisible ? "visible" : ""}`}>
-          <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
-            NOS FORFAITS
-          </span>
-          <h2 className="font-display text-[24px] md:text-[38px] mt-3 leading-[1.15]">
-            Des forfaits <span className="text-accent">transparents</span>, sans surprise
+    <section className="bg-secondary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[160px] md:text-[260px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+      >
+        Tarifs
+      </div>
+
+      <div className="container-mf relative">
+        <div className={`text-center mb-12 md:mb-20 reveal ${isVisible ? "visible" : ""}`}>
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="w-8 h-px bg-accent" />
+            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+              Nos forfaits
+            </span>
+            <span className="w-8 h-px bg-accent" />
+          </div>
+          <h2 className="font-display text-[28px] md:text-[46px] leading-[1.08] max-w-[760px] mx-auto">
+            Des forfaits <span className="text-accent italic">transparents</span>,
+            <br className="hidden md:block" />
+            sans surprise
           </h2>
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:grid grid-cols-3 gap-6">
+        <div className="hidden md:grid grid-cols-3 gap-5 lg:gap-6 items-stretch">
           {plans.map((plan, i) => (
             <div
               key={plan.label}
-              className={`reveal ${isVisible ? "visible" : ""}`}
+              className={`reveal ${isVisible ? "visible" : ""} ${plan.popular ? "lg:-translate-y-4" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
             >
               <PlanCard plan={plan} />
@@ -119,7 +188,7 @@ export default function PricingSection() {
           </MobileCarousel>
         </div>
 
-        <p className="text-center mt-8 text-[12px] text-muted-foreground italic max-w-[640px] mx-auto">
+        <p className="text-center mt-10 text-[12.5px] text-muted-foreground italic max-w-[680px] mx-auto leading-relaxed">
           Forfaits de départ. Le tarif final est fixé après une analyse gratuite de votre dossier (volume d'écritures, secteur, complexité). Aucun engagement avant validation du devis.
         </p>
       </div>
