@@ -151,29 +151,42 @@ export default function Contact() {
       <Header />
 
       <main>
-        {/* Hero banner — compact on mobile */}
-        <section className="bg-primary text-primary-foreground py-8 md:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.12),transparent_60%)]" />
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10 text-center">
+        {/* Hero banner — éditorial premium */}
+        <section className="bg-primary text-primary-foreground py-12 md:py-24 relative overflow-hidden">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
+          >
+            Contact
+          </span>
+          <div className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-accent/10 blur-3xl" />
+
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative z-10 text-center">
             <ScrollRevealDiv>
-              <p className="text-accent font-body text-[12px] md:text-[13px] font-bold uppercase tracking-widest mb-2 md:mb-4">
-                Premier échange gratuit
-              </p>
-              <h1 className="font-display text-[26px] md:text-[46px] leading-[1.1] max-w-[700px] mx-auto text-primary-foreground">
-                Parlons de votre entreprise
+              <div className="inline-flex items-center gap-2 mb-5 md:mb-6">
+                <span className="h-px w-10 bg-accent" />
+                <span className="font-body text-[11px] font-bold tracking-[0.25em] uppercase text-accent">
+                  Premier échange · Gratuit
+                </span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+              <h1 className="font-display text-[28px] sm:text-[36px] md:text-[56px] leading-[1.08] text-primary-foreground tracking-tight">
+                Parlons de votre <span className="italic font-light text-accent">entreprise</span>
               </h1>
-              <p className="text-primary-foreground/70 font-body text-[14px] md:text-[18px] mt-2 md:mt-4 max-w-[560px] mx-auto leading-relaxed">
-                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous 72h — gratuit, confidentiel, sans engagement.
+              <p className="text-primary-foreground/75 font-body text-[15px] md:text-[17px] mt-5 md:mt-7 max-w-[620px] mx-auto leading-[1.75]">
+                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous <strong className="text-primary-foreground">72h</strong> — gratuit, confidentiel, sans engagement.
               </p>
-              {/* Inline trust badges on mobile */}
-              <div className="flex items-center justify-center gap-4 mt-3 md:hidden text-[11px] text-primary-foreground/50">
-                <span>🔒 Confidentiel</span>
-                <span>⏱ Sous 72h</span>
-                <span>✓ Gratuit</span>
+              <div className="flex items-center justify-center gap-4 md:gap-6 mt-7 text-[12px] md:text-[13px] text-primary-foreground/70 font-body">
+                <span className="inline-flex items-center gap-1.5"><Shield size={13} className="text-accent" strokeWidth={1.8} /> Confidentiel</span>
+                <span className="w-px h-3 bg-primary-foreground/20" />
+                <span className="inline-flex items-center gap-1.5"><Clock size={13} className="text-accent" strokeWidth={1.8} /> Sous 72h</span>
+                <span className="w-px h-3 bg-primary-foreground/20" />
+                <span className="inline-flex items-center gap-1.5"><CheckCircle size={13} className="text-accent" strokeWidth={1.8} /> Gratuit</span>
               </div>
             </ScrollRevealDiv>
           </div>
         </section>
+
 
         {/* 3 contact methods — horizontal row on mobile */}
         <section className="bg-background py-4 md:py-14">
