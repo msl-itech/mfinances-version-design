@@ -283,12 +283,19 @@ export default function ChatBot() {
     }
   }, [messages]);
 
+  const wasOpenRef = useRef(false);
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus();
     }
-    // Track open/close events
-    trackChatbotEvent(open ? "opened" : "closed");
+    // Track open/close events (skip initial mount)
+    if (open) {
+      trackChatbotEvent("opened");
+      wasOpenRef.current = true;
+    } else if (wasOpenRef.current) {
+      trackChatbotEvent("closed");
+      wasOpenRef.current = false;
+    }
   }, [open]);
 
   // Check if we should show lead capture — adaptive per palier
