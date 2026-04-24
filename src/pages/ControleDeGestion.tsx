@@ -309,29 +309,15 @@ export default function ControleDeGestion() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Partenariat financier" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
-            <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-              Prêt à piloter votre entreprise avec les bons chiffres ?
-            </h2>
-            <p className="text-primary-foreground/70 text-[16px] mt-4 font-body">
-              Discutons de vos enjeux — sans engagement, sans jargon.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/contact/">
-                  Parler à un expert — c'est gratuit
-                  <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Link>
-              </Button>
-              <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                <Link to="/tarifs/">Voir nos tarifs →</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <ServicePageCTA
+          titleStart="Prêt à piloter avec les"
+          titleItalic="bons chiffres"
+          titleEnd="?"
+          description="Discutons de vos enjeux — sans engagement, sans jargon. Premier échange gratuit pour identifier les KPIs qui comptent vraiment pour votre activité."
+          watermark="Décidons"
+          ctaPrimary={{ label: "Parler à un expert", href: "/contact/" }}
+          ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}
+        />
       </main>
 
       <Footer />
