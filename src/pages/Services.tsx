@@ -16,7 +16,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import {
-  ArrowRight,
+  ArrowUpRight,
   Users,
   BarChart3,
   TrendingUp,
@@ -96,6 +96,7 @@ function ServiceCard({
   desc,
   href,
   badge,
+  index,
   delay,
 }: {
   icon: React.ElementType;
@@ -103,31 +104,51 @@ function ServiceCard({
   desc: string;
   href: string;
   badge?: string;
+  index: number;
   delay: number;
 }) {
   return (
-    <ScrollRevealDiv delay={delay}>
+    <ScrollRevealDiv delay={delay} className="h-full">
       <Link
         to={href}
-        className="group block bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
+        className="group relative flex flex-col h-full bg-card rounded-3xl p-7 md:p-8 border border-border/60 hover:border-accent/40 hover:shadow-[0_24px_60px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
       >
-        <div className="flex items-start justify-between mb-5">
-          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-            <Icon size={22} className="text-accent" strokeWidth={1.5} />
+        {/* corner index watermark */}
+        <span className="absolute top-5 right-6 font-display text-[12px] text-foreground/30 tracking-[0.25em] font-bold">
+          0{index + 1}
+        </span>
+
+        {/* hover gradient blob */}
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-20 -right-20 w-56 h-56 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.12) 0%, transparent 70%)" }}
+        />
+
+        <div className="flex items-start justify-between mb-8 relative">
+          <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
+            <Icon size={24} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
           </div>
           {badge && (
-            <span className="text-[10px] font-bold tracking-[0.1em] uppercase bg-primary/10 text-primary px-2.5 py-1 rounded-full">
+            <span className="text-[10px] font-bold tracking-[0.14em] uppercase bg-primary/8 text-primary px-3 py-1.5 rounded-full mt-1">
               {badge}
             </span>
           )}
         </div>
-        <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
+
+        <h3 className="font-display text-[22px] md:text-[24px] text-primary leading-[1.15] mb-3 group-hover:text-accent transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{desc}</p>
-        <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
-          En savoir plus <ArrowRight size={14} />
-        </span>
+        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body flex-1">{desc}</p>
+
+        <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between">
+          <span className="text-[11px] uppercase tracking-[0.18em] text-foreground/50 font-semibold">
+            En savoir plus
+          </span>
+          <span className="w-10 h-10 rounded-full bg-secondary group-hover:bg-accent flex items-center justify-center transition-all duration-500 group-hover:rotate-45">
+            <ArrowUpRight size={16} className="text-primary group-hover:text-accent-foreground transition-colors" />
+          </span>
+        </div>
       </Link>
     </ScrollRevealDiv>
   );
@@ -149,100 +170,289 @@ export default function Services() {
       <Header />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Services</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+        {/* ── HERO ÉDITORIAL ── */}
+        <section className="relative bg-primary overflow-hidden">
+          {/* decorative orbs */}
+          <div
+            className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 65%)" }}
+          />
+          <div
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{ backgroundImage: "radial-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+          />
 
-              <div className="mt-8 text-center lg:text-left">
-                <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                  Nos services — <span className="text-accent">bien plus</span> que la comptabilité
+          {/* Giant editorial watermark */}
+          <div aria-hidden="true" className="pointer-events-none absolute top-12 left-0 right-0 text-center select-none">
+            <span
+              className="font-display italic font-bold leading-none text-primary-foreground/[0.04]"
+              style={{ fontSize: "clamp(120px, 22vw, 320px)", letterSpacing: "-0.04em" }}
+            >
+              Services
+            </span>
+          </div>
+
+          <div className="container-mf relative py-12 md:py-24">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] uppercase tracking-[0.18em]">Accueil</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground text-[12px] uppercase tracking-[0.18em]">Services</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+
+            <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
+              {/* Left — Copy */}
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/55 font-medium">
+                    Catalogue MFinances
+                  </span>
+                </div>
+
+                <h1
+                  className="font-display font-bold text-primary-foreground leading-[1.05] tracking-[-0.015em]"
+                  style={{ fontSize: "clamp(32px, 4.2vw, 60px)" }}
+                >
+                  Nos services —{" "}
+                  <span className="italic font-normal text-accent relative inline-block">
+                    bien plus
+                    <svg
+                      className="absolute -bottom-1.5 left-0 w-full h-[10px]"
+                      viewBox="0 0 300 14"
+                      fill="none"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M2 10 Q 75 2, 150 8 T 298 6"
+                        stroke="hsl(var(--accent))"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        opacity="0.6"
+                      />
+                    </svg>
+                  </span>{" "}
+                  que la comptabilité
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[540px] mx-auto lg:mx-0">
-                  Chez MFinances, nous avons conçu nos services autour d'une conviction simple : un dirigeant de TPE mérite les mêmes outils de pilotage financier qu'une grande entreprise.
-                </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-              </div>
-            </div>
 
-            <div className="rounded-2xl shadow-2xl overflow-hidden">
-              <img src={imgHero} alt="Services de pilotage financier MFinances à Bruxelles" className="w-full h-full object-cover" />
+                <div className="mt-10 max-w-[560px]">
+                  <div className="h-px w-12 bg-accent mb-5" />
+                  <p className="text-[15px] md:text-[16px] text-primary-foreground/70 leading-[1.75] font-body">
+                    Chez MFinances, nous avons conçu nos services autour d'une conviction simple : un dirigeant de TPE mérite les mêmes outils de pilotage financier qu'une grande entreprise.
+                  </p>
+                </div>
+
+                <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                  <Button
+                    variant="accent"
+                    size="lg"
+                    className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[15px] whitespace-nowrap"
+                    asChild
+                  >
+                    <Link to="/contact/" data-magnetic>
+                      <span className="flex items-center gap-3">
+                        Consultation gratuite
+                        <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
+                          <ArrowUpRight size={14} />
+                        </span>
+                      </span>
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="outline-white"
+                    size="lg"
+                    className="rounded-full px-7 h-14 text-[15px] whitespace-nowrap"
+                    asChild
+                  >
+                    <Link to="/tarifs/">Voir les tarifs</Link>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Right — Image card */}
+              <div className="lg:col-span-5 lg:pb-4">
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-accent/20 rounded-[32px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
+                  <div className="relative rounded-[28px] overflow-hidden ring-1 ring-primary-foreground/10">
+                    <img
+                      src={imgHero}
+                      alt="Services de pilotage financier MFinances à Bruxelles"
+                      className="w-full h-[380px] md:h-[460px] object-cover transition-transform duration-[1.4s] group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                    <div className="absolute top-5 right-5 text-primary-foreground/90 text-[10px] uppercase tracking-[0.2em] font-medium">
+                      N°01 / Pilotage
+                    </div>
+                    <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                      <div>
+                        <p className="font-display text-primary-foreground text-[18px] leading-none">
+                          Catalogue <span className="italic text-accent">complet</span>
+                        </p>
+                        <p className="text-[11px] text-primary-foreground/75 mt-1.5 uppercase tracking-[0.15em]">
+                          6 services · 2 univers
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── PILOTAGE FINANCIER ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Services de <span className="text-accent">pilotage financier</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] mt-3 font-body max-w-[600px] mx-auto">
-                Des outils de direction financière accessibles aux TPE et PME bruxelloises.
-              </p>
+        <section className="relative bg-secondary py-16 md:py-28 overflow-hidden">
+          <div aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none">
+            <span
+              className="font-display italic font-bold leading-none text-primary/[0.035]"
+              style={{ fontSize: "clamp(140px, 20vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Pilotage
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 01</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                    Direction financière
+                  </span>
+                </div>
+                <h2
+                  className="font-display text-primary leading-[1.08] tracking-[-0.015em]"
+                  style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
+                >
+                  Services de{" "}
+                  <span className="italic text-accent">pilotage financier</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="h-px w-12 bg-accent mb-4" />
+                <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.7] font-body">
+                  Des outils de direction financière accessibles aux TPE et PME bruxelloises.
+                </p>
+              </div>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {pilotageServices.map((s, i) => (
-                <ServiceCard key={s.title} {...s} delay={0.08 + i * 0.06} />
+                <ServiceCard key={s.title} {...s} index={i} delay={0.08 + i * 0.06} />
               ))}
             </div>
           </div>
         </section>
 
         {/* ── SERVICES FONDAMENTAUX ── */}
-        <section className="bg-card py-10 md:py-20">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Services <span className="text-accent">fondamentaux</span>
-              </h2>
-              <p className="text-muted-foreground text-[15px] mt-3 font-body max-w-[600px] mx-auto">
-                Le socle de chaque forfait — comptabilité, fiscalité et accompagnement à la création.
-              </p>
+        <section className="relative bg-card py-16 md:py-28 overflow-hidden">
+          <div aria-hidden="true" className="pointer-events-none absolute -top-10 left-0 select-none">
+            <span
+              className="font-display italic font-bold leading-none text-primary/[0.035]"
+              style={{ fontSize: "clamp(140px, 20vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Socle
+            </span>
+          </div>
+
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 02</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                    Le socle
+                  </span>
+                </div>
+                <h2
+                  className="font-display text-primary leading-[1.08] tracking-[-0.015em]"
+                  style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
+                >
+                  Services{" "}
+                  <span className="italic text-accent">fondamentaux</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="h-px w-12 bg-accent mb-4" />
+                <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.7] font-body">
+                  Le socle de chaque forfait — comptabilité, fiscalité et accompagnement à la création.
+                </p>
+              </div>
             </ScrollRevealDiv>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {fondamentauxServices.map((s, i) => (
-                <ServiceCard key={s.title} {...s} delay={0.08 + i * 0.06} />
+                <ServiceCard key={s.title} {...s} index={i} delay={0.08 + i * 0.06} />
               ))}
             </div>
           </div>
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center relative z-10">
+        <section className="relative bg-primary py-20 md:py-32 overflow-hidden">
+          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/85 to-primary" />
+
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+            <span
+              className="font-display italic font-bold leading-none text-primary-foreground/[0.05]"
+              style={{ fontSize: "clamp(140px, 20vw, 280px)", letterSpacing: "-0.04em" }}
+            >
+              Parlons-en
+            </span>
+          </div>
+
+          <div className="container-mf relative z-10 text-center">
             <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Quel service correspond à vos besoins ?
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                  Et maintenant ?
+                </span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+
+              <h2
+                className="font-display text-primary-foreground leading-[1.1] tracking-[-0.015em] max-w-[800px] mx-auto"
+                style={{ fontSize: "clamp(28px, 3.8vw, 52px)" }}
+              >
+                Quel service correspond à{" "}
+                <span className="italic text-accent">vos besoins</span> ?
               </h2>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
+              <p className="text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[580px] mx-auto">
                 Premier échange gratuit et confidentiel — nous identifions ensemble les services adaptés à votre situation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mt-10">
+                <Button
+                  variant="accent"
+                  size="lg"
+                  className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[15px] whitespace-nowrap"
+                  asChild
+                >
+                  <Link to="/contact/" data-magnetic>
+                    <span className="flex items-center gap-3">
+                      Consultation gratuite
+                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
+                        <ArrowUpRight size={14} />
+                      </span>
+                    </span>
+                  </Link>
                 </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
+                <Button
+                  variant="outline-white"
+                  size="lg"
+                  className="rounded-full px-7 h-14 text-[15px] whitespace-nowrap"
+                  asChild
+                >
+                  <Link to="/tarifs/">Voir les tarifs</Link>
                 </Button>
               </div>
             </ScrollRevealDiv>
