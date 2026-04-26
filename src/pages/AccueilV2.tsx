@@ -206,14 +206,15 @@ export default function AccueilV2() {
 
             {/* Floating dark card */}
             <div
-              className={`absolute top-12 md:top-24 right-4 md:right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-7 md:p-10 shadow-2xl transition-all duration-1000 ${
-                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              className={`absolute top-12 md:top-24 right-4 md:right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-7 md:p-10 shadow-2xl transition-transform duration-1000 ${
+                mounted ? "translate-y-0" : "translate-y-6"
               }`}
             >
               <h1
                 className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background"
                 data-anim="chars"
-                data-stagger="0.028"
+                data-stagger="0.035"
+                data-delay="0.25"
               >
                 Votre partenaire financier de pilotage.
               </h1>
