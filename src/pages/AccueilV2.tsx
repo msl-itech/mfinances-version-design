@@ -212,7 +212,8 @@ export default function AccueilV2() {
             >
               <h1
                 className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background"
-                data-anim="split"
+                data-anim="chars"
+                data-stagger="0.028"
               >
                 Votre partenaire financier de pilotage.
               </h1>
