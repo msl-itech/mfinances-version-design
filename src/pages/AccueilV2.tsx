@@ -148,106 +148,101 @@ export default function AccueilV2() {
       />
       <Header />
       <main>
-        {/* ============== HERO ============== */}
-        <section className="relative pt-6">
-          <div className="container-mf">
-            <div className="relative rounded-[32px] overflow-hidden bg-primary min-h-[560px] md:min-h-[640px]">
-              <img
-                src={equipePhoto}
-                alt="Équipe MFinances en réunion"
-                className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/80 via-primary/30 to-transparent" />
+        {/* ============== HERO (full-width) ============== */}
+        <section className="relative">
+          <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
+            <img
+              src={equipePhoto}
+              alt="Équipe MFinances en réunion"
+              className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/30 to-transparent" />
 
-              {/* Floating dark card */}
-              <div
-                className={`absolute top-10 md:top-16 right-6 md:right-16 max-w-[460px] bg-foreground text-background rounded-3xl p-7 md:p-10 shadow-2xl transition-all duration-1000 ${
-                  mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
+            {/* Floating dark card */}
+            <div
+              className={`absolute top-12 md:top-24 right-4 md:right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-7 md:p-10 shadow-2xl transition-all duration-1000 ${
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
+              <h1 className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background">
+                Votre <span className="italic">partenaire financier</span> de pilotage.
+              </h1>
+              <p className="mt-5 text-background/70 text-[14.5px] leading-relaxed">
+                Pilotage des TPE avec une approche éditoriale, des recommandations
+                actionnables et un vrai DAF à vos côtés.
+              </p>
+              <Button
+                variant="accent"
+                size="lg"
+                className="mt-6 rounded-full pl-6 pr-3 group h-12"
+                asChild
               >
-                <h1 className="font-display text-[34px] md:text-[48px] leading-[1.05] text-background">
-                  Votre <span className="italic">partenaire financier</span> de pilotage.
-                </h1>
-                <p className="mt-5 text-background/70 text-[14px] leading-relaxed">
-                  Pilotage des TPE avec une approche éditoriale, des recommandations
-                  actionnables et un vrai DAF à vos côtés.
-                </p>
-                <Button
-                  variant="accent"
-                  size="lg"
-                  className="mt-6 rounded-full pl-6 pr-3 group h-12"
-                  asChild
-                >
-                  <Link to="/diagnostic/">
-                    <span className="flex items-center gap-3">
-                      Diagnostic gratuit
-                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
-                        <ArrowUpRight size={14} />
-                      </span>
+                <Link to="/diagnostic/">
+                  <span className="flex items-center gap-3">
+                    Diagnostic gratuit
+                    <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                      <ArrowUpRight size={14} />
                     </span>
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Bottom split bar */}
-            <div className="grid grid-cols-1 md:grid-cols-2 -mt-px">
-              <div className="bg-card border border-border/60 rounded-bl-[28px] md:rounded-bl-[28px] px-8 py-6 flex items-center justify-between">
-                <div>
-                  <p className="font-display italic text-[22px] md:text-[26px] text-primary">
-                    Discutons & Démarrons
-                  </p>
-                </div>
-                <Link
-                  to="/contact/"
-                  className="text-[12px] uppercase tracking-[0.18em] text-accent font-bold hover:gap-3 inline-flex items-center gap-2 transition-all"
-                >
-                  Contact <ArrowRight size={14} />
+                  </span>
                 </Link>
-              </div>
-              <div className="bg-accent text-accent-foreground rounded-br-[28px] px-8 py-6 flex items-center justify-between">
-                <div>
-                  <p className="font-display text-[26px] md:text-[32px] leading-none">
-                    200+ <span className="text-[14px] font-body align-middle opacity-80">entreprises accompagnées</span>
-                  </p>
-                </div>
-                <div className="flex -space-x-2">
-                  {[mikaPhoto, equipeSourire, dafMeeting].map((src, i) => (
-                    <div
-                      key={i}
-                      className="w-9 h-9 rounded-full border-2 border-accent overflow-hidden bg-card"
-                    >
-                      <img src={src} alt="" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-                  <div className="w-9 h-9 rounded-full bg-card text-accent flex items-center justify-center text-sm font-bold border-2 border-accent">
-                    <Plus size={14} strokeWidth={3} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 3 features row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-x border-b border-border/60 rounded-b-[28px] -mt-px">
-              {heroFeatures.map((f, i) => (
-                <div
-                  key={f.title}
-                  className={`px-7 py-6 flex items-start gap-4 ${i < 2 ? "md:border-r border-border/60" : ""}`}
-                >
-                  <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center shrink-0">
-                    <Check size={14} className="text-accent" strokeWidth={2.5} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary text-[14px]">{f.title}</p>
-                    <p className="text-[12.5px] text-muted-foreground leading-relaxed mt-0.5">
-                      {f.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              </Button>
             </div>
           </div>
+
+          {/* Bottom split bar — full width */}
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full">
+            <div className="bg-card border-y border-border/60 px-6 md:px-12 lg:px-20 py-6 flex items-center justify-between">
+              <p className="font-display italic text-[22px] md:text-[28px] text-primary">
+                Discutons & Démarrons
+              </p>
+              <Link
+                to="/contact/"
+                className="text-[12px] uppercase tracking-[0.18em] text-accent font-bold hover:gap-3 inline-flex items-center gap-2 transition-all"
+              >
+                Contact <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="bg-accent text-accent-foreground border-y border-accent px-6 md:px-12 lg:px-20 py-6 flex items-center justify-between">
+              <p className="font-display text-[26px] md:text-[32px] leading-none">
+                200+ <span className="text-[14px] font-body align-middle opacity-80">entreprises accompagnées</span>
+              </p>
+              <div className="flex -space-x-2">
+                {[mikaPhoto, equipeSourire, dafMeeting].map((src, i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 rounded-full border-2 border-accent overflow-hidden bg-card"
+                  >
+                    <img src={src} alt="" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+                <div className="w-9 h-9 rounded-full bg-card text-accent flex items-center justify-center text-sm font-bold border-2 border-accent">
+                  <Plus size={14} strokeWidth={3} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 features row — full width */}
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full border-b border-border/60">
+            {heroFeatures.map((f, i) => (
+              <div
+                key={f.title}
+                className={`px-6 md:px-12 lg:px-20 py-7 flex items-start gap-4 ${i < 2 ? "md:border-r border-border/60" : ""}`}
+              >
+                <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center shrink-0">
+                  <Check size={14} className="text-accent" strokeWidth={2.5} />
+                </div>
+                <div>
+                  <p className="font-semibold text-primary text-[14px]">{f.title}</p>
+                  <p className="text-[12.5px] text-muted-foreground leading-relaxed mt-0.5">
+                    {f.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
+
 
         {/* ============== SERVICES ============== */}
         <section className="py-20 md:py-28">
