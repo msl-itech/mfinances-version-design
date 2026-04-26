@@ -648,7 +648,7 @@ export default function AccueilV2() {
             </div>
 
             <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
-              <div className="relative min-h-[420px] lg:min-h-[520px]">
+              <div className="relative min-h-[420px] lg:min-h-[520px] overflow-hidden" data-anim="clip-reveal" data-clip-direction="left">
                 <img
                   src={mikaPhoto}
                   alt="Mika Musungayi"
