@@ -207,14 +207,55 @@ export default function AccueilV2() {
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
 
-            {/* Floating dark card */}
+            {/* ===== MOBILE LAYOUT (référence : carte blanche H1 + texte blanc + CTA outline) ===== */}
+            <div className="md:hidden relative z-10 flex flex-col h-full min-h-[560px] px-4 pt-6 pb-8">
+              {/* Carte blanche avec H1 sombre */}
+              <div
+                className={`bg-background text-foreground rounded-3xl p-6 shadow-2xl transition-transform duration-1000 ${
+                  mounted ? "translate-y-0" : "translate-y-6"
+                }`}
+              >
+                <h1
+                  className="font-display font-bold text-[34px] leading-[1.02] tracking-tight text-foreground"
+                  data-anim="chars"
+                  data-stagger="0.035"
+                  data-delay="0.25"
+                >
+                  Votre partenaire financier de pilotage.
+                </h1>
+              </div>
+
+              {/* Paragraphe blanc sur l'image */}
+              <p
+                className="mt-8 text-background text-[16px] leading-[1.45] font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]"
+                data-anim="fade-up"
+                data-delay="0.4"
+              >
+                Vous travaillez dur. Mais votre entreprise gagne-t-elle vraiment de l'argent&nbsp;? Un vrai pilotage financier, à un prix de PME.
+              </p>
+
+              {/* CTA pill outline blanc */}
+              <div className="mt-6" data-anim="fade-up" data-delay="0.55">
+                <Link
+                  to="/diagnostic/"
+                  className="inline-flex items-center gap-4 rounded-full border border-background/80 bg-background/5 backdrop-blur-sm pl-6 pr-2 py-2 text-background hover:bg-background hover:text-foreground transition-colors group"
+                >
+                  <span className="text-[15px] font-medium">Diagnostic gratuit</span>
+                  <span className="w-9 h-9 rounded-full border border-background/80 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* ===== DESKTOP : Floating dark card (inchangé) ===== */}
             <div
-              className={`absolute top-8 md:top-24 left-4 right-4 md:left-auto md:right-12 lg:right-24 md:max-w-[520px] bg-foreground text-background rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-10 shadow-2xl transition-transform duration-1000 ${
+              className={`hidden md:block absolute top-24 right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-10 shadow-2xl transition-transform duration-1000 ${
                 mounted ? "translate-y-0" : "translate-y-6"
               }`}
             >
               <h1
-                className="font-display text-[26px] sm:text-[32px] md:text-[52px] leading-[1.05] text-background"
+                className="font-display text-[52px] leading-[1.05] text-background"
                 data-anim="chars"
                 data-stagger="0.035"
                 data-delay="0.25"
@@ -222,7 +263,7 @@ export default function AccueilV2() {
                 Votre partenaire financier de pilotage.
               </h1>
               <p
-                className="mt-4 md:mt-5 text-background/70 text-[13px] sm:text-[14px] md:text-[14.5px] leading-relaxed"
+                className="mt-5 text-background/70 text-[14.5px] leading-relaxed"
                 data-anim="fade-up"
                 data-delay="0.4"
               >
@@ -233,13 +274,13 @@ export default function AccueilV2() {
                 <Button
                   variant="accent"
                   size="lg"
-                  className="mt-5 md:mt-6 rounded-full pl-5 md:pl-6 pr-2.5 md:pr-3 group h-11 md:h-12 text-[13px] md:text-[14px]"
+                  className="mt-6 rounded-full pl-6 pr-3 group h-12 text-[14px]"
                   asChild
                 >
                   <Link to="/diagnostic/">
                     <span className="flex items-center gap-3">
                       Diagnostic gratuit
-                      <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                         <ArrowUpRight size={14} />
                       </span>
                     </span>
