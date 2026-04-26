@@ -165,12 +165,22 @@ const faqs = [
 
 export default function AccueilV2() {
   const [mounted, setMounted] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setReviewIndex((i) => (i + 1) % reviews.length);
+    }, 5500);
+    return () => clearInterval(t);
+  }, []);
+
+  const currentReview = reviews[reviewIndex];
 
   // Wire GSAP reveals across the whole page after mount
   useGsapReveal(root, [mounted]);
