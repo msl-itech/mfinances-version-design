@@ -498,7 +498,9 @@ export default function AccueilV2() {
                 <Link
                   key={a.label}
                   to={a.href}
-                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] hover:-translate-y-1.5 transition-all duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
+                  data-tilt
+                  data-tilt-max="7"
+                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.22)]"
                 >
                   <img
                     src={a.image}
