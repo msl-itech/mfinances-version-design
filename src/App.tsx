@@ -7,6 +7,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import AccueilV2 from "./pages/AccueilV2.tsx";
 import Services from "./pages/Services.tsx";
 import Diagnostic from "./pages/Diagnostic.tsx";
 import DafExternalise from "./pages/DafExternalise.tsx";
@@ -73,6 +74,8 @@ const App = () => {
         <RouteTracker />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/accueilv2/" element={<AccueilV2 />} />
+          <Route path="/accueilv2" element={<AccueilV2 />} />
           <Route path="/services/" element={<Services />} />
           <Route path="/services/daf-externalise/" element={<DafExternalise />} />
           <Route path="/services/controle-de-gestion/" element={<ControleDeGestion />} />
