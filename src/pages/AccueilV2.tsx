@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,7 +26,9 @@ import {
   Check,
   Quote,
   Plus,
+  MapPin,
 } from "lucide-react";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
 import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
 import mikaPhoto from "@/assets/mika-musungayi.png";
@@ -34,9 +36,10 @@ import imgControle from "@/assets/service-controle-gestion.jpg";
 import imgDaf from "@/assets/service-daf-externalise.jpg";
 import imgTresorerie from "@/assets/service-tresorerie.jpg";
 import dafMeeting from "@/assets/daf-meeting-team.png";
-import meetingWarm from "@/assets/meeting-warm.jpg";
 
-/* ----------------------------- DATA ----------------------------- */
+/* ============================================================
+   DATA — texts copied verbatim from the V1 homepage sections
+   ============================================================ */
 
 const heroFeatures = [
   { title: "Vision claire", desc: "Vous savez exactement où va votre argent — chaque mois." },
@@ -44,6 +47,26 @@ const heroFeatures = [
   { title: "Support efficace", desc: "Une équipe dédiée, réactive et 100% bilingue FR/EN." },
 ];
 
+// V1 — PainSection
+const painPoints = [
+  {
+    icon: TrendingDown,
+    title: "Trésorerie floue",
+    desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours.",
+  },
+  {
+    icon: Eye,
+    title: "Fiscalité subie",
+    desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
+  },
+  {
+    icon: HelpCircle,
+    title: "Décisions à l'aveugle",
+    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
+  },
+];
+
+// V1 — SolutionSection
 const services = [
   {
     icon: BarChart2,
@@ -51,6 +74,8 @@ const services = [
     subtitle: "à temps partiel",
     desc: "Tableaux de bord, indicateurs clés, suivi mensuel. Vous savez exactement où en est votre entreprise.",
     href: "/services/controle-de-gestion/",
+    image: imgControle,
+    tag: "Pilotage",
   },
   {
     icon: Briefcase,
@@ -58,6 +83,8 @@ const services = [
     subtitle: "à coût maîtrisé",
     desc: "Un Directeur Administratif et Financier à temps partiel. Vos décisions financières sont enfin éclairées.",
     href: "/services/daf-externalise/",
+    image: imgDaf,
+    tag: "Stratégie",
   },
   {
     icon: TrendingUp,
@@ -65,82 +92,60 @@ const services = [
     subtitle: "anticipée chaque mois",
     desc: "Un prévisionnel actualisé chaque mois. Vous voyez les tensions 3 mois à l'avance.",
     href: "/services/tresorerie/",
+    image: imgTresorerie,
+    tag: "Anticipation",
   },
 ];
 
-const painPoints = [
-  { icon: TrendingDown, title: "Trésorerie floue", desc: "Vous facturez, mais votre compte est souvent plus vide que prévu." },
-  { icon: Eye, title: "Fiscalité subie", desc: "Vous découvrez votre charge fiscale en fin d'année — trop tard pour agir." },
-  { icon: HelpCircle, title: "Décisions à l'aveugle", desc: "Les grandes entreprises ont un DAF — pourquoi pas vous ?" },
-];
-
-const successStories = [
-  {
-    tag: "Étude de cas",
-    date: "01.06.2024",
-    title: "+40% de marge nette en 8 mois grâce au pilotage mensuel",
-    image: meetingWarm,
-    big: true,
-  },
-  {
-    tag: "Témoignage",
-    date: "12.07.2024",
-    title: "Une trésorerie enfin anticipée, sans stress de fin de mois",
-    image: dafMeeting,
-    big: false,
-  },
-  {
-    tag: "Étude de cas",
-    date: "20.08.2024",
-    title: "Création d'entreprise structurée dès le jour 1 avec MFinances",
-    image: equipeSourire,
-    big: false,
-  },
-];
-
-const team = [
-  { name: "Mika Musungayi", role: "Fondateur — Expert-comptable ITAA", image: mikaPhoto },
-  { name: "Équipe Conseil", role: "DAF & Contrôle de gestion", image: dafMeeting },
-  { name: "Équipe Comptabilité", role: "Production & Fiscalité", image: equipePhoto },
-  { name: "Service Client", role: "Bilingue FR / EN", image: equipeSourire },
-];
-
+// V1 — MethodSection
 const steps = [
   { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon." },
   { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
   { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
 ];
 
+// V1 — AudienceSection
+const audiences = [
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
+];
+
+// V1 — PricingSection
 const plans = [
   { label: "ESSENTIEL", price: "350", subtitle: "Pour sécuriser vos bases", features: ["Comptabilité complète", "Déclarations fiscales", "Expert dédié"], popular: false },
   { label: "PREMIUM", price: "450", subtitle: "Pour structurer votre croissance", features: ["Tout Essentiel +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle"], popular: true },
   { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter comme un grand", features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"], popular: false },
 ];
 
+// V1 — homepage FAQ (Index.tsx)
 const faqs = [
-  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise sans les coûts d'un recrutement en interne." },
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 350€ HTVA/mois (Essentiel), 450€ (Premium), 650€ (Excellence). Engagement annuel avec tacite reconduction." },
-  { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance." },
-  { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
-  { q: "Êtes-vous disponibles toute l'année ?", a: "Oui. Vous avez un interlocuteur dédié, joignable par téléphone et email tout au long de l'année — pas seulement en période fiscale." },
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel), 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle et accès DAF). Engagement annuel avec tacite reconduction." },
+  { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle intégrés dans les forfaits." },
+  { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
 ];
 
-const news = [
-  { tag: "Trésorerie", date: "15 mars 2025", title: "5 indicateurs de trésorerie à suivre chaque mois pour piloter sereinement", image: meetingWarm },
-  { tag: "Pilotage", date: "28 mars 2025", title: "Pourquoi un DAF externalisé peut transformer une TPE en croissance", image: dafMeeting },
-];
-
-/* ----------------------------- PAGE ----------------------------- */
+/* ============================================================
+   PAGE
+   ============================================================ */
 
 export default function AccueilV2() {
   const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setMounted(true);
   }, []);
 
+  // Wire GSAP reveals across the whole page after mount
+  useGsapReveal(root, [mounted]);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
         title="MFinances v2 — Pilotage TPE Bruxelles"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour TPE en croissance."
@@ -148,7 +153,7 @@ export default function AccueilV2() {
       />
       <Header />
       <main>
-        {/* ============== HERO (full-width) ============== */}
+        {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
           <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
             <img
@@ -164,28 +169,33 @@ export default function AccueilV2() {
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              <h1 className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background">
-                Votre <span className="italic">partenaire financier</span> de pilotage.
-              </h1>
-              <p className="mt-5 text-background/70 text-[14.5px] leading-relaxed">
-                Pilotage des TPE avec une approche éditoriale, des recommandations
-                actionnables et un vrai DAF à vos côtés.
-              </p>
-              <Button
-                variant="accent"
-                size="lg"
-                className="mt-6 rounded-full pl-6 pr-3 group h-12"
-                asChild
+              <h1
+                className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background"
+                data-anim="split"
               >
-                <Link to="/diagnostic/">
-                  <span className="flex items-center gap-3">
-                    Diagnostic gratuit
-                    <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
-                      <ArrowUpRight size={14} />
+                Votre partenaire financier de pilotage.
+              </h1>
+              <p className="mt-5 text-background/70 text-[14.5px] leading-relaxed" data-anim="fade-up" data-delay="0.4">
+                Vous travaillez dur. Mais votre entreprise gagne-t-elle vraiment de l'argent&nbsp;?
+                MFinances change ça : un vrai pilotage financier, à un prix de PME.
+              </p>
+              <div data-anim="fade-up" data-delay="0.55">
+                <Button
+                  variant="accent"
+                  size="lg"
+                  className="mt-6 rounded-full pl-6 pr-3 group h-12"
+                  asChild
+                >
+                  <Link to="/diagnostic/">
+                    <span className="flex items-center gap-3">
+                      Diagnostic gratuit
+                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                        <ArrowUpRight size={14} />
+                      </span>
                     </span>
-                  </span>
-                </Link>
-              </Button>
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
 
@@ -223,7 +233,7 @@ export default function AccueilV2() {
           </div>
 
           {/* 3 features row — full width */}
-          <div className="grid grid-cols-1 md:grid-cols-3 w-full border-b border-border/60">
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full border-b border-border/60" data-anim="stagger" data-stagger="0.12">
             {heroFeatures.map((f, i) => (
               <div
                 key={f.title}
@@ -243,18 +253,76 @@ export default function AccueilV2() {
           </div>
         </section>
 
+        {/* ============== 02 · CONSTAT (V1 PainSection text) ============== */}
+        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
+          >
+            Où ?
+          </div>
 
-        {/* ============== SERVICES ============== */}
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                  Le constat
+                </span>
+              </div>
+              <h2
+                className="font-display text-[32px] md:text-[48px] leading-[1.05]"
+                data-anim="split"
+              >
+                Fin de mois tendu. Décisions au feeling. Où est passé l'argent ?
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.1">
+              {painPoints.map((p) => {
+                const Icon = p.icon;
+                return (
+                  <div
+                    key={p.title}
+                    className="group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/30 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-display text-[22px] text-primary mt-5 leading-tight">{p.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="text-center mt-14" data-anim="fade-up">
+              <Link
+                to="/diagnostic/"
+                className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.12em] hover:gap-4 transition-all"
+              >
+                <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
+                Plus maintenant — faites le diagnostic
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============== 03 · SERVICES (V1 SolutionSection text) ============== */}
         <section className="py-20 md:py-28">
           <div className="container-mf">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">— Nos services</span>
-                <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3">
-                  Un service de qualité.
+                <div className="inline-flex items-center gap-4 mb-3">
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Nos solutions</span>
+                </div>
+                <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05]" data-anim="split">
+                  Un cabinet comptable nouvelle génération.
                 </h2>
               </div>
-              <div className="max-w-md">
+              <div className="max-w-md" data-anim="fade-up" data-delay="0.2">
                 <p className="text-muted-foreground text-[14.5px] leading-relaxed">
                   Trois services pensés comme une seule mission : faire de votre comptabilité
                   un véritable outil de pilotage.
@@ -268,24 +336,37 @@ export default function AccueilV2() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.12">
               {services.map((s) => {
                 const Icon = s.icon;
                 return (
                   <Link
                     to={s.href}
                     key={s.title}
-                    className="group bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.08)] transition-all"
+                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.08)] transition-all"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:rotate-[-6deg] transition-all">
-                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.75} />
+                    <div className="relative h-52 overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                      <span className="absolute top-4 left-4 bg-card/90 backdrop-blur text-primary text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] uppercase">
+                        {s.tag}
+                      </span>
+                      <div className="absolute bottom-4 left-4 w-12 h-12 rounded-2xl bg-card/95 backdrop-blur flex items-center justify-center shadow-lg group-hover:rotate-[-6deg] transition-transform">
+                        <Icon size={22} className="text-accent" strokeWidth={1.75} />
+                      </div>
                     </div>
-                    <h3 className="font-display text-[22px] text-primary leading-tight">{s.title}</h3>
-                    <p className="text-accent text-[12px] italic mt-1">{s.subtitle}</p>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] mt-4">{s.desc}</p>
-                    <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between text-[13px] font-semibold text-primary group-hover:text-accent transition-colors">
-                      <span>En savoir plus</span>
-                      <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+                    <div className="p-7">
+                      <h3 className="font-display text-[22px] text-primary leading-tight">{s.title}</h3>
+                      <p className="text-accent text-[12px] italic mt-1">{s.subtitle}</p>
+                      <p className="text-[14px] text-muted-foreground leading-[1.7] mt-4">{s.desc}</p>
+                      <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between text-[13px] font-semibold text-primary group-hover:text-accent transition-colors">
+                        <span>En savoir plus</span>
+                        <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+                      </div>
                     </div>
                   </Link>
                 );
@@ -294,160 +375,116 @@ export default function AccueilV2() {
           </div>
         </section>
 
-        {/* ============== ABOUT / CLIENTS ============== */}
-        <section className="py-20 md:py-28 bg-card">
-          <div className="container-mf">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">— À propos</span>
-                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] mt-3">
-                  200+ TPE pilotent <br/>
-                  <span className="italic">sereinement</span> avec MFinances.
-                </h2>
-                <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 max-w-[520px]">
-                  La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
-                  résultats découverts trop tard. MFinances change ça : un vrai pilotage financier,
-                  à un prix de PME.
-                </p>
-                <div className="mt-8 flex gap-3 flex-wrap">
-                  <Button variant="default" size="lg" className="rounded-full" asChild>
-                    <Link to="/services/">Nos services</Link>
-                  </Button>
-                  <Button variant="outline" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact/">Demande de contact <ArrowRight size={14} className="ml-1" /></Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="rounded-[28px] overflow-hidden">
-                  <img src={equipeSourire} alt="Équipe MFinances" className="w-full h-[420px] object-cover" />
-                </div>
-                {/* Floating chips */}
-                <div className="absolute top-6 right-6 flex flex-col gap-3">
-                  {painPoints.map((p) => {
-                    const Icon = p.icon;
-                    return (
-                      <div key={p.title} className="bg-card/95 backdrop-blur-sm rounded-full pl-2 pr-4 py-1.5 flex items-center gap-2 shadow-md max-w-[260px]">
-                        <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center shrink-0">
-                          <Icon size={13} className="text-accent-foreground" strokeWidth={2} />
-                        </div>
-                        <span className="text-[12px] font-semibold text-primary truncate">{p.title}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Mission / Vision / Stat */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-border/60">
-              <div>
-                <div className="w-2 h-2 rounded-full bg-accent mb-3" />
-                <p className="font-semibold text-primary text-[15px]">Notre mission</p>
-                <p className="text-[13.5px] text-muted-foreground mt-2 leading-relaxed">
-                  Donner à chaque dirigeant une vision claire et anticipée de ses finances.
-                </p>
-              </div>
-              <div>
-                <div className="w-2 h-2 rounded-full bg-accent mb-3" />
-                <p className="font-semibold text-primary text-[15px]">Notre vision</p>
-                <p className="text-[13.5px] text-muted-foreground mt-2 leading-relaxed">
-                  Faire de la comptabilité un véritable levier de croissance pour les TPE.
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-[44px] text-primary leading-none">
-                  20<span className="text-accent">+</span>
-                </p>
-                <p className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mt-2">
-                  Années d'expérience
-                </p>
-              </div>
-            </div>
+        {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
+        <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
+          >
+            Méthode
           </div>
-        </section>
 
-        {/* ============== SUCCESS STORIES ============== */}
-        <section className="py-20 md:py-28 bg-secondary">
-          <div className="container-mf">
-            <div className="flex items-end justify-between gap-6 mb-12">
-              <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] max-w-[520px]">
-                Réussites de <br/> nos clients.
+          <div className="container-mf relative">
+            <div className="text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                  Notre approche
+                </span>
+              </div>
+              <h2 className="font-display text-[34px] md:text-[48px] text-primary-foreground leading-[1.05]" data-anim="split">
+                Notre méthode en 3 étapes.
               </h2>
-              <Link to="/blog/" className="hidden md:inline-flex items-center gap-2 text-accent text-[12px] font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
-                Voir tout <ArrowRight size={14} />
-              </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-              {/* Big card */}
-              <div className="md:col-span-7 bg-card rounded-3xl overflow-hidden border border-border/50 group">
-                <div className="relative h-72 md:h-96 overflow-hidden">
-                  <img src={successStories[0].image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute top-5 left-5 flex gap-2">
-                    <span className="bg-card/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">
-                      {successStories[0].tag}
-                    </span>
-                    <span className="bg-card/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-medium text-muted-foreground">
-                      {successStories[0].date}
-                    </span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.12">
+              {steps.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.num} className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 hover:-translate-y-2 transition-all relative overflow-hidden">
+                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
+                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
+                      <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="font-display text-[24px] text-primary-foreground">{s.title}</h3>
+                    <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
                   </div>
-                </div>
-                <div className="p-7 flex items-end justify-between gap-4">
-                  <h3 className="font-display text-[22px] md:text-[26px] leading-[1.2] max-w-[420px]">
-                    {successStories[0].title}
-                  </h3>
-                  <div className="w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shrink-0 group-hover:rotate-45 transition-transform">
-                    <ArrowUpRight size={18} />
-                  </div>
-                </div>
-              </div>
+                );
+              })}
+            </div>
 
-              {/* Two stacked accent cards */}
-              <div className="md:col-span-5 flex flex-col gap-5">
-                {successStories.slice(1).map((s, i) => (
-                  <div
-                    key={i}
-                    className={`flex-1 rounded-3xl overflow-hidden border border-border/50 group ${i === 0 ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"}`}
-                  >
-                    <div className="relative h-40 overflow-hidden">
-                      <img src={s.image} alt="" className="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute top-4 left-4 flex gap-2">
-                        <span className="bg-background/95 px-2.5 py-1 rounded-full text-[9.5px] font-bold uppercase tracking-wider text-primary">
-                          {s.tag}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-5 flex items-end justify-between gap-3">
-                      <h3 className="font-display text-[17px] leading-[1.25] max-w-[260px]">
-                        {s.title}
-                      </h3>
-                      <div className="w-9 h-9 rounded-full bg-background/15 flex items-center justify-center shrink-0 group-hover:rotate-45 transition-transform">
-                        <ArrowUpRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="text-center mt-14" data-anim="fade-up">
+              <Button variant="accent" size="lg" className="rounded-full px-10 group" asChild>
+                <Link to="/diagnostic/">
+                  Commencer mon diagnostic gratuit
+                  <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* ============== WORDS FROM CLIENTS ============== */}
-        <section className="py-20 md:py-28">
+        {/* ============== 05 · POUR QUI (V1 AudienceSection text) ============== */}
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+          >
+            Pour qui
+          </div>
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 05</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                  Pour qui · Profils accompagnés
+                </span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[46px] leading-[1.05]" data-anim="split">
+                Nous accompagnons les dirigeants qui ont décidé de grandir.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3" data-anim="stagger" data-stagger="0.08">
+              {audiences.map((a, i) => (
+                <Link
+                  key={a.label}
+                  to={a.href}
+                  className="group relative bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:-translate-y-1 transition-all p-6 min-h-[180px] flex flex-col justify-between"
+                >
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 0{i + 1}</span>
+                  <div>
+                    <h3 className="font-display text-[18px] text-primary leading-tight">{a.label}</h3>
+                    <span className="inline-flex items-center gap-1 text-[11px] text-accent font-semibold mt-2 uppercase tracking-wide group-hover:gap-2 transition-all">
+                      Découvrir <ArrowRight size={12} />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============== 06 · TÉMOIGNAGE (V1 TestimonialsSection — vrai client) ============== */}
+        <section className="py-20 md:py-28 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-4">
-                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]">
-                  Mots de <br/> nos clients.
+                <div className="inline-flex items-center gap-4 mb-5">
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 06</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                    Témoignages
+                  </span>
+                </div>
+                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
+                  Ils nous font confiance.
                 </h2>
                 <div className="h-px w-16 bg-accent mt-6" />
                 <p className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mt-4">
                   16 avis Google · 5,0/5
                 </p>
               </div>
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-8" data-anim="fade-up" data-delay="0.2">
                 <Quote size={40} className="text-accent/30 mb-4" />
                 <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary">
                   « Sans hésitation, je ne peux que recommander MFinances, tant pour son
@@ -474,70 +511,87 @@ export default function AccueilV2() {
           </div>
         </section>
 
-        {/* ============== TEAM / ADVISORS ============== */}
-        <section className="py-20 md:py-28 bg-card">
-          <div className="container-mf">
-            <div className="flex items-end justify-between gap-6 mb-12">
-              <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]">Notre équipe.</h2>
-              <Link to="/a-propos/" className="hidden md:inline-flex items-center gap-2 text-accent text-[12px] font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
-                En savoir plus <ArrowRight size={14} />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {team.map((m) => (
-                <div key={m.name} className="group">
-                  <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-secondary">
-                    <img src={m.image} alt={m.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <p className="font-semibold text-primary text-[15px] mt-4">{m.name}</p>
-                  <p className="text-[12.5px] text-muted-foreground mt-0.5">{m.role}</p>
-                </div>
-              ))}
-            </div>
+        {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
+        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+          >
+            Fondateur
           </div>
-        </section>
-
-        {/* ============== METHOD / STEPS ============== */}
-        <section className="py-20 md:py-28 bg-primary">
-          <div className="container-mf">
-            <div className="text-center mb-14">
-              <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">— Notre approche</span>
-              <h2 className="font-display text-[34px] md:text-[48px] text-primary-foreground leading-[1.05] mt-3">
-                Notre méthode en <span className="italic text-accent">3 étapes</span>
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-12">
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 07</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                  Le fondateur
+                </span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[46px] leading-[1.05] text-primary" data-anim="split">
+                L'expérience d'un DAF, la proximité d'un cabinet.
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {steps.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.num} className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 transition-all relative overflow-hidden">
-                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
-                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="font-display text-[24px] text-primary-foreground">{s.title}</h3>
-                    <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
+
+            <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
+              <div className="relative min-h-[420px] lg:min-h-[520px]">
+                <img
+                  src={mikaPhoto}
+                  alt="Mika Musungayi"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-primary/40" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="font-display text-primary-foreground text-[24px] leading-none">
+                    Mika <span className="italic text-accent">Musungayi</span>
+                  </p>
+                  <p className="text-[11px] text-primary-foreground/75 mt-2 uppercase tracking-[0.18em]">
+                    Expert-comptable · Fondateur · ITAA
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
+                <Quote size={40} className="text-accent/40 mb-4" />
+                <blockquote className="font-display italic font-light text-[20px] md:text-[26px] text-primary-foreground leading-[1.35]">
+                  Après 20 ans à accompagner des centaines de dirigeants, je sais qu'une bonne comptabilité ne suffit pas.
+                  Il faut un vrai suivi, une <span className="text-accent">vraie stratégie financière</span>.
+                </blockquote>
+                <div className="mt-8 grid grid-cols-3 gap-6 pt-8 border-t border-primary-foreground/10">
+                  <div>
+                    <p className="font-display text-[28px] text-primary-foreground">20<span className="text-accent">+</span></p>
+                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">ans d'exp.</p>
                   </div>
-                );
-              })}
+                  <div>
+                    <p className="font-display text-[28px] text-primary-foreground">200<span className="text-accent">+</span></p>
+                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">dirigeants</p>
+                  </div>
+                  <div>
+                    <p className="font-display text-[28px] text-primary-foreground">FR<span className="text-accent">/</span>EN</p>
+                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">bilingue</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ============== PRICING ============== */}
+        {/* ============== 08 · TARIFS (V1 PricingSection text) ============== */}
         <section className="py-20 md:py-28">
           <div className="container-mf">
             <div className="text-center mb-14">
-              <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">— Nos forfaits</span>
-              <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] mt-3">
-                Des forfaits <span className="italic text-accent">transparents</span>.
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Nos forfaits</span>
+              </div>
+              <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Des forfaits transparents.
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch" data-anim="stagger" data-stagger="0.12">
               {plans.map((p) => (
                 <div
                   key={p.label}
-                  className={`rounded-3xl p-8 flex flex-col ${p.popular ? "bg-primary text-primary-foreground shadow-xl md:-translate-y-3" : "bg-card border border-border/50"}`}
+                  className={`rounded-3xl p-8 flex flex-col transition-all hover:-translate-y-1 ${p.popular ? "bg-primary text-primary-foreground shadow-xl md:-translate-y-3" : "bg-card border border-border/50"}`}
                 >
                   <span className="text-accent text-[10px] font-bold tracking-[0.2em]">{p.label}</span>
                   <p className={`text-[13px] italic mt-1 ${p.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.subtitle}</p>
@@ -566,13 +620,17 @@ export default function AccueilV2() {
           </div>
         </section>
 
-        {/* ============== Q&A ============== */}
+        {/* ============== 09 · FAQ (V1 homepage FAQs) ============== */}
         <section className="py-20 md:py-28 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]">
-                  Questions & <br/> réponses.
+                <div className="inline-flex items-center gap-4 mb-5">
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">FAQ</span>
+                </div>
+                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
+                  Questions & réponses.
                 </h2>
                 <p className="text-muted-foreground text-[14px] mt-5 max-w-sm leading-relaxed">
                   Tout ce que vous voulez savoir sur notre cabinet et notre approche.
@@ -581,7 +639,7 @@ export default function AccueilV2() {
                   <Link to="/contact/">Nous contacter</Link>
                 </Button>
               </div>
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-8" data-anim="fade-up" data-delay="0.15">
                 <Accordion type="single" collapsible className="w-full">
                   {faqs.map((f, i) => (
                     <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60">
@@ -599,58 +657,33 @@ export default function AccueilV2() {
           </div>
         </section>
 
-        {/* ============== LATEST NEWS ============== */}
-        <section className="py-20 md:py-28 bg-secondary">
-          <div className="container-mf">
-            <div className="flex items-end justify-between gap-6 mb-12">
-              <div>
-                <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]">Dernières actualités.</h2>
-                <p className="text-muted-foreground text-[13px] mt-3">Conseils, méthodes et cas pratiques pour piloter votre TPE.</p>
-              </div>
-              <Link to="/blog/" className="hidden md:inline-flex items-center gap-2 text-accent text-[12px] font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
-                Voir tout <ArrowRight size={14} />
-              </Link>
+        {/* ============== 10 · CTA FINAL (V1 FinalCta text) ============== */}
+        <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
+          <div className="container-mf text-center relative">
+            <div className="inline-flex items-center gap-4 mb-5">
+              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 10</span>
+              <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                Bruxelles · Uccle
+              </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {news.map((n, i) => (
-                <Link to="/blog/" key={i} className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:shadow-[0_24px_60px_rgba(27,43,94,0.08)] transition-all">
-                  <div className="p-6 pb-0">
-                    <div className="flex gap-2 mb-3">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-accent">{n.tag}</span>
-                      <span className="text-[10px] uppercase tracking-wider text-muted-foreground">· {n.date}</span>
-                    </div>
-                    <h3 className="font-display text-[20px] md:text-[22px] text-primary leading-[1.25]">
-                      {n.title}
-                    </h3>
-                  </div>
-                  <div className="relative mt-5 h-56 overflow-hidden">
-                    <img src={n.image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-card flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                      <ArrowUpRight size={16} />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============== CONTACT CTA ============== */}
-        <section className="py-20 md:py-28">
-          <div className="container-mf text-center">
-            <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] max-w-[680px] mx-auto">
-              Envie d'échanger&nbsp;? Contactez <span className="italic text-accent">notre équipe</span>.
+            <h2 className="font-display text-[34px] md:text-[52px] leading-[1.05] max-w-[820px] mx-auto" data-anim="split">
+              Prêt à reprendre le contrôle de vos finances ?
             </h2>
-            <p className="text-muted-foreground text-[14px] mt-5 max-w-md mx-auto">
-              Notre équipe amicale est là pour répondre à vos questions.
+            <p className="text-primary-foreground/70 text-[15px] mt-6 max-w-xl mx-auto" data-anim="fade-up" data-delay="0.2">
+              Diagnostic gratuit en 3 minutes. Vous repartez avec votre score de risque trésorerie
+              et 3 priorités d'action concrètes.
             </p>
-            <div className="mt-8 flex gap-3 justify-center flex-wrap">
-              <Button variant="default" size="lg" className="rounded-full" asChild>
+            <div className="mt-10 flex gap-3 justify-center flex-wrap" data-anim="fade-up" data-delay="0.35">
+              <Button variant="accent" size="lg" className="rounded-full px-8" asChild>
+                <Link to="/diagnostic/">Lancer mon diagnostic gratuit</Link>
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
                 <Link to="/contact/">Nous contacter</Link>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full" asChild>
-                <Link to="/diagnostic/">Diagnostic gratuit</Link>
-              </Button>
+            </div>
+            <div className="mt-10 inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.18em] text-primary-foreground/55">
+              <MapPin size={14} className="text-accent" />
+              20 Rue de la Magnanerie, 1180 Uccle, Bruxelles
             </div>
           </div>
         </section>
