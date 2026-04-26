@@ -389,9 +389,11 @@ export default function AccueilV2() {
                   <Link
                     to={s.href}
                     key={s.title}
-                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.08)] transition-all"
+                    data-tilt
+                    data-tilt-max="6"
+                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
                   >
-                    <div className="relative h-52 overflow-hidden">
+                    <div className="relative h-52 overflow-hidden" data-anim="clip-reveal" data-clip-direction="up">
                       <img
                         src={s.image}
                         alt={s.title}
