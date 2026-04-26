@@ -183,8 +183,9 @@ export default function AccueilV2() {
 
   const currentReview = reviews[reviewIndex];
 
-  // Wire GSAP reveals across the whole page after mount
+  // Wire GSAP reveals + tilt across the whole page after mount
   useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
 
   return (
     <div className="min-h-screen bg-background" ref={root}>
