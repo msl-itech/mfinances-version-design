@@ -36,15 +36,6 @@ import imgControle from "@/assets/service-controle-gestion.jpg";
 import imgDaf from "@/assets/service-daf-externalise.jpg";
 import imgTresorerie from "@/assets/service-tresorerie.jpg";
 import dafMeeting from "@/assets/daf-meeting-team.png";
-import imgKpi from "@/assets/controle-gestion-kpi.jpg";
-import imgDafDashboard from "@/assets/daf-dashboard.jpg";
-import imgTresoOdoo from "@/assets/tresorerie-odoo.jpg";
-import imgIndependants from "@/assets/audience-independants.webp";
-import imgHoreca from "@/assets/audience-commerce-horeca.webp";
-import imgSante from "@/assets/audience-sante.webp";
-import imgCroissance from "@/assets/audience-croissance.webp";
-import imgPromoteurs from "@/assets/audience-promoteurs.webp";
-import meetingWarm from "@/assets/meeting-warm.jpg";
 
 /* ============================================================
    DATA — texts copied verbatim from the V1 homepage sections
@@ -62,19 +53,16 @@ const painPoints = [
     icon: TrendingDown,
     title: "Trésorerie floue",
     desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours.",
-    image: imgTresoOdoo,
   },
   {
     icon: Eye,
     title: "Fiscalité subie",
     desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
-    image: meetingWarm,
   },
   {
     icon: HelpCircle,
     title: "Décisions à l'aveugle",
     desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
-    image: imgDafDashboard,
   },
 ];
 
@@ -111,18 +99,18 @@ const services = [
 
 // V1 — MethodSection
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon.", image: imgKpi },
-  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: dafMeeting },
-  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresoOdoo },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon." },
+  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
+  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
 ];
 
 // V1 — AudienceSection
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: imgIndependants },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: imgHoreca },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: imgSante },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: imgCroissance },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: imgPromoteurs },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
 ];
 
 // V1 — PricingSection
@@ -291,33 +279,19 @@ export default function AccueilV2() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.1">
-              {painPoints.map((p, i) => {
+              {painPoints.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <article
+                  <div
                     key={p.title}
-                    className="group relative bg-background rounded-[28px] overflow-hidden border border-border/40 hover:border-accent/40 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(232,57,58,0.18)] transition-all duration-500"
+                    className="group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/30 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all"
                   >
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={p.image}
-                        alt=""
-                        className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                      <span className="absolute top-4 left-4 font-display text-[12px] tracking-[0.22em] text-primary-foreground/90 font-bold uppercase backdrop-blur-md bg-primary/40 px-3 py-1 rounded-full">
-                        Symptôme · 0{i + 1}
-                      </span>
-                      <div className="absolute -bottom-6 left-6 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-[0_12px_30px_-8px_rgba(232,57,58,0.6)] group-hover:rotate-[-8deg] group-hover:scale-110 transition-transform duration-500">
-                        <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
-                      </div>
+                    <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
+                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
                     </div>
-                    <div className="p-7 pt-10">
-                      <h3 className="font-display text-[22px] text-primary leading-tight">{p.title}</h3>
-                      <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
-                    </div>
-                  </article>
+                    <h3 className="font-display text-[22px] text-primary mt-5 leading-tight">{p.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
+                  </div>
                 );
               })}
             </div>
@@ -427,31 +401,14 @@ export default function AccueilV2() {
               {steps.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <article
-                    key={s.num}
-                    className="group relative bg-primary-dark/40 backdrop-blur-sm border border-primary-foreground/10 rounded-[28px] overflow-hidden hover:border-accent/50 hover:-translate-y-2 transition-all duration-500"
-                  >
-                    <div className="relative h-44 overflow-hidden">
-                      <img
-                        src={s.image}
-                        alt=""
-                        className="w-full h-full object-cover opacity-50 transition-all duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:opacity-70"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/60 to-transparent" />
-                      <span className="absolute top-5 left-5 font-display text-[64px] font-bold leading-none text-accent/90 select-none">
-                        {s.num}
-                      </span>
-                      <div className="absolute -bottom-6 right-6 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-[0_12px_30px_-8px_rgba(232,57,58,0.6)] group-hover:rotate-[-8deg] group-hover:scale-110 transition-transform duration-500">
-                        <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
-                      </div>
+                  <div key={s.num} className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 hover:-translate-y-2 transition-all relative overflow-hidden">
+                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
+                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
+                      <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
                     </div>
-                    <div className="p-7 pt-9">
-                      <span className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase">Étape {s.num}</span>
-                      <h3 className="font-display text-[24px] text-primary-foreground mt-2 leading-tight">{s.title}</h3>
-                      <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
-                    </div>
-                  </article>
+                    <h3 className="font-display text-[24px] text-primary-foreground">{s.title}</h3>
+                    <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
+                  </div>
                 );
               })}
             </div>
