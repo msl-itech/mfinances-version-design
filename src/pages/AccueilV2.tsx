@@ -199,7 +199,11 @@ export default function AccueilV2() {
       <main>
         {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
-          <div className="relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
+          <HeroDistortion targetSelector="[data-hero-distort]" />
+          <div
+            data-hero-distort
+            className="relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]"
+          >
             <img
               src={equipePhoto}
               alt="Équipe MFinances en réunion"
