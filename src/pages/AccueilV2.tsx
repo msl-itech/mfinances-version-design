@@ -36,6 +36,15 @@ import imgControle from "@/assets/service-controle-gestion.jpg";
 import imgDaf from "@/assets/service-daf-externalise.jpg";
 import imgTresorerie from "@/assets/service-tresorerie.jpg";
 import dafMeeting from "@/assets/daf-meeting-team.png";
+import imgKpi from "@/assets/controle-gestion-kpi.jpg";
+import imgDafDashboard from "@/assets/daf-dashboard.jpg";
+import imgTresoOdoo from "@/assets/tresorerie-odoo.jpg";
+import imgIndependants from "@/assets/audience-independants.webp";
+import imgHoreca from "@/assets/audience-commerce-horeca.webp";
+import imgSante from "@/assets/audience-sante.webp";
+import imgCroissance from "@/assets/audience-croissance.webp";
+import imgPromoteurs from "@/assets/audience-promoteurs.webp";
+import meetingWarm from "@/assets/meeting-warm.jpg";
 
 /* ============================================================
    DATA — texts copied verbatim from the V1 homepage sections
