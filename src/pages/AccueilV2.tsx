@@ -228,7 +228,11 @@ export default function AccueilV2() {
       <main>
         {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
-          <div className="relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
+          <div
+            ref={heroRef}
+            className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]"
+            style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
+          >
             <img
               src={equipePhoto}
               alt="Équipe MFinances en réunion"
@@ -236,6 +240,17 @@ export default function AccueilV2() {
               className="absolute inset-0 w-full h-full object-cover object-center md:object-top opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
+            {/* Red cursor glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-[5] mix-blend-screen transition-opacity duration-500"
+              style={{
+                opacity: "var(--glow-o)",
+                background:
+                  "radial-gradient(420px circle at var(--glow-x) var(--glow-y), hsl(var(--accent) / 0.55), hsl(var(--accent) / 0.18) 35%, transparent 65%)",
+              }}
+            />
+
 
             {/* ===== MOBILE LAYOUT (référence : carte blanche H1 + texte blanc + CTA outline) ===== */}
             <div className="md:hidden relative z-10 flex flex-col items-center justify-center text-center min-h-[560px] px-5 py-10">
