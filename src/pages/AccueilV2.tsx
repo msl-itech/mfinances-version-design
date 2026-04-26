@@ -302,7 +302,7 @@ export default function AccueilV2() {
         {/* ============== 02 · CONSTAT (V1 PainSection text) ============== */}
         <section className="py-20 md:py-28 bg-card relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
           >
             Où ?
@@ -424,7 +424,7 @@ export default function AccueilV2() {
         {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
         <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
           >
             Méthode
@@ -473,7 +473,7 @@ export default function AccueilV2() {
         {/* ============== 05 · POUR QUI (V1 AudienceSection text) ============== */}
         <section className="py-20 md:py-28 relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Pour qui
@@ -625,7 +625,7 @@ export default function AccueilV2() {
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
         <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Fondateur
