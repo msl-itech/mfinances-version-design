@@ -208,15 +208,15 @@ export default function AccueilV2() {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
 
             {/* ===== MOBILE LAYOUT (référence : carte blanche H1 + texte blanc + CTA outline) ===== */}
-            <div className="md:hidden relative z-10 flex flex-col h-full min-h-[560px] px-4 pt-6 pb-8">
+            <div className="md:hidden relative z-10 flex flex-col items-center text-center h-full min-h-[560px] px-5 pt-6 pb-8">
               {/* Carte blanche avec H1 sombre */}
               <div
-                className={`bg-background text-foreground rounded-3xl p-6 shadow-2xl transition-transform duration-1000 ${
+                className={`w-full bg-background text-foreground rounded-3xl p-6 shadow-2xl transition-transform duration-1000 ${
                   mounted ? "translate-y-0" : "translate-y-6"
                 }`}
               >
                 <h1
-                  className="font-display font-bold text-[34px] leading-[1.02] tracking-tight text-foreground"
+                  className="font-display font-bold text-[34px] leading-[1.02] tracking-tight text-foreground text-center"
                   data-anim="chars"
                   data-stagger="0.035"
                   data-delay="0.25"
@@ -227,7 +227,7 @@ export default function AccueilV2() {
 
               {/* Paragraphe blanc sur l'image */}
               <p
-                className="mt-8 text-background text-[16px] leading-[1.45] font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]"
+                className="mt-8 text-background text-[16px] leading-[1.45] font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] max-w-[360px] mx-auto"
                 data-anim="fade-up"
                 data-delay="0.4"
               >
@@ -235,7 +235,7 @@ export default function AccueilV2() {
               </p>
 
               {/* CTA pill outline blanc */}
-              <div className="mt-6" data-anim="fade-up" data-delay="0.55">
+              <div className="mt-6 flex justify-center" data-anim="fade-up" data-delay="0.55">
                 <Link
                   to="/diagnostic/"
                   className="inline-flex items-center gap-4 rounded-full border border-background/80 bg-background/5 backdrop-blur-sm pl-6 pr-2 py-2 text-background hover:bg-background hover:text-foreground transition-colors group"
