@@ -546,30 +546,71 @@ export default function AccueilV2() {
                 </h2>
                 <div className="h-px w-16 bg-accent mt-6" />
                 <p className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mt-4">
-                  16 avis Google · 5,0/5
+                  {reviews.length} avis Google · 5,0/5
                 </p>
+
+                {/* Carousel controls */}
+                <div className="flex items-center gap-3 mt-8">
+                  <button
+                    onClick={() => setReviewIndex((i) => (i - 1 + reviews.length) % reviews.length)}
+                    className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                    aria-label="Témoignage précédent"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    onClick={() => setReviewIndex((i) => (i + 1) % reviews.length)}
+                    className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                    aria-label="Témoignage suivant"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                  <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
+                    {String(reviewIndex + 1).padStart(2, "0")}
+                    <span className="text-foreground/30"> / {String(reviews.length).padStart(2, "0")}</span>
+                  </span>
+                </div>
               </div>
-              <div className="lg:col-span-8" data-anim="fade-up" data-delay="0.2">
-                <Quote size={40} className="text-accent/30 mb-4" />
-                <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary">
-                  « Sans hésitation, je ne peux que recommander MFinances, tant pour son
-                  professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité. »
-                </p>
-                <div className="flex items-center justify-between mt-8 pt-6 border-t border-border/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[12px] font-bold">
-                      MR
+
+              <div className="lg:col-span-8 relative">
+                <div
+                  key={reviewIndex}
+                  className="animate-fade-in"
+                >
+                  <Quote size={40} className="text-accent/30 mb-4" />
+                  <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary min-h-[180px] md:min-h-[160px]">
+                    « {currentReview.text} »
+                  </p>
+                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-border/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground flex items-center justify-center text-[12px] font-bold">
+                        {getInitials(currentReview.name)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary text-[14px]">{currentReview.name}</p>
+                        <p className="text-[11px] text-muted-foreground">Avis Google vérifié</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-primary text-[14px]">Mari Carmen Rejas</p>
-                      <p className="text-[12px] text-muted-foreground">Cliente MFinances</p>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                      ))}
                     </div>
                   </div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
+                </div>
+
+                {/* Progress dots */}
+                <div className="flex flex-wrap gap-1.5 mt-8">
+                  {reviews.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setReviewIndex(i)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 hover:bg-muted-foreground"
+                      }`}
+                      aria-label={`Témoignage ${i + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
