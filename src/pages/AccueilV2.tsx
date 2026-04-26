@@ -208,7 +208,7 @@ export default function AccueilV2() {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
 
             {/* ===== MOBILE LAYOUT (référence : carte blanche H1 + texte blanc + CTA outline) ===== */}
-            <div className="md:hidden relative z-10 flex flex-col items-center text-center h-full min-h-[560px] px-5 pt-6 pb-8">
+            <div className="md:hidden relative z-10 flex flex-col items-center justify-center text-center min-h-[560px] px-5 py-10">
               {/* Carte blanche avec H1 sombre */}
               <div
                 className={`w-full bg-background text-foreground rounded-3xl p-6 shadow-2xl transition-transform duration-1000 ${
