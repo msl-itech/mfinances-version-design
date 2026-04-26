@@ -202,6 +202,7 @@ export default function AccueilV2() {
             <img
               src={equipePhoto}
               alt="Équipe MFinances en réunion"
+              data-parallax-y="120"
               className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/30 to-transparent" />
