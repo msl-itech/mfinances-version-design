@@ -198,30 +198,34 @@ export default function AccueilV2() {
       <main>
         {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
-          <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
+          <div className="relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
             <img
               src={equipePhoto}
               alt="Équipe MFinances en réunion"
               data-parallax-y="120"
-              className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+              className="absolute inset-0 w-full h-full object-cover object-center md:object-top opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
 
             {/* Floating dark card */}
             <div
-              className={`absolute top-12 md:top-24 right-4 md:right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-7 md:p-10 shadow-2xl transition-transform duration-1000 ${
+              className={`absolute top-8 md:top-24 left-4 right-4 md:left-auto md:right-12 lg:right-24 md:max-w-[520px] bg-foreground text-background rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-10 shadow-2xl transition-transform duration-1000 ${
                 mounted ? "translate-y-0" : "translate-y-6"
               }`}
             >
               <h1
-                className="font-display text-[34px] md:text-[52px] leading-[1.05] text-background"
+                className="font-display text-[26px] sm:text-[32px] md:text-[52px] leading-[1.05] text-background"
                 data-anim="chars"
                 data-stagger="0.035"
                 data-delay="0.25"
               >
                 Votre partenaire financier de pilotage.
               </h1>
-              <p className="mt-5 text-background/70 text-[14.5px] leading-relaxed" data-anim="fade-up" data-delay="0.4">
+              <p
+                className="mt-4 md:mt-5 text-background/70 text-[13px] sm:text-[14px] md:text-[14.5px] leading-relaxed"
+                data-anim="fade-up"
+                data-delay="0.4"
+              >
                 Vous travaillez dur. Mais votre entreprise gagne-t-elle vraiment de l'argent&nbsp;?
                 MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
@@ -229,13 +233,13 @@ export default function AccueilV2() {
                 <Button
                   variant="accent"
                   size="lg"
-                  className="mt-6 rounded-full pl-6 pr-3 group h-12"
+                  className="mt-5 md:mt-6 rounded-full pl-5 md:pl-6 pr-2.5 md:pr-3 group h-11 md:h-12 text-[13px] md:text-[14px]"
                   asChild
                 >
                   <Link to="/diagnostic/">
                     <span className="flex items-center gap-3">
                       Diagnostic gratuit
-                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                      <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                         <ArrowUpRight size={14} />
                       </span>
                     </span>
@@ -247,31 +251,31 @@ export default function AccueilV2() {
 
           {/* Bottom split bar — full width */}
           <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-            <div className="bg-card border-y border-border/60 px-6 md:px-12 lg:px-20 py-6 flex items-center justify-between">
-              <p className="font-display italic text-[22px] md:text-[28px] text-primary">
+            <div className="bg-card border-y border-border/60 px-5 md:px-12 lg:px-20 py-5 md:py-6 flex items-center justify-between gap-3">
+              <p className="font-display italic text-[18px] sm:text-[22px] md:text-[28px] text-primary leading-tight">
                 Discutons & Démarrons
               </p>
               <Link
                 to="/contact/"
-                className="text-[12px] uppercase tracking-[0.18em] text-accent font-bold hover:gap-3 inline-flex items-center gap-2 transition-all"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.16em] md:tracking-[0.18em] text-accent font-bold hover:gap-3 inline-flex items-center gap-2 transition-all shrink-0"
               >
                 Contact <ArrowRight size={14} />
               </Link>
             </div>
-            <div className="bg-accent text-accent-foreground border-y border-accent px-6 md:px-12 lg:px-20 py-6 flex items-center justify-between">
-              <p className="font-display text-[26px] md:text-[32px] leading-none">
-                200+ <span className="text-[14px] font-body align-middle opacity-80">entreprises accompagnées</span>
+            <div className="bg-accent text-accent-foreground border-y border-accent px-5 md:px-12 lg:px-20 py-5 md:py-6 flex items-center justify-between gap-3">
+              <p className="font-display text-[22px] sm:text-[26px] md:text-[32px] leading-none">
+                200+ <span className="text-[12px] md:text-[14px] font-body align-middle opacity-80">entreprises</span>
               </p>
-              <div className="flex -space-x-2">
+              <div className="flex -space-x-2 shrink-0">
                 {[mikaPhoto, equipeSourire, dafMeeting].map((src, i) => (
                   <div
                     key={i}
-                    className="w-9 h-9 rounded-full border-2 border-accent overflow-hidden bg-card"
+                    className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-accent overflow-hidden bg-card"
                   >
                     <img src={src} alt="" className="w-full h-full object-cover" />
                   </div>
                 ))}
-                <div className="w-9 h-9 rounded-full bg-card text-accent flex items-center justify-center text-sm font-bold border-2 border-accent">
+                <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-card text-accent flex items-center justify-center text-sm font-bold border-2 border-accent">
                   <Plus size={14} strokeWidth={3} />
                 </div>
               </div>
