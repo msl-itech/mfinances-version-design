@@ -774,7 +774,7 @@ export default function AccueilV2() {
                 Bruxelles · Uccle
               </span>
             </div>
-            <h2 className="font-display text-[34px] md:text-[52px] leading-[1.05] max-w-[820px] mx-auto" data-anim="split">
+            <h2 className="font-display text-[34px] md:text-[52px] leading-[1.05] max-w-[820px] mx-auto text-primary-foreground" data-anim="split">
               Prêt à reprendre le contrôle de vos finances ?
             </h2>
             <p className="text-primary-foreground/70 text-[15px] mt-6 max-w-xl mx-auto" data-anim="fade-up" data-delay="0.2">
