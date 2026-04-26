@@ -31,6 +31,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
 import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
 import mikaPhoto from "@/assets/mika-musungayi.png";
@@ -182,8 +183,9 @@ export default function AccueilV2() {
 
   const currentReview = reviews[reviewIndex];
 
-  // Wire GSAP reveals across the whole page after mount
+  // Wire GSAP reveals + tilt across the whole page after mount
   useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
 
   return (
     <div className="min-h-screen bg-background" ref={root}>
@@ -200,6 +202,7 @@ export default function AccueilV2() {
             <img
               src={equipePhoto}
               alt="Équipe MFinances en réunion"
+              data-parallax-y="120"
               className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/30 to-transparent" />
@@ -299,7 +302,7 @@ export default function AccueilV2() {
         {/* ============== 02 · CONSTAT (V1 PainSection text) ============== */}
         <section className="py-20 md:py-28 bg-card relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
           >
             Où ?
@@ -386,9 +389,11 @@ export default function AccueilV2() {
                   <Link
                     to={s.href}
                     key={s.title}
-                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.08)] transition-all"
+                    data-tilt
+                    data-tilt-max="6"
+                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
                   >
-                    <div className="relative h-52 overflow-hidden">
+                    <div className="relative h-52 overflow-hidden" data-anim="clip-reveal" data-clip-direction="up">
                       <img
                         src={s.image}
                         alt={s.title}
@@ -421,7 +426,7 @@ export default function AccueilV2() {
         {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
         <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
           >
             Méthode
@@ -444,7 +449,7 @@ export default function AccueilV2() {
               {steps.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.num} className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 hover:-translate-y-2 transition-all relative overflow-hidden">
+                  <div key={s.num} data-tilt data-tilt-max="5" className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 transition-colors relative overflow-hidden">
                     <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
                     <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
                       <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
@@ -470,7 +475,7 @@ export default function AccueilV2() {
         {/* ============== 05 · POUR QUI (V1 AudienceSection text) ============== */}
         <section className="py-20 md:py-28 relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Pour qui
@@ -493,7 +498,9 @@ export default function AccueilV2() {
                 <Link
                   key={a.label}
                   to={a.href}
-                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] hover:-translate-y-1.5 transition-all duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
+                  data-tilt
+                  data-tilt-max="7"
+                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.22)]"
                 >
                   <img
                     src={a.image}
@@ -622,7 +629,7 @@ export default function AccueilV2() {
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
         <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
           <div
-            aria-hidden="true"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Fondateur
@@ -641,7 +648,7 @@ export default function AccueilV2() {
             </div>
 
             <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
-              <div className="relative min-h-[420px] lg:min-h-[520px]">
+              <div className="relative min-h-[420px] lg:min-h-[520px] overflow-hidden" data-anim="clip-reveal" data-clip-direction="left">
                 <img
                   src={mikaPhoto}
                   alt="Mika Musungayi"

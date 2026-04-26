@@ -242,6 +242,65 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
         );
       });
 
+      // ----- CLIP REVEAL (vertical mask, Awwwards style) -----
+      root.querySelectorAll<HTMLElement>('[data-anim="clip-reveal"]').forEach((el) => {
+        const direction = el.dataset.clipDirection ?? "up"; // up | down | left | right
+        const fromClip =
+          direction === "up"
+            ? "inset(100% 0% 0% 0%)"
+            : direction === "down"
+              ? "inset(0% 0% 100% 0%)"
+              : direction === "left"
+                ? "inset(0% 100% 0% 0%)"
+                : "inset(0% 0% 0% 100%)";
+
+        // Find inner img to scale it from 1.25 → 1 for parallax depth
+        const img = el.querySelector("img, video") as HTMLElement | null;
+
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        });
+        tl.fromTo(
+          el,
+          { clipPath: fromClip, webkitClipPath: fromClip },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            webkitClipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.4,
+            ease: "expo.out",
+            delay: Number(el.dataset.delay ?? 0),
+          }
+        );
+        if (img) {
+          tl.fromTo(
+            img,
+            { scale: 1.25 },
+            { scale: 1, duration: 1.6, ease: "expo.out" },
+            "<"
+          );
+        }
+      });
+
+      // ----- HORIZONTAL TEXT SCRUB (giant marquee tied to scroll) -----
+      root.querySelectorAll<HTMLElement>('[data-anim="text-scrub"]').forEach((el) => {
+        const distance = Number(el.dataset.scrubDistance ?? 200);
+        const dir = el.dataset.scrubDir === "right" ? 1 : -1;
+        gsap.fromTo(
+          el,
+          { xPercent: -dir * (distance / 4) },
+          {
+            xPercent: dir * (distance / 4),
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          }
+        );
+      });
+
       ScrollTrigger.refresh();
     }, root);
 
