@@ -424,7 +424,7 @@ export default function AccueilV2() {
         {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
         <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
           <div
-            aria-hidden="true" data-anim="text-scrub"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
           >
             Méthode
