@@ -62,16 +62,19 @@ const painPoints = [
     icon: TrendingDown,
     title: "Trésorerie floue",
     desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours.",
+    image: imgTresoOdoo,
   },
   {
     icon: Eye,
     title: "Fiscalité subie",
     desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
+    image: meetingWarm,
   },
   {
     icon: HelpCircle,
     title: "Décisions à l'aveugle",
     desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
+    image: imgDafDashboard,
   },
 ];
 
@@ -108,18 +111,18 @@ const services = [
 
 // V1 — MethodSection
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon." },
-  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
-  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon.", image: imgKpi },
+  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: dafMeeting },
+  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresoOdoo },
 ];
 
 // V1 — AudienceSection
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/" },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/" },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: imgIndependants },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: imgHoreca },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: imgSante },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: imgCroissance },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: imgPromoteurs },
 ];
 
 // V1 — PricingSection
