@@ -427,14 +427,31 @@ export default function AccueilV2() {
               {steps.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.num} className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 hover:-translate-y-2 transition-all relative overflow-hidden">
-                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
-                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
-                      <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
+                  <article
+                    key={s.num}
+                    className="group relative bg-primary-dark/40 backdrop-blur-sm border border-primary-foreground/10 rounded-[28px] overflow-hidden hover:border-accent/50 hover:-translate-y-2 transition-all duration-500"
+                  >
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt=""
+                        className="w-full h-full object-cover opacity-50 transition-all duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:opacity-70"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/60 to-transparent" />
+                      <span className="absolute top-5 left-5 font-display text-[64px] font-bold leading-none text-accent/90 select-none">
+                        {s.num}
+                      </span>
+                      <div className="absolute -bottom-6 right-6 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-[0_12px_30px_-8px_rgba(232,57,58,0.6)] group-hover:rotate-[-8deg] group-hover:scale-110 transition-transform duration-500">
+                        <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
+                      </div>
                     </div>
-                    <h3 className="font-display text-[24px] text-primary-foreground">{s.title}</h3>
-                    <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
-                  </div>
+                    <div className="p-7 pt-9">
+                      <span className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase">Étape {s.num}</span>
+                      <h3 className="font-display text-[24px] text-primary-foreground mt-2 leading-tight">{s.title}</h3>
+                      <p className="text-primary-foreground/60 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
+                    </div>
+                  </article>
                 );
               })}
             </div>
