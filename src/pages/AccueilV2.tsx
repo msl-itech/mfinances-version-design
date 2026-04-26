@@ -291,19 +291,33 @@ export default function AccueilV2() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.1">
-              {painPoints.map((p) => {
+              {painPoints.map((p, i) => {
                 const Icon = p.icon;
                 return (
-                  <div
+                  <article
                     key={p.title}
-                    className="group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/30 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all"
+                    className="group relative bg-background rounded-[28px] overflow-hidden border border-border/40 hover:border-accent/40 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(232,57,58,0.18)] transition-all duration-500"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
-                      <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt=""
+                        className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                      <span className="absolute top-4 left-4 font-display text-[12px] tracking-[0.22em] text-primary-foreground/90 font-bold uppercase backdrop-blur-md bg-primary/40 px-3 py-1 rounded-full">
+                        Symptôme · 0{i + 1}
+                      </span>
+                      <div className="absolute -bottom-6 left-6 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-[0_12px_30px_-8px_rgba(232,57,58,0.6)] group-hover:rotate-[-8deg] group-hover:scale-110 transition-transform duration-500">
+                        <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
+                      </div>
                     </div>
-                    <h3 className="font-display text-[22px] text-primary mt-5 leading-tight">{p.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
-                  </div>
+                    <div className="p-7 pt-10">
+                      <h3 className="font-display text-[22px] text-primary leading-tight">{p.title}</h3>
+                      <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
+                    </div>
+                  </article>
                 );
               })}
             </div>
