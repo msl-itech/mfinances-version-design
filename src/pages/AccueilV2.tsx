@@ -27,6 +27,8 @@ import {
   Quote,
   Plus,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
