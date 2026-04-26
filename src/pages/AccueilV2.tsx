@@ -625,7 +625,7 @@ export default function AccueilV2() {
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
         <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
           <div
-            aria-hidden="true" data-anim="text-scrub"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Fondateur
