@@ -450,18 +450,42 @@ export default function AccueilV2() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3" data-anim="stagger" data-stagger="0.08">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4" data-anim="stagger" data-stagger="0.08">
               {audiences.map((a, i) => (
                 <Link
                   key={a.label}
                   to={a.href}
-                  className="group relative bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:-translate-y-1 transition-all p-6 min-h-[180px] flex flex-col justify-between"
+                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] hover:-translate-y-1.5 transition-all duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
                 >
-                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 0{i + 1}</span>
-                  <div>
-                    <h3 className="font-display text-[18px] text-primary leading-tight">{a.label}</h3>
-                    <span className="inline-flex items-center gap-1 text-[11px] text-accent font-semibold mt-2 uppercase tracking-wide group-hover:gap-2 transition-all">
-                      Découvrir <ArrowRight size={12} />
+                  <img
+                    src={a.image}
+                    alt={a.label}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.12]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/55 to-transparent transition-opacity duration-500 group-hover:from-primary/95 group-hover:via-primary/40" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-accent/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay" />
+
+                  <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
+                    <span className="font-display text-[12px] text-primary-foreground/80 tracking-[0.2em] font-bold">
+                      0{i + 1}
+                    </span>
+                    <span className="bg-primary-foreground/15 backdrop-blur-md text-primary-foreground text-[9px] font-bold px-2.5 py-1 rounded-full tracking-[0.14em] uppercase border border-primary-foreground/20">
+                      {a.tag}
+                    </span>
+                  </div>
+
+                  <div className="absolute top-12 right-4 w-9 h-9 rounded-full bg-accent text-accent-foreground flex items-center justify-center opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <ArrowUpRight size={16} strokeWidth={2} />
+                  </div>
+
+                  <div className="absolute bottom-0 inset-x-0 p-5">
+                    <div className="h-px w-8 bg-accent mb-3 transition-all duration-500 group-hover:w-16" />
+                    <h3 className="font-display text-[17px] md:text-[19px] text-primary-foreground leading-[1.15]">
+                      {a.label}
+                    </h3>
+                    <span className="inline-flex items-center gap-1.5 text-[10.5px] text-accent font-bold mt-2 uppercase tracking-[0.14em] opacity-90 group-hover:gap-2.5 transition-all">
+                      Découvrir <ArrowRight size={11} />
                     </span>
                   </div>
                 </Link>
