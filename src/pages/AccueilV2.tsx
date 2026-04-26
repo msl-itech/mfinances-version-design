@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import HeroDistortion from "@/components/homepage/HeroDistortion";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
 import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
 import mikaPhoto from "@/assets/mika-musungayi.png";
