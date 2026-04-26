@@ -27,6 +27,8 @@ import {
   Quote,
   Plus,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
@@ -125,6 +127,30 @@ const plans = [
   { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter comme un grand", features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"], popular: false },
 ];
 
+// V1 — TestimonialsSection (16 avis Google)
+const reviews = [
+  { name: "Mari Carmen Rejas Martin", text: "Sans hésitation, je ne peux que recommander MFinances, tant pour son professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité etc." },
+  { name: "Audrey Pepka épouse Mbog", text: "Tellement satisfaite du service accordé par MFinances ! Je recommande vivement." },
+  { name: "Luc Jeazet", text: "MFINANCES MERCI !! Avec Mika et sa merveilleuse équipe, mon entreprise a pris un vrai tournant." },
+  { name: "rann rann", text: "En tant qu'entrepreneur à Bruxelles avec plusieurs activités dans des secteurs différents, j'avais besoin d'un accompagnement sur mesure. MFinances a parfaitement répondu à mes attentes." },
+  { name: "fitness Move", text: "Super expérience avec MFINANCES ! En tant qu'indépendant basé à Lot, je n'ai aucune formation en finance et j'avais besoin d'un vrai accompagnement. Service impeccable." },
+  { name: "Sandra", text: "Je fais appel à MFINANCES depuis plusieurs années pour ma déclaration d'impôt, et c'est l'une des meilleures décisions que j'ai prises." },
+  { name: "Sophie acdp", text: "J'utilise les services de MFinances depuis près de 3 ans. Plus qu'un comptable, Mika se montre disponible pour mes questions et m'accompagne au quotidien." },
+  { name: "Yannick Nguangu", text: "Mon entreprise se porte mieux grâce à Mfinances. Suivi et conseils exceptionnels et personnalisés : tout est clair et transparent." },
+  { name: "Verdilamil", text: "J'ai la chance d'avoir croisé le chemin de MFINANCES. Cela fait déjà trois ans que je ne me fais plus de soucis pour ma comptabilité." },
+  { name: "Rkia Chadili", text: "Excellent service, rapidité, efficacité, professionnalisme, bref tout ce qu'un(e) professionnel(le) a besoin pour mener son activité sereinement." },
+  { name: "Paulo Verwacht", text: "En tant qu'étudiant on ne s'attend pas à devoir rentrer une déclaration d'impôts. Sans l'assistance de Mr Mika, je n'y serais jamais arrivé. Merci !" },
+  { name: "Cindie Adonai", text: "Un service de qualité, mais surtout complet, ce qui est très rare. Je recommande à 100 %." },
+  { name: "Hayat Karim", text: "MFinances fait preuve d'un sérieux et d'une précision exemplaire. Mika et ses collaborateurs sont très professionnels." },
+  { name: "Magalie Kanga", text: "Service au top." },
+  { name: "Pedro Soares", text: "Très satisfaits de leurs services. Des prix raisonnables et un service au top !" },
+  { name: "The Global Bird", text: "Very nice staff, thank you!" },
+];
+
+function getInitials(name: string) {
+  return name.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2);
+}
+
 // V1 — homepage FAQ (Index.tsx)
 const faqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
@@ -139,12 +165,22 @@ const faqs = [
 
 export default function AccueilV2() {
   const [mounted, setMounted] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setReviewIndex((i) => (i + 1) % reviews.length);
+    }, 5500);
+    return () => clearInterval(t);
+  }, []);
+
+  const currentReview = reviews[reviewIndex];
 
   // Wire GSAP reveals across the whole page after mount
   useGsapReveal(root, [mounted]);
@@ -510,30 +546,71 @@ export default function AccueilV2() {
                 </h2>
                 <div className="h-px w-16 bg-accent mt-6" />
                 <p className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mt-4">
-                  16 avis Google · 5,0/5
+                  {reviews.length} avis Google · 5,0/5
                 </p>
+
+                {/* Carousel controls */}
+                <div className="flex items-center gap-3 mt-8">
+                  <button
+                    onClick={() => setReviewIndex((i) => (i - 1 + reviews.length) % reviews.length)}
+                    className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                    aria-label="Témoignage précédent"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    onClick={() => setReviewIndex((i) => (i + 1) % reviews.length)}
+                    className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                    aria-label="Témoignage suivant"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                  <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
+                    {String(reviewIndex + 1).padStart(2, "0")}
+                    <span className="text-foreground/30"> / {String(reviews.length).padStart(2, "0")}</span>
+                  </span>
+                </div>
               </div>
-              <div className="lg:col-span-8" data-anim="fade-up" data-delay="0.2">
-                <Quote size={40} className="text-accent/30 mb-4" />
-                <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary">
-                  « Sans hésitation, je ne peux que recommander MFinances, tant pour son
-                  professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité. »
-                </p>
-                <div className="flex items-center justify-between mt-8 pt-6 border-t border-border/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[12px] font-bold">
-                      MR
+
+              <div className="lg:col-span-8 relative">
+                <div
+                  key={reviewIndex}
+                  className="animate-fade-in"
+                >
+                  <Quote size={40} className="text-accent/30 mb-4" />
+                  <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary min-h-[180px] md:min-h-[160px]">
+                    « {currentReview.text} »
+                  </p>
+                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-border/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground flex items-center justify-center text-[12px] font-bold">
+                        {getInitials(currentReview.name)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary text-[14px]">{currentReview.name}</p>
+                        <p className="text-[11px] text-muted-foreground">Avis Google vérifié</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-primary text-[14px]">Mari Carmen Rejas</p>
-                      <p className="text-[12px] text-muted-foreground">Cliente MFinances</p>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                      ))}
                     </div>
                   </div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
+                </div>
+
+                {/* Progress dots */}
+                <div className="flex flex-wrap gap-1.5 mt-8">
+                  {reviews.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setReviewIndex(i)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 hover:bg-muted-foreground"
+                      }`}
+                      aria-label={`Témoignage ${i + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
