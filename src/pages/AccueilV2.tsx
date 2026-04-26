@@ -187,6 +187,36 @@ export default function AccueilV2() {
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
 
+  // Red glow following cursor inside the hero
+  const heroRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty("--glow-x", `${x}px`);
+        el.style.setProperty("--glow-y", `${y}px`);
+      });
+    };
+    const onEnter = () => el.style.setProperty("--glow-o", "1");
+    const onLeave = () => el.style.setProperty("--glow-o", "0");
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
