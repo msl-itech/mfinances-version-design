@@ -772,12 +772,14 @@ export default function AccueilV3() {
                   {/* bloc accent décoratif derrière */}
                   <div className="absolute -top-5 -left-5 w-2/3 h-2/3 bg-accent/10 rounded-3xl" aria-hidden="true" />
                   <div className="absolute -bottom-5 -right-5 w-1/2 h-1/2 border-2 border-primary/15 rounded-3xl" aria-hidden="true" />
-                  <img
-                    src={mikaPhoto}
-                    alt="Mika Musungayi — fondateur de MFinances"
-                    loading="lazy"
-                    className="relative w-full h-full object-cover object-top rounded-3xl shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
-                  />
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(27,43,94,0.18)]" data-anim="clip-reveal" data-clip-direction="left">
+                    <img
+                      src={mikaPhoto}
+                      alt="Mika Musungayi — fondateur de MFinances"
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   {/* Étiquette signature flottante */}
                   <div className="absolute -bottom-6 left-6 right-6 md:left-10 md:right-10 bg-background rounded-2xl shadow-lg px-5 py-4 flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
