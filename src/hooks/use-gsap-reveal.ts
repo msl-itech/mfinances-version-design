@@ -283,22 +283,23 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
 
       // ----- HORIZONTAL TEXT SCRUB (giant marquee tied to scroll) -----
       root.querySelectorAll<HTMLElement>('[data-anim="text-scrub"]').forEach((el) => {
+        // Find a scrollable trigger ancestor (the section), since giant
+        // marquee text often overflows and has unstable bounds itself.
+        const trigger = (el.closest("section") as HTMLElement | null) ?? el;
         const distance = Number(el.dataset.scrubDistance ?? 200);
         const dir = el.dataset.scrubDir === "right" ? 1 : -1;
-        gsap.fromTo(
-          el,
-          { xPercent: -dir * (distance / 4) },
-          {
-            xPercent: dir * (distance / 4),
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1,
-            },
-          }
-        );
+        gsap.set(el, { xPercent: -dir * (distance / 4) });
+        gsap.to(el, {
+          xPercent: dir * (distance / 4),
+          ease: "none",
+          scrollTrigger: {
+            trigger,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
       });
 
       ScrollTrigger.refresh();
