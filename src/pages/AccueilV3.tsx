@@ -803,18 +803,21 @@ export default function AccueilV3() {
                 <span className="hidden lg:block absolute left-0 top-2 bottom-2 w-px bg-accent/30" aria-hidden="true" />
 
                 <Quote size={44} className="text-accent/40 mb-5" strokeWidth={1.25} />
-                <blockquote className="font-display italic font-light text-[24px] md:text-[34px] text-primary leading-[1.25]">
+                <blockquote
+                  className="font-display italic font-light text-[24px] md:text-[34px] text-primary leading-[1.25]"
+                  data-anim="split"
+                >
                   Après 20 ans à accompagner des centaines de dirigeants, je sais qu'une bonne comptabilité ne suffit pas.
                   Il faut un vrai suivi, une <span className="text-accent not-italic font-normal">vraie stratégie financière</span>.
                 </blockquote>
 
-                <div className="mt-10 flex items-center gap-3">
+                <div className="mt-10 flex items-center gap-3" data-anim="fade-up" data-delay="0.2">
                   <span className="block w-8 h-px bg-primary/30" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-primary/60 font-bold">Sa conviction</span>
                 </div>
 
                 {/* Stats — strip sans carte */}
-                <div className="mt-10 grid grid-cols-3 gap-6 md:gap-10 pt-8 border-t border-primary/10">
+                <div className="mt-10 grid grid-cols-3 gap-6 md:gap-10 pt-8 border-t border-primary/10" data-anim="stagger" data-stagger="0.1">
                   <div>
                     <p className="font-display text-[36px] md:text-[44px] text-primary leading-none">20<span className="text-accent">+</span></p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-[0.16em] mt-2">ans d'expérience</p>
