@@ -329,26 +329,31 @@ export default function AccueilV3() {
                 data-tilt-max="4"
                 className="md:col-span-3 md:row-span-3 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-0 group"
               >
-                <img
-                  src={financialDesk}
-                  alt="Bureau financier — pilotage et analyse des chiffres"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
-                />
+                <div className="absolute inset-0" data-anim="clip-reveal" data-clip-direction="up">
+                  <img
+                    src={financialDesk}
+                    alt="Bureau financier — pilotage et analyse des chiffres"
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40" />
                 <div className="relative h-full flex flex-col justify-between p-7 md:p-10">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2" data-anim="fade-up">
                     <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase bg-background/10 backdrop-blur-md border border-background/20 px-3 py-1.5 rounded-full text-primary-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                       Symptômes fréquents
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display text-[28px] md:text-[40px] leading-[1.05] text-primary-foreground">
+                    <h3
+                      className="font-display text-[28px] md:text-[40px] leading-[1.05] text-primary-foreground"
+                      data-anim="split"
+                    >
                       3 signaux qui montrent que<br />
                       <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
                     </h3>
-                    <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md">
+                    <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md" data-anim="fade-up" data-delay="0.2">
                       Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul — et ça se règle avec les bons outils.
                     </p>
                   </div>
