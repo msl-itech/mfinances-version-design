@@ -316,25 +316,68 @@ export default function AccueilV3() {
               <SquaresDecor className="hidden md:flex pt-4" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8" data-anim="stagger" data-stagger="0.1">
+            {/* Bento grid : visuel large + 3 pain cards */}
+            <div
+              className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-5 mt-8 md:auto-rows-fr"
+              data-anim="stagger"
+              data-stagger="0.1"
+            >
+              {/* Carte visuelle large (col-span 3, row-span 2) */}
+              <div
+                data-tilt
+                data-tilt-max="4"
+                className="md:col-span-3 md:row-span-2 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-[480px] group"
+              >
+                <img
+                  src={dafMeeting}
+                  alt="Équipe MFinances en réunion de pilotage financier"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover opacity-55 transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/10" />
+                <div className="relative h-full flex flex-col justify-between p-7 md:p-10">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase bg-background/10 backdrop-blur-md border border-background/20 px-3 py-1.5 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                      Symptômes fréquents
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-[28px] md:text-[40px] leading-[1.05]">
+                      3 signaux qui montrent que<br />
+                      <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
+                    </h3>
+                    <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md">
+                      Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul — et ça se règle avec les bons outils.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 cartes constat (col-span 3 chacune en demi-hauteur) */}
               {painPoints.map((p, idx) => {
                 const Icon = p.icon;
+                const isWide = idx === 2; // dernière carte en pleine largeur de la colonne droite
                 return (
                   <div
                     key={p.title}
                     data-tilt
                     data-tilt-max="5"
-                    className="group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/40 transition-all relative"
+                    className={`group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/40 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all relative flex flex-col ${
+                      idx === 0 ? "md:col-span-3" : idx === 1 ? "md:col-span-3" : "md:col-span-3 md:col-start-4"
+                    }`}
+                    style={{ display: idx === 2 ? "none" : undefined }}
                   >
-                    {/* Petit numéro coin */}
-                    <span className="absolute top-5 right-5 text-[11px] font-bold tracking-[0.22em] text-foreground/30">
-                      0{idx + 1}
-                    </span>
-                    <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center transition-transform duration-500 group-hover:rotate-[-6deg]">
-                      <Icon size={24} className="text-accent-foreground" strokeWidth={1.75} />
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
+                        <Icon size={20} className="text-accent transition-colors duration-500 group-hover:text-accent-foreground" strokeWidth={1.75} />
+                      </div>
+                      <span className="text-[11px] font-bold tracking-[0.22em] text-foreground/30">
+                        0{idx + 1}
+                      </span>
                     </div>
-                    <h3 className="font-display text-[24px] text-primary mt-6 leading-tight">{p.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] mt-3">{p.desc}</p>
+                    <h3 className="font-display text-[22px] md:text-[24px] text-primary mt-5 leading-tight">{p.title}</h3>
+                    <p className="text-[13.5px] text-muted-foreground leading-[1.7] mt-2">{p.desc}</p>
                   </div>
                 );
               })}
