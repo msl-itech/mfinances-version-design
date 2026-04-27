@@ -318,15 +318,15 @@ export default function AccueilV3() {
 
             {/* Bento grid : visuel large + 3 pain cards */}
             <div
-              className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-5 mt-8 md:auto-rows-fr"
+              className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-3 gap-5 mt-8"
               data-anim="stagger"
               data-stagger="0.1"
             >
-              {/* Carte visuelle large (col-span 3, row-span 2) */}
+              {/* Carte visuelle large (col-span 3, row-span 3) */}
               <div
                 data-tilt
                 data-tilt-max="4"
-                className="md:col-span-3 md:row-span-2 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-[480px] group"
+                className="md:col-span-3 md:row-span-3 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-0 group"
               >
                 <img
                   src={dafMeeting}
