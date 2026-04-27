@@ -303,7 +303,7 @@ export default function AccueilV3() {
               <div className="flex items-start gap-4 max-w-3xl">
                 <span className="block w-10 h-px bg-accent mt-7" />
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 02 · Le constat</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">02 · Le constat</span>
                   <h2
                     className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3"
                     data-anim="split"
@@ -360,7 +360,7 @@ export default function AccueilV3() {
               <div className="flex items-start gap-4 max-w-2xl">
                 <span className="block w-10 h-px bg-accent mt-7" />
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 03 · Nos solutions</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">03 · Nos solutions</span>
                   <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3" data-anim="split">
                     Un cabinet comptable<br />
                     <span className="italic font-normal">nouvelle génération.</span>
@@ -453,7 +453,7 @@ export default function AccueilV3() {
               <div className="flex items-start gap-4 max-w-2xl">
                 <span className="block w-10 h-px bg-accent mt-7" />
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 04 · Notre approche</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">04 · Notre approche</span>
                   <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3 text-primary-foreground" data-anim="split">
                     Notre méthode<br />
                     <span className="italic font-normal">en 3 étapes.</span>
@@ -505,7 +505,7 @@ export default function AccueilV3() {
               <div className="flex items-start gap-4 max-w-2xl">
                 <span className="block w-10 h-px bg-accent mt-7" />
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 05 · Pour qui</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">05 · Pour qui</span>
                   <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3" data-anim="split">
                     Les dirigeants qui ont<br />
                     <span className="italic font-normal">décidé de grandir.</span>
@@ -560,7 +560,7 @@ export default function AccueilV3() {
                 <div className="flex items-start gap-4">
                   <span className="block w-10 h-px bg-accent mt-3" />
                   <div>
-                    <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 06 · Témoignages</span>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">06 · Témoignages</span>
                     <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] mt-3" data-anim="split">
                       Ils nous font<br /><span className="italic font-normal">confiance.</span>
                     </h2>
@@ -626,7 +626,7 @@ export default function AccueilV3() {
             <div className="flex items-start gap-4 mb-12 max-w-3xl">
               <span className="block w-10 h-px bg-accent mt-7" />
               <div>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 07 · Le fondateur</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">07 · Le fondateur</span>
                 <h2 className="font-display text-[34px] md:text-[50px] leading-[1.05] mt-3" data-anim="split">
                   L'expérience d'un DAF,<br />
                   <span className="italic font-normal">la proximité d'un cabinet.</span>
@@ -679,7 +679,7 @@ export default function AccueilV3() {
               <div className="flex items-start gap-4 max-w-2xl">
                 <span className="block w-10 h-px bg-accent mt-7" />
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 08 · Nos forfaits</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">08 · Nos forfaits</span>
                   <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3" data-anim="split">
                     Des forfaits<br /><span className="italic font-normal">transparents.</span>
                   </h2>
@@ -729,7 +729,7 @@ export default function AccueilV3() {
                 <div className="flex items-start gap-4">
                   <span className="block w-10 h-px bg-accent mt-7" />
                   <div>
-                    <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 09 · FAQ</span>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">09 · FAQ</span>
                     <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05] mt-3" data-anim="split">
                       Questions &<br /><span className="italic font-normal">réponses.</span>
                     </h2>
@@ -763,7 +763,7 @@ export default function AccueilV3() {
         {/* ============== 10 · CTA FINAL ============== */}
         <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="container-mf text-center relative">
-            <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">— 10 · Bruxelles · Uccle</span>
+            <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">10 · Bruxelles · Uccle</span>
             <h2 className="font-display text-[36px] md:text-[64px] leading-[1.02] max-w-[920px] mx-auto text-primary-foreground mt-5" data-anim="split">
               Prêt à reprendre le{" "}
               <span className="inline-flex items-center align-middle bg-accent text-accent-foreground rounded-full px-5 py-1 mx-1 -translate-y-1 italic font-normal">
