@@ -333,18 +333,18 @@ export default function AccueilV3() {
                   src={financialDesk}
                   alt="Bureau financier — pilotage et analyse des chiffres"
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-55 transition-transform duration-[1200ms] group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40" />
                 <div className="relative h-full flex flex-col justify-between p-7 md:p-10">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase bg-background/10 backdrop-blur-md border border-background/20 px-3 py-1.5 rounded-full">
+                    <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase bg-background/10 backdrop-blur-md border border-background/20 px-3 py-1.5 rounded-full text-primary-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                       Symptômes fréquents
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display text-[28px] md:text-[40px] leading-[1.05]">
+                    <h3 className="font-display text-[28px] md:text-[40px] leading-[1.05] text-primary-foreground">
                       3 signaux qui montrent que<br />
                       <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
                     </h3>
