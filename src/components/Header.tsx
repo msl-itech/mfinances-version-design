@@ -97,6 +97,21 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
+            {/* Accueil dropdown (versions de travail) */}
+            <DropdownWrapper label="Accueil" href="/">
+              <div className="p-3 min-w-[200px]">
+                {homeVersions.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </DropdownWrapper>
+
             {/* Services dropdown */}
             <DropdownWrapper label="Services" href="/services/">
               <div className="p-3 min-w-[220px]">
