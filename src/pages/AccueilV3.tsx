@@ -733,10 +733,18 @@ export default function AccueilV3() {
           </div>
         </section>
 
-        {/* ============== 07 · LE FONDATEUR ============== */}
-        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+        {/* ============== 07 · LE FONDATEUR — éditorial sans carte ============== */}
+        <section className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+          {/* Backdrop typographique */}
+          <div
+            aria-hidden="true"
+            className="absolute -top-6 right-0 font-display italic text-[140px] md:text-[260px] leading-none text-accent/[0.04] pointer-events-none select-none whitespace-nowrap"
+          >
+            Mika.
+          </div>
+
           <div className="container-mf relative">
-            <div className="flex items-start gap-4 mb-12 max-w-3xl">
+            <div className="flex items-start gap-4 mb-14 md:mb-20 max-w-3xl">
               <span className="block w-10 h-px bg-accent mt-7" />
               <div>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">07 · Le fondateur</span>
@@ -747,38 +755,77 @@ export default function AccueilV3() {
               </div>
             </div>
 
-            <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
-              <div className="relative min-h-[420px] lg:min-h-[520px] overflow-hidden">
-                <img src={mikaPhoto} alt="Mika Musungayi" className="absolute inset-0 w-full h-full object-cover object-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-primary/40" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="font-display text-primary-foreground text-[24px] leading-none">
-                    Mika <span className="italic text-accent">Musungayi</span>
-                  </p>
-                  <p className="text-[11px] text-primary-foreground/75 mt-2 uppercase tracking-[0.18em]">
-                    Expert-comptable · Fondateur · ITAA
-                  </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              {/* Portrait — image flottante, sans carte */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative aspect-[4/5] max-w-[460px] mx-auto lg:mx-0">
+                  {/* bloc accent décoratif derrière */}
+                  <div className="absolute -top-5 -left-5 w-2/3 h-2/3 bg-accent/10 rounded-3xl" aria-hidden="true" />
+                  <div className="absolute -bottom-5 -right-5 w-1/2 h-1/2 border-2 border-primary/15 rounded-3xl" aria-hidden="true" />
+                  <img
+                    src={mikaPhoto}
+                    alt="Mika Musungayi — fondateur de MFinances"
+                    loading="lazy"
+                    className="relative w-full h-full object-cover object-top rounded-3xl shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
+                  />
+                  {/* Étiquette signature flottante */}
+                  <div className="absolute -bottom-6 left-6 right-6 md:left-10 md:right-10 bg-background rounded-2xl shadow-lg px-5 py-4 flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                      <span className="w-2 h-2 rounded-full bg-accent" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-display text-primary text-[18px] leading-none truncate">
+                        Mika <span className="italic text-accent">Musungayi</span>
+                      </p>
+                      <p className="text-[10.5px] text-muted-foreground mt-1.5 uppercase tracking-[0.18em] truncate">
+                        Expert-comptable · Fondateur · ITAA
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
-                <Quote size={40} className="text-accent/40 mb-4" />
-                <blockquote className="font-display italic font-light text-[20px] md:text-[26px] text-primary-foreground leading-[1.35]">
+
+              {/* Contenu — pull quote + stats */}
+              <div className="lg:col-span-7 lg:pl-6 relative">
+                {/* Barre verticale accent */}
+                <span className="hidden lg:block absolute left-0 top-2 bottom-2 w-px bg-accent/30" aria-hidden="true" />
+
+                <Quote size={44} className="text-accent/40 mb-5" strokeWidth={1.25} />
+                <blockquote className="font-display italic font-light text-[24px] md:text-[34px] text-primary leading-[1.25]">
                   Après 20 ans à accompagner des centaines de dirigeants, je sais qu'une bonne comptabilité ne suffit pas.
-                  Il faut un vrai suivi, une <span className="text-accent">vraie stratégie financière</span>.
+                  Il faut un vrai suivi, une <span className="text-accent not-italic font-normal">vraie stratégie financière</span>.
                 </blockquote>
-                <div className="mt-8 grid grid-cols-3 gap-6 pt-8 border-t border-primary-foreground/10">
+
+                <div className="mt-10 flex items-center gap-3">
+                  <span className="block w-8 h-px bg-primary/30" />
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-primary/60 font-bold">Sa conviction</span>
+                </div>
+
+                {/* Stats — strip sans carte */}
+                <div className="mt-10 grid grid-cols-3 gap-6 md:gap-10 pt-8 border-t border-primary/10">
                   <div>
-                    <p className="font-display text-[28px] text-primary-foreground">20<span className="text-accent">+</span></p>
-                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">ans d'exp.</p>
+                    <p className="font-display text-[36px] md:text-[44px] text-primary leading-none">20<span className="text-accent">+</span></p>
+                    <p className="text-[11px] text-muted-foreground uppercase tracking-[0.16em] mt-2">ans d'expérience</p>
                   </div>
                   <div>
-                    <p className="font-display text-[28px] text-primary-foreground">200<span className="text-accent">+</span></p>
-                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">dirigeants</p>
+                    <p className="font-display text-[36px] md:text-[44px] text-primary leading-none">200<span className="text-accent">+</span></p>
+                    <p className="text-[11px] text-muted-foreground uppercase tracking-[0.16em] mt-2">dirigeants accompagnés</p>
                   </div>
                   <div>
-                    <p className="font-display text-[28px] text-primary-foreground">FR<span className="text-accent">/</span>EN</p>
-                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">bilingue</p>
+                    <p className="font-display text-[36px] md:text-[44px] text-primary leading-none">FR<span className="text-accent">/</span>EN</p>
+                    <p className="text-[11px] text-muted-foreground uppercase tracking-[0.16em] mt-2">100% bilingue</p>
                   </div>
+                </div>
+
+                <div className="mt-10">
+                  <Link
+                    to="/a-propos/"
+                    className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.14em] hover:gap-4 transition-all"
+                  >
+                    <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
+                    Découvrir son parcours
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>
