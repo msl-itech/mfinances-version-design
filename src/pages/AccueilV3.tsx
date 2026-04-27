@@ -39,6 +39,7 @@ import imgControle from "@/assets/service-controle-gestion.jpg";
 import imgDaf from "@/assets/service-daf-externalise.jpg";
 import imgTresorerie from "@/assets/service-tresorerie.jpg";
 import dafMeeting from "@/assets/daf-meeting-team.png";
+import financialDesk from "@/assets/financial-desk.jpg";
 import audIndependants from "@/assets/audience-independants.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
 import audSante from "@/assets/audience-sante.webp";
