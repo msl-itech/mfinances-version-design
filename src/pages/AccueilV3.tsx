@@ -74,11 +74,11 @@ const steps = [
 ];
 
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, tag: "Démarrage" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain" },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, tag: "Libéral" },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, tag: "Scale-up" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, tag: "Immobilier" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, tag: "Démarrage", tag2: "Solo", subtitle: "Structurer vos bases dès le premier euro.", tone: "mint" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain", tag2: "Cash", subtitle: "Marges, stocks, TVA — sous contrôle.", tone: "cream" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, tag: "Libéral", tag2: "Cabinet", subtitle: "Optimiser sans alourdir votre quotidien.", tone: "cream" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, tag: "Scale-up", tag2: "PME", subtitle: "Piloter la croissance avec un vrai DAF.", tone: "cream" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, tag: "Immobilier", tag2: "Projet", subtitle: "Structurer vos opérations et SPV.", tone: "cream" },
 ];
 
 const plans = [
@@ -515,39 +515,61 @@ export default function AccueilV3() {
               <SquaresDecor className="hidden md:flex pt-4" />
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4" data-anim="stagger" data-stagger="0.08">
-              {audiences.map((a, i) => (
-                <Link
-                  key={a.label}
-                  to={a.href}
-                  data-tilt
-                  data-tilt-max="6"
-                  className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.22)] transition-shadow duration-500"
-                >
-                  <img
-                    src={a.image}
-                    alt={a.label}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.12]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/55 to-transparent transition-opacity duration-500 group-hover:from-primary/95" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5" data-anim="stagger" data-stagger="0.08">
+              {audiences.map((a) => {
+                const isAccent = a.tone === "mint";
+                return (
+                  <Link
+                    key={a.label}
+                    to={a.href}
+                    data-tilt
+                    data-tilt-max="5"
+                    className={`group relative rounded-3xl overflow-hidden flex flex-col p-4 pb-4 transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.18)] ${
+                      isAccent ? "bg-[hsl(160,55%,82%)]" : "bg-[hsl(28,55%,92%)]"
+                    }`}
+                  >
+                    {/* Tags + dot */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="bg-background/80 backdrop-blur text-primary text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                          {a.tag}
+                        </span>
+                        <span className="bg-background/80 backdrop-blur text-primary text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                          {a.tag2}
+                        </span>
+                      </div>
+                      <span className={`w-4 h-4 rounded-full border ${isAccent ? "border-primary/60 bg-primary/10" : "border-primary/30"}`} />
+                    </div>
 
-                  <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
-                    <span className="font-display text-[12px] text-primary-foreground/80 tracking-[0.2em] font-bold">0{i + 1}</span>
-                    <span className="bg-accent text-accent-foreground text-[9px] font-bold px-2.5 py-1 rounded-full tracking-[0.14em] uppercase">
-                      {a.tag}
-                    </span>
-                  </div>
+                    {/* Titre + sous-texte */}
+                    <div className="mt-5 px-1">
+                      <h3 className="font-display text-primary text-[22px] md:text-[24px] leading-[1.05]">
+                        {a.label}
+                      </h3>
+                      <p className="text-primary/70 text-[12.5px] leading-snug mt-2 min-h-[34px]">
+                        {a.subtitle}
+                      </p>
+                    </div>
 
-                  <div className="absolute bottom-0 inset-x-0 p-5">
-                    <div className="h-px w-8 bg-accent mb-3 transition-all duration-500 group-hover:w-16" />
-                    <h3 className="font-display text-[17px] md:text-[19px] text-primary-foreground leading-[1.15]">{a.label}</h3>
-                    <span className="inline-flex items-center gap-1.5 text-[10.5px] text-accent font-bold mt-2 uppercase tracking-[0.14em] group-hover:gap-2.5 transition-all">
-                      Découvrir <ArrowRight size={11} />
-                    </span>
-                  </div>
-                </Link>
-              ))}
+                    {/* Image */}
+                    <div className="relative mt-4 rounded-2xl overflow-hidden aspect-[4/5]">
+                      <img
+                        src={a.image}
+                        alt={a.label}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
+                      />
+                      {/* Bouton "En savoir plus" */}
+                      <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 bg-primary/85 backdrop-blur text-primary-foreground text-[11px] font-semibold pl-3 pr-1 py-1 rounded-full">
+                        En savoir plus
+                        <span className="w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                          <ArrowRight size={11} className="text-accent-foreground" />
+                        </span>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
