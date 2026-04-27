@@ -781,15 +781,15 @@ export default function AccueilV3() {
                     />
                   </div>
                   {/* Étiquette signature flottante */}
-                  <div className="absolute -bottom-6 left-6 right-6 md:left-10 md:right-10 bg-background rounded-2xl shadow-lg px-5 py-4 flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <div className="absolute -bottom-6 left-4 right-4 md:left-8 md:right-8 bg-background rounded-2xl shadow-lg px-5 py-4 flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
                       <span className="w-2 h-2 rounded-full bg-accent" />
                     </div>
-                    <div className="min-w-0">
-                      <p className="font-display text-primary text-[18px] leading-none truncate">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-display text-primary text-[18px] leading-none">
                         Mika <span className="italic text-accent">Musungayi</span>
                       </p>
-                      <p className="text-[10.5px] text-muted-foreground mt-1.5 uppercase tracking-[0.18em] truncate">
+                      <p className="text-[10px] md:text-[10.5px] text-muted-foreground mt-1.5 uppercase tracking-[0.16em] leading-snug">
                         Expert-comptable · Fondateur · ITAA
                       </p>
                     </div>
