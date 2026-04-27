@@ -177,7 +177,7 @@ export default function AccueilV3() {
             <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/70 via-primary/60 to-primary/85" />
 
             <div className="container-mf relative z-10 pt-28 md:pt-36 pb-20 md:pb-28">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 {/* H1 avec pills */}
                 <div className="lg:col-span-8">
                   <h1
@@ -202,7 +202,7 @@ export default function AccueilV3() {
                 </div>
 
                 {/* Côté droit : description + CTA + badge circulaire */}
-                <div className="lg:col-span-4 flex flex-col gap-8 lg:pt-10 relative">
+                <div className="lg:col-span-4 flex flex-col justify-center gap-8 relative">
                   <p className="text-primary-foreground/85 text-[15px] md:text-[16px] leading-[1.65] max-w-md">
                     Cabinet d'expertise comptable premium à Bruxelles. Pilotage financier,
                     DAF externalisé et trésorerie prévisionnelle pour TPE en croissance.
