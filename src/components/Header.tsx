@@ -220,6 +220,29 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 overflow-y-auto p-4 flex flex-col gap-0.5">
+              {/* Accueil accordion */}
+              <button
+                className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
+                onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
+              >
+                Accueil
+                <ChevronDown size={16} className={`transition-transform ${mobileHomeOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileHomeOpen && (
+                <div className="pl-4 pb-2">
+                  {homeVersions.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               {/* Services accordion */}
               <button
                 className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
