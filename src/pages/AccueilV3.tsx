@@ -329,26 +329,31 @@ export default function AccueilV3() {
                 data-tilt-max="4"
                 className="md:col-span-3 md:row-span-3 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-0 group"
               >
-                <img
-                  src={financialDesk}
-                  alt="Bureau financier — pilotage et analyse des chiffres"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
-                />
+                <div className="absolute inset-0" data-anim="clip-reveal" data-clip-direction="up">
+                  <img
+                    src={financialDesk}
+                    alt="Bureau financier — pilotage et analyse des chiffres"
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40" />
                 <div className="relative h-full flex flex-col justify-between p-7 md:p-10">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2" data-anim="fade-up">
                     <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase bg-background/10 backdrop-blur-md border border-background/20 px-3 py-1.5 rounded-full text-primary-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                       Symptômes fréquents
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display text-[28px] md:text-[40px] leading-[1.05] text-primary-foreground">
+                    <h3
+                      className="font-display text-[28px] md:text-[40px] leading-[1.05] text-primary-foreground"
+                      data-anim="split"
+                    >
                       3 signaux qui montrent que<br />
                       <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
                     </h3>
-                    <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md">
+                    <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md" data-anim="fade-up" data-delay="0.2">
                       Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul — et ça se règle avec les bons outils.
                     </p>
                   </div>
@@ -530,12 +535,16 @@ export default function AccueilV3() {
                     </span>
 
                     {/* Image */}
-                    <div className="relative w-full mt-6 rounded-3xl overflow-hidden aspect-[4/3] shadow-[0_12px_40px_rgba(27,43,94,0.12)]">
+                    <div
+                      className="relative w-full mt-6 rounded-3xl overflow-hidden aspect-[4/3] shadow-[0_12px_40px_rgba(27,43,94,0.12)]"
+                      data-anim="clip-reveal"
+                      data-clip-direction={i % 2 === 0 ? "up" : "down"}
+                    >
                       <img
                         src={s.image}
                         alt={s.title}
                         loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.05]"
                       />
                       <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-accent flex items-center justify-center">
                         <s.icon size={20} className="text-accent-foreground" strokeWidth={1.75} />
@@ -638,6 +647,7 @@ export default function AccueilV3() {
                         src={a.image}
                         alt={a.label}
                         loading="lazy"
+                        data-anim="reveal-img"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
                       />
                       {/* Bouton "En savoir plus" */}
@@ -762,12 +772,14 @@ export default function AccueilV3() {
                   {/* bloc accent décoratif derrière */}
                   <div className="absolute -top-5 -left-5 w-2/3 h-2/3 bg-accent/10 rounded-3xl" aria-hidden="true" />
                   <div className="absolute -bottom-5 -right-5 w-1/2 h-1/2 border-2 border-primary/15 rounded-3xl" aria-hidden="true" />
-                  <img
-                    src={mikaPhoto}
-                    alt="Mika Musungayi — fondateur de MFinances"
-                    loading="lazy"
-                    className="relative w-full h-full object-cover object-top rounded-3xl shadow-[0_24px_60px_rgba(27,43,94,0.18)]"
-                  />
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(27,43,94,0.18)]" data-anim="clip-reveal" data-clip-direction="left">
+                    <img
+                      src={mikaPhoto}
+                      alt="Mika Musungayi — fondateur de MFinances"
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   {/* Étiquette signature flottante */}
                   <div className="absolute -bottom-6 left-6 right-6 md:left-10 md:right-10 bg-background rounded-2xl shadow-lg px-5 py-4 flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
@@ -791,18 +803,21 @@ export default function AccueilV3() {
                 <span className="hidden lg:block absolute left-0 top-2 bottom-2 w-px bg-accent/30" aria-hidden="true" />
 
                 <Quote size={44} className="text-accent/40 mb-5" strokeWidth={1.25} />
-                <blockquote className="font-display italic font-light text-[24px] md:text-[34px] text-primary leading-[1.25]">
+                <blockquote
+                  className="font-display italic font-light text-[24px] md:text-[34px] text-primary leading-[1.25]"
+                  data-anim="split"
+                >
                   Après 20 ans à accompagner des centaines de dirigeants, je sais qu'une bonne comptabilité ne suffit pas.
                   Il faut un vrai suivi, une <span className="text-accent not-italic font-normal">vraie stratégie financière</span>.
                 </blockquote>
 
-                <div className="mt-10 flex items-center gap-3">
+                <div className="mt-10 flex items-center gap-3" data-anim="fade-up" data-delay="0.2">
                   <span className="block w-8 h-px bg-primary/30" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-primary/60 font-bold">Sa conviction</span>
                 </div>
 
                 {/* Stats — strip sans carte */}
-                <div className="mt-10 grid grid-cols-3 gap-6 md:gap-10 pt-8 border-t border-primary/10">
+                <div className="mt-10 grid grid-cols-3 gap-6 md:gap-10 pt-8 border-t border-primary/10" data-anim="stagger" data-stagger="0.1">
                   <div>
                     <p className="font-display text-[36px] md:text-[44px] text-primary leading-none">20<span className="text-accent">+</span></p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-[0.16em] mt-2">ans d'expérience</p>
