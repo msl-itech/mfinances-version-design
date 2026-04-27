@@ -28,6 +28,11 @@ const audienceRight = [
   { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
 ];
 
+const homeVersions = [
+  { label: "Accueil V2", href: "/accueilv2/" },
+  { label: "Accueil V3", href: "/accueilv3/" },
+];
+
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const timeout = useRef<ReturnType<typeof setTimeout>>();
