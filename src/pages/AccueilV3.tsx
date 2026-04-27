@@ -647,6 +647,7 @@ export default function AccueilV3() {
                         src={a.image}
                         alt={a.label}
                         loading="lazy"
+                        data-anim="reveal-img"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
                       />
                       {/* Bouton "En savoir plus" */}
