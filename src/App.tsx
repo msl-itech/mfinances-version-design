@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import AccueilV2 from "./pages/AccueilV2.tsx";
+import AccueilV3 from "./pages/AccueilV3.tsx";
 import Services from "./pages/Services.tsx";
 import Diagnostic from "./pages/Diagnostic.tsx";
 import DafExternalise from "./pages/DafExternalise.tsx";
@@ -76,6 +77,8 @@ const App = () => {
           <Route path="/" element={<Index />} />
           <Route path="/accueilv2/" element={<AccueilV2 />} />
           <Route path="/accueilv2" element={<AccueilV2 />} />
+          <Route path="/accueilv3/" element={<AccueilV3 />} />
+          <Route path="/accueilv3" element={<AccueilV3 />} />
           <Route path="/services/" element={<Services />} />
           <Route path="/services/daf-externalise/" element={<DafExternalise />} />
           <Route path="/services/controle-de-gestion/" element={<ControleDeGestion />} />
