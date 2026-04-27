@@ -70,6 +70,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAudienceOpen, setMobileAudienceOpen] = useState(false);
+  const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
