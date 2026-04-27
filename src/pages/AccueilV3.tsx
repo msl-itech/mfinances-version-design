@@ -535,12 +535,16 @@ export default function AccueilV3() {
                     </span>
 
                     {/* Image */}
-                    <div className="relative w-full mt-6 rounded-3xl overflow-hidden aspect-[4/3] shadow-[0_12px_40px_rgba(27,43,94,0.12)]">
+                    <div
+                      className="relative w-full mt-6 rounded-3xl overflow-hidden aspect-[4/3] shadow-[0_12px_40px_rgba(27,43,94,0.12)]"
+                      data-anim="clip-reveal"
+                      data-clip-direction={i % 2 === 0 ? "up" : "down"}
+                    >
                       <img
                         src={s.image}
                         alt={s.title}
                         loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.05]"
                       />
                       <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-accent flex items-center justify-center">
                         <s.icon size={20} className="text-accent-foreground" strokeWidth={1.75} />
