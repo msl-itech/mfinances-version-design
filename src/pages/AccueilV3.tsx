@@ -182,7 +182,7 @@ export default function AccueilV3() {
                 <div className="lg:col-span-8">
                   <h1
                     className="font-display font-bold text-primary-foreground tracking-[-0.02em] leading-[1.02]"
-                    style={{ fontSize: "clamp(40px, 6.5vw, 92px)" }}
+                    style={{ fontSize: "clamp(32px, 4.6vw, 68px)" }}
                   >
                     Vous travaillez{" "}
                     <span className="inline-flex items-center align-middle bg-accent text-accent-foreground rounded-full px-5 py-1 mx-1 -translate-y-1">
