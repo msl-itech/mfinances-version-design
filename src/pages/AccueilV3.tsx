@@ -354,19 +354,15 @@ export default function AccueilV3() {
                 </div>
               </div>
 
-              {/* 3 cartes constat (col-span 3 chacune en demi-hauteur) */}
+              {/* 3 cartes constat empilées dans la colonne droite */}
               {painPoints.map((p, idx) => {
                 const Icon = p.icon;
-                const isWide = idx === 2; // dernière carte en pleine largeur de la colonne droite
                 return (
                   <div
                     key={p.title}
                     data-tilt
                     data-tilt-max="5"
-                    className={`group bg-background rounded-3xl p-7 border border-border/40 hover:border-accent/40 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all relative flex flex-col ${
-                      idx === 0 ? "md:col-span-3" : idx === 1 ? "md:col-span-3" : "md:col-span-3 md:col-start-4"
-                    }`}
-                    style={{ display: idx === 2 ? "none" : undefined }}
+                    className="md:col-span-3 group bg-background rounded-3xl p-6 md:p-7 border border-border/40 hover:border-accent/40 hover:shadow-[0_16px_40px_rgba(232,57,58,0.08)] transition-all relative flex flex-col"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
@@ -376,8 +372,8 @@ export default function AccueilV3() {
                         0{idx + 1}
                       </span>
                     </div>
-                    <h3 className="font-display text-[22px] md:text-[24px] text-primary mt-5 leading-tight">{p.title}</h3>
-                    <p className="text-[13.5px] text-muted-foreground leading-[1.7] mt-2">{p.desc}</p>
+                    <h3 className="font-display text-[20px] md:text-[22px] text-primary mt-4 leading-tight">{p.title}</h3>
+                    <p className="text-[13px] text-muted-foreground leading-[1.65] mt-2">{p.desc}</p>
                   </div>
                 );
               })}
