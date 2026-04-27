@@ -552,28 +552,42 @@ export default function AccueilV3() {
                     data-tilt
                     data-tilt-max="5"
                     className={`group relative rounded-3xl overflow-hidden flex flex-col p-4 pb-4 transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.18)] ${
-                      isAccent ? "bg-[hsl(160,55%,82%)]" : "bg-[hsl(28,55%,92%)]"
+                      isAccent ? "bg-primary text-primary-foreground" : "bg-card"
                     }`}
                   >
                     {/* Tags + dot */}
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5">
-                        <span className="bg-background/80 backdrop-blur text-primary text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                        <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${
+                          isAccent
+                            ? "bg-primary-foreground/15 text-primary-foreground"
+                            : "bg-background text-primary border border-border"
+                        }`}>
                           {a.tag}
                         </span>
-                        <span className="bg-background/80 backdrop-blur text-primary text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                        <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${
+                          isAccent
+                            ? "bg-primary-foreground/15 text-primary-foreground"
+                            : "bg-background text-primary border border-border"
+                        }`}>
                           {a.tag2}
                         </span>
                       </div>
-                      <span className={`w-4 h-4 rounded-full border ${isAccent ? "border-primary/60 bg-primary/10" : "border-primary/30"}`} />
+                      <span className={`w-4 h-4 rounded-full border ${
+                        isAccent ? "border-accent bg-accent" : "border-accent/40"
+                      }`} />
                     </div>
 
                     {/* Titre + sous-texte */}
                     <div className="mt-5 px-1">
-                      <h3 className="font-display text-primary text-[22px] md:text-[24px] leading-[1.05]">
+                      <h3 className={`font-display text-[22px] md:text-[24px] leading-[1.05] ${
+                        isAccent ? "text-primary-foreground" : "text-primary"
+                      }`}>
                         {a.label}
                       </h3>
-                      <p className="text-primary/70 text-[12.5px] leading-snug mt-2 min-h-[34px]">
+                      <p className={`text-[12.5px] leading-snug mt-2 min-h-[34px] ${
+                        isAccent ? "text-primary-foreground/75" : "text-muted-foreground"
+                      }`}>
                         {a.subtitle}
                       </p>
                     </div>
@@ -587,7 +601,7 @@ export default function AccueilV3() {
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
                       />
                       {/* Bouton "En savoir plus" */}
-                      <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 bg-primary/85 backdrop-blur text-primary-foreground text-[11px] font-semibold pl-3 pr-1 py-1 rounded-full">
+                      <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 bg-primary/90 backdrop-blur text-primary-foreground text-[11px] font-semibold pl-3 pr-1 py-1 rounded-full">
                         En savoir plus
                         <span className="w-6 h-6 rounded-full bg-accent flex items-center justify-center">
                           <ArrowRight size={11} className="text-accent-foreground" />
@@ -597,6 +611,16 @@ export default function AccueilV3() {
                   </Link>
                 );
               })}
+            </div>
+
+            {/* CTA bas de section */}
+            <div className="text-center mt-14" data-anim="fade-up">
+              <Button variant="accent" size="lg" className="rounded-full px-10 group" asChild>
+                <Link to="/qui-nous-accompagnons/">
+                  Trouver votre profil
+                  <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
