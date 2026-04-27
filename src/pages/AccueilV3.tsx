@@ -68,9 +68,9 @@ const services = [
 ];
 
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon." },
-  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
-  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon.", image: imgControle },
+  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: imgDaf },
+  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresorerie },
 ];
 
 const audiences = [
@@ -446,45 +446,72 @@ export default function AccueilV3() {
           </div>
         </section>
 
-        {/* ============== 04 · MÉTHODE (3 étapes — fond sombre) ============== */}
-        <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
+        {/* ============== 04 · MÉTHODE — timeline horizontale style "Working Process" ============== */}
+        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
           <div className="container-mf relative">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-              <div className="flex items-start gap-4 max-w-2xl">
-                <span className="block w-10 h-px bg-accent mt-7" />
-                <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">04 · Notre approche</span>
-                  <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-3 text-primary-foreground" data-anim="split">
-                    Notre méthode<br />
-                    <span className="italic font-normal">en 3 étapes.</span>
-                  </h2>
-                </div>
-              </div>
-              <div aria-hidden="true" className="hidden md:flex items-start gap-2 pt-4">
-                <span className="block w-4 h-4 bg-accent" />
-                <span className="block w-4 h-4 border-2 border-accent" />
-              </div>
+            {/* Header centré */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-[12px] uppercase tracking-[0.22em] text-accent font-bold">
+                04 · Notre approche
+              </span>
+              <h2
+                className="font-display text-[36px] md:text-[52px] leading-[1.05] mt-4 text-primary"
+                data-anim="split"
+              >
+                Notre méthode <span className="italic font-normal">en 3 étapes</span> claires
+                pour piloter votre entreprise.
+              </h2>
+              <p className="text-muted-foreground text-[15px] leading-relaxed mt-6 max-w-2xl mx-auto">
+                Un processus structuré et éprouvé pour transformer vos chiffres en décisions.
+                De l'analyse initiale au pilotage mensuel, chaque étape vous rapproche de la clarté.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-anim="stagger" data-stagger="0.12">
-              {steps.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div
-                    key={s.num}
-                    data-tilt
-                    data-tilt-max="5"
-                    className="bg-primary-dark/60 border border-primary-foreground/10 rounded-3xl p-8 hover:border-accent/40 transition-colors relative overflow-hidden"
-                  >
-                    <span className="absolute top-5 right-6 font-display text-[72px] font-bold text-accent/15 leading-none">{s.num}</span>
-                    <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mb-5">
-                      <Icon size={24} className="text-accent-foreground" strokeWidth={1.75} />
+            {/* Timeline */}
+            <div className="relative" data-anim="stagger" data-stagger="0.15">
+              {/* Ligne pointillée + dots aux extrémités (desktop only) */}
+              <div className="hidden md:block absolute top-3 left-0 right-0 px-[8.33%]">
+                <div className="relative">
+                  <div className="absolute top-1/2 left-0 right-0 border-t-2 border-dashed border-primary/25" />
+                  <div className="absolute -top-1.5 -left-2 w-4 h-4 rounded-full bg-background border-2 border-accent" />
+                  <div className="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-background border-2 border-accent" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 pt-0 md:pt-10">
+                {steps.map((s, i) => (
+                  <div key={s.num} className="flex flex-col items-center text-center">
+                    {/* Connecteur vertical pointillé vers la pill */}
+                    <div className="hidden md:block w-px h-8 border-l-2 border-dashed border-primary/25" />
+
+                    {/* STEP pill */}
+                    <span className="inline-flex items-center bg-accent/15 text-accent text-[12px] font-bold tracking-[0.18em] uppercase px-5 py-2 rounded-md">
+                      Étape {s.num}
+                    </span>
+
+                    {/* Image */}
+                    <div className="relative w-full mt-6 rounded-3xl overflow-hidden aspect-[4/3] shadow-[0_12px_40px_rgba(27,43,94,0.12)]">
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-accent flex items-center justify-center">
+                        <s.icon size={20} className="text-accent-foreground" strokeWidth={1.75} />
+                      </div>
                     </div>
-                    <h3 className="font-display text-[26px] text-primary-foreground">{s.title}</h3>
-                    <p className="text-primary-foreground/65 text-[14px] leading-[1.7] mt-3">{s.desc}</p>
+
+                    {/* Titre + desc */}
+                    <h3 className="font-display text-[24px] md:text-[26px] text-primary mt-6 text-left w-full">
+                      {s.title}
+                    </h3>
+                    <p className="text-muted-foreground text-[14px] leading-[1.7] mt-2 text-left w-full">
+                      {s.desc}
+                    </p>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             <div className="text-center mt-14" data-anim="fade-up">
