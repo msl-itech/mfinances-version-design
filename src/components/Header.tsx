@@ -28,6 +28,11 @@ const audienceRight = [
   { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
 ];
 
+const homeVersions = [
+  { label: "Accueil V2", href: "/accueilv2/" },
+  { label: "Accueil V3", href: "/accueilv3/" },
+];
+
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const timeout = useRef<ReturnType<typeof setTimeout>>();
@@ -65,6 +70,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAudienceOpen, setMobileAudienceOpen] = useState(false);
+  const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -92,6 +98,21 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
+            {/* Accueil dropdown (versions de travail) */}
+            <DropdownWrapper label="Accueil" href="/">
+              <div className="p-3 min-w-[200px]">
+                {homeVersions.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </DropdownWrapper>
+
             {/* Services dropdown */}
             <DropdownWrapper label="Services" href="/services/">
               <div className="p-3 min-w-[220px]">
@@ -199,6 +220,29 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 overflow-y-auto p-4 flex flex-col gap-0.5">
+              {/* Accueil accordion */}
+              <button
+                className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
+                onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
+              >
+                Accueil
+                <ChevronDown size={16} className={`transition-transform ${mobileHomeOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileHomeOpen && (
+                <div className="pl-4 pb-2">
+                  {homeVersions.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               {/* Services accordion */}
               <button
                 className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
