@@ -39,6 +39,7 @@ import imgControle from "@/assets/service-controle-gestion.jpg";
 import imgDaf from "@/assets/service-daf-externalise.jpg";
 import imgTresorerie from "@/assets/service-tresorerie.jpg";
 import dafMeeting from "@/assets/daf-meeting-team.png";
+import financialDesk from "@/assets/financial-desk.jpg";
 import audIndependants from "@/assets/audience-independants.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
 import audSante from "@/assets/audience-sante.webp";
@@ -329,8 +330,8 @@ export default function AccueilV3() {
                 className="md:col-span-3 md:row-span-3 relative rounded-3xl overflow-hidden bg-primary text-primary-foreground min-h-[320px] md:min-h-0 group"
               >
                 <img
-                  src={dafMeeting}
-                  alt="Équipe MFinances en réunion de pilotage financier"
+                  src={financialDesk}
+                  alt="Bureau financier — pilotage et analyse des chiffres"
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-55 transition-transform duration-[1200ms] group-hover:scale-105"
                 />
