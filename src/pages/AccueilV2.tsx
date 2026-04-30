@@ -302,12 +302,14 @@ export default function AccueilV2() {
               }`}
             >
               <h1
-                className="font-display text-[52px] leading-[1.05] text-background"
+                className="font-display text-[44px] leading-[1.05] text-background"
                 data-anim="chars"
                 data-stagger="0.035"
                 data-delay="0.25"
               >
-                Votre partenaire financier de pilotage.
+                Vous travaillez <em className="italic font-normal text-background/70">dur.</em>
+                <br />
+                Mais votre <em className="italic font-normal text-accent">entreprise</em> gagne-t-elle vraiment de l'argent&nbsp;?
               </h1>
               <p
                 className="mt-5 text-background/70 text-[14.5px] leading-relaxed"
