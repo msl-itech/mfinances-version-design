@@ -386,6 +386,38 @@ export default function Asbl() {
           </div>
         </section>
 
+        {/* ── TÉMOIGNAGE MARIE-CLAIRE ── */}
+        <section className="bg-card py-16 md:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
+            <span className="font-display italic text-[200px] leading-none text-foreground/[0.04] tracking-tight">Confiance</span>
+          </div>
+
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv>
+              <div className="flex items-center gap-3 justify-center mb-6">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+
+              <Quote size={56} className="text-accent/50 mx-auto mb-6" strokeWidth={1} />
+
+              <blockquote className="font-display text-[22px] md:text-[30px] text-foreground leading-[1.4] text-center italic">
+                «&nbsp;Avant MFinances, la préparation des justificatifs pour les subsides nous prenait <span className="text-accent not-italic font-bold">3 semaines</span>. Maintenant, la comptabilité analytique génère <span className="text-accent not-italic font-bold">automatiquement</span> les rapports pour les fondateurs.&nbsp;»
+              </blockquote>
+
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <span className="h-px w-8 bg-accent/60" />
+                <p className="text-muted-foreground text-[14px] font-body tracking-wide">
+                  <span className="font-bold text-foreground">Marie-Claire</span> — Secrétaire générale, ASBL culturelle, Bruxelles
+                </p>
+                <span className="h-px w-8 bg-accent/60" />
+              </div>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
