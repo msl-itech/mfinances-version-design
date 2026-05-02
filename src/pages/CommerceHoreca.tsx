@@ -56,12 +56,12 @@ const caseStudies = [
   {
     icon: TrendingDown,
     title: "Restaurant — gestion en flux tendu",
-    desc: "Un restaurant Horeca confronté à un stockage excessif a mis en place une gestion en flux tendu et un suivi des coûts alimentaires par plat. Résultat : réduction significative des coûts de stockage et amélioration de la trésorerie disponible.",
+    desc: "Un restaurant Horeca confronté à un stockage excessif a mis en place une gestion en flux tendu et un suivi des coûts alimentaires par plat. Résultat : réduction de 30% des coûts de stockage en 2 mois. Trésorerie disponible augmentée de 8 000 €.",
   },
   {
     icon: BarChart3,
     title: "Magasin de vêtements — rotation des stocks",
-    desc: "Un magasin avec des stocks à faible rotation a restructuré son approche commerciale grâce à une analyse des données de vente. Résultat : amélioration notable du taux de rotation et des liquidités disponibles.",
+    desc: "Un magasin avec des stocks à faible rotation a restructuré son approche commerciale grâce à une analyse des données de vente. Résultat : taux de rotation amélioré de 40% en une saison. Liquidités bloquées réduites de moitié.",
   },
 ];
 
