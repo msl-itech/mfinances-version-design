@@ -26,12 +26,11 @@ import {
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const situations = [
-  { emoji: "👤", label: "Particulier — j'ai besoin d'aide pour ma déclaration d'impôt" },
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
   { emoji: "💼", label: "Je suis déjà indépendant en personne physique" },
   { emoji: "🏗️", label: "Je suis en train de créer une société" },
   { emoji: "🏢", label: "J'ai déjà une société active" },
-  { emoji: "❓", label: "Autre" },
+  { emoji: "❓", label: "Autre / Particulier" },
 ];
 
 const besoins = [
