@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import EntryPointsSection from "@/components/sections/EntryPointsSection";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -391,6 +392,9 @@ export default function AccueilV2() {
             ))}
           </div>
         </section>
+
+        {/* ============== 01.5 · 3 FAÇONS DE COMMENCER ============== */}
+        <EntryPointsSection />
 
         {/* ============== 02 · CONSTAT (V1 PainSection text) ============== */}
         <section className="py-20 md:py-28 bg-card relative overflow-hidden">
