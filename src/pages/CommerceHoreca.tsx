@@ -61,7 +61,7 @@ const caseStudies = [
   {
     icon: BarChart3,
     title: "Magasin de vêtements — rotation des stocks",
-    desc: "Un magasin avec des stocks à faible rotation a restructuré son approche commerciale grâce à une analyse des données de vente. Résultat : amélioration notable du taux de rotation et des liquidités disponibles.",
+    desc: "Un magasin avec des stocks à faible rotation a restructuré son approche commerciale grâce à une analyse des données de vente. Résultat : taux de rotation amélioré de 40% en une saison. Liquidités bloquées réduites de moitié.",
   },
 ];
 
