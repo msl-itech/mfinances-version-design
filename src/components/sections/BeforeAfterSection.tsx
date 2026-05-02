@@ -63,7 +63,7 @@ export default function BeforeAfterSection() {
   return (
     <section className="py-14 md:py-32 bg-secondary relative overflow-hidden" ref={ref}>
       <div
-        aria-hidden="true"
+        aria-hidden="true" data-anim="text-scrub"
         className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.025] pointer-events-none select-none whitespace-nowrap"
       >
         Avant / Après

@@ -9,7 +9,7 @@ export default function EntryPointsBentoSection() {
     <section className="py-16 md:py-28 bg-secondary relative overflow-hidden">
       {/* Watermark */}
       <div
-        aria-hidden="true"
+        aria-hidden="true" data-anim="text-scrub"
         className="absolute -top-10 left-0 right-0 text-center font-display font-bold text-[180px] md:text-[280px] leading-none text-primary/[0.025] pointer-events-none select-none whitespace-nowrap"
       >
         START
