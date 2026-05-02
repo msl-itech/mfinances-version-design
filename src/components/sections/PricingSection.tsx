@@ -22,7 +22,7 @@ const plans = [
   {
     label: "EXCELLENCE",
     price: "650",
-    subtitle: "Pour piloter comme un grand",
+    subtitle: "Pour piloter avec un temps d'avance",
     features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"],
     popular: false,
   },
