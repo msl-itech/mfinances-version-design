@@ -287,7 +287,7 @@ export default function AccueilV2() {
               </p>
 
               {/* CTA pill outline blanc */}
-              <div className="mt-6 flex justify-center" data-anim="fade-up" data-delay="0.55">
+              <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3" data-anim="fade-up" data-delay="0.55">
                 <Link
                   to="/diagnostic/"
                   className="inline-flex items-center gap-4 rounded-full border border-background/80 bg-background/5 backdrop-blur-sm pl-6 pr-2 py-2 text-background hover:bg-background hover:text-foreground transition-colors group"
@@ -296,6 +296,12 @@ export default function AccueilV2() {
                   <span className="w-9 h-9 rounded-full border border-background/80 flex items-center justify-center group-hover:rotate-45 transition-transform">
                     <ArrowRight size={16} />
                   </span>
+                </Link>
+                <Link
+                  to="/services/"
+                  className="inline-flex items-center gap-2 rounded-full border border-background/40 px-6 py-3 text-background/90 hover:bg-background/10 transition-colors text-[14px] font-medium"
+                >
+                  Découvrir nos services
                 </Link>
               </div>
             </div>
@@ -323,11 +329,11 @@ export default function AccueilV2() {
               >
                 La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
-              <div data-anim="fade-up" data-delay="0.55">
+              <div data-anim="fade-up" data-delay="0.55" className="mt-6 flex flex-wrap items-center gap-3">
                 <Button
                   variant="accent"
                   size="lg"
-                  className="mt-6 rounded-full pl-6 pr-3 group h-12 text-[14px]"
+                  className="rounded-full pl-6 pr-3 group h-12 text-[14px]"
                   asChild
                 >
                   <Link to="/diagnostic/">
@@ -338,6 +344,14 @@ export default function AccueilV2() {
                       </span>
                     </span>
                   </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-6 h-12 text-[14px] border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground"
+                  asChild
+                >
+                  <Link to="/services/">Découvrir nos services</Link>
                 </Button>
               </div>
             </div>
