@@ -259,6 +259,22 @@ export default function Asbl() {
                   <strong className="text-accent">−21 %</strong> appliqués pour les ASBL non assujetties à la TVA
                 </p>
               </div>
+
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-[760px] mx-auto">
+                {[
+                  { name: "Essentiel", price: "277" },
+                  { name: "Premium", price: "356" },
+                  { name: "Excellence", price: "514" },
+                ].map((p) => (
+                  <div key={p.name} className="bg-card border border-border/50 rounded-xl px-4 py-3 text-center">
+                    <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-foreground/60 font-body mb-1">{p.name}</p>
+                    <p className="font-body text-[14px] text-foreground">
+                      à partir de <span className="font-bold text-accent">{p.price} €</span>
+                      <span className="text-foreground/60">/mois</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
             </ScrollRevealDiv>
 
             {/* Plan headers cards */}
