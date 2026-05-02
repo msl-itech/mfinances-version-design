@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import EntryPointsBentoSection from "@/components/sections/EntryPointsBentoSection";
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
+import DiagnosticSection from "@/components/sections/DiagnosticSection";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -726,6 +727,9 @@ export default function AccueilV2() {
             </div>
           </div>
         </section>
+
+        {/* ============== 06.5 · DIAGNOSTIC GRATUIT ============== */}
+        <DiagnosticSection />
 
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
         <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
