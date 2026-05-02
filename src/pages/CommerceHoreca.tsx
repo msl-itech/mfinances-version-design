@@ -269,7 +269,7 @@ export default function CommerceHoreca() {
                 <div className="pointer-events-none absolute -top-10 -right-10 w-64 h-64 rounded-full bg-accent/20 blur-3xl" />
                 <Quote size={56} className="text-accent/30 mb-6" strokeWidth={1.2} />
                 <blockquote className="text-[20px] md:text-[26px] text-primary-foreground leading-[1.5] font-display italic max-w-[700px]">
-                  « Gérer une activité Horeca implique beaucoup de flux. MFinances a su intégrer Odoo à notre gestion quotidienne. Je garde le contrôle sans m'enliser dans l'administratif. »
+                  « Avant MFinances, je passais 4 heures par semaine à trier mes factures. Maintenant, je vérifie mon tableau de bord en 20 minutes le lundi matin. Je garde le contrôle sans m'enliser dans l'administratif. »
                 </blockquote>
                 <div className="flex items-center gap-4 mt-8 relative z-10">
                   <div className="w-px h-10 bg-accent" />
