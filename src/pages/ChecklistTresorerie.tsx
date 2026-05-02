@@ -252,12 +252,16 @@ export default function ChecklistTresorerie() {
               ))}
             </div>
 
-            <div className="text-center mt-10">
-              <p className="text-[14px] text-muted-foreground font-body mb-4">
-                Vous reconnaissez-vous dans certaines de ces erreurs ?
+            <div className="text-center mt-10 max-w-[640px] mx-auto">
+              <p className="font-display text-[20px] md:text-[24px] text-foreground leading-[1.35] mb-2">
+                Si vous avez coché <span className="text-accent font-bold">3 erreurs ou plus</span>,<br />
+                votre trésorerie est probablement <span className="italic">sous pression</span>.
+              </p>
+              <p className="text-[14px] md:text-[15px] text-muted-foreground font-body mb-6">
+                Découvrez votre score exact en <strong className="text-foreground">3 minutes</strong>.
               </p>
               <Button variant="accent" size="lg" className="rounded-full" asChild>
-                <Link to="/diagnostic/">Faire le diagnostic complet — c'est gratuit →</Link>
+                <Link to="/diagnostic/">Faire le diagnostic gratuit →</Link>
               </Button>
             </div>
           </div>
