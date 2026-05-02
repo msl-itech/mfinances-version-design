@@ -140,6 +140,21 @@ export default function DafExternalise() {
           watermark="DAF"
         />
 
+        {/* Bandeau d'accès — visible immédiatement sous le H1 */}
+        <section className="bg-accent text-accent-foreground border-b border-accent/20">
+          <div className="container-mf py-3.5 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+            <p className="font-body text-[13px] md:text-[14px] leading-snug">
+              <strong className="font-bold tracking-wide uppercase text-[11px] md:text-[12px] mr-2">Accès</strong>
+              Réservé aux clients <strong>Excellence</strong> — à partir de <strong>650 € HTVA / mois</strong>
+            </p>
+            <Link
+              to="/tarifs/#excellence"
+              className="inline-flex items-center gap-1.5 text-[13px] md:text-[14px] font-semibold underline underline-offset-4 decoration-2 hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
+              Voir le forfait Excellence <ArrowRight size={14} />
+            </Link>
+          </div>
+        </section>
 
         {/* SECTION 1 — Missions (split éditorial + watermark) */}
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
