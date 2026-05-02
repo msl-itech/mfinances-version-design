@@ -250,6 +250,20 @@ export default function Fiscalite() {
                   Les leviers fiscaux belges{" "}
                   <span className="italic font-normal text-accent">que nous maîtrisons</span>
                 </h2>
+                <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-px w-6 bg-accent" />
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-accent font-semibold">
+                      Exemple réel
+                    </span>
+                  </div>
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] text-foreground font-body">
+                    Avec rémunération optimisée + <strong>VVPRbis</strong> + réserve de liquidation, passage de <strong className="text-accent">28% à 18%</strong> de charge effective.
+                  </p>
+                  <p className="font-display italic text-[16px] md:text-[18px] text-foreground mt-3">
+                    Soit <span className="text-accent not-italic font-bold">18 000 €</span> économisés par an pour un bénéfice de 180 000 €.
+                  </p>
+                </div>
                 <ul className="mt-10 space-y-4">
                   {leviers.map((l, i) => (
                     <li key={l} className="flex items-start gap-4 group">
