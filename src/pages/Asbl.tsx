@@ -140,10 +140,10 @@ export default function Asbl() {
                   <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°01 / Non-marchand</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
-                  Votre ASBL a une mission —<br className="hidden md:block" /> nous gérons les <span className="text-accent italic">chiffres</span>.
+                  Vous avez une <span className="text-accent italic">mission</span><br className="hidden md:block" /> qui change des vies.
                 </h1>
                 <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
-                  Comptabilité, subsides, obligations légales — un accompagnement spécialisé qui libère votre temps pour ce qui compte vraiment : votre cause.
+                  La gestion administrative ne doit pas vous en empêcher. On s'occupe de la comptabilité, des subsides et des obligations légales.
                 </p>
                 <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
                   <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
