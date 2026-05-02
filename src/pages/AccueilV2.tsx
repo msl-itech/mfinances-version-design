@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import EntryPointsBentoSection from "@/components/sections/EntryPointsBentoSection";
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import DiagnosticSection from "@/components/sections/DiagnosticSection";
+import DisqualificationSection from "@/components/sections/DisqualificationSection";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -794,6 +795,9 @@ export default function AccueilV2() {
             </div>
           </div>
         </section>
+
+        {/* ============== 07.5 · TRANSPARENCE (Disqualification) ============== */}
+        <DisqualificationSection />
 
         {/* ============== 08 · TARIFS (V1 PricingSection text) ============== */}
         <section className="py-20 md:py-28">
