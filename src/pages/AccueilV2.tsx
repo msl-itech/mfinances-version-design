@@ -287,7 +287,7 @@ export default function AccueilV2() {
               </p>
 
               {/* CTA pill outline blanc */}
-              <div className="mt-6 flex justify-center" data-anim="fade-up" data-delay="0.55">
+              <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3" data-anim="fade-up" data-delay="0.55">
                 <Link
                   to="/diagnostic/"
                   className="inline-flex items-center gap-4 rounded-full border border-background/80 bg-background/5 backdrop-blur-sm pl-6 pr-2 py-2 text-background hover:bg-background hover:text-foreground transition-colors group"
@@ -296,6 +296,12 @@ export default function AccueilV2() {
                   <span className="w-9 h-9 rounded-full border border-background/80 flex items-center justify-center group-hover:rotate-45 transition-transform">
                     <ArrowRight size={16} />
                   </span>
+                </Link>
+                <Link
+                  to="/services/"
+                  className="inline-flex items-center gap-2 rounded-full border border-background/40 px-6 py-3 text-background/90 hover:bg-background/10 transition-colors text-[14px] font-medium"
+                >
+                  Découvrir nos services
                 </Link>
               </div>
             </div>
