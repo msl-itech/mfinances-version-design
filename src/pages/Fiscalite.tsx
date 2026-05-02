@@ -152,6 +152,12 @@ export default function Fiscalite() {
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
                   La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année — quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
                 </p>
+                <p className="text-[16px] md:text-[18px] leading-[1.8] text-foreground mt-6 font-body">
+                  Un dirigeant de TPE belge paie en moyenne <strong className="text-accent">38 à 52% de son résultat</strong> en impôts, cotisations et charges.
+                </p>
+                <p className="font-display italic text-[18px] md:text-[20px] text-foreground mt-4">
+                  Ce n'est pas une fatalité — c'est une variable.
+                </p>
               </ScrollRevealDiv>
               <ScrollRevealDiv delay={0.2} className="mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
