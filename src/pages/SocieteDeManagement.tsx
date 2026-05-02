@@ -73,6 +73,7 @@ const beforeAfterRows = [
   { label: "Capacité d'investissement", before: "Limitée", after: "25 000 €/an réinvestis" },
   { label: "Patrimoine à 5 ans", before: "Croissance limitée", after: "1,2 M€ immobilier + placements" },
   { label: "Succession", before: "Aucune optimisation", after: "Planification successorale intégrée" },
+  { label: "Délai de mise en place", before: "Aucun", after: "Structure en 6 à 8 semaines accompagnées" },
 ];
 
 const compareRows = [
