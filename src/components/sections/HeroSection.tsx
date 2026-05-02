@@ -123,7 +123,7 @@ export default function HeroSection() {
               >
                 La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue,
                 résultats découverts trop tard. MFinances change ça : un vrai pilotage financier,
-                à un prix de PME.
+                accessible dès 350 €/mois.
               </p>
             </div>
 
