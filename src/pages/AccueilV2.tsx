@@ -316,8 +316,7 @@ export default function AccueilV2() {
                 data-anim="fade-up"
                 data-delay="0.4"
               >
-                Vous travaillez dur. Mais votre entreprise gagne-t-elle vraiment de l'argent&nbsp;?
-                MFinances change ça : un vrai pilotage financier, à un prix de PME.
+                La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
               <div data-anim="fade-up" data-delay="0.55">
                 <Button
