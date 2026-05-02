@@ -605,6 +605,23 @@ export default function Tarifs() {
           </div>
         </section>
 
+        {/* ── SECTION TÉMOIGNAGE ── */}
+        <section className="bg-card py-14 md:py-20 relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+            <ScrollRevealDiv>
+              <figure className="bg-secondary rounded-3xl p-8 md:p-12 border border-border/50 relative">
+                <Quote size={40} className="text-accent/40 absolute top-6 left-6" strokeWidth={1.5} aria-hidden="true" />
+                <blockquote className="font-display italic text-[20px] md:text-[26px] leading-snug text-primary text-center pt-6">
+                  «&nbsp;J'hésitais à quitter mon comptable low cost. En 6 mois, l'optimisation fiscale a couvert 2 ans de forfait Premium.&nbsp;»
+                </blockquote>
+                <figcaption className="mt-6 text-center text-[13px] font-body text-muted-foreground tracking-wide uppercase">
+                  Thomas, consultant IT, Bruxelles
+                </figcaption>
+              </figure>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
         {/* ── SECTION 5 — Comment ça se passe ── */}
         <section className="bg-card py-14 md:py-24 relative overflow-hidden">
           <span
