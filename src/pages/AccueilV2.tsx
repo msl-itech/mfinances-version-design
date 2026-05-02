@@ -7,6 +7,7 @@ import EntryPointsBentoSection from "@/components/sections/EntryPointsBentoSecti
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import DiagnosticSection from "@/components/sections/DiagnosticSection";
 import DisqualificationSection from "@/components/sections/DisqualificationSection";
+import LeadMagnetSection from "@/components/sections/LeadMagnetSection";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -731,6 +732,9 @@ export default function AccueilV2() {
 
         {/* ============== 06.5 · DIAGNOSTIC GRATUIT ============== */}
         <DiagnosticSection />
+
+        {/* ============== 06.6 · CHECKLIST GRATUITE (Lead magnet) ============== */}
+        <LeadMagnetSection />
 
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
         <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
