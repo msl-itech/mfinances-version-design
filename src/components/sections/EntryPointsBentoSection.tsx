@@ -134,14 +134,15 @@ export default function EntryPointsBentoSection() {
             data-anim="fade-up"
             data-delay="0.15"
           >
-            <div className="relative h-32 md:h-28 overflow-hidden shrink-0">
+            <div className="relative h-44 md:h-40 overflow-hidden shrink-0">
               <img
                 src={rdvImg}
                 alt="Mika MFinances"
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                style={{ objectPosition: "center 22%" }}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card/60 via-transparent to-transparent" />
               <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl bg-card/90 backdrop-blur flex items-center justify-center shadow-md">
                 <Calendar size={18} className="text-primary" strokeWidth={1.75} />
               </div>
