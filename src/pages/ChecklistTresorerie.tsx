@@ -105,7 +105,7 @@ export default function ChecklistTresorerie() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Checklist Trésorerie TPE — 7 erreurs à éviter | MFinances"
+        title="Checklist Trésorerie TPE — 5 erreurs qui vident votre compte | MFinances"
         description="Téléchargez notre checklist gratuite : les 7 erreurs de trésorerie qui menacent votre TPE et comment les corriger. Guide PDF offert par MFinances."
         canonical="https://mfinances.be/checklist-tresorerie/"
         schemaJson={breadcrumbJsonLd}
