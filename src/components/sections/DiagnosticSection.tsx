@@ -22,7 +22,7 @@ export default function DiagnosticSection() {
     <section className="bg-secondary py-14 md:py-32 relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop */}
       <div
-        aria-hidden="true"
+        aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
         className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
       >
         Diagnostic

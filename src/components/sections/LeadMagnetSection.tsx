@@ -10,7 +10,7 @@ export default function LeadMagnetSection() {
     <section className="bg-primary py-14 md:py-32 relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop */}
       <div
-        aria-hidden="true"
+        aria-hidden="true" data-anim="text-scrub"
         className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary-foreground/[0.04] pointer-events-none select-none whitespace-nowrap"
       >
         Checklist
