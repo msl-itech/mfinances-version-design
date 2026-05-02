@@ -705,6 +705,32 @@ export default function Diagnostic() {
                     )}
                   </div>
 
+                  {/* ── Réassurance + Mini-FAQ anti-abandon ── */}
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
+                    <div className="flex items-center justify-center gap-2 mb-5 sm:mb-6">
+                      <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                      <p className="text-[13px] sm:text-[14px] font-body text-foreground/80 text-center">
+                        <strong className="font-bold text-foreground">500+ dirigeants bruxellois</strong> ont déjà obtenu leur score.
+                      </p>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        { q: "Est-ce que je vais être rappelé de force ?", a: "Non, vous choisissez." },
+                        { q: "Mon score sera-t-il mauvais ?", a: "C'est le but — pour savoir où agir." },
+                        { q: "Que reçois-je après ?", a: "3 actions prioritaires immédiates." },
+                      ].map((item, i) => (
+                        <div key={i} className="rounded-xl border border-border/40 p-3.5 sm:p-4 bg-secondary/30">
+                          <p className="font-body text-[13.5px] sm:text-[14.5px] font-bold text-foreground mb-1">
+                            {item.q}
+                          </p>
+                          <p className="font-body text-[13px] sm:text-[14px] text-muted-foreground leading-relaxed">
+                            {item.a}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* ── 6. Fragilités ── */}
                   <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
                     <h3 className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-foreground mb-5 sm:mb-6">
