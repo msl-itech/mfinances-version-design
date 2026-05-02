@@ -329,11 +329,11 @@ export default function AccueilV2() {
               >
                 La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
-              <div data-anim="fade-up" data-delay="0.55">
+              <div data-anim="fade-up" data-delay="0.55" className="mt-6 flex flex-wrap items-center gap-3">
                 <Button
                   variant="accent"
                   size="lg"
-                  className="mt-6 rounded-full pl-6 pr-3 group h-12 text-[14px]"
+                  className="rounded-full pl-6 pr-3 group h-12 text-[14px]"
                   asChild
                 >
                   <Link to="/diagnostic/">
@@ -344,6 +344,14 @@ export default function AccueilV2() {
                       </span>
                     </span>
                   </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-6 h-12 text-[14px] border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground"
+                  asChild
+                >
+                  <Link to="/services/">Découvrir nos services</Link>
                 </Button>
               </div>
             </div>
