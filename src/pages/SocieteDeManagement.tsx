@@ -371,6 +371,38 @@ export default function SocieteDeManagement() {
           </div>
         </section>
 
+        {/* ── TÉMOIGNAGE KARIM ── */}
+        <section className="bg-primary py-16 md:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
+            <span className="font-display italic text-[200px] leading-none text-primary-foreground/[0.05] tracking-tight">Karim</span>
+          </div>
+
+          <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
+            <ScrollRevealDiv>
+              <div className="flex items-center gap-3 justify-center mb-6">
+                <span className="h-px w-10 bg-accent/60" />
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
+                <span className="h-px w-10 bg-accent/60" />
+              </div>
+
+              <Quote size={56} className="text-accent/50 mx-auto mb-6" strokeWidth={1} />
+
+              <blockquote className="font-display text-[22px] md:text-[32px] text-primary-foreground leading-[1.35] text-center italic">
+                «&nbsp;Mika m'a montré que je versais <span className="text-accent not-italic font-bold">85 000&nbsp;€ d'impôts</span> sur une assiette que je pouvais légalement réduire à <span className="text-accent not-italic font-bold">60 000&nbsp;€</span>. La société a été structurée en <span className="text-accent not-italic font-bold">6 semaines</span>. 3 ans plus tard&nbsp;: <span className="text-accent not-italic font-bold">400 000&nbsp;€ de patrimoine immobilier</span>.&nbsp;»
+              </blockquote>
+
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <span className="h-px w-8 bg-accent/60" />
+                <p className="text-primary-foreground/80 text-[14px] font-body tracking-wide">
+                  <span className="font-bold text-primary-foreground">Karim</span> — CEO, Bruxelles
+                </p>
+                <span className="h-px w-8 bg-accent/60" />
+              </div>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
         {/* ── CAS CLIENT ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
