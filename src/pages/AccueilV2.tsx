@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import EntryPointsBentoSection from "@/components/sections/EntryPointsBentoSection";
+import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -451,6 +452,9 @@ export default function AccueilV2() {
             </div>
           </div>
         </section>
+
+        {/* ============== 02.5 · TRANSFORMATION (Avant/Après) ============== */}
+        <BeforeAfterSection />
 
         {/* ============== 03 · SERVICES (V1 SolutionSection text) ============== */}
         <section className="py-20 md:py-28">
