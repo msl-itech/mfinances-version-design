@@ -85,7 +85,7 @@ const audiences = [
 const plans = [
   { label: "ESSENTIEL", price: "350", subtitle: "Pour sécuriser vos bases", features: ["Comptabilité complète", "Déclarations fiscales", "Expert dédié"], popular: false },
   { label: "PREMIUM", price: "450", subtitle: "Pour structurer votre croissance", features: ["Tout Essentiel +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle"], popular: true },
-  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter comme un grand", features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"], popular: false },
+  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "DAF à temps partiel", "Modélisation décisionnelle"], popular: false },
 ];
 
 const reviews = [
