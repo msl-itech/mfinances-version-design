@@ -79,7 +79,7 @@ const plans = [
     icon: Rocket,
     name: "Excellence",
     price: "650",
-    tagline: "Pour piloter et anticiper",
+    tagline: "Pour piloter avec un temps d'avance",
     desc: "Votre entreprise est en croissance active. Vision financière mensuelle, prévisionnel de trésorerie fiable, partenaire disponible pour les décisions qui engagent votre avenir. Vous pilotez avec un temps d'avance — comme les grandes entreprises.",
   },
 ];
