@@ -72,12 +72,39 @@ const fondamentauxServices = [
   },
 ];
 
+const servicesFaqs = [
+  {
+    q: "Comment savoir quel service est fait pour moi ?",
+    a: "Faites le diagnostic gratuit (3 min) — résultat immédiat.",
+  },
+  {
+    q: "Puis-je ajouter des services en cours de contrat ?",
+    a: "Oui, à tout moment sur simple demande.",
+  },
+  {
+    q: "Travaillez-vous uniquement avec Odoo ?",
+    a: "Odoo est notre outil principal, mais nous nous adaptons.",
+  },
+];
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://mfinances.be/services/" },
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://mfinances.be/services/" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: servicesFaqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
   ],
 };
 
@@ -395,7 +422,50 @@ export default function Services() {
           </div>
         </section>
 
+        {/* ── FAQ ── */}
+        <section className="relative bg-secondary py-16 md:py-24 overflow-hidden">
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[760px] mx-auto text-center mb-10 md:mb-14">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <span className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                  Questions fréquentes
+                </span>
+                <span className="h-px w-10 bg-accent" />
+              </div>
+              <h2
+                className="font-display text-primary leading-[1.08] tracking-[-0.015em]"
+                style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}
+              >
+                Vos questions sur <span className="italic text-accent">nos services</span>
+              </h2>
+            </ScrollRevealDiv>
+
+            <div className="max-w-[820px] mx-auto space-y-4">
+              {servicesFaqs.map((faq, i) => (
+                <ScrollRevealDiv key={faq.q} delay={0.05 + i * 0.05}>
+                  <article className="bg-card rounded-2xl p-6 md:p-8 border border-border/60">
+                    <h3 className="font-display text-primary text-[18px] md:text-[20px] leading-snug mb-3">
+                      {faq.q}
+                    </h3>
+                    <p className="text-muted-foreground text-[15px] leading-[1.7] font-body">
+                      {faq.a}
+                    </p>
+                  </article>
+                </ScrollRevealDiv>
+              ))}
+            </div>
+
+            <ScrollRevealDiv className="text-center mt-10">
+              <Button variant="outline" size="lg" className="rounded-full px-7 h-12 text-[14px]" asChild>
+                <Link to="/diagnostic/">Faire le diagnostic gratuit (3 min)</Link>
+              </Button>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
         {/* ── CTA FINAL ── */}
+
         <section className="relative bg-primary py-20 md:py-32 overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/85 to-primary" />
