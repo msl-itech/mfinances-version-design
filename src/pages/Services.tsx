@@ -72,12 +72,39 @@ const fondamentauxServices = [
   },
 ];
 
+const servicesFaqs = [
+  {
+    q: "Comment savoir quel service est fait pour moi ?",
+    a: "Faites le diagnostic gratuit (3 min) — résultat immédiat.",
+  },
+  {
+    q: "Puis-je ajouter des services en cours de contrat ?",
+    a: "Oui, à tout moment sur simple demande.",
+  },
+  {
+    q: "Travaillez-vous uniquement avec Odoo ?",
+    a: "Odoo est notre outil principal, mais nous nous adaptons.",
+  },
+];
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://mfinances.be/services/" },
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://mfinances.be/services/" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: servicesFaqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
   ],
 };
 
