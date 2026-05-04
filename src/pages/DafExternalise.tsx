@@ -348,6 +348,42 @@ export default function DafExternalise() {
           </div>
         </section>
 
+        {/* SECTION 3.5 — Témoignage client Excellence */}
+        <section className="relative bg-primary py-20 md:py-28 overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full opacity-[0.10] pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 65%)" }}
+          />
+          <div className="container-mf relative">
+            <ScrollRevealDiv className="max-w-[820px] mx-auto text-center">
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                  Ils ont franchi le pas
+                </span>
+                <div className="h-px w-10 bg-accent" />
+              </div>
+
+              <Quote className="mx-auto text-accent mb-6" size={36} strokeWidth={1.5} />
+
+              <blockquote
+                className="font-display italic text-primary-foreground leading-[1.3] tracking-[-0.01em]"
+                style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+              >
+                « En 4 mois, Mika a modélisé 3 scénarios pour notre expansion.
+                J'ai choisi le bon. Résultat : marge brute <span className="not-italic font-bold text-accent">+8 %</span> sur l'année. »
+              </blockquote>
+
+              <div className="mt-8 flex items-center justify-center gap-3 text-primary-foreground/70 text-[13px] uppercase tracking-[0.18em] font-medium">
+                <span className="h-px w-6 bg-accent" />
+                <span>Thomas, e-commerce, Bruxelles</span>
+                <span className="h-px w-6 bg-accent" />
+              </div>
+            </ScrollRevealDiv>
+          </div>
+        </section>
+
         {/* SECTION 4 — FAQ (hairlines éditoriaux) */}
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
