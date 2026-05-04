@@ -26,6 +26,7 @@ import {
   Mail,
   FileText,
   ArrowRight,
+  Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
