@@ -74,7 +74,8 @@ const App = () => {
       <BrowserRouter>
         <RouteTracker />
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<AccueilV2 />} />
+          <Route path="/accueil-v1/" element={<Index />} />
           <Route path="/accueilv2/" element={<AccueilV2 />} />
           <Route path="/accueilv2" element={<AccueilV2 />} />
           <Route path="/accueilv3/" element={<AccueilV3 />} />
