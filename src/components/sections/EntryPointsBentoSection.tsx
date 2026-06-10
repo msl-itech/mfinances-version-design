@@ -146,7 +146,7 @@ export default function EntryPointsBentoSection() {
               <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl bg-card/90 backdrop-blur flex items-center justify-center shadow-md">
                 <Calendar size={18} className="text-primary" strokeWidth={1.75} />
               </div>
-              <span className="absolute top-3 right-3 text-[10px] font-bold tracking-[0.12em] uppercase bg-primary/10 text-primary px-2.5 py-1 rounded-full">
+              <span className="absolute top-3 right-3 text-[10px] font-bold tracking-[0.12em] uppercase bg-card/90 backdrop-blur text-primary px-2.5 py-1 rounded-full shadow-sm">
                 30 min
               </span>
             </div>
