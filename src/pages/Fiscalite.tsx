@@ -218,7 +218,7 @@ export default function Fiscalite() {
                       <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
                     </div>
                     <h3 className="text-[17px] font-display font-bold text-foreground mb-2 leading-tight relative">{s.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
+                    <p className="text-[14px] text-foreground/80 leading-[1.7] font-body relative">{s.desc}</p>
                   </ScrollRevealDiv>
                 );
               })}
