@@ -203,7 +203,7 @@ export default function Comptabilite() {
                     </span>
                     <div className="flex items-center gap-2 mb-5 relative">
                       <div className="h-px w-6 bg-accent" />
-                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-accent font-medium">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
