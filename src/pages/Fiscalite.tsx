@@ -258,7 +258,7 @@ export default function Fiscalite() {
                     </span>
                   </div>
                   <p className="text-[15px] md:text-[16px] leading-[1.7] text-foreground font-body">
-                    Avec rémunération optimisée + <strong>VVPRbis</strong> + réserve de liquidation, passage de <strong className="text-accent">28% à 18%</strong> de charge effective.
+                    Avec rémunération optimisée + <strong>VVPRbis</strong> ou réserve de liquidation, passage de <strong className="text-accent">28% à 18%</strong> de charge effective.
                   </p>
                   <p className="font-display italic text-[16px] md:text-[18px] text-foreground mt-3">
                     Soit <span className="text-accent not-italic font-bold">18 000 €</span> économisés par an pour un bénéfice de 180 000 €.
