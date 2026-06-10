@@ -111,7 +111,23 @@ export default function HeroSection() {
                   />
                 </svg>
               </span>{" "}
-              gagne-t-elle vraiment de l'argent&nbsp;?
+              <span className="relative inline-block">
+                gagne-t-elle vraiment de l'argent&nbsp;?
+                <svg
+                  className="absolute -bottom-1 left-0 w-full h-[10px]"
+                  viewBox="0 0 420 14"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 10 Q 105 2, 210 8 T 418 6"
+                    stroke="hsl(var(--accent))"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    opacity="0.85"
+                  />
+                </svg>
+              </span>
             </h1>
 
             {/* Description + CTAs in asymmetric row */}
