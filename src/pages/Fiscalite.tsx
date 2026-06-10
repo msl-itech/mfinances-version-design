@@ -267,10 +267,10 @@ export default function Fiscalite() {
                 <ul className="mt-10 space-y-4">
                   {leviers.map((l, i) => (
                     <li key={l} className="flex items-start gap-4 group">
-                      <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-7">
+                      <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-7">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-[14px] md:text-[15px] text-foreground/85 font-body leading-[1.7] flex-1 border-b border-border/40 pb-3 group-hover:border-accent/30 transition-colors duration-300">
+                      <span className="text-[14px] md:text-[15px] text-foreground font-body leading-[1.7] flex-1 border-b border-border/40 pb-3 group-hover:border-accent/30 transition-colors duration-300">
                         {l}
                       </span>
                     </li>
