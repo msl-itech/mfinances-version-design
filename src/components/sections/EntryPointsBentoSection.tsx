@@ -147,7 +147,7 @@ export default function EntryPointsBentoSection() {
                 <Calendar size={18} className="text-primary" strokeWidth={1.75} />
               </div>
               <span className="absolute top-3 right-3 text-[10px] font-bold tracking-[0.12em] uppercase bg-primary/10 text-primary px-2.5 py-1 rounded-full">
-                Avec Mika
+                30 min
               </span>
             </div>
             <div className="p-5 flex-1 flex flex-col">
