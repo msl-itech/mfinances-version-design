@@ -603,7 +603,20 @@ export const blogArticles: BlogArticle[] = [
     metaDescription: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention. Cabinet MFinances Uccle.",
     pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
+  {
+    slug: "fin-deduction-interets-immobilier-2026",
+    title: "Votre immeuble de rapport ne vous protège plus fiscalement. Ce que ça change en 2026.",
+    excerpt: "Dès l'exercice 2026, la déduction des intérêts d'emprunt sur l'immobilier secondaire disparaît. Impact concret, autres réformes et solutions structurelles.",
+    category: "Fiscalité belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-05-20",
+    seoTitle: "Fin de la déduction des intérêts immobiliers — Réforme 2026",
+    metaDescription: "Dès 2026, fin de la déduction des intérêts d'emprunt sur l'immobilier secondaire en Belgique. Impact, autres mesures et stratégies pour dirigeants.",
+    pillarPage: "/services/fiscalite/",
+  },
 ];
+
 
 export function getArticlesByCategory(categorySlug: string) {
   return blogArticles.filter((a) => a.categorySlug === categorySlug);
