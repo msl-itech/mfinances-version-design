@@ -288,3 +288,29 @@ html.lenis-active.lenis-smooth {
 /* Make sure the grain overlay sits below the cursor */
 .grain-layer { z-index: 60; }
 
+/* ---------- Signes Distinctifs MFinances ---------- */
+
+/* 1. Trame de précision */
+.bg-precision-grid {
+  background-image: 
+    linear-gradient(to right, hsl(var(--foreground) / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.bg-precision-grid-light {
+  background-image: 
+    linear-gradient(to right, hsl(var(--primary-foreground) / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary-foreground) / 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* 2. Angle de croissance (Cut corners) */
+.cut-corner {
+  /* Cuts the top right corner by 24px */
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+}
+
+.cut-corner-bottom {
+  /* Cuts the bottom right corner by 24px */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+}

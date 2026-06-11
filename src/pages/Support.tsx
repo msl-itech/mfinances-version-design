@@ -20,6 +20,7 @@ import {
   Info,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const steps = [
   {
@@ -90,7 +91,7 @@ export default function Support() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-16 md:py-20 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">

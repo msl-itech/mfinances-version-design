@@ -8,6 +8,7 @@ import { ArrowRight, ShieldCheck, Check, FileText, BookOpen, Users, Loader2 } fr
 import { submitLead } from "@/lib/odoo-submit";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
+import Stamp from "@/components/ui/Stamp";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -297,7 +298,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 7 — CTA FINAL ── */}
-        <section className="bg-primary py-14 md:py-20">
+        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
           <div className="mx-auto max-w-[640px] px-6 lg:px-12 text-center">
             <h2 className="font-display text-[22px] md:text-[30px] text-primary-foreground mb-4">
               Un point de votre checklist vous préoccupe ?

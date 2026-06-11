@@ -37,6 +37,7 @@ import {
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import Stamp from "@/components/ui/Stamp";
 import equipePhoto from "@/assets/mfinances-equipe-travail.png";
 import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
 import mikaPhoto from "@/assets/mika-musungayi.png";
@@ -235,7 +236,7 @@ export default function AccueilV2() {
         <section className="relative">
           <div
             ref={heroRef}
-            className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px]"
+            className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px] bg-precision-grid-light"
             style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
           >
             <img
@@ -308,10 +309,14 @@ export default function AccueilV2() {
 
             {/* ===== DESKTOP : Floating dark card (inchangé) ===== */}
             <div
-              className={`hidden md:block absolute top-24 right-12 lg:right-24 max-w-[520px] bg-foreground text-background rounded-3xl p-10 shadow-2xl transition-transform duration-1000 ${
+              className={`hidden md:block absolute top-24 right-12 lg:right-24 max-w-[520px] transition-transform duration-1000 ${
                 mounted ? "translate-y-0" : "translate-y-6"
               }`}
             >
+              <div className="absolute -top-16 -right-12 z-20 pointer-events-none">
+                 <Stamp className="text-accent drop-shadow-lg" />
+              </div>
+              <div className="bg-foreground text-background rounded-3xl p-10 shadow-2xl cut-corner relative w-full h-full">
               <h1
                 className="font-display text-[44px] leading-[1.05] text-background"
                 data-anim="chars"
@@ -353,6 +358,7 @@ export default function AccueilV2() {
                 >
                   <Link to="/services/">Découvrir nos services</Link>
                 </Button>
+              </div>
               </div>
             </div>
           </div>
@@ -425,7 +431,7 @@ export default function AccueilV2() {
 
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto text-center mb-14">
-              <div className="inline-flex items-center gap-4 mb-5">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
                   Le constat
@@ -478,7 +484,7 @@ export default function AccueilV2() {
           <div className="container-mf">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
-                <div className="inline-flex items-center gap-4 mb-3">
+                <div className="inline-flex items-center gap-4 mb-3 border-l-2 border-accent pl-4">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
                   <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Nos solutions</span>
                 </div>
@@ -509,7 +515,7 @@ export default function AccueilV2() {
                     key={s.title}
                     data-tilt
                     data-tilt-max="6"
-                    className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
+                    className="group bg-card cut-corner overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
                   >
                     <div className="relative h-52 overflow-hidden" data-anim="clip-reveal" data-clip-direction="up">
                       <img
@@ -542,7 +548,7 @@ export default function AccueilV2() {
         </section>
 
         {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
-        <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-primary relative overflow-hidden bg-precision-grid-light">
           <div
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
@@ -552,7 +558,7 @@ export default function AccueilV2() {
 
           <div className="container-mf relative">
             <div className="text-center mb-14">
-              <div className="inline-flex items-center gap-4 mb-5">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
                   Notre approche

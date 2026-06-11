@@ -15,6 +15,7 @@ import {
 import { ArrowRight, Clock } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticlesByCategory } from "@/data/blog-data";
+import Stamp from "@/components/ui/Stamp";
 
 function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal();
@@ -61,7 +62,7 @@ export default function BlogCategory() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-16 md:py-20 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">

@@ -30,6 +30,7 @@ import {
   TrendingDown,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const mutualisations = [
   { icon: Building2, label: "Locaux professionnels — loyer, charges, entretien, énergie" },
@@ -93,9 +94,9 @@ export default function SocieteDeMoyens() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Partager</span>
+            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Partager</span>
           </div>
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
 
@@ -179,7 +180,7 @@ export default function SocieteDeMoyens() {
         {/* ── SERVICES ── */}
         <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -right-10 select-none hidden lg:block">
-            <span className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Mutualiser</span>
+            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Mutualiser</span>
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
@@ -249,7 +250,7 @@ export default function SocieteDeMoyens() {
         {/* ── RÉSULTAT CONCRET ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
-            <span className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Impact</span>
+            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Impact</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
@@ -323,7 +324,7 @@ export default function SocieteDeMoyens() {
         {/* ── FORFAITS ── */}
         <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
-            <span className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
+            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
@@ -437,7 +438,7 @@ export default function SocieteDeMoyens() {
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>

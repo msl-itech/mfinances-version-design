@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Stamp from "@/components/ui/Stamp";
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -21,7 +22,7 @@ export default function PolitiqueCookies() {
       />
       <Header />
       <main>
-        <section className="bg-primary py-12 md:py-16">
+        <section className="bg-primary py-12 md:py-16 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>

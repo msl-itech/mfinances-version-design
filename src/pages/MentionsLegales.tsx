@@ -7,6 +7,7 @@ import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { createBreadcrumbSchema } from "@/lib/seo-schemas";
+import Stamp from "@/components/ui/Stamp";
 
 export default function MentionsLegales() {
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function MentionsLegales() {
       />
       <Header />
       <main>
-        <section className="bg-primary py-12 md:py-16">
+        <section className="bg-primary py-12 md:py-16 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>

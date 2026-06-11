@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle2, Clock, Shield, BarChart3, AlertTriangle, TrendingUp, Wallet, PiggyBank, Landmark } from "lucide-react";
+import Stamp from "@/components/ui/Stamp";
 
 /* ───── DATA ───── */
 
@@ -379,7 +380,7 @@ export default function Diagnostic() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-16">
+        <section className="bg-primary py-10 md:py-16 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center">
             <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-4 md:mb-5">
               Gratuit · 3 minutes · Confidentiel

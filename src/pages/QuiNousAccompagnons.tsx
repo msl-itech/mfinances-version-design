@@ -29,6 +29,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const profilCards = [
   {
@@ -193,7 +194,7 @@ export default function QuiNousAccompagnons() {
 
       <main>
         {/* ── HERO ÉDITORIAL ── */}
-        <section className="relative bg-primary overflow-hidden py-16 md:py-28">
+        <section className="relative bg-primary overflow-hidden py-16 md:py-28 bg-precision-grid-light">
           {/* watermark */}
           <div aria-hidden className="pointer-events-none absolute -bottom-10 -right-6 select-none">
             <span

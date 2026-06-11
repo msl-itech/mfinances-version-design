@@ -25,6 +25,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const pilotageServices = [
   {
@@ -198,7 +199,7 @@ export default function Services() {
 
       <main>
         {/* ── HERO ÉDITORIAL ── */}
-        <section className="relative bg-primary overflow-hidden">
+        <section className="relative bg-primary overflow-hidden bg-precision-grid-light">
           {/* decorative orbs */}
           <div
             className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"

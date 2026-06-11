@@ -9,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import Stamp from "@/components/ui/Stamp";
 
 export interface ServicePageHeroProps {
   /** Slug or label shown above title, e.g. "DAF à temps partiel" */
@@ -70,7 +71,7 @@ export default function ServicePageHero({
   watermark,
 }: ServicePageHeroProps) {
   return (
-    <section className="relative bg-primary overflow-hidden">
+    <section className="relative bg-primary overflow-hidden bg-precision-grid-light">
       {/* decorative orbs */}
       <div
         className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"
@@ -119,7 +120,7 @@ export default function ServicePageHero({
         <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
           {/* Left — Copy */}
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-6 border-l-2 border-accent pl-4">
               <span className="font-display text-[14px] text-accent font-bold tracking-wider">— {number}</span>
               <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/55 font-medium">
                 {sectionLabel}
@@ -214,9 +215,12 @@ export default function ServicePageHero({
 
           {/* Right — Image card */}
           <div className="lg:col-span-5 lg:pb-4">
-            <div className="relative group">
+            <div className="relative group mt-10 lg:mt-0">
               <div className="absolute -inset-2 bg-accent/20 rounded-[32px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-              <div className="relative rounded-[28px] overflow-hidden ring-1 ring-primary-foreground/10">
+              <div className="absolute -top-12 -right-6 z-20 hidden md:block">
+                <Stamp className="text-accent drop-shadow-lg" />
+              </div>
+              <div className="relative rounded-[28px] overflow-hidden ring-1 ring-primary-foreground/10 cut-corner">
                 <img
                   src={image}
                   alt={imageAlt}

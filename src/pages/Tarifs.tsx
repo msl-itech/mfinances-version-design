@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/tarifs-hero.jpg";
 import imgMeeting from "@/assets/daf-meeting-team.png";
 
 import Header from "@/components/Header";
@@ -28,6 +27,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Minus,
   ShieldCheck,
@@ -41,7 +41,9 @@ import {
   Sparkles,
   Quote,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
+import Stamp from "@/components/ui/Stamp";
 
 const compareRows = [
   { label: "Prix mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
@@ -130,28 +132,56 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
-
 function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
-  if (v === true) return <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />;
+  if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
   return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v as string}</span>;
 }
 
 export default function Tarifs() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
+  // Red glow following cursor inside the hero
+  const heroRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty("--glow-x", `${x}px`);
+        el.style.setProperty("--glow-y", `${y}px`);
+      });
+    };
+    const onEnter = () => el.style.setProperty("--glow-o", "1");
+    const onLeave = () => el.style.setProperty("--glow-o", "0");
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
         title="Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances"
         description="3 forfaits transparents pour TPE à Bruxelles. Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
@@ -162,105 +192,138 @@ export default function Tarifs() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
-          {/* Watermark éditorial */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
+        <section className="relative">
+          <div
+            ref={heroRef}
+            className="group/hero relative overflow-hidden bg-primary py-12 md:py-24 bg-precision-grid-light"
+            style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
           >
-            Tarifs
-          </span>
-          {/* Glow accent */}
-          <div className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-accent/10 blur-3xl" />
+            <span
+              aria-hidden="true"
+              data-anim="text-scrub" data-scrub-dir="right"
+              className="pointer-events-none select-none absolute top-10 md:top-12 inset-x-0 text-center font-display italic text-primary-foreground/[0.04] text-[110px] md:text-[220px] leading-none tracking-tight whitespace-nowrap"
+            >
+              Tarifs
+            </span>
+            
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-[5] mix-blend-screen transition-opacity duration-500"
+              style={{
+                opacity: "var(--glow-o)",
+                background:
+                  "radial-gradient(420px circle at var(--glow-x) var(--glow-y), hsl(var(--accent) / 0.55), hsl(var(--accent) / 0.18) 35%, transparent 65%)",
+              }}
+            />
 
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center relative z-10">
-            <div className="text-center lg:text-left">
-              <Breadcrumb>
-                <BreadcrumbList className="justify-center lg:justify-start">
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Tarifs</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-
-              <div className="mt-7 md:mt-9">
-                <div className="inline-flex items-center gap-2 mb-5 md:mb-6">
-                  <span className="h-px w-10 bg-accent" />
-                  <span className="font-body text-[11px] font-bold tracking-[0.25em] uppercase text-accent">
-                    Tarifs · 03 forfaits
-                  </span>
+            <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center relative z-10">
+              <div className="text-center lg:text-left">
+                <div className={`transition-transform duration-1000 ${mounted ? "translate-y-0" : "translate-y-6"}`}>
+                  <Breadcrumb>
+                    <BreadcrumbList className="justify-center lg:justify-start">
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator className="text-primary-foreground/40" />
+                      <BreadcrumbItem>
+                        <BreadcrumbPage className="text-primary-foreground text-[13px]">Tarifs</BreadcrumbPage>
+                      </BreadcrumbItem>
+                    </BreadcrumbList>
+                  </Breadcrumb>
                 </div>
 
-                <h1 className="font-display text-[28px] sm:text-[34px] md:text-[52px] leading-[1.08] text-primary-foreground tracking-tight">
-                  Des forfaits <span className="italic font-light text-accent">transparents</span>,<br className="hidden md:block" /> sans surprise — adaptés à votre <span className="italic font-light">stade de croissance</span>.
-                </h1>
+                <div className="mt-7 md:mt-9">
+                  <div className={`inline-flex items-center gap-4 mb-5 md:mb-6 transition-transform duration-1000 ${mounted ? "translate-y-0" : "translate-y-6"}`}>
+                    <span className="font-display text-[14px] text-accent font-bold tracking-wider">— Tarifs</span>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
+                      03 forfaits
+                    </span>
+                  </div>
 
-                <p className="mt-6 md:mt-7 text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body max-w-[520px] mx-auto lg:mx-0">
-                  Trois niveaux d'accompagnement, un seul engagement&nbsp;: vous donner une vision claire et anticipée de vos finances. À partir de <strong className="text-primary-foreground">350 € HTVA / mois</strong>.
-                </p>
+                  <h1 
+                    className="font-display text-[32px] sm:text-[40px] md:text-[56px] leading-[1.05] text-primary-foreground tracking-tight"
+                    data-anim="chars"
+                    data-stagger="0.03"
+                    data-delay="0.25"
+                  >
+                    Des forfaits <em className="italic font-normal text-accent">transparents</em>,<br className="hidden md:block" /> sans surprise — adaptés à votre <em className="italic font-normal text-primary-foreground/80">stade de croissance</em>.
+                  </h1>
 
-                <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
-                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                    <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                  </Button>
-                  <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                    <a href="#forfaits">Comparer les forfaits</a>
-                  </Button>
+                  <p 
+                    className="mt-6 md:mt-7 text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body max-w-[520px] mx-auto lg:mx-0"
+                    data-anim="fade-up"
+                    data-delay="0.4"
+                  >
+                    Trois niveaux d'accompagnement, un seul engagement&nbsp;: vous donner une vision claire et anticipée de vos finances. À partir de <strong className="text-primary-foreground">350 € HTVA / mois</strong>.
+                  </p>
+
+                  <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start" data-anim="fade-up" data-delay="0.55">
+                    <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group h-12 text-[14px]" asChild>
+                      <Link to="/contact/">
+                        <span className="flex items-center gap-3">
+                          Consultation gratuite
+                          <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                            <ArrowUpRight size={14} />
+                          </span>
+                        </span>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="lg" className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                      <a href="#forfaits">Comparer les forfaits</a>
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="relative">
-              <div className="absolute -inset-2 bg-accent/20 blur-2xl rounded-3xl" aria-hidden="true" />
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden aspect-video max-w-full ring-1 ring-primary-foreground/10">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/gAF_Jw6_T7Q"
-                  title="Pilotez vos finances avec Mfinances - Bruxelles : Formule Base, Premium ou Excellence"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+              <div className="relative" data-anim="fade-up" data-delay="0.4">
+                <div className="absolute -inset-2 bg-accent/20 blur-2xl rounded-3xl" aria-hidden="true" />
+                <div className="absolute -top-12 -right-10 z-20">
+                  <Stamp className="text-accent drop-shadow-lg" />
+                </div>
+                <div className="relative rounded-2xl shadow-2xl overflow-hidden aspect-video max-w-full ring-1 ring-primary-foreground/10" data-tilt data-tilt-max="3">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/gAF_Jw6_T7Q"
+                    title="Pilotez vos finances avec Mfinances - Bruxelles : Formule Base, Premium ou Excellence"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-
         {/* ── SECTION 1 — Tableau comparatif ── */}
-        <section id="forfaits" className="bg-card py-14 md:py-24 relative overflow-hidden">
+        <section id="forfaits" className="py-20 md:py-28 bg-card relative overflow-hidden">
           <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.035] text-[120px] md:text-[200px] leading-none tracking-tight"
+            aria-hidden="true" data-anim="text-scrub"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
           >
             Comparer
           </span>
 
-          <div className="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-10 md:mb-16 max-w-[680px] mx-auto">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">01 · Comparatif</span>
-                <span className="h-px w-8 bg-accent" />
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Comparatif</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
-                Nos trois <span className="italic font-light text-accent">forfaits</span>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Nos trois forfaits.
               </h2>
-              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Une lecture côte à côte, pour choisir en quelques secondes le niveau d'accompagnement qui vous correspond.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.3">
               {/* Desktop table */}
               <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]">
                 <div className="overflow-x-auto">
@@ -351,79 +414,77 @@ export default function Tarifs() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.2}>
+            <div data-anim="fade-up" data-delay="0.4">
               <p className="text-center mt-8 text-[13px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto">
                 Les tarifs affichés sont nos forfaits de base — ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground not-italic">réduction de 21%</strong> sur nos tarifs.
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
-
         {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
-        <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+        <section className="py-20 md:py-28 relative overflow-hidden bg-secondary/50">
           <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute -bottom-8 -left-4 font-display italic text-primary/[0.04] text-[110px] md:text-[200px] leading-none tracking-tight"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Choisir
           </span>
 
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-10 md:mb-16 max-w-[680px] mx-auto">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">02 · Détail</span>
-                <span className="h-px w-8 bg-accent" />
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Détail</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
-                Quel forfait est <span className="italic font-light text-accent">fait pour vous</span> ?
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Quel forfait est fait pour vous ?
               </h2>
-              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Trois philosophies d'accompagnement, pensées pour suivre la trajectoire de votre entreprise.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7" data-anim="stagger" data-stagger="0.1">
               {plans.map((plan, i) => {
                 const Icon = plan.icon;
                 const isExcellence = plan.name === "Excellence";
                 const isPopular = plan.popular;
                 return (
-                  <ScrollRevealDiv
-                    key={plan.name}
-                    delay={0.08 + i * 0.08}
-                    className={`group relative rounded-3xl p-7 md:p-9 flex flex-col transition-all duration-500 ${
-                      isExcellence
-                        ? "bg-primary text-primary-foreground border border-primary shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.6)] hover:-translate-y-1"
-                        : isPopular
-                          ? "bg-card border-2 border-accent/40 shadow-[0_20px_60px_-25px_hsl(var(--accent)/0.4)] hover:-translate-y-1"
-                          : "bg-card border border-border/60 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]"
-                    }`}
-                  >
-                    {/* Numéro éditorial en filigrane */}
-                    <span
-                      aria-hidden="true"
-                      className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${
-                        isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
-                      }`}
-                    >
-                      0{i + 1}
-                    </span>
-
+                  <div key={plan.name} className="relative pt-3">
                     {isPopular && !isExcellence && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
+                      <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
                         POPULAIRE
                       </span>
                     )}
+                    <div
+                      data-tilt
+                      data-tilt-max="5"
+                      className={`group relative rounded-3xl p-7 md:p-9 flex flex-col h-full transition-shadow duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] cut-corner ${
+                        isExcellence
+                          ? "bg-primary text-primary-foreground border border-primary"
+                          : isPopular
+                            ? "bg-card border-2 border-accent/40"
+                            : "bg-card border border-border/50 hover:border-accent/30"
+                      }`}
+                    >
+                      {/* Numéro éditorial en filigrane */}
+                      <span
+                        aria-hidden="true"
+                        className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${
+                          isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
+                        }`}
+                      >
+                        0{i + 1}
+                      </span>
 
                     <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-300 group-hover:scale-110 ${
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-500 group-hover:rotate-[-6deg] ${
                         isExcellence ? "bg-accent/15 ring-1 ring-accent/30" : "bg-accent/10"
                       }`}
                     >
@@ -465,98 +526,107 @@ export default function Tarifs() {
                       {plan.desc}
                     </p>
 
-                    <Button
-                      variant={isExcellence ? "accent" : isPopular ? "accent" : "outline"}
-                      className="w-full mt-7 rounded-full whitespace-normal text-center"
-                      asChild
-                    >
-                      <Link to="/contact/">
-                        Choisir {plan.name} <ArrowRight size={14} className="ml-1 flex-shrink-0" />
+                    <div className="mt-7">
+                      <Link
+                        to="/contact/"
+                        className={`inline-flex items-center justify-center w-full rounded-full gap-2 py-3 text-[14px] font-medium transition-colors ${
+                          isExcellence 
+                            ? "bg-accent text-accent-foreground hover:bg-accent/90" 
+                            : isPopular 
+                              ? "bg-accent text-accent-foreground hover:bg-accent/90" 
+                              : "border border-border/60 hover:bg-secondary"
+                        }`}
+                      >
+                        Choisir {plan.name} <ArrowRight size={14} />
                       </Link>
-                    </Button>
-                  </ScrollRevealDiv>
+                    </div>
+                    </div>
+                  </div>
                 );
               })}
             </div>
           </div>
         </section>
 
-
         {/* ── SECTION 3 — DAF option (split card éditorial) ── */}
-        <section className="bg-card py-14 md:py-24">
-          <div className="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv>
-              <div className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
-                {/* Watermark */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none select-none absolute -top-6 -right-4 font-display italic text-primary-foreground/[0.06] text-[120px] md:text-[200px] leading-none tracking-tight"
-                >
-                  DAF
-                </span>
-                <div className="absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          <div className="container-mf">
+            <div data-anim="fade-up" className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)] border border-primary-foreground/10">
+              {/* Watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute -top-6 -right-4 font-display italic text-primary-foreground/[0.06] text-[120px] md:text-[200px] leading-none tracking-tight"
+              >
+                DAF
+              </span>
+              <div className="absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
-                <div className="relative grid md:grid-cols-[1fr_1.3fr] gap-0">
-                  {/* Colonne gauche — visuel + badge */}
-                  <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-primary-foreground/10 flex flex-col justify-center">
-                    <div className="inline-flex items-center gap-2 mb-5">
-                      <Sparkles size={14} className="text-accent" strokeWidth={1.5} />
-                      <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Option Excellence</span>
-                    </div>
-                    <div className="w-16 h-16 rounded-2xl bg-accent/15 ring-1 ring-accent/30 flex items-center justify-center mb-6">
-                      <Users size={28} className="text-accent" strokeWidth={1.5} />
-                    </div>
-                    <span className="font-display text-[44px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
-                      150€
-                    </span>
-                    <span className="text-primary-foreground/60 text-[13px] font-body mt-1">HTVA / heure</span>
+              <div className="relative grid md:grid-cols-[1fr_1.3fr] gap-0">
+                {/* Colonne gauche — visuel + badge */}
+                <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-primary-foreground/10 flex flex-col justify-center">
+                  <div className="inline-flex items-center gap-2 mb-5">
+                    <Sparkles size={14} className="text-accent" strokeWidth={1.5} />
+                    <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Option Excellence</span>
                   </div>
+                  <div className="w-16 h-16 rounded-2xl bg-accent/15 ring-1 ring-accent/30 flex items-center justify-center mb-6">
+                    <Users size={28} className="text-accent" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-display text-[44px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
+                    150€
+                  </span>
+                  <span className="text-primary-foreground/60 text-[13px] font-body mt-1">HTVA / heure</span>
+                </div>
 
-                  {/* Colonne droite — narration */}
-                  <div className="p-8 md:p-12 flex flex-col justify-center">
-                    <h2 className="font-display text-[26px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
-                      Le DAF à temps partiel — <span className="italic font-light text-accent">au plus près de vos décisions</span>
-                    </h2>
-                    <p className="text-primary-foreground/75 text-[15px] leading-[1.8] mt-5 font-body">
-                      Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée — comme un directeur financier interne, sans le coût fixe.
-                    </p>
-                    <div>
-                      <Button variant="accent" size="lg" className="rounded-full mt-7 whitespace-normal text-center" asChild>
-                        <Link to="/services/daf-externalise/">En savoir plus <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                      </Button>
-                    </div>
+                {/* Colonne droite — narration */}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <h2 className="font-display text-[26px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
+                    Le DAF à temps partiel — <span className="italic font-light text-accent">au plus près de vos décisions</span>
+                  </h2>
+                  <p className="text-primary-foreground/75 text-[15px] leading-[1.8] mt-5 font-body">
+                    Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée — comme un directeur financier interne, sans le coût fixe.
+                  </p>
+                  <div>
+                    <Button variant="accent" size="lg" className="rounded-full mt-7 pl-6 pr-3 group text-[14px]" asChild>
+                      <Link to="/services/daf-externalise/">
+                        <span className="flex items-center gap-3">
+                          En savoir plus
+                          <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                            <ArrowUpRight size={14} />
+                          </span>
+                        </span>
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 4 — Missions ponctuelles ── */}
-        <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
           <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute -top-6 -right-4 font-display italic text-primary/[0.04] text-[110px] md:text-[180px] leading-none tracking-tight"
+            aria-hidden="true" data-anim="text-scrub"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-primary/[0.035] pointer-events-none select-none whitespace-nowrap"
           >
             Ponctuel
           </span>
 
-          <div className="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 max-w-[640px] mx-auto">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">03 · Au-delà des forfaits</span>
-                <span className="h-px w-8 bg-accent" />
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Au-delà des forfaits</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[42px] text-foreground leading-[1.12] tracking-tight">
-                Missions <span className="italic font-light text-accent">ponctuelles</span>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Missions ponctuelles.
               </h2>
-              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Pour les besoins spécifiques qui s'ajoutent ou se substituent à un forfait mensuel.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.3" className="max-w-[900px] mx-auto">
               {/* Desktop table */}
               <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.2)]">
                 <table className="w-full text-[14px]">
@@ -592,69 +662,68 @@ export default function Tarifs() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.2}>
-              <div className="bg-card rounded-2xl p-5 sm:p-6 mt-6 border border-border/50 flex gap-4 items-start">
-                <Quote size={28} className="text-accent/40 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
-                <p className="text-[13.5px] text-foreground/75 font-body leading-relaxed italic">
+            <div data-anim="fade-up" data-delay="0.4" className="max-w-[900px] mx-auto">
+              <div className="bg-card rounded-2xl p-6 sm:p-8 mt-6 border border-border/50 flex flex-col md:flex-row gap-5 items-start relative overflow-hidden">
+                <Quote size={32} className="text-accent/30 flex-shrink-0" strokeWidth={1.5} />
+                <p className="text-[14.5px] text-muted-foreground font-body leading-relaxed">
                   Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte — c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION TÉMOIGNAGE ── */}
-        <section className="bg-card py-14 md:py-20 relative overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-            <ScrollRevealDiv>
-              <figure className="bg-secondary rounded-3xl p-8 md:p-12 border border-border/50 relative">
-                <Quote size={40} className="text-accent/40 absolute top-6 left-6" strokeWidth={1.5} aria-hidden="true" />
-                <blockquote className="font-display italic text-[20px] md:text-[26px] leading-snug text-primary text-center pt-6">
+        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+          <div className="container-mf max-w-[800px]">
+            <div data-anim="fade-up">
+              <figure className="bg-background rounded-3xl p-8 md:p-12 border border-border/50 relative shadow-[0_8px_30px_rgba(27,43,94,0.04)]">
+                <Quote size={40} className="text-accent/30 absolute top-6 left-6" strokeWidth={1.5} aria-hidden="true" />
+                <blockquote className="font-display italic text-[22px] md:text-[28px] leading-snug text-primary text-center pt-6">
                   «&nbsp;J'hésitais à quitter mon comptable low cost. En 6 mois, l'optimisation fiscale a couvert 2 ans de forfait Premium.&nbsp;»
                 </blockquote>
                 <figcaption className="mt-6 text-center text-[13px] font-body text-muted-foreground tracking-wide uppercase">
                   Thomas, consultant IT, Bruxelles
                 </figcaption>
               </figure>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 5 — Comment ça se passe ── */}
-        <section className="bg-card py-14 md:py-24 relative overflow-hidden">
+        <section className="py-20 md:py-28 relative overflow-hidden">
           <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute -bottom-6 left-0 font-display italic text-primary/[0.035] text-[110px] md:text-[200px] leading-none tracking-tight"
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
+            className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
           >
             Démarrer
           </span>
 
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16 max-w-[680px] mx-auto">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">04 · Démarrage</span>
-                <span className="h-px w-8 bg-accent" />
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Démarrage</span>
               </div>
-              <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.12] tracking-tight">
-                Comment ça se passe <span className="italic font-light text-accent">concrètement</span> ?
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Comment ça se passe concrètement ?
               </h2>
-              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Trois étapes simples — et 48 heures pour démarrer notre collaboration.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 relative" data-anim="stagger" data-stagger="0.1">
               {/* Ligne de connexion subtile */}
               <div className="hidden md:block absolute top-[88px] left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
               {steps.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.num} delay={0.1 + i * 0.08} className="relative">
-                    <div className="group bg-card rounded-3xl p-7 md:p-8 border border-border/60 text-center h-full transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)] relative overflow-hidden">
+                  <div key={s.num} data-tilt data-tilt-max="5" className="relative">
+                    <div className="group bg-card rounded-3xl p-7 md:p-9 border border-border/50 text-center h-full transition-shadow duration-500 hover:border-accent/30 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] relative overflow-hidden">
                       {/* Numéro filigrane */}
                       <span
                         aria-hidden="true"
@@ -664,75 +733,92 @@ export default function Tarifs() {
                       </span>
 
                       <div className="relative z-10">
-                        <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:bg-accent/15 transition-all duration-300">
+                        <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:bg-accent/15 group-hover:rotate-[-6deg] transition-all duration-300">
                           <Icon size={24} className="text-accent" strokeWidth={1.5} />
                         </div>
-                        <h3 className="text-[18px] font-display font-bold text-foreground mb-3 tracking-tight">{s.title}</h3>
+                        <h3 className="text-[20px] font-display text-primary mb-3 leading-tight">{s.title}</h3>
                         <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
+            
+            <div className="text-center mt-14" data-anim="fade-up">
+              <Button variant="accent" size="lg" className="rounded-full px-10 group" asChild>
+                <Link to="/contact/">
+                  Consultation gratuite
+                  <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
           </div>
-
         </section>
 
         {/* ── SECTION FAQ ── */}
-        <section className="bg-secondary py-10 md:py-20">
-          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Questions <span className="text-accent">fréquentes</span>
+        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+          <div className="container-mf max-w-[800px]">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-[32px] md:text-[42px] leading-[1.05]" data-anim="split">
+                Questions <span className="text-accent italic font-light">fréquentes</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.2">
               <Accordion
                 type="multiple"
                 defaultValue={faqs.map((_, i) => `faq-${i}`)}
-                className="space-y-3"
+                className="space-y-4"
               >
                 {faqs.map((f, i) => (
                   <AccordionItem
                     key={i}
                     value={`faq-${i}`}
-                    className="bg-card rounded-xl border border-border/50 px-4 sm:px-6 overflow-hidden"
+                    className="bg-background rounded-2xl border border-border/50 px-5 sm:px-7 overflow-hidden data-[state=open]:border-accent/30 transition-colors"
                   >
-                    <AccordionTrigger className="text-[14px] sm:text-[15px] font-semibold text-foreground font-body hover:no-underline py-5 text-left">
+                    <AccordionTrigger className="text-[15px] sm:text-[16px] font-semibold text-primary font-body hover:no-underline py-6 text-left">
                       {f.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-[14px] text-muted-foreground leading-relaxed font-body pb-5">
+                    <AccordionContent className="text-[14.5px] text-muted-foreground leading-relaxed font-body pb-6">
                       {f.a}
                     </AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-10 md:py-20 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-          <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
-              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
-                Prêt à choisir votre forfait ?
-              </h2>
-              <p className="text-primary-foreground/75 text-[15px] sm:text-[16px] leading-relaxed mt-4 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel — nous vous recommandons le forfait adapté à votre situation.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 md:mt-10">
-                <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-                <Button variant="outline-white" size="lg" className="rounded-full whitespace-normal text-center" asChild>
-                  <Link to="/#services">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
-                </Button>
-              </div>
-            </ScrollRevealDiv>
+        <section className="py-20 md:py-28 bg-primary relative overflow-hidden bg-precision-grid-light">
+          <div className="absolute inset-0 opacity-15">
+             <img src={imgMeeting} alt="Consultation MFinances" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
+          
+          <div className="container-mf max-w-[800px] text-center relative z-10" data-anim="fade-up">
+            <h2 className="font-display text-[34px] md:text-[48px] text-primary-foreground leading-[1.05]">
+              Prêt à choisir votre forfait ?
+            </h2>
+            <p className="text-primary-foreground/75 text-[15px] sm:text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
+              Premier échange gratuit et confidentiel — nous vous recommandons le forfait adapté à votre situation.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center mt-10">
+              <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group text-[14px]" asChild>
+                <Link to="/contact/">
+                  <span className="flex items-center gap-3">
+                    Consultation gratuite
+                    <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                      <ArrowUpRight size={14} />
+                    </span>
+                  </span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                <Link to="/services/">Découvrir nos services</Link>
+              </Button>
+            </div>
           </div>
         </section>
       </main>

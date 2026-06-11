@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { createBreadcrumbSchema, personMikaSchema } from "@/lib/seo-schemas";
+import Stamp from "@/components/ui/Stamp";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -95,9 +96,10 @@ export default function APropos() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
           >
             Histoire
@@ -177,6 +179,8 @@ export default function APropos() {
         <section className="bg-card py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
+            data-scrub-dir="right"
             className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.035] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Genèse
@@ -234,6 +238,7 @@ export default function APropos() {
         <section className="bg-primary py-14 md:py-20 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -bottom-6 -left-4 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Tournant
@@ -269,6 +274,8 @@ export default function APropos() {
         <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
+            data-scrub-dir="right"
             className="pointer-events-none select-none absolute -bottom-6 -right-4 font-display italic text-primary/[0.04] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Conviction
@@ -319,6 +326,7 @@ export default function APropos() {
         <section className="bg-card py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -top-4 -left-4 font-display italic text-primary/[0.035] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Valeurs
@@ -392,6 +400,8 @@ export default function APropos() {
         <section className="bg-primary py-14 md:py-20 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
+            data-scrub-dir="right"
             className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary-foreground/[0.05] text-[110px] md:text-[180px] leading-none tracking-tight"
           >
             Manifeste
@@ -416,6 +426,7 @@ export default function APropos() {
         <section id="mika" className="bg-secondary py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -bottom-6 right-0 font-display italic text-primary/[0.04] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Mika
@@ -492,6 +503,8 @@ export default function APropos() {
         <section className="bg-card py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
+            data-scrub-dir="right"
             className="pointer-events-none select-none absolute -top-4 -left-4 font-display italic text-primary/[0.035] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Différence
@@ -541,6 +554,7 @@ export default function APropos() {
         <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -bottom-6 -right-4 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[200px] leading-none tracking-tight"
           >
             Ensemble

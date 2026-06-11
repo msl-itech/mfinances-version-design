@@ -23,6 +23,7 @@ import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
 import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
 import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
 import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+import Stamp from "@/components/ui/Stamp";
 
 const categoryHeroImages: Record<string, string> = {
   "tresorerie": heroTresorerie,
@@ -145,7 +146,7 @@ export default function BlogArticle() {
 
       <main>
         {/* ── HERO ── */}
-        <section data-hero-section className="bg-primary py-12 md:py-16">
+        <section data-hero-section className="bg-primary py-12 md:py-16 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>

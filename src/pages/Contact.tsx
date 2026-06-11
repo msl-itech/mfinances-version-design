@@ -24,6 +24,7 @@ import {
   Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const situations = [
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
@@ -151,9 +152,10 @@ export default function Contact() {
 
       <main>
         {/* Hero banner — éditorial premium */}
-        <section className="bg-primary text-primary-foreground py-12 md:py-24 relative overflow-hidden">
+        <section className="bg-primary text-primary-foreground py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
             className="pointer-events-none select-none absolute -top-6 -left-4 md:-top-10 md:-left-8 font-display italic text-primary-foreground/[0.06] text-[110px] md:text-[220px] leading-none tracking-tight"
           >
             Contact
@@ -226,6 +228,8 @@ export default function Contact() {
         <section className="bg-background pb-14 md:pb-28 relative overflow-hidden">
           <span
             aria-hidden="true"
+            data-anim="text-scrub"
+            data-scrub-dir="right"
             className="pointer-events-none select-none absolute -top-4 right-0 font-display italic text-primary/[0.03] text-[110px] md:text-[200px] leading-none tracking-tight hidden md:block"
           >
             Échangeons

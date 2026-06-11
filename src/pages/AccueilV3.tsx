@@ -45,6 +45,7 @@ import audHoreca from "@/assets/audience-commerce-horeca.webp";
 import audSante from "@/assets/audience-sante.webp";
 import audCroissance from "@/assets/audience-croissance.webp";
 import audPromoteurs from "@/assets/audience-promoteurs.webp";
+import Stamp from "@/components/ui/Stamp";
 
 /* ============================================================
    DATA — texts strictly identical to V2
@@ -748,6 +749,7 @@ export default function AccueilV3() {
           {/* Backdrop typographique */}
           <div
             aria-hidden="true"
+            data-anim="text-scrub"
             className="absolute -top-6 right-0 font-display italic text-[140px] md:text-[260px] leading-none text-accent/[0.04] pointer-events-none select-none whitespace-nowrap"
           >
             Mika.
@@ -936,7 +938,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 10 · CTA FINAL ============== */}
-        <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden bg-precision-grid-light">
           <div className="container-mf text-center relative">
             <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">10 · Bruxelles · Uccle</span>
             <h2 className="font-display text-[36px] md:text-[64px] leading-[1.02] max-w-[920px] mx-auto text-primary-foreground mt-5" data-anim="split">

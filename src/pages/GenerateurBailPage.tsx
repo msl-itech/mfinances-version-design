@@ -6,6 +6,7 @@ import GenerateurBail from "@/components/GenerateurBail";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Stamp from "@/components/ui/Stamp";
 
 export default function GenerateurBailPage() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -33,7 +34,7 @@ export default function GenerateurBailPage() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-14 md:py-20">
+        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
           <div className="mx-auto max-w-[780px] px-6 lg:px-12">
             <span className="inline-flex items-center gap-1.5 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/70 text-[11px] font-medium px-3 py-1 rounded-full mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />

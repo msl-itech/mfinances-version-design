@@ -29,6 +29,7 @@ import {
   Quote,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const missions = [
   { icon: BarChart2, text: "Analyse mensuelle de vos performances financières" },
@@ -349,7 +350,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 3.5 — Témoignage client Excellence */}
-        <section className="relative bg-primary py-20 md:py-28 overflow-hidden">
+        <section className="relative bg-primary py-20 md:py-28 overflow-hidden bg-precision-grid-light">
           <div
             aria-hidden="true"
             className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full opacity-[0.10] pointer-events-none"

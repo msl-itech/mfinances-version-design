@@ -8,6 +8,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, L
 import { submitLead } from "@/lib/odoo-submit";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
+import Stamp from "@/components/ui/Stamp";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -114,7 +115,7 @@ export default function ChecklistTresorerie() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-14 md:py-20">
+        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div className="grid md:grid-cols-[1fr_380px] gap-10 items-center">
               {/* Left — copy */}

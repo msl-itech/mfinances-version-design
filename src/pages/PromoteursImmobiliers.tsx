@@ -27,6 +27,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Stamp from "@/components/ui/Stamp";
 
 const tvaRegimes = [
   "Immeuble neuf destiné à la revente — TVA 21% généralement déductible, sous conditions",
@@ -72,9 +73,9 @@ export default function PromoteursImmobiliers() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Bâtir</span>
+            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Bâtir</span>
           </div>
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
 
@@ -133,7 +134,7 @@ export default function PromoteursImmobiliers() {
         {/* ── SERVICES ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -left-10 select-none hidden lg:block">
-            <span className="font-display italic text-[200px] leading-none text-foreground/[0.035] tracking-tight">Méthode</span>
+            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.035] tracking-tight">Méthode</span>
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
@@ -217,7 +218,7 @@ export default function PromoteursImmobiliers() {
         {/* ── RÉSULTAT CONCRET ── */}
         <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
-            <span className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Impact</span>
+            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Impact</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
@@ -293,7 +294,7 @@ export default function PromoteursImmobiliers() {
         {/* ── OFFRE EXCELLENCE ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none hidden md:block">
-            <span className="font-display italic text-[280px] leading-none text-foreground/[0.03] tracking-tight whitespace-nowrap">Excellence</span>
+            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[280px] leading-none text-foreground/[0.03] tracking-tight whitespace-nowrap">Excellence</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
@@ -388,7 +389,7 @@ export default function PromoteursImmobiliers() {
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <ScrollRevealDiv>
