@@ -12,7 +12,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div ref={root} className="flex min-h-screen items-center justify-center bg-muted">
+    <div className="flex min-h-screen items-center justify-center bg-muted">
       <SEOHead
         title="Page introuvable — MFinances"
         description="Cette page n'existe pas sur le site MFinances."
