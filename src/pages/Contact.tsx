@@ -46,7 +46,7 @@ const besoins = [
 function ProgressBar({ current }: { current: number }) {
   const progress = (current / 3) * 100;
   return (
-    <div ref={root} className="mb-5 md:mb-8">
+    <div className="mb-5 md:mb-8">
       <div className="flex items-center justify-between mb-2 md:mb-3">
         {[1, 2, 3].map((step) => (
           <div key={step} className="flex items-center gap-1.5 md:gap-2">
