@@ -2864,4 +2864,123 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact",
     ctaLabel: "Faire le diagnostic de ma situation →",
   },
+  "fin-deduction-interets-immobilier-2026": {
+    sections: [
+      {
+        paragraphs: [
+          "Vous avez un crédit sur un investissement immobilier — une résidence secondaire, un immeuble de rapport, un appartement mis en location.",
+          "Jusqu'ici, vous déduisiez les intérêts de ce crédit de vos revenus immobiliers. Ça réduisait votre base imposable. C'était acquis.",
+          "À partir de l'exercice d'imposition 2026 — c'est-à-dire pour vos revenus 2025 — cet avantage disparaît. Complètement.",
+        ],
+      },
+      {
+        heading: "La fin de la déduction des intérêts sur l'immobilier secondaire",
+        paragraphs: [
+          "Jusqu'à l'exercice 2025, vous pouviez déduire les intérêts d'un emprunt hypothécaire sur une habitation autre que votre habitation propre de vos revenus immobiliers. Cet avantage s'appliquait au taux marginal — soit la tranche la plus haute de votre imposition. Souvent 45 % ou 50 %.",
+          "Dès 2026, c'est terminé. Même si votre crédit date d'avant 2024.",
+          "Ce que ça signifie concrètement : vos revenus immobiliers locatifs sont désormais imposés sans aucune déduction des charges de financement. La rentabilité nette après impôt de votre investissement chute mécaniquement.",
+          "Pour un investisseur avec 15 000 € d'intérêts annuels et un taux marginal de 50 %, c'est 7 500 € d'impôt supplémentaire par an. Sur 10 ans, la différence est considérable.",
+        ],
+      },
+      {
+        heading: "Ce n'est pas le seul changement. Voici le reste.",
+        paragraphs: [
+          "La suppression de la déduction des intérêts n'est pas isolée. Elle s'inscrit dans une réforme plus large qui touche tous les indépendants et dirigeants belges à partir de 2026.",
+        ],
+      },
+      {
+        subheading: "Ce qui disparaît",
+        paragraphs: [
+          "La réduction pour travaux d'économie d'énergie : supprimée. La réduction pour assurance protection juridique : supprimée. L'avantage sur le véhicule électrique particulier et la borne de recharge : supprimés.",
+        ],
+      },
+      {
+        subheading: "Et si vous êtes indépendant en personne physique",
+        paragraphs: [
+          "Votre carburant — essence, diesel, gaz — n'est plus déductible à partir du 1er janvier 2026. Quelle que soit la date d'achat de votre voiture. Sans transition.",
+        ],
+      },
+      {
+        subheading: "Les rentes alimentaires : une trajectoire en trois paliers",
+        paragraphs: [
+          "70 % déductibles en 2025. 60 % en 2026. 50 % à partir de 2027. Le coût net augmente à chaque palier si votre taux marginal est élevé.",
+        ],
+      },
+      {
+        heading: "Les deux mesures qui jouent en votre faveur",
+        paragraphs: [],
+      },
+      {
+        subheading: "Enfants à charge : le seuil monte à 5 265 €",
+        paragraphs: [
+          "Votre enfant perdait son statut fiscal à charge dès 1 800 € de revenus propres. Ce seuil passe à 5 265 € en 2026. Un étudiant qui travaille reste à charge — et vous conservez la majoration de quotité exemptée.",
+        ],
+      },
+      {
+        subheading: "Fonds propres : le crédit d'impôt passe à 20 %, remboursable",
+        paragraphs: [
+          "Pour les indépendants en personne physique qui laissent des bénéfices dans leur activité, le crédit d'impôt pour l'accroissement des fonds propres est doublé. Il passe de 10 % à 20 %, avec un plafond de 7 500 €/an. Il est remboursable si votre impôt est inférieur au crédit dû.",
+        ],
+        list: [
+          "15 000 € de fonds propres augmentés → 3 000 € encaissables",
+          "37 500 € → 7 500 € (plafond atteint)",
+        ],
+      },
+      {
+        heading: "Ce que tout cela dit de la direction prise",
+        paragraphs: [
+          "L'État supprime progressivement tous les leviers d'optimisation disponibles en personne physique. L'immobilier vient d'en perdre un majeur.",
+          "La logique est claire : quand les outils individuels disparaissent, la structure juridique devient le seul terrain sérieux qui reste.",
+        ],
+      },
+      {
+        subheading: "Acheter via une société de management — pourquoi ça change tout",
+        paragraphs: [
+          "Quand vous achetez un bien immobilier en tant que particulier, les intérêts de votre crédit ne sont plus déductibles depuis 2026. Vos revenus locatifs sont imposés dans leur quasi-totalité.",
+          "Quand ce même bien est détenu par une société de management patrimoniale, les intérêts du financement sont des charges professionnelles déductibles. Ils viennent en déduction du résultat de la société — soumis à l'impôt des sociétés, pas à votre taux marginal personnel.",
+          "Ce n'est pas le seul avantage.",
+        ],
+        list: [
+          "Vos revenus de direction transitent via la société à 20 % d'IS avant d'être réinvestis dans l'immobilier. Pas à 50 %.",
+          "La gestion du patrimoine immobilier s'intègre dans une stratégie de succession planifiée — donation de parts, clause d'accroissement, assurance dirigeant.",
+          "La documentation est structurée pour résister à un contrôle fiscal.",
+        ],
+        relatedLinks: [
+          { text: "Découvrir la société de management patrimoniale", link: "/societe-de-management/" },
+        ],
+      },
+      {
+        paragraphs: [
+          "La société de management n'est pas une niche réservée aux grandes fortunes. C'est une structure accessible dès 150 000 € de revenus professionnels, pour les dirigeants qui pensent patrimoine sur 5 à 10 ans.",
+        ],
+      },
+      {
+        heading: "Faut-il en avoir une pour vous ?",
+        paragraphs: [
+          "La réponse dépend de votre situation — revenus, projets, horizon temporel. Ce que nous savons avec certitude : avec la suppression de la déduction des intérêts, la question mérite d'être posée maintenant. Pas dans six mois.",
+          "Le premier échange est gratuit et confidentiel. Nous analysons votre situation et nous vous disons clairement si la structure a du sens pour vous.",
+        ],
+        ctaInline: { text: "Analyser ma situation", link: "/contact/" },
+      },
+    ],
+    faq: [
+      {
+        question: "La fin de la déduction des intérêts concerne-t-elle aussi mon habitation propre ?",
+        answer: "Non. La suppression vise uniquement les emprunts hypothécaires sur une habitation autre que votre habitation propre (résidence secondaire, immeuble de rapport, bien mis en location). Les règles relatives à l'habitation propre relèvent des Régions et suivent leur propre logique.",
+      },
+      {
+        question: "Mon crédit a été signé avant 2024 — suis-je protégé ?",
+        answer: "Non. La mesure s'applique sans clause de grand-père : tous les emprunts en cours, quelle que soit leur date de signature, perdent le bénéfice de la déduction à partir de l'exercice d'imposition 2026.",
+      },
+      {
+        question: "Détenir le bien via une société est-il toujours plus avantageux ?",
+        answer: "Pas systématiquement. La société de management est pertinente quand vos revenus professionnels, votre horizon patrimonial et votre projet immobilier justifient sa création et son coût de gestion. C'est précisément l'objet du diagnostic — éviter de créer une structure qui ne serait pas rentabilisée.",
+      },
+    ],
+    ctaText: "Analyser ma situation",
+    ctaDescription: "Premier échange gratuit et confidentiel — nous vous disons clairement si une société de management a du sens pour vous.",
+    ctaLink: "/contact/",
+    ctaLabel: "Analyser ma situation →",
+  },
 };
+
