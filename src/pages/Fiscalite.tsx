@@ -30,18 +30,18 @@ import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   { icon: Search, title: "Analyse approfondie de votre situation", desc: "Nous évaluons votre situation actuelle, identifions les opportunités d'optimisation et construisons une stratégie alignée avec vos objectifs." },
-  { icon: Calculator, title: "Optimisation ISOC et IPP", desc: "Rémunération du dirigeant, dividendes, VVPRbis, réserve de liquidation, déductions professionnelles — nous calibrons votre situation pour minimiser la charge globale." },
+  { icon: Calculator, title: "Optimisation ISOC et IPP", desc: "Rémunération du dirigeant, dividendes, VVPRbis, réserve de liquidation, déductions professionnelles : nous calibrons votre situation pour minimiser la charge globale." },
   { icon: Receipt, title: "Gestion et déclarations TVA", desc: "Déclarations périodiques, régime de TVA adapté, récupération de TVA sur investissements — sans retard, sans erreur, sans pénalité." },
   { icon: Landmark, title: "Planification fiscale patrimoniale", desc: "Nous anticipons les implications fiscales pour protéger ce que vous avez construit." },
   { icon: ShieldCheck, title: "Accompagnement en cas de contrôle fiscal", desc: "Nous vous préparons en amont, constituons vos dossiers justificatifs et vous représentons face à l'administration." },
-  { icon: Handshake, title: "Protection juridique — partenariat assurance", desc: "Nous avons établi un partenariat avec une compagnie d'assurance de renom pour vous offrir une couverture de protection juridique fiscale à tarif préférentiel." },
+  { icon: Handshake, title: "Protection juridique : partenariat assurance", desc: "Nous avons établi un partenariat avec une compagnie d'assurance de renom pour vous offrir une couverture de protection juridique fiscale à tarif préférentiel." },
 ];
 
 const leviers = [
-  "Régime VVPRbis — dividendes à taux réduit pour les PME",
-  "Réserve de liquidation — anticipation fiscale avantageuse",
+  "Régime VVPRbis : dividendes à taux réduit pour les PME",
+  "Réserve de liquidation : anticipation fiscale avantageuse",
   "Déduction pour investissement",
-  "Rémunération optimale du dirigeant — équilibre salaire / dividendes",
+  "Rémunération optimale du dirigeant : équilibre salaire / dividendes",
   "Voiture de société et avantages en nature",
   "Frais professionnels déductibles",
   "Régimes TVA spécifiques selon secteur",
@@ -49,9 +49,9 @@ const leviers = [
 ];
 
 const faqs = [
-  { q: "C'est quoi le VVPRbis en Belgique ?", a: "Le VVPRbis est un régime fiscal belge qui permet aux PME de distribuer des dividendes à un taux de précompte mobilier réduit — 15% au lieu de 30% — sous certaines conditions." },
+  { q: "C'est quoi le VVPRbis en Belgique ?", a: "Le VVPRbis est un régime fiscal belge qui permet aux PME de distribuer des dividendes à un taux de précompte mobilier réduit : 15% au lieu de 30% : sous certaines conditions." },
   { q: "Quelle est la différence entre ISOC et IPP en Belgique ?", a: "L'ISOC est payé par votre société sur ses bénéfices. L'IPP est payé par vous en tant que dirigeant sur votre rémunération personnelle." },
-  { q: "Comment se préparer à un contrôle fiscal en Belgique ?", a: "La meilleure préparation est préventive — dossiers justificatifs complets, cohérence entre déclarations, respect des délais." },
+  { q: "Comment se préparer à un contrôle fiscal en Belgique ?", a: "La meilleure préparation est préventive : dossiers justificatifs complets, cohérence entre déclarations, respect des délais." },
   { q: "Qu'est-ce que la réserve de liquidation pour une PME belge ?", a: "La réserve de liquidation permet à une PME belge de mettre en réserve une partie de ses bénéfices en payant une taxe de 10% immédiatement, pour les distribuer plus tard à un taux réduit." },
 ];
 
@@ -94,7 +94,7 @@ export default function Fiscalite() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Optimisation Fiscale pour TPE à Bruxelles — MFinances"
         description="Optimisation fiscale ISOC, IPP, TVA et planification patrimoniale pour dirigeants de TPE en Belgique. Cabinet MFinances, Bruxelles. Consultation gratuite."
@@ -131,7 +131,7 @@ export default function Fiscalite() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
             >
               Subir
@@ -155,13 +155,13 @@ export default function Fiscalite() {
               </div>
               <div data-anim="fade-up" data-delay="0.1" >
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
-                  La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année — quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
+                  La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année : quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
                 </p>
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-foreground mt-6 font-body">
                   Un dirigeant de TPE belge paie en moyenne <strong className="text-accent">38 à 55% de son résultat</strong> en impôts, cotisations sociales et taxes diverses.
                 </p>
                 <p className="font-display italic text-[18px] md:text-[20px] text-foreground mt-4">
-                  Ce n'est pas une fatalité — c'est une variable.
+                  Ce n'est pas une fatalité, c'est une variable.
                 </p>
               </div>
               <div data-anim="fade-up" data-delay="0.2"  className="mt-10">
@@ -177,7 +177,7 @@ export default function Fiscalite() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               ISOC
@@ -208,7 +208,7 @@ export default function Fiscalite() {
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
-                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "110px" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -235,7 +235,7 @@ export default function Fiscalite() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Leviers
@@ -328,7 +328,7 @@ export default function Fiscalite() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
@@ -358,10 +358,10 @@ export default function Fiscalite() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { title: "Combien me payer en indépendant en Belgique ?", href: "/blog/fiscalite-belgique/combien-me-payer-independant-belgique/" },
-                { title: "Je paye trop d'impôts en Belgique — vrai ou faux ?", href: "/blog/fiscalite-belgique/je-paye-trop-impots-belgique/" },
+                { title: "Je paye trop d'impôts en Belgique : vrai ou faux ?", href: "/blog/fiscalite-belgique/je-paye-trop-impots-belgique/" },
                 { title: "Déclaration ISOC — guide sans surprise", href: "/blog/fiscalite-belgique/declaration-isoc-belgique/" },
                 { title: "Pourquoi mon comptable ne m'aide pas ?", href: "/blog/fiscalite-belgique/pourquoi-comptable-aide-pas/" },
-                { title: "Rémunération du dirigeant — salaire ou dividendes", href: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
+                { title: "Rémunération du dirigeant : salaire ou dividendes", href: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
                 { title: "Voiture de société Belgique 2026", href: "/blog/fiscalite-belgique/voiture-societe-belgique/" },
               ].map((a) => (
                 <Link key={a.href} to={a.href} className="group flex items-center gap-3 bg-secondary/60 rounded-xl p-4 border border-border/50 hover:border-accent/30 transition-all">

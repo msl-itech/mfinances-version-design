@@ -59,7 +59,7 @@ export default function CalculateurBureau() {
             </h1>
 
             <p className="text-primary-foreground/70 text-[15px] sm:text-[16px] leading-relaxed mb-5 sm:mb-7 max-w-[560px] font-body sm:mx-0 mx-auto">
-              Méthode des surfaces pondérées, utilisée en cabinet. Rapport PDF personnalisé envoyé par email. 100 % confidentiel — aucune revente de données.
+              Méthode des surfaces pondérées, utilisée en cabinet. Rapport PDF personnalisé envoyé par email. 100 % confidentiel : aucune revente de données.
             </p>
 
             <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 border-l-[3px] border-l-accent rounded-lg p-3 text-primary-foreground/85 text-[13px] leading-relaxed mb-5 sm:mb-7 max-w-[580px] text-left sm:mx-0 mx-auto">
@@ -93,10 +93,10 @@ export default function CalculateurBureau() {
               Pourquoi calculer correctement votre quotiété ?
             </h2>
             <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-3.5">
-              La quotiété professionnelle détermine quelle fraction de vos charges — loyer, énergie, internet, assurance — vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
+              La quotiété professionnelle détermine quelle fraction de vos charges : loyer, énergie, internet, assurance : vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
             </p>
             <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-5 hidden sm:block">
-              Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce — y compris les pièces à usage mixte.
+              Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce : y compris les pièces à usage mixte.
             </p>
             <Link to="/blog/fiscalite-belgique/bureau-a-domicile/" className="inline-flex items-center gap-1.5 text-primary font-semibold text-[14px] hover:underline">
               Guide complet : bureau à domicile en Belgique 2026 <ArrowRight size={14} />

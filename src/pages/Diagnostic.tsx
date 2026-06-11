@@ -35,10 +35,10 @@ const questions: Question[] = [
     subtitle: "Pour personnaliser votre diagnostic, dites-nous en quelle situation vous êtes :",
     scored: false,
     options: [
-      { emoji: "🌱", label: "Indépendant en personne physique — Je gère mon activité en nom propre" },
-      { emoji: "🏢", label: "Dirigeant de société — J'ai une SRL, SA ou autre structure" },
-      { emoji: "🚀", label: "En cours de création — Je démarre mon activité" },
-      { emoji: "🔄", label: "Indépendant en transition — Je pense passer en société" },
+      { emoji: "🌱", label: "Indépendant en personne physique : Je gère mon activité en nom propre" },
+      { emoji: "🏢", label: "Dirigeant de société : J'ai une SRL, SA ou autre structure" },
+      { emoji: "🚀", label: "En cours de création : Je démarre mon activité" },
+      { emoji: "🔄", label: "Indépendant en transition : Je pense passer en société" },
     ],
   },
   {
@@ -59,11 +59,11 @@ const questions: Question[] = [
     subtitle: "Quelle est votre plus grande préoccupation financière en ce moment ?",
     scored: false,
     options: [
-      { emoji: "💸", label: "Ma trésorerie — Je manque de visibilité sur mes flux" },
-      { emoji: "📉", label: "Ma rentabilité — Je ne sais pas si je gagne vraiment de l'argent" },
-      { emoji: "🏛️", label: "Mes impôts — Je paye trop ou je ne sais pas optimiser" },
-      { emoji: "🎯", label: "Mes décisions — Je manque d'outils pour piloter" },
-      { emoji: "🆕", label: "Je démarre — Je veux bien partir du bon pied" },
+      { emoji: "💸", label: "Ma trésorerie : Je manque de visibilité sur mes flux" },
+      { emoji: "📉", label: "Ma rentabilité : Je ne sais pas si je gagne vraiment de l'argent" },
+      { emoji: "🏛️", label: "Mes impôts : Je paye trop ou je ne sais pas optimiser" },
+      { emoji: "🎯", label: "Mes décisions : Je manque d'outils pour piloter" },
+      { emoji: "🆕", label: "Je démarre : Je veux bien partir du bon pied" },
     ],
   },
   {
@@ -111,7 +111,7 @@ const questions: Question[] = [
     subtitle: "Comment financez-vous vos investissements ?",
     scored: true,
     options: [
-      { emoji: "✅", label: "Emprunt ou leasing systématique — je préserve ma trésorerie", points: 4 },
+      { emoji: "✅", label: "Emprunt ou leasing systématique : je préserve ma trésorerie", points: 4 },
       { emoji: "👍", label: "Mix financement externe et fonds propres selon le projet", points: 3 },
       { emoji: "⚠️", label: "Principalement fonds propres, par principe", points: 2 },
       { emoji: "😰", label: "Toujours sur fonds propres, même quand ça fragilise la trésorerie", points: 1 },
@@ -127,8 +127,8 @@ const questions: Question[] = [
       { emoji: "✅", label: "Plus de 3 mois de charges fixes couverts", points: 4 },
       { emoji: "👍", label: "Entre 2 et 3 mois de charges couvertes", points: 3 },
       { emoji: "⚠️", label: "Entre 1 et 2 mois de charges couvertes", points: 2 },
-      { emoji: "😰", label: "Moins d'un mois — situation tendue", points: 1 },
-      { emoji: "🚨", label: "Aucune réserve — je fonctionne à flux tendus", points: 0 },
+      { emoji: "😰", label: "Moins d'un mois : situation tendue", points: 1 },
+      { emoji: "🚨", label: "Aucune réserve : je fonctionne à flux tendus", points: 0 },
     ],
   },
 ];
@@ -376,7 +376,7 @@ export default function Diagnostic() {
       ctaLabel: "Découvrir le forfait Excellence",
       ctaHref: "/tarifs/",
       ctaVariant: "default" as const,
-      secondaryLabel: "Parler à un expert — c'est gratuit",
+      secondaryLabel: "Parler à un expert, c'est gratuit",
       secondaryHref: "/contact/",
     };
   };
@@ -402,7 +402,7 @@ export default function Diagnostic() {
               Votre trésorerie vous cache quelque chose. <span className="text-accent">Depuis combien de temps ?</span>
             </h1>
             <p className="text-primary-foreground/75 text-[14px] sm:text-[15px] leading-relaxed mt-4 md:mt-5 font-body max-w-[600px] mx-auto">
-              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier — ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
+              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier : ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
             </p>
           </div>
         </section>
@@ -455,7 +455,7 @@ export default function Diagnostic() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
                     {[
                       { q: "Est-ce que je vais être rappelé de force ?", a: "Non, vous choisissez." },
-                      { q: "Mon score sera-t-il mauvais ?", a: "C'est le but — pour savoir où agir." },
+                      { q: "Mon score sera-t-il mauvais ?", a: "C'est le but : pour savoir où agir." },
                       { q: "Que reçois-je après ?", a: "3 actions prioritaires immédiates." },
                     ].map((item, i) => (
                       <div key={i} className="rounded-xl border border-border/40 p-3.5 bg-secondary/30">
@@ -478,7 +478,7 @@ export default function Diagnostic() {
                       Question {step + 1} sur 8
                     </span>
                     <span className="text-[12px] sm:text-[13px] text-foreground/40 font-body">
-                      {step < 3 ? "Phase 1 — Profil" : "Phase 2 — Trésorerie"}
+                      {step < 3 ? "Phase 1 : Profil" : "Phase 2 : Trésorerie"}
                     </span>
                   </div>
                   <div className="w-full h-2 sm:h-2.5 bg-border/50 rounded-full overflow-hidden">

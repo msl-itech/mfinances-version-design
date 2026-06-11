@@ -48,18 +48,18 @@ import audPromoteurs from "@/assets/audience-promoteurs.webp";
 import Stamp from "@/components/ui/Stamp";
 
 /* ============================================================
-   DATA — texts strictly identical to V2
+   DATA : texts strictly identical to V2
    ============================================================ */
 
 const heroFeatures = [
-  { title: "Vision claire", desc: "Vous savez exactement où va votre argent — chaque mois." },
+  { title: "Vision claire", desc: "Vous savez exactement où va votre argent : chaque mois." },
   { title: "Conseil expert", desc: "20+ ans d'expérience au service de votre pilotage." },
   { title: "Support efficace", desc: "Une équipe dédiée, réactive et 100% bilingue FR/EN." },
 ];
 
 const painPoints = [
   { icon: TrendingDown, title: "Trésorerie floue", desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours." },
-  { icon: Eye, title: "Fiscalité subie", desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher." },
+  { icon: Eye, title: "Fiscalité subie", desc: "Vous découvrez votre charge fiscale en fin d'année : quand il est trop tard pour agir. Chaque surprise coûte cher." },
   { icon: HelpCircle, title: "Décisions à l'aveugle", desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?" },
 ];
 
@@ -70,14 +70,14 @@ const services = [
 ];
 
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon.", image: imgControle },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon.", image: imgControle },
   { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: imgDaf },
   { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresorerie },
 ];
 
 const audiences = [
   { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, tag: "Démarrage", tag2: "Solo", subtitle: "Structurer vos bases dès le premier euro.", tone: "mint" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain", tag2: "Cash", subtitle: "Marges, stocks, TVA — sous contrôle.", tone: "cream" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain", tag2: "Cash", subtitle: "Marges, stocks, TVA : sous contrôle.", tone: "cream" },
   { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, tag: "Libéral", tag2: "Cabinet", subtitle: "Optimiser sans alourdir votre quotidien.", tone: "cream" },
   { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, tag: "Scale-up", tag2: "PME", subtitle: "Piloter la croissance avec un vrai DAF.", tone: "cream" },
   { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, tag: "Immobilier", tag2: "Projet", subtitle: "Structurer vos opérations et SPV.", tone: "cream" },
@@ -113,7 +113,7 @@ function getInitials(name: string) {
 }
 
 const faqs = [
-  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
   { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel), 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle et accès DAF). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle intégrés dans les forfaits." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
@@ -122,7 +122,7 @@ const faqs = [
 const marqueeChips = ["Pilotage financier", "DAF externalisé", "Trésorerie", "Contrôle de gestion", "Expert-comptable Bruxelles", "TPE en croissance"];
 
 /* ============================================================
-   Decorative — petits carrés géométriques (style Axios)
+   Decorative : petits carrés géométriques (style Axios)
    ============================================================ */
 function SquaresDecor({ className = "" }: { className?: string }) {
   return (
@@ -355,7 +355,7 @@ export default function AccueilV3() {
                       <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
                     </h3>
                     <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md" data-anim="fade-up" data-delay="0.2">
-                      Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul — et ça se règle avec les bons outils.
+                      Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul : et ça se règle avec les bons outils.
                     </p>
                   </div>
                 </div>
@@ -392,7 +392,7 @@ export default function AccueilV3() {
                 className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.14em] hover:gap-4 transition-all"
               >
                 <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
-                Plus maintenant — faites le diagnostic
+                Plus maintenant : faites le diagnostic
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

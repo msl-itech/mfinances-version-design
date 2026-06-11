@@ -33,7 +33,7 @@ import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   { icon: BookOpen, title: "Comptabilité générale et analytique", desc: "Tenue complète de votre comptabilité avec analyse détaillée par activité, projet ou centre de coût." },
-  { icon: Zap, title: "Encodage automatisé", desc: "Simplification et automatisation de l'encodage de vos documents — factures, notes de frais, relevés bancaires." },
+  { icon: Zap, title: "Encodage automatisé", desc: "Simplification et automatisation de l'encodage de vos documents : factures, notes de frais, relevés bancaires." },
   { icon: FileCheck, title: "Déclarations fiscales complètes", desc: "TVA, ISOC, IPP, bilans, comptes annuels — toutes vos obligations fiscales gérées dans les délais, sans stress." },
   { icon: BarChart3, title: "Tableaux de bord personnalisés", desc: "Suivi régulier avec reporting financier adapté à votre activité. Vos chiffres clés accessibles en temps réel sur Odoo." },
   { icon: Settings, title: "Intégration et configuration Odoo", desc: "Plan comptable belge, paramétrage TVA, relances clients personnalisées, connexion à vos flux existants." },
@@ -99,7 +99,7 @@ export default function Comptabilite() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Comptabilité sur Odoo pour TPE à Bruxelles — MFinances"
         description="Comptabilité claire et proactive intégrée dans Odoo : encodage automatisé, déclarations fiscales et tableaux de bord. MFinances, Bruxelles."
@@ -135,7 +135,7 @@ export default function Comptabilite() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
             >
               Odoo
@@ -159,7 +159,7 @@ export default function Comptabilite() {
               </div>
               <div data-anim="fade-up" data-delay="0.1" >
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
-                  La plupart des cabinets comptables travaillent en silo — vous envoyez vos documents, ils produisent vos chiffres, vous attendez. <strong className="text-foreground">Odoo casse ce modèle.</strong> Vos données sont centralisées, votre comptabilité est en temps réel.
+                  La plupart des cabinets comptables travaillent en silo : vous envoyez vos documents, ils produisent vos chiffres, vous attendez. <strong className="text-foreground">Odoo casse ce modèle.</strong> Vos données sont centralisées, votre comptabilité est en temps réel.
                 </p>
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function Comptabilite() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Service
@@ -201,7 +201,7 @@ export default function Comptabilite() {
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
-                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "110px" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -228,7 +228,7 @@ export default function Comptabilite() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Confiance
@@ -280,7 +280,7 @@ export default function Comptabilite() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >
               Sync
@@ -302,7 +302,7 @@ export default function Comptabilite() {
                   <br />dans Odoo
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[460px]">
-                  Vos factures, vos relevés bancaires, vos déclarations — tout est connecté dans un seul environnement. Plus de ressaisie, plus de doublons, plus d'erreurs.
+                  Vos factures, vos relevés bancaires, vos déclarations : tout est connecté dans un seul environnement. Plus de ressaisie, plus de doublons, plus d'erreurs.
                 </p>
                 <ul className="mt-8 space-y-4">
                   {[
@@ -343,7 +343,7 @@ export default function Comptabilite() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
             >
               Forfaits
@@ -477,7 +477,7 @@ export default function Comptabilite() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">

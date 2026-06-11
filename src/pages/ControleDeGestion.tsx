@@ -59,7 +59,7 @@ const tableRows = [
 
 const kpis = [
   { icon: Percent, label: "Marge brute", desc: "Votre rentabilité opérationnelle après coûts directs." },
-  { icon: Activity, label: "BFR", desc: "Besoin en fonds de roulement — la santé de votre cycle d'exploitation." },
+  { icon: Activity, label: "BFR", desc: "Besoin en fonds de roulement : la santé de votre cycle d'exploitation." },
   { icon: Clock, label: "DSO clients", desc: "Le délai moyen de paiement de vos clients." },
   { icon: Landmark, label: "Taux d'endettement", desc: "L'équilibre entre vos dettes et vos fonds propres." },
   { icon: Target, label: "Point mort mensuel", desc: "Le chiffre d'affaires minimum pour couvrir vos charges." },
@@ -125,7 +125,7 @@ export default function ControleDeGestion() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Contrôle de Gestion TPE à Bruxelles — MFinances"
         description="Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence."
@@ -161,7 +161,7 @@ export default function ControleDeGestion() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
             >
               Cycle
@@ -193,7 +193,7 @@ export default function ControleDeGestion() {
                     className="group relative bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
-                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -222,7 +222,7 @@ export default function ControleDeGestion() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
             >
               Forfaits
@@ -317,7 +317,7 @@ export default function ControleDeGestion() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >
               KPIs
@@ -339,7 +339,7 @@ export default function ControleDeGestion() {
                   <br />surveillés chaque mois
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[440px]">
-                  Cinq chiffres qui résument la santé financière réelle de votre entreprise — pas vingt indicateurs, juste ceux qui comptent.
+                  Cinq chiffres qui résument la santé financière réelle de votre entreprise : pas vingt indicateurs, juste ceux qui comptent.
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
                   <img
@@ -415,7 +415,7 @@ export default function ControleDeGestion() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">

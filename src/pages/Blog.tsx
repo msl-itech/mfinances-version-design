@@ -270,7 +270,7 @@ export default function Blog() {
                 Envie de passer à l'action ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body">
-                Premier échange gratuit et confidentiel — nous analysons votre situation financière.
+                Premier échange gratuit et confidentiel : nous analysons votre situation financière.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full" asChild>

@@ -32,7 +32,7 @@ const services = [
   {
     icon: Percent,
     title: "Gestion de la TVA en assujettissement mixte",
-    desc: "Vos prestations médicales sont exonérées de TVA — mais certaines activités annexes ne le sont pas. Nous calculons votre prorata de déduction.",
+    desc: "Vos prestations médicales sont exonérées de TVA : mais certaines activités annexes ne le sont pas. Nous calculons votre prorata de déduction.",
   },
   {
     icon: TrendingUp,
@@ -82,7 +82,7 @@ export default function ProfessionsSante() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Comptable Professions de Santé Bruxelles | MFinances"
         description="Comptabilité, fiscalité et optimisation patrimoniale pour médecins, dentistes, kinés et paramédicaux en Belgique. Cabinet MFinances, Bruxelles."
@@ -130,7 +130,7 @@ export default function ProfessionsSante() {
                   Concentrez-vous sur vos <span className="text-accent italic">patients</span>,<br className="hidden md:block" /> nous gérons vos chiffres.
                 </h1>
                 <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
-                  Médecin, dentiste, kinésithérapeute, vétérinaire — votre quotidien oscille entre la prise en charge de vos patients et la gestion de vos obligations comptables et fiscales.
+                  Médecin, dentiste, kinésithérapeute, vétérinaire : votre quotidien oscille entre la prise en charge de vos patients et la gestion de vos obligations comptables et fiscales.
                 </p>
                 <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
                   <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
@@ -181,7 +181,7 @@ export default function ProfessionsSante() {
                           <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
                             <Icon size={22} className="text-accent group-hover:text-accent-foreground transition-colors duration-500" strokeWidth={1.5} />
                           </div>
-                          <span className="font-display text-[14px] text-foreground/30 group-hover:text-accent/60 transition-colors">0{i + 1}</span>
+                          <span className="font-display text-[14px] text-accent group-hover:text-accent transition-colors">0{i + 1}</span>
                         </div>
                         <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
                         <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
@@ -208,9 +208,9 @@ export default function ProfessionsSante() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                   <Stethoscope size={22} className="text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-[17px] font-bold font-body text-foreground mb-3">Médecin généraliste — restructuration fiscale et patrimoniale</h3>
+                <h3 className="text-[17px] font-bold font-body text-foreground mb-3">Médecin généraliste : restructuration fiscale et patrimoniale</h3>
                 <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">
-                  Un médecin généraliste avec un revenu annuel de 120 000 € a bénéficié d'une restructuration complète de sa situation fiscale et patrimoniale. Dans ce cas spécifique — passage en société, stratégie immobilière intégrée, optimisation de la rémunération — la charge fiscale annuelle a pu être réduite de façon significative, et un patrimoine immobilier substantiel a été constitué sur 10 ans.
+                  Un médecin généraliste avec un revenu annuel de 120 000 € a bénéficié d'une restructuration complète de sa situation fiscale et patrimoniale. Dans ce cas spécifique : passage en société, stratégie immobilière intégrée, optimisation de la rémunération : la charge fiscale annuelle a pu être réduite de façon significative, et un patrimoine immobilier substantiel a été constitué sur 10 ans.
                 </p>
                 <p className="text-[13px] text-foreground/50 italic font-body mt-3">
                   Les résultats varient selon la situation personnelle et professionnelle de chaque client.
@@ -323,7 +323,7 @@ export default function ProfessionsSante() {
                 Prêt à <span className="text-accent italic">optimiser</span> votre situation ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel — nous analysons votre situation fiscale et patrimoniale.
+                Premier échange gratuit et confidentiel : nous analysons votre situation fiscale et patrimoniale.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

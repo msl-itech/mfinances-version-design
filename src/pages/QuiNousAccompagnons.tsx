@@ -36,13 +36,13 @@ const profilCards = [
   {
     icon: Rocket,
     title: "Indépendants & Startups",
-    desc: "Lancement, optimisation fiscale, premier bilan — les bases pour démarrer sereinement.",
+    desc: "Lancement, optimisation fiscale, premier bilan : les bases pour démarrer sereinement.",
     href: "/qui-nous-accompagnons/independants-et-startups/",
   },
   {
     icon: UtensilsCrossed,
     title: "Commerce & Horeca",
-    desc: "Gestion de caisse, TVA, contrôle des marges — un accompagnement adapté à votre réalité.",
+    desc: "Gestion de caisse, TVA, contrôle des marges : un accompagnement adapté à votre réalité.",
     href: "/qui-nous-accompagnons/commerce-et-horeca/",
     badge: "Premium min.",
   },
@@ -136,7 +136,7 @@ function AudienceCard({
         />
 
         {/* numéro éditorial */}
-        <span className="absolute top-4 right-5 font-display italic text-muted-foreground/30 group-hover:text-accent/60 transition-colors text-[13px] tracking-wide">
+        <span className="absolute top-4 right-5 font-display italic text-accent/[0.7] group-hover:text-accent transition-colors text-[13px] tracking-wide">
           {String(index + 1).padStart(2, "0")}
         </span>
 
@@ -188,7 +188,7 @@ export default function QuiNousAccompagnons() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Qui nous accompagnons — MFinances Bruxelles"
         description="MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles."
@@ -290,7 +290,7 @@ export default function QuiNousAccompagnons() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-32 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Activité
@@ -348,7 +348,7 @@ export default function QuiNousAccompagnons() {
                 <span className="italic font-normal text-accent">votre forme juridique</span>
               </h2>
               <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-5 font-body">
-                ASBL, société d'exploitation, management ou de moyens — chaque structure a sa logique fiscale et comptable.
+                ASBL, société d'exploitation, management ou de moyens : chaque structure a sa logique fiscale et comptable.
               </p>
             </div>
 
@@ -388,7 +388,7 @@ export default function QuiNousAccompagnons() {
                 choisir ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] md:text-[17px] leading-[1.75] mt-6 font-body max-w-[620px] mx-auto">
-                Premier échange gratuit et confidentiel — nous identifions ensemble le forfait et les services adaptés à votre situation.
+                Premier échange gratuit et confidentiel : nous identifions ensemble le forfait et les services adaptés à votre situation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>

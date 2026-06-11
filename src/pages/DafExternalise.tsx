@@ -46,7 +46,7 @@ const steps = [
     number: "01",
     icon: Users,
     title: "Réunion mensuelle de pilotage",
-    desc: "60-90 min — analyse des résultats, décisions à prendre.",
+    desc: "60-90 min : analyse des résultats, décisions à prendre.",
   },
   {
     number: "02",
@@ -124,7 +124,7 @@ export default function DafExternalise() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="DAF Externalisé pour TPE à Bruxelles — MFinances"
         description="Un copilote financier à temps partiel pour vos décisions stratégiques. Réservé aux clients Excellence. 150€ HTVA/heure. Cabinet MFinances, Bruxelles."
@@ -140,8 +140,8 @@ export default function DafExternalise() {
           eyebrow="Service Excellence"
           number="01"
           sectionLabel="Direction financière externalisée"
-          titleStart="Un copilote financier pour les décisions"
-          titleItalic="qui comptent"
+          titleStart="Vous décidez à 6 chiffres."
+          titleItalic="Toujours seul ?"
           description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
           pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
           image={imgHero}
@@ -156,7 +156,7 @@ export default function DafExternalise() {
         />
 
         {/* TL;DR (AEO / GEO Optimization) */}
-        <section className="bg-card pt-16 pb-8">
+        {/* <section className="bg-card pt-16 pb-8">
           <div className="container-mf">
             <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 lg:p-10 max-w-[900px] mx-auto shadow-sm">
               <h2 className="font-display text-[20px] md:text-[24px] font-bold text-foreground mb-4 flex items-center gap-3">
@@ -183,13 +183,13 @@ export default function DafExternalise() {
               </ul>
             </aside>
           </div>
-        </section>
+        </section> */}
         {/* Bandeau d'accès — visible immédiatement sous le H1 */}
         <section className="bg-accent text-accent-foreground border-b border-accent/20">
           <div className="container-mf py-3.5 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
             <p className="font-body text-[13px] md:text-[14px] leading-snug">
               <strong className="font-bold tracking-wide uppercase text-[11px] md:text-[12px] mr-2">Accès</strong>
-              Réservé aux clients <strong>Excellence</strong> — à partir de <strong>650 € HTVA / mois</strong>
+              Réservé aux clients <strong>Excellence</strong> : à partir de <strong>650 € HTVA / mois</strong>
             </p>
             <Link
               to="/tarifs/#excellence"
@@ -204,7 +204,7 @@ export default function DafExternalise() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
             >
               Missions
@@ -273,7 +273,7 @@ export default function DafExternalise() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 300px)", letterSpacing: "-0.04em" }}
             >
               Rituel
@@ -364,7 +364,7 @@ export default function DafExternalise() {
                 <ul className="space-y-6 font-body text-[15px] md:text-[16px] text-primary-foreground/85 leading-[1.7] mt-4">
                   {[
                     <>Réservé exclusivement aux clients titulaires d'un <strong className="text-primary-foreground">forfait Excellence</strong> (à partir de 650 € HTVA / mois).</>,
-                    <>Facturation : <strong className="text-primary-foreground">150 € HTVA / heure</strong> — temps réel passé.</>,
+                    <>Facturation : <strong className="text-primary-foreground">150 € HTVA / heure</strong> : temps réel passé.</>,
                     <>Engagement : inclus dans les disponibilités mensuelles, facturation à l'heure pour les interventions supplémentaires.</>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-5 group">
@@ -378,7 +378,7 @@ export default function DafExternalise() {
 
                 <div className="mt-10 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <span className="text-[12px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">
-                    Forfait Excellence — 650 € HTVA / mois
+                    Forfait Excellence : 650 € HTVA / mois
                   </span>
                   <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                     <Link to="/tarifs/">
@@ -457,7 +457,7 @@ export default function DafExternalise() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">

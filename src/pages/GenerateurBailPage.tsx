@@ -59,7 +59,7 @@ export default function GenerateurBailPage() {
             </h1>
 
             <p className="text-primary-foreground/70 text-[16px] leading-relaxed mb-7 max-w-[580px] font-body">
-              Bail immeuble ou meublé, répartition 60/40 ajustable, clause de sous-location automatique. PDF complet en 13 articles, adapté au contexte belge — à valider avant signature.
+              Bail immeuble ou meublé, répartition 60/40 ajustable, clause de sous-location automatique. PDF complet en 13 articles, adapté au contexte belge : à valider avant signature.
             </p>
 
             <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 border-l-[3px] border-l-accent rounded-lg p-3 text-primary-foreground/85 text-[13px] leading-relaxed mb-7 max-w-[600px]">

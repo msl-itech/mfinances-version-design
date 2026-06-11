@@ -185,7 +185,7 @@ export default function AdminAnalytics() {
 
         {/* Chart */}
         <Card className="p-6 mb-8">
-          <h2 className="font-display text-xl mb-4">Activité — 30 derniers jours</h2>
+          <h2 className="font-display text-xl mb-4">Activité : 30 derniers jours</h2>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={stats.series}>

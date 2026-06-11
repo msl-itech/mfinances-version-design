@@ -31,11 +31,11 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 
 const tvaRegimes = [
-  "Immeuble neuf destiné à la revente — TVA 21% généralement déductible, sous conditions",
-  "Immeuble neuf destiné à la location — TVA 21% généralement non déductible, selon l'affectation",
-  "Immeuble ancien destiné à l'habitation — TVA réduite à 6% possible, sous conditions strictes",
-  "Régime d'autoliquidation — applicable dans certains cas, suivi rigoureux requis",
-  "Calcul du prorata de déductibilité sur frais généraux — selon activité mixte",
+  "Immeuble neuf destiné à la revente : TVA 21% généralement déductible, sous conditions",
+  "Immeuble neuf destiné à la location : TVA 21% généralement non déductible, selon l'affectation",
+  "Immeuble ancien destiné à l'habitation : TVA réduite à 6% possible, sous conditions strictes",
+  "Régime d'autoliquidation : applicable dans certains cas, suivi rigoureux requis",
+  "Calcul du prorata de déductibilité sur frais généraux : selon activité mixte",
 ];
 
 const breadcrumbJsonLd = {
@@ -67,7 +67,7 @@ export default function PromoteursImmobiliers() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Expert-Comptable Promoteur Immobilier Bruxelles — MFinances"
         description="Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles."
@@ -113,7 +113,7 @@ export default function PromoteursImmobiliers() {
                   Promotion immobilière —<br className="hidden md:block" /> <span className="text-accent italic">pilotez chaque projet</span> avec rigueur.
                 </h1>
                 <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
-                  Budgets conséquents, marges serrées, TVA complexe, flux de trésorerie décalés — la promotion immobilière est l'une des activités où la maîtrise financière fait directement la différence.
+                  Budgets conséquents, marges serrées, TVA complexe, flux de trésorerie décalés : la promotion immobilière est l'une des activités où la maîtrise financière fait directement la différence.
                 </p>
                 <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
                   <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
@@ -161,7 +161,7 @@ export default function PromoteursImmobiliers() {
               <div data-anim="fade-up" data-delay="0.08"  className="lg:col-span-5">
                 <div className="group relative bg-secondary/40 rounded-3xl p-8 md:p-10 border border-border/60 h-full overflow-hidden transition-all duration-500 hover:border-accent/40 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]">
                   <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-3xl transition-all duration-700" />
-                  <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-foreground/[0.06] select-none">01</div>
+                  <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-accent/[0.15] select-none">01</div>
 
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center mb-7 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
@@ -171,7 +171,7 @@ export default function PromoteursImmobiliers() {
                       Comptabilité <span className="italic text-accent">analytique</span> par projet
                     </h3>
                     <p className="text-[14.5px] text-muted-foreground leading-[1.75] font-body">
-                      Chaque projet est traité comme une entité distincte — ventilation des coûts par projet et par unité, suivi des marges à chaque phase, tableaux de bord clairs pour chaque opération.
+                      Chaque projet est traité comme une entité distincte : ventilation des coûts par projet et par unité, suivi des marges à chaque phase, tableaux de bord clairs pour chaque opération.
                     </p>
 
                     <div className="mt-8 pt-6 border-t border-border/50 flex items-center justify-between">
@@ -267,7 +267,7 @@ export default function PromoteursImmobiliers() {
                   </div>
 
                   <p className="text-[14.5px] text-muted-foreground leading-[1.75] font-body">
-                    Un promoteur immobilier gérant plusieurs projets résidentiels a mis en place une comptabilité analytique par projet et une optimisation du calendrier des ventes. Résultat : amélioration significative de la rentabilité globale et trésorerie renforcée — nouveau projet lancé sans financement externe.
+                    Un promoteur immobilier gérant plusieurs projets résidentiels a mis en place une comptabilité analytique par projet et une optimisation du calendrier des ventes. Résultat : amélioration significative de la rentabilité globale et trésorerie renforcée : nouveau projet lancé sans financement externe.
                   </p>
 
                   <div className="grid grid-cols-2 gap-4 mt-7 pt-7 border-t border-border/50">
@@ -310,7 +310,7 @@ export default function PromoteursImmobiliers() {
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
-                Une seule offre — <span className="italic text-accent">Excellence</span>
+                Une seule offre : <span className="italic text-accent">Excellence</span>
               </h2>
               <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body">
                 Un accompagnement unique, calibré pour la complexité des opérations de promotion.
@@ -343,7 +343,7 @@ export default function PromoteursImmobiliers() {
                     <div className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary-foreground/5 border border-primary-foreground/15">
                       <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                       <p className="text-[13px] text-primary-foreground/85 font-body">
-                        DAF temps partiel — <strong className="text-primary-foreground">150 € HTVA / heure</strong>
+                        DAF temps partiel : <strong className="text-primary-foreground">150 € HTVA / heure</strong>
                       </p>
                     </div>
                   </div>
@@ -407,7 +407,7 @@ export default function PromoteursImmobiliers() {
                 Prêt à <span className="text-accent italic">structurer</span> vos projets immobiliers ?
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel — nous analysons vos enjeux financiers et fiscaux.
+                Premier échange gratuit et confidentiel : nous analysons vos enjeux financiers et fiscaux.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

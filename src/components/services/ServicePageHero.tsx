@@ -85,7 +85,7 @@ export default function ServicePageHero({
       {/* Giant editorial watermark */}
       <div aria-hidden="true" className="pointer-events-none absolute top-12 left-0 right-0 text-center select-none">
         <span
-          className="font-display italic font-bold leading-none text-primary-foreground/[0.04]"
+          data-anim="text-scrub" className="font-display italic font-bold leading-none text-primary-foreground/[0.04]"
           style={{ fontSize: "clamp(110px, 22vw, 320px)", letterSpacing: "-0.04em" }}
         >
           {watermark}
@@ -217,7 +217,7 @@ export default function ServicePageHero({
           <div className="lg:col-span-5 lg:pb-4">
             <div className="relative group mt-10 lg:mt-0">
               <div className="absolute -inset-2 bg-accent/20 rounded-[32px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-              <div className="absolute -top-12 -right-6 z-20 hidden md:block">
+              <div className="absolute -bottom-10 -right-8 z-20 hidden md:block">
                 <Stamp className="text-accent drop-shadow-lg" />
               </div>
               <div className="relative rounded-[28px] overflow-hidden ring-1 ring-primary-foreground/10 cut-corner">
@@ -227,8 +227,8 @@ export default function ServicePageHero({
                   className="w-full h-[340px] md:h-[440px] object-cover transition-transform duration-[1.4s] group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/45 via-transparent to-transparent" />
-                <div className="absolute top-5 right-5 text-primary-foreground/90 text-[10px] uppercase tracking-[0.2em] font-medium">
-                  {plaque}
+                <div className="absolute top-5 right-5 bg-primary-foreground/90 backdrop-blur-sm rounded-full px-3.5 py-1.5">
+                  <span className="text-primary text-[10px] font-bold uppercase tracking-[0.18em]">{plaque}</span>
                 </div>
                 {(cardTitlePrefix || cardSubtitle) && (
                   <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">

@@ -67,14 +67,14 @@ const plans = [
     name: "Essentiel",
     price: "350",
     tagline: "Pour sécuriser",
-    desc: "Vous êtes indépendant, vous venez de créer votre société, ou votre activité est encore en phase de démarrage. Comptabilité rigoureuse, déclarations fiscales dans les délais, interlocuteur de confiance. Vous sécurisez votre base comptable et fiscale — sans stress administratif.",
+    desc: "Vous êtes indépendant, vous venez de créer votre société, ou votre activité est encore en phase de démarrage. Comptabilité rigoureuse, déclarations fiscales dans les délais, interlocuteur de confiance. Vous sécurisez votre base comptable et fiscale : sans stress administratif.",
   },
   {
     icon: TrendingUp,
     name: "Premium",
     price: "450",
     tagline: "Pour structurer",
-    desc: "Votre activité se développe. Vous prenez des décisions de plus en plus structurantes. Budget annuel, suivi trimestriel, anticipation de la charge fiscale avant la clôture. Vous structurez votre pilotage financier — et vous commencez à décider sur la base de chiffres réels.",
+    desc: "Votre activité se développe. Vous prenez des décisions de plus en plus structurantes. Budget annuel, suivi trimestriel, anticipation de la charge fiscale avant la clôture. Vous structurez votre pilotage financier : et vous commencez à décider sur la base de chiffres réels.",
     popular: true,
   },
   {
@@ -82,7 +82,7 @@ const plans = [
     name: "Excellence",
     price: "650",
     tagline: "Pour piloter avec un temps d'avance",
-    desc: "Votre entreprise est en croissance active. Vision financière mensuelle, prévisionnel de trésorerie fiable, partenaire disponible pour les décisions qui engagent votre avenir. Vous pilotez avec un temps d'avance — comme les grandes entreprises.",
+    desc: "Votre entreprise est en croissance active. Vision financière mensuelle, prévisionnel de trésorerie fiable, partenaire disponible pour les décisions qui engagent votre avenir. Vous pilotez avec un temps d'avance : comme les grandes entreprises.",
   },
 ];
 
@@ -101,15 +101,15 @@ const steps = [
 const faqs = [
   {
     q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
-    a: "Chez MFinances, les forfaits pour une TPE démarrent à 350 € HTVA/mois (Essentiel : comptabilité + déclarations), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation — le forfait proposé ne change jamais de catégorie sans votre accord.",
+    a: "Chez MFinances, les forfaits pour une TPE démarrent à 350 € HTVA/mois (Essentiel : comptabilité + déclarations), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.",
   },
   {
     q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
-    a: "Oui. Les structures non assujetties à la TVA — notamment les ASBL et certaines professions médicales (médecins, kinésithérapeutes, infirmiers) — bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
+    a: "Oui. Les structures non assujetties à la TVA : notamment les ASBL et certaines professions médicales (médecins, kinésithérapeutes, infirmiers) : bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
   },
   {
     q: "Faut-il s'engager sur une durée minimum ?",
-    a: "Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat. Cet engagement dans la durée n'est pas une contrainte — c'est ce qui nous permet de vraiment vous connaître, d'anticiper vos besoins et d'être un partenaire efficace. Un client suivi depuis 2 ans bénéficie d'un niveau de conseil qu'un nouveau client ne peut pas avoir.",
+    a: "Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat. Cet engagement dans la durée n'est pas une contrainte, c'est ce qui nous permet de vraiment vous connaître, d'anticiper vos besoins et d'être un partenaire efficace. Un client suivi depuis 2 ans bénéficie d'un niveau de conseil qu'un nouveau client ne peut pas avoir.",
   },
 ];
 
@@ -248,7 +248,7 @@ export default function Tarifs() {
                     data-stagger="0.03"
                     data-delay="0.25"
                   >
-                    Des forfaits <em className="italic font-normal text-accent">transparents</em>,<br className="hidden md:block" /> sans surprise — adaptés à votre <em className="italic font-normal text-primary-foreground/80">stade de croissance</em>.
+                    Des forfaits <em className="italic font-normal text-accent">transparents</em>,<br className="hidden md:block" /> sans surprise : adaptés à votre <em className="italic font-normal text-primary-foreground/80">stade de croissance</em>.
                   </h1>
 
                   <p 
@@ -418,7 +418,7 @@ export default function Tarifs() {
 
             <div data-anim="fade-up" data-delay="0.4">
               <p className="text-center mt-8 text-[13px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto">
-                Les tarifs affichés sont nos forfaits de base — ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
+                Les tarifs affichés sont nos forfaits de base : ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground not-italic">réduction de 21%</strong> sur nos tarifs.
@@ -513,7 +513,7 @@ export default function Tarifs() {
                     </div>
 
                     <p className={`text-[13px] italic font-body mb-5 ${isExcellence ? "text-accent" : "text-accent"}`}>
-                      — {plan.tagline}
+                      : {plan.tagline}
                     </p>
 
                     <hr className={`mb-5 ${isExcellence ? "border-primary-foreground/15" : "border-border/40"}`} />
@@ -580,10 +580,10 @@ export default function Tarifs() {
                 {/* Colonne droite — narration */}
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <h2 className="font-display text-[26px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
-                    Le DAF à temps partiel — <span className="italic font-light text-accent">au plus près de vos décisions</span>
+                    Le DAF à temps partiel : <span className="italic font-light text-accent">au plus près de vos décisions</span>
                   </h2>
                   <p className="text-primary-foreground/75 text-[15px] leading-[1.8] mt-5 font-body">
-                    Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée — comme un directeur financier interne, sans le coût fixe.
+                    Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée : comme un directeur financier interne, sans le coût fixe.
                   </p>
                   <div>
                     <Button variant="accent" size="lg" className="rounded-full mt-7 pl-6 pr-3 group text-[14px]" asChild>
@@ -656,7 +656,7 @@ export default function Tarifs() {
               <div className="sm:hidden space-y-3">
                 {missions.map((m, i) => (
                   <div key={i} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
-                    <span className="font-display italic text-accent/60 text-[12px]">0{i + 1}</span>
+                    <span className="font-display italic text-accent text-[12px]">0{i + 1}</span>
                     <p className="text-[14px] font-medium text-foreground/85 font-body mb-2 mt-1">{m.label}</p>
                     <p className="font-display text-[18px] font-bold text-primary">{m.tarif}</p>
                   </div>
@@ -668,7 +668,7 @@ export default function Tarifs() {
               <div className="bg-card rounded-2xl p-6 sm:p-8 mt-6 border border-border/50 flex flex-col md:flex-row gap-5 items-start relative overflow-hidden">
                 <Quote size={32} className="text-accent/30 flex-shrink-0" strokeWidth={1.5} />
                 <p className="text-[14.5px] text-muted-foreground font-body leading-relaxed">
-                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte — c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
+                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte, c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
                 </p>
               </div>
             </div>
@@ -711,7 +711,7 @@ export default function Tarifs() {
                 Comment ça se passe concrètement ?
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
-                Trois étapes simples — et 48 heures pour démarrer notre collaboration.
+                Trois étapes simples : et 48 heures pour démarrer notre collaboration.
               </p>
             </div>
 
@@ -802,7 +802,7 @@ export default function Tarifs() {
               Prêt à choisir votre forfait ?
             </h2>
             <p className="text-primary-foreground/75 text-[15px] sm:text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-              Premier échange gratuit et confidentiel — nous vous recommandons le forfait adapté à votre situation.
+              Premier échange gratuit et confidentiel : nous vous recommandons le forfait adapté à votre situation.
             </p>
             <div className="flex flex-wrap gap-4 justify-center mt-10">
               <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group text-[14px]" asChild>

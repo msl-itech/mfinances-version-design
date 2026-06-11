@@ -23,7 +23,7 @@ const breadcrumbJsonLd = {
 };
 
 const checklistItems = [
-  "La superficie pondérée — méthode de calcul correcte et documentée",
+  "La superficie pondérée : méthode de calcul correcte et documentée",
   "Le plan de l'habitation avec surfaces exactes",
   "L'usage professionnel documenté (exclusif ou dominant selon votre statut)",
   "Les charges réparties au prorata (électricité, chauffage, loyer, entretien)",
@@ -37,7 +37,7 @@ const checklistItems = [
 
 const pdfContents = [
   "Pour chaque point : la règle légale applicable en Belgique (CIR)",
-  "Les documents exacts à réunir — pas de formulation vague",
+  "Les documents exacts à réunir : pas de formulation vague",
   "Un indicateur visuel : ✓ Couvert / ⚠ À sécuriser / ✗ Risque identifié",
   "Un renvoi vers les ressources MFinances pour sécuriser chaque point faible",
 ];
@@ -94,7 +94,7 @@ export default function ChecklistControleBureau() {
         name: form.prenom,
         email_from: form.email,
         description: [
-          `<h3>Lead Magnet — Checklist Contrôle Bureau</h3>`,
+          `<h3>Lead Magnet : Checklist Contrôle Bureau</h3>`,
           `<p><strong>Prénom:</strong> ${form.prenom}</p>`,
           `<p><strong>Email:</strong> ${form.email}</p>`,
           `<p><strong>Source:</strong> lead-magnet-checklist-bureau</p>`,
@@ -130,7 +130,7 @@ export default function ChecklistControleBureau() {
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <span className="inline-flex items-center gap-2 bg-card text-foreground text-[12px] font-bold tracking-[0.1em] uppercase px-4 py-2 rounded-full border border-border/50 mb-6">
               <ShieldCheck size={15} className="text-accent" />
-              Gratuit — Téléchargement immédiat
+              Gratuit : Téléchargement immédiat
             </span>
             <h1 className="font-display text-[28px] md:text-[40px] leading-[1.12] text-foreground mb-5">
               Votre bureau à domicile tiendrait-il un contrôle fiscal ?
@@ -173,7 +173,7 @@ export default function ChecklistControleBureau() {
         <section className="bg-secondary py-14 md:py-20">
           <div className="mx-auto max-w-[720px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
-              Les 10 points de la checklist — aperçu
+              Les 10 points de la checklist : aperçu
             </h2>
             <p className="text-[15px] text-muted-foreground font-body leading-relaxed mb-8">
               En téléchargeant la checklist complète, vous obtenez le détail de chaque point avec les preuves exactes à rassembler.

@@ -27,25 +27,25 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
-  { icon: FileText, title: "Élaboration du plan financier", desc: "Nous le construisons avec vous — prévisions de revenus, estimations de coûts, analyse des flux de trésorerie, seuil de rentabilité. Chaque chiffre est justifié et expliqué." },
-  { icon: Scale, title: "Choix de la forme juridique", desc: "SRL, SA, SNC, entreprise individuelle — nous évaluons les options selon votre activité, votre niveau de risque, vos objectifs patrimoniaux et votre situation personnelle." },
-  { icon: Stamp, title: "Accompagnement à l'acte authentique", desc: "Nous agissons comme interface entre vous et les intervenants — notaire, guichet d'entreprise, administration fiscale." },
+  { icon: FileText, title: "Élaboration du plan financier", desc: "Nous le construisons avec vous : prévisions de revenus, estimations de coûts, analyse des flux de trésorerie, seuil de rentabilité. Chaque chiffre est justifié et expliqué." },
+  { icon: Scale, title: "Choix de la forme juridique", desc: "SRL, SA, SNC, entreprise individuelle : nous évaluons les options selon votre activité, votre niveau de risque, vos objectifs patrimoniaux et votre situation personnelle." },
+  { icon: Stamp, title: "Accompagnement à l'acte authentique", desc: "Nous agissons comme interface entre vous et les intervenants : notaire, guichet d'entreprise, administration fiscale." },
   { icon: Settings, title: "Mise en place comptable dès le départ", desc: "Ouverture du dossier sur Odoo, configuration du plan comptable, mise en place des déclarations TVA. Vous démarrez avec une comptabilité propre." },
 ];
 
 const tableRows = [
-  { step: "Plan financier", detail: "Document complet — P&L prévisionnel, cash flow, seuil de rentabilité" },
+  { step: "Plan financier", detail: "Document complet : P&L prévisionnel, cash flow, seuil de rentabilité" },
   { step: "Forme juridique", detail: "Recommandation argumentée avec comparatif fiscal" },
   { step: "Acte authentique", detail: "Coordination notaire / guichet / administration" },
   { step: "Mise en place Odoo", detail: "Comptabilité opérationnelle dès le jour 1" },
-  { step: "Honoraires MFinances", detail: "800 € HTVA — honoraires de conseil uniquement", highlight: true },
+  { step: "Honoraires MFinances", detail: "800 € HTVA : honoraires de conseil uniquement", highlight: true },
   { step: "Frais externes (non inclus)", detail: "Notaire, Moniteur belge, BCE : 1 000 à 2 500 € à charge du client", muted: true },
 ];
 
 const faqs = [
-  { q: "Quelle est la meilleure forme juridique pour créer une entreprise en Belgique ?", a: "En Belgique, la SRL est la forme la plus utilisée par les TPE — capital flexible, responsabilité limitée, fiscalité avantageuse via l'ISOC." },
-  { q: "Combien coûte la création d'une société en Belgique ?", a: "La création d'une SRL en Belgique implique deux types de coûts : les honoraires MFinances (800 € HTVA, couvrant le plan financier, le conseil juridique, la coordination et la mise en place comptable) et les frais externes restant à charge du client (notaire, Moniteur belge, BCE — généralement entre 1 000 € et 2 500 €). Nous vous fournissons une estimation complète et transparente lors de la consultation gratuite initiale." },
-  { q: "Faut-il un plan financier pour créer une société en Belgique ?", a: "Oui — depuis la réforme du droit des sociétés en Belgique, un plan financier est obligatoire pour la création d'une SRL ou d'une SA." },
+  { q: "Quelle est la meilleure forme juridique pour créer une entreprise en Belgique ?", a: "En Belgique, la SRL est la forme la plus utilisée par les TPE : capital flexible, responsabilité limitée, fiscalité avantageuse via l'ISOC." },
+  { q: "Combien coûte la création d'une société en Belgique ?", a: "La création d'une SRL en Belgique implique deux types de coûts : les honoraires MFinances (800 € HTVA, couvrant le plan financier, le conseil juridique, la coordination et la mise en place comptable) et les frais externes restant à charge du client (notaire, Moniteur belge, BCE : généralement entre 1 000 € et 2 500 €). Nous vous fournissons une estimation complète et transparente lors de la consultation gratuite initiale." },
+  { q: "Faut-il un plan financier pour créer une société en Belgique ?", a: "Oui : depuis la réforme du droit des sociétés en Belgique, un plan financier est obligatoire pour la création d'une SRL ou d'une SA." },
   { q: "Combien de temps faut-il pour créer une société en Belgique ?", a: "Avec un dossier complet, la création d'une SRL prend généralement entre 1 et 3 semaines." },
 ];
 
@@ -88,7 +88,7 @@ export default function CreationEntreprise() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Création d'Entreprise Bruxelles | MFinances"
         description="Plan financier, choix de la forme juridique et accompagnement à l'acte authentique. 800€ HTVA. Cabinet MFinances, Bruxelles."
@@ -100,14 +100,14 @@ export default function CreationEntreprise() {
       <main>
         <ServicePageHero
           breadcrumbLabel="Création d'entreprise"
-          eyebrow="800 € HTVA — Forfait tout compris"
+          eyebrow="800 € HTVA : Forfait tout compris"
           number="06"
           sectionLabel="Création d'entreprise"
           titleStart="Lancez votre entreprise sur des bases"
           titleItalic="solides"
           titleEnd="dès le premier jour"
           description="Créer une entreprise en Belgique, c'est excitant. C'est aussi une série de décisions structurantes qui engagent votre avenir financier, fiscal et juridique pour des années."
-          disclaimer="Les erreurs de départ sont les plus coûteuses — et les plus évitables."
+          disclaimer="Les erreurs de départ sont les plus coûteuses : et les plus évitables."
           pills={["Plan financier", "Forme juridique", "Acte authentique"]}
           image={imgHero}
           imageAlt="Création d'entreprise à Bruxelles — MFinances"
@@ -125,7 +125,7 @@ export default function CreationEntreprise() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 320px)", letterSpacing: "-0.04em" }}
             >
               Erreurs
@@ -181,7 +181,7 @@ export default function CreationEntreprise() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Démarrage
@@ -212,7 +212,7 @@ export default function CreationEntreprise() {
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
-                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -239,7 +239,7 @@ export default function CreationEntreprise() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Livrables
@@ -247,8 +247,8 @@ export default function CreationEntreprise() {
           </div>
 
           <div className="container-mf relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <div data-anim="fade-up" className="lg:col-span-7">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div data-anim="fade-up" className="lg:col-span-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -310,7 +310,7 @@ export default function CreationEntreprise() {
                 </div>
               </div>
 
-              <div data-anim="fade-up" data-delay="0.15"  className="lg:col-span-5 relative lg:sticky lg:top-28">
+              <div data-anim="fade-up" data-delay="0.15" className="lg:col-span-6 relative">
                 <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
@@ -355,7 +355,7 @@ export default function CreationEntreprise() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
@@ -386,7 +386,7 @@ export default function CreationEntreprise() {
               {[
                 { title: "5 erreurs à éviter lors de la création d'une société", href: "/blog/creation-societe/erreurs-creation-societe-belgique/" },
                 { title: "Coût de création d'une société en Belgique", href: "/blog/creation-societe/cout-creation-societe-belgique/" },
-                { title: "Plan financier obligatoire — ce que la loi exige", href: "/blog/creation-societe/plan-financier-obligatoire-belgique/" },
+                { title: "Plan financier obligatoire : ce que la loi exige", href: "/blog/creation-societe/plan-financier-obligatoire-belgique/" },
                 { title: "Créer une SRL en Belgique en 2026", href: "/blog/creation-societe/creer-srl-belgique-2026/" },
               ].map((a) => (
                 <Link key={a.href} to={a.href} className="group flex items-center gap-3 bg-secondary/60 rounded-xl p-4 border border-border/50 hover:border-accent/30 transition-all">

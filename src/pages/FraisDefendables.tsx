@@ -75,15 +75,15 @@ export default function FraisDefendablesPage() {
           <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-20 text-center sm:text-left">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-xs tracking-wider uppercase text-white/90 font-bold mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Outil gratuit — 30 frais couverts
+              Outil gratuit : 30 frais couverts
             </span>
 
             <h1 className="font-display text-[clamp(24px,5vw,48px)] leading-[1.1] text-white mb-4 sm:mb-5 max-w-[850px] font-bold sm:mx-0 mx-auto">
-              Frais Défendables — Vos dépenses professionnelles tiendraient-elles face à un contrôleur fiscal&nbsp;?
+              Frais Défendables : Vos dépenses professionnelles tiendraient-elles face à un contrôleur fiscal&nbsp;?
             </h1>
 
             <p className="text-base sm:text-lg text-white/75 max-w-[720px] mb-3 sm:mb-4 leading-relaxed sm:mx-0 mx-auto">
-              La vraie question n'est pas « qu'est-ce qui est déductible ? » — c'est : ce frais est-il cohérent, justifiable et défendable en cas de contrôle ? Cet outil analyse 30 catégories de frais professionnels selon le droit fiscal belge (CIR) en 3 questions.
+              La vraie question n'est pas « qu'est-ce qui est déductible ? », c'est : ce frais est-il cohérent, justifiable et défendable en cas de contrôle ? Cet outil analyse 30 catégories de frais professionnels selon le droit fiscal belge (CIR) en 3 questions.
             </p>
             <p className="text-sm sm:text-base text-white/55 max-w-[720px] mb-6 sm:mb-8 leading-relaxed hidden sm:block">
               Ce n'est pas un avis fiscal. C'est un repère de premier niveau pour identifier ce qui mérite une attention particulière avant votre prochaine déclaration ou un éventuel contrôle.
@@ -184,7 +184,7 @@ export default function FraisDefendablesPage() {
                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/10 blur-[80px] hidden sm:block" />
                 <div className="relative text-center sm:text-left">
                   <h2 className="font-display text-[clamp(20px,3vw,32px)] text-white mb-2 sm:mb-3 font-bold">Besoin d'un avis clair sur vos frais&nbsp;?</h2>
-                  <p className="text-white/70 max-w-[600px] text-[14px] sm:text-[15px] leading-relaxed">MFinances vous aide à sécuriser vos dépenses professionnelles et à garder un dossier cohérent, solide et serein — avant le prochain contrôle.</p>
+                  <p className="text-white/70 max-w-[600px] text-[14px] sm:text-[15px] leading-relaxed">MFinances vous aide à sécuriser vos dépenses professionnelles et à garder un dossier cohérent, solide et serein : avant le prochain contrôle.</p>
                 </div>
                 <div className="relative flex gap-3 flex-col sm:flex-row flex-shrink-0 w-full sm:w-auto">
                   <Link to="/contact/" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-xl hover:shadow-accent/30 hover:brightness-110 active:scale-[0.97] w-full sm:w-auto">

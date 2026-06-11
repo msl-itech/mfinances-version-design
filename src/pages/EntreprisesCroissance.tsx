@@ -95,7 +95,7 @@ export default function EntreprisesCroissance() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Expert-Comptable Entreprise en Croissance Bruxelles"
         description="Pilotage financier mensuel et DAF externalisé pour entreprises en croissance en Belgique. Forfait Excellence. Cabinet MFinances, Bruxelles."
@@ -139,7 +139,7 @@ export default function EntreprisesCroissance() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil — N°03</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil : N°03</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
                   Votre entreprise accélère —<br />
@@ -157,7 +157,7 @@ export default function EntreprisesCroissance() {
                     </Link>
                   </Button>
                   <span className="text-primary-foreground/60 text-[13px] font-body">
-                    Forfait Excellence — <span className="text-primary-foreground font-semibold">650 €</span> HTVA/mois
+                    Forfait Excellence : <span className="text-primary-foreground font-semibold">650 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export default function EntreprisesCroissance() {
                         <div className="w-12 h-12 rounded-2xl bg-accent/10 group-hover:bg-accent/15 flex items-center justify-center transition-all duration-500 group-hover:rotate-[-6deg] group-hover:scale-110">
                           <Icon size={22} className="text-accent" strokeWidth={1.5} />
                         </div>
-                        <span className="font-display text-[28px] font-bold text-foreground/10 leading-none">{num}</span>
+                        <span className="font-display text-[28px] font-bold text-accent/[0.25] leading-none">{num}</span>
                       </div>
                       <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
@@ -279,7 +279,7 @@ export default function EntreprisesCroissance() {
                 <span className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
-                Une seule offre — <span className="italic text-accent">Excellence.</span>
+                Une seule offre : <span className="italic text-accent">Excellence.</span>
               </h2>
 
               <div className="mt-10 relative bg-primary text-primary-foreground rounded-[28px] p-8 md:p-12 overflow-hidden text-left">
@@ -299,7 +299,7 @@ export default function EntreprisesCroissance() {
                   </div>
                   <div className="h-px bg-primary-foreground/15 my-6" />
                   <p className="text-[14.5px] text-primary-foreground/75 font-body leading-relaxed">
-                    DAF à temps partiel disponible en option — <strong className="text-accent">150 € HTVA/heure</strong>.
+                    DAF à temps partiel disponible en option : <strong className="text-accent">150 € HTVA/heure</strong>.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 mt-8">
                     <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
@@ -351,7 +351,7 @@ export default function EntreprisesCroissance() {
                 Prêt à structurer <span className="italic text-accent">votre croissance ?</span>
               </h2>
               <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-6 font-body max-w-[600px]">
-                Premier échange gratuit et confidentiel — nous analysons vos enjeux financiers.
+                Premier échange gratuit et confidentiel : nous analysons vos enjeux financiers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

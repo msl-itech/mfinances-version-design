@@ -366,7 +366,7 @@ export default function BlogArticle() {
                   {content.ctaText || "Besoin d'un accompagnement ?"}
                 </h3>
                 <p className="text-primary-foreground/70 text-[14px] font-body mb-6">
-                  {content.ctaDescription || "Premier échange gratuit — nous analysons votre situation."}
+                  {content.ctaDescription || "Premier échange gratuit : nous analysons votre situation."}
                 </p>
                 <Button variant="accent" className="rounded-full" asChild>
                   <Link to="/contact/">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>

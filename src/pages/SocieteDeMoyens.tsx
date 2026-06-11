@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Minus,
   Users,
@@ -34,9 +35,9 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 
 const mutualisations = [
-  { icon: Building2, label: "Locaux professionnels — loyer, charges, entretien, énergie" },
-  { icon: Monitor, label: "Matériel et équipements — achetés en commun et amortis collectivement" },
-  { icon: Headphones, label: "Services partagés — secrétariat, support administratif, solutions cloud" },
+  { icon: Building2, label: "Locaux professionnels : loyer, charges, entretien, énergie" },
+  { icon: Monitor, label: "Matériel et équipements : achetés en commun et amortis collectivement" },
+  { icon: Headphones, label: "Services partagés : secrétariat, support administratif, solutions cloud" },
 ];
 
 const services = [
@@ -88,7 +89,7 @@ export default function SocieteDeMoyens() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Expert-Comptable Société de Moyens Bruxelles — MFinances"
         description="Comptabilité, répartition des charges et cash collecting pour sociétés de moyens en Belgique. MFinances, Bruxelles."
@@ -100,58 +101,70 @@ export default function SocieteDeMoyens() {
       <main>
         {/* ── HERO ── */}
         <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
-          <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Partager</span>
+          <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
+            <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Partager</span>
           </div>
-          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-accent/20 blur-[120px]" />
 
-          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            <div className="lg:col-span-7">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink className="text-primary-foreground/60 text-[13px]">Qui nous accompagnons</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">Société de moyens</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground text-[12px] tracking-wider uppercase">Société de moyens</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
 
-              <div className="mt-8 text-center lg:text-left">
-                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
-                  <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°04 / Mutualisation</span>
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-px w-10 bg-accent" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°04</span>
                 </div>
-                <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
-                  Mutualisez vos ressources<br className="hidden md:block" /> sans <span className="text-accent italic">tensions</span> entre associés.
+                <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
+                  Mutualisez vos ressources<br />
+                  sans <span className="italic text-accent">tensions</span> entre associés.
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
-                  Une structure juridique qui permet à plusieurs professionnels de mutualiser certains moyens matériels, financiers ou humains sans exercer leur activité en commun. Elle ne génère pas de bénéfices.
+                <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-8 font-body max-w-[560px]">
+                  Une structure qui permet à plusieurs professionnels de mutualiser leurs moyens sans exercer leur activité en commun. Elle ne génère pas de bénéfices.
                 </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-2xl shadow-2xl overflow-hidden relative">
-                <img src={imgHero} alt="Professionnels partageant un espace de travail à Bruxelles" className="w-full h-full object-cover" />
-                <div className="absolute top-4 left-4 bg-primary-foreground/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°04</p>
-                  <p className="text-[12px] font-display text-primary leading-tight">Mutualisation / Cash</p>
+                <div className="flex flex-wrap items-center gap-5 mt-10">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                    <Link to="/contact/">
+                      Consultation gratuite
+                      <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
-              <div className="hidden lg:block absolute -bottom-5 -left-5 bg-accent text-accent-foreground rounded-full px-5 py-3 shadow-xl rotate-[-4deg]">
-                <p className="text-[11px] font-bold tracking-[0.15em] uppercase font-body">Cash collecting inclus</p>
+
+              <div className="lg:col-span-5 relative">
+                <div className="absolute -top-12 -right-6 z-20 hidden md:block">
+                  <Stamp className="text-accent drop-shadow-lg" />
+                </div>
+                <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/5] group cut-corner">
+                  <img src={imgHero} alt="Professionnels partageant un espace de travail à Bruxelles" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                  <div className="absolute top-5 left-5 bg-primary-foreground/95 backdrop-blur-sm rounded-full px-4 py-2">
+                    <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary">Mutualisation · Cash</span>
+                  </div>
+                </div>
+                <div className="hidden lg:block absolute -bottom-6 -left-6 bg-accent text-accent-foreground rounded-2xl px-5 py-4 shadow-xl rotate-[-3deg]">
+                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase opacity-80">Service</div>
+                  <div className="font-display text-[22px] font-bold leading-none mt-1">Cash collecting</div>
+                </div>
               </div>
             </div>
           </div>
@@ -201,7 +214,7 @@ export default function SocieteDeMoyens() {
               </div>
               <div className="lg:col-span-5">
                 <p className="text-muted-foreground text-[15px] leading-relaxed font-body">
-                  Deux services clés pour une gestion partagée transparente — chacun paie ce qu'il consomme, sans frictions entre associés.
+                  Deux services clés pour une gestion partagée transparente : chacun paie ce qu'il consomme, sans frictions entre associés.
                 </p>
               </div>
             </div>
@@ -222,7 +235,7 @@ export default function SocieteDeMoyens() {
                         isDark ? "bg-accent/15" : "bg-accent/0 group-hover:bg-accent/10"
                       }`} />
                       <div className={`absolute top-7 right-7 font-display text-[60px] leading-none select-none ${
-                        isDark ? "text-primary-foreground/[0.08]" : "text-foreground/[0.06]"
+                        isDark ? "text-accent/[0.20]" : "text-accent/[0.15]"
                       }`}>{num}</div>
 
                       <div className="relative">
@@ -456,7 +469,7 @@ export default function SocieteDeMoyens() {
                 <span className="text-accent italic">Simplifiez</span> la gestion de votre société de moyens
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel — nous analysons votre situation et proposons une organisation comptable adaptée.
+                Premier échange gratuit et confidentiel : nous analysons votre situation et proposons une organisation comptable adaptée.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

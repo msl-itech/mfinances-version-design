@@ -34,7 +34,7 @@ const steps = [
     icon: Monitor,
     num: "2",
     title: "Lancez AnyDesk",
-    desc: "Un code à 9 chiffres s'affiche — c'est votre identifiant de session unique.",
+    desc: "Un code à 9 chiffres s'affiche, c'est votre identifiant de session unique.",
   },
   {
     icon: KeyRound,
@@ -114,7 +114,7 @@ export default function Support() {
 
             <div className="mt-8">
               <h1 className="font-display text-[32px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                Assistance à distance — <span className="text-accent">support client</span> MFinances
+                Assistance à distance : <span className="text-accent">support client</span> MFinances
               </h1>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
                 Votre expert-comptable peut prendre la main sur votre ordinateur à distance pour vous accompagner directement dans Odoo ou résoudre un problème technique.

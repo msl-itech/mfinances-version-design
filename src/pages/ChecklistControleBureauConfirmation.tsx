@@ -53,8 +53,8 @@ export default function ChecklistControleBureauConfirmation() {
             <CheckCircle2 size={48} className="text-[hsl(145,63%,30%)] mx-auto mb-5" />
             <h1 className="font-display text-[26px] md:text-[34px] text-foreground leading-[1.15] mb-4">
               {prenom
-                ? `C'est parti, ${prenom} — votre checklist est prête`
-                : "C'est parti — votre checklist est prête"}
+                ? `C'est parti, ${prenom} : votre checklist est prête`
+                : "C'est parti : votre checklist est prête"}
             </h1>
 
             <Button variant="accent" size="lg" className="rounded-full group mt-2" onClick={triggerPdfDownload}>

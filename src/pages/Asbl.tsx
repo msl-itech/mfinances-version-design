@@ -58,7 +58,7 @@ const services = [
   {
     icon: Lightbulb,
     title: "Accompagnement ponctuel selon les besoins",
-    desc: "Analyse approfondie, budget annuel, optimisation des ressources — nous intervenons ponctuellement selon vos besoins spécifiques.",
+    desc: "Analyse approfondie, budget annuel, optimisation des ressources : nous intervenons ponctuellement selon vos besoins spécifiques.",
   },
   {
     icon: Scale,
@@ -104,7 +104,7 @@ export default function Asbl() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Expert-Comptable ASBL à Bruxelles — MFinances"
         description="Comptabilité, subsides, obligations légales et accompagnement pour ASBL en Belgique. Cabinet MFinances, Bruxelles."
@@ -116,58 +116,68 @@ export default function Asbl() {
       <main>
         {/* ── HERO ── */}
         <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
-          <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Mission</span>
+          <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
+            <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Mission</span>
           </div>
-          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-accent/20 blur-[120px]" />
 
-          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            <div className="lg:col-span-7">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink className="text-primary-foreground/60 text-[13px]">Qui nous accompagnons</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="text-primary-foreground/40" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="text-primary-foreground text-[13px]">ASBL</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/30" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground text-[12px] tracking-wider uppercase">ASBL</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
 
-              <div className="mt-8 text-center lg:text-left">
-                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
-                  <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°01 / Non-marchand</span>
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-px w-10 bg-accent" />
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°01</span>
                 </div>
-                <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
-                  Vous avez une <span className="text-accent italic">mission</span><br className="hidden md:block" /> qui change des vies.
+                <h1 className="font-display text-[36px] md:text-[56px] leading-[1.1] text-primary-foreground tracking-tight">
+                  Vous avez une <span className="italic text-accent">mission</span> qui change des vies.<br />
+                  La gestion administrative ne doit pas vous en empêcher.<br />
+                  <span className="italic font-normal text-primary-foreground/70 text-[22px] md:text-[34px]">On s'occupe de la comptabilité, des subsides et des obligations légales.</span>
                 </h1>
-                <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-6 font-body max-w-[540px] mx-auto lg:mx-0">
-                  La gestion administrative ne doit pas vous en empêcher. On s'occupe de la comptabilité, des subsides et des obligations légales.
-                </p>
-                <Button variant="accent" size="lg" className="rounded-full mt-8 whitespace-normal text-center group" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-1" /></Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-2xl shadow-2xl overflow-hidden relative">
-                <img src={imgHero} alt="Équipe ASBL en réunion à Bruxelles" className="w-full h-full object-cover" />
-                <div className="absolute top-4 left-4 bg-primary-foreground/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent font-body">N°01</p>
-                  <p className="text-[12px] font-display text-primary leading-tight">ASBL / Subsides</p>
+                <div className="flex flex-wrap items-center gap-5 mt-10">
+                  <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
+                    <Link to="/contact/">
+                      Consultation gratuite
+                      <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
-              <div className="hidden lg:block absolute -bottom-5 -left-5 bg-accent text-accent-foreground rounded-full px-5 py-3 shadow-xl rotate-[-4deg]">
-                <p className="text-[11px] font-bold tracking-[0.15em] uppercase font-body">−21% non-assujetti TVA</p>
+
+              <div className="lg:col-span-5 relative">
+                <div className="absolute -top-12 -right-6 z-20 hidden md:block">
+                  <Stamp className="text-accent drop-shadow-lg" />
+                </div>
+                <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/5] group cut-corner">
+                  <img src={imgHero} alt="Équipe ASBL en réunion à Bruxelles" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                  <div className="absolute top-5 left-5 bg-primary-foreground/95 backdrop-blur-sm rounded-full px-4 py-2">
+                    <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary">ASBL · Subsides</span>
+                  </div>
+                </div>
+                <div className="hidden lg:block absolute -bottom-6 -left-6 bg-accent text-accent-foreground rounded-2xl px-5 py-4 shadow-xl rotate-[-3deg]">
+                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase opacity-80">Réduction</div>
+                  <div className="font-display text-[22px] font-bold leading-none mt-1">−21% TVA</div>
+                </div>
               </div>
             </div>
           </div>
@@ -192,7 +202,7 @@ export default function Asbl() {
               </div>
               <div className="lg:col-span-5">
                 <p className="text-muted-foreground text-[15px] leading-relaxed font-body">
-                  Six expertises pensées pour le secteur non-marchand — de la création des statuts au suivi des subsides, votre cause prime, on s'occupe du reste.
+                  Six expertises pensées pour le secteur non-marchand : de la création des statuts au suivi des subsides, votre cause prime, on s'occupe du reste.
                 </p>
               </div>
             </div>
@@ -213,7 +223,7 @@ export default function Asbl() {
                         isDark ? "bg-accent/15" : "bg-accent/0 group-hover:bg-accent/10"
                       }`} />
                       <div className={`absolute top-6 right-6 font-display text-[44px] leading-none select-none ${
-                        isDark ? "text-primary-foreground/[0.1]" : "text-foreground/[0.07]"
+                        isDark ? "text-primary-foreground/[0.25]" : "text-accent/[0.25]"
                       }`}>{num}</div>
 
                       <div className="relative">
@@ -416,7 +426,7 @@ export default function Asbl() {
               <div className="flex items-center justify-center gap-3 mt-8">
                 <span className="h-px w-8 bg-accent/60" />
                 <p className="text-muted-foreground text-[14px] font-body tracking-wide">
-                  <span className="font-bold text-foreground">Marie-Claire</span> — Secrétaire générale, ASBL culturelle, Bruxelles
+                  <span className="font-bold text-foreground">Marie-Claire</span> : Secrétaire générale, ASBL culturelle, Bruxelles
                 </p>
                 <span className="h-px w-8 bg-accent/60" />
               </div>
@@ -442,7 +452,7 @@ export default function Asbl() {
                 Votre ASBL mérite un <span className="text-accent italic">accompagnement</span> dédié
               </h2>
               <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-                Premier échange gratuit et confidentiel — nous analysons vos besoins comptables et financiers.
+                Premier échange gratuit et confidentiel : nous analysons vos besoins comptables et financiers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

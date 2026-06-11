@@ -67,12 +67,12 @@ export default function PolitiqueConfidentialite() {
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via le diagnostic trésorerie</h3>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                Réponses aux questions du diagnostic — coordonnées collectées uniquement si vous souhaitez être contacté.
+                Réponses aux questions du diagnostic : coordonnées collectées uniquement si vous souhaitez être contacté.
               </p>
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via la navigation</h3>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                Données de connexion, adresse IP, type de navigateur, pages visitées — collectées via cookies analytiques avec consentement.
+                Données de connexion, adresse IP, type de navigateur, pages visitées : collectées via cookies analytiques avec consentement.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function PolitiqueConfidentialite() {
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans — obligations légales belges</span>
+                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans : obligations légales belges</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
@@ -103,7 +103,7 @@ export default function PolitiqueConfidentialite() {
                 Contact : <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a>
               </p>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body mt-2">
-                Réclamation : Autorité de protection des données belge (APD) — <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">www.autoriteprotectiondonnees.be</a>
+                Réclamation : Autorité de protection des données belge (APD) : <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">www.autoriteprotectiondonnees.be</a>
               </p>
             </div>
 

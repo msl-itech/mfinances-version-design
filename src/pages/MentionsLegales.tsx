@@ -66,7 +66,7 @@ export default function MentionsLegales() {
                 <p><strong>Téléphone :</strong> <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a></p>
                 <p><strong>Email :</strong> <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a></p>
                 <p><strong>Représentant légal :</strong> Mika Musungayi, Gérant</p>
-                <p><strong>Membre de :</strong> ITAA — Institut des Conseillers fiscaux et des Experts-comptables</p>
+                <p><strong>Membre de :</strong> ITAA : Institut des Conseillers fiscaux et des Experts-comptables</p>
                 <p><strong>Numéro d'agrément ITAA :</strong> 50.624.805</p>
               </div>
             </div>

@@ -60,7 +60,7 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
             duration: 1.05,
             ease: "expo.out",
             stagger: 0.045,
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+            scrollTrigger: { trigger: el, start: "top 82%", once: true },
             delay: Number(el.dataset.delay ?? 0),
           }
         );
@@ -175,7 +175,7 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
             duration: 1.1,
             ease: "expo.out",
             delay: Number(el.dataset.delay ?? 0),
-            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+            scrollTrigger: { trigger: el, start: "top 80%", once: true },
           }
         );
       });
@@ -190,7 +190,7 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
             duration: 1.2,
             ease: "power2.out",
             delay: Number(el.dataset.delay ?? 0),
-            scrollTrigger: { trigger: el, start: "top 92%", once: true },
+            scrollTrigger: { trigger: el, start: "top 82%", once: true },
           }
         );
       });
@@ -223,7 +223,7 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
             duration: 1,
             ease: "expo.out",
             stagger: Number(el.dataset.stagger ?? 0.1),
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+            scrollTrigger: { trigger: el, start: "top 82%", once: true },
           }
         );
       });

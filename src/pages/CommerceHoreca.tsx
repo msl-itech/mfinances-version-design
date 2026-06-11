@@ -57,12 +57,12 @@ const services = [
 const caseStudies = [
   {
     icon: TrendingDown,
-    title: "Restaurant — gestion en flux tendu",
+    title: "Restaurant : gestion en flux tendu",
     desc: "Un restaurant Horeca confronté à un stockage excessif a mis en place une gestion en flux tendu et un suivi des coûts alimentaires par plat. Résultat : réduction de 30% des coûts de stockage en 2 mois. Trésorerie disponible augmentée de 8 000 €.",
   },
   {
     icon: BarChart3,
-    title: "Magasin de vêtements — rotation des stocks",
+    title: "Magasin de vêtements : rotation des stocks",
     desc: "Un magasin avec des stocks à faible rotation a restructuré son approche commerciale grâce à une analyse des données de vente. Résultat : taux de rotation amélioré de 40% en une saison. Liquidités bloquées réduites de moitié.",
   },
 ];
@@ -96,7 +96,7 @@ export default function CommerceHoreca() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Expert-Comptable Commerce Horeca Bruxelles — MFinances"
         description="Comptabilité, TVA multi-taux, marges et trésorerie pour commerçants et secteur Horeca en Belgique. Suivi minimum trimestriel. MFinances, Bruxelles."
@@ -140,12 +140,12 @@ export default function CommerceHoreca() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil — N°02</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil : N°02</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
-                  Commerce et Horeca —<br />
-                  <span className="italic text-accent">maîtrisez vos marges</span><br />
-                  avant qu'elles ne vous échappent.
+                  Plein tous les soirs —<br />
+                  mais à la fin du mois,<br />
+                  <span className="italic text-accent">où est passé l'argent&nbsp;?</span>
                 </h1>
                 <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-8 font-body max-w-[560px]">
                   Dans ce secteur, la différence entre un établissement qui prospère et un qui ferme tient souvent à un seul facteur : la maîtrise financière.
@@ -158,7 +158,7 @@ export default function CommerceHoreca() {
                     </Link>
                   </Button>
                   <span className="text-primary-foreground/60 text-[13px] font-body">
-                    Forfait Premium minimum — <span className="text-primary-foreground font-semibold">dès 450 €</span> HTVA/mois
+                    Forfait Premium minimum : <span className="text-primary-foreground font-semibold">dès 450 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function CommerceHoreca() {
                         <div className="w-12 h-12 rounded-2xl bg-accent/10 group-hover:bg-accent/15 flex items-center justify-center transition-all duration-500 group-hover:rotate-[-6deg] group-hover:scale-110">
                           <Icon size={22} className="text-accent" strokeWidth={1.5} />
                         </div>
-                        <span className="font-display text-[28px] font-bold text-foreground/10 leading-none">{num}</span>
+                        <span className="font-display text-[28px] font-bold text-accent/[0.25] leading-none">{num}</span>
                       </div>
                       <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
@@ -308,7 +308,7 @@ export default function CommerceHoreca() {
                 <span className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
-                Forfaits — <span className="italic text-accent">Premium minimum.</span>
+                Forfaits : <span className="italic text-accent">Premium minimum.</span>
               </h2>
             </div>
 
@@ -423,7 +423,7 @@ export default function CommerceHoreca() {
                 Prêt à reprendre le contrôle <span className="italic text-accent">de vos marges ?</span>
               </h2>
               <p className="text-primary-foreground/70 text-[16px] md:text-[18px] leading-relaxed mt-6 font-body max-w-[600px]">
-                Premier échange gratuit et confidentiel — nous analysons votre situation financière.
+                Premier échange gratuit et confidentiel : nous analysons votre situation financière.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>

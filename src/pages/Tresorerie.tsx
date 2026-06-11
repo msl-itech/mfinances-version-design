@@ -38,7 +38,7 @@ const painPoints = [
 
 const cards = [
   { icon: Table2, title: "Tableau prévisionnel mensuel", desc: "Mis à jour chaque mois sur vos données réelles Odoo. Vous voyez exactement où va votre cash." },
-  { icon: GitBranch, title: "Scénarios", desc: "Base, optimiste, pessimiste — pour chaque décision importante, vous voyez l'impact sur votre trésorerie." },
+  { icon: GitBranch, title: "Scénarios", desc: "Base, optimiste, pessimiste : pour chaque décision importante, vous voyez l'impact sur votre trésorerie." },
   { icon: Bell, title: "Alertes préventives", desc: "Notification 8 semaines avant une tension identifiée. Vous avez le temps de réagir." },
 ];
 
@@ -52,7 +52,7 @@ const timeline = [
 const faqs = [
   {
     q: "Quelle est la différence entre un prévisionnel de trésorerie et un budget ?",
-    a: "Le budget mesure votre rentabilité (revenus moins charges). Le prévisionnel de trésorerie mesure vos encaissements et décaissements réels — c'est-à-dire le cash qui entre et sort de votre compte. Vous pouvez être rentable et manquer de cash.",
+    a: "Le budget mesure votre rentabilité (revenus moins charges). Le prévisionnel de trésorerie mesure vos encaissements et décaissements réels, c'est-à-dire le cash qui entre et sort de votre compte. Vous pouvez être rentable et manquer de cash.",
   },
   {
     q: "Dois-je utiliser Odoo pour bénéficier de ce service ?",
@@ -111,7 +111,7 @@ export default function Tresorerie() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Gestion de Trésorerie TPE à Bruxelles — MFinances"
         description="Trésorerie prévisionnelle mensuelle pour anticiper les tensions et sécuriser votre croissance. Inclus dans le forfait Excellence. MFinances, Bruxelles."
@@ -143,7 +143,7 @@ export default function Tresorerie() {
         />
 
         {/* TL;DR (AEO / GEO Optimization) */}
-        <section className="bg-card pt-16 pb-8">
+        {/* <section className="bg-card pt-16 pb-8">
           <div className="container-mf">
             <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 lg:p-10 max-w-[900px] mx-auto shadow-sm">
               <h2 className="font-display text-[20px] md:text-[24px] font-bold text-foreground mb-4 flex items-center gap-3">
@@ -170,13 +170,13 @@ export default function Tresorerie() {
               </ul>
             </aside>
           </div>
-        </section>
+        </section> */}
 
         {/* SECTION 1 — Douleur trésorerie (split éditorial) */}
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Tension
@@ -198,7 +198,7 @@ export default function Tresorerie() {
                   des dirigeants de TPE à Bruxelles ?
                 </h2>
                 <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
-                  Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire. Ce n'est pas un problème de performance — c'est un problème de visibilité.
+                  Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire. Ce n'est pas un problème de performance, c'est un problème de visibilité.
                 </p>
                 <div className="mt-8">
                   <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
@@ -273,7 +273,7 @@ export default function Tresorerie() {
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
-                      className="absolute -top-4 -right-2 font-display italic font-bold text-foreground/[0.06] group-hover:text-accent/15 leading-none transition-colors duration-500"
+                      className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -300,7 +300,7 @@ export default function Tresorerie() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
               Calendrier
@@ -352,7 +352,7 @@ export default function Tresorerie() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
             <span
-              className="font-display italic font-bold text-foreground/[0.035] leading-none block"
+              data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >
               Sync
@@ -441,7 +441,7 @@ export default function Tresorerie() {
                     >
                       <AccordionTrigger className="text-left hover:no-underline py-7 group">
                         <div className="flex items-start gap-5 w-full pr-4">
-                          <span className="font-display italic text-accent/60 group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
+                          <span className="font-display italic text-accent group-hover:text-accent text-[14px] leading-none mt-1 flex-shrink-0 transition-colors">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="text-[16px] md:text-[17px] font-display font-semibold text-foreground leading-[1.4] flex-1">
@@ -471,7 +471,7 @@ export default function Tresorerie() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {[
                 { slug: "pourquoi-pas-argent-sur-compte", title: "Pourquoi je n'ai jamais d'argent sur mon compte ?", excerpt: "Vous travaillez, vous facturez, et pourtant votre compte est toujours vide." },
-                { slug: "argent-disparait-fin-mois", title: "Bénéfices mais pas d'argent — pourquoi ?", excerpt: "Vous êtes rentable sur le papier mais votre compte est vide en fin de mois." },
+                { slug: "argent-disparait-fin-mois", title: "Bénéfices mais pas d'argent : pourquoi ?", excerpt: "Vous êtes rentable sur le papier mais votre compte est vide en fin de mois." },
                 { slug: "stress-fin-mois-dirigeant-tpe", title: "Le stress de fin de mois des dirigeants de TPE", excerpt: "Chaque fin de mois, vous vérifiez votre compte avec appréhension." },
                 { slug: "combien-reserve-securite-tpe", title: "Combien mettre de côté en réserve de sécurité ?", excerpt: "La règle des 3 mois expliquée simplement pour les indépendants." },
               ].map((a, i) => (

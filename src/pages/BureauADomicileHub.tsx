@@ -15,7 +15,7 @@ import { useTilt } from "@/hooks/use-tilt";
 const faqData = [
   { q: "Quelle quotiété puis-je déduire pour mon bureau à domicile ?", a: "La quotiété dépend de la surface professionnelle pondérée divisée par la surface totale pondérée de votre logement. Pour un bureau de 15 m² dans un appartement de 80 m², la quotiété est de 18,75 %. Notre calculateur applique cette méthode automatiquement et vous génère un rapport PDF documenté en 2 minutes." },
   { q: "Dois-je avoir un bureau dédié pour déduire ?", a: "Non. Vous pouvez appliquer un pourcentage d'usage professionnel à chaque pièce selon son utilisation réelle. Un salon utilisé à 20 % à titre professionnel contribue proportionnellement à votre quotiété. L'article sur les pièces à usage mixte explique la méthode de calcul détaillée." },
-  { q: "Est-ce que déduire un bureau à domicile déclenche un contrôle fiscal ?", a: "Non — c'est un droit légal. En revanche, une quotiété disproportionnée (supérieure à 35 % sans justification documentée), l'absence de bail écrit ou des paiements sans trace bancaire peuvent attirer l'attention lors d'un contrôle." },
+  { q: "Est-ce que déduire un bureau à domicile déclenche un contrôle fiscal ?", a: "Non, c'est un droit légal. En revanche, une quotiété disproportionnée (supérieure à 35 % sans justification documentée), l'absence de bail écrit ou des paiements sans trace bancaire peuvent attirer l'attention lors d'un contrôle." },
   { q: "Que faire si je suis locataire et que je veux sous-louer mon bureau à ma société ?", a: "Vous devez vérifier que votre bail principal autorise la sous-location. En cas de clause restrictive, l'accord écrit de votre propriétaire est obligatoire avant toute démarche. Notre générateur de bail insère automatiquement la clause légale de sous-location si vous sélectionnez le statut 'locataire'." },
 ];
 
@@ -117,7 +117,7 @@ export default function BureauADomicileHub() {
           <section className="py-16">
             <div className="max-w-[800px] mx-auto px-6">
               <div className="prose prose-lg max-w-none text-foreground/85 leading-relaxed space-y-5">
-                <p>Chaque année, des milliers de dirigeants belges passent à côté de plusieurs centaines — parfois plusieurs milliers — d'euros de déductions fiscales légitimes. Non par mauvaise volonté. Par manque d'information sur les mécanismes qui s'appliquent exactement à leur situation.</p>
+                <p>Chaque année, des milliers de dirigeants belges passent à côté de plusieurs centaines : parfois plusieurs milliers : d'euros de déductions fiscales légitimes. Non par mauvaise volonté. Par manque d'information sur les mécanismes qui s'appliquent exactement à leur situation.</p>
                 <p>Vous travaillez depuis votre domicile. Votre société occupe une pièce, parfois deux. Votre loyer, votre énergie, votre internet, votre assurance : une partie de ces charges vous appartient fiscalement. Encore faut-il savoir laquelle, comment la calculer et comment la documenter pour résister à un contrôle.</p>
                 <p>Ce guide rassemble tout ce que vous devez savoir sur le bureau à domicile en Belgique en 2026 : calcul de la quotiété, mécanismes de déduction selon votre statut, erreurs à éviter, et stratégies d'optimisation légales.</p>
               </div>
@@ -137,7 +137,7 @@ export default function BureauADomicileHub() {
                   {
                     num: "1",
                     title: "La quotiété directe",
-                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une quotiété de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions — soit plus de 1 600 € d'économie fiscale nette à l'ISOC 25 %.",
+                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une quotiété de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions : soit plus de 1 600 € d'économie fiscale nette à l'ISOC 25 %.",
                     icon: Calculator,
                     color: "bg-[hsl(135,40%,94%)] border-[hsl(148,35%,82%)]",
                     iconBg: "bg-[hsl(148,55%,30%)]",
@@ -251,7 +251,7 @@ export default function BureauADomicileHub() {
           <section className="py-16">
             <div className="max-w-[900px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">FAQ</span>
-              <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">FAQ — Bureau à domicile en Belgique</h2>
+              <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">FAQ : Bureau à domicile en Belgique</h2>
 
               <div className="grid gap-4">
                 {faqData.map((f, i) => (

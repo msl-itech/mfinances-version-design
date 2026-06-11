@@ -453,7 +453,7 @@ export default function Contact() {
                             disabled={isLoading || !recaptchaToken}
                             className="rounded-full w-full mt-5 whitespace-normal text-center leading-snug text-[15px]"
                           >
-                            {isLoading ? "Envoi en cours..." : "Envoyer ma demande — Mika me rappelle sous 72h"}
+                            {isLoading ? "Envoi en cours..." : "Envoyer ma demande : Mika me rappelle sous 72h"}
                             <ArrowRight size={16} className="ml-1 flex-shrink-0" />
                           </Button>
 
@@ -508,7 +508,7 @@ export default function Contact() {
                       <span className="h-px w-6 bg-accent" />
                       <p className="text-[10px] font-bold text-accent font-body uppercase tracking-[0.25em]">Votre interlocuteur</p>
                     </div>
-                    <Quote size={20} className="text-accent/60 mb-2" strokeWidth={1.5} />
+                    <Quote size={20} className="text-accent mb-2" strokeWidth={1.5} />
                     <p className="text-[15px] italic font-display text-primary-foreground/90 leading-[1.5] font-light">
                       Je rappelle personnellement chaque nouveau contact sous 72h pour un premier échange gratuit.
                     </p>

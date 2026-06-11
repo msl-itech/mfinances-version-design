@@ -24,7 +24,7 @@ const breadcrumbJsonLd = {
 const erreurs = [
   {
     title: "Confondre bénéfice et trésorerie",
-    desc: "Vous êtes rentable sur le papier mais à court de cash en fin de mois ? Le bénéfice est un résultat comptable — la trésorerie, c'est l'argent disponible maintenant.",
+    desc: "Vous êtes rentable sur le papier mais à court de cash en fin de mois ? Le bénéfice est un résultat comptable : la trésorerie, c'est l'argent disponible maintenant.",
   },
   {
     title: "Payer comptant tous vos investissements",
@@ -32,7 +32,7 @@ const erreurs = [
   },
   {
     title: "Ne pas provisionner la TVA et les impôts",
-    desc: "Les charges sociales, la TVA, les acomptes — ces montants arrivent toujours. Trop de dirigeants les découvrent au moment de payer.",
+    desc: "Les charges sociales, la TVA, les acomptes : ces montants arrivent toujours. Trop de dirigeants les découvrent au moment de payer.",
   },
   {
     title: "Accepter des délais clients trop longs",
@@ -40,7 +40,7 @@ const erreurs = [
   },
   {
     title: "Décider sans tableau prévisionnel",
-    desc: "Recruter, investir, signer un gros contrat — sans projection à 3-6 mois, ces décisions peuvent vous fragiliser sans que vous le voyiez.",
+    desc: "Recruter, investir, signer un gros contrat : sans projection à 3-6 mois, ces décisions peuvent vous fragiliser sans que vous le voyiez.",
   },
 ];
 
@@ -137,10 +137,10 @@ export default function ChecklistTresorerie() {
                   Guide gratuit · PDF · 5 min de lecture
                 </span>
                 <h1 className="font-display text-[26px] md:text-[36px] leading-[1.15] text-primary-foreground mb-4">
-                  Checklist Trésorerie TPE — <span className="text-accent">5 erreurs qui vident votre compte</span>
+                  Checklist Trésorerie TPE : <span className="text-accent">5 erreurs qui vident votre compte</span>
                 </h1>
                 <p className="text-primary-foreground/75 text-[15px] leading-relaxed font-body max-w-[480px]">
-                  Un guide pratique pour identifier si vous commettez ces erreurs — avant qu'elles ne coûtent cher.
+                  Un guide pratique pour identifier si vous commettez ces erreurs : avant qu'elles ne coûtent cher.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 mt-6">
@@ -167,7 +167,7 @@ export default function ChecklistTresorerie() {
                       Téléchargez la checklist
                     </h2>
                     <p className="text-[13px] text-muted-foreground font-body mb-5">
-                      Vérifiez si vous commettez ces 5 erreurs — résultat immédiat.
+                      Vérifiez si vous commettez ces 5 erreurs : résultat immédiat.
                     </p>
                     <form onSubmit={handleSubmit} className="space-y-3">
                       <input
@@ -246,7 +246,7 @@ export default function ChecklistTresorerie() {
               Ce que contient <span className="text-accent">le guide</span>
             </h2>
             <p className="text-[15px] text-muted-foreground font-body text-center max-w-[520px] mx-auto mb-10">
-              5 erreurs concrètes que commettent 80% des dirigeants de TPE — avec les questions à vous poser pour chacune.
+              5 erreurs concrètes que commettent 80% des dirigeants de TPE : avec les questions à vous poser pour chacune.
             </p>
 
             <div className="space-y-4">

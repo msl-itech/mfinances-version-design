@@ -32,14 +32,14 @@ const pilotageServices = [
   {
     icon: Users,
     title: "DAF à temps partiel",
-    desc: "Un copilote pour chaque décision qui engage votre avenir. Réservé aux clients Excellence — 150 € HTVA/heure.",
+    desc: "Un copilote pour chaque décision qui engage votre avenir. Réservé aux clients Excellence : 150 € HTVA/heure.",
     href: "/services/daf-externalise/",
     badge: "Excellence",
   },
   {
     icon: BarChart3,
     title: "Contrôle de gestion",
-    desc: "Vous savez chaque mois si vous gagnez ou perdez — et pourquoi. Inclus dans les forfaits Premium et Excellence.",
+    desc: "Vous savez chaque mois si vous gagnez ou perdez : et pourquoi. Inclus dans les forfaits Premium et Excellence.",
     href: "/services/controle-de-gestion/",
     badge: "Premium+",
   },
@@ -56,19 +56,19 @@ const fondamentauxServices = [
   {
     icon: Calculator,
     title: "Comptabilité sur Odoo",
-    desc: "Tenue comptable complète, déclarations TVA, comptes annuels — le socle de chaque forfait.",
+    desc: "Tenue comptable complète, déclarations TVA, comptes annuels : le socle de chaque forfait.",
     href: "/services/comptabilite/",
   },
   {
     icon: FileText,
     title: "Fiscalité des entreprises",
-    desc: "ISOC, IPP, précomptes, optimisation fiscale — nous gérons l'ensemble de vos obligations.",
+    desc: "ISOC, IPP, précomptes, optimisation fiscale : nous gérons l'ensemble de vos obligations.",
     href: "/services/fiscalite/",
   },
   {
     icon: Rocket,
     title: "Création d'entreprise",
-    desc: "Plan financier, statuts, formalités — tout compris pour 800 € HTVA.",
+    desc: "Plan financier, statuts, formalités : tout compris pour 800 € HTVA.",
     href: "/services/creation-entreprise/",
     badge: "800 € HTVA",
   },
@@ -77,7 +77,7 @@ const fondamentauxServices = [
 const servicesFaqs = [
   {
     q: "Comment savoir quel service est fait pour moi ?",
-    a: "Faites le diagnostic gratuit (3 min) — résultat immédiat.",
+    a: "Faites le diagnostic gratuit (3 min) : résultat immédiat.",
   },
   {
     q: "Puis-je ajouter des services en cours de contrat ?",
@@ -193,7 +193,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Services Comptables & Pilotage Financier TPE Bruxelles | MFinances"
         description="Comptabilité, contrôle de gestion, DAF externalisé, trésorerie prévisionnelle — les services MFinances pour les dirigeants de TPE à Bruxelles. Forfaits à partir de 350 € HTVA/mois."
@@ -254,25 +254,10 @@ export default function Services() {
                   className="font-display font-bold text-primary-foreground leading-[1.05] tracking-[-0.015em]"
                   style={{ fontSize: "clamp(32px, 4.2vw, 60px)" }}
                 >
-                  Nos services —{" "}
-                  <span className="italic font-normal text-accent relative inline-block">
-                    bien plus
-                    <svg
-                      className="absolute -bottom-1.5 left-0 w-full h-[10px]"
-                      viewBox="0 0 300 14"
-                      fill="none"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M2 10 Q 75 2, 150 8 T 298 6"
-                        stroke="hsl(var(--accent))"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        opacity="0.6"
-                      />
-                    </svg>
-                  </span>{" "}
-                  que la comptabilité
+                  Vos chiffres ne sont pas qu'une obligation fiscale.{" "}
+                  <span className="italic font-normal text-accent">
+                    Ils sont le tableau de bord de votre avenir.
+                  </span>
                 </h1>
 
                 <div className="mt-10 max-w-[560px]">
@@ -415,7 +400,7 @@ export default function Services() {
               <div className="lg:col-span-5">
                 <div className="h-px w-12 bg-accent mb-4" />
                 <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.7] font-body">
-                  Le socle de chaque forfait — comptabilité, fiscalité et accompagnement à la création.
+                  Le socle de chaque forfait : comptabilité, fiscalité et accompagnement à la création.
                 </p>
               </div>
             </div>
@@ -503,7 +488,7 @@ export default function Services() {
                 <span className="italic text-accent">vos besoins</span> ?
               </h2>
               <p className="text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[580px] mx-auto">
-                Premier échange gratuit et confidentiel — nous identifions ensemble les services adaptés à votre situation.
+                Premier échange gratuit et confidentiel : nous identifions ensemble les services adaptés à votre situation.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mt-10">

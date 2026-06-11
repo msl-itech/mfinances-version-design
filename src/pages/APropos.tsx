@@ -138,7 +138,7 @@ export default function APropos() {
                   Pourquoi j'ai créé <span className="italic font-light text-accent">MFinances</span>
                 </h1>
                 <p className="text-primary-foreground/70 text-[16px] leading-[1.75] mt-6 font-body max-w-[480px]">
-                  Parce que trop de dirigeants de TPE pilotent leur croissance sans visibilité — et que ça ne devrait pas être une fatalité.
+                  Parce que trop de dirigeants de TPE pilotent leur croissance sans visibilité, et que ça ne devrait pas être une fatalité.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-8">
                   <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
@@ -161,40 +161,6 @@ export default function APropos() {
         </section>
 
         {/* TL;DR (AEO / GEO Optimization) */}
-        <section className="bg-card pt-12 pb-6 border-b border-border/50">
-          <div className="container-mf">
-            <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 max-w-[1000px] mx-auto shadow-sm flex flex-col md:flex-row gap-8 items-center md:items-start">
-              <div className="md:w-1/3 flex-shrink-0">
-                <h2 className="font-display text-[20px] font-bold text-foreground mb-3 flex items-center gap-2">
-                  <span className="text-[24px]">👋</span> Mika en bref
-                </h2>
-                <p className="text-[14px] font-body text-muted-foreground leading-relaxed">
-                  L'essentiel à retenir sur le fondateur du cabinet MFinances à Bruxelles.
-                </p>
-              </div>
-              <div className="md:w-2/3">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">✓</span>
-                    <span className="text-[15px] font-body text-foreground/85"><strong>Qui ?</strong> <strong>Mika Musungayi</strong>, fondateur de MFinances.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">✓</span>
-                    <span className="text-[15px] font-body text-foreground/85"><strong>Titre :</strong> <strong>Expert-comptable</strong> certifié <strong>ITAA (n° 50.624.805)</strong>.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">✓</span>
-                    <span className="text-[15px] font-body text-foreground/85"><strong>Expérience :</strong> Plus de <strong>20 ans d'expérience</strong> dans l'accompagnement des TPE en Belgique.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">✓</span>
-                    <span className="text-[15px] font-body text-foreground/85"><strong>Localisation :</strong> Cabinet basé à <strong>Uccle, Bruxelles</strong> (20 Rue de la Magnanerie).</span>
-                  </li>
-                </ul>
-              </div>
-            </aside>
-          </div>
-        </section>
 
         {/* ── CHIFFRES CLÉS ── */}
         <section className="bg-card py-10 md:py-14 border-b border-border/50 relative overflow-hidden">
@@ -242,7 +208,7 @@ export default function APropos() {
               <div className="mt-7 space-y-4 font-body text-[15px] text-foreground/75 leading-[1.8]">
                 <p>
                   Je me souviens d'un jeune entrepreneur. Ambitieux, intuitif, talentueux. Il vendait des terminaux
-                  de paiement sur un marché de niche — et il avait du flair.
+                  de paiement sur un marché de niche, et il avait du flair.
                 </p>
                 <p>
                   Ensemble, nous avions analysé son modèle économique. Le diagnostic était clair&nbsp;: intégrer une
@@ -294,13 +260,13 @@ export default function APropos() {
                   <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">02 · Le déclic</span>
                   <span className="h-px w-8 bg-accent" />
                 </div>
-                <Quote size={36} className="text-accent/60 mx-auto mb-5" strokeWidth={1.5} />
+                <Quote size={36} className="text-accent mx-auto mb-5" strokeWidth={1.5} />
                 <p className="font-display text-[22px] md:text-[34px] text-primary-foreground leading-[1.25] italic font-light tracking-tight">
                   Puis le Covid est arrivé. La croissance ne pouvait plus absorber les erreurs du passé.
                 </p>
                 <div className="w-12 h-[2px] bg-accent mx-auto mt-8 mb-7" />
                 <p className="text-primary-foreground/75 text-[15px] md:text-[16px] font-body leading-[1.85] max-w-[640px] mx-auto">
-                  C'est le contrôle de gestion — mis en place dans l'urgence — qui lui a permis de prendre les
+                  C'est le contrôle de gestion, mis en place dans l'urgence, qui lui a permis de prendre les
                   bonnes décisions. De sauver l'essentiel. Pas sans dommages. Mais debout.
                 </p>
                 <p className="font-display italic text-accent text-[17px] md:text-[19px] mt-7">
@@ -348,10 +314,10 @@ export default function APropos() {
               <div className="mt-7 space-y-4 font-body text-[15px] text-foreground/75 leading-[1.8]">
                 <p>
                   Je m'adresse aux entreprises en forte croissance. Celles qui passent un cap. Celles qui
-                  accélèrent — parfois plus vite que leur organisation.
+                  accélèrent, parfois plus vite que leur organisation.
                 </p>
                 <p>
-                  Des dirigeants ambitieux, mais sans véritable pilotage financier. Non pas par manque de besoin —
+                  Des dirigeants ambitieux, mais sans véritable pilotage financier. Non pas par manque de besoin,
                   mais parce qu'ils pensent encore être «&nbsp;trop petits&nbsp;» pour structurer un contrôle de gestion.
                 </p>
                 <p>
@@ -451,7 +417,7 @@ export default function APropos() {
 
           <div className="mx-auto max-w-[860px] px-6 lg:px-12 text-center relative z-10">
             <div data-anim="fade-up">
-              <Quote size={48} className="text-accent/60 mx-auto mb-5" strokeWidth={1.5} />
+              <Quote size={48} className="text-accent mx-auto mb-5" strokeWidth={1.5} />
               <p className="font-display text-[24px] md:text-[34px] leading-[1.25] text-primary-foreground italic font-light tracking-tight">
                 Arrêtez de vous voir trop petit. Commencez à piloter comme une entreprise <span className="text-accent not-italic font-normal">en croissance</span>.
               </p>
@@ -503,29 +469,29 @@ export default function APropos() {
 
               <div className="mt-7 space-y-5 font-body text-[15px] text-foreground/75 leading-[1.8]">
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-10 h-10 mt-0.5 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
                     <Award size={18} className="text-accent" strokeWidth={1.5} />
                   </div>
-                  <p className="pt-1.5">
+                  <p className="text-foreground/80">
                     Diplômé de la Chambre Belge des Comptables, Experts-Comptables et Conseils Fiscaux.
                     Membre <strong className="text-foreground">ITAA (n° 50.624.805)</strong>. Plus de <strong>20 ans d'expérience</strong> aux côtés de dirigeants
                     de TPE et PME à <strong>Bruxelles</strong>.
                   </p>
                 </div>
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-10 h-10 mt-0.5 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
                     <Clock size={18} className="text-accent" strokeWidth={1.5} />
                   </div>
-                  <p className="pt-1.5">
-                    Depuis <strong className="text-foreground">2003</strong>, j'accompagne des entrepreneurs en Belgique dans les moments qui comptent — création,
+                  <p className="text-foreground/80">
+                    Depuis <strong className="text-foreground">2003</strong>, j'accompagne des entrepreneurs en Belgique dans les moments qui comptent : création,
                     croissance, restructuration, <strong>optimisation fiscale</strong>.
                   </p>
                 </div>
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-10 h-10 mt-0.5 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
                     <BarChart3 size={18} className="text-accent" strokeWidth={1.5} />
                   </div>
-                  <p className="pt-1.5">
+                  <p className="text-foreground/80">
                     MFinances, c'est l'aboutissement de cette expérience. La conviction qu'un dirigeant de TPE
                     mérite <strong className="text-foreground">les mêmes outils de pilotage qu'un grand groupe</strong>.
                   </p>
@@ -564,7 +530,7 @@ export default function APropos() {
 
               <div className="mt-7 space-y-4 font-body text-[15px] text-foreground/75 leading-[1.8]">
                 <p>
-                  Mon rôle est d'apporter clarté et structure — sans alourdir votre organisation. En intégrant
+                  Mon rôle est d'apporter clarté et structure, sans alourdir votre organisation. En intégrant
                   un véritable pilotage financier dans votre quotidien&nbsp;: contrôle de gestion, trésorerie
                   prévisionnelle, indicateurs utiles.
                 </p>
@@ -614,7 +580,7 @@ export default function APropos() {
               </h2>
               <p className="text-primary-foreground/75 text-[16px] mt-5 font-body max-w-[600px] mx-auto leading-[1.75]">
                 Si vous pilotez votre entreprise à l'intuition et que vous sentez que les décisions deviennent
-                plus complexes — c'est le bon moment pour en parler.
+                plus complexes, c'est le bon moment pour en parler.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-9">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>

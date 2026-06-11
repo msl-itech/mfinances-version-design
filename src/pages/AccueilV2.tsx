@@ -35,6 +35,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
@@ -52,11 +53,11 @@ import audCroissance from "@/assets/audience-croissance.webp";
 import audPromoteurs from "@/assets/audience-promoteurs.webp";
 
 /* ============================================================
-   DATA — texts copied verbatim from the V1 homepage sections
+   DATA : texts copied verbatim from the V1 homepage sections
    ============================================================ */
 
 const heroFeatures = [
-  { title: "Vision claire", desc: "Vous savez exactement où va votre argent — chaque mois." },
+  { title: "Vision claire", desc: "Vous savez exactement où va votre argent : chaque mois." },
   { title: "Conseil expert", desc: "20+ ans d'expérience au service de votre pilotage." },
   { title: "Support efficace", desc: "Une équipe dédiée, réactive et 100% bilingue FR/EN." },
 ];
@@ -71,12 +72,12 @@ const painPoints = [
   {
     icon: Eye,
     title: "Fiscalité subie",
-    desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
+    desc: "Vous découvrez votre charge fiscale en fin d'année : quand il est trop tard pour agir. Chaque surprise coûte cher.",
   },
   {
     icon: HelpCircle,
     title: "Décisions à l'aveugle",
-    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
+    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF : pourquoi pas vous ?",
   },
 ];
 
@@ -113,7 +114,7 @@ const services = [
 
 // V1 — MethodSection
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes — sans jargon." },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon." },
   { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
   { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
 ];
@@ -160,7 +161,7 @@ function getInitials(name: string) {
 
 // V1 — homepage FAQ (Index.tsx)
 const faqs = [
-  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
   { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel), 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle et accès DAF). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle intégrés dans les forfaits." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
@@ -229,12 +230,13 @@ export default function AccueilV2() {
         title="Cabinet d'Expert-Comptable Bruxelles — MFinances"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour TPE en croissance."
         canonical="https://mfinances.be/"
+        schemaJson={[accountingServiceSchema, createFaqSchema(faqs)]}
       />
       <Header />
       <main>
         {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
-          <h1 className="sr-only">Cabinet d'expert-comptable à Bruxelles — Pilotage financier pour TPE</h1>
+          <h1 className="sr-only">Cabinet d'expert-comptable à Bruxelles : Pilotage financier pour TPE</h1>
           <div
             ref={heroRef}
             className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px] bg-precision-grid-light"
@@ -285,7 +287,7 @@ export default function AccueilV2() {
                 data-anim="fade-up"
                 data-delay="0.4"
               >
-                La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
+                La plupart des dirigeants de TPE pilotent à l'aveugle : trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
 
               {/* CTA pill outline blanc */}
@@ -333,7 +335,7 @@ export default function AccueilV2() {
                 data-anim="fade-up"
                 data-delay="0.4"
               >
-                La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
+                La plupart des dirigeants de TPE pilotent à l'aveugle : trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
               </p>
               <div data-anim="fade-up" data-delay="0.55" className="mt-6 flex flex-wrap items-center gap-3">
                 <Button
@@ -470,7 +472,7 @@ export default function AccueilV2() {
                 className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.12em] hover:gap-4 transition-all"
               >
                 <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
-                Plus maintenant — faites le diagnostic
+                Plus maintenant : faites le diagnostic
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
