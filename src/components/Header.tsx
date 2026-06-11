@@ -158,6 +158,10 @@ export default function Header() {
               Diagnostic
             </Link>
 
+            <Link to="/blog/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
+              Blog
+            </Link>
+
             <Link to="/a-propos/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Pourquoi MFinances
             </Link>
@@ -268,6 +272,9 @@ export default function Header() {
               </Link>
               <Link to="/diagnostic/" className="block px-4 py-3 rounded-lg text-[15px] font-semibold text-accent hover:bg-accent/5" onClick={() => setMobileOpen(false)}>
                 Diagnostic
+              </Link>
+              <Link to="/blog/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
+                Blog
               </Link>
               <Link to="/a-propos/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Pourquoi MFinances
