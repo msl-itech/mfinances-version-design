@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/tresorerie-hero.jpg";
@@ -27,7 +27,8 @@ import {
   RefreshCw,
   CalendarDays,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const painPoints = [
   { icon: Clock, title: "Décalages de paiement", desc: "Vos clients paient à 60 jours, vos fournisseurs à 30. Le décalage grignote votre trésorerie sans que vous ne le voyiez." },
@@ -61,6 +62,14 @@ const faqs = [
     q: "Que se passe-t-il si une tension est détectée ?",
     a: "Vous recevez une alerte 8 semaines à l'avance avec une analyse de la cause et des recommandations concrètes : négocier un délai fournisseur, activer une ligne de crédit, reporter un investissement, etc.",
   },
+  {
+    q: "Pourquoi faire appel à un expert-comptable ITAA à Bruxelles pour sa trésorerie ?",
+    a: "Un expert-comptable certifié ITAA comme MFinances ne se contente pas d'encoder vos factures. Nous analysons vos flux réels sur Odoo pour anticiper les tensions de trésorerie 3 mois à l'avance, ce qui est crucial pour les TPE en croissance à Bruxelles et en Belgique."
+  },
+  {
+    q: "Combien coûte la gestion de trésorerie prévisionnelle chez MFinances ?",
+    a: "Chez MFinances, le pilotage de la trésorerie est inclus dans notre Forfait Excellence (à partir de 650€ HTVA/mois). Ce forfait intègre la comptabilité complète, le contrôle de gestion et un DAF externalisé."
+  }
 ];
 
 const breadcrumbJsonLd = {
@@ -83,16 +92,20 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Tresorerie() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -129,6 +142,35 @@ export default function Tresorerie() {
           watermark="Cash"
         />
 
+        {/* TL;DR (AEO / GEO Optimization) */}
+        <section className="bg-card pt-16 pb-8">
+          <div className="container-mf">
+            <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 lg:p-10 max-w-[900px] mx-auto shadow-sm">
+              <h2 className="font-display text-[20px] md:text-[24px] font-bold text-foreground mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-[14px]">💡</span>
+                L'essentiel en bref (TL;DR)
+              </h2>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Pour qui ?</strong> Les dirigeants de TPE en croissance à <strong>Bruxelles</strong> et en Belgique.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Quoi ?</strong> Un tableau de bord prévisionnel de trésorerie avec 3 mois d'avance, synchronisé en direct avec Odoo.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Pourquoi ?</strong> Pour anticiper les décalages de paiement, financer la croissance sereinement et éliminer le stress des fins de mois.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Notre expertise :</strong> Suivi mensuel par <strong>Mika Musungayi</strong>, expert-comptable ITAA, intégré dans le Forfait Excellence.</span>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </section>
 
         {/* SECTION 1 — Douleur trésorerie (split éditorial) */}
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
@@ -143,7 +185,7 @@ export default function Tresorerie() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+              <div data-anim="fade-up" className="lg:col-span-5 lg:sticky lg:top-28">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -151,9 +193,9 @@ export default function Tresorerie() {
                   </span>
                 </div>
                 <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
-                  Pourquoi la trésorerie est{" "}
+                  Pourquoi la gestion de la trésorerie est-elle{" "}
                   <span className="italic font-normal text-accent">le principal stress</span>{" "}
-                  des dirigeants
+                  des dirigeants de TPE à Bruxelles ?
                 </h2>
                 <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
                   Vous êtes rentable sur le papier, mais votre compte en banque raconte une autre histoire. Ce n'est pas un problème de performance — c'est un problème de visibilité.
@@ -165,15 +207,15 @@ export default function Tresorerie() {
                     </Link>
                   </Button>
                 </div>
-              </ScrollRevealDiv>
+              </div>
 
               <div className="lg:col-span-7 space-y-4">
                 {painPoints.map((p, i) => {
                   const Icon = p.icon;
                   return (
-                    <ScrollRevealDiv
+                    <div data-anim="fade-up" data-delay="0.08 * i"
                       key={p.title}
-                      delay={0.08 * i}
+                      
                       className="group relative flex items-start gap-5 p-7 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
                     >
                       <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
@@ -186,7 +228,7 @@ export default function Tresorerie() {
                         <h3 className="text-[17px] font-display font-bold text-foreground leading-tight">{p.title}</h3>
                         <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mt-2">{p.desc}</p>
                       </div>
-                    </ScrollRevealDiv>
+                    </div>
                   );
                 })}
               </div>
@@ -206,7 +248,7 @@ export default function Tresorerie() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-16 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -215,18 +257,19 @@ export default function Tresorerie() {
                 <div className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
-                Ce que comprend votre{" "}
-                <span className="italic font-normal text-accent">trésorerie prévisionnelle</span>
+                Comment mettons-nous en place votre{" "}
+                <span className="italic font-normal text-accent">trésorerie prévisionnelle</span>{" "}
+                sur Odoo ?
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {cards.map((c, i) => {
                 const Icon = c.icon;
                 return (
-                  <ScrollRevealDiv
+                  <div data-anim="fade-up" data-delay="0.1 * i"
                     key={c.title}
-                    delay={0.1 * i}
+                    
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
@@ -246,7 +289,7 @@ export default function Tresorerie() {
                     </div>
                     <h3 className="text-[19px] font-display font-bold text-foreground mb-3 leading-tight relative">{c.title}</h3>
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{c.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -265,7 +308,7 @@ export default function Tresorerie() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[680px] mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -273,17 +316,17 @@ export default function Tresorerie() {
                 </span>
               </div>
               <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
-                Les périodes critiques{" "}
+                Quelles sont les périodes fiscales critiques{" "}
                 <span className="italic font-normal text-accent">à anticiper</span>{" "}
-                en Belgique
+                en Belgique ?
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="relative">
               <div aria-hidden className="hidden lg:block absolute top-[42px] left-[6%] right-[6%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
                 {timeline.map((t, i) => (
-                  <ScrollRevealDiv key={t.period} delay={0.1 * i} className="relative">
+                  <div data-anim="fade-up" data-delay="0.1 * i" key={t.period}  className="relative">
                     {/* dot */}
                     <div className="hidden lg:flex justify-center mb-6 relative">
                       <div className="w-[18px] h-[18px] rounded-full bg-card border-2 border-accent flex items-center justify-center relative z-10">
@@ -298,7 +341,7 @@ export default function Tresorerie() {
                       <h3 className="text-[16px] font-display font-bold text-foreground mb-2 leading-tight">{t.label}</h3>
                       <p className="text-[13px] text-muted-foreground leading-[1.65] font-body">{t.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 ))}
               </div>
             </div>
@@ -318,7 +361,7 @@ export default function Tresorerie() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <ScrollRevealDiv className="lg:col-span-5">
+              <div data-anim="fade-up" className="lg:col-span-5">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -326,9 +369,9 @@ export default function Tresorerie() {
                   </span>
                 </div>
                 <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
-                  Synchronisation{" "}
+                  Comment fonctionne la synchronisation{" "}
                   <span className="italic font-normal text-accent">automatique</span>
-                  <br />avec Odoo
+                  <br />avec Odoo ?
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[460px]">
                   Vos données réelles alimentent automatiquement votre prévisionnel. Pas de ressaisie manuelle, pas d'erreurs, pas de perte de temps.
@@ -347,9 +390,9 @@ export default function Tresorerie() {
                     </li>
                   ))}
                 </ul>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.15} className="lg:col-span-7 relative">
+              <div data-anim="fade-up" data-delay="0.15"  className="lg:col-span-7 relative">
                 <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
@@ -363,7 +406,7 @@ export default function Tresorerie() {
                     <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">Live sync</span>
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -372,7 +415,7 @@ export default function Tresorerie() {
         <section className="relative bg-card py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -386,9 +429,9 @@ export default function Tresorerie() {
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Tout ce que les dirigeants nous demandent avant de mettre en place un prévisionnel de trésorerie.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -412,7 +455,7 @@ export default function Tresorerie() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -420,11 +463,11 @@ export default function Tresorerie() {
         {/* ── ARTICLES LIÉS ── */}
         <section className="bg-card py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[32px] text-foreground mb-8 text-center leading-[1.15]">
                 Nos articles <span className="text-accent">trésorerie</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {[
                 { slug: "pourquoi-pas-argent-sur-compte", title: "Pourquoi je n'ai jamais d'argent sur mon compte ?", excerpt: "Vous travaillez, vous facturez, et pourtant votre compte est toujours vide." },
@@ -432,7 +475,7 @@ export default function Tresorerie() {
                 { slug: "stress-fin-mois-dirigeant-tpe", title: "Le stress de fin de mois des dirigeants de TPE", excerpt: "Chaque fin de mois, vous vérifiez votre compte avec appréhension." },
                 { slug: "combien-reserve-securite-tpe", title: "Combien mettre de côté en réserve de sécurité ?", excerpt: "La règle des 3 mois expliquée simplement pour les indépendants." },
               ].map((a, i) => (
-                <ScrollRevealDiv key={a.slug} delay={0.06 + i * 0.04}>
+                <div data-anim="fade-up" data-delay="0.06 + i * 0.04" key={a.slug} >
                   <Link
                     to={`/blog/tresorerie/${a.slug}/`}
                     className="group block bg-secondary/60 rounded-2xl p-6 border border-border/50 hover:border-accent/30 transition-all"
@@ -445,7 +488,7 @@ export default function Tresorerie() {
                       Lire <ArrowRight size={12} />
                     </span>
                   </Link>
-                </ScrollRevealDiv>
+                </div>
               ))}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
@@ -9,6 +9,8 @@ import { submitLead } from "@/lib/odoo-submit";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -49,6 +51,17 @@ const pourQui = [
 ];
 
 export default function ChecklistControleBureau() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const [form, setForm] = useState({ prenom: "", email: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,7 +115,7 @@ export default function ChecklistControleBureau() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Checklist Contrôle Fiscal Bureau à Domicile — MFinances"
         description="Votre bureau à domicile est-il défendable en cas de contrôle fiscal ? Checklist MFinances — 10 points à vérifier."

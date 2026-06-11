@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle2, Clock, Shield, BarChart3, AlertTriangle, TrendingUp, Wallet, PiggyBank, Landmark } from "lucide-react";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 /* ───── DATA ───── */
 
@@ -161,6 +163,17 @@ const breadcrumbJsonLd = {
 /* ───── COMPONENT ───── */
 
 export default function Diagnostic() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const [searchParams] = useSearchParams();
   const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
@@ -369,7 +382,7 @@ export default function Diagnostic() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Diagnostic Trésorerie Gratuit pour TPE — MFinances"
         description="Évaluez la santé de votre trésorerie en 8 questions. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles."

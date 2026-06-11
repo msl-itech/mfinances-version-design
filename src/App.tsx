@@ -75,11 +75,11 @@ const App = () => {
         <RouteTracker />
         <Routes>
           <Route path="/" element={<AccueilV2 />} />
-          <Route path="/accueil-v1/" element={<Index />} />
-          <Route path="/accueilv2/" element={<AccueilV2 />} />
-          <Route path="/accueilv2" element={<AccueilV2 />} />
-          <Route path="/accueilv3/" element={<AccueilV3 />} />
-          <Route path="/accueilv3" element={<AccueilV3 />} />
+          {/* <Route path="/accueil-v1/" element={<Index />} /> */}
+          {/* <Route path="/accueilv2/" element={<AccueilV2 />} /> */}
+          {/* <Route path="/accueilv2" element={<AccueilV2 />} /> */}
+          {/* <Route path="/accueilv3/" element={<AccueilV3 />} /> */}
+          {/* <Route path="/accueilv3" element={<AccueilV3 />} /> */}
           <Route path="/services/" element={<Services />} />
           <Route path="/services/daf-externalise/" element={<DafExternalise />} />
           <Route path="/services/controle-de-gestion/" element={<ControleDeGestion />} />

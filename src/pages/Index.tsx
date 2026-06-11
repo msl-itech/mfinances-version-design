@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -19,6 +19,8 @@ import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import SeoLocalSection from "@/components/sections/SeoLocalSection";
 import HomepageEnhancer from "@/components/homepage/HomepageEnhancer";
 import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const homepageFaqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
@@ -28,12 +30,23 @@ const homepageFaqs = [
 ];
 
 export default function Index() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen relative">
+    <div ref={root} className="min-h-screen relative">
       <SEOHead
         title="Expert-Comptable Bruxelles — Pilotage TPE"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE en croissance."

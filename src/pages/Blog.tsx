@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -13,9 +13,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ArrowRight, Search } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+
 import { blogCategories, blogArticles } from "@/data/blog-data";
 import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
 import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
@@ -23,6 +22,8 @@ import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
 import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
 import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const categoryImages: Record<string, string> = {
   "tresorerie": heroTresorerie,
@@ -41,16 +42,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Blog() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -124,18 +129,18 @@ export default function Blog() {
         {/* ── CATÉGORIES ── */}
         <section className="bg-secondary py-16 md:py-20">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-12">
+            <div data-anim="fade-up" className="text-center mb-12">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Explorez par <span className="text-accent">catégorie</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {blogCategories.map((cat, i) => {
                 const articleCount = blogArticles.filter((a) => a.categorySlug === cat.slug && a.published).length;
                 const upcomingCount = blogArticles.filter((a) => a.categorySlug === cat.slug && !a.published).length;
                 return (
-                  <ScrollRevealDiv key={cat.slug} delay={0.08 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={cat.slug} >
                     <Link
                       to={cat.href}
                       className="group block bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
@@ -164,7 +169,7 @@ export default function Blog() {
                         </div>
                       </div>
                     </Link>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -175,11 +180,11 @@ export default function Blog() {
         {latestPublished.length > 0 && (
           <section className="bg-card py-16 md:py-20">
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-              <ScrollRevealDiv className="text-center mb-12">
+              <div data-anim="fade-up" className="text-center mb-12">
                 <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                   Derniers <span className="text-accent">articles</span>
                 </h2>
-              </ScrollRevealDiv>
+              </div>
 
               {/* Search */}
               <div className="relative max-w-[480px] mx-auto mb-10">
@@ -196,7 +201,7 @@ export default function Blog() {
               {paginatedArticles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {paginatedArticles.map((article, i) => (
-                    <ScrollRevealDiv key={article.slug} delay={0.08 + i * 0.05}>
+                    <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
                       <Link
                         to={`/blog/${article.categorySlug}/${article.slug}/`}
                         className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
@@ -210,7 +215,7 @@ export default function Blog() {
                           Lire <ArrowRight size={14} />
                         </span>
                       </Link>
-                    </ScrollRevealDiv>
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -260,7 +265,7 @@ export default function Blog() {
         {/* ── CTA ── */}
         <section className="bg-primary py-16 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Envie de passer à l'action ?
               </h2>
@@ -275,7 +280,7 @@ export default function Blog() {
                   <Link to="/contact/">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

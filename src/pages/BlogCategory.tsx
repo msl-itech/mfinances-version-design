@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
@@ -13,20 +13,25 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ArrowRight, Clock } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticlesByCategory } from "@/data/blog-data";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function BlogCategory() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const articles = categorySlug ? getArticlesByCategory(categorySlug) : [];
@@ -101,7 +106,7 @@ export default function BlogCategory() {
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
               <div className="space-y-5">
                 {published.map((article, i) => (
-                  <ScrollRevealDiv key={article.slug} delay={0.08 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
                     <Link
                       to={`/blog/${article.categorySlug}/${article.slug}/`}
                       className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300"
@@ -114,7 +119,7 @@ export default function BlogCategory() {
                         Lire l'article <ArrowRight size={14} />
                       </span>
                     </Link>
-                  </ScrollRevealDiv>
+                  </div>
                 ))}
               </div>
             </div>
@@ -125,15 +130,15 @@ export default function BlogCategory() {
         {upcoming.length > 0 && (
           <section className="bg-secondary py-16 md:py-20">
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-              <ScrollRevealDiv className="text-center mb-10">
+              <div data-anim="fade-up" className="text-center mb-10">
                 <h2 className="font-display text-[24px] md:text-[30px] text-foreground leading-[1.15]">
                   Articles <span className="text-accent">à venir</span>
                 </h2>
-              </ScrollRevealDiv>
+              </div>
 
               <div className="space-y-4">
                 {upcoming.map((article, i) => (
-                  <ScrollRevealDiv key={article.slug} delay={0.08 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
                     <div className="bg-card rounded-2xl p-6 border border-border/50 opacity-75">
                       <div className="flex items-start gap-3">
                         <Clock size={16} className="text-foreground/30 mt-1 flex-shrink-0" />
@@ -145,7 +150,7 @@ export default function BlogCategory() {
                         </div>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 ))}
               </div>
             </div>
@@ -155,7 +160,7 @@ export default function BlogCategory() {
         {/* ── CTA ── */}
         <section className="bg-primary py-16 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
                 Besoin d'un accompagnement personnalisé ?
               </h2>
@@ -167,7 +172,7 @@ export default function BlogCategory() {
                   <Link to="/blog/">Toutes les catégories <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

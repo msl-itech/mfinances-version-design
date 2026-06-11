@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitLead } from "@/lib/odoo-submit";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
@@ -23,8 +23,9 @@ import {
   Sparkles,
   Quote,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const situations = [
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
@@ -45,7 +46,7 @@ const besoins = [
 function ProgressBar({ current }: { current: number }) {
   const progress = (current / 3) * 100;
   return (
-    <div className="mb-5 md:mb-8">
+    <div ref={root} className="mb-5 md:mb-8">
       <div className="flex items-center justify-between mb-2 md:mb-3">
         {[1, 2, 3].map((step) => (
           <div key={step} className="flex items-center gap-1.5 md:gap-2">
@@ -78,16 +79,20 @@ function ProgressBar({ current }: { current: number }) {
   );
 }
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Contact() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const [step, setStep] = useState(1);
   const [situation, setSituation] = useState("");
   const [besoin, setBesoin] = useState("");
@@ -163,7 +168,7 @@ export default function Contact() {
           <div className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-accent/10 blur-3xl" />
 
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative z-10 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="inline-flex items-center gap-2 mb-5 md:mb-6">
                 <span className="h-px w-10 bg-accent" />
                 <span className="font-body text-[11px] font-bold tracking-[0.25em] uppercase text-accent">
@@ -184,7 +189,7 @@ export default function Contact() {
                 <span className="w-px h-3 bg-primary-foreground/20" />
                 <span className="inline-flex items-center gap-1.5"><CheckCircle size={13} className="text-accent" strokeWidth={1.8} /> Gratuit</span>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -192,7 +197,7 @@ export default function Contact() {
         {/* 3 contact methods — premium */}
         <section className="bg-background py-6 md:py-16 relative">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
                 {[
                   { Icon: Phone, title: "Téléphone", value: "+32 2 886 05 50", sub: "Lun-Ven · 9h-18h", href: "tel:+3228860550" },
@@ -219,7 +224,7 @@ export default function Contact() {
                   );
                 })}
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -238,7 +243,7 @@ export default function Contact() {
           <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-14 relative z-10">
             {/* LEFT — Formulaire (3/5) */}
             <div className="lg:col-span-3 order-1 lg:order-1">
-              <ScrollRevealDiv>
+              <div data-anim="fade-up">
                 <div className="relative bg-card rounded-3xl p-6 md:p-10 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.25)] border border-border/60 overflow-hidden">
                   {/* Accent bar top */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/60 to-accent" />
@@ -472,12 +477,12 @@ export default function Contact() {
                     </>
                   )}
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
 
             {/* RIGHT — Sidebar (2/5) — hidden on mobile */}
             <div className="lg:col-span-2 order-2 lg:order-2 hidden lg:block">
-              <ScrollRevealDiv delay={0.15}>
+              <div data-anim="fade-up" data-delay="0.15" >
                 {/* Mika card — éditorial */}
                 <div className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
                   <span
@@ -558,7 +563,7 @@ export default function Contact() {
                   </div>
                   <ArrowRight size={14} className="text-accent ml-auto group-hover:translate-x-1 transition-transform" />
                 </a>
-              </ScrollRevealDiv>
+              </div>
             </div>
 
           </div>

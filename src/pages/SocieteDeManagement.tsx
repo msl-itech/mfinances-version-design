@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/societe-exploitation-hero.jpg";
@@ -29,8 +29,9 @@ import {
   Quote,
   Sparkles,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 /* ── data ── */
 
@@ -94,16 +95,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function SocieteDeManagement() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -183,14 +188,14 @@ export default function SocieteDeManagement() {
         {/* ── DÉFINITION ── */}
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
+            <div data-anim="fade-up" className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 C'est quoi une société de management <span className="text-accent">patrimoniale</span> ?
               </h2>
               <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body max-w-[640px] mx-auto">
                 Elle permet de facturer vos prestations de direction à votre société d'exploitation sous forme de management fees déductibles, et de réinvestir les revenus dans des actifs patrimoniaux durables.
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -201,7 +206,7 @@ export default function SocieteDeManagement() {
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="mb-12 md:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div data-anim="fade-up" className="mb-12 md:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="h-px w-10 bg-accent/60" />
@@ -216,7 +221,7 @@ export default function SocieteDeManagement() {
                   Quatre piliers pour transformer vos revenus de dirigeant en patrimoine durable, structuré et conforme.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
               {services.map((s, i) => {
@@ -224,7 +229,7 @@ export default function SocieteDeManagement() {
                 const isDark = i === 1 || i === 2;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.06 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.06" key={s.title} >
                     <div className={`group relative rounded-3xl p-7 md:p-8 h-full overflow-hidden transition-all duration-500 border ${
                       isDark
                         ? "bg-primary text-primary-foreground border-primary hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.45)]"
@@ -257,7 +262,7 @@ export default function SocieteDeManagement() {
                         </div>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -267,17 +272,17 @@ export default function SocieteDeManagement() {
         {/* ── CETTE STRUCTURE EST-ELLE FAITE POUR VOUS ? ── */}
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-8 md:mb-14">
+            <div data-anim="fade-up" className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Cette structure est-elle <span className="text-accent">faite pour vous</span> ?
               </h2>
               <p className="text-[13px] text-muted-foreground italic font-body mt-3 max-w-[600px] mx-auto">
                 Ces critères sont indicatifs. Seule une analyse personnalisée de votre situation permet de déterminer si une société de management patrimoniale est pertinente et avantageuse dans votre cas spécifique.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ScrollRevealDiv delay={0.08} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
+              <div data-anim="fade-up" data-delay="0.08"  className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[hsl(145,63%,42%)]/10 flex items-center justify-center">
                     <CheckCircle2 size={20} className="text-[hsl(145,63%,42%)]" strokeWidth={1.5} />
@@ -292,9 +297,9 @@ export default function SocieteDeManagement() {
                     </li>
                   ))}
                 </ul>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.14} className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
+              <div data-anim="fade-up" data-delay="0.14"  className="bg-secondary/60 rounded-2xl p-7 border border-border/50">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center">
                     <AlertTriangle size={20} className="text-destructive" strokeWidth={1.5} />
@@ -309,7 +314,7 @@ export default function SocieteDeManagement() {
                     </li>
                   ))}
                 </ul>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -317,13 +322,13 @@ export default function SocieteDeManagement() {
         {/* ── AVANT / APRÈS ── */}
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
+            <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Résultat concret — <span className="text-accent">avant et après</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               {/* Desktop table */}
               <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-[14px]">
@@ -368,7 +373,7 @@ export default function SocieteDeManagement() {
               <p className="text-[13px] text-foreground/50 italic font-body mt-5 text-center max-w-[700px] mx-auto">
                 Exemple illustratif basé sur un dirigeant avec 200 000 € de revenus annuels. Les résultats dépendent de la situation personnelle, fiscale et patrimoniale de chaque client. Une analyse personnalisée est indispensable.
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -380,7 +385,7 @@ export default function SocieteDeManagement() {
           </div>
 
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 justify-center mb-6">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
@@ -400,7 +405,7 @@ export default function SocieteDeManagement() {
                 </p>
                 <span className="h-px w-8 bg-accent/60" />
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -411,7 +416,7 @@ export default function SocieteDeManagement() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
@@ -420,9 +425,9 @@ export default function SocieteDeManagement() {
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Cas <span className="italic text-accent">client</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_30px_70px_-40px_hsl(var(--primary)/0.25)]">
                 <div className="lg:col-span-4 bg-primary text-primary-foreground p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[260px]">
                   <div className="pointer-events-none absolute -bottom-12 -left-8 w-60 h-60 rounded-full bg-accent/15 blur-3xl" />
@@ -474,7 +479,7 @@ export default function SocieteDeManagement() {
                   </p>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -485,7 +490,7 @@ export default function SocieteDeManagement() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="text-center mb-12 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
@@ -494,9 +499,9 @@ export default function SocieteDeManagement() {
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Forfaits <span className="italic text-accent">disponibles</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.08}>
+            <div data-anim="fade-up" data-delay="0.08" >
               <div className="hidden sm:grid grid-cols-[35%_1fr_1fr_1fr] mb-1">
                 <div />
                 {[
@@ -580,7 +585,7 @@ export default function SocieteDeManagement() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="text-center mt-10">
               <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
@@ -588,7 +593,7 @@ export default function SocieteDeManagement() {
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+            <div data-anim="fade-up" data-delay="0.2"  className="mt-10 text-center">
               <p className="text-[14px] text-muted-foreground font-body">
                 Voir aussi :{" "}
                 <Link to="/qui-nous-accompagnons/societe-de-moyens/" className="text-accent font-semibold hover:underline">
@@ -598,7 +603,7 @@ export default function SocieteDeManagement() {
                   Société d'exploitation
                 </Link>
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -610,7 +615,7 @@ export default function SocieteDeManagement() {
             <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
@@ -630,7 +635,7 @@ export default function SocieteDeManagement() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

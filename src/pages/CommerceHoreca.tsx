@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/commerce-horeca-hero.jpg";
@@ -27,8 +27,9 @@ import {
   Quote,
   BarChart3,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -76,16 +77,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function CommerceHoreca() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -187,7 +192,7 @@ export default function CommerceHoreca() {
           </div>
 
           <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="max-w-[680px] mb-12 md:mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-12 md:mb-16">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Notre approche</span>
@@ -195,14 +200,14 @@ export default function CommerceHoreca() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Ce que MFinances fait <span className="italic text-accent">pour vous.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06" key={s.title} >
                     <div className="group relative bg-secondary/40 hover:bg-secondary/70 rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -top-6 -right-6 w-32 h-32 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-2xl transition-all duration-500" />
                       <div className="relative flex items-start justify-between mb-6">
@@ -214,7 +219,7 @@ export default function CommerceHoreca() {
                       <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -230,7 +235,7 @@ export default function CommerceHoreca() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Cas réels</span>
@@ -239,14 +244,14 @@ export default function CommerceHoreca() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Résultats <span className="italic text-accent">concrets.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
               {caseStudies.map((c, i) => {
                 const Icon = c.icon;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={c.title} delay={0.08 + i * 0.08}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.08" key={c.title} >
                     <div className="group relative bg-card rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-3xl transition-all duration-700" />
                       <div className="relative flex items-start justify-between mb-6">
@@ -258,7 +263,7 @@ export default function CommerceHoreca() {
                       <h3 className="text-[19px] font-bold font-body text-foreground mb-3">{c.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.75] font-body">{c.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -268,7 +273,7 @@ export default function CommerceHoreca() {
         {/* ── TÉMOIGNAGE ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="relative bg-primary text-primary-foreground rounded-[28px] p-8 md:p-14 overflow-hidden">
                 <div className="pointer-events-none absolute -top-10 -right-10 w-64 h-64 rounded-full bg-accent/20 blur-3xl" />
                 <Quote size={56} className="text-accent/30 mb-6" strokeWidth={1.2} />
@@ -283,7 +288,7 @@ export default function CommerceHoreca() {
                   </div>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -296,7 +301,7 @@ export default function CommerceHoreca() {
           </div>
 
           <div className="mx-auto max-w-[920px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12">
+            <div data-anim="fade-up" className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Tarification</span>
@@ -305,9 +310,9 @@ export default function CommerceHoreca() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Forfaits — <span className="italic text-accent">Premium minimum.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="hidden sm:block bg-card rounded-3xl border border-border/50 overflow-hidden shadow-sm">
                 <table className="w-full text-[14px]">
                   <thead>
@@ -364,15 +369,15 @@ export default function CommerceHoreca() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.2}>
+            <div data-anim="fade-up" data-delay="0.2" >
               <div className="bg-accent/[0.07] rounded-2xl p-5 mt-6 border border-accent/15">
                 <p className="text-[13.5px] text-foreground/70 font-body leading-relaxed">
                   <strong className="text-foreground">Important :</strong> Le secteur Commerce & Horeca requiert un suivi minimum trimestriel. Le forfait Essentiel n'est pas proposé pour ce secteur.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="text-center mt-10">
               <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
@@ -383,7 +388,7 @@ export default function CommerceHoreca() {
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-12 text-center">
+            <div data-anim="fade-up" data-delay="0.2"  className="mt-12 text-center">
               <p className="text-[13px] text-muted-foreground font-body uppercase tracking-wider">Voir aussi</p>
               <p className="text-[15px] text-foreground font-body mt-2">
                 <Link to="/qui-nous-accompagnons/independants-et-startups/" className="text-accent font-semibold hover:underline underline-offset-4">
@@ -394,7 +399,7 @@ export default function CommerceHoreca() {
                   Professions de santé
                 </Link>
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -409,7 +414,7 @@ export default function CommerceHoreca() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Reprenez le contrôle</span>
@@ -431,7 +436,7 @@ export default function CommerceHoreca() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/compta-hero.jpg";
@@ -28,7 +28,8 @@ import {
   Quote,
   RefreshCw,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   { icon: BookOpen, title: "Comptabilité générale et analytique", desc: "Tenue complète de votre comptabilité avec analyse détaillée par activité, projet ou centre de coût." },
@@ -79,16 +80,20 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Comptabilite() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -146,17 +151,17 @@ export default function Comptabilite() {
                 </span>
                 <div className="h-px w-10 bg-accent" />
               </div>
-              <ScrollRevealDiv>
+              <div data-anim="fade-up">
                 <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
                   Pourquoi Odoo{" "}
                   <span className="italic font-normal text-accent">change tout</span>
                 </h2>
-              </ScrollRevealDiv>
-              <ScrollRevealDiv delay={0.1}>
+              </div>
+              <div data-anim="fade-up" data-delay="0.1" >
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
                   La plupart des cabinets comptables travaillent en silo — vous envoyez vos documents, ils produisent vos chiffres, vous attendez. <strong className="text-foreground">Odoo casse ce modèle.</strong> Vos données sont centralisées, votre comptabilité est en temps réel.
                 </p>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -173,7 +178,7 @@ export default function Comptabilite() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[680px] mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -184,15 +189,15 @@ export default function Comptabilite() {
                 Ce que comprend notre{" "}
                 <span className="italic font-normal text-accent">service comptable</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.05"
                     key={s.title}
-                    delay={0.06 + i * 0.05}
+                    
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
@@ -212,7 +217,7 @@ export default function Comptabilite() {
                     </div>
                     <h3 className="text-[17px] font-display font-bold text-foreground mb-2 leading-tight relative">{s.title}</h3>
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -231,7 +236,7 @@ export default function Comptabilite() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-16 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -243,13 +248,13 @@ export default function Comptabilite() {
                 Ils nous font{" "}
                 <span className="italic font-normal text-accent">confiance</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {testimonials.map((t, i) => (
-                <ScrollRevealDiv
+                <div data-anim="fade-up" data-delay="0.1 + i * 0.08"
                   key={t.author}
-                  delay={0.1 + i * 0.08}
+                  
                   className="group relative bg-secondary/40 hover:bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] flex flex-col"
                 >
                   <span className="font-display italic text-accent text-[44px] leading-none mb-6 group-hover:scale-110 transition-transform duration-500 origin-left">"</span>
@@ -265,7 +270,7 @@ export default function Comptabilite() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                </ScrollRevealDiv>
+                </div>
               ))}
             </div>
           </div>
@@ -284,7 +289,7 @@ export default function Comptabilite() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <ScrollRevealDiv className="lg:col-span-5">
+              <div data-anim="fade-up" className="lg:col-span-5">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -313,9 +318,9 @@ export default function Comptabilite() {
                     </li>
                   ))}
                 </ul>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.15} className="lg:col-span-7 relative">
+              <div data-anim="fade-up" data-delay="0.15"  className="lg:col-span-7 relative">
                 <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
@@ -329,7 +334,7 @@ export default function Comptabilite() {
                     <span className="text-[10px] uppercase tracking-[0.18em] text-foreground/80 font-semibold">All-in-one</span>
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -346,7 +351,7 @@ export default function Comptabilite() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-14 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-14 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -358,9 +363,9 @@ export default function Comptabilite() {
                 Inclus dans{" "}
                 <span className="italic font-normal text-accent">tous nos forfaits</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1} className="max-w-[920px] mx-auto">
+            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[920px] mx-auto">
               <div className="hidden sm:block bg-secondary/30 rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px]">
@@ -438,7 +443,7 @@ export default function Comptabilite() {
                   <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1.5" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -446,7 +451,7 @@ export default function Comptabilite() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -460,9 +465,9 @@ export default function Comptabilite() {
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Tout ce qu'il faut savoir avant de confier votre comptabilité.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -486,7 +491,7 @@ export default function Comptabilite() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>

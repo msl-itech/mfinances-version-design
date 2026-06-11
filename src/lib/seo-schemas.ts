@@ -43,9 +43,9 @@ export const accountingServiceSchema = {
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "20 Rue de la Magnanerie",
-    "addressLocality": "Uccle",
+    "addressLocality": "Bruxelles",
     "postalCode": "1180",
-    "addressRegion": "Bruxelles",
+    "addressRegion": "Région de Bruxelles-Capitale",
     "addressCountry": "BE"
   },
   "geo": {

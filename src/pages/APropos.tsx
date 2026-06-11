@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -22,9 +22,10 @@ import {
   BarChart3,
   Sparkles,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { createBreadcrumbSchema, personMikaSchema } from "@/lib/seo-schemas";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -34,14 +35,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-function SR({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 const values = [
   {
@@ -68,18 +62,29 @@ const values = [
 
 const stats = [
   { value: "20+", label: "années d'expérience" },
-  { value: "200+", label: "entreprises accompagnées" },
-  { value: "5.0", label: "note Google (16 avis)" },
-  { value: "72h", label: "délai de réponse max." },
+  { value: "200+", label: "dirigeants de TPE accompagnés" },
+  { value: "5.0/5", label: "note Google (cabinet à Bruxelles)" },
+  { value: "72h", label: "délai de réponse garanti" },
 ];
 
 export default function APropos() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Cabinet Comptable Bruxelles Spécialisé Pilotage TPE & DAF | MFinances"
         description="MFinances, fondé par Mika MUSUNGAYI, expert-comptable ITAA avec 20 ans d'expérience. Pilotage financier, contrôle de gestion et DAF externalisé pour les TPE à Uccle, Bruxelles."
@@ -155,12 +160,48 @@ export default function APropos() {
           </div>
         </section>
 
+        {/* TL;DR (AEO / GEO Optimization) */}
+        <section className="bg-card pt-12 pb-6 border-b border-border/50">
+          <div className="container-mf">
+            <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 max-w-[1000px] mx-auto shadow-sm flex flex-col md:flex-row gap-8 items-center md:items-start">
+              <div className="md:w-1/3 flex-shrink-0">
+                <h2 className="font-display text-[20px] font-bold text-foreground mb-3 flex items-center gap-2">
+                  <span className="text-[24px]">👋</span> Mika en bref
+                </h2>
+                <p className="text-[14px] font-body text-muted-foreground leading-relaxed">
+                  L'essentiel à retenir sur le fondateur du cabinet MFinances à Bruxelles.
+                </p>
+              </div>
+              <div className="md:w-2/3">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent mt-1">✓</span>
+                    <span className="text-[15px] font-body text-foreground/85"><strong>Qui ?</strong> <strong>Mika Musungayi</strong>, fondateur de MFinances.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent mt-1">✓</span>
+                    <span className="text-[15px] font-body text-foreground/85"><strong>Titre :</strong> <strong>Expert-comptable</strong> certifié <strong>ITAA (n° 50.624.805)</strong>.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent mt-1">✓</span>
+                    <span className="text-[15px] font-body text-foreground/85"><strong>Expérience :</strong> Plus de <strong>20 ans d'expérience</strong> dans l'accompagnement des TPE en Belgique.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent mt-1">✓</span>
+                    <span className="text-[15px] font-body text-foreground/85"><strong>Localisation :</strong> Cabinet basé à <strong>Uccle, Bruxelles</strong> (20 Rue de la Magnanerie).</span>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+
         {/* ── CHIFFRES CLÉS ── */}
         <section className="bg-card py-10 md:py-14 border-b border-border/50 relative overflow-hidden">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((s, i) => (
-                <SR key={s.label} delay={i * 0.06} className="text-center group">
+                <div data-anim="fade-up" data-delay="i * 0.06" key={s.label}  className="text-center group">
                   <div className="font-display italic text-accent/40 text-[10px] tracking-[0.3em] uppercase mb-2 not-italic">0{i + 1}</div>
                   <div className="font-display text-[32px] md:text-[44px] text-primary leading-none tracking-tight transition-colors duration-300 group-hover:text-accent">
                     {s.value}
@@ -169,7 +210,7 @@ export default function APropos() {
                   {i < stats.length - 1 && (
                     <div className="hidden md:block absolute" />
                   )}
-                </SR>
+                </div>
               ))}
             </div>
           </div>
@@ -187,7 +228,7 @@ export default function APropos() {
           </span>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start relative z-10">
-            <SR>
+            <div data-anim="fade-up">
               <div className="inline-flex items-center gap-2 mb-5">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">01 · L'élément déclencheur</span>
@@ -216,9 +257,9 @@ export default function APropos() {
                   masquait des fragilités accumulées. Une trésorerie qui s'affaiblissait en silence.
                 </p>
               </div>
-            </SR>
+            </div>
 
-            <SR delay={0.15}>
+            <div data-anim="fade-up" data-delay="0.15" >
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/10 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
@@ -230,7 +271,7 @@ export default function APropos() {
                   « Croissance ≠ rentabilité »
                 </span>
               </div>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -246,7 +287,7 @@ export default function APropos() {
           <div className="pointer-events-none absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-accent/15 blur-3xl" />
 
           <div className="mx-auto max-w-[860px] px-6 lg:px-12 relative z-10">
-            <SR>
+            <div data-anim="fade-up">
               <div className="text-center">
                 <div className="inline-flex items-center gap-2 mb-6">
                   <span className="h-px w-8 bg-accent" />
@@ -266,7 +307,7 @@ export default function APropos() {
                   Ce jour-là, j'ai compris quelque chose que je ne pouvais plus ignorer.
                 </p>
               </div>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -282,7 +323,7 @@ export default function APropos() {
           </span>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
-            <SR delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/10 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
@@ -291,9 +332,9 @@ export default function APropos() {
                   className="relative rounded-3xl w-full h-[280px] md:h-[400px] object-cover shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
               </div>
-            </SR>
+            </div>
 
-            <SR>
+            <div data-anim="fade-up">
               <div className="inline-flex items-center gap-2 mb-5">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">03 · Notre conviction</span>
@@ -318,7 +359,7 @@ export default function APropos() {
                   indispensable. Parce que chaque décision compte. Parce que chaque erreur coûte plus cher.
                 </p>
               </div>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -333,7 +374,7 @@ export default function APropos() {
           </span>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10">
-            <SR className="text-center mb-10 md:mb-14 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-10 md:mb-14 max-w-[680px] mx-auto">
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">04 · Notre approche</span>
@@ -345,13 +386,13 @@ export default function APropos() {
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed">
                 Quatre principes qui structurent chaque mission, chaque conseil, chaque décision.
               </p>
-            </SR>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {values.map((v, i) => {
                 const isDark = i === 1 || i === 3;
                 return (
-                  <SR key={v.title} delay={0.06 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.05" key={v.title} >
                     <div
                       className={`group relative rounded-3xl p-7 h-full transition-all duration-500 hover:-translate-y-1 overflow-hidden ${
                         isDark
@@ -389,7 +430,7 @@ export default function APropos() {
                         {v.desc}
                       </p>
                     </div>
-                  </SR>
+                  </div>
                 );
               })}
             </div>
@@ -409,7 +450,7 @@ export default function APropos() {
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl" />
 
           <div className="mx-auto max-w-[860px] px-6 lg:px-12 text-center relative z-10">
-            <SR>
+            <div data-anim="fade-up">
               <Quote size={48} className="text-accent/60 mx-auto mb-5" strokeWidth={1.5} />
               <p className="font-display text-[24px] md:text-[34px] leading-[1.25] text-primary-foreground italic font-light tracking-tight">
                 Arrêtez de vous voir trop petit. Commencez à piloter comme une entreprise <span className="text-accent not-italic font-normal">en croissance</span>.
@@ -418,7 +459,7 @@ export default function APropos() {
               <p className="text-primary-foreground/60 text-[13px] font-body tracking-[0.15em] uppercase">
                 Mika MUSUNGAYI · Fondateur
               </p>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -433,7 +474,7 @@ export default function APropos() {
           </span>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center relative z-10">
-            <SR className="lg:col-span-2">
+            <div data-anim="fade-up" className="lg:col-span-2">
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/15 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
@@ -446,9 +487,9 @@ export default function APropos() {
                   <span className="font-body text-[11px] font-bold tracking-[0.2em] uppercase">ITAA · 20 ans</span>
                 </span>
               </div>
-            </SR>
+            </div>
 
-            <SR delay={0.1} className="lg:col-span-3">
+            <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-3">
               <div className="inline-flex items-center gap-2 mb-5">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">05 · Le fondateur</span>
@@ -467,8 +508,8 @@ export default function APropos() {
                   </div>
                   <p className="pt-1.5">
                     Diplômé de la Chambre Belge des Comptables, Experts-Comptables et Conseils Fiscaux.
-                    Membre <strong className="text-foreground">ITAA (n° 50.624.805)</strong>. Plus de 20 ans d'expérience aux côtés de dirigeants
-                    de TPE et PME à Bruxelles.
+                    Membre <strong className="text-foreground">ITAA (n° 50.624.805)</strong>. Plus de <strong>20 ans d'expérience</strong> aux côtés de dirigeants
+                    de TPE et PME à <strong>Bruxelles</strong>.
                   </p>
                 </div>
                 <div className="flex items-start gap-4 group">
@@ -476,8 +517,8 @@ export default function APropos() {
                     <Clock size={18} className="text-accent" strokeWidth={1.5} />
                   </div>
                   <p className="pt-1.5">
-                    Depuis <strong className="text-foreground">2003</strong>, j'accompagne des entrepreneurs dans les moments qui comptent — création,
-                    croissance, restructuration, optimisation fiscale.
+                    Depuis <strong className="text-foreground">2003</strong>, j'accompagne des entrepreneurs en Belgique dans les moments qui comptent — création,
+                    croissance, restructuration, <strong>optimisation fiscale</strong>.
                   </p>
                 </div>
                 <div className="flex items-start gap-4 group">
@@ -495,7 +536,7 @@ export default function APropos() {
                 <MapPin size={14} strokeWidth={1.5} className="text-accent" />
                 20 Rue de la Magnanerie, 1180 Uccle — Bruxelles
               </div>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -511,7 +552,7 @@ export default function APropos() {
           </span>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
-            <SR>
+            <div data-anim="fade-up">
               <div className="inline-flex items-center gap-2 mb-5">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">06 · Notre différence</span>
@@ -535,9 +576,9 @@ export default function APropos() {
                   Un partenaire de pilotage financier pour les dirigeants qui ont décidé de grandir.
                 </p>
               </div>
-            </SR>
+            </div>
 
-            <SR delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/10 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
@@ -546,7 +587,7 @@ export default function APropos() {
                   className="relative rounded-3xl w-full h-[280px] md:h-[400px] object-cover shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
               </div>
-            </SR>
+            </div>
           </div>
         </section>
 
@@ -562,7 +603,7 @@ export default function APropos() {
           <div className="pointer-events-none absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl" />
 
           <div className="mx-auto max-w-[860px] px-6 lg:px-12 text-center relative z-10">
-            <SR>
+            <div data-anim="fade-up">
               <div className="inline-flex items-center gap-2 mb-5">
                 <span className="h-px w-8 bg-accent" />
                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Échangeons</span>
@@ -586,7 +627,7 @@ export default function APropos() {
                   <Link to="/services/">Découvrir nos services <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </SR>
+            </div>
           </div>
         </section>
       </main>

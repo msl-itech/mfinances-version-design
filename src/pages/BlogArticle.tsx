@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
@@ -11,7 +11,6 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { blogCategories, getArticleBySlug, getPublishedArticlesByCategory } from "@/data/blog-data";
 import { articleContent } from "@/data/blog-articles-content";
 import { getArticleGeoFaqs } from "@/data/article-geo-faqs";
@@ -24,6 +23,8 @@ import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
 import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
 import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const categoryHeroImages: Record<string, string> = {
   "tresorerie": heroTresorerie,
@@ -33,16 +34,20 @@ const categoryHeroImages: Record<string, string> = {
   "creation-societe": heroCreation,
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function BlogArticle() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const { categorySlug, articleSlug } = useParams<{ categorySlug: string; articleSlug: string }>();
   const article = categorySlug && articleSlug ? getArticleBySlug(categorySlug, articleSlug) : undefined;
   const category = blogCategories.find((c) => c.slug === categorySlug);
@@ -214,7 +219,7 @@ export default function BlogArticle() {
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
             {/* ── BLOC GEO-CITABLE (haut d'article) ── */}
             {geoFaqs && (
-              <ScrollRevealDiv delay={0.04} className="mb-10">
+              <div data-anim="fade-up" data-delay="0.04"  className="mb-10">
                 <div className="bg-secondary/50 border border-border/60 rounded-2xl p-5 md:p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="inline-block w-1.5 h-5 bg-accent rounded-full" />
@@ -239,12 +244,12 @@ export default function BlogArticle() {
                     ))}
                   </Accordion>
                 </div>
-              </ScrollRevealDiv>
+              </div>
             )}
 
             <article className="prose-mf">
               {content.sections.map((section, i) => (
-                <ScrollRevealDiv key={i} delay={0.06 + i * 0.04}>
+                <div data-anim="fade-up" data-delay="0.06 + i * 0.04" key={i} >
                   {section.heading && (
                     <h2 className="font-display text-[22px] md:text-[26px] text-foreground mt-10 mb-4 leading-[1.2]">
                       {section.heading}
@@ -310,32 +315,32 @@ export default function BlogArticle() {
                       </table>
                     </div>
                   )}
-                </ScrollRevealDiv>
+                </div>
               ))}
             </article>
 
             {/* Interactive tools */}
             {(content.showCalculator || content.showCockpit) && (
-              <ScrollRevealDiv delay={0.08} className="mt-4">
+              <div data-anim="fade-up" data-delay="0.08"  className="mt-4">
                 {content.showCalculator && <BfrCalculator />}
                 {content.showCockpit && <RentabilityCockpit />}
-              </ScrollRevealDiv>
+              </div>
             )}
             {/* Pillar page link */}
             {article.pillarPage && (
-              <ScrollRevealDiv delay={0.1} className="mt-10">
+              <div data-anim="fade-up" data-delay="0.1"  className="mt-10">
                 <Link
                   to={article.pillarPage}
                   className="inline-flex items-center gap-2 text-accent font-semibold text-[15px] hover:underline font-body"
                 >
                   {ctaLabel} <ArrowRight size={16} />
                 </Link>
-              </ScrollRevealDiv>
+              </div>
             )}
 
             {/* FAQ */}
             {content.faq && content.faq.length > 0 && (
-              <ScrollRevealDiv delay={0.12} className="mt-14">
+              <div data-anim="fade-up" data-delay="0.12"  className="mt-14">
                 <h2 className="font-display text-[22px] md:text-[26px] text-foreground mb-6 leading-[1.2]">
                   Questions fréquentes
                 </h2>
@@ -351,11 +356,11 @@ export default function BlogArticle() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             )}
 
             {/* CTA in-article */}
-            <ScrollRevealDiv delay={0.14} className="mt-12">
+            <div data-anim="fade-up" data-delay="0.14"  className="mt-12">
               <div className="bg-primary rounded-2xl p-8 text-center">
                 <h3 className="font-display text-[20px] text-primary-foreground mb-3">
                   {content.ctaText || "Besoin d'un accompagnement ?"}
@@ -367,7 +372,7 @@ export default function BlogArticle() {
                   <Link to="/contact/">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             {/* Back link */}
             <div className="mt-8">

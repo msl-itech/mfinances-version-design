@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/professions-sante-hero.jpg";
@@ -24,8 +24,9 @@ import {
   Building2,
   TrendingUp,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -62,16 +63,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function ProfessionsSante() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -154,7 +159,7 @@ export default function ProfessionsSante() {
             <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.025] tracking-tight whitespace-nowrap">Expertise</span>
           </div>
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="mb-10 md:mb-16">
+            <div data-anim="fade-up" className="mb-10 md:mb-16">
               <div className="flex items-center gap-3 mb-4">
                 <span className="h-px w-12 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
@@ -162,13 +167,13 @@ export default function ProfessionsSante() {
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.1] max-w-[800px]">
                 Ce que MFinances fait <span className="text-accent italic">pour vous</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06" key={s.title} >
                     <div className="group relative bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/40 hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-2xl transition-all duration-700" />
                       <div className="relative">
@@ -182,7 +187,7 @@ export default function ProfessionsSante() {
                         <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -192,13 +197,13 @@ export default function ProfessionsSante() {
         {/* ── RÉSULTAT CONCRET ── */}
         <section className="bg-secondary py-10 md:py-20">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
+            <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Résultat <span className="text-accent">concret</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="bg-card rounded-2xl p-7 border border-border/50">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                   <Stethoscope size={22} className="text-accent" strokeWidth={1.5} />
@@ -211,20 +216,20 @@ export default function ProfessionsSante() {
                   Les résultats varient selon la situation personnelle et professionnelle de chaque client.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── FORFAITS ── */}
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
+            <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Forfaits <span className="text-accent">disponibles</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               {/* Desktop table */}
               <div className="hidden sm:block bg-card rounded-2xl border border-border/50 overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
@@ -281,7 +286,7 @@ export default function ProfessionsSante() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="text-center mt-8">
               <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center" asChild>
@@ -289,14 +294,14 @@ export default function ProfessionsSante() {
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+            <div data-anim="fade-up" data-delay="0.2"  className="mt-10 text-center">
               <p className="text-[14px] text-muted-foreground font-body">
                 Vous exercez en cabinet partagé ? Découvrez notre accompagnement dédié aux{" "}
                 <Link to="/qui-nous-accompagnons/societe-de-moyens/" className="text-accent font-semibold hover:underline">
                   sociétés de moyens
                 </Link>.
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -308,7 +313,7 @@ export default function ProfessionsSante() {
             <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
@@ -328,7 +333,7 @@ export default function ProfessionsSante() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

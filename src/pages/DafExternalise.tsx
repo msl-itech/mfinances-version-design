@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/daf-hero.jpg";
@@ -28,8 +28,9 @@ import {
   ArrowRight,
   Quote,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const missions = [
   { icon: BarChart2, text: "Analyse mensuelle de vos performances financières" },
@@ -74,6 +75,14 @@ const faqs = [
     q: "Le DAF externalisé remplace-t-il mon comptable ?",
     a: "Non. Le DAF externalisé travaille en complémentarité avec votre comptable. Chez MFinances, les deux services sont intégrés dans le même cabinet, ce qui garantit une cohérence totale entre la comptabilité et la stratégie financière.",
   },
+  {
+    q: "Pourquoi engager un DAF externalisé à Bruxelles ?",
+    a: "Faire appel à un DAF externalisé permet aux dirigeants de TPE à Bruxelles de structurer leur croissance sans supporter le coût d'un profil financier à temps plein. Nous modélisons vos scénarios (recrutement, investissement) pour sécuriser vos choix."
+  },
+  {
+    q: "Combien coûte un DAF externalisé chez MFinances ?",
+    a: "Notre service de DAF externalisé est facturé 150€ HTVA par heure et est réservé exclusivement à nos clients souscrivant au Forfait Excellence (à partir de 650€ HTVA par mois)."
+  }
 ];
 
 const breadcrumbJsonLd = {
@@ -96,16 +105,20 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function DafExternalise() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -142,6 +155,35 @@ export default function DafExternalise() {
           watermark="DAF"
         />
 
+        {/* TL;DR (AEO / GEO Optimization) */}
+        <section className="bg-card pt-16 pb-8">
+          <div className="container-mf">
+            <aside data-anim="fade-up" className="bg-secondary/30 border border-accent/20 rounded-2xl p-8 lg:p-10 max-w-[900px] mx-auto shadow-sm">
+              <h2 className="font-display text-[20px] md:text-[24px] font-bold text-foreground mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-[14px]">💡</span>
+                L'essentiel en bref (TL;DR)
+              </h2>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Pour qui ?</strong> Les dirigeants de TPE en croissance à <strong>Bruxelles</strong> et en Belgique qui ont besoin d'un copilote financier.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Quoi ?</strong> Un Directeur Administratif et Financier (DAF) à temps partiel : analyse, tableaux de bord, dossiers bancaires et stratégie.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Prix :</strong> 150€ HTVA / heure, service réservé aux clients du <strong>Forfait Excellence</strong> (dès 650€/mois).</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Format :</strong> Une réunion mensuelle de pilotage de 60 à 90 minutes + disponibilité pour vos questions urgentes.</span>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </section>
         {/* Bandeau d'accès — visible immédiatement sous le H1 */}
         <section className="bg-accent text-accent-foreground border-b border-accent/20">
           <div className="container-mf py-3.5 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
@@ -171,7 +213,7 @@ export default function DafExternalise() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+              <div data-anim="fade-up" className="lg:col-span-5 lg:sticky lg:top-28">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -179,9 +221,9 @@ export default function DafExternalise() {
                   </span>
                 </div>
                 <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
-                  Ce que fait vraiment{" "}
-                  <span className="italic font-normal text-accent">un DAF</span>
-                  <br />à temps partiel
+                  Quelles sont les missions réelles d'un{" "}
+                  <span className="italic font-normal text-accent">DAF</span>
+                  <br />à temps partiel pour une TPE ?
                 </h2>
                 <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
                   Un DAF externalisé ne remplace pas votre comptable. Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.
@@ -201,15 +243,15 @@ export default function DafExternalise() {
                     <div className="h-px flex-1 ml-4 bg-white/30" />
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
 
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {missions.map((m, i) => {
                   const Icon = m.icon;
                   return (
-                    <ScrollRevealDiv
+                    <div data-anim="fade-up" data-delay="0.05 * i"
                       key={m.text}
-                      delay={0.05 * i}
+                      
                       className="group relative bg-secondary/50 hover:bg-card border border-border/50 hover:border-accent/30 rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)]"
                     >
                       <span className="absolute top-3 right-4 text-[11px] font-display italic text-muted-foreground/40 tracking-wide">
@@ -219,7 +261,7 @@ export default function DafExternalise() {
                         <Icon size={20} className="text-accent group-hover:text-accent-foreground transition-colors" strokeWidth={1.5} />
                       </div>
                       <p className="text-[14px] text-foreground/85 leading-[1.6] font-body">{m.text}</p>
-                    </ScrollRevealDiv>
+                    </div>
                   );
                 })}
               </div>
@@ -239,7 +281,7 @@ export default function DafExternalise() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-16 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-16 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -248,10 +290,10 @@ export default function DafExternalise() {
                 <div className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
-                Concrètement,{" "}
-                <span className="italic font-normal text-accent">comment ça fonctionne</span>
+                Comment fonctionne l'accompagnement d'un{" "}
+                <span className="italic font-normal text-accent">DAF externalisé</span> chez MFinances ?
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="relative">
               {/* hairline connecteur */}
@@ -261,7 +303,7 @@ export default function DafExternalise() {
                 {steps.map((s, i) => {
                   const Icon = s.icon;
                   return (
-                    <ScrollRevealDiv key={s.number} delay={0.12 * i} className="relative">
+                    <div data-anim="fade-up" data-delay="0.12 * i" key={s.number}  className="relative">
                       {/* Number medallion */}
                       <div className="relative flex justify-center mb-8">
                         <div className="relative w-[72px] h-[72px] rounded-full bg-card border border-accent/20 flex items-center justify-center shadow-[0_4px_24px_hsl(var(--primary)/0.06)]">
@@ -277,7 +319,7 @@ export default function DafExternalise() {
                         <h3 className="text-[18px] font-display font-bold text-foreground mb-2 leading-tight">{s.title}</h3>
                         <p className="text-[14px] text-muted-foreground leading-[1.65] font-body">{s.desc}</p>
                       </div>
-                    </ScrollRevealDiv>
+                    </div>
                   );
                 })}
               </div>
@@ -297,7 +339,7 @@ export default function DafExternalise() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-12 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -306,12 +348,12 @@ export default function DafExternalise() {
                 <div className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
-                Un service{" "}
-                <span className="italic font-normal text-accent">sur invitation</span>
+                Quelles sont les conditions d'accès à notre{" "}
+                <span className="italic font-normal text-accent">DAF externalisé à Bruxelles</span> ?
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1} className="max-w-[760px] mx-auto">
+            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[760px] mx-auto">
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary/95 p-10 md:p-14 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.4)]">
                 {/* corner mark */}
                 <div aria-hidden className="absolute top-6 right-6 flex items-center gap-2">
@@ -345,7 +387,7 @@ export default function DafExternalise() {
                   </Button>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -357,7 +399,7 @@ export default function DafExternalise() {
             style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 65%)" }}
           />
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[820px] mx-auto text-center">
+            <div data-anim="fade-up" className="max-w-[820px] mx-auto text-center">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
@@ -381,7 +423,7 @@ export default function DafExternalise() {
                 <span>Thomas, e-commerce, Bruxelles</span>
                 <span className="h-px w-6 bg-accent" />
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -389,7 +431,7 @@ export default function DafExternalise() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -397,15 +439,15 @@ export default function DafExternalise() {
                   </span>
                 </div>
                 <h2 className="font-display font-bold text-foreground leading-[1.05] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}>
-                  Questions{" "}
-                  <span className="italic font-normal text-accent">fréquentes</span>
+                  Foire Aux Questions (FAQ) :{" "}
+                  <span className="italic font-normal text-accent">Le DAF externalisé en Belgique</span>
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Tout ce que les dirigeants nous demandent avant de démarrer un DAF externalisé.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -429,7 +471,7 @@ export default function DafExternalise() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>

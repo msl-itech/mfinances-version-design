@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/fiscalite-hero.jpg";
@@ -25,7 +25,8 @@ import {
   Handshake,
   ChevronRight,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   { icon: Search, title: "Analyse approfondie de votre situation", desc: "Nous évaluons votre situation actuelle, identifions les opportunités d'optimisation et construisons une stratégie alignée avec vos objectifs." },
@@ -74,16 +75,20 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Fiscalite() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -142,13 +147,13 @@ export default function Fiscalite() {
                 </span>
                 <div className="h-px w-10 bg-accent" />
               </div>
-              <ScrollRevealDiv>
+              <div data-anim="fade-up">
                 <h2 className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.015em]" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
                   Le problème avec la fiscalité{" "}
                   <span className="italic font-normal text-accent">des dirigeants de TPE</span>
                 </h2>
-              </ScrollRevealDiv>
-              <ScrollRevealDiv delay={0.1}>
+              </div>
+              <div data-anim="fade-up" data-delay="0.1" >
                 <p className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground mt-8 font-body">
                   La plupart des dirigeants de TPE <strong className="text-foreground">subissent leur fiscalité</strong>. Ils découvrent leur charge d'imposition en fin d'année — quand il est trop tard pour agir. L'optimisation fiscale, ce n'est pas de l'évasion. C'est la connaissance précise des dispositifs légaux belges.
                 </p>
@@ -158,12 +163,12 @@ export default function Fiscalite() {
                 <p className="font-display italic text-[18px] md:text-[20px] text-foreground mt-4">
                   Ce n'est pas une fatalité — c'est une variable.
                 </p>
-              </ScrollRevealDiv>
-              <ScrollRevealDiv delay={0.2} className="mt-10">
+              </div>
+              <div data-anim="fade-up" data-delay="0.2"  className="mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                   <Link to="/contact/">Faire le point sur ma fiscalité <ArrowRight size={16} className="ml-1.5" /></Link>
                 </Button>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -180,7 +185,7 @@ export default function Fiscalite() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[680px] mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -191,15 +196,15 @@ export default function Fiscalite() {
                 Ce que comprend notre{" "}
                 <span className="italic font-normal text-accent">accompagnement fiscal</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.05"
                     key={s.title}
-                    delay={0.06 + i * 0.05}
+                    
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
@@ -219,7 +224,7 @@ export default function Fiscalite() {
                     </div>
                     <h3 className="text-[17px] font-display font-bold text-foreground mb-2 leading-tight relative">{s.title}</h3>
                     <p className="text-[14px] text-foreground/80 leading-[1.7] font-body relative">{s.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -239,7 +244,7 @@ export default function Fiscalite() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <ScrollRevealDiv className="lg:col-span-6">
+              <div data-anim="fade-up" className="lg:col-span-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -276,9 +281,9 @@ export default function Fiscalite() {
                     </li>
                   ))}
                 </ul>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.15} className="lg:col-span-6 relative">
+              <div data-anim="fade-up" data-delay="0.15"  className="lg:col-span-6 relative">
                 <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
@@ -288,7 +293,7 @@ export default function Fiscalite() {
                     loading="lazy"
                   />
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -297,7 +302,7 @@ export default function Fiscalite() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -311,9 +316,9 @@ export default function Fiscalite() {
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Les questions que les dirigeants nous posent le plus souvent sur la fiscalité belge.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -337,7 +342,7 @@ export default function Fiscalite() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -345,11 +350,11 @@ export default function Fiscalite() {
         {/* ── ARTICLES BLOG ── */}
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
+            <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Nos <span className="text-accent">articles</span> fiscalité
               </h2>
-            </ScrollRevealDiv>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { title: "Combien me payer en indépendant en Belgique ?", href: "/blog/fiscalite-belgique/combien-me-payer-independant-belgique/" },

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/services-hub-hero.jpg";
@@ -24,8 +24,9 @@ import {
   FileText,
   Rocket,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const pilotageServices = [
   {
@@ -109,14 +110,7 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 function ServiceCard({
   icon: Icon,
@@ -136,7 +130,7 @@ function ServiceCard({
   delay: number;
 }) {
   return (
-    <ScrollRevealDiv delay={delay} className="h-full">
+    <div data-anim="fade-up" data-delay="delay"  className="h-full">
       <Link
         to={href}
         className="group relative flex flex-col h-full bg-card rounded-3xl p-7 md:p-8 border border-border/60 hover:border-accent/40 hover:shadow-[0_24px_60px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
@@ -178,11 +172,22 @@ function ServiceCard({
           </span>
         </div>
       </Link>
-    </ScrollRevealDiv>
+    </div>
   );
 }
 
 export default function Services() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -347,7 +352,7 @@ export default function Services() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
+            <div data-anim="fade-up" className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 01</span>
@@ -369,7 +374,7 @@ export default function Services() {
                   Des outils de direction financière accessibles aux TPE et PME bruxelloises.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {pilotageServices.map((s, i) => (
@@ -391,7 +396,7 @@ export default function Services() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
+            <div data-anim="fade-up" className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 md:mb-20 items-end">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 02</span>
@@ -413,7 +418,7 @@ export default function Services() {
                   Le socle de chaque forfait — comptabilité, fiscalité et accompagnement à la création.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {fondamentauxServices.map((s, i) => (
@@ -426,7 +431,7 @@ export default function Services() {
         {/* ── FAQ ── */}
         <section className="relative bg-secondary py-16 md:py-24 overflow-hidden">
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[760px] mx-auto text-center mb-10 md:mb-14">
+            <div data-anim="fade-up" className="max-w-[760px] mx-auto text-center mb-10 md:mb-14">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
@@ -440,11 +445,11 @@ export default function Services() {
               >
                 Vos questions sur <span className="italic text-accent">nos services</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="max-w-[820px] mx-auto space-y-4">
               {servicesFaqs.map((faq, i) => (
-                <ScrollRevealDiv key={faq.q} delay={0.05 + i * 0.05}>
+                <div data-anim="fade-up" data-delay="0.05 + i * 0.05" key={faq.q} >
                   <article className="bg-card rounded-2xl p-6 md:p-8 border border-border/60">
                     <h3 className="font-display text-primary text-[18px] md:text-[20px] leading-snug mb-3">
                       {faq.q}
@@ -453,15 +458,15 @@ export default function Services() {
                       {faq.a}
                     </p>
                   </article>
-                </ScrollRevealDiv>
+                </div>
               ))}
             </div>
 
-            <ScrollRevealDiv className="text-center mt-10">
+            <div data-anim="fade-up" className="text-center mt-10">
               <Button variant="outline" size="lg" className="rounded-full px-7 h-12 text-[14px]" asChild>
                 <Link to="/diagnostic/">Faire le diagnostic gratuit (3 min)</Link>
               </Button>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -481,7 +486,7 @@ export default function Services() {
           </div>
 
           <div className="container-mf relative z-10 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center justify-center gap-4 mb-8">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
@@ -526,7 +531,7 @@ export default function Services() {
                   <Link to="/tarifs/">Voir les tarifs</Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

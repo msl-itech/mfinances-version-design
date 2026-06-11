@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
@@ -27,7 +27,8 @@ import {
   Minus,
   Activity,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -99,14 +100,7 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 function CellValue({ value }: { value: boolean | string }) {
   if (value === true) return <Check size={18} className="text-accent mx-auto" />;
@@ -115,6 +109,17 @@ function CellValue({ value }: { value: boolean | string }) {
 }
 
 export default function ControleDeGestion() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -164,7 +169,7 @@ export default function ControleDeGestion() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[680px] mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -176,15 +181,15 @@ export default function ControleDeGestion() {
                 <span className="italic font-normal text-accent">décider</span>
                 <br />sur des bases factuelles
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv
+                  <div data-anim="fade-up" data-delay="0.1 * i"
                     key={s.title}
-                    delay={0.1 * i}
+                    
                     className="group relative bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
@@ -206,7 +211,7 @@ export default function ControleDeGestion() {
                     </div>
                     <h3 className="text-[19px] font-display font-bold text-foreground mb-3 leading-tight relative">{s.title}</h3>
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -225,7 +230,7 @@ export default function ControleDeGestion() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="text-center mb-14 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-14 max-w-[680px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -237,9 +242,9 @@ export default function ControleDeGestion() {
                 Le bon niveau de pilotage,{" "}
                 <span className="italic font-normal text-accent">selon votre forfait</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1} className="max-w-[920px] mx-auto">
+            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[920px] mx-auto">
               <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
                 <table className="w-full text-left">
                   <thead className="bg-gradient-to-b from-secondary/40 to-transparent">
@@ -304,7 +309,7 @@ export default function ControleDeGestion() {
                   </Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -321,7 +326,7 @@ export default function ControleDeGestion() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <ScrollRevealDiv className="lg:col-span-5 lg:sticky lg:top-28">
+              <div data-anim="fade-up" className="lg:col-span-5 lg:sticky lg:top-28">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -351,15 +356,15 @@ export default function ControleDeGestion() {
                     <div className="h-px flex-1 ml-4 bg-white/30" />
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
 
               <div className="lg:col-span-7 space-y-3">
                 {kpis.map((k, i) => {
                   const Icon = k.icon;
                   return (
-                    <ScrollRevealDiv
+                    <div data-anim="fade-up" data-delay="0.06 * i"
                       key={k.label}
-                      delay={0.06 * i}
+                      
                       className="group relative flex items-start gap-5 p-6 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
                     >
                       <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
@@ -372,7 +377,7 @@ export default function ControleDeGestion() {
                         <h3 className="text-[16px] font-display font-bold text-foreground leading-tight">{k.label}</h3>
                         <p className="text-[14px] text-muted-foreground leading-[1.65] font-body mt-1.5">{k.desc}</p>
                       </div>
-                    </ScrollRevealDiv>
+                    </div>
                   );
                 })}
               </div>
@@ -384,7 +389,7 @@ export default function ControleDeGestion() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -398,9 +403,9 @@ export default function ControleDeGestion() {
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Tout ce qu'il faut savoir avant de mettre en place un contrôle de gestion structuré.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -424,7 +429,7 @@ export default function ControleDeGestion() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>

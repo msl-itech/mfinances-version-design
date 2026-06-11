@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, CheckCircle2 } from "lucide-react";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 function triggerPdfDownload() {
   const link = document.createElement("a");
@@ -16,6 +18,17 @@ function triggerPdfDownload() {
 }
 
 export default function ChecklistControleBureauConfirmation() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const location = useLocation();
   const prenom = (location.state as { prenom?: string })?.prenom;
 
@@ -24,7 +37,7 @@ export default function ChecklistControleBureauConfirmation() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Checklist reçue — MFinances"
         description="Votre checklist de contrôle fiscal bureau à domicile est prête."

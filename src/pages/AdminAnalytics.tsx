@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Loader2, MessageCircle, Users, Send, TrendingUp, Lock } from "lucide-react";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 import {
   LineChart,
   Line,
@@ -33,6 +35,17 @@ interface Stats {
 const PASSWORD_KEY = "mf_admin_pwd";
 
 export default function AdminAnalytics() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -84,7 +97,7 @@ export default function AdminAnalytics() {
   // ── Login screen ──
   if (!authed) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-secondary p-4">
+    <div ref={root} className="min-h-screen flex items-center justify-center bg-secondary p-4">
         <Card className="p-8 max-w-md w-full">
           <div className="flex items-center gap-3 mb-6">
             <Lock className="text-accent" size={24} />

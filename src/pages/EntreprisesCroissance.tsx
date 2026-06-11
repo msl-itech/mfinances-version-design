@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/entreprises-croissance-hero.jpg";
@@ -26,8 +26,9 @@ import {
   Cpu,
   Rocket,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -75,16 +76,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function EntreprisesCroissance() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -186,7 +191,7 @@ export default function EntreprisesCroissance() {
           </div>
 
           <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="max-w-[700px] mb-12 md:mb-16">
+            <div data-anim="fade-up" className="max-w-[700px] mb-12 md:mb-16">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Notre apport</span>
@@ -194,14 +199,14 @@ export default function EntreprisesCroissance() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Ce que MFinances apporte aux <span className="italic text-accent">entreprises en croissance.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06" key={s.title} >
                     <div className="group relative bg-secondary/40 hover:bg-secondary/70 rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -top-6 -right-6 w-32 h-32 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-2xl transition-all duration-500" />
                       <div className="relative flex items-start justify-between mb-6">
@@ -213,7 +218,7 @@ export default function EntreprisesCroissance() {
                       <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -229,7 +234,7 @@ export default function EntreprisesCroissance() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Cas réels</span>
@@ -238,14 +243,14 @@ export default function EntreprisesCroissance() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Résultats <span className="italic text-accent">concrets.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
               {caseStudies.map((c, i) => {
                 const Icon = c.icon;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={c.title} delay={0.08 + i * 0.08}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.08" key={c.title} >
                     <div className="group relative bg-card rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-3xl transition-all duration-700" />
                       <div className="relative flex items-start justify-between mb-6">
@@ -257,7 +262,7 @@ export default function EntreprisesCroissance() {
                       <h3 className="text-[19px] font-bold font-body text-foreground mb-3">{c.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.75] font-body">{c.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -267,7 +272,7 @@ export default function EntreprisesCroissance() {
         {/* ── OFFRE EXCELLENCE ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="mx-auto max-w-[760px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center">
+            <div data-anim="fade-up" className="text-center">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Offre unique</span>
@@ -322,7 +327,7 @@ export default function EntreprisesCroissance() {
                   </Link>
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -337,7 +342,7 @@ export default function EntreprisesCroissance() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structurer pour scaler</span>
@@ -359,7 +364,7 @@ export default function EntreprisesCroissance() {
                   <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

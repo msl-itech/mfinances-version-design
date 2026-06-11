@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/creation-hero.jpg";
@@ -23,7 +23,8 @@ import {
   Settings,
   AlertTriangle,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   { icon: FileText, title: "Élaboration du plan financier", desc: "Nous le construisons avec vous — prévisions de revenus, estimations de coûts, analyse des flux de trésorerie, seuil de rentabilité. Chaque chiffre est justifié et expliqué." },
@@ -68,16 +69,20 @@ const faqJsonLd = {
   })),
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function CreationEntreprise() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -129,7 +134,7 @@ export default function CreationEntreprise() {
 
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto">
-              <ScrollRevealDiv className="text-center">
+              <div data-anim="fade-up" className="text-center">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -144,9 +149,9 @@ export default function CreationEntreprise() {
                   Ce que personne ne vous dit{" "}
                   <span className="italic font-normal text-accent">au moment de créer</span>
                 </h2>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="mt-12 space-y-5">
+              <div data-anim="fade-up" data-delay="0.1"  className="mt-12 space-y-5">
                 {[
                   "La structure juridique choisie à la hâte qui coûte cher fiscalement trois ans plus tard.",
                   "Le plan financier bâclé qui ne convainc pas la banque.",
@@ -161,13 +166,13 @@ export default function CreationEntreprise() {
                     </p>
                   </div>
                 ))}
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.2} className="text-center mt-10">
+              <div data-anim="fade-up" data-delay="0.2"  className="text-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                   <Link to="/contact/">Éviter ces erreurs <ArrowRight size={16} className="ml-1.5" /></Link>
                 </Button>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -184,7 +189,7 @@ export default function CreationEntreprise() {
           </div>
 
           <div className="container-mf relative">
-            <ScrollRevealDiv className="max-w-[680px] mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -195,15 +200,15 @@ export default function CreationEntreprise() {
                 Notre accompagnement{" "}
                 <span className="italic font-normal text-accent">à la création</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06"
                     key={s.title}
-                    delay={0.08 + i * 0.06}
+                    
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
                     <span
@@ -223,7 +228,7 @@ export default function CreationEntreprise() {
                     </div>
                     <h3 className="text-[19px] font-display font-bold text-foreground mb-3 leading-tight relative">{s.title}</h3>
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body relative">{s.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -243,7 +248,7 @@ export default function CreationEntreprise() {
 
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <ScrollRevealDiv className="lg:col-span-7">
+              <div data-anim="fade-up" className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -303,9 +308,9 @@ export default function CreationEntreprise() {
                     </div>
                   ))}
                 </div>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.15} className="lg:col-span-5 relative lg:sticky lg:top-28">
+              <div data-anim="fade-up" data-delay="0.15"  className="lg:col-span-5 relative lg:sticky lg:top-28">
                 <div className="absolute -inset-8 bg-accent/5 rounded-[40px] blur-3xl -z-10" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
@@ -315,7 +320,7 @@ export default function CreationEntreprise() {
                     loading="lazy"
                   />
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -324,7 +329,7 @@ export default function CreationEntreprise() {
         <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <ScrollRevealDiv className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+              <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-10 bg-accent" />
                   <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -338,9 +343,9 @@ export default function CreationEntreprise() {
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[360px]">
                   Tout ce que les futurs entrepreneurs nous demandent avant de créer leur société.
                 </p>
-              </ScrollRevealDiv>
+              </div>
 
-              <ScrollRevealDiv delay={0.1} className="lg:col-span-8">
+              <div data-anim="fade-up" data-delay="0.1"  className="lg:col-span-8">
                 <Accordion type="single" collapsible className="border-t border-border/60">
                   {faqs.map((f, i) => (
                     <AccordionItem
@@ -364,7 +369,7 @@ export default function CreationEntreprise() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -372,11 +377,11 @@ export default function CreationEntreprise() {
         {/* ── ARTICLES BLOG ── */}
         <section className="bg-card py-10 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-10">
+            <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
                 Nos <span className="text-accent">articles</span> création d'entreprise
               </h2>
-            </ScrollRevealDiv>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { title: "5 erreurs à éviter lors de la création d'une société", href: "/blog/creation-societe/erreurs-creation-societe-belgique/" },

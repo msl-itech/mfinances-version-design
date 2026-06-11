@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const NotFound = () => {
   const location = useLocation();
@@ -10,7 +12,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
+    <div ref={root} className="flex min-h-screen items-center justify-center bg-muted">
       <SEOHead
         title="Page introuvable — MFinances"
         description="Cette page n'existe pas sur le site MFinances."

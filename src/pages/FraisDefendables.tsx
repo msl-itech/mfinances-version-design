@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import FraisDefendables from "@/components/FraisDefendables";
 import { createBreadcrumbSchema, createFaqSchema } from "@/lib/seo-schemas";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const faqData = [
   { q: "Qu'est-ce qu'un frais professionnel défendable en Belgique ?", a: "Un frais défendable est une dépense liée à l'activité professionnelle, justifiée par un document probant (facture, note) et proportionnée au volume d'activité. Défendable signifie que la déduction résisterait à un contrôle fiscal approfondi." },
@@ -36,20 +37,24 @@ const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Frais Défendables", url: "https://mfinances.be/frais-defendables/" },
 ]);
 
-function SR({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function FraisDefendablesPage() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div ref={root} className="min-h-screen bg-background">
       <SEOHead
         title="Frais Défendables — Analyseur fiscal belge | MFinances"
         description="Vérifiez en 3 questions si un frais pro est défendable en cas de contrôle fiscal belge. 30 catégories — outil gratuit MFinances."
@@ -116,7 +121,7 @@ export default function FraisDefendablesPage() {
         </section>
 
         {/* ── THREE LEVELS ──────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-10 sm:py-16 bg-card border-t border-border">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Méthode</span>
@@ -138,10 +143,10 @@ export default function FraisDefendablesPage() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── FAQ ────────────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-10 sm:py-16">
             <div className="max-w-[900px] mx-auto px-4 sm:px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">FAQ</span>
@@ -159,7 +164,7 @@ export default function FraisDefendablesPage() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── NOTE D'AUTORITÉ ────────────────────────────────── */}
         <section className="pb-8 sm:pb-10">
@@ -172,7 +177,7 @@ export default function FraisDefendablesPage() {
         </section>
 
         {/* ── FOOTER CTA ─────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="pb-10 sm:pb-16">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
               <div className="relative bg-gradient-to-br from-primary-dark to-primary rounded-2xl sm:rounded-3xl p-6 sm:p-12 flex flex-col sm:flex-row justify-between gap-6 sm:gap-8 items-center overflow-hidden">
@@ -192,7 +197,7 @@ export default function FraisDefendablesPage() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
       </main>
 
       <Footer />

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/qui-nous-accompagnons-hero.jpg";
@@ -28,8 +28,9 @@ import {
   Users,
   Briefcase,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const profilCards = [
   {
@@ -103,14 +104,7 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 function AudienceCard({
   icon: Icon,
@@ -130,7 +124,7 @@ function AudienceCard({
   delay: number;
 }) {
   return (
-    <ScrollRevealDiv delay={delay} className="h-full">
+    <div data-anim="fade-up" data-delay="delay"  className="h-full">
       <Link
         to={href}
         className="group relative block h-full bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 overflow-hidden"
@@ -173,11 +167,22 @@ function AudienceCard({
           </div>
         </div>
       </Link>
-    </ScrollRevealDiv>
+    </div>
   );
 }
 
 export default function QuiNousAccompagnons() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -293,7 +298,7 @@ export default function QuiNousAccompagnons() {
           </div>
 
           <div className="relative mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14 max-w-[700px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-14 max-w-[700px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -308,7 +313,7 @@ export default function QuiNousAccompagnons() {
               <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-5 font-body">
                 Un cabinet, mais des expertises sectorielles distinctes. Identifiez le profil qui ressemble au vôtre.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {profilCards.map((c, i) => (
@@ -330,7 +335,7 @@ export default function QuiNousAccompagnons() {
           </div>
 
           <div className="relative mx-auto max-w-[1200px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14 max-w-[700px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-14 max-w-[700px] mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium">
@@ -345,7 +350,7 @@ export default function QuiNousAccompagnons() {
               <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-5 font-body">
                 ASBL, société d'exploitation, management ou de moyens — chaque structure a sa logique fiscale et comptable.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {structureCards.map((c, i) => (
@@ -369,7 +374,7 @@ export default function QuiNousAccompagnons() {
           </div>
 
           <div className="relative mx-auto max-w-[820px] px-6 lg:px-12 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-10 bg-accent" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
@@ -393,7 +398,7 @@ export default function QuiNousAccompagnons() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

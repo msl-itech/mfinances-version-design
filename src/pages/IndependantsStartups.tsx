@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/independants-hero.jpg";
@@ -28,8 +28,9 @@ import {
   Gift,
   TrendingUp,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -80,16 +81,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function IndependantsStartups() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -193,7 +198,7 @@ export default function IndependantsStartups() {
           </div>
 
           <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="max-w-[680px] mb-12 md:mb-16">
+            <div data-anim="fade-up" className="max-w-[680px] mb-12 md:mb-16">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Notre approche</span>
@@ -201,14 +206,14 @@ export default function IndependantsStartups() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Ce que MFinances fait <span className="italic text-accent">pour vous.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.08 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06" key={s.title} >
                     <div className="group relative bg-secondary/40 hover:bg-secondary/70 rounded-3xl p-7 md:p-8 border border-border/40 hover:border-accent/30 transition-all duration-500 overflow-hidden h-full">
                       <div className="pointer-events-none absolute -top-6 -right-6 w-32 h-32 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-2xl transition-all duration-500" />
                       <div className="relative flex items-start justify-between mb-6">
@@ -220,7 +225,7 @@ export default function IndependantsStartups() {
                       <h3 className="text-[18px] font-bold font-body text-foreground mb-3">{s.title}</h3>
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -236,7 +241,7 @@ export default function IndependantsStartups() {
           </div>
 
           <div className="mx-auto max-w-[920px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Roadmap</span>
@@ -245,14 +250,14 @@ export default function IndependantsStartups() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Les étapes pour <span className="italic text-accent">démarrer en Belgique.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="relative">
               {/* Vertical line */}
               <div className="absolute left-[28px] md:left-[34px] top-2 bottom-2 w-px bg-border" aria-hidden="true" />
               <div className="space-y-3">
                 {steps.map((s, i) => (
-                  <ScrollRevealDiv key={s.num} delay={0.06 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.05" key={s.num} >
                     <div className="group relative flex items-center gap-5 md:gap-7 bg-card hover:bg-card rounded-2xl p-4 md:p-5 border border-border/40 hover:border-accent/30 hover:shadow-lg transition-all duration-300">
                       <div className="relative shrink-0 w-14 h-14 md:w-[60px] md:h-[60px] rounded-xl bg-accent/[0.08] group-hover:bg-accent flex items-center justify-center transition-all duration-300">
                         <span className="font-display text-[18px] md:text-[20px] font-bold text-accent group-hover:text-accent-foreground transition-colors duration-300">
@@ -262,7 +267,7 @@ export default function IndependantsStartups() {
                       <p className="text-[15px] md:text-[16px] font-medium text-foreground font-body flex-1">{s.text}</p>
                       <ArrowRight size={18} className="text-foreground/20 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 shrink-0 hidden sm:block" />
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 ))}
               </div>
             </div>
@@ -272,7 +277,7 @@ export default function IndependantsStartups() {
         {/* ── AIDES DISPONIBLES ── */}
         <section className="bg-card py-16 md:py-28 relative overflow-hidden">
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Financement</span>
@@ -284,13 +289,13 @@ export default function IndependantsStartups() {
               <p className="text-muted-foreground text-[15px] mt-5 font-body max-w-[560px] mx-auto">
                 Nous identifions les leviers de financement adaptés à votre profil et vous accompagnons dans les démarches.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
               {aides.map((a, i) => {
                 const Icon = a.icon;
                 return (
-                  <ScrollRevealDiv key={a.label} delay={0.06 + i * 0.06}>
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.06" key={a.label} >
                     <div className="group relative bg-secondary/40 hover:bg-secondary/70 rounded-2xl p-6 md:p-7 border border-border/40 hover:border-accent/30 transition-all duration-500 flex gap-5 h-full overflow-hidden">
                       <div className="pointer-events-none absolute -bottom-8 -right-8 w-24 h-24 bg-accent/0 group-hover:bg-accent/10 rounded-full blur-2xl transition-all duration-500" />
                       <div className="relative w-12 h-12 rounded-xl bg-accent/10 group-hover:bg-accent group-hover:text-accent-foreground flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300">
@@ -301,7 +306,7 @@ export default function IndependantsStartups() {
                         <p className="text-[13.5px] text-muted-foreground font-body leading-relaxed">{a.desc}</p>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -317,7 +322,7 @@ export default function IndependantsStartups() {
           </div>
 
           <div className="mx-auto max-w-[860px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv className="text-center mb-12">
+            <div data-anim="fade-up" className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Tarification</span>
@@ -326,9 +331,9 @@ export default function IndependantsStartups() {
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Forfaits <span className="italic text-accent">disponibles.</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="bg-card rounded-3xl border border-border/50 overflow-hidden shadow-sm">
                 <div className="bg-primary/[0.04] px-6 md:px-8 py-6 border-b border-border/30 flex items-center justify-between flex-wrap gap-3">
                   <div>
@@ -355,9 +360,9 @@ export default function IndependantsStartups() {
                   </div>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.2}>
+            <div data-anim="fade-up" data-delay="0.2" >
               <div className="bg-primary text-primary-foreground rounded-2xl p-6 mt-6 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
                   <Rocket size={18} className="text-accent" strokeWidth={1.5} />
@@ -366,7 +371,7 @@ export default function IndependantsStartups() {
                   <strong className="text-accent">Création d'entreprise :</strong> accompagnement complet à la création — <strong>800 € HTVA</strong>, mission ponctuelle.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="text-center mt-10">
               <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
@@ -377,7 +382,7 @@ export default function IndependantsStartups() {
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-12 text-center">
+            <div data-anim="fade-up" data-delay="0.2"  className="mt-12 text-center">
               <p className="text-[13px] text-muted-foreground font-body uppercase tracking-wider">Voir aussi</p>
               <p className="text-[15px] text-foreground font-body mt-2">
                 <Link to="/qui-nous-accompagnons/commerce-et-horeca/" className="text-accent font-semibold hover:underline underline-offset-4">
@@ -388,7 +393,7 @@ export default function IndependantsStartups() {
                   Entreprises en croissance
                 </Link>
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -403,7 +408,7 @@ export default function IndependantsStartups() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-10 bg-accent" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Premier pas</span>
@@ -425,7 +430,7 @@ export default function IndependantsStartups() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

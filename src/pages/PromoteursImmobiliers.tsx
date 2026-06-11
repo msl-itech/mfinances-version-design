@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/promoteurs-immobiliers-hero.jpg";
@@ -26,8 +26,9 @@ import {
   Quote,
   TrendingUp,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const tvaRegimes = [
   "Immeuble neuf destiné à la revente — TVA 21% généralement déductible, sous conditions",
@@ -47,16 +48,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function PromoteursImmobiliers() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -138,7 +143,7 @@ export default function PromoteursImmobiliers() {
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="mb-12 md:mb-20 max-w-[760px]">
+            <div data-anim="fade-up" className="mb-12 md:mb-20 max-w-[760px]">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
@@ -149,11 +154,11 @@ export default function PromoteursImmobiliers() {
               <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body max-w-[560px]">
                 Deux piliers indissociables pour piloter une opération de promotion : visibilité sur les marges, maîtrise des régimes fiscaux.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
               {/* Card 1 */}
-              <ScrollRevealDiv delay={0.08} className="lg:col-span-5">
+              <div data-anim="fade-up" data-delay="0.08"  className="lg:col-span-5">
                 <div className="group relative bg-secondary/40 rounded-3xl p-8 md:p-10 border border-border/60 h-full overflow-hidden transition-all duration-500 hover:border-accent/40 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]">
                   <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-3xl transition-all duration-700" />
                   <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-foreground/[0.06] select-none">01</div>
@@ -175,10 +180,10 @@ export default function PromoteursImmobiliers() {
                     </div>
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
 
               {/* Card 2 */}
-              <ScrollRevealDiv delay={0.16} className="lg:col-span-7">
+              <div data-anim="fade-up" data-delay="0.16"  className="lg:col-span-7">
                 <div className="group relative bg-primary text-primary-foreground rounded-3xl p-8 md:p-10 h-full overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.45)]">
                   <div className="pointer-events-none absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-accent/15 blur-3xl" />
                   <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-primary-foreground/[0.08] select-none">02</div>
@@ -210,7 +215,7 @@ export default function PromoteursImmobiliers() {
                     </p>
                   </div>
                 </div>
-              </ScrollRevealDiv>
+              </div>
             </div>
           </div>
         </section>
@@ -222,7 +227,7 @@ export default function PromoteursImmobiliers() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
@@ -231,9 +236,9 @@ export default function PromoteursImmobiliers() {
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Résultat <span className="italic text-accent">concret</span>
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_30px_70px_-40px_hsl(var(--primary)/0.25)]">
                 {/* Left visual band */}
                 <div className="lg:col-span-4 bg-primary text-primary-foreground p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[260px]">
@@ -287,7 +292,7 @@ export default function PromoteursImmobiliers() {
                   </p>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -298,7 +303,7 @@ export default function PromoteursImmobiliers() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="text-center mb-12 max-w-[640px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
@@ -310,9 +315,9 @@ export default function PromoteursImmobiliers() {
               <p className="text-muted-foreground text-[15px] leading-relaxed mt-5 font-body">
                 Un accompagnement unique, calibré pour la complexité des opérations de promotion.
               </p>
-            </ScrollRevealDiv>
+            </div>
 
-            <ScrollRevealDiv delay={0.1}>
+            <div data-anim="fade-up" data-delay="0.1" >
               <div className="relative bg-primary text-primary-foreground rounded-3xl overflow-hidden shadow-[0_40px_80px_-30px_hsl(var(--primary)/0.5)]">
                 <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/15 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-accent/10 blur-3xl" />
@@ -380,7 +385,7 @@ export default function PromoteursImmobiliers() {
                   </div>
                 </div>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -392,7 +397,7 @@ export default function PromoteursImmobiliers() {
             <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
@@ -412,7 +417,7 @@ export default function PromoteursImmobiliers() {
                   <Link to="/services/daf-externalise/">Découvrir le DAF externalisé <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

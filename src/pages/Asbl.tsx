@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/asbl-hero.jpg";
@@ -30,8 +30,9 @@ import {
   Sparkles,
   Quote,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const services = [
   {
@@ -84,16 +85,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Asbl() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -175,7 +180,7 @@ export default function Asbl() {
           </div>
 
           <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="mb-12 md:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div data-anim="fade-up" className="mb-12 md:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="h-px w-10 bg-accent/60" />
@@ -190,7 +195,7 @@ export default function Asbl() {
                   Six expertises pensées pour le secteur non-marchand — de la création des statuts au suivi des subsides, votre cause prime, on s'occupe du reste.
                 </p>
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {services.map((s, i) => {
@@ -198,7 +203,7 @@ export default function Asbl() {
                 const isDark = i === 1 || i === 4; // alternance navy
                 const num = String(i + 1).padStart(2, "0");
                 return (
-                  <ScrollRevealDiv key={s.title} delay={0.06 + i * 0.05}>
+                  <div data-anim="fade-up" data-delay="0.06 + i * 0.05" key={s.title} >
                     <div className={`group relative rounded-3xl p-7 md:p-8 h-full overflow-hidden transition-all duration-500 border ${
                       isDark
                         ? "bg-primary text-primary-foreground border-primary hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.45)]"
@@ -232,7 +237,7 @@ export default function Asbl() {
                         </div>
                       </div>
                     </div>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -246,7 +251,7 @@ export default function Asbl() {
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv className="text-center mb-12 max-w-[680px] mx-auto">
+            <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
@@ -277,10 +282,10 @@ export default function Asbl() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             {/* Plan headers cards */}
-            <ScrollRevealDiv delay={0.08}>
+            <div data-anim="fade-up" data-delay="0.08" >
               <div className="grid grid-cols-3 gap-3 md:gap-4 mb-1">
                 {[
                   { name: "Essentiel", price: "350", featured: false },
@@ -365,7 +370,7 @@ export default function Asbl() {
                   </div>
                 ))}
               </div>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="text-center mt-10">
               <Button variant="accent" size="lg" className="rounded-full whitespace-normal text-center group" asChild>
@@ -373,7 +378,7 @@ export default function Asbl() {
               </Button>
             </div>
 
-            <ScrollRevealDiv delay={0.2} className="mt-10 text-center">
+            <div data-anim="fade-up" data-delay="0.2"  className="mt-10 text-center">
               <p className="text-[14px] text-muted-foreground font-body">
                 Voir aussi :{" "}
                 <Link to="/qui-nous-accompagnons/societe-de-moyens/" className="text-accent font-semibold hover:underline">
@@ -383,7 +388,7 @@ export default function Asbl() {
                   Société d'exploitation
                 </Link>
               </p>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -395,7 +400,7 @@ export default function Asbl() {
           </div>
 
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 justify-center mb-6">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
@@ -415,7 +420,7 @@ export default function Asbl() {
                 </p>
                 <span className="h-px w-8 bg-accent/60" />
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
@@ -427,7 +432,7 @@ export default function Asbl() {
             <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
                 <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
@@ -447,7 +452,7 @@ export default function Asbl() {
                   <Link to="/tarifs/">Voir les tarifs <ArrowRight size={16} className="ml-1 flex-shrink-0" /></Link>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

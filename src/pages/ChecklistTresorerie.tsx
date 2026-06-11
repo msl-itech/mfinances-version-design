@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -9,6 +9,8 @@ import { submitLead } from "@/lib/odoo-submit";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -52,6 +54,17 @@ function triggerPdfDownload() {
 }
 
 export default function ChecklistTresorerie() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   const [form, setForm] = useState({ prenom: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -104,7 +117,7 @@ export default function ChecklistTresorerie() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div ref={root} className="min-h-screen">
       <SEOHead
         title="Checklist Trésorerie TPE — 5 erreurs qui vident votre compte | MFinances"
         description="Téléchargez notre checklist gratuite : les 7 erreurs de trésorerie qui menacent votre TPE et comment les corriger. Guide PDF offert par MFinances."

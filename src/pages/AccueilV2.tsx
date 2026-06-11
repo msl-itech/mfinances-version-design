@@ -226,14 +226,15 @@ export default function AccueilV2() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="MFinances v2 — Pilotage TPE Bruxelles"
+        title="Cabinet d'Expert-Comptable Bruxelles — MFinances"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour TPE en croissance."
-        canonical="https://mfinances.be/accueilv2/"
+        canonical="https://mfinances.be/"
       />
       <Header />
       <main>
         {/* ============== HERO (kept — full width) ============== */}
         <section className="relative">
+          <h1 className="sr-only">Cabinet d'expert-comptable à Bruxelles — Pilotage financier pour TPE</h1>
           <div
             ref={heroRef}
             className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px] bg-precision-grid-light"
@@ -266,7 +267,7 @@ export default function AccueilV2() {
                   mounted ? "translate-y-0" : "translate-y-6"
                 }`}
               >
-                <h1
+                <h2
                   className="font-display font-bold text-[30px] leading-[1.05] tracking-tight text-foreground text-center"
                   data-anim="chars"
                   data-stagger="0.03"
@@ -275,7 +276,7 @@ export default function AccueilV2() {
                   Vous travaillez <em className="italic font-normal text-foreground/80">dur.</em>
                   <br />
                   Mais votre <em className="italic font-normal text-accent">entreprise</em> gagne-t-elle vraiment de l'argent&nbsp;?
-                </h1>
+                </h2>
               </div>
 
               {/* Paragraphe blanc sur l'image */}
@@ -317,7 +318,7 @@ export default function AccueilV2() {
                  <Stamp className="text-accent drop-shadow-lg" />
               </div>
               <div className="bg-foreground text-background rounded-3xl p-10 shadow-2xl cut-corner relative w-full h-full">
-              <h1
+              <h2
                 className="font-display text-[44px] leading-[1.05] text-background"
                 data-anim="chars"
                 data-stagger="0.035"
@@ -326,7 +327,7 @@ export default function AccueilV2() {
                 Vous travaillez <em className="italic font-normal text-background/70">dur.</em>
                 <br />
                 Mais votre <em className="italic font-normal text-accent">entreprise</em> gagne-t-elle vraiment de l'argent&nbsp;?
-              </h1>
+              </h2>
               <p
                 className="mt-5 text-background/70 text-[14.5px] leading-relaxed"
                 data-anim="fade-up"

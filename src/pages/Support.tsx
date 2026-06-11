@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -19,8 +19,9 @@ import {
   ShieldCheck,
   Info,
 } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Stamp from "@/components/ui/Stamp";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 const steps = [
   {
@@ -65,16 +66,20 @@ const breadcrumbJsonLd = {
   ],
 };
 
-function ScrollRevealDiv({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""} ${className || ""}`} style={{ transitionDelay: `${delay}s` }}>
-      {children}
-    </div>
-  );
-}
+
 
 export default function Support() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -121,17 +126,17 @@ export default function Support() {
         {/* ── ÉTAPES ── */}
         <section className="bg-card py-16 md:py-20">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
-            <ScrollRevealDiv className="text-center mb-14">
+            <div data-anim="fade-up" className="text-center mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
                 Comment ça <span className="text-accent">fonctionne</span> ?
               </h2>
-            </ScrollRevealDiv>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {steps.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <ScrollRevealDiv key={s.num} delay={0.08 + i * 0.06} className="bg-secondary/60 rounded-2xl p-7 border border-border/50 relative">
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.06" key={s.num}  className="bg-secondary/60 rounded-2xl p-7 border border-border/50 relative">
                     <span className="absolute top-5 right-5 w-8 h-8 rounded-full bg-primary/10 text-primary text-[14px] font-bold flex items-center justify-center">
                       {s.num}
                     </span>
@@ -140,7 +145,7 @@ export default function Support() {
                     </div>
                     <h3 className="text-[17px] font-bold font-body text-foreground mb-2">{s.title}</h3>
                     <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">{s.desc}</p>
-                  </ScrollRevealDiv>
+                  </div>
                 );
               })}
             </div>
@@ -150,7 +155,7 @@ export default function Support() {
         {/* ── TÉLÉCHARGEMENT ── */}
         <section className="bg-secondary py-16 md:py-20">
           <div className="mx-auto max-w-[600px] px-6 lg:px-12 text-center">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15] mb-8">
                 Télécharger <span className="text-accent">AnyDesk</span>
               </h2>
@@ -169,14 +174,14 @@ export default function Support() {
                   </a>
                 </Button>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
 
         {/* ── BON À SAVOIR ── */}
         <section className="bg-card py-16 md:py-20">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
-            <ScrollRevealDiv>
+            <div data-anim="fade-up">
               <div className="bg-secondary/60 rounded-2xl p-8 border border-border/50">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -193,7 +198,7 @@ export default function Support() {
                   ))}
                 </ul>
               </div>
-            </ScrollRevealDiv>
+            </div>
           </div>
         </section>
       </main>

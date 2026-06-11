@@ -1,22 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Home, FileText, Calculator, BookOpen, AlertTriangle, HelpCircle, ArrowRight, Shield, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { createBreadcrumbSchema, createFaqSchema } from "@/lib/seo-schemas";
 
 import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
-function SR({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <div ref={ref} className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}>
-      {children}
-    </div>
-  );
-}
+
 
 const faqData = [
   { q: "Quelle quotiété puis-je déduire pour mon bureau à domicile ?", a: "La quotiété dépend de la surface professionnelle pondérée divisée par la surface totale pondérée de votre logement. Pour un bureau de 15 m² dans un appartement de 80 m², la quotiété est de 18,75 %. Notre calculateur applique cette méthode automatiquement et vous génère un rapport PDF documenté en 2 minutes." },
@@ -44,10 +38,21 @@ const articles = [
 ];
 
 export default function BureauADomicileHub() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
+
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div ref={root} className="min-h-screen bg-background">
       <SEOHead
         title="Bureau à domicile Belgique 2026 — Guide dirigeant"
         description="Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque."
@@ -108,7 +113,7 @@ export default function BureauADomicileHub() {
         </header>
 
         {/* ── INTRO ────────────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-16">
             <div className="max-w-[800px] mx-auto px-6">
               <div className="prose prose-lg max-w-none text-foreground/85 leading-relaxed space-y-5">
@@ -118,10 +123,10 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── 3 MÉCANISMES ────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-16 bg-card border-y border-border">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Selon votre statut</span>
@@ -172,10 +177,10 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── RESSOURCES ──────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-16">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Outils & Modèles</span>
@@ -201,10 +206,10 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── ARTICLES DU GUIDE ──────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-16 bg-card border-y border-border">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Silo éditorial</span>
@@ -239,10 +244,10 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── FAQ ──────────────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="py-16">
             <div className="max-w-[900px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">FAQ</span>
@@ -258,10 +263,10 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
 
         {/* ── CTA FINAL ─────────────────────────────────────── */}
-        <SR>
+        <div data-anim="fade-up">
           <section className="pb-16">
             <div className="max-w-[1200px] mx-auto px-6">
               <div className="relative bg-gradient-to-br from-primary-dark to-primary rounded-3xl p-10 sm:p-12 flex flex-col sm:flex-row justify-between gap-8 items-center overflow-hidden">
@@ -282,7 +287,7 @@ export default function BureauADomicileHub() {
               </div>
             </div>
           </section>
-        </SR>
+        </div>
       </main>
 
       <Footer />
