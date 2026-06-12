@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { retryPendingLeads } from "@/lib/odoo-submit";
 import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -99,6 +99,15 @@ const App = () => {
           <Route path="/qui-nous-accompagnons/societe-exploitation/" element={<SocieteExploitation />} />
           <Route path="/qui-nous-accompagnons/societe-de-moyens/" element={<SocieteDeMoyens />} />
           <Route path="/qui-nous-accompagnons/societe-de-management/" element={<SocieteDeManagement />} />
+          {/* Legacy slug redirects (301-style) */}
+          <Route path="/qui-nous-accompagnons/commerce-horeca" element={<Navigate to="/qui-nous-accompagnons/commerce-et-horeca/" replace />} />
+          <Route path="/qui-nous-accompagnons/commerce-horeca/" element={<Navigate to="/qui-nous-accompagnons/commerce-et-horeca/" replace />} />
+          <Route path="/qui-nous-accompagnons/entreprises-croissance" element={<Navigate to="/qui-nous-accompagnons/entreprises-en-croissance/" replace />} />
+          <Route path="/qui-nous-accompagnons/entreprises-croissance/" element={<Navigate to="/qui-nous-accompagnons/entreprises-en-croissance/" replace />} />
+          <Route path="/qui-nous-accompagnons/independants-startups" element={<Navigate to="/qui-nous-accompagnons/independants-et-startups/" replace />} />
+          <Route path="/qui-nous-accompagnons/independants-startups/" element={<Navigate to="/qui-nous-accompagnons/independants-et-startups/" replace />} />
+          <Route path="/qui-nous-accompagnons/professions-sante" element={<Navigate to="/qui-nous-accompagnons/professions-de-sante/" replace />} />
+          <Route path="/qui-nous-accompagnons/professions-sante/" element={<Navigate to="/qui-nous-accompagnons/professions-de-sante/" replace />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/a-propos/" element={<APropos />} />
           <Route path="/support/" element={<Support />} />
