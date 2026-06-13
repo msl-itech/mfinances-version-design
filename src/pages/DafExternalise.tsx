@@ -140,8 +140,8 @@ export default function DafExternalise() {
           eyebrow="Service Excellence"
           number="01"
           sectionLabel="Direction financière externalisée"
-          titleStart="Vous décidez à 6 chiffres."
-          titleItalic="Toujours seul ?"
+          titleStart="Vous prenez des décisions à 6 chiffres."
+          titleItalic="Seul ?"
           description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
           pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
           image={imgHero}
