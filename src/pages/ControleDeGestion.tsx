@@ -140,9 +140,9 @@ export default function ControleDeGestion() {
           eyebrow="Premium & Excellence"
           number="02"
           sectionLabel="Pilotage par les chiffres"
-          titleStart="Pilotez votre entreprise avec les bons"
-          titleItalic="chiffres"
-          titleEnd="au bon moment"
+          titleStart="Des chiffres fiables,"
+          titleItalic="analysés pour mieux"
+          titleEnd="décider."
           description="Budget annuel, situations intermédiaires et analyse des écarts — un cycle de pilotage complet pour décider sur des bases factuelles, pas sur des intuitions."
           pills={["Forfaits Premium & Excellence", "Budget annuel", "5 KPIs surveillés"]}
           image={imgHero}
