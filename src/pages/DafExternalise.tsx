@@ -226,7 +226,7 @@ export default function DafExternalise() {
                   <br />à temps partiel pour une TPE ?
                 </h2>
                 <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.75] mt-6 font-body max-w-[440px]">
-                  Un DAF externalisé ne remplace pas votre comptable. Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.
+                  <span className="italic text-accent">Un DAF externalisé ne remplace pas votre comptable. Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.</span>
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
                   <img
