@@ -157,8 +157,8 @@ export default function CommerceHoreca() {
                       <ArrowUpRight size={18} className="ml-1 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
                   </Button>
-                  <span className="text-primary-foreground/60 text-[13px] font-body">
-                    Forfait Premium minimum : <span className="text-primary-foreground font-semibold">dès 450 €</span> HTVA/mois
+                  <span className="text-primary-foreground/60 text-[15px] md:text-[16px] font-body">
+                    Forfait Premium minimum : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">dès 450 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
