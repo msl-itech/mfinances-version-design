@@ -132,7 +132,7 @@ export default function Comptabilite() {
 
 
         {/* ── SECTION 1 — Pourquoi Odoo (manifesto éditorial) ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -167,7 +167,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 2 — Services (6 cards éditoriales) ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -225,7 +225,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 3 — Témoignages éditoriaux ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -277,7 +277,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 4 — Odoo split éditorial ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -340,7 +340,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION 5 — Tableau forfaits éditorial ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -448,7 +448,7 @@ export default function Comptabilite() {
         </section>
 
         {/* ── SECTION FAQ (éditoriale) ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">

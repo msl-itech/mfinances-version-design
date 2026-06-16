@@ -46,7 +46,7 @@ const linkClass = "block text-[14px] text-white/70 hover:text-white transition-c
 export default function Footer() {
   return (
     <footer className="bg-[#1B2B5E] text-white">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 md:py-20">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-8 md:py-10">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
           {/* Col 1 — À propos */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-5">

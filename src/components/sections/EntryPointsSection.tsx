@@ -109,7 +109,7 @@ export default function EntryPointsSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-28 bg-secondary relative overflow-hidden" ref={ref}>
+    <section className="py-14 md:py-14 bg-secondary relative overflow-hidden" ref={ref}>
       {/* Editorial decorative number */}
       <div
         aria-hidden="true"

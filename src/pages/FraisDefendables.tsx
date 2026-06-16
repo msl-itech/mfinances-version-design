@@ -72,7 +72,7 @@ export default function FraisDefendablesPage() {
             <div className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-white blur-[120px]" />
           </div>
 
-          <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-20 text-center sm:text-left">
+          <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-10 text-center sm:text-left">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-xs tracking-wider uppercase text-white/90 font-bold mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               Outil gratuit : 30 frais couverts
@@ -114,7 +114,7 @@ export default function FraisDefendablesPage() {
         </header>
 
         {/* ── MAIN GRID : TOOL + SIDEBAR ────────────────────── */}
-        <section className="py-8 sm:py-16">
+        <section className="py-8 sm:py-8">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <FraisDefendables />
           </div>
@@ -122,7 +122,7 @@ export default function FraisDefendablesPage() {
 
         {/* ── THREE LEVELS ──────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-10 sm:py-16 bg-card border-t border-border">
+          <section className="py-10 sm:py-8 bg-card border-t border-border">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Méthode</span>
               <h2 className="font-display text-[clamp(22px,3.5vw,36px)] text-primary mb-6 sm:mb-8 leading-tight">Trois niveaux de lecture d'un frais</h2>
@@ -147,7 +147,7 @@ export default function FraisDefendablesPage() {
 
         {/* ── FAQ ────────────────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-10 sm:py-16">
+          <section className="py-10 sm:py-8">
             <div className="max-w-[900px] mx-auto px-4 sm:px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">FAQ</span>
               <h2 className="font-display text-[clamp(22px,3.5vw,36px)] text-primary mb-6 sm:mb-8 leading-tight">Questions fréquentes</h2>

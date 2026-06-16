@@ -122,7 +122,7 @@ export default function CreationEntreprise() {
 
 
         {/* ── SECTION 1 — Le problème (manifesto rouge) ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -178,7 +178,7 @@ export default function CreationEntreprise() {
         </section>
 
         {/* ── SECTION 2 — Accompagnement (4 cards éditoriales) ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -236,7 +236,7 @@ export default function CreationEntreprise() {
         </section>
 
         {/* ── SECTION 3 — Ce que vous obtenez (split éditorial + table) ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -326,7 +326,7 @@ export default function CreationEntreprise() {
         </section>
 
         {/* ── SECTION FAQ (éditoriale) ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
@@ -375,7 +375,7 @@ export default function CreationEntreprise() {
         </section>
 
         {/* ── ARTICLES BLOG ── */}
-        <section className="bg-card py-10 md:py-20">
+        <section className="bg-card py-10 md:py-10">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">

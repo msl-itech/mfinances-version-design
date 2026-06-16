@@ -77,7 +77,7 @@ export default function BlogArticle() {
       <div className="min-h-screen">
         <SEOHead title="Article introuvable — MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
         <Header />
-        <div className="py-20 text-center">
+        <div className="py-10 text-center">
           <h1 className="font-display text-[32px]">Article introuvable</h1>
           <Link to="/blog/" className="text-accent mt-4 inline-block">Retour au blog</Link>
         </div>
@@ -151,7 +151,7 @@ export default function BlogArticle() {
 
       <main>
         {/* ── HERO ── */}
-        <section data-hero-section className="bg-primary py-12 md:py-16 bg-precision-grid-light">
+        <section data-hero-section className="bg-primary py-6 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>
@@ -215,7 +215,7 @@ export default function BlogArticle() {
         )}
 
         {/* ── ARTICLE BODY ── */}
-        <section className="bg-card py-12 md:py-16">
+        <section className="bg-card py-6 md:py-8">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
             {/* ── BLOC GEO-CITABLE (haut d'article) ── */}
             {geoFaqs && (
@@ -385,7 +385,7 @@ export default function BlogArticle() {
 
         {/* ── ARTICLES LIÉS ── */}
         {relatedArticles.length > 0 && (
-          <section className="bg-secondary py-12 md:py-16">
+          <section className="bg-secondary py-6 md:py-8">
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
               <h3 className="font-display text-[22px] text-foreground mb-6">À lire aussi</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

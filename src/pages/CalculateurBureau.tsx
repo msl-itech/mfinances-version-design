@@ -47,7 +47,7 @@ export default function CalculateurBureau() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-10 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[760px] px-4 sm:px-6 lg:px-12 text-center sm:text-left">
             <span className="inline-flex items-center gap-1.5 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/70 text-[11px] font-medium px-3 py-1 rounded-full mb-4 sm:mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -87,7 +87,7 @@ export default function CalculateurBureau() {
         </section>
 
         {/* ── SEO SECTION ── */}
-        <section className="bg-secondary py-10 md:py-16">
+        <section className="bg-secondary py-10 md:py-8">
           <div className="mx-auto max-w-[720px] px-4 sm:px-6 lg:px-12">
             <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground mb-3 sm:mb-4">
               Pourquoi calculer correctement votre quotiété ?

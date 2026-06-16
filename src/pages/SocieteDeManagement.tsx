@@ -126,7 +126,7 @@ export default function SocieteDeManagement() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
+        <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
             <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Capital</span>
           </div>
@@ -197,7 +197,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── DÉFINITION ── */}
-        <section className="bg-card py-10 md:py-20">
+        <section className="bg-card py-10 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
@@ -211,7 +211,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── SERVICES ── */}
-        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -right-10 select-none hidden lg:block">
             <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Patrimoine</span>
           </div>
@@ -281,7 +281,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── CETTE STRUCTURE EST-ELLE FAITE POUR VOUS ? ── */}
-        <section className="bg-card py-10 md:py-20">
+        <section className="bg-card py-10 md:py-10">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-8 md:mb-14">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
@@ -331,7 +331,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── AVANT / APRÈS ── */}
-        <section className="bg-secondary py-10 md:py-20">
+        <section className="bg-secondary py-10 md:py-10">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-10">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
@@ -389,7 +389,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── TÉMOIGNAGE KARIM ── */}
-        <section className="bg-primary py-16 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-8 md:py-12 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
             <span data-anim="text-scrub" className="font-display italic text-[200px] leading-none text-primary-foreground/[0.05] tracking-tight">Karim</span>
@@ -421,7 +421,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── CAS CLIENT ── */}
-        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
             <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Impact</span>
           </div>
@@ -495,7 +495,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── FORFAITS ── */}
-        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
             <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
           </div>
@@ -619,7 +619,7 @@ export default function SocieteDeManagement() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-12 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation société de management MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">

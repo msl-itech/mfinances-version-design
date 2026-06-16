@@ -173,7 +173,7 @@ export default function Tresorerie() {
         </section> */}
 
         {/* SECTION 1 — Douleur trésorerie (split éditorial) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -237,7 +237,7 @@ export default function Tresorerie() {
         </section>
 
         {/* SECTION 2 — Ce qu'on met en place */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -297,7 +297,7 @@ export default function Tresorerie() {
         </section>
 
         {/* SECTION 3 — Périodes critiques (timeline horizontale) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -349,7 +349,7 @@ export default function Tresorerie() {
         </section>
 
         {/* SECTION 4 — Odoo (split + grand visuel) */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -412,7 +412,7 @@ export default function Tresorerie() {
         </section>
 
         {/* SECTION FAQ (éditoriale numérotée) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">
@@ -461,7 +461,7 @@ export default function Tresorerie() {
         </section>
 
         {/* ── ARTICLES LIÉS ── */}
-        <section className="bg-card py-12 md:py-16">
+        <section className="bg-card py-6 md:py-8">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[32px] text-foreground mb-8 text-center leading-[1.15]">

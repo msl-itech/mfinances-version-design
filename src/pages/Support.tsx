@@ -96,7 +96,7 @@ export default function Support() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">
@@ -124,7 +124,7 @@ export default function Support() {
         </section>
 
         {/* ── ÉTAPES ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-8 md:py-10">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-14">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15]">
@@ -153,7 +153,7 @@ export default function Support() {
         </section>
 
         {/* ── TÉLÉCHARGEMENT ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-8 md:py-10">
           <div className="mx-auto max-w-[600px] px-6 lg:px-12 text-center">
             <div data-anim="fade-up">
               <h2 className="font-display text-[28px] md:text-[36px] text-foreground leading-[1.15] mb-8">
@@ -179,7 +179,7 @@ export default function Support() {
         </section>
 
         {/* ── BON À SAVOIR ── */}
-        <section className="bg-card py-16 md:py-20">
+        <section className="bg-card py-8 md:py-10">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12">
             <div data-anim="fade-up">
               <div className="bg-secondary/60 rounded-2xl p-8 border border-border/50">

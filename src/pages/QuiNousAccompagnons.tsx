@@ -199,7 +199,7 @@ export default function QuiNousAccompagnons() {
 
       <main>
         {/* ── HERO ÉDITORIAL ── */}
-        <section className="relative bg-primary overflow-hidden py-16 md:py-28 bg-precision-grid-light">
+        <section className="relative bg-primary overflow-hidden py-8 md:py-14 bg-precision-grid-light">
           {/* watermark */}
           <div aria-hidden className="pointer-events-none absolute -bottom-10 -right-6 select-none">
             <span
@@ -287,7 +287,7 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── PAR PROFIL D'ACTIVITÉ ── */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-32 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -324,7 +324,7 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── PAR STRUCTURE JURIDIQUE ── */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 bottom-20 select-none">
             <span
               className="font-display italic font-bold text-foreground/[0.04] leading-none block"
@@ -361,7 +361,7 @@ export default function QuiNousAccompagnons() {
         </section>
 
         {/* ── CTA FINAL éditorial ── */}
-        <section className="relative bg-primary py-24 md:py-36 overflow-hidden">
+        <section className="relative bg-primary py-12 md:py-36 overflow-hidden">
           <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/70" />
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">

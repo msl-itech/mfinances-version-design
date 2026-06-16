@@ -33,7 +33,7 @@ export default function ServicePageCTA({
   bgImageAlt = "Consultation MFinances",
 }: ServicePageCTAProps) {
   return (
-    <section className="relative bg-primary py-20 md:py-32 overflow-hidden">
+    <section className="relative bg-primary py-10 md:py-32 overflow-hidden">
       <img
         src={bgImage || imgMeeting}
         alt={bgImageAlt}

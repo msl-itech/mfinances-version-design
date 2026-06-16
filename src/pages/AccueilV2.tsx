@@ -234,134 +234,103 @@ export default function AccueilV2() {
       />
       <Header />
       <main>
-        {/* ============== HERO (kept — full width) ============== */}
+        {/* ============== HERO (texte gauche + image droite fondu) ============== */}
         <section className="relative">
           <h1 className="sr-only">Cabinet d'expert-comptable à Bruxelles : Pilotage financier pour TPE</h1>
           <div
             ref={heroRef}
-            className="group/hero relative overflow-hidden bg-primary w-full min-h-[560px] sm:min-h-[640px] md:min-h-[760px] lg:min-h-[820px] bg-precision-grid-light"
-            style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
+            className="relative overflow-hidden bg-primary w-full"
           >
-            <img
-              src={equipePhoto}
-              alt="Équipe MFinances en réunion"
-              data-parallax-y="120"
-              className="absolute inset-0 w-full h-full object-cover object-center md:object-top opacity-90"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/85 via-primary/40 to-primary/10 md:via-primary/30 md:to-transparent" />
-            {/* Red cursor glow */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 z-[5] mix-blend-screen transition-opacity duration-500"
-              style={{
-                opacity: "var(--glow-o)",
-                background:
-                  "radial-gradient(420px circle at var(--glow-x) var(--glow-y), hsl(var(--accent) / 0.55), hsl(var(--accent) / 0.18) 35%, transparent 65%)",
-              }}
-            />
-
-
-            {/* ===== MOBILE LAYOUT (référence : carte blanche H1 + texte blanc + CTA outline) ===== */}
-            <div className="md:hidden relative z-10 flex flex-col items-center justify-center text-center min-h-[560px] px-5 py-10">
-              {/* Carte blanche avec H1 sombre */}
-              <div
-                className={`w-full bg-background text-foreground rounded-3xl p-6 shadow-2xl transition-transform duration-1000 ${
-                  mounted ? "translate-y-0" : "translate-y-6"
-                }`}
-              >
-                <h2
-                  className="font-display font-bold text-[30px] leading-[1.05] tracking-tight text-foreground text-center"
-                  data-anim="chars"
-                  data-stagger="0.03"
-                  data-delay="0.25"
+            {/* ===== LAYOUT : grid texte gauche / image droite ===== */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
+              {/* --- Colonne gauche : texte --- */}
+              <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 py-8 lg:py-10">
+                <div
+                  className={`transition-all duration-1000 ${
+                    mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  }`}
                 >
-                  Vous travaillez <em className="italic font-normal text-foreground/80">dur.</em>
-                  <br />
-                  Mais votre <em className="italic font-normal text-accent">entreprise</em> gagne-t-elle vraiment de l'argent&nbsp;?
-                </h2>
-              </div>
-
-              {/* Paragraphe blanc sur l'image */}
-              <p
-                className="mt-8 text-background text-[16px] leading-[1.45] font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] max-w-[360px] mx-auto"
-                data-anim="fade-up"
-                data-delay="0.4"
-              >
-                La plupart des dirigeants de TPE pilotent à l'aveugle : trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
-              </p>
-
-              {/* CTA pill outline blanc */}
-              <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3" data-anim="fade-up" data-delay="0.55">
-                <Link
-                  to="/diagnostic/"
-                  className="inline-flex items-center gap-4 rounded-full border border-background/80 bg-background/5 backdrop-blur-sm pl-6 pr-2 py-2 text-background hover:bg-background hover:text-foreground transition-colors group"
-                >
-                  <span className="text-[15px] font-medium">Diagnostic gratuit</span>
-                  <span className="w-9 h-9 rounded-full border border-background/80 flex items-center justify-center group-hover:rotate-45 transition-transform">
-                    <ArrowRight size={16} />
-                  </span>
-                </Link>
-                <Link
-                  to="/services/"
-                  className="inline-flex items-center gap-2 rounded-full border border-background/40 px-6 py-3 text-background/90 hover:bg-background/10 transition-colors text-[14px] font-medium"
-                >
-                  Découvrir nos services
-                </Link>
-              </div>
-            </div>
-
-            {/* ===== DESKTOP : Floating dark card (inchangé) ===== */}
-            <div
-              className={`hidden md:block absolute top-24 right-12 lg:right-24 max-w-[520px] transition-transform duration-1000 ${
-                mounted ? "translate-y-0" : "translate-y-6"
-              }`}
-            >
-              <div className="absolute -top-16 -right-12 z-20 pointer-events-none">
-                 <Stamp className="text-accent drop-shadow-lg" />
-              </div>
-              <div className="bg-foreground text-background rounded-3xl p-10 shadow-2xl cut-corner relative w-full h-full">
-              <h2
-                className="font-display text-[44px] leading-[1.05] text-background"
-                data-anim="chars"
-                data-stagger="0.035"
-                data-delay="0.25"
-              >
-                Vous travaillez <em className="italic font-normal text-background/70">dur.</em>
-                <br />
-                Mais votre <em className="italic font-normal text-accent">entreprise</em> gagne-t-elle vraiment de l'argent&nbsp;?
-              </h2>
-              <p
-                className="mt-5 text-background/70 text-[14.5px] leading-relaxed"
-                data-anim="fade-up"
-                data-delay="0.4"
-              >
-                La plupart des dirigeants de TPE pilotent à l'aveugle : trésorerie floue, résultats découverts trop tard. MFinances change ça : un vrai pilotage financier, à un prix de PME.
-              </p>
-              <div data-anim="fade-up" data-delay="0.55" className="mt-6 flex flex-wrap items-center gap-3">
-                <Button
-                  variant="accent"
-                  size="lg"
-                  className="rounded-full pl-6 pr-3 group h-12 text-[14px]"
-                  asChild
-                >
-                  <Link to="/diagnostic/">
-                    <span className="flex items-center gap-3">
-                      Diagnostic gratuit
-                      <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
-                        <ArrowUpRight size={14} />
-                      </span>
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <Stamp className="text-accent drop-shadow-lg w-14 h-14" />
+                  </div>
+                  <h2
+                    className="font-display font-bold text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-primary-foreground"
+                    data-anim="fade-up"
+                    data-delay="0.25"
+                  >
+                    Vous travaillez <em className="italic font-normal text-primary-foreground/75">dur.</em>
+                    <br />
+                    Mais savez-vous vraiment
+                    <br className="hidden sm:block" />
+                    {" "}si votre entreprise{" "}
+                    <span className="relative inline-block">
+                      <span className="relative z-[1] text-accent">gagne de l'argent</span>
+                      <svg
+                        aria-hidden="true"
+                        className="absolute -bottom-1 left-0 w-full h-[10px]"
+                        viewBox="0 0 420 14"
+                        fill="none"
+                        preserveAspectRatio="none"
+                      >
+                        <path
+                          d="M2 10 Q 105 2, 210 8 T 418 6"
+                          stroke="hsl(var(--accent))"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          opacity="0.85"
+                        />
+                      </svg>
                     </span>
-                  </Link>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full px-6 h-12 text-[14px] border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground"
-                  asChild
-                >
-                  <Link to="/services/">Découvrir nos services</Link>
-                </Button>
+                    &nbsp;?
+                  </h2>
+                  <p
+                    className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[520px]"
+                    data-anim="fade-up"
+                    data-delay="0.4"
+                  >
+                    La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça&nbsp;: un vrai pilotage financier, à un prix de PME.
+                  </p>
+                  <div className="mt-8 flex flex-wrap items-center gap-3" data-anim="fade-up" data-delay="0.55">
+                    <Button
+                      variant="accent"
+                      size="lg"
+                      className="rounded-full pl-6 pr-3 group h-12 text-[14px]"
+                      asChild
+                    >
+                      <Link to="/diagnostic/">
+                        <span className="flex items-center gap-3">
+                          Diagnostic gratuit
+                          <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                            <ArrowUpRight size={14} />
+                          </span>
+                        </span>
+                      </Link>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                      asChild
+                    >
+                      <Link to="/services/">Découvrir nos services</Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
+
+              {/* --- Colonne droite : image avec fondu --- */}
+              <div className="relative min-h-[320px] lg:min-h-0">
+                <img
+                  src={equipePhoto}
+                  alt="Équipe MFinances en réunion"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+                {/* Fondu gauche (vers le fond bleu) */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+                {/* Fondu bas pour mobile */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent lg:from-primary/40" />
+                {/* Léger overlay pour cohérence de ton */}
+                <div className="absolute inset-0 bg-primary/20" />
               </div>
             </div>
           </div>
@@ -399,32 +368,13 @@ export default function AccueilV2() {
             </div>
           </div>
 
-          {/* 3 features row — full width */}
-          <div className="grid grid-cols-1 md:grid-cols-3 w-full border-b border-border/60" data-anim="stagger" data-stagger="0.12">
-            {heroFeatures.map((f, i) => (
-              <div
-                key={f.title}
-                className={`px-6 md:px-12 lg:px-20 py-7 flex items-start gap-4 ${i < 2 ? "md:border-r border-border/60" : ""}`}
-              >
-                <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center shrink-0">
-                  <Check size={14} className="text-accent" strokeWidth={2.5} />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-[14px]">{f.title}</p>
-                  <p className="text-[12.5px] text-muted-foreground leading-relaxed mt-0.5">
-                    {f.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* ============== 01.5 · 3 FAÇONS DE COMMENCER ============== */}
         <EntryPointsBentoSection />
 
         {/* ============== 02 · CONSTAT (V1 PainSection text) ============== */}
-        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-card relative overflow-hidden">
           <div
             aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
@@ -442,9 +392,27 @@ export default function AccueilV2() {
               </div>
               <h2
                 className="font-display text-[32px] md:text-[48px] leading-[1.05]"
-                data-anim="split"
+                data-anim="fade-up"
               >
-                Fin de mois tendu. Décisions au feeling. Où est passé l'argent ?
+                Fin de mois tendu. Décisions au feeling.{" "}
+                <span className="relative inline-block">
+                  <span className="relative z-[1] text-accent">Où est passé l'argent&nbsp;?</span>
+                  <svg
+                    aria-hidden="true"
+                    className="absolute -bottom-1 left-0 w-full h-[10px]"
+                    viewBox="0 0 420 14"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M2 10 Q 105 2, 210 8 T 418 6"
+                      stroke="hsl(var(--accent))"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      opacity="0.85"
+                    />
+                  </svg>
+                </span>
               </h2>
             </div>
 
@@ -483,7 +451,7 @@ export default function AccueilV2() {
         <BeforeAfterSection />
 
         {/* ============== 03 · SERVICES (V1 SolutionSection text) ============== */}
-        <section className="py-20 md:py-28">
+        <section className="py-10 md:py-14">
           <div className="container-mf">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
@@ -551,7 +519,7 @@ export default function AccueilV2() {
         </section>
 
         {/* ============== 04 · MÉTHODE (V1 MethodSection text) ============== */}
-        <section className="py-20 md:py-28 bg-primary relative overflow-hidden bg-precision-grid-light">
+        <section className="py-10 md:py-14 bg-primary relative overflow-hidden bg-precision-grid-light">
           <div
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-10 text-center font-display font-bold text-[160px] md:text-[260px] leading-none text-primary-foreground/[0.025] pointer-events-none select-none whitespace-nowrap"
@@ -600,7 +568,7 @@ export default function AccueilV2() {
         </section>
 
         {/* ============== 05 · POUR QUI (V1 AudienceSection text) ============== */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        <section className="py-10 md:py-14 relative overflow-hidden">
           <div
             aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
@@ -663,11 +631,22 @@ export default function AccueilV2() {
                 </Link>
               ))}
             </div>
+
+            <div className="text-center mt-10" data-anim="fade-up">
+              <Link
+                to="/qui-nous-accompagnons/"
+                className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.12em] hover:gap-4 transition-all"
+              >
+                <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
+                Trouvez votre profil
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* ============== 06 · TÉMOIGNAGE (V1 TestimonialsSection — vrai client) ============== */}
-        <section className="py-20 md:py-28 bg-card">
+        <section className="py-10 md:py-14 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-4">
@@ -760,7 +739,7 @@ export default function AccueilV2() {
         <LeadMagnetSection />
 
         {/* ============== 07 · LE FONDATEUR (V1 MikaSection text) ============== */}
-        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
           <div
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-8 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
@@ -827,7 +806,7 @@ export default function AccueilV2() {
         <DisqualificationSection />
 
         {/* ============== 08 · TARIFS (V1 PricingSection text) ============== */}
-        <section className="py-20 md:py-28">
+        <section className="py-10 md:py-14">
           <div className="container-mf">
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
@@ -872,7 +851,7 @@ export default function AccueilV2() {
         </section>
 
         {/* ============== 09 · FAQ (V1 homepage FAQs) ============== */}
-        <section className="py-20 md:py-28 bg-card">
+        <section className="py-10 md:py-14 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
@@ -909,7 +888,7 @@ export default function AccueilV2() {
         </section>
 
         {/* ============== 10 · CTA FINAL (V1 FinalCta text) ============== */}
-        <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="container-mf text-center relative">
             <div className="inline-flex items-center gap-4 mb-5">
               <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 10</span>

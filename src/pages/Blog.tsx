@@ -99,7 +99,7 @@ export default function Blog() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">
@@ -127,7 +127,7 @@ export default function Blog() {
         </section>
 
         {/* ── CATÉGORIES ── */}
-        <section className="bg-secondary py-16 md:py-20">
+        <section className="bg-secondary py-8 md:py-10">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <div data-anim="fade-up" className="text-center mb-12">
               <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
@@ -178,7 +178,7 @@ export default function Blog() {
 
         {/* ── DERNIERS ARTICLES ── */}
         {latestPublished.length > 0 && (
-          <section className="bg-card py-16 md:py-20">
+          <section className="bg-card py-8 md:py-10">
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
               <div data-anim="fade-up" className="text-center mb-12">
                 <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
@@ -263,7 +263,7 @@ export default function Blog() {
         )}
 
         {/* ── CTA ── */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-8 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">

@@ -201,7 +201,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 1 — Missions (split éditorial + watermark) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -270,7 +270,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 2 — Fonctionnement (timeline éditoriale connectée) */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -328,7 +328,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 3 — Conditions (card éditoriale + watermark Excellence) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-end justify-center select-none pb-8">
             <span
               className="font-display italic font-bold text-foreground/[0.04] leading-none"
@@ -392,7 +392,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 3.5 — Témoignage client Excellence */}
-        <section className="relative bg-primary py-20 md:py-28 overflow-hidden bg-precision-grid-light">
+        <section className="relative bg-primary py-10 md:py-14 overflow-hidden bg-precision-grid-light">
           <div
             aria-hidden="true"
             className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full opacity-[0.10] pointer-events-none"
@@ -428,7 +428,7 @@ export default function DafExternalise() {
         </section>
 
         {/* SECTION 4 — FAQ (hairlines éditoriaux) */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">

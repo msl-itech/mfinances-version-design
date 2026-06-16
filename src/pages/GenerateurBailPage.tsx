@@ -47,7 +47,7 @@ export default function GenerateurBailPage() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[780px] px-6 lg:px-12">
             <span className="inline-flex items-center gap-1.5 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/70 text-[11px] font-medium px-3 py-1 rounded-full mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -87,7 +87,7 @@ export default function GenerateurBailPage() {
         </section>
 
         {/* ── SEO SECTION ── */}
-        <section className="bg-secondary py-12 md:py-16">
+        <section className="bg-secondary py-6 md:py-8">
           <div className="mx-auto max-w-[760px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[26px] text-foreground mb-4">
               Les 6 étapes du bail

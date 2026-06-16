@@ -54,7 +54,7 @@ export default function Unsubscribe() {
     <div ref={root} className="min-h-screen">
       <SEOHead title="Désabonnement | MFinances" description="Gérez vos préférences email." canonical="https://mfinances.be/unsubscribe/" />
       <Header />
-      <main className="py-20 px-4">
+      <main className="py-10 px-4">
         <div className="max-w-[480px] mx-auto text-center">
           {status === "loading" && <p className="text-muted-foreground">Vérification en cours…</p>}
           {status === "valid" && (

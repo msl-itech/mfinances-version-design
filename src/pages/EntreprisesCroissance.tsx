@@ -106,7 +106,7 @@ export default function EntreprisesCroissance() {
 
       <main>
         {/* ── HERO ÉDITORIAL ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
+        <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
             <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">
               Scaler
@@ -183,7 +183,7 @@ export default function EntreprisesCroissance() {
         </section>
 
         {/* ── SERVICES ── */}
-        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute top-10 -right-10 select-none hidden md:block">
             <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
               Pilotage
@@ -226,7 +226,7 @@ export default function EntreprisesCroissance() {
         </section>
 
         {/* ── RÉSULTATS CONCRETS ── */}
-        <section className="bg-secondary py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden md:block">
             <span data-anim="text-scrub" className="font-display italic text-[140px] lg:text-[200px] leading-none text-accent/[0.06] tracking-tight">
               Impact
@@ -270,7 +270,7 @@ export default function EntreprisesCroissance() {
         </section>
 
         {/* ── OFFRE EXCELLENCE ── */}
-        <section className="bg-card py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="mx-auto max-w-[760px] px-6 lg:px-12 relative z-10">
             <div data-anim="fade-up" className="text-center">
               <div className="flex items-center justify-center gap-3 mb-5">
@@ -332,7 +332,7 @@ export default function EntreprisesCroissance() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-16 md:py-28 relative overflow-hidden">
+        <section className="bg-primary py-8 md:py-14 relative overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
           <div className="pointer-events-none absolute -bottom-12 right-0 select-none hidden md:block">

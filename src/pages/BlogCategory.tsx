@@ -47,7 +47,7 @@ export default function BlogCategory() {
       <div className="min-h-screen">
         <SEOHead title="Catégorie introuvable — MFinances" description="Cette catégorie n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
         <Header />
-        <div className="py-20 text-center">
+        <div className="py-10 text-center">
           <h1 className="font-display text-[32px]">Catégorie introuvable</h1>
           <Link to="/blog/" className="text-accent mt-4 inline-block">Retour au blog</Link>
         </div>
@@ -67,7 +67,7 @@ export default function BlogCategory() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-16 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">
@@ -102,7 +102,7 @@ export default function BlogCategory() {
 
         {/* ── ARTICLES PUBLIÉS ── */}
         {published.length > 0 && (
-          <section className="bg-card py-16 md:py-20">
+          <section className="bg-card py-8 md:py-10">
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
               <div className="space-y-5">
                 {published.map((article, i) => (
@@ -128,7 +128,7 @@ export default function BlogCategory() {
 
         {/* ── ARTICLES À VENIR ── */}
         {upcoming.length > 0 && (
-          <section className="bg-secondary py-16 md:py-20">
+          <section className="bg-secondary py-8 md:py-10">
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
               <div data-anim="fade-up" className="text-center mb-10">
                 <h2 className="font-display text-[24px] md:text-[30px] text-foreground leading-[1.15]">
@@ -158,7 +158,7 @@ export default function BlogCategory() {
         )}
 
         {/* ── CTA ── */}
-        <section className="bg-primary py-16 md:py-20">
+        <section className="bg-primary py-8 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <div data-anim="fade-up">
               <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">

@@ -126,7 +126,7 @@ export default function ChecklistControleBureau() {
 
       <main>
         {/* ── SECTION 1 — HERO ── */}
-        <section className="bg-secondary py-14 md:py-20">
+        <section className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
             <span className="inline-flex items-center gap-2 bg-card text-foreground text-[12px] font-bold tracking-[0.1em] uppercase px-4 py-2 rounded-full border border-border/50 mb-6">
               <ShieldCheck size={15} className="text-accent" />
@@ -152,7 +152,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 2 — CONTEXTE ── */}
-        <section className="bg-card py-14 md:py-20">
+        <section className="bg-card py-14 md:py-10">
           <div className="mx-auto max-w-[720px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-6">
               Ce que le fisc vérifie en premier lieu
@@ -170,7 +170,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 3 — APERÇU CHECKLIST ── */}
-        <section className="bg-secondary py-14 md:py-20">
+        <section className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[720px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
               Les 10 points de la checklist : aperçu
@@ -194,7 +194,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 4 — CE QUE CONTIENT LE PDF ── */}
-        <section className="bg-card py-14 md:py-20">
+        <section className="bg-card py-14 md:py-10">
           <div className="mx-auto max-w-[720px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
               Ce que contient la checklist PDF
@@ -214,7 +214,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 5 — FORMULAIRE ── */}
-        <section id="formulaire" className="bg-secondary py-14 md:py-20">
+        <section id="formulaire" className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[480px] px-6">
             <div className="bg-card rounded-2xl p-7 md:p-10 border border-border/50 shadow-lg">
               <div className="text-center mb-6">
@@ -289,7 +289,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 6 — POUR QUI ── */}
-        <section className="bg-card py-14 md:py-20">
+        <section className="bg-card py-14 md:py-10">
           <div className="mx-auto max-w-[720px] px-6 lg:px-12">
             <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
               Pour qui est cette checklist ?
@@ -311,7 +311,7 @@ export default function ChecklistControleBureau() {
         </section>
 
         {/* ── SECTION 7 — CTA FINAL ── */}
-        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[640px] px-6 lg:px-12 text-center">
             <h2 className="font-display text-[22px] md:text-[30px] text-primary-foreground mb-4">
               Un point de votre checklist vous préoccupe ?

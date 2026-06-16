@@ -158,7 +158,7 @@ export default function ControleDeGestion() {
 
 
         {/* SECTION 1 — Cycle de pilotage (3 étapes éditoriales) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-12 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -219,7 +219,7 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION 2 — Tableau comparatif (éditorial) */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
@@ -314,7 +314,7 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION 3 — 5 KPIs (split sticky) */}
-        <section className="relative bg-card py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
             <span
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
@@ -386,7 +386,7 @@ export default function ControleDeGestion() {
         </section>
 
         {/* SECTION FAQ (éditoriale numérotée) */}
-        <section className="relative bg-secondary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div data-anim="fade-up" className="lg:col-span-4 lg:sticky lg:top-28 self-start">

@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 const before = [
   "Décisions prises à l'intuition",
   "Trésorerie découverte en fin de mois",
-  "Résultats annuels connus 6 mois après",
+  "Résultats annuels connus tardivement",
   "Fiscalité subie en fin d'année",
   "Investissements sans modélisation",
 ];

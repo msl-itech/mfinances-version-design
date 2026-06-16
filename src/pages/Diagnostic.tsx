@@ -393,7 +393,7 @@ export default function Diagnostic() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-10 md:py-16 bg-precision-grid-light">
+        <section className="bg-primary py-10 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center">
             <span className="inline-block bg-accent text-accent-foreground text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-md mb-4 md:mb-5">
               Gratuit · 3 minutes · Confidentiel
@@ -408,7 +408,7 @@ export default function Diagnostic() {
         </section>
 
         {/* ── QUIZ AREA ── */}
-        <section className="bg-secondary py-8 md:py-16">
+        <section className="bg-secondary py-8 md:py-8">
           <div className="mx-auto max-w-[700px] px-4 sm:px-6 lg:px-12">
 
             {/* ── STEP 0: INTRO / ACCROCHE ── */}

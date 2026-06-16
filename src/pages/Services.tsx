@@ -225,7 +225,7 @@ export default function Services() {
             </span>
           </div>
 
-          <div className="container-mf relative py-12 md:py-24">
+          <div className="container-mf relative py-6 md:py-12">
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
@@ -326,7 +326,7 @@ export default function Services() {
         </section>
 
         {/* ── PILOTAGE FINANCIER ── */}
-        <section className="relative bg-secondary py-16 md:py-28 overflow-hidden">
+        <section className="relative bg-secondary py-8 md:py-14 overflow-hidden">
           <div aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none">
             <span
               className="font-display italic font-bold leading-none text-primary/[0.035]"
@@ -370,7 +370,7 @@ export default function Services() {
         </section>
 
         {/* ── SERVICES FONDAMENTAUX ── */}
-        <section className="relative bg-card py-16 md:py-28 overflow-hidden">
+        <section className="relative bg-card py-8 md:py-14 overflow-hidden">
           <div aria-hidden="true" className="pointer-events-none absolute -top-10 left-0 select-none">
             <span
               className="font-display italic font-bold leading-none text-primary/[0.035]"
@@ -414,7 +414,7 @@ export default function Services() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="relative bg-secondary py-16 md:py-24 overflow-hidden">
+        <section className="relative bg-secondary py-8 md:py-12 overflow-hidden">
           <div className="container-mf relative">
             <div data-anim="fade-up" className="max-w-[760px] mx-auto text-center mb-10 md:mb-14">
               <div className="flex items-center justify-center gap-4 mb-6">
@@ -457,7 +457,7 @@ export default function Services() {
 
         {/* ── CTA FINAL ── */}
 
-        <section className="relative bg-primary py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-primary py-10 md:py-32 overflow-hidden">
           <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/85 to-primary" />
 

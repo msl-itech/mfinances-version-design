@@ -101,7 +101,7 @@ export default function APropos() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
+        <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -183,7 +183,7 @@ export default function APropos() {
         </section>
 
         {/* ── L'HISTOIRE FONDATRICE ── */}
-        <section className="bg-card py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-card py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -242,7 +242,7 @@ export default function APropos() {
         </section>
 
         {/* ── LE TOURNANT ── */}
-        <section className="bg-primary py-14 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-10 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -278,7 +278,7 @@ export default function APropos() {
         </section>
 
         {/* ── LA CONVICTION ── */}
-        <section className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-secondary py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -330,7 +330,7 @@ export default function APropos() {
         </section>
 
         {/* ── NOS VALEURS ── */}
-        <section className="bg-card py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-card py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -404,7 +404,7 @@ export default function APropos() {
         </section>
 
         {/* ── CITATION ── */}
-        <section className="bg-primary py-14 md:py-20 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-10 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -430,7 +430,7 @@ export default function APropos() {
         </section>
 
         {/* ── MIKA EN BREF ── */}
-        <section id="mika" className="bg-secondary py-14 md:py-24 relative overflow-hidden">
+        <section id="mika" className="bg-secondary py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -507,7 +507,7 @@ export default function APropos() {
         </section>
 
         {/* ── CE QUE NOUS FAISONS DIFFÉREMMENT ── */}
-        <section className="bg-card py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-card py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -558,7 +558,7 @@ export default function APropos() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="bg-primary py-14 md:py-24 relative overflow-hidden">
+        <section className="bg-primary py-14 md:py-12 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"

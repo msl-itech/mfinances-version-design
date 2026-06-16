@@ -195,7 +195,7 @@ export default function Tarifs() {
         <section className="relative">
           <div
             ref={heroRef}
-            className="group/hero relative overflow-hidden bg-primary py-12 md:py-24 bg-precision-grid-light"
+            className="group/hero relative overflow-hidden bg-primary py-6 md:py-12 bg-precision-grid-light"
             style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
           >
             <span
@@ -301,7 +301,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 1 — Tableau comparatif ── */}
-        <section id="forfaits" className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section id="forfaits" className="py-10 md:py-14 bg-card relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
@@ -428,7 +428,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
-        <section className="py-20 md:py-28 relative overflow-hidden bg-secondary/50">
+        <section className="py-10 md:py-14 relative overflow-hidden bg-secondary/50">
           <span
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
@@ -549,7 +549,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 3 — DAF option (split card éditorial) ── */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        <section className="py-10 md:py-14 relative overflow-hidden">
           <div className="container-mf">
             <div data-anim="fade-up" className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)] border border-primary-foreground/10">
               {/* Watermark */}
@@ -604,7 +604,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 4 — Missions ponctuelles ── */}
-        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub"
             className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-primary/[0.035] pointer-events-none select-none whitespace-nowrap"
@@ -676,7 +676,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION TÉMOIGNAGE ── */}
-        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-card relative overflow-hidden">
           <div className="container-mf max-w-[800px]">
             <div data-anim="fade-up">
               <figure className="bg-background rounded-3xl p-8 md:p-12 border border-border/50 relative shadow-[0_8px_30px_rgba(27,43,94,0.04)]">
@@ -693,7 +693,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION 5 — Comment ça se passe ── */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        <section className="py-10 md:py-14 relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
             className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
@@ -757,7 +757,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── SECTION FAQ ── */}
-        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-card relative overflow-hidden">
           <div className="container-mf max-w-[800px]">
             <div className="text-center mb-12">
               <h2 className="font-display text-[32px] md:text-[42px] leading-[1.05]" data-anim="split">
@@ -791,7 +791,7 @@ export default function Tarifs() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="py-20 md:py-28 bg-primary relative overflow-hidden bg-precision-grid-light">
+        <section className="py-10 md:py-14 bg-primary relative overflow-hidden bg-precision-grid-light">
           <div className="absolute inset-0 opacity-15">
              <img src={imgMeeting} alt="Consultation MFinances" className="w-full h-full object-cover" />
           </div>

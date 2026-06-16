@@ -128,7 +128,7 @@ export default function ChecklistTresorerie() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="bg-primary py-14 md:py-20 bg-precision-grid-light">
+        <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
             <div className="grid md:grid-cols-[1fr_380px] gap-10 items-center">
               {/* Left — copy */}
@@ -240,7 +240,7 @@ export default function ChecklistTresorerie() {
         </section>
 
         {/* ── APERÇU DES 5 ERREURS ── */}
-        <section className="bg-secondary py-14 md:py-20">
+        <section className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <h2 className="font-display text-[24px] md:text-[30px] text-foreground text-center mb-3">
               Ce que contient <span className="text-accent">le guide</span>

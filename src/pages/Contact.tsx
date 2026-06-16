@@ -157,7 +157,7 @@ export default function Contact() {
 
       <main>
         {/* Hero banner — éditorial premium */}
-        <section className="bg-primary text-primary-foreground py-12 md:py-24 relative overflow-hidden bg-precision-grid-light">
+        <section className="bg-primary text-primary-foreground py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
@@ -195,7 +195,7 @@ export default function Contact() {
 
 
         {/* 3 contact methods — premium */}
-        <section className="bg-background py-6 md:py-16 relative">
+        <section className="bg-background py-6 md:py-8 relative">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
             <div data-anim="fade-up">
               <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">

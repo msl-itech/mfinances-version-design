@@ -6,7 +6,7 @@ import rdvImg from "@/assets/mika-contact.png";
 
 export default function EntryPointsBentoSection() {
   return (
-    <section className="py-16 md:py-28 bg-secondary relative overflow-hidden">
+    <section className="py-8 md:py-14 bg-secondary relative overflow-hidden">
       {/* Watermark */}
       <div
         aria-hidden="true" data-anim="text-scrub"

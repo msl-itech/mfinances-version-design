@@ -40,7 +40,7 @@ export default function MentionsLegales() {
       />
       <Header />
       <main>
-        <section className="bg-primary py-12 md:py-16 bg-precision-grid-light">
+        <section className="bg-primary py-6 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
               <BreadcrumbList>
@@ -53,7 +53,7 @@ export default function MentionsLegales() {
           </div>
         </section>
 
-        <section className="bg-card py-12 md:py-16">
+        <section className="bg-card py-6 md:py-8">
           <div className="mx-auto max-w-[700px] px-6 lg:px-12 space-y-10">
             <div>
               <h2 className="font-display text-[22px] text-foreground mb-4">Éditeur du site</h2>

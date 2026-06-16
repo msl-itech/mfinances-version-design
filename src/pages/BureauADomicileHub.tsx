@@ -69,7 +69,7 @@ export default function BureauADomicileHub() {
             <div className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-white blur-[120px]" />
           </div>
 
-          <div className="relative max-w-[1200px] mx-auto px-6 py-16 sm:py-20 lg:py-24">
+          <div className="relative max-w-[1200px] mx-auto px-6 py-8 sm:py-10 lg:py-12">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-white/50 mb-6 flex-wrap">
               <Link to="/" className="hover:text-white/80 transition-colors">Accueil</Link>
@@ -114,7 +114,7 @@ export default function BureauADomicileHub() {
 
         {/* ── INTRO ────────────────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-16">
+          <section className="py-8">
             <div className="max-w-[800px] mx-auto px-6">
               <div className="prose prose-lg max-w-none text-foreground/85 leading-relaxed space-y-5">
                 <p>Chaque année, des milliers de dirigeants belges passent à côté de plusieurs centaines : parfois plusieurs milliers : d'euros de déductions fiscales légitimes. Non par mauvaise volonté. Par manque d'information sur les mécanismes qui s'appliquent exactement à leur situation.</p>
@@ -127,7 +127,7 @@ export default function BureauADomicileHub() {
 
         {/* ── 3 MÉCANISMES ────────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-16 bg-card border-y border-border">
+          <section className="py-8 bg-card border-y border-border">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Selon votre statut</span>
               <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-10 leading-tight">Les 3 mécanismes disponibles selon votre statut</h2>
@@ -181,7 +181,7 @@ export default function BureauADomicileHub() {
 
         {/* ── RESSOURCES ──────────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-16">
+          <section className="py-8">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Outils & Modèles</span>
               <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">Les ressources disponibles sur ce site</h2>
@@ -210,7 +210,7 @@ export default function BureauADomicileHub() {
 
         {/* ── ARTICLES DU GUIDE ──────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-16 bg-card border-y border-border">
+          <section className="py-8 bg-card border-y border-border">
             <div className="max-w-[1200px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">Silo éditorial</span>
               <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">Les articles de ce guide</h2>
@@ -248,7 +248,7 @@ export default function BureauADomicileHub() {
 
         {/* ── FAQ ──────────────────────────────────────────────── */}
         <div data-anim="fade-up">
-          <section className="py-16">
+          <section className="py-8">
             <div className="max-w-[900px] mx-auto px-6">
               <span className="inline-block text-xs tracking-widest uppercase text-accent font-bold mb-3">FAQ</span>
               <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">FAQ : Bureau à domicile en Belgique</h2>

@@ -46,7 +46,7 @@ export default function ChecklistControleBureauConfirmation() {
       />
       <Header />
 
-      <main className="bg-secondary py-16 md:py-24">
+      <main className="bg-secondary py-8 md:py-12">
         <div className="mx-auto max-w-[580px] px-6 lg:px-12">
           {/* Success block */}
           <div className="bg-card rounded-2xl p-8 md:p-12 border border-border/50 shadow-lg text-center">

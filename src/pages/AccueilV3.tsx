@@ -298,7 +298,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 02 · CONSTAT — style Axios "problems" ============== */}
-        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-card relative overflow-hidden">
           <div className="container-mf relative">
             {/* Header avec barre tiret + carrés à droite (Axios) */}
             <div className="flex items-start justify-between gap-6 mb-12">
@@ -400,7 +400,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 03 · SERVICES — style Axios "explore service" ============== */}
-        <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
           <div className="container-mf relative">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div className="flex items-start gap-4 max-w-2xl">
@@ -493,7 +493,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 04 · MÉTHODE — timeline horizontale style "Working Process" ============== */}
-        <section className="py-20 md:py-28 bg-card relative overflow-hidden">
+        <section className="py-10 md:py-14 bg-card relative overflow-hidden">
           <div className="container-mf relative">
             {/* Header centré */}
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -576,7 +576,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 05 · POUR QUI ============== */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        <section className="py-10 md:py-14 relative overflow-hidden">
           <div className="container-mf relative">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div className="flex items-start gap-4 max-w-2xl">
@@ -677,7 +677,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 06 · TÉMOIGNAGES ============== */}
-        <section className="py-20 md:py-28 bg-card">
+        <section className="py-10 md:py-14 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-4">
@@ -745,7 +745,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 07 · LE FONDATEUR — éditorial sans carte ============== */}
-        <section className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+        <section className="py-10 md:py-32 bg-secondary relative overflow-hidden">
           {/* Backdrop typographique */}
           <div
             aria-hidden="true"
@@ -850,7 +850,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 08 · TARIFS ============== */}
-        <section className="py-20 md:py-28">
+        <section className="py-10 md:py-14">
           <div className="container-mf">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
               <div className="flex items-start gap-4 max-w-2xl">
@@ -899,7 +899,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 09 · FAQ ============== */}
-        <section className="py-20 md:py-28 bg-card">
+        <section className="py-10 md:py-14 bg-card">
           <div className="container-mf">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
@@ -938,7 +938,7 @@ export default function AccueilV3() {
         </section>
 
         {/* ============== 10 · CTA FINAL ============== */}
-        <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden bg-precision-grid-light">
+        <section className="py-10 md:py-14 bg-primary text-primary-foreground relative overflow-hidden bg-precision-grid-light">
           <div className="container-mf text-center relative">
             <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">10 · Bruxelles · Uccle</span>
             <h2 className="font-display text-[36px] md:text-[64px] leading-[1.02] max-w-[920px] mx-auto text-primary-foreground mt-5" data-anim="split">
