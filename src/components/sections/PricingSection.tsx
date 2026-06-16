@@ -142,7 +142,7 @@ export default function PricingSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-secondary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-secondary py-8 md:py-14 relative overflow-hidden" ref={ref}>
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[160px] md:text-[260px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"

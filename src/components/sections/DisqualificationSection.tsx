@@ -98,7 +98,7 @@ export default function DisqualificationSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-32 bg-card relative overflow-hidden" ref={ref}>
+    <section className="py-8 md:py-14 bg-card relative overflow-hidden" ref={ref}>
       <div
         aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
         className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.025] pointer-events-none select-none whitespace-nowrap"

@@ -49,7 +49,7 @@ export default function PainSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-32 bg-card relative overflow-hidden" ref={ref}>
+    <section className="py-8 md:py-14 bg-card relative overflow-hidden" ref={ref}>
       {/* Massive editorial backdrop */}
       <div
         aria-hidden="true"

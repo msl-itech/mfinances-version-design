@@ -13,7 +13,7 @@ export default function FinalCtaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-primary py-8 md:py-14 relative overflow-hidden" ref={ref}>
       {/* Cinematic backdrop */}
       <div
         aria-hidden="true"

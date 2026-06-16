@@ -8,7 +8,7 @@ export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-14 md:py-32 bg-secondary relative overflow-hidden" ref={ref}>
+    <section className="py-8 md:py-14 bg-secondary relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop watermark */}
       <div
         aria-hidden="true"
@@ -89,7 +89,7 @@ export default function MikaSection() {
               <div className="relative">
                 <Quote
                   size={48}
-                  className="absolute -top-4 -left-2 text-accent/15 -scale-x-100"
+                  className="absolute -top-4 -left-2 text-accent/35 -scale-x-100"
                   strokeWidth={1.25}
                 />
                 <blockquote className="font-display italic font-light text-[20px] md:text-[26px] text-primary-foreground leading-[1.35] relative z-10 pl-3">

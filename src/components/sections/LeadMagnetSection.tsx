@@ -7,7 +7,7 @@ export default function LeadMagnetSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-primary py-8 md:py-14 relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop */}
       <div
         aria-hidden="true" data-anim="text-scrub"

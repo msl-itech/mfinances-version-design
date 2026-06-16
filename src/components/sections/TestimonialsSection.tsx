@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
   const visible = reviews.slice(current * perPage, current * perPage + perPage);
 
   return (
-    <section className="py-14 md:py-32 bg-card relative overflow-hidden" ref={ref}>
+    <section className="py-8 md:py-14 bg-card relative overflow-hidden" ref={ref}>
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-10 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.025] pointer-events-none select-none whitespace-nowrap"
@@ -86,7 +86,7 @@ export default function TestimonialsSection() {
                 className="group relative bg-secondary/60 border border-border/50 rounded-3xl p-7 flex flex-col gap-4 animate-fade-in transition-all duration-500 hover:bg-card hover:border-accent/20 hover:shadow-[0_16px_40px_rgba(27,43,94,0.08)] hover:-translate-y-1"
               >
                 {/* Quote icon */}
-                <Quote size={32} className="text-accent/15 absolute top-5 right-5 -scale-x-100" strokeWidth={1.5} />
+                <Quote size={32} className="text-accent/35 absolute top-5 right-5 -scale-x-100" strokeWidth={1.5} />
 
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, j) => (

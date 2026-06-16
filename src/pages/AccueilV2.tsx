@@ -545,7 +545,7 @@ export default function AccueilV2() {
                 const Icon = s.icon;
                 return (
                   <div key={s.num} data-tilt data-tilt-max="5" className="bg-primary-dark/50 border border-primary-foreground/10 rounded-3xl p-7 hover:border-accent/40 transition-colors relative overflow-hidden">
-                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/15">{s.num}</span>
+                    <span className="absolute top-4 right-5 font-display text-[64px] font-bold text-accent/35">{s.num}</span>
                     <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
                       <Icon size={22} className="text-accent-foreground" strokeWidth={1.75} />
                     </div>

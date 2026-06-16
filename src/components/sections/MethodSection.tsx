@@ -18,7 +18,7 @@ function StepCard({ step, isLast }: { step: typeof steps[0]; isLast?: boolean })
         {/* Number watermark */}
         <span
           aria-hidden="true"
-          className="absolute top-4 right-5 font-display text-[64px] font-bold leading-none text-accent/15 select-none transition-all duration-500 group-hover:text-accent/30"
+          className="absolute top-4 right-5 font-display text-[64px] font-bold leading-none text-accent/35 select-none transition-all duration-500 group-hover:text-accent/30"
         >
           {step.num}
         </span>
@@ -54,7 +54,7 @@ export default function MethodSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-primary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-primary py-8 md:py-14 relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop */}
       <div
         aria-hidden="true"

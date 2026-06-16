@@ -19,7 +19,7 @@ export default function DiagnosticSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-secondary py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-secondary py-8 md:py-14 relative overflow-hidden" ref={ref}>
       {/* Editorial backdrop */}
       <div
         aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"

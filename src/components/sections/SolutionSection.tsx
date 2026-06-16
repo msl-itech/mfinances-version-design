@@ -89,7 +89,7 @@ export default function SolutionSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-background py-14 md:py-32 relative overflow-hidden" ref={ref}>
+    <section className="bg-background py-8 md:py-14 relative overflow-hidden" ref={ref}>
       <div className="container-mf">
         <div className={`grid grid-cols-1 lg:grid-cols-[1fr_auto] lg:items-end gap-6 lg:gap-12 mb-12 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
           <div>
