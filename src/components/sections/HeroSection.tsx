@@ -172,7 +172,7 @@ export default function HeroSection() {
                   <Link to="/services/">Découvrir nos services</Link>
                 </Button>
               </div>
-              <p className="text-[13px] md:text-[14px] text-foreground/55 leading-relaxed max-w-[600px]">
+              <p className="text-[13px] md:text-[14px] text-foreground leading-relaxed max-w-[600px]">
                 <span className="font-semibold text-foreground/75">Vous recevez :</span>{" "}
                 votre score de risque trésorerie sur 20, 3 priorités d'action et une grille de
                 lecture financière personnalisée — en 3 minutes.
@@ -206,7 +206,7 @@ export default function HeroSection() {
                   </div>
                   <span className="text-[11px] font-bold text-foreground">5,0</span>
                 </div>
-                <p className="text-[10px] text-foreground/55 mt-0.5 uppercase tracking-wider">16 avis Google</p>
+                <p className="text-[10px] text-foreground mt-0.5 uppercase tracking-wider">16 avis Google</p>
               </div>
 
               {/* Photo with editorial frame */}

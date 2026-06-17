@@ -246,9 +246,8 @@ export default function AccueilV2() {
               {/* --- Colonne gauche : texte --- */}
               <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 py-8 lg:py-10">
                 <div
-                  className={`transition-all duration-1000 ${
-                    mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                  }`}
+                  className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    }`}
                 >
                   <div className="inline-flex items-center gap-3 mb-6">
                     <Stamp className="text-accent drop-shadow-lg w-14 h-14" />
@@ -386,7 +385,7 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
                   Le constat
                 </span>
               </div>
@@ -457,7 +456,7 @@ export default function AccueilV2() {
               <div>
                 <div className="inline-flex items-center gap-4 mb-3 border-l-2 border-accent pl-4">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Nos solutions</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Nos solutions</span>
                 </div>
                 <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05]" data-anim="split">
                   Un cabinet comptable nouvelle génération.
@@ -579,12 +578,12 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 05</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
-                  Pour qui · Profils accompagnés
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
+                  Pour qui
                 </span>
               </div>
               <h2 className="font-display text-[32px] md:text-[46px] leading-[1.05]" data-anim="split">
-                Nous accompagnons les dirigeants qui ont décidé de grandir.
+                Nous accompagnons les dirigeants qui ont décidé de <span className="text-accent italic">grandir.</span>
               </h2>
             </div>
 
@@ -652,7 +651,7 @@ export default function AccueilV2() {
               <div className="lg:col-span-4">
                 <div className="inline-flex items-center gap-4 mb-5">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 06</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
                     Témoignages
                   </span>
                 </div>
@@ -720,9 +719,8 @@ export default function AccueilV2() {
                     <button
                       key={i}
                       onClick={() => setReviewIndex(i)}
-                      className={`h-1.5 rounded-full transition-all ${
-                        i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 hover:bg-muted-foreground"
-                      }`}
+                      className={`h-1.5 rounded-full transition-all ${i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 hover:bg-muted-foreground"
+                        }`}
                       aria-label={`Témoignage ${i + 1}`}
                     />
                   ))}
@@ -750,7 +748,7 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-12">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 07</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
                   Le fondateur
                 </span>
               </div>
@@ -811,7 +809,7 @@ export default function AccueilV2() {
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Nos forfaits</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Nos forfaits</span>
               </div>
               <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Des forfaits transparents, <span className="text-accent italic">sans surprise.</span>
@@ -857,7 +855,7 @@ export default function AccueilV2() {
               <div className="lg:col-span-4">
                 <div className="inline-flex items-center gap-4 mb-5">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">FAQ</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">FAQ</span>
                 </div>
                 <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
                   Questions & réponses.

@@ -205,7 +205,7 @@ export default function Tarifs() {
             >
               Tarifs
             </span>
-            
+
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 z-[5] mix-blend-screen transition-opacity duration-500"
@@ -242,7 +242,7 @@ export default function Tarifs() {
                     </span>
                   </div>
 
-                  <h1 
+                  <h1
                     className="font-display text-[32px] sm:text-[40px] md:text-[56px] leading-[1.05] text-primary-foreground tracking-tight"
                     data-anim="chars"
                     data-stagger="0.03"
@@ -251,7 +251,7 @@ export default function Tarifs() {
                     Des forfaits <em className="italic font-normal text-accent">transparents</em>,<br className="hidden md:block" /> sans surprise : adaptés à votre <em className="italic font-normal text-primary-foreground/80">stade de croissance</em>.
                   </h1>
 
-                  <p 
+                  <p
                     className="mt-6 md:mt-7 text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body max-w-[520px] mx-auto lg:mx-0"
                     data-anim="fade-up"
                     data-delay="0.4"
@@ -313,7 +313,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Comparatif</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Comparatif</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Nos trois forfaits.
@@ -440,7 +440,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Détail</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Détail</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Quel forfait est fait pour vous ?
@@ -465,81 +465,74 @@ export default function Tarifs() {
                     <div
                       data-tilt
                       data-tilt-max="5"
-                      className={`group relative rounded-3xl p-7 md:p-9 flex flex-col h-full transition-shadow duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] cut-corner ${
-                        isExcellence
+                      className={`group relative rounded-3xl p-7 md:p-9 flex flex-col h-full transition-shadow duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] cut-corner ${isExcellence
                           ? "bg-primary text-primary-foreground border border-primary"
                           : isPopular
                             ? "bg-card border-2 border-accent/40"
                             : "bg-card border border-border/50 hover:border-accent/30"
-                      }`}
+                        }`}
                     >
                       {/* Numéro éditorial en filigrane */}
                       <span
                         aria-hidden="true"
-                        className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${
-                          isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
-                        }`}
+                        className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
+                          }`}
                       >
                         0{i + 1}
                       </span>
 
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-500 group-hover:rotate-[-6deg] ${
-                        isExcellence ? "bg-accent/15 ring-1 ring-accent/30" : "bg-accent/10"
-                      }`}
-                    >
-                      <Icon size={22} className="text-accent" strokeWidth={1.5} />
-                    </div>
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-500 group-hover:rotate-[-6deg] ${isExcellence ? "bg-accent/15 ring-1 ring-accent/30" : "bg-accent/10"
+                          }`}
+                      >
+                        <Icon size={22} className="text-accent" strokeWidth={1.5} />
+                      </div>
 
-                    <span
-                      className={`font-body text-[10px] font-bold tracking-[0.25em] uppercase mb-2 ${
-                        isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"
-                      }`}
-                    >
-                      {plan.name}
-                    </span>
-
-                    <div className="flex items-baseline gap-1.5 mb-2">
                       <span
-                        className={`font-display text-[44px] md:text-[52px] font-bold leading-none tracking-tight ${
-                          isExcellence ? "text-primary-foreground" : "text-primary"
-                        }`}
+                        className={`font-body text-[10px] font-bold tracking-[0.25em] uppercase mb-2 ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"
+                          }`}
                       >
-                        {plan.price}€
+                        {plan.name}
                       </span>
-                      <span className={`text-[13px] ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
-                        /mois HTVA
-                      </span>
-                    </div>
 
-                    <p className={`text-[13px] italic font-body mb-5 ${isExcellence ? "text-accent" : "text-accent"}`}>
-                      : {plan.tagline}
-                    </p>
+                      <div className="flex items-baseline gap-1.5 mb-2">
+                        <span
+                          className={`font-display text-[44px] md:text-[52px] font-bold leading-none tracking-tight ${isExcellence ? "text-primary-foreground" : "text-primary"
+                            }`}
+                        >
+                          {plan.price}€
+                        </span>
+                        <span className={`text-[13px] ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                          /mois HTVA
+                        </span>
+                      </div>
 
-                    <hr className={`mb-5 ${isExcellence ? "border-primary-foreground/15" : "border-border/40"}`} />
+                      <p className={`text-[13px] italic font-body mb-5 ${isExcellence ? "text-accent" : "text-accent"}`}>
+                        : {plan.tagline}
+                      </p>
 
-                    <p
-                      className={`text-[14px] leading-[1.75] font-body flex-1 ${
-                        isExcellence ? "text-primary-foreground/75" : "text-muted-foreground"
-                      }`}
-                    >
-                      {plan.desc}
-                    </p>
+                      <hr className={`mb-5 ${isExcellence ? "border-primary-foreground/15" : "border-border/40"}`} />
 
-                    <div className="mt-7">
-                      <Link
-                        to="/contact/"
-                        className={`inline-flex items-center justify-center w-full rounded-full gap-2 py-3 text-[14px] font-medium transition-colors ${
-                          isExcellence 
-                            ? "bg-accent text-accent-foreground hover:bg-accent/90" 
-                            : isPopular 
-                              ? "bg-accent text-accent-foreground hover:bg-accent/90" 
-                              : "border border-border/60 hover:bg-secondary"
-                        }`}
+                      <p
+                        className={`text-[14px] leading-[1.75] font-body flex-1 ${isExcellence ? "text-primary-foreground/75" : "text-muted-foreground"
+                          }`}
                       >
-                        Choisir {plan.name} <ArrowRight size={14} />
-                      </Link>
-                    </div>
+                        {plan.desc}
+                      </p>
+
+                      <div className="mt-7">
+                        <Link
+                          to="/contact/"
+                          className={`inline-flex items-center justify-center w-full rounded-full gap-2 py-3 text-[14px] font-medium transition-colors ${isExcellence
+                              ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                              : isPopular
+                                ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                                : "border border-border/60 hover:bg-secondary"
+                            }`}
+                        >
+                          Choisir {plan.name} <ArrowRight size={14} />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 );
@@ -616,7 +609,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Au-delà des forfaits</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Au-delà des forfaits</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Missions ponctuelles.
@@ -705,7 +698,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Démarrage</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Démarrage</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Comment ça se passe concrètement ?
@@ -744,7 +737,7 @@ export default function Tarifs() {
                 );
               })}
             </div>
-            
+
             <div className="text-center mt-14" data-anim="fade-up">
               <Button variant="accent" size="lg" className="rounded-full px-10 group" asChild>
                 <Link to="/contact/">
@@ -793,10 +786,10 @@ export default function Tarifs() {
         {/* ── CTA FINAL ── */}
         <section className="py-10 md:py-14 bg-primary relative overflow-hidden bg-precision-grid-light">
           <div className="absolute inset-0 opacity-15">
-             <img src={imgMeeting} alt="Consultation MFinances" className="w-full h-full object-cover" />
+            <img src={imgMeeting} alt="Consultation MFinances" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
-          
+
           <div className="container-mf max-w-[800px] text-center relative z-10" data-anim="fade-up">
             <h2 className="font-display text-[34px] md:text-[48px] text-primary-foreground leading-[1.05]">
               Prêt à choisir votre forfait ?
