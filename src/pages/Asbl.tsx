@@ -146,7 +146,7 @@ export default function Asbl() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°01</span>
+                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°01</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[56px] leading-[1.1] text-primary-foreground tracking-tight">
                   Vous avez une <span className="italic text-accent">mission</span> qui change des vies.<br />
@@ -194,7 +194,7 @@ export default function Asbl() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
                 </div>
                 <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                   Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -264,7 +264,7 @@ export default function Asbl() {
             <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -413,7 +413,7 @@ export default function Asbl() {
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 justify-center mb-6">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
 
@@ -445,7 +445,7 @@ export default function Asbl() {
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

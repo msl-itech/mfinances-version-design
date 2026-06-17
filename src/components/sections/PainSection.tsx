@@ -61,7 +61,7 @@ export default function PainSection() {
       <div className="container-mf relative">
         <div className={`max-w-[820px] mx-auto mb-12 md:mb-20 reveal ${isVisible ? "visible" : ""}`}>
           <div className="text-center">
-            <span className="inline-block text-accent text-[11px] font-bold tracking-[0.2em] uppercase mb-5">
+            <span className="inline-block text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase mb-5">
               · Le constat ·
             </span>
             <h2 className="font-display text-[28px] md:text-[46px] leading-[1.08]">

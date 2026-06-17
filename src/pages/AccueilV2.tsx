@@ -386,7 +386,7 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
                   Le constat
                 </span>
               </div>
@@ -457,7 +457,7 @@ export default function AccueilV2() {
               <div>
                 <div className="inline-flex items-center gap-4 mb-3 border-l-2 border-accent pl-4">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Nos solutions</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Nos solutions</span>
                 </div>
                 <h2 className="font-display text-[36px] md:text-[52px] leading-[1.05]" data-anim="split">
                   Un cabinet comptable nouvelle génération.
@@ -579,7 +579,7 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 05</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
                   Pour qui · Profils accompagnés
                 </span>
               </div>
@@ -652,7 +652,7 @@ export default function AccueilV2() {
               <div className="lg:col-span-4">
                 <div className="inline-flex items-center gap-4 mb-5">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 06</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
                     Témoignages
                   </span>
                 </div>
@@ -750,7 +750,7 @@ export default function AccueilV2() {
             <div className="max-w-[820px] mx-auto text-center mb-12">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 07</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
                   Le fondateur
                 </span>
               </div>
@@ -778,7 +778,7 @@ export default function AccueilV2() {
               </div>
 
               <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
-                <Quote size={40} className="text-accent/40 mb-4" />
+                <Quote size={40} className="text-accent mb-4" />
                 <blockquote className="font-display italic font-light text-[20px] md:text-[26px] text-primary-foreground leading-[1.35]">
                   Après 20 ans à accompagner des centaines de dirigeants, je sais qu'une bonne comptabilité ne suffit pas.
                   Il faut un vrai suivi, une <span className="text-accent">vraie stratégie financière</span>.
@@ -811,10 +811,10 @@ export default function AccueilV2() {
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Nos forfaits</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Nos forfaits</span>
               </div>
               <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
-                Des forfaits transparents.
+                Des forfaits transparents, <span className="text-accent italic">sans surprise.</span>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch" data-anim="stagger" data-stagger="0.12">
@@ -857,7 +857,7 @@ export default function AccueilV2() {
               <div className="lg:col-span-4">
                 <div className="inline-flex items-center gap-4 mb-5">
                   <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">FAQ</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">FAQ</span>
                 </div>
                 <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
                   Questions & réponses.

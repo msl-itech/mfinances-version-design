@@ -107,7 +107,7 @@ export default function PromoteursImmobiliers() {
               <div className="mt-8 text-center lg:text-left">
                 <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°03 / Immobilier</span>
+                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°03 / Immobilier</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
                   Promotion immobilière —<br className="hidden md:block" /> <span className="text-accent italic">pilotez chaque projet</span> avec rigueur.
@@ -146,7 +146,7 @@ export default function PromoteursImmobiliers() {
             <div data-anim="fade-up" className="mb-12 md:mb-20 max-w-[760px]">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -230,7 +230,7 @@ export default function PromoteursImmobiliers() {
             <div data-anim="fade-up" className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -306,7 +306,7 @@ export default function PromoteursImmobiliers() {
             <div data-anim="fade-up" className="text-center mb-12 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -400,7 +400,7 @@ export default function PromoteursImmobiliers() {
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

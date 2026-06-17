@@ -22,7 +22,7 @@ export default function MikaSection() {
         <div className={`max-w-[820px] mx-auto text-center mb-12 md:mb-16 reveal ${isVisible ? "visible" : ""}`}>
           <div className="inline-flex items-center gap-4 mb-5">
             <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 10</span>
-            <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">
+            <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
               Le fondateur
             </span>
           </div>

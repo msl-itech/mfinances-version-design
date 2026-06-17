@@ -20,7 +20,7 @@ export default function EntryPointsBentoSection() {
         <div className="text-center mb-12 md:mb-16" data-anim="fade-up">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="w-8 h-px bg-accent" />
-            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
               3 façons de commencer
             </span>
             <span className="w-8 h-px bg-accent" />
@@ -88,10 +88,10 @@ export default function EntryPointsBentoSection() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/35" />
 
               {/* Badge recommandé */}
-              <span className="absolute top-4 left-4 bg-accent text-accent-foreground text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] uppercase shadow-lg">
+              <span className="absolute top-4 left-4 bg-accent text-accent-foreground text-[11px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] uppercase shadow-lg">
                 ★ Recommandé
               </span>
 
@@ -102,13 +102,13 @@ export default function EntryPointsBentoSection() {
 
               {/* Content overlay */}
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-primary-foreground">
-                <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-accent mb-3">
+                <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-accent mb-3">
                   — 02 / Diagnostic
                 </div>
-                <h3 className="font-display text-[26px] md:text-[30px] font-bold leading-[1.05]">
+                <h3 className="font-display text-[26px] md:text-[30px] font-bold leading-[1.05] text-white">
                   Diagnostic <span className="italic text-accent">trésorerie</span>
                 </h3>
-                <p className="text-[13.5px] text-primary-foreground/80 mt-3 leading-[1.6] max-w-[300px]">
+                <p className="text-[13.5px] text-primary-foreground/90 mt-3 leading-[1.6] max-w-[300px]">
                   8 questions · 3 minutes · Score instantané de votre santé financière.
                 </p>
 
@@ -120,7 +120,7 @@ export default function EntryPointsBentoSection() {
                     <ArrowUpRight size={15} strokeWidth={2} />
                   </span>
                 </div>
-                <p className="mt-3 text-[10px] text-primary-foreground/55 font-bold tracking-[0.15em] uppercase">
+                <p className="mt-3 text-[11px] text-primary-foreground/70 font-bold tracking-[0.15em] uppercase">
                   Résultat immédiat
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default function EntryPointsBentoSection() {
                 <span className="italic text-accent">200+</span> dirigeants accompagnés
               </p>
               <p className="text-[12px] text-primary-foreground/65 mt-2 leading-[1.55]">
-                16 avis Google · 5,0/5 · 20 ans d'expertise comptable à Bruxelles.
+                <span className="font-bold">16 avis Google · 5,0/5</span> · 20 ans d'expertise comptable à Bruxelles.
               </p>
             </div>
           </div>

@@ -154,7 +154,7 @@ export default function PricingSection() {
         <div className={`text-center mb-12 md:mb-20 reveal ${isVisible ? "visible" : ""}`}>
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="w-8 h-px bg-accent" />
-            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
               Nos forfaits
             </span>
             <span className="w-8 h-px bg-accent" />
@@ -162,7 +162,7 @@ export default function PricingSection() {
           <h2 className="font-display text-[28px] md:text-[46px] leading-[1.08] max-w-[760px] mx-auto">
             Des forfaits <span className="text-accent italic">transparents</span>,
             <br className="hidden md:block" />
-            sans surprise
+            <span className="text-accent italic">sans surprise</span>
           </h2>
         </div>
 

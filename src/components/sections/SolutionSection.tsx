@@ -95,7 +95,7 @@ export default function SolutionSection() {
           <div>
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="w-8 h-px bg-accent" />
-              <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+              <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
                 Nos solutions
               </span>
             </div>

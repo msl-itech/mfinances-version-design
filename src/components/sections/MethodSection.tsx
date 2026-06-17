@@ -75,7 +75,7 @@ export default function MethodSection() {
         <div className={`text-center mb-12 md:mb-20 reveal ${isVisible ? "visible" : ""}`}>
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="w-8 h-px bg-accent/60" />
-            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
               Notre approche
             </span>
             <span className="w-8 h-px bg-accent/60" />

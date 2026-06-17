@@ -134,7 +134,7 @@ export default function AdminAnalytics() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <span className="text-accent text-[11px] font-bold tracking-[0.15em] uppercase">
+            <span className="text-accent/75 text-[11px] font-bold tracking-[0.15em] uppercase">
               Analytics
             </span>
             <h1 className="font-display text-3xl mt-1">Tableau de bord chatbot</h1>

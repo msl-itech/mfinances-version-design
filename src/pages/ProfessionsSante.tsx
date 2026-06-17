@@ -124,7 +124,7 @@ export default function ProfessionsSante() {
               <div className="mt-8 text-center lg:text-left">
                 <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°02 / Santé</span>
+                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°02 / Santé</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
                   Concentrez-vous sur vos <span className="text-accent italic">patients</span>,<br className="hidden md:block" /> nous gérons vos chiffres.
@@ -162,7 +162,7 @@ export default function ProfessionsSante() {
             <div data-anim="fade-up" className="mb-10 md:mb-16">
               <div className="flex items-center gap-3 mb-4">
                 <span className="h-px w-12 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.1] max-w-[800px]">
                 Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -316,7 +316,7 @@ export default function ProfessionsSante() {
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

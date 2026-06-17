@@ -313,7 +313,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Comparatif</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Comparatif</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Nos trois forfaits.
@@ -440,7 +440,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Détail</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Détail</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Quel forfait est fait pour vous ?
@@ -616,7 +616,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Au-delà des forfaits</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Au-delà des forfaits</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Missions ponctuelles.
@@ -705,7 +705,7 @@ export default function Tarifs() {
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
                 <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-medium">Démarrage</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">Démarrage</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
                 Comment ça se passe concrètement ?
