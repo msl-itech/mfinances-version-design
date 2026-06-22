@@ -136,8 +136,8 @@ export default function CalculateurQuotite() {
     const logementLabel = logement === "locataire" ? "Locataire" : "Propriétaire";
 
     const description = [
-      `[Calculateur quotiété bureau]`,
-      `Quotiété : ${fmtDec(quotite)} %`,
+      `[Calculateur part professionnelle bureau]`,
+      `Part professionnelle : ${fmtDec(quotite)} %`,
       `Surface pro pondérée : ${fmtDec(surfacePro)} m² / ${fmtDec(surfaceTotal)} m²`,
       `Charges totales : ${fmt(chargesTotal)} €/an`,
       `Déduction estimée : ${fmt(Math.round(deductionAnnuelle))} €/an`,
@@ -266,7 +266,7 @@ export default function CalculateurQuotite() {
 
           <div className="bg-blue-50 border-l-[3px] border-blue-700 rounded-r-lg p-3 text-[12px] text-blue-800 leading-relaxed mb-5">
             <Info size={14} className="inline mr-1.5 -mt-0.5" />
-            Renseignez chaque pièce, sa surface et sa pondération. Ajustez le curseur pour indiquer l'usage professionnel. La quotiété se calcule automatiquement.
+            Renseignez chaque pièce, sa surface et sa pondération. Ajustez le curseur pour indiquer l'usage professionnel. La part professionnelle se calcule automatiquement.
           </div>
 
           {/* Header */}
@@ -355,7 +355,7 @@ export default function CalculateurQuotite() {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-[11px] text-muted-foreground">Quotiété calculée</div>
+              <div className="text-[11px] text-muted-foreground">Part professionnelle calculée</div>
               <div className="text-[22px] font-bold text-accent">{fmtDec(quotite)} %</div>
             </div>
           </div>
@@ -575,7 +575,7 @@ export default function CalculateurQuotite() {
               </div>
               <div>
                 <div className="text-[11px] text-muted-foreground">Calcul terminé</div>
-                <div className="text-[16px] font-semibold text-foreground">Votre quotiété professionnelle</div>
+                <div className="text-[16px] font-semibold text-foreground">Votre part professionnelle professionnelle</div>
               </div>
             </div>
           </div>
@@ -584,7 +584,7 @@ export default function CalculateurQuotite() {
 
           {/* Grand résultat */}
           <div className="bg-primary rounded-xl p-5 sm:p-7 text-center mb-5">
-            <div className="text-[12px] text-muted-foreground/70 mb-2">Quotiété professionnelle calculée</div>
+            <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle professionnelle calculée</div>
             <div className="font-display text-[48px] sm:text-[64px] font-light text-primary-foreground leading-none">
               {fmtDec(quotite)}<sup className="text-[22px] sm:text-[28px] align-super">%</sup>
             </div>

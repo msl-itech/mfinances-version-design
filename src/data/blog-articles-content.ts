@@ -2231,8 +2231,8 @@ export const articleContent: Record<string, ArticleBody> = {
     sections: [
       {
         paragraphs: [
-          "Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre quotiété.",
-          "La quotiété professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une quotiété de 20 % sur 20 000 € de charges annuelles : 4 000 € de déductions, soit plus de 1 600 € d'économie nette pour un dirigeant belge à l'ISOC 25 %.",
+          "Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre part professionnelle.",
+          "La part professionnelle professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une part professionnelle de 20 % sur 20 000 € de charges annuelles : 4 000 € de déductions, soit plus de 1 600 € d'économie nette pour un dirigeant belge à l'ISOC 25 %.",
           "Voici la méthode utilisée en cabinet — vérifiable et défendable lors d'un contrôle.",
         ],
         relatedLinks: [
@@ -2257,7 +2257,7 @@ export const articleContent: Record<string, ArticleBody> = {
       {
         subheading: "La formule de calcul",
         paragraphs: [
-          "Quotiété = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)",
+          "Part professionnelle = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)",
         ],
       },
       {
@@ -2269,14 +2269,14 @@ export const articleContent: Record<string, ArticleBody> = {
           "Bureau : 12 × 1,0 × 100 % = 12,0 m² pondérés pro",
           "Salon : 25 × 1,0 × 10 % = 2,5 m² pondérés pro",
           "Autres pièces : 0 m² pondérés pro",
-          "Quotiété = 14,5 ÷ 90 = 16,1 %",
+          "Part professionnelle = 14,5 ÷ 90 = 16,1 %",
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Quelles charges sont déductibles ?",
         paragraphs: [
-          "Avec une quotiété de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : 724 €/an — soit plus que le coût d'un forfait comptable annuel.",
+          "Avec une part professionnelle de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : 724 €/an — soit plus que le coût d'un forfait comptable annuel.",
         ],
         list: [
           "Loyer mensuel (si locataire) — multiplié par 12",
@@ -2285,7 +2285,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Assurance habitation (part proportionnelle)",
           "Précompte immobilier (si propriétaire)",
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Ce qui change selon votre statut",
@@ -2306,31 +2306,31 @@ export const articleContent: Record<string, ArticleBody> = {
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
           { text: "pièce à usage mixte", link: "/blog/fiscalite-belgique/piece-usage-mixte-bureau/" },
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
     ],
     faq: [
       { question: "Dois-je conserver des justificatifs pour chaque charge déductible ?", answer: "Oui. L'administration peut les demander lors d'un contrôle (délai de 3 à 7 ans). Conservez baux, factures d'énergie, relevés bancaires et quittances de loyer. Notre rapport PDF inclut le calcul détaillé avec toutes les surfaces — conservez-le comme pièce de documentation." },
       { question: "L'usage professionnel de mon habitation peut-il dépasser 30%2 ?", answer: "Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile." },
-      { question: "Puis-je recalculer ma quotiété chaque année ?", answer: "Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice." },
+      { question: "Puis-je recalculer ma part professionnelle chaque année ?", answer: "Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice." },
     ],
-    ctaText: "Calculer ma quotiété gratuitement",
+    ctaText: "Calculer ma part professionnelle gratuitement",
     ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Zéro engagement.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma quotiété gratuitement →",
+    ctaLabel: "Calculer ma part professionnelle gratuitement →",
   },
 
   "piece-usage-mixte-bureau": {
-    heroCta: { text: "Calculer ma quotiété avec pièces mixtes →", link: "/ressources/calculateur-bureau/" },
+    heroCta: { text: "Calculer ma part professionnelle avec pièces mixtes →", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
           "Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux.",
-          "L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre quotiété.",
+          "L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre part professionnelle.",
         ],
         relatedLinks: [
           { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
-          { text: "méthode de calcul de la quotiété", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
+          { text: "méthode de calcul de la part professionnelle", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
         ],
       },
       {
@@ -2364,7 +2364,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Comment documenter une pièce mixte ?",
@@ -2377,18 +2377,18 @@ export const articleContent: Record<string, ArticleBody> = {
           "Factures d'achat du mobilier professionnel installé dans l'espace",
           "Contrats ou factures clients mentionnant des réunions tenues à votre domicile",
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
     ],
     faq: [
       { question: "Puis-je déduire le même espace à la fois dans mon IPP et dans ma société ?", answer: "Non. Une même dépense ne peut pas être déduite deux fois. Si votre société vous rembourse les frais de bureau via un bail de sous-location, vous ne pouvez pas déduire les mêmes charges dans votre déclaration personnelle. Choisissez le mécanisme le plus avantageux selon votre situation globale." },
-      { question: "Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos quotiétés ?", answer: "Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre quotiété — mais sans chevaucher les espaces déjà comptabilisés dans votre quotiété personnelle." },
+      { question: "Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos part professionnelles ?", answer: "Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre part professionnelle — mais sans chevaucher les espaces déjà comptabilisés dans votre part professionnelle personnelle." },
       { question: "Y a-t-il un minimum de surface pour prétendre à la déduction ?", answer: "Aucun minimum légal. Ce qui compte : la réalité et la régularité de l'usage professionnel. Un bureau de 6 m² utilisé quotidiennement est plus défendable qu'un salon de 30 m² utilisé une fois par semaine pour un email." },
     ],
-    ctaText: "Calculer ma quotiété",
+    ctaText: "Calculer ma part professionnelle",
     ctaDescription: "Résultat en 2 minutes avec pièces mixtes incluses. Rapport PDF documenté.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma quotiété avec pièces mixtes →",
+    ctaLabel: "Calculer ma part professionnelle avec pièces mixtes →",
   },
 
   "locataire-societe-sous-location-loyer": {
@@ -2568,7 +2568,7 @@ export const articleContent: Record<string, ArticleBody> = {
         table: {
           headers: ["Critère", "Indépendant (IPP)", "Dirigeant de société (ISOC)", "Double statut"],
           rows: [
-            ["Mécanisme principal", "Quotiété directe sur charges réelles", "Remboursement de frais OU bail de sous-location/location", "Combiner selon l'affectation réelle"],
+            ["Mécanisme principal", "Part professionnelle directe sur charges réelles", "Remboursement de frais OU bail de sous-location/location", "Combiner selon l'affectation réelle"],
             ["Déduction dans", "Déclaration IPP", "Comptabilité société", "IPP et/ou société (sans doublon)"],
             ["Bail requis", "Non", "Oui (option B)", "Selon mécanisme choisi"],
             ["Taux effectif le plus bas", "Taux marginal IPP (jusqu'à 50 %+)", "~7,5 % sur part meubles (bail meublé)", "Dépend de la répartition"],
@@ -2583,7 +2583,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Avantage : simple à mettre en œuvre, aucun bail requis, pas d'interlocuteur tiers. Limite : avec un taux marginal IPP élevé (50 % + additionnels communaux), l'économie nette est proportionnellement plafonnée.",
         ],
         relatedLinks: [
-          { text: "méthode de calcul de la quotiété", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
+          { text: "méthode de calcul de la part professionnelle", link: "/blog/fiscalite-belgique/calcul-bureau-a-domicile/" },
         ],
       },
       {
@@ -2593,7 +2593,7 @@ export const articleContent: Record<string, ArticleBody> = {
       {
         subheading: "Option A — Remboursement de frais",
         paragraphs: [
-          "Vous payez les charges de votre logement personnellement. Votre société vous rembourse la part professionnelle sur base de la quotiété, via une note de frais justifiée. Ce remboursement est une charge déductible pour la société. Pour vous, il est non imposable à condition d'être documenté et justifié.",
+          "Vous payez les charges de votre logement personnellement. Votre société vous rembourse la part professionnelle sur base de la part professionnelle, via une note de frais justifiée. Ce remboursement est une charge déductible pour la société. Pour vous, il est non imposable à condition d'être documenté et justifié.",
         ],
       },
       {
@@ -2620,7 +2620,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     faq: [
       { question: "Quel statut bénéficie du meilleur traitement fiscal pour le bureau à domicile ?", answer: "En règle générale, le dirigeant de société avec un bail meublé bénéficie du traitement le plus favorable : une partie du loyer est taxée à ~7,5 % effectif. Un indépendant IPP à taux marginal élevé paiera davantage sur la même base déductible — mais n'a pas de société à alimenter avec son argent pour y accéder." },
-      { question: "Mon comptable ne m'a jamais parlé de sous-location. Est-ce normal ?", answer: "La sous-location est légale et courante, mais nécessite un bail rédigé, un suivi fiscal rigoureux et la connaissance des règles de requalification. Certains cabinets préfèrent la quotiété directe par simplicité. C'est exactement le type d'optimisation qu'un cabinet de pilotage financier comme MFinances analyse dans le cadre d'un diagnostic complet." },
+      { question: "Mon comptable ne m'a jamais parlé de sous-location. Est-ce normal ?", answer: "La sous-location est légale et courante, mais nécessite un bail rédigé, un suivi fiscal rigoureux et la connaissance des règles de requalification. Certains cabinets préfèrent la part professionnelle directe par simplicité. C'est exactement le type d'optimisation qu'un cabinet de pilotage financier comme MFinances analyse dans le cadre d'un diagnostic complet." },
     ],
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
@@ -2640,12 +2640,12 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
       },
       {
-        heading: "Erreur 1 — Une quotiété disproportionnée par rapport à la surface réelle",
+        heading: "Erreur 1 — Une part professionnelle disproportionnée par rapport à la surface réelle",
         paragraphs: [
-          "C'est la première vérification d'un contrôleur fiscal : la cohérence entre la quotiété déclarée et la réalité du logement. Une quotiété de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même quotiété dans un loft de 200 m² avec un bureau de 80 m² sera défendable.",
+          "C'est la première vérification d'un contrôleur fiscal : la cohérence entre la part professionnelle déclarée et la réalité du logement. Une part professionnelle de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même part professionnelle dans un loft de 200 m² avec un bureau de 80 m² sera défendable.",
           "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
         ],
-        relatedLinks: [{ text: "calculer votre quotiété exacte", link: "/ressources/calculateur-bureau/" }],
+        relatedLinks: [{ text: "calculer votre part professionnelle exacte", link: "/ressources/calculateur-bureau/" }],
         ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
@@ -2693,7 +2693,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "combinaison-bureau-a-domicile": {
-    heroCta: { text: "Calculer ma quotiété — première étape →", link: "/ressources/calculateur-bureau/" },
+    heroCta: { text: "Calculer ma part professionnelle — première étape →", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
@@ -2705,21 +2705,21 @@ export const articleContent: Record<string, ArticleBody> = {
         heading: "Pourquoi combiner les 3 mécanismes ?",
         paragraphs: [],
         list: [
-          "La quotiété couvre les charges d'occupation du logement — base de tout calcul",
+          "La part professionnelle couvre les charges d'occupation du logement — base de tout calcul",
           "La sous-location crée un loyer déductible pour la société, moins imposé que la rémunération",
           "Le bail meublé ajoute un revenu mobilier taxé à ~7,5 % effectif — le niveau le plus favorable",
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       { heading: "La stratégie en 4 étapes", paragraphs: [] },
       {
-        subheading: "Étape 1 — Calculer la quotiété exacte",
+        subheading: "Étape 1 — Calculer la part professionnelle exacte",
         paragraphs: ["C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal."],
-        relatedLinks: [{ text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" }],
+        relatedLinks: [{ text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" }],
       },
       {
         subheading: "Étape 2 — Établir un bail de sous-location",
-        paragraphs: ["Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine."],
+        paragraphs: ["Sur base de la part professionnelle, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine."],
         relatedLinks: [
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
           { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
@@ -2733,7 +2733,7 @@ export const articleContent: Record<string, ArticleBody> = {
       {
         subheading: "Étape 4 — Documenter et déclarer",
         paragraphs: ["Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP."],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Exemple chiffré complet",
@@ -2742,24 +2742,24 @@ export const articleContent: Record<string, ArticleBody> = {
           "Gain net combiné : 1 104 € (économie ISOC) − 847 € (charge IPP) = +257 € net annuel. Vs rémunération équivalente (charges sociales + IPP ≈ 2 800 €) : gain réel >1 500 €/an. Ce gain augmente mécaniquement avec le montant du loyer et le taux marginal IPP.",
         ],
         list: [
-          "Quotiété calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %",
+          "Part professionnelle calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %",
           "Loyer de sous-location à la société : 1 500 × 24,5 % = 368 €/mois (4 416 €/an)",
           "Part immeuble (2 650 €/an) → imposé sur 1 590 € → à 45 % → ≈ 715 €",
           "Part meubles (1 766 €/an) → taxé à 7,5 % effectif → ≈ 132 €",
           "Total charge IPP : ≈ 847 €",
           "Économie ISOC : 4 416 € × 25 % = 1 104 €",
         ],
-        ctaInline: { text: "Calculer ma quotiété", link: "/ressources/calculateur-bureau/" },
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
     ],
     faq: [
       { question: "Faut-il être comptable pour mettre en place cette stratégie ?", answer: "Les outils (calculateur + générateur de bail) vous permettent de calculer et de documenter votre situation. Mais pour la mise en place complète — choix du montant du loyer, vérification du plafond légal, coordination des déclarations IPP et ISOC — l'accompagnement d'un expert-comptable est fortement recommandé. C'est ce que MFinances propose dans ses forfaits de pilotage financier." },
       { question: "Cette stratégie est-elle réservée aux grandes structures ?", answer: "Non. Elle est pertinente dès que vous avez un espace de travail à domicile et une société, quelle que soit sa taille. Même pour une micro-société à 100 000 € de CA, l'économie annuelle peut dépasser 1 000 € — ce qui couvre largement le coût d'un accompagnement comptable annuel." },
     ],
-    ctaText: "Calculer ma quotiété — première étape",
+    ctaText: "Calculer ma part professionnelle — première étape",
     ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma quotiété — première étape →",
+    ctaLabel: "Calculer ma part professionnelle — première étape →",
   },
 
   "requalification-loyer-remuneration": {

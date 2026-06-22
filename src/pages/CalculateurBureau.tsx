@@ -27,7 +27,7 @@ export default function CalculateurBureau() {
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Calculateur de quotiété professionnelle — MFinances",
+    name: "Calculateur de part professionnelle professionnelle — MFinances",
     url: "https://mfinances.be/ressources/calculateur-bureau/",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
@@ -38,7 +38,7 @@ export default function CalculateurBureau() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Calculateur quotiété bureau à domicile Belgique | MFinances"
+        title="Calculateur part professionnelle bureau à domicile Belgique | MFinances"
         description="Calculez la partie professionnelle de votre habitation en 2 minutes. Méthode des surfaces pondérées, rapport PDF par email. Outil gratuit — Cabinet MFinances Uccle."
         canonical="https://mfinances.be/ressources/calculateur-bureau/"
         schemaJson={schemaJson}
@@ -63,7 +63,7 @@ export default function CalculateurBureau() {
             </p>
 
             <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 border-l-[3px] border-l-accent rounded-lg p-3 text-primary-foreground/85 text-[13px] leading-relaxed mb-5 sm:mb-7 max-w-[580px] text-left sm:mx-0 mx-auto">
-              💡 Une quotiété de 20 % sur 20 000 € de charges annuelles = <strong className="text-primary-foreground">4 000 € de déductions</strong>. Soit ~1 600 € d'économie fiscale nette à l'ISOC.
+              💡 Une part professionnelle de 20 % sur 20 000 € de charges annuelles = <strong className="text-primary-foreground">4 000 € de déductions</strong>. Soit ~1 600 € d'économie fiscale nette à l'ISOC.
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:flex-wrap">
@@ -90,10 +90,10 @@ export default function CalculateurBureau() {
         <section className="bg-secondary py-10 md:py-8">
           <div className="mx-auto max-w-[720px] px-4 sm:px-6 lg:px-12">
             <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground mb-3 sm:mb-4">
-              Pourquoi calculer correctement votre quotiété ?
+              Pourquoi calculer correctement votre part professionnelle ?
             </h2>
             <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-3.5">
-              La quotiété professionnelle détermine quelle fraction de vos charges : loyer, énergie, internet, assurance : vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
+              La part professionnelle professionnelle détermine quelle fraction de vos charges : loyer, énergie, internet, assurance : vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
             </p>
             <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-5 hidden sm:block">
               Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce : y compris les pièces à usage mixte.
