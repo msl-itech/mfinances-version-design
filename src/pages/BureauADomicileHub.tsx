@@ -188,7 +188,7 @@ export default function BureauADomicileHub() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: Calculator, title: "Calculateur de quotiété gratuit", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma quotiété" },
+                  { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma quotiété" },
                   { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail complet en 6 étapes, PDF adapté au contexte belge", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
                   { icon: BookOpen, title: "Modèle de bail de sous-location", desc: "À télécharger gratuitement", href: "/ressources/generateur-bail/", anchor: "Télécharger le modèle" },
                   { icon: CheckCircle, title: "Checklist contrôle fiscal", desc: "Les 10 documents à avoir absolument", href: "/contact/", anchor: "Recevoir la checklist" },
