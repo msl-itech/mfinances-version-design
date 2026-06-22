@@ -2227,7 +2227,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "calcul-bureau-a-domicile": {
-    heroCta: { text: "Calculer ma quotiété gratuitement →", link: "/ressources/calculateur-bureau/" },
+    heroCta: { text: "Calculer la partie professionnelle de votre habitation (gratuit)", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
