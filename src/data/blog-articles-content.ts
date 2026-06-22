@@ -2311,7 +2311,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     faq: [
       { question: "Dois-je conserver des justificatifs pour chaque charge déductible ?", answer: "Oui. L'administration peut les demander lors d'un contrôle (délai de 3 à 7 ans). Conservez baux, factures d'énergie, relevés bancaires et quittances de loyer. Notre rapport PDF inclut le calcul détaillé avec toutes les surfaces — conservez-le comme pièce de documentation." },
-      { question: "Ma quotiété peut-elle dépasser 30 % ?", answer: "Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile." },
+      { question: "L'usage professionnel de mon habitation peut-il dépasser 30%2 ?", answer: "Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile." },
       { question: "Puis-je recalculer ma quotiété chaque année ?", answer: "Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice." },
     ],
     ctaText: "Calculer ma quotiété gratuitement",
