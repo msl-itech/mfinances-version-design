@@ -16,7 +16,7 @@ interface QuotitePdfReadyProps {
 const QuotitePdfReadyEmail = ({ name, quotite, deduction, downloadUrl }: QuotitePdfReadyProps) => (
   <Html lang="fr" dir="ltr">
     <Head />
-    <Preview>Votre rapport de quotiété professionnelle est prêt — {SITE_NAME}</Preview>
+    <Preview>Votre rapport d'usage professionnel de votre habitation est prêt — {SITE_NAME}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>
