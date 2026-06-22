@@ -39,7 +39,7 @@ export default function CalculateurBureau() {
     <div ref={root} className="min-h-screen">
       <SEOHead
         title="Calculateur quotiété bureau à domicile Belgique | MFinances"
-        description="Calculez votre quotiété professionnelle en 2 minutes. Méthode des surfaces pondérées, rapport PDF par email. Outil gratuit — Cabinet MFinances Uccle."
+        description="Calculez la partie professionnelle de votre habitation en 2 minutes. Méthode des surfaces pondérées, rapport PDF par email. Outil gratuit — Cabinet MFinances Uccle."
         canonical="https://mfinances.be/ressources/calculateur-bureau/"
         schemaJson={schemaJson}
       />
@@ -55,7 +55,7 @@ export default function CalculateurBureau() {
             </span>
 
             <h1 className="font-display text-[22px] sm:text-[26px] md:text-[34px] leading-[1.25] text-primary-foreground mb-3 sm:mb-4">
-              Calculez votre quotiété professionnelle en ligne en 2 minutes
+              Calculez la partie professionnelle de votre habitation en 2 minutes
             </h1>
 
             <p className="text-primary-foreground/70 text-[15px] sm:text-[16px] leading-relaxed mb-5 sm:mb-7 max-w-[560px] font-body sm:mx-0 mx-auto">
