@@ -138,7 +138,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "bold");
   setTextC(WHITE);
   doc.setFontSize(14);
-  doc.text("Rapport de quotiété professionnelle", M, y);
+  doc.text("Rapport de part professionnelle professionnelle", M, y);
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(8);
@@ -174,7 +174,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.roundedRect(M, y, CW, 40, 3, 3, "F");
   setTextC(GRAY);
   doc.setFontSize(8);
-  doc.text("Quotiété professionnelle calculée", W / 2, y + 9, { align: "center" });
+  doc.text("Part professionnelle professionnelle calculée", W / 2, y + 9, { align: "center" });
   setTextC(WHITE);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(38);
@@ -400,7 +400,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(7);
-  doc.text(`— Rapport quotiété · ${data.prenom} · ${dateStr}`, M + 25, 9);
+  doc.text(`— Rapport part professionnelle · ${data.prenom} · ${dateStr}`, M + 25, 9);
   doc.text("Page 2 / 2", W - M, 9, { align: "right" });
 
   y = 22;
@@ -440,7 +440,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     drawStatusBox(
       "🏢",
       "Vous êtes dirigeant de société et locataire",
-      "Vous pouvez potentiellement aller plus loin que la simple quotiété. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC — et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.",
+      "Vous pouvez potentiellement aller plus loin que la simple part professionnelle. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC — et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.",
     );
   } else if (data.statut === "dirigeant" && data.logement === "proprietaire") {
     drawStatusBox(
@@ -452,7 +452,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     drawStatusBox(
       "🧾",
       "Vous êtes indépendant(e)",
-      "Déduisez la quotiété directement dans votre déclaration IPP comme frais professionnels. Conservez ce rapport PDF comme documentation justificative. Aucun bail n'est requis pour ce mécanisme.",
+      "Déduisez la part professionnelle directement dans votre déclaration IPP comme frais professionnels. Conservez ce rapport PDF comme documentation justificative. Aucun bail n'est requis pour ce mécanisme.",
     );
   } else {
     drawStatusBox(
@@ -462,7 +462,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     );
   }
 
-  // ── Bloc quotiété contextuel ──
+  // ── Bloc part professionnelle contextuel ──
   const drawContextBox = (bgColor: RGB, borderColor: RGB, textColor: RGB, text: string) => {
     const lines = doc.splitTextToSize(text, CW - 12);
     const boxH = lines.length * 3.5 + 8;
@@ -482,21 +482,21 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
       INFO_BG,
       INFO_BORDER,
       INFO_TEXT,
-      `Votre quotiété est faible (${fmtDec(quotite)} %). Si vous utilisez un espace plus important à titre professionnel, ou si vous avez des pièces à usage mixte non comptabilisées, il peut être judicieux de revoir le calcul. Une pièce mixte à 15-20 % d'usage pro peut faire une différence notable.`,
+      `Votre part professionnelle est faible (${fmtDec(quotite)} %). Si vous utilisez un espace plus important à titre professionnel, ou si vous avez des pièces à usage mixte non comptabilisées, il peut être judicieux de revoir le calcul. Une pièce mixte à 15-20 % d'usage pro peut faire une différence notable.`,
     );
   } else if (quotite < 30) {
     drawContextBox(
       OK_BG,
       OK,
       OK,
-      `Votre quotiété de ${fmtDec(quotite)} % est dans la fourchette habituelle pour un appartement avec bureau dédié en Belgique. Elle est bien documentée et défendable en cas de contrôle fiscal, à condition de conserver ce rapport par exercice fiscal.`,
+      `Votre part professionnelle de ${fmtDec(quotite)} % est dans la fourchette habituelle pour un appartement avec bureau dédié en Belgique. Elle est bien documentée et défendable en cas de contrôle fiscal, à condition de conserver ce rapport par exercice fiscal.`,
     );
   } else {
     drawContextBox(
       WARN_BG,
       [245, 158, 11],
       WARN,
-      `Attention — quotiété élevée (${fmtDec(quotite)} %). Une quotiété supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`,
+      `Attention — part professionnelle élevée (${fmtDec(quotite)} %). Une part professionnelle supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`,
     );
   }
 
@@ -521,7 +521,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   rappels.push({
     icon: "🔄",
     title: "Recalcul annuel",
-    text: "Recalculez votre quotiété à chaque exercice fiscal si votre situation change.",
+    text: "Recalculez votre part professionnelle à chaque exercice fiscal si votre situation change.",
   });
 
   let maxRappelH = 22;
@@ -629,7 +629,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6);
   const discLines = doc.splitTextToSize(
-    "Ce rapport est un outil d'estimation basé exclusivement sur les données saisies par l'utilisateur. La quotiété et les déductions calculées constituent une base de documentation, mais ne remplacent pas une analyse personnalisée par un expert-comptable agréé qui connaît l'ensemble de votre situation fiscale. MFinances SPRL décline toute responsabilité quant à l'utilisation de ce rapport sans validation professionnelle préalable.\n\nLes montants indiqués sont des estimations. Les déductions effectives peuvent varier selon votre situation fiscale complète, le régime d'imposition applicable et les éventuelles limitations légales. Conservez ce document comme pièce justificative — délai légal : 7 ans.",
+    "Ce rapport est un outil d'estimation basé exclusivement sur les données saisies par l'utilisateur. La part professionnelle et les déductions calculées constituent une base de documentation, mais ne remplacent pas une analyse personnalisée par un expert-comptable agréé qui connaît l'ensemble de votre situation fiscale. MFinances SPRL décline toute responsabilité quant à l'utilisation de ce rapport sans validation professionnelle préalable.\n\nLes montants indiqués sont des estimations. Les déductions effectives peuvent varier selon votre situation fiscale complète, le régime d'imposition applicable et les éventuelles limitations légales. Conservez ce document comme pièce justificative — délai légal : 7 ans.",
     CW - 8,
   );
   doc.text(discLines, M + 4, y + 9);

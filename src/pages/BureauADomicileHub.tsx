@@ -13,9 +13,9 @@ import { useTilt } from "@/hooks/use-tilt";
 
 
 const faqData = [
-  { q: "Quelle quotiété puis-je déduire pour mon bureau à domicile ?", a: "La quotiété dépend de la surface professionnelle pondérée divisée par la surface totale pondérée de votre logement. Pour un bureau de 15 m² dans un appartement de 80 m², la quotiété est de 18,75 %. Notre calculateur applique cette méthode automatiquement et vous génère un rapport PDF documenté en 2 minutes." },
-  { q: "Dois-je avoir un bureau dédié pour déduire ?", a: "Non. Vous pouvez appliquer un pourcentage d'usage professionnel à chaque pièce selon son utilisation réelle. Un salon utilisé à 20 % à titre professionnel contribue proportionnellement à votre quotiété. L'article sur les pièces à usage mixte explique la méthode de calcul détaillée." },
-  { q: "Est-ce que déduire un bureau à domicile déclenche un contrôle fiscal ?", a: "Non, c'est un droit légal. En revanche, une quotiété disproportionnée (supérieure à 35 % sans justification documentée), l'absence de bail écrit ou des paiements sans trace bancaire peuvent attirer l'attention lors d'un contrôle." },
+  { q: "Quelle part professionnelle puis-je déduire pour mon bureau à domicile ?", a: "La part professionnelle dépend de la surface professionnelle pondérée divisée par la surface totale pondérée de votre logement. Pour un bureau de 15 m² dans un appartement de 80 m², la part professionnelle est de 18,75 %. Notre calculateur applique cette méthode automatiquement et vous génère un rapport PDF documenté en 2 minutes." },
+  { q: "Dois-je avoir un bureau dédié pour déduire ?", a: "Non. Vous pouvez appliquer un pourcentage d'usage professionnel à chaque pièce selon son utilisation réelle. Un salon utilisé à 20 % à titre professionnel contribue proportionnellement à votre part professionnelle. L'article sur les pièces à usage mixte explique la méthode de calcul détaillée." },
+  { q: "Est-ce que déduire un bureau à domicile déclenche un contrôle fiscal ?", a: "Non, c'est un droit légal. En revanche, une part professionnelle disproportionnée (supérieure à 35 % sans justification documentée), l'absence de bail écrit ou des paiements sans trace bancaire peuvent attirer l'attention lors d'un contrôle." },
   { q: "Que faire si je suis locataire et que je veux sous-louer mon bureau à ma société ?", a: "Vous devez vérifier que votre bail principal autorise la sous-location. En cas de clause restrictive, l'accord écrit de votre propriétaire est obligatoire avant toute démarche. Notre générateur de bail insère automatiquement la clause légale de sous-location si vous sélectionnez le statut 'locataire'." },
 ];
 
@@ -33,7 +33,7 @@ const articles = [
   { label: "Louer vos meubles à votre société : la déduction à 7,5 %", href: "/blog/fiscalite-belgique/louer-meubles-bureau-societe/", anchor: "Bail meublé 60/40" },
   { label: "Bureau à domicile : les différences entre indépendant, dirigeant et les deux", href: "/blog/fiscalite-belgique/comparatif-bureau-a-domicile-statut/", anchor: "Comparatif statuts" },
   { label: "5 erreurs qui déclenchent un contrôle fiscal sur votre bureau à domicile", href: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/", anchor: "5 erreurs" },
-  { label: "Quotiété + sous-location + meubles : la stratégie optimale", href: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/", anchor: "Stratégie optimale" },
+  { label: "Part professionnelle + sous-location + meubles : la stratégie optimale", href: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/", anchor: "Stratégie optimale" },
   { label: "Requalification du loyer en rémunération : comment l'éviter", href: "/blog/fiscalite-belgique/requalification-loyer-remuneration/", anchor: "Requalification" },
 ];
 
@@ -55,7 +55,7 @@ export default function BureauADomicileHub() {
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
         title="Bureau à domicile Belgique 2026 — Guide dirigeant"
-        description="Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque."
+        description="Part professionnelle, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque."
         canonical="https://mfinances.be/blog/fiscalite-belgique/bureau-a-domicile/"
         schemaJson={[breadcrumbSchema, createFaqSchema(faqData)]}
       />
@@ -91,7 +91,7 @@ export default function BureauADomicileHub() {
             </h1>
 
             <p className="text-lg text-white/75 max-w-[720px] mb-6 leading-relaxed">
-              Quotiété, sous-location, bail meublé : tout ce que vous devez savoir pour déduire légalement et sans risque.
+              Part professionnelle, sous-location, bail meublé : tout ce que vous devez savoir pour déduire légalement et sans risque.
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl px-5 py-4 mb-8 max-w-[720px]">
@@ -103,7 +103,7 @@ export default function BureauADomicileHub() {
             <div className="flex gap-3 flex-wrap">
               <Link to="/ressources/calculateur-bureau/" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-xl hover:shadow-accent/30 hover:brightness-110 active:scale-[0.97]">
                 <Calculator size={18} />
-                Calculer ma quotiété gratuitement →
+                Calculer ma part professionnelle gratuitement →
               </Link>
               <Link to="/contact/" className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-[15px] bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all">
                 Parler directement à Mika →
@@ -119,7 +119,7 @@ export default function BureauADomicileHub() {
               <div className="prose prose-lg max-w-none text-foreground/85 leading-relaxed space-y-5">
                 <p>Chaque année, des milliers de dirigeants belges passent à côté de plusieurs centaines : parfois plusieurs milliers : d'euros de déductions fiscales légitimes. Non par mauvaise volonté. Par manque d'information sur les mécanismes qui s'appliquent exactement à leur situation.</p>
                 <p>Vous travaillez depuis votre domicile. Votre société occupe une pièce, parfois deux. Votre loyer, votre énergie, votre internet, votre assurance : une partie de ces charges vous appartient fiscalement. Encore faut-il savoir laquelle, comment la calculer et comment la documenter pour résister à un contrôle.</p>
-                <p>Ce guide rassemble tout ce que vous devez savoir sur le bureau à domicile en Belgique en 2026 : calcul de la quotiété, mécanismes de déduction selon votre statut, erreurs à éviter, et stratégies d'optimisation légales.</p>
+                <p>Ce guide rassemble tout ce que vous devez savoir sur le bureau à domicile en Belgique en 2026 : calcul de la part professionnelle, mécanismes de déduction selon votre statut, erreurs à éviter, et stratégies d'optimisation légales.</p>
               </div>
             </div>
           </section>
@@ -136,8 +136,8 @@ export default function BureauADomicileHub() {
                 {[
                   {
                     num: "1",
-                    title: "La quotiété directe",
-                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une quotiété de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions : soit plus de 1 600 € d'économie fiscale nette à l'ISOC 25 %.",
+                    title: "La part professionnelle directe",
+                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une part professionnelle de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions : soit plus de 1 600 € d'économie fiscale nette à l'ISOC 25 %.",
                     icon: Calculator,
                     color: "bg-[hsl(135,40%,94%)] border-[hsl(148,35%,82%)]",
                     iconBg: "bg-[hsl(148,55%,30%)]",
@@ -172,7 +172,7 @@ export default function BureauADomicileHub() {
               {/* CTA after H2 */}
               <div className="mt-8 flex gap-3 flex-wrap">
                 <Link to="/ressources/calculateur-bureau/" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110">
-                  <Calculator size={16} /> Calculer ma quotiété →
+                  <Calculator size={16} /> Calculer ma part professionnelle →
                 </Link>
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function BureauADomicileHub() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma quotiété" },
+                  { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma part professionnelle" },
                   { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail complet en 6 étapes, PDF adapté au contexte belge", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
                   { icon: BookOpen, title: "Modèle de bail de sous-location", desc: "À télécharger gratuitement", href: "/ressources/generateur-bail/", anchor: "Télécharger le modèle" },
                   { icon: CheckCircle, title: "Checklist contrôle fiscal", desc: "Les 10 documents à avoir absolument", href: "/contact/", anchor: "Recevoir la checklist" },
@@ -236,7 +236,7 @@ export default function BureauADomicileHub() {
               {/* CTA after articles */}
               <div className="mt-8 flex gap-3 flex-wrap">
                 <Link to="/ressources/calculateur-bureau/" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110">
-                  <Calculator size={16} /> Calculer ma quotiété gratuitement →
+                  <Calculator size={16} /> Calculer ma part professionnelle gratuitement →
                 </Link>
                 <Link to="/contact/" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-[15px] bg-primary/10 text-primary hover:bg-primary/15 transition-all">
                   Parler directement à Mika →
@@ -272,13 +272,13 @@ export default function BureauADomicileHub() {
               <div className="relative bg-gradient-to-br from-primary-dark to-primary rounded-3xl p-10 sm:p-12 flex flex-col sm:flex-row justify-between gap-8 items-center overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/10 blur-[80px]" />
                 <div className="relative">
-                  <h2 className="font-display text-[clamp(24px,3vw,32px)] text-white mb-3 font-bold">Calculer ma quotiété gratuitement</h2>
+                  <h2 className="font-display text-[clamp(24px,3vw,32px)] text-white mb-3 font-bold">Calculer ma part professionnelle gratuitement</h2>
                   <p className="text-white/70 max-w-[600px] text-[15px] leading-relaxed">Résultat en 2 minutes. Rapport PDF documenté. Zéro engagement.</p>
                 </div>
                 <div className="relative flex gap-3 flex-wrap flex-shrink-0">
                   <Link to="/ressources/calculateur-bureau/" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-xl hover:shadow-accent/30 hover:brightness-110 active:scale-[0.97]">
                     <Calculator size={18} />
-                    Calculer ma quotiété →
+                    Calculer ma part professionnelle →
                   </Link>
                   <Link to="/contact/" className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-[15px] bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-all">
                     Parler à Mika →

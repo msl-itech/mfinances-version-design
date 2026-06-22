@@ -457,7 +457,7 @@ export function generateBailPdf(data: BailData): Blob {
   // ── ARTICLE 6 — CHARGES ──
   writeArticle("Article 6 — Charges et impôts", () => {
     writeParagraph(
-      "Les impôts, taxes et charges afférents à la propriété du bien (précompte immobilier, assurance propriétaire, entretien structurel) restent à charge du Bailleur. Les charges liées à l'usage professionnel (électricité, internet, entretien courant) sont prises en charge par le Preneur proportionnellement à son usage, selon la quotiété professionnelle convenue entre parties."
+      "Les impôts, taxes et charges afférents à la propriété du bien (précompte immobilier, assurance propriétaire, entretien structurel) restent à charge du Bailleur. Les charges liées à l'usage professionnel (électricité, internet, entretien courant) sont prises en charge par le Preneur proportionnellement à son usage, selon la part professionnelle professionnelle convenue entre parties."
     );
   });
 
