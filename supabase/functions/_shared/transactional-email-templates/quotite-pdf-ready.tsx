@@ -51,8 +51,8 @@ const QuotitePdfReadyEmail = ({ name, quotite, deduction, downloadUrl }: Quotite
 
 export const template = {
   component: QuotitePdfReadyEmail,
-  subject: 'Votre rapport de quotiété professionnelle — MFinances',
-  displayName: 'Rapport quotiété prêt',
+  subject: 'Votre rapport d\'usage professionnel de votre habitation — MFinances',
+  displayName: 'Rapport usage professionnel prêt',
   previewData: { name: 'Jean', quotite: '16,1', deduction: '2 858', downloadUrl: 'https://example.com/rapport.pdf' },
 } satisfies TemplateEntry
 
