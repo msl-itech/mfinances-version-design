@@ -1270,7 +1270,7 @@ R: Non, ou très rarement avec justification. Le fisc vérifie la constance de l
 ## Bureau à domicile en Belgique : le guide complet du dirigeant (2026)
 URL : https://mfinances.be/blog/fiscalite-belgique/bureau-a-domicile/
 Date : 2026-04-11
-Résumé : Quotiété, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.
+Résumé : Part professionnelle, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.
 
 _(contenu non disponible en plain text)_
 
@@ -1281,8 +1281,8 @@ URL : https://mfinances.be/blog/fiscalite-belgique/calcul-bureau-a-domicile/
 Date : 2026-04-11
 Résumé : Méthode des surfaces pondérées, exemple chiffré et rapport PDF personnalisé. Gratuit et sans inscription.
 
-Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre quotiété.
-La quotiété professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une quotiété de 20 % sur 20 000 € de charges annuelles : 4 000 € de déductions, soit plus de 1 600 € d'économie nette pour un dirigeant belge à l'ISOC 25 %.
+Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre part professionnelle.
+La part professionnelle professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une part professionnelle de 20 % sur 20 000 € de charges annuelles : 4 000 € de déductions, soit plus de 1 600 € d'économie nette pour un dirigeant belge à l'ISOC 25 %.
 Voici la méthode utilisée en cabinet — vérifiable et défendable lors d'un contrôle.
 
 ### La méthode des surfaces pondérées
@@ -1294,17 +1294,17 @@ L'administration fiscale belge ne fixe pas de barème officiel. En pratique, la 
 - Caves et greniers non aménagés : coefficient 20 %
 
 **La formule de calcul**
-Quotiété = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)
+Part professionnelle = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)
 
 **Exemple chiffré complet**
 Appartement de 90 m² : bureau de 12 m² à 100 % pro, salon de 25 m² à 10 % pro, reste à 0 %.
 - Bureau : 12 × 1,0 × 100 % = 12,0 m² pondérés pro
 - Salon : 25 × 1,0 × 10 % = 2,5 m² pondérés pro
 - Autres pièces : 0 m² pondérés pro
-- Quotiété = 14,5 ÷ 90 = 16,1 %
+- Part professionnelle = 14,5 ÷ 90 = 16,1 %
 
 ### Quelles charges sont déductibles ?
-Avec une quotiété de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : 724 €/an — soit plus que le coût d'un forfait comptable annuel.
+Avec une part professionnelle de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : 724 €/an — soit plus que le coût d'un forfait comptable annuel.
 - Loyer mensuel (si locataire) — multiplié par 12
 - Factures d'énergie : électricité, gaz, mazout (annuel)
 - Connexion internet (annuelle)
@@ -1323,10 +1323,10 @@ Votre société peut rembourser vos frais de bureau sur note de frais justifiée
 **Q: Dois-je conserver des justificatifs pour chaque charge déductible ?**
 R: Oui. L'administration peut les demander lors d'un contrôle (délai de 3 à 7 ans). Conservez baux, factures d'énergie, relevés bancaires et quittances de loyer. Notre rapport PDF inclut le calcul détaillé avec toutes les surfaces — conservez-le comme pièce de documentation.
 
-**Q: Ma quotiété peut-elle dépasser 30 % ?**
+**Q: Ma part professionnelle peut-elle dépasser 30 % ?**
 R: Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile.
 
-**Q: Puis-je recalculer ma quotiété chaque année ?**
+**Q: Puis-je recalculer ma part professionnelle chaque année ?**
 R: Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice.
 
 ---
@@ -1337,7 +1337,7 @@ Date : 2026-04-11
 Résumé : Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation.
 
 Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux.
-L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre quotiété.
+L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre part professionnelle.
 
 ### Qu'est-ce qu'un usage mixte reconnu ?
 Une pièce est considérée à usage mixte lorsqu'elle est utilisée à la fois à des fins professionnelles et privées. L'administration l'accepte si l'usage professionnel est régulier (pas seulement occasionnel), effectif (réel et proportionné à votre activité) et justifiable (vous pouvez l'expliquer et le documenter).
@@ -1366,8 +1366,8 @@ Conservez ces éléments pendant 7 ans — durée légale de conservation des pi
 **Q: Puis-je déduire le même espace à la fois dans mon IPP et dans ma société ?**
 R: Non. Une même dépense ne peut pas être déduite deux fois. Si votre société vous rembourse les frais de bureau via un bail de sous-location, vous ne pouvez pas déduire les mêmes charges dans votre déclaration personnelle. Choisissez le mécanisme le plus avantageux selon votre situation globale.
 
-**Q: Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos quotiétés ?**
-R: Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre quotiété — mais sans chevaucher les espaces déjà comptabilisés dans votre quotiété personnelle.
+**Q: Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos part professionnelles ?**
+R: Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre part professionnelle — mais sans chevaucher les espaces déjà comptabilisés dans votre part professionnelle personnelle.
 
 **Q: Y a-t-il un minimum de surface pour prétendre à la déduction ?**
 R: Aucun minimum légal. Ce qui compte : la réalité et la régularité de l'usage professionnel. Un bureau de 6 m² utilisé quotidiennement est plus défendable qu'un salon de 30 m² utilisé une fois par semaine pour un email.
@@ -1473,7 +1473,7 @@ R: L'enregistrement n'est pas légalement obligatoire pour un bail à usage prof
 ## Bureau à domicile : les différences entre indépendant, dirigeant et les deux
 URL : https://mfinances.be/blog/fiscalite-belgique/comparatif-bureau-a-domicile-statut/
 Date : 2026-04-11
-Résumé : Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Quotiété, remboursement, sous-location, double statut.
+Résumé : Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Part professionnelle, remboursement, sous-location, double statut.
 
 "Mes charges de bureau, je peux les déduire dans mon IPP ou dans ma société ?" Cette question revient dans tous les premiers rendez-vous chez MFinances. La réponse dépend entièrement de votre statut — et si vous cumulez les deux, les règles diffèrent selon de quel côté la dépense est traitée.
 Ce comparatif vous donne une vue claire des mécanismes disponibles selon votre situation. Chaque statut a ses avantages — et ses contraintes spécifiques.
@@ -1481,7 +1481,7 @@ Ce comparatif vous donne une vue claire des mécanismes disponibles selon votre 
 ### Vue d'ensemble : tableau comparatif des 3 statuts
 Critère | Indépendant (IPP) | Dirigeant de société (ISOC) | Double statut
 --- | --- | --- | ---
-Mécanisme principal | Quotiété directe sur charges réelles | Remboursement de frais OU bail de sous-location/location | Combiner selon l'affectation réelle
+Mécanisme principal | Part professionnelle directe sur charges réelles | Remboursement de frais OU bail de sous-location/location | Combiner selon l'affectation réelle
 Déduction dans | Déclaration IPP | Comptabilité société | IPP et/ou société (sans doublon)
 Bail requis | Non | Oui (option B) | Selon mécanisme choisi
 Taux effectif le plus bas | Taux marginal IPP (jusqu'à 50 %+) | ~7,5 % sur part meubles (bail meublé) | Dépend de la répartition
@@ -1493,7 +1493,7 @@ Avantage : simple à mettre en œuvre, aucun bail requis, pas d'interlocuteur ti
 ### Le dirigeant de société
 
 **Option A — Remboursement de frais**
-Vous payez les charges de votre logement personnellement. Votre société vous rembourse la part professionnelle sur base de la quotiété, via une note de frais justifiée. Ce remboursement est une charge déductible pour la société. Pour vous, il est non imposable à condition d'être documenté et justifié.
+Vous payez les charges de votre logement personnellement. Votre société vous rembourse la part professionnelle sur base de la part professionnelle, via une note de frais justifiée. Ce remboursement est une charge déductible pour la société. Pour vous, il est non imposable à condition d'être documenté et justifié.
 
 **Option B — Bail de sous-location ou location**
 Vous louez formellement une partie de votre domicile à votre société. La société paie un loyer mensuel déductible comme charge. Vous déclarez ce loyer dans votre IPP comme revenu immobilier. Cette option est fiscalement plus avantageuse pour des montants significatifs, car une partie du loyer (la part meubles si bail meublé) est taxée à un taux très favorable.
@@ -1507,19 +1507,19 @@ Règle fondamentale : si votre société rembourse ou loue votre bureau, vous ne
 R: En règle générale, le dirigeant de société avec un bail meublé bénéficie du traitement le plus favorable : une partie du loyer est taxée à ~7,5 % effectif. Un indépendant IPP à taux marginal élevé paiera davantage sur la même base déductible — mais n'a pas de société à alimenter avec son argent pour y accéder.
 
 **Q: Mon comptable ne m'a jamais parlé de sous-location. Est-ce normal ?**
-R: La sous-location est légale et courante, mais nécessite un bail rédigé, un suivi fiscal rigoureux et la connaissance des règles de requalification. Certains cabinets préfèrent la quotiété directe par simplicité. C'est exactement le type d'optimisation qu'un cabinet de pilotage financier comme MFinances analyse dans le cadre d'un diagnostic complet.
+R: La sous-location est légale et courante, mais nécessite un bail rédigé, un suivi fiscal rigoureux et la connaissance des règles de requalification. Certains cabinets préfèrent la part professionnelle directe par simplicité. C'est exactement le type d'optimisation qu'un cabinet de pilotage financier comme MFinances analyse dans le cadre d'un diagnostic complet.
 
 ---
 
 ## 5 erreurs qui déclenchent un contrôle fiscal sur votre bureau à domicile
 URL : https://mfinances.be/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/
 Date : 2026-04-11
-Résumé : Quotiété excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile.
+Résumé : Part professionnelle excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile.
 
 Le contrôle fiscal sur le bureau à domicile est rarissime s'il est bien géré. Mais quand il survient, il ne porte jamais sur une seule année — il remonte souvent sur 3 à 5 exercices, avec amendes et intérêts de retard. La bonne nouvelle : les 5 erreurs qui déclenchent ces contrôles sont toutes évitables.
 
-### Erreur 1 — Une quotiété disproportionnée par rapport à la surface réelle
-C'est la première vérification d'un contrôleur fiscal : la cohérence entre la quotiété déclarée et la réalité du logement. Une quotiété de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même quotiété dans un loft de 200 m² avec un bureau de 80 m² sera défendable.
+### Erreur 1 — Une part professionnelle disproportionnée par rapport à la surface réelle
+C'est la première vérification d'un contrôleur fiscal : la cohérence entre la part professionnelle déclarée et la réalité du logement. Une part professionnelle de 40 % dans un appartement de 80 m² avec 3 chambres et 2 enfants sera questionnée. La même part professionnelle dans un loft de 200 m² avec un bureau de 80 m² sera défendable.
 Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.
 
 ### Erreur 2 — Aucun bail écrit pour la sous-location
@@ -1550,7 +1550,7 @@ R: Non. La checklist est un outil de mise en conformité. Se documenter sur ses 
 
 ---
 
-## Quotiété + sous-location + meubles : la stratégie bureau à domicile optimale
+## Part professionnelle + sous-location + meubles : la stratégie bureau à domicile optimale
 URL : https://mfinances.be/blog/fiscalite-belgique/combinaison-bureau-a-domicile/
 Date : 2026-04-11
 Résumé : Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds.
@@ -1558,17 +1558,17 @@ Résumé : Combinez les 3 mécanismes légaux pour maximiser vos déductions bur
 Trois mécanismes légaux. Une seule pièce. Une économie fiscale qui peut dépasser 1 500 € par an pour un dirigeant avec un loyer mensuel de 1 200 €. C'est ce que permet la combinaison optimale — celle que votre expert-comptable devrait déjà avoir mise en place si vous avez une société.
 
 ### Pourquoi combiner les 3 mécanismes ?
-- La quotiété couvre les charges d'occupation du logement — base de tout calcul
+- La part professionnelle couvre les charges d'occupation du logement — base de tout calcul
 - La sous-location crée un loyer déductible pour la société, moins imposé que la rémunération
 - Le bail meublé ajoute un revenu mobilier taxé à ~7,5 % effectif — le niveau le plus favorable
 
 ### La stratégie en 4 étapes
 
-**Étape 1 — Calculer la quotiété exacte**
+**Étape 1 — Calculer la part professionnelle exacte**
 C'est la fondation de tout le reste. Notre calculateur gratuit vous donne le résultat en 2 minutes avec un rapport PDF documenté — conservez-le pour chaque exercice fiscal.
 
 **Étape 2 — Établir un bail de sous-location**
-Sur base de la quotiété, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine.
+Sur base de la part professionnelle, déterminez le loyer mensuel correspondant à la réalité économique de l'espace. Vérifiez qu'il respecte le plafond légal (5/3 du revenu cadastral revalorisé). Établissez le bail avec notre générateur et enregistrez-le pour lui conférer date certaine.
 
 **Étape 3 — Ajouter un inventaire de meubles**
 Si vous avez du mobilier professionnel dans l'espace loué (bureau, chaises, armoires, matériel fixe), transformez le bail en bail meublé avec répartition 60/40. La part meubles sera taxée à ~7,5 % effectif dans votre IPP.
@@ -1579,7 +1579,7 @@ Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (re
 ### Exemple chiffré complet
 Dirigeant de SRL, locataire à Bruxelles, loyer 1 500 €/mois. Bureau 20 m² à 100 % pro, salon 30 m² à 15 % pro, appartement 100 m² total.
 Gain net combiné : 1 104 € (économie ISOC) − 847 € (charge IPP) = +257 € net annuel. Vs rémunération équivalente (charges sociales + IPP ≈ 2 800 €) : gain réel >1 500 €/an. Ce gain augmente mécaniquement avec le montant du loyer et le taux marginal IPP.
-- Quotiété calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %
+- Part professionnelle calculée : (20 × 100 % + 30 × 15 %) / 100 = 24,5 %
 - Loyer de sous-location à la société : 1 500 × 24,5 % = 368 €/mois (4 416 €/an)
 - Part immeuble (2 650 €/an) → imposé sur 1 590 € → à 45 % → ≈ 715 €
 - Part meubles (1 766 €/an) → taxé à 7,5 % effectif → ≈ 132 €

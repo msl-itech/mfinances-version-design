@@ -16,16 +16,16 @@ interface QuotitePdfReadyProps {
 const QuotitePdfReadyEmail = ({ name, quotite, deduction, downloadUrl }: QuotitePdfReadyProps) => (
   <Html lang="fr" dir="ltr">
     <Head />
-    <Preview>Votre rapport de quotiété professionnelle est prêt — {SITE_NAME}</Preview>
+    <Preview>Votre rapport d'usage professionnel de votre habitation est prêt — {SITE_NAME}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>
           {name ? `${name}, votre rapport est prêt !` : 'Votre rapport est prêt !'}
         </Heading>
         <Text style={text}>
-          Votre rapport de quotiété professionnelle a été généré avec succès.
+          Votre rapport d'usage professionnel de votre habitation a été généré avec succès.
           {quotite && deduction && (
-            <> Quotiété calculée : <strong>{quotite} %</strong> — Déduction estimée : <strong>{deduction} € / an</strong>.</>
+            <> Part professionnelle calculée : <strong>{quotite} %</strong> — Déduction estimée : <strong>{deduction} € / an</strong>.</>
           )}
         </Text>
         {downloadUrl && (
@@ -51,8 +51,8 @@ const QuotitePdfReadyEmail = ({ name, quotite, deduction, downloadUrl }: Quotite
 
 export const template = {
   component: QuotitePdfReadyEmail,
-  subject: 'Votre rapport de quotiété professionnelle — MFinances',
-  displayName: 'Rapport quotiété prêt',
+  subject: 'Votre rapport d\'usage professionnel de votre habitation — MFinances',
+  displayName: 'Rapport usage professionnel prêt',
   previewData: { name: 'Jean', quotite: '16,1', deduction: '2 858', downloadUrl: 'https://example.com/rapport.pdf' },
 } satisfies TemplateEntry
 
