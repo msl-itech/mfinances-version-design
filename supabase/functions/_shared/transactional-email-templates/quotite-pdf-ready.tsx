@@ -23,9 +23,9 @@ const QuotitePdfReadyEmail = ({ name, quotite, deduction, downloadUrl }: Quotite
           {name ? `${name}, votre rapport est prêt !` : 'Votre rapport est prêt !'}
         </Heading>
         <Text style={text}>
-          Votre rapport de quotiété professionnelle a été généré avec succès.
+          Votre rapport d'usage professionnel de votre habitation a été généré avec succès.
           {quotite && deduction && (
-            <> Quotiété calculée : <strong>{quotite} %</strong> — Déduction estimée : <strong>{deduction} € / an</strong>.</>
+            <> Part professionnelle calculée : <strong>{quotite} %</strong> — Déduction estimée : <strong>{deduction} € / an</strong>.</>
           )}
         </Text>
         {downloadUrl && (
