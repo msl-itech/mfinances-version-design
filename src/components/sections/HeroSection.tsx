@@ -75,7 +75,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start relative">
           {/* LEFT — Editorial copy (7 cols) */}
           <div
-            className={`lg:col-span-7 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`lg:col-span-6 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             {/* Section number + label */}
             <div className="flex items-center gap-4 mb-8">
