@@ -242,9 +242,9 @@ export default function AccueilV2() {
             className="relative overflow-hidden bg-primary w-full"
           >
             {/* ===== LAYOUT : grid texte gauche / image droite ===== */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
               {/* --- Colonne gauche : texte --- */}
-              <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 py-8 lg:py-10">
+              <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-16 xl:px-24 py-8 lg:py-10">
                 <div
                   className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     }`}
@@ -283,7 +283,7 @@ export default function AccueilV2() {
                     &nbsp;?
                   </h2>
                   <p
-                    className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[520px]"
+                    className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[500px]"
                     data-anim="fade-up"
                     data-delay="0.4"
                   >
@@ -325,11 +325,11 @@ export default function AccueilV2() {
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
                 {/* Fondu gauche (vers le fond bleu) */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/25 to-transparent" />
                 {/* Fondu bas pour mobile */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent lg:from-primary/40" />
                 {/* Léger overlay pour cohérence de ton */}
-                <div className="absolute inset-0 bg-primary/20" />
+                <div className="absolute inset-0 bg-primary/10" />
               </div>
             </div>
           </div>
