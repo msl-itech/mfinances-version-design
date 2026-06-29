@@ -283,7 +283,7 @@ export default function AccueilV2() {
                     &nbsp;?
                   </h2>
                   <p
-                    className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[500px]"
+                    className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[640px]"
                     data-anim="fade-up"
                     data-delay="0.4"
                   >
