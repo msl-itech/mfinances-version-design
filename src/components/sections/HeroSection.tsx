@@ -187,9 +187,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT — Editorial photo card (5 cols) */}
+          {/* RIGHT — Editorial photo card (6 cols) */}
           <div
-            className={`lg:col-span-5 lg:pt-8 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+            className={`lg:col-span-6 lg:pt-8 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
             style={{ transitionDelay: "0.4s" }}
           >
             <div className="relative group">
