@@ -325,7 +325,7 @@ export default function AccueilV2() {
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
                 {/* Fondu gauche (vers le fond bleu) */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary from-0% via-primary/30 via-[10%] to-transparent to-[35%]" />
                 {/* Fondu bas pour mobile */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent lg:from-primary/40" />
                 {/* Léger overlay pour cohérence de ton */}
