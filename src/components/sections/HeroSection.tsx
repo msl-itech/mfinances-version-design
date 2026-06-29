@@ -72,10 +72,10 @@ export default function HeroSection() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start relative">
           {/* LEFT — Editorial copy (7 cols) */}
           <div
-            className={`lg:col-span-7 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`lg:col-span-6 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             {/* Section number + label */}
             <div className="flex items-center gap-4 mb-8">
@@ -187,9 +187,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT — Editorial photo card (5 cols) */}
+          {/* RIGHT — Editorial photo card (6 cols) */}
           <div
-            className={`lg:col-span-5 lg:pt-8 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+            className={`lg:col-span-6 lg:pt-8 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
             style={{ transitionDelay: "0.4s" }}
           >
             <div className="relative group">
