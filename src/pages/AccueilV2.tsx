@@ -242,7 +242,7 @@ export default function AccueilV2() {
             className="relative overflow-hidden bg-primary w-full"
           >
             {/* ===== LAYOUT : grid texte gauche / image droite ===== */}
-            <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
               {/* --- Colonne gauche : texte --- */}
               <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-16 xl:px-24 py-8 lg:py-10">
                 <div
