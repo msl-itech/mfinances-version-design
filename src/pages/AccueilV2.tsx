@@ -324,12 +324,30 @@ export default function AccueilV2() {
                   alt="Équipe MFinances en réunion"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
-                {/* Fondu gauche (vers le fond bleu) */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary from-0% via-primary/30 via-[10%] to-transparent to-[35%]" />
-                {/* Fondu bas pour mobile */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent lg:from-primary/40" />
-                {/* Léger overlay pour cohérence de ton */}
-                <div className="absolute inset-0 bg-primary/10" />
+                {/* Fondu artistique gauche — transition très douce sur 60% */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(105deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 8%, hsl(var(--primary) / 0.55) 18%, hsl(var(--primary) / 0.25) 32%, transparent 55%)",
+                  }}
+                />
+                {/* Radial subtil bas-gauche pour profondeur */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 80% 60% at 15% 100%, hsl(var(--primary) / 0.45), transparent 70%)",
+                  }}
+                />
+                {/* Fondu bas pour mobile / léger partout */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, hsl(var(--primary) / 0.75) 0%, transparent 35%)",
+                  }}
+                />
               </div>
             </div>
           </div>
