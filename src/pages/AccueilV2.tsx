@@ -244,7 +244,7 @@ export default function AccueilV2() {
             {/* ===== LAYOUT : grid texte gauche / image droite ===== */}
             <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
               {/* --- Colonne gauche : texte --- */}
-              <div className="relative z-10 flex flex-col justify-center pl-6 sm:pl-10 md:pl-14 lg:pl-16 xl:pl-24 pr-4 sm:pr-6 md:pr-8 lg:pr-10 xl:pr-14 py-8 lg:py-10">
+              <div className="relative z-10 flex flex-col justify-center pl-6 sm:pl-10 md:pl-14 lg:pl-16 xl:pl-24 pr-3 sm:pr-4 md:pr-5 lg:pr-6 xl:pr-8 py-8 lg:py-10">
                 <div
                   className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     }`}
