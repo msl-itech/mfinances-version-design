@@ -244,7 +244,11 @@ ${contextBlock}
 [PALIER ACTUEL : ${palier}]
 ${palierInstructions}
 
-${socialProofBlock}`;
+${socialProofBlock}
+
+===== CATALOGUE BLOG (articles publiés — utilise UNIQUEMENT ces liens) =====
+Quand le visiteur pose une question dont le sujet correspond à un de ces articles, recommande-le explicitement avec le lien markdown exact ci-dessous. Choisis 1 (idéal) ou 2 articles maximum, les plus pertinents. Ne modifie jamais le slug de l'URL.
+${BLOG_CATALOG_MARKDOWN}`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
