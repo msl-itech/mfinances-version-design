@@ -119,7 +119,7 @@ export default function Footer() {
 
           {/* Col 5 — Légal */}
           <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Légal</h3>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-[#E8393A]">Légal</h3>
             <nav className="space-y-0.5">
               {legalLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
