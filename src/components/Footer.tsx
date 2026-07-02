@@ -24,6 +24,9 @@ const ressourcesLinks = [
   { label: "Diagnostic gratuit", href: "/diagnostic/" },
   { label: "Frais Défendables", href: "/frais-defendables/" },
   { label: "Guide trésorerie gratuit", href: "/checklist-tresorerie/" },
+  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/" },
+  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
+  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
   { label: "Support", href: "/support/" },
   { label: "Pourquoi MFinances", href: "/a-propos/" },
 ];
