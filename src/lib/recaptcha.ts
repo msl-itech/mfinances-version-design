@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 
-export const RECAPTCHA_SITE_KEY = "6Lfx1ZgsAAAAAKZCHUmyP8JW0wwhOhobgJOHI_Km";
+export const RECAPTCHA_SITE_KEY = "6Ldy1ZgsAAAAAFvgkoM81jLEi_wqln5Xs7EB_6Oa";
 
 export async function verifyRecaptchaToken(token: string): Promise<boolean> {
   try {
