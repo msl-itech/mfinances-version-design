@@ -79,7 +79,7 @@ export default function Footer() {
 
           {/* Col 2 — Services */}
           <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide">Services</h3>
+            <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-[#E8393A]">Services</h3>
             <nav className="space-y-0.5">
               {servicesLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
