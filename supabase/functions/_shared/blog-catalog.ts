@@ -1,0 +1,50 @@
+// Auto-généré depuis src/data/blog-data.ts (articles published: true).
+// Catalogue statique consommé par la fonction chatbot pour recommander des articles.
+export const BLOG_CATALOG_MARKDOWN = `- [Trésorerie vs bénéfices — pourquoi votre entreprise peut être rentable et à court de cash](/blog/tresorerie/tresorerie-vs-benefices/) — Comprendre pourquoi une entreprise rentable peut manquer de cash.
+- [Investir dans votre entreprise sans vider votre trésorerie](/blog/tresorerie/investir-sans-fragiliser-tresorerie/) — Autofinancement, emprunt ou leasing : comment choisir.
+- [Votre stock immobilise du cash — voici comment le libérer](/blog/tresorerie/gestion-stocks-tresorerie/) — Optimiser stock et libérer du cash.
+- [Un concurrent vous attaque sur les prix — protéger votre trésorerie sans vous brader](/blog/tresorerie/tresorerie-face-concurrence/) — Stratégies pour TPE face à la guerre des prix.
+- [Fidéliser vos clients — l'impact direct sur votre trésorerie](/blog/tresorerie/fidelisation-tresorerie/) — Fidélisation et stabilité des flux.
+- [Comment anticiper vos flux de trésorerie](/blog/tresorerie/anticiper-flux-tresorerie/) — Tableau prévisionnel, scénarios, Odoo.
+- [C'est quoi un DAF externalisé — définition et rôle pour une TPE](/blog/daf-externalise/daf-externalise-definition/) — Définition, rôle, différence expert-comptable.
+- [Quand faire appel à un DAF externalisé ? 6 signaux](/blog/daf-externalise/quand-faire-appel-daf/) — 6 signaux concrets pour dirigeants.
+- [DAF externalisé vs expert-comptable — la différence concrète](/blog/daf-externalise/daf-externalise-vs-expert-comptable/) — Comparatif complet.
+- [Les 5 décisions où un DAF externalisé change tout pour une TPE](/blog/daf-externalise/decisions-daf-fait-difference/) — Recrutement, investissement, levée, restructuration.
+- [Contrôle de gestion pour TPE — définition et impact](/blog/controle-de-gestion/controle-gestion-tpe-definition/) — Pas réservé aux grandes entreprises.
+- [Les 5 KPIs financiers que tout dirigeant de TPE doit surveiller](/blog/controle-de-gestion/kpis-tpe-dirigeant/) — Marge brute, BFR, délai paiement, endettement.
+- [Comment construire un budget annuel pour une TPE — 5 étapes](/blog/controle-de-gestion/budget-annuel-tpe/) — Méthode pratique.
+- [Analyse des écarts budgétaires — comment lire et agir](/blog/controle-de-gestion/analyse-ecarts-budgetaires/) — Identifier les problèmes et corriger.
+- [VVPRbis en Belgique — dividendes à taux réduit pour PME](/blog/fiscalite-belgique/vvprbis-belgique/) — Dividendes 15% au lieu de 30%.
+- [Réserve de liquidation en Belgique](/blog/fiscalite-belgique/reserve-liquidation-belgique/) — Fiscalité réduite pour dividendes.
+- [Rémunération du dirigeant en Belgique — salaire ou dividendes ?](/blog/fiscalite-belgique/remuneration-dirigeant-belgique/) — Optimisation fiscale/sociale.
+- [Voiture de société en Belgique 2026](/blog/fiscalite-belgique/voiture-societe-belgique/) — ATN, déductibilité, CO2, électrique.
+- [Déclaration ISOC Belgique — préparer sa déclaration](/blog/fiscalite-belgique/declaration-isoc-belgique/) — Éviter les erreurs courantes.
+- [SRL ou indépendant en Belgique — comment choisir en 2026](/blog/creation-societe/srl-vs-independant-belgique/) — Comparatif complet.
+- [Créer une SRL en Belgique en 2026 — toutes les étapes](/blog/creation-societe/creer-srl-belgique-2026/) — Étapes, délais, coûts.
+- [Combien coûte la création d'une société en Belgique ?](/blog/creation-societe/cout-creation-societe-belgique/) — Tous les frais réels.
+- [Plan financier obligatoire en Belgique](/blog/creation-societe/plan-financier-obligatoire-belgique/) — Ce que la loi exige pour SRL/SA.
+- [Les 5 erreurs à éviter lors de la création d'une société](/blog/creation-societe/erreurs-creation-societe-belgique/) — Erreurs classiques à éviter.
+- [Pourquoi je n'ai jamais d'argent sur mon compte ?](/blog/tresorerie/pourquoi-pas-argent-sur-compte/) — Vraies raisons et actions rapides.
+- [Bénéfices mais pas d'argent — pourquoi ?](/blog/tresorerie/argent-disparait-fin-mois/) — Paradoxe des TPE en croissance.
+- [Le stress de fin de mois des dirigeants de TPE](/blog/tresorerie/stress-fin-mois-dirigeant-tpe/) — Ce que font ceux qui dorment bien.
+- [Combien mettre en réserve de sécurité quand on est indépendant ?](/blog/tresorerie/combien-reserve-securite-tpe/) — Règle des 3 mois expliquée.
+- [Combien puis-je me payer en tant qu'indépendant en Belgique ?](/blog/fiscalite-belgique/combien-me-payer-independant-belgique/) — Salaire, dividendes, cotisations.
+- [J'ai l'impression de payer trop d'impôts en Belgique](/blog/fiscalite-belgique/je-paye-trop-impots-belgique/) — Charge fiscale >50% : est-ce vrai ?
+- [Pourquoi mon comptable ne m'aide pas à piloter mon entreprise ?](/blog/fiscalite-belgique/pourquoi-comptable-aide-pas/) — Ce qu'un vrai partenaire fait différemment.
+- [Suis-je vraiment rentable ? Comment le savoir pour une TPE](/blog/controle-de-gestion/suis-je-rentable-tpe/) — 3 questions simples.
+- [Votre banquier demande votre BFR — comment répondre](/blog/tresorerie/bfr-dossier-bancaire-credit-tpe/) — Lecture, amélioration, négociation.
+- [BFR — définition simple, formule, exemples pour TPE belge](/blog/tresorerie/bfr-definition-formule-tpe/) — Calcul en 2 minutes.
+- [Recruter en croissance — impact caché sur BFR et trésorerie](/blog/tresorerie/bfr-recrutement-impact-tresorerie/) — Calcul que personne ne fait.
+- [Seuil de rentabilité multi-services](/blog/controle-de-gestion/seuil-de-rentabilite-multi-services/) — Calcul par activité.
+- [Frais professionnels déductibles en Belgique](/blog/fiscalite-belgique/frais-professionnels-deductibles-belgique/) — Ce que vous pouvez passer en charges.
+- [Frais mixtes en Belgique](/blog/fiscalite-belgique/frais-mixtes-belgique/) — Usage pro/privé : règles de déduction.
+- [Bureau à domicile — déduction, statut, fiscalité](/blog/fiscalite-belgique/bureau-a-domicile/) — Pilier bureau à domicile.
+- [Calcul du bureau à domicile — quote-part déductible](/blog/fiscalite-belgique/calcul-bureau-a-domicile/) — Méthode de calcul détaillée.
+- [Pièce à usage mixte — bureau à domicile](/blog/fiscalite-belgique/piece-usage-mixte-bureau/) — Règles pour pièce mixte.
+- [Locataire : sous-louer à sa société](/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/) — Cadre légal du loyer.
+- [Louer les meubles du bureau à sa société](/blog/fiscalite-belgique/louer-meubles-bureau-societe/) — Optimisation mobilier.
+- [Comparatif bureau à domicile — indépendant vs société](/blog/fiscalite-belgique/comparatif-bureau-a-domicile-statut/) — Quel statut optimise le plus.
+- [Erreurs bureau à domicile lors d'un contrôle fiscal](/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/) — Points de vigilance.
+- [Combinaison bureau à domicile — cumul déductions](/blog/fiscalite-belgique/combinaison-bureau-a-domicile/) — Cumuls autorisés.
+- [Requalification loyer en rémunération](/blog/fiscalite-belgique/requalification-loyer-remuneration/) — Risque et parade.
+- [Fin déduction intérêts immobiliers 2026](/blog/fiscalite-belgique/fin-deduction-interets-immobilier-2026/) — Impact et alternatives.`;
