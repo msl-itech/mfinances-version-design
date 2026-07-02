@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { BLOG_CATALOG_MARKDOWN } from "../_shared/blog-catalog.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
