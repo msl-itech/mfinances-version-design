@@ -338,13 +338,6 @@ export default function Header() {
               </a>
             </nav>
 
-            <div className="p-4 border-t border-border">
-              <Button variant="accent" className="w-full rounded-lg" asChild>
-                <Link to="/diagnostic/" onClick={() => setMobileOpen(false)}>
-                  Voir si mon entreprise est en danger →
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       )}
