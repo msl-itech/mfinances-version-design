@@ -159,19 +159,38 @@ export default function Header() {
               Tarifs
             </Link>
 
-            <Link
-              to="/diagnostic/"
-              className="text-[14px] font-semibold text-accent hover:text-accent/80 transition-colors"
-            >
-              Diagnostic
-            </Link>
+            <DropdownWrapper label="Diagnostic & Outils" href="/diagnostic/">
+              <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
+                <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Diagnostic</span>
+                  </div>
+                  <Link
+                    to="/diagnostic/"
+                    className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    Diagnostic gratuit
+                  </Link>
+                </div>
+                <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Outils</span>
+                  </div>
+                  {outilsLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </DropdownWrapper>
 
             <Link to="/blog/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Blog
-            </Link>
-
-            <Link to="/a-propos/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
-              Pourquoi MFinances
             </Link>
 
             <Link to="/contact/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
