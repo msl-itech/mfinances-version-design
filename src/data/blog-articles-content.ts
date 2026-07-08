@@ -1404,6 +1404,10 @@ export const articleContent: Record<string, ArticleBody> = {
           "2. Envisager le passage en société — avantageux généralement à partir de 40 000 à 60 000 € de bénéfice net",
           "3. Optimiser vos cotisations sociales — demander une réduction des cotisations provisoires si vos revenus réels sont inférieurs",
         ],
+        ctaInline: {
+          text: "Vérifiez lesquels de vos frais sont vraiment défendables avec notre outil gratuit",
+          link: "/frais-defendables/",
+        },
       },
       {
         heading: "La règle simple à retenir",
