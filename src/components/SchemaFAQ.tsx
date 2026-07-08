@@ -8,6 +8,7 @@ import {
 export interface FAQItem {
   question: string;
   answer: string;
+  ctaInline?: { text: string; link: string };
 }
 
 interface SchemaFAQProps {
