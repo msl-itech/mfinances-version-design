@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import logoSquare from "@/assets/logo-square.webp";
 
 const servicesLinks = [
@@ -31,6 +31,14 @@ const audienceRight = [
 const homeVersions = [
   { label: "Accueil V2", href: "/accueilv2/" },
   { label: "Accueil V3", href: "/accueilv3/" },
+];
+
+const outilsLinks = [
+  { label: "Frais Défendables", href: "/frais-defendables/" },
+  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/" },
+  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
+  { label: "Checklist trésorerie", href: "/checklist-tresorerie/" },
+  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
 ];
 
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
@@ -71,6 +79,7 @@ export default function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAudienceOpen, setMobileAudienceOpen] = useState(false);
   const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
+  const [mobileDiagOpen, setMobileDiagOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -151,19 +160,38 @@ export default function Header() {
               Tarifs
             </Link>
 
-            <Link
-              to="/diagnostic/"
-              className="text-[14px] font-semibold text-accent hover:text-accent/80 transition-colors"
-            >
-              Diagnostic
-            </Link>
+            <DropdownWrapper label="Diagnostic & Outils" href="/diagnostic/">
+              <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
+                <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Diagnostic</span>
+                  </div>
+                  <Link
+                    to="/diagnostic/"
+                    className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    Diagnostic gratuit
+                  </Link>
+                </div>
+                <div>
+                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Outils</span>
+                  </div>
+                  {outilsLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </DropdownWrapper>
 
             <Link to="/blog/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Blog
-            </Link>
-
-            <Link to="/a-propos/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
-              Pourquoi MFinances
             </Link>
 
             <Link to="/contact/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
@@ -180,9 +208,6 @@ export default function Header() {
               <Phone size={14} strokeWidth={1.5} />
               +32 2 886 05 50
             </a>
-            <Button variant="accent" size="sm" className="rounded-lg px-5 text-[14px]" asChild>
-              <Link to="/diagnostic/">Voir si mon entreprise est en danger →</Link>
-            </Button>
           </div>
 
           {/* Mobile hamburger */}
@@ -270,14 +295,38 @@ export default function Header() {
               <Link to="/tarifs/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Tarifs
               </Link>
-              <Link to="/diagnostic/" className="block px-4 py-3 rounded-lg text-[15px] font-semibold text-accent hover:bg-accent/5" onClick={() => setMobileOpen(false)}>
-                Diagnostic
-              </Link>
+              <button
+                className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
+                onClick={() => setMobileDiagOpen(!mobileDiagOpen)}
+              >
+                Diagnostic & Outils
+                <ChevronDown size={16} className={`transition-transform ${mobileDiagOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileDiagOpen && (
+                <div className="pl-4 pb-2">
+                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Diagnostic</span>
+                  <Link
+                    to="/diagnostic/"
+                    className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Diagnostic gratuit
+                  </Link>
+                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Outils</span>
+                  {outilsLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
               <Link to="/blog/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Blog
-              </Link>
-              <Link to="/a-propos/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
-                Pourquoi MFinances
               </Link>
               <Link to="/contact/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Contact
@@ -289,13 +338,6 @@ export default function Header() {
               </a>
             </nav>
 
-            <div className="p-4 border-t border-border">
-              <Button variant="accent" className="w-full rounded-lg" asChild>
-                <Link to="/diagnostic/" onClick={() => setMobileOpen(false)}>
-                  Voir si mon entreprise est en danger →
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       )}
