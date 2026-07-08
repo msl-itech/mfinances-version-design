@@ -207,9 +207,6 @@ export default function Header() {
               <Phone size={14} strokeWidth={1.5} />
               +32 2 886 05 50
             </a>
-            <Button variant="accent" size="sm" className="rounded-lg px-5 text-[14px]" asChild>
-              <Link to="/diagnostic/">Voir si mon entreprise est en danger →</Link>
-            </Button>
           </div>
 
           {/* Mobile hamburger */}
