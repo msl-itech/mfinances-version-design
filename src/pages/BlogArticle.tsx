@@ -239,6 +239,11 @@ export default function BlogArticle() {
                         </AccordionTrigger>
                         <AccordionContent className="text-[14px] text-foreground/80 font-body leading-[1.75] pb-4">
                           {item.answer}
+                          {item.ctaInline && (
+                            <Link to={item.ctaInline.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mt-3 hover:underline">
+                              {item.ctaInline.text} <ArrowRight size={14} />
+                            </Link>
+                          )}
                         </AccordionContent>
                       </AccordionItem>
                     ))}
