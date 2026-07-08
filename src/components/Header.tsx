@@ -33,6 +33,14 @@ const homeVersions = [
   { label: "Accueil V3", href: "/accueilv3/" },
 ];
 
+const outilsLinks = [
+  { label: "Frais Défendables", href: "/frais-defendables/" },
+  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/" },
+  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
+  { label: "Checklist trésorerie", href: "/checklist-tresorerie/" },
+  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
+];
+
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const timeout = useRef<ReturnType<typeof setTimeout>>();
