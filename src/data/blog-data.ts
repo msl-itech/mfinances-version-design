@@ -380,7 +380,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-18",
     seoTitle: "Combien Me Payer en Indépendant en Belgique ?",
     metaDescription: "Salaire, dividendes, cotisations sociales — combien un indépendant peut-il réellement se payer en Belgique ? Guide clair avec exemples chiffrés.",
-    pillarPage: "/services/fiscalite/",
+    pillarPage: "/contact/",
   },
   {
     slug: "je-paye-trop-impots-belgique",

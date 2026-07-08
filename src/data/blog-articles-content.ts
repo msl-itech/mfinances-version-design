@@ -1429,7 +1429,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Prendre rendez-vous",
     ctaDescription: "Premier échange gratuit pour analyser votre situation.",
     ctaLink: "/contact/",
-    ctaLabel: "Faire le diagnostic gratuit →",
+    ctaLabel: "Parler à un expert",
   },
 
   "je-paye-trop-impots-belgique": {
