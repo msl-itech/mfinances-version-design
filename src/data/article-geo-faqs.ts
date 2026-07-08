@@ -524,6 +524,10 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
       question: "Combien un indépendant belge doit-il se payer pour optimiser sa situation ?",
       answer:
         "La réponse dépend du statut. En personne physique, le revenu net imposable est soumis à l'IPP (taux marginal de 50 % au-delà de 46 440 € en 2025). En société, le dirigeant peut combiner salaire et dividendes. Le niveau de rémunération optimal intègre les cotisations sociales INASTI, les frais déductibles et l'objectif patrimonial à long terme.",
+      ctaInline: {
+        text: "Vérifiez lesquels de vos frais sont vraiment défendables avec notre outil gratuit",
+        link: "/frais-defendables/",
+      },
     },
     {
       question: "Quelles sont les cotisations sociales INASTI pour un indépendant belge en 2025 ?",
