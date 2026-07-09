@@ -2133,7 +2133,6 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           
         ],
-        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
     ],
     faq: [
