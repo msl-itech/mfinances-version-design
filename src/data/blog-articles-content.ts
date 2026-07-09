@@ -2302,11 +2302,6 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Votre société peut rembourser vos frais de bureau sur note de frais justifiée (option simple), ou vous verser un loyer via un bail de sous-location (option plus avantageuse fiscalement). La seconde option est détaillée dans notre article sur la sous-location professionnelle.",
         ],
-        relatedLinks: [
-          { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
-          { text: "pièce à usage mixte", link: "/blog/fiscalite-belgique/piece-usage-mixte-bureau/" },
-        ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
     ],
     faq: [
