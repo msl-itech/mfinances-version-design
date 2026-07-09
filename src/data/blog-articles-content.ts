@@ -2131,7 +2131,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Utilisez l'outil gratuit Frais Défendables pour analyser votre dépense en 3 questions et obtenir un premier niveau de lecture : défendable, à encadrer, ou zone sensible.",
         ],
         relatedLinks: [
-          { text: "DAF à temps partiel — comment MFinances accompagne les dirigeants", link: "/services/daf-externalise/" },
+          
         ],
         ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
