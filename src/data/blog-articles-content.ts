@@ -2179,7 +2179,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La ventilation au prorata de superficie est une base possible, mais elle doit correspondre à un espace réellement dédié et identifiable. Un espace partagé ou occasionnel est beaucoup plus difficile à défendre.",
           "Méthode recommandée : m² bureau ÷ m² total du logement × charges éligibles (loyer ou valeur locative + énergie + assurance + entretien). Exemple : bureau de 15 m² dans un appartement de 100 m² = 15% des charges. Ce pourcentage doit être appliqué de manière constante d'un exercice à l'autre et documenté dans votre dossier fiscal.",
         ],
-        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+        ctaInline: { text: "Calculez précisément votre déduction avec notre outil Bureau à domicile", link: "/ressources/calculateur-bureau/" },
       },
       {
         subheading: "L'ordinateur — la part professionnelle doit refléter l'usage réel",
