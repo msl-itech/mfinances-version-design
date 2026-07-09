@@ -2096,7 +2096,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Les repas d'affaires sont déductibles à 69% (art. 53, 7° CIR). Ce taux s'applique à la totalité de la dépense, y compris les boissons alcoolisées. Pour que la déduction soit défendable, la note du repas doit mentionner l'identité des convives et l'objet professionnel de la rencontre. Sans cette note, la déduction est fragile même si la souche TVA est disponible.",
           "Les cadeaux clients sont déductibles à 50% (art. 53, 1° CIR). La TVA n'est pas récupérable si le cadeau dépasse 50 EUR HTVA par bénéficiaire et par an. Un cadeau à la famille du dirigeant sans lien professionnel constitue un Avantage de Toute Nature.",
         ],
-        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         subheading: "Frais de bureau",
