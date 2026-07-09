@@ -169,12 +169,6 @@ export default function BureauADomicileHub() {
                 ))}
               </div>
 
-              {/* CTA after H2 */}
-              <div className="mt-8 flex gap-3 flex-wrap">
-                <Link to="/ressources/calculateur-bureau/" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-white transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110">
-                  <Calculator size={16} /> Calculer ma part professionnelle →
-                </Link>
-              </div>
             </div>
           </section>
         </div>
