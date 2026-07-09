@@ -181,12 +181,11 @@ export default function BureauADomicileHub() {
               <h2 className="font-display text-[clamp(26px,3.5vw,36px)] text-primary mb-8 leading-tight">Les ressources disponibles sur ce site</h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma part professionnelle" },
-                  { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail complet en 6 étapes, PDF adapté au contexte belge", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
-                  { icon: BookOpen, title: "Modèle de bail de sous-location", desc: "À télécharger gratuitement", href: "/ressources/generateur-bail/", anchor: "Télécharger le modèle" },
-                  { icon: CheckCircle, title: "Checklist contrôle fiscal", desc: "Les 10 documents à avoir absolument", href: "/contact/", anchor: "Recevoir la checklist" },
-                ].map(r => (
+              {[
+                { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma part professionnelle" },
+                { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail complet en 6 étapes, PDF adapté au contexte belge", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
+                { icon: CheckCircle, title: "Checklist contrôle fiscal", desc: "Les 10 documents à avoir absolument", href: "/contact/", anchor: "Recevoir la checklist" },
+              ].map(r => (
                   <Link key={r.title} to={r.href} className="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-all duration-300 hover:border-accent/30 group flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-accent/10 grid place-items-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                       <r.icon size={20} className="text-accent" />
