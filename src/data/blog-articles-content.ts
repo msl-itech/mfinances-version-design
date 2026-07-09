@@ -2103,7 +2103,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Le bureau à domicile est déductible si une pièce est réellement dédiée à l'activité professionnelle. Méthode standard : m² bureau ÷ m² total logement × charges éligibles (loyer ou valeur locative, énergie, assurance, entretien). Cette méthode doit être documentée et appliquée de manière cohérente d'un exercice à l'autre.",
           "Pour une société, le dirigeant propriétaire peut sous-louer une partie de son logement à la société. Ce loyer est déductible dans la limite de 5/3 du revenu cadastral indexé net imposable — au-delà, requalification en rémunération.",
         ],
-        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         subheading: "Frais d'équipement et de téléphonie",
