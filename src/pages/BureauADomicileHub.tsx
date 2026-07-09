@@ -183,7 +183,7 @@ export default function BureauADomicileHub() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { icon: Calculator, title: "Calculateur d'usage professionnel de votre habitation", desc: "Résultat en 2 minutes, rapport PDF par email", href: "/ressources/calculateur-bureau/", anchor: "Calculer ma part professionnelle" },
-                { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail complet en 6 étapes, PDF adapté au contexte belge", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
+                { icon: FileText, title: "Générateur de bail professionnel", desc: "Bail immeuble ou meublé, avec clause de sous-location automatique si vous êtes locataire", href: "/ressources/generateur-bail/", anchor: "Générer mon bail" },
                 { icon: CheckCircle, title: "Checklist contrôle fiscal", desc: "Les 10 documents à avoir absolument", href: "/contact/", anchor: "Recevoir la checklist" },
               ].map(r => (
                   <Link key={r.title} to={r.href} className="bg-card border border-border rounded-2xl p-5 hover:shadow-md transition-all duration-300 hover:border-accent/30 group flex items-start gap-4">
