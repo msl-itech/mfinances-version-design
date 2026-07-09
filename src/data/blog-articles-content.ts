@@ -2221,7 +2221,7 @@ export const articleContent: Record<string, ArticleBody> = {
       { question: "Qu'est-ce qu'un frais mixte mal encadré peut provoquer lors d'un contrôle fiscal ?", answer: "Un frais mixte mal documenté peut fragiliser l'ensemble du dossier fiscal. Si le contrôleur détecte une tendance à la surdéduction systématique, il peut remettre en cause plusieurs exercices simultanément." },
       { question: "La méthode de ventilation peut-elle changer d'une année à l'autre ?", answer: "Non, ou très rarement avec justification. Le fisc vérifie la constance de la méthode. Un contribuable qui change de taux d'une année à l'autre est plus suspect que celui qui applique une méthode cohérente." },
     ],
-    ctaText: "Recevoir la checklist des frais sensibles",
+    ctaText: "Besoin de sécuriser vos frais mixtes ?",
     ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
     ctaLink: "/contact/",
     ctaLabel: "Recevoir la checklist des frais sensibles",
