@@ -1360,7 +1360,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Faire le diagnostic trésorerie gratuit",
     ctaDescription: "Découvrez exactement où en est votre réserve de sécurité.",
     ctaLink: "/diagnostic/",
-    ctaLabel: "Faire le diagnostic gratuit →",
+    ctaLabel: "Faire le diagnostic gratuit",
   },
 
   "combien-me-payer-independant-belgique": {
@@ -1554,7 +1554,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Prendre rendez-vous — premier échange gratuit",
     ctaDescription: "Découvrez ce qu'un vrai partenaire financier fait différemment.",
     ctaLink: "/contact/",
-    ctaLabel: "Faire le diagnostic gratuit →",
+    ctaLabel: "Faire le diagnostic gratuit",
   },
 
   "suis-je-rentable-tpe": {

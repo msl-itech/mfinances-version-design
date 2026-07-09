@@ -404,7 +404,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-08",
     seoTitle: "Mon Comptable ne M'aide Pas — Pourquoi ?",
     metaDescription: "Vous avez un comptable mais vous ne comprenez rien à vos chiffres ? Voici pourquoi — et ce qu'un vrai partenaire financier fait différemment.",
-    pillarPage: "/a-propos/",
+    pillarPage: "/diagnostic/",
   },
   {
     slug: "suis-je-rentable-tpe",
