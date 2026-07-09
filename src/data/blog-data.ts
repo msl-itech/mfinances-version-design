@@ -479,7 +479,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-10",
     seoTitle: "Frais professionnels déductibles en Belgique — Guide complet | MFinances",
     metaDescription: "Quels frais professionnels sont réellement défendables en Belgique ? Guide complet IPP et société : restaurant, voiture, bureau, téléphone — MFinances, Uccle.",
-    pillarPage: "/frais-defendables/",
   },
   {
     slug: "frais-mixtes-belgique",
