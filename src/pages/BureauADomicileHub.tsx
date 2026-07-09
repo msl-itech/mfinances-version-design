@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, FileText, Calculator, BookOpen, AlertTriangle, HelpCircle, ArrowRight, Shield, CheckCircle } from "lucide-react";
+import { Home, FileText, Calculator, AlertTriangle, HelpCircle, ArrowRight, Shield, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
