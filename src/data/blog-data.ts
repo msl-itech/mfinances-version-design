@@ -490,7 +490,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-10",
     seoTitle: "Frais mixtes professionnels en Belgique — comment les défendre | MFinances",
     metaDescription: "Comment justifier la part professionnelle d'un frais mixte en Belgique ? Voiture, téléphone, bureau à domicile : méthodes et justificatifs — MFinances, expert-comptable à Uccle.",
-    pillarPage: "/frais-defendables/",
+    
   },
   // ── BUREAU À DOMICILE (Hub) ──
   {
