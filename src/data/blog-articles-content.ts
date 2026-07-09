@@ -2286,7 +2286,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Assurance habitation (part proportionnelle)",
           "Précompte immobilier (si propriétaire)",
         ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Ce qui change selon votre statut",
