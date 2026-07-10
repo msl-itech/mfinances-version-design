@@ -338,7 +338,8 @@ export default function BlogArticle() {
                   to={article.pillarPage}
                   className="inline-flex items-center gap-2 text-accent font-semibold text-[15px] hover:underline font-body"
                 >
-                  {ctaLabel} <ArrowRight size={16} />
+                  {ctaLabel}
+                  {!ctaLabel.endsWith("→") && <ArrowRight size={16} />}
                 </Link>
               </div>
             )}
@@ -374,7 +375,10 @@ export default function BlogArticle() {
                   {content.ctaDescription || "Premier échange gratuit : nous analysons votre situation."}
                 </p>
                 <Button variant="accent" className="rounded-full" asChild>
-                  <Link to={ctaLink}>{ctaLabel} <ArrowRight size={16} className="ml-1" /></Link>
+                  <Link to={ctaLink}>
+                    {ctaLabel}
+                    {!ctaLabel.endsWith("→") && <ArrowRight size={16} className="ml-1" />}
+                  </Link>
                 </Button>
               </div>
             </div>
