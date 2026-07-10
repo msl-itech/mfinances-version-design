@@ -2357,7 +2357,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "En cas de contrôle, le contrôleur vérifiera la cohérence entre votre usage déclaré et la réalité de votre activité (agenda, factures clients, réunions documentées).",
         ],
         relatedLinks: [
-          { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
+          { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
         ],
       },
       {
