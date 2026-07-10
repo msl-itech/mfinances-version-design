@@ -343,22 +343,27 @@ export default function Header() {
                   <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Diagnostic</span>
                   <Link
                     to="/diagnostic/"
-                    className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                    className="flex items-center gap-2 px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
                     onClick={() => setMobileOpen(false)}
                   >
+                    <span className="w-2 h-2 rounded-full bg-accent" />
                     Diagnostic gratuit
                   </Link>
                   <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Outils</span>
-                  {outilsLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      to={link.href}
-                      className="block px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {outilsLinks.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="flex items-center gap-2 px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <Icon size={16} strokeWidth={1.5} className="text-accent" />
+                        {link.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
               <Link to="/blog/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
