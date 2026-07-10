@@ -600,7 +600,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-11",
     seoTitle: "Requalification loyer en rémunération de dirigeant Belgique — Comment l'éviter",
     metaDescription: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention. Cabinet MFinances Uccle.",
-    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
   {
     slug: "fin-deduction-interets-immobilier-2026",
