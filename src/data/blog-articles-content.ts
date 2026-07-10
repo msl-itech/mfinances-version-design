@@ -2641,7 +2641,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Documentation recommandée : relevé de surface par pièce avec le pourcentage d'usage pro. Notre rapport PDF inclut ce détail — conservez-le dans vos archives fiscales par exercice.",
         ],
         relatedLinks: [{ text: "calculer votre part professionnelle exacte", link: "/ressources/calculateur-bureau/" }],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
         heading: "Erreur 2 — Aucun bail écrit pour la sous-location",
