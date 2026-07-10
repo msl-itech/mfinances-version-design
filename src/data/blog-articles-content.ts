@@ -1178,7 +1178,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Découvrir pourquoi je manque de cash",
     ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où votre argent disparaît.",
     ctaLink: "/diagnostic/",
-    ctaLabel: "Découvrir pourquoi mon compte est vide →",
+    ctaLabel: "Découvrir pourquoi mon compte est vide",
   },
 
   "argent-disparait-fin-mois": {
@@ -1236,7 +1236,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Découvrir pourquoi je manque de cash",
     ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où votre argent disparaît.",
     ctaLink: "/diagnostic/",
-    ctaLabel: "Voir si je commets ces erreurs →",
+    ctaLabel: "Voir si je commets ces erreurs",
   },
 
   "stress-fin-mois-dirigeant-tpe": {
@@ -1305,7 +1305,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Voir si mon entreprise est en danger",
     ctaDescription: "Le diagnostic trésorerie gratuit vous dit exactement où vous en êtes.",
     ctaLink: "/diagnostic/",
-    ctaLabel: "Parler à un expert — c'est gratuit →",
+    ctaLabel: "Parler à un expert — c'est gratuit",
   },
 
   "combien-reserve-securite-tpe": {
@@ -1494,7 +1494,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Parler à un expert — c'est gratuit",
     ctaDescription: "Découvrez combien vous pourriez économiser légalement.",
     ctaLink: "/contact/",
-    ctaLabel: "Voir si mon entreprise est en danger →",
+    ctaLabel: "Voir si mon entreprise est en danger",
   },
 
   "pourquoi-comptable-aide-pas": {
@@ -1617,7 +1617,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Voir si mon entreprise est en danger",
     ctaDescription: "Le diagnostic gratuit vous dit exactement où vous en êtes.",
     ctaLink: "/diagnostic/",
-    ctaLabel: "Prendre rendez-vous — premier échange gratuit →",
+    ctaLabel: "Prendre rendez-vous — premier échange gratuit",
   },
   "bfr-dossier-bancaire-credit-tpe": {
     sections: [
@@ -2076,7 +2076,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "🟡 À encadrer — des éléments manquent pour déduire sereinement. Avec la bonne méthode de ventilation et les justificatifs appropriés, la déduction peut être sécurisée.",
           "🔴 Zone sensible — ce frais peut fragiliser l'ensemble de votre dossier fiscal. Ne pas déduire sans analyse experte préalable.",
         ],
-        ctaInline: { text: "→ Vérifier où se situe votre frais avec l'outil Frais Défendables", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier où se situe votre frais avec l'outil Frais Défendables", link: "/frais-defendables/" },
       },
       {
         heading: "Les principales catégories de frais professionnels — avec leur niveau de sensibilité fiscale",
@@ -2088,7 +2088,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La voiture de société est le poste le plus complexe et le plus surveillé du dossier fiscal d'un dirigeant belge. Sa déductibilité dépend des émissions CO₂ du véhicule et de la date d'acquisition — le taux n'est pas fixe et évolue dans le temps. Si le véhicule est mis à disposition du dirigeant à des fins privées, un Avantage de Toute Nature (ATN) doit être calculé et déclaré à l'IPP. Un véhicule sans ATN déclaré constitue un risque fiscal majeur.",
           "Le carburant est déductible en corrélation directe avec le taux de déductibilité du véhicule. Le parking professionnel est déductible à 100% si le lien avec un déplacement professionnel est documenté. Le vélo électrique bénéficie d'un régime fiscal généralement favorable — à vérifier selon les modalités exactes de mise à disposition.",
         ],
-        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         subheading: "Frais de représentation",
@@ -2110,7 +2110,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de taux légal fixe pour la déduction du téléphone en Belgique. Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage privé réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
           "L'ordinateur est déductible à 100% si l'usage est exclusivement professionnel. En cas d'usage mixte, une ventilation justifiée est nécessaire.",
         ],
-        ctaInline: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         heading: "Les 6 erreurs les plus fréquentes en matière de frais professionnels",
@@ -2171,7 +2171,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de pourcentage universel pour le téléphone en Belgique. La déduction dépend de l'usage réel et de la cohérence de la ventilation. Un repère peut exister en pratique — mais il doit être défendable au regard de votre activité concrète.",
           "Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage mixte réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
         ],
-        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "Le bureau à domicile — une méthode, pas un taux standard",
@@ -2187,7 +2187,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La part professionnelle doit refléter l'usage réel. Plus l'usage privé est significatif, plus la justification doit être solide. Un ordinateur familial passé en charges sans documentation constitue un DNA (Dépense Non Admise) dans le chef du dirigeant.",
           "Pour les sociétés, l'achat direct au nom de la société simplifie la déductibilité et peut ouvrir droit à la déduction pour investissement numérique — à vérifier selon les conditions applicables.",
         ],
-        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "La voiture — le suivi structuré comme protection principale",
@@ -2195,7 +2195,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La justification de l'usage professionnel est centrale. Un suivi structuré — comme un carnet de route — renforce fortement la défendabilité du frais. Sans suivi, le pourcentage revendiqué doit rester cohérent avec la réalité de l'activité — pas avec ce que « tout le monde fait ».",
           "Un carnet de route numérique (application mobile, relevé GPS) est aujourd'hui la méthode la plus robuste. Sans lui, le fisc peut remettre en cause l'intégralité du pourcentage professionnel revendiqué.",
         ],
-        ctaInline: { text: "→ Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         heading: "Ce que le fisc vérifie vraiment sur les frais mixtes",
@@ -2210,7 +2210,7 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Un frais mixte mal encadré ne pose pas seulement un problème isolé. Il peut fragiliser la crédibilité de l'ensemble de votre dossier fiscal — notamment si le contrôleur détecte une tendance à la surdéduction systématique.",
         ],
-        ctaInline: { text: "→ Vérifier la défendabilité de vos frais mixtes", link: "/frais-defendables/" },
+        ctaInline: { text: "Vérifier la défendabilité de vos frais mixtes", link: "/frais-defendables/" },
       },
     ],
     faq: [
@@ -2312,7 +2312,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Calculer ma part professionnelle gratuitement",
     ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Zéro engagement.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle gratuitement →",
+    ctaLabel: "Calculer ma part professionnelle gratuitement",
   },
 
   "piece-usage-mixte-bureau": {
@@ -2383,7 +2383,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Calculer ma part professionnelle",
     ctaDescription: "Résultat en 2 minutes avec pièces mixtes incluses. Rapport PDF documenté.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle avec pièces mixtes →",
+    ctaLabel: "Calculer ma part professionnelle avec pièces mixtes",
   },
 
   "locataire-societe-sous-location-loyer": {
@@ -2457,7 +2457,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Générer mon bail de sous-location",
     ctaDescription: "Bail conforme au contexte belge en 6 étapes. PDF envoyé par email. Gratuit.",
     ctaLink: "/ressources/generateur-bail/",
-    ctaLabel: "Générer mon bail de sous-location →",
+    ctaLabel: "Générer mon bail de sous-location",
   },
 
   "louer-meubles-bureau-societe": {
@@ -2542,7 +2542,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Générer mon bail meublé",
     ctaDescription: "Bail meublé 60/40 conforme au contexte belge. PDF généré en 6 étapes.",
     ctaLink: "/ressources/generateur-bail/",
-    ctaLabel: "Générer mon bail meublé 60/40 →",
+    ctaLabel: "Générer mon bail meublé 60/40",
   },
 
   "comparatif-bureau-a-domicile-statut": {
@@ -2620,7 +2620,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
     ctaLink: "/contact",
-    ctaLabel: "Faire le diagnostic de ma situation →",
+    ctaLabel: "Faire le diagnostic de ma situation",
   },
 
   "erreurs-bureau-a-domicile-controle-fiscal": {
@@ -2753,7 +2753,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Calculer ma part professionnelle — première étape",
     ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
     ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle — première étape →",
+    ctaLabel: "Calculer ma part professionnelle — première étape",
   },
 
   "requalification-loyer-remuneration": {
@@ -2854,7 +2854,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre loyer et votre plafond légal.",
     ctaLink: "/contact",
-    ctaLabel: "Faire le diagnostic de ma situation →",
+    ctaLabel: "Faire le diagnostic de ma situation",
   },
   "fin-deduction-interets-immobilier-2026": {
     sections: [
@@ -2972,7 +2972,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Analyser ma situation",
     ctaDescription: "Premier échange gratuit et confidentiel — nous vous disons clairement si une société de management a du sens pour vous.",
     ctaLink: "/contact/",
-    ctaLabel: "Analyser ma situation →",
+    ctaLabel: "Analyser ma situation",
   },
 };
 
