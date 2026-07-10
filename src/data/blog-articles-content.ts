@@ -2683,7 +2683,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Checklist de contrôle de bureau",
     ctaDescription: "5 points à vérifier avant chaque exercice. PDF gratuit et immédiat.",
     ctaLink: "/ressources/checklist-controle-bureau/",
-    ctaLabel: "Checklist de contrôle de bureau →",
+    ctaLabel: "Télécharger la checklist",
   },
 
   "combinaison-bureau-a-domicile": {
