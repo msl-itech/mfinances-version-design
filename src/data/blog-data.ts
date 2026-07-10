@@ -587,7 +587,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-11",
     seoTitle: "Part professionnelle + sous-location + meubles : la stratégie bureau à domicile optimale Belgique",
     metaDescription: "Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds. Cabinet MFinances Uccle.",
-    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
+    pillarPage: "/ressources/calculateur-bureau/",
   },
   {
     slug: "requalification-loyer-remuneration",
