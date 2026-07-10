@@ -178,7 +178,7 @@ export default function BlogArticle() {
 
               {/* Hero CTA above H1 */}
               {content.heroCta && (
-                <Link to={content.heroCta.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mt-3 mb-4 hover:underline">
+                <Link to={content.heroCta.link} className="inline-flex items-center gap-1.5 text-accent font-bold text-[14px] mt-5 mb-5 hover:underline">
                   {content.heroCta.text} <ArrowRight size={14} />
                 </Link>
               )}
