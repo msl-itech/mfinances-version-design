@@ -2055,7 +2055,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "frais-professionnels-deductibles-belgique": {
-    heroCta: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+    heroCta: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
     sections: [
       {
         heading: "La vraie question n'est pas « qu'est-ce qui est déductible ? »",
@@ -2149,7 +2149,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "frais-mixtes-belgique": {
-    heroCta: { text: "→ Vérifier si ce frais est défendable", link: "/frais-defendables/" },
+    heroCta: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
     sections: [
       {
         heading: "La vraie question sur les frais mixtes",
@@ -2316,7 +2316,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "piece-usage-mixte-bureau": {
-    heroCta: { text: "Calculer ma part professionnelle avec pièces mixtes →", link: "/ressources/calculateur-bureau/" },
+    heroCta: { text: "Calculer ma part professionnelle avec pièces mixtes", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
@@ -2387,7 +2387,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "locataire-societe-sous-location-loyer": {
-    heroCta: { text: "Générer mon bail de sous-location →", link: "/ressources/generateur-bail/" },
+    heroCta: { text: "Générer mon bail de sous-location", link: "/ressources/generateur-bail/" },
     sections: [
       {
         paragraphs: [
@@ -2461,7 +2461,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "louer-meubles-bureau-societe": {
-    heroCta: { text: "Générer mon bail meublé 60/40 →", link: "/ressources/generateur-bail/" },
+    heroCta: { text: "Générer mon bail meublé 60/40", link: "/ressources/generateur-bail/" },
     sections: [
       {
         paragraphs: [
@@ -2546,7 +2546,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "comparatif-bureau-a-domicile-statut": {
-    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
     sections: [
       {
         paragraphs: [
@@ -2687,7 +2687,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "combinaison-bureau-a-domicile": {
-    heroCta: { text: "Calculer ma part professionnelle — première étape →", link: "/ressources/calculateur-bureau/" },
+    heroCta: { text: "Calculer ma part professionnelle — première étape", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
@@ -2757,7 +2757,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "requalification-loyer-remuneration": {
-    heroCta: { text: "Faire le diagnostic de ma situation →", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
     sections: [
       {
         paragraphs: [
