@@ -338,7 +338,8 @@ export default function BlogArticle() {
                   to={article.pillarPage}
                   className="inline-flex items-center gap-2 text-accent font-semibold text-[15px] hover:underline font-body"
                 >
-                  {ctaLabel} <ArrowRight size={16} />
+                  {ctaLabel}
+                  {!ctaLabel.endsWith("→") && <ArrowRight size={16} />}
                 </Link>
               </div>
             )}
