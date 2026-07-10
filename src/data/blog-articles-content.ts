@@ -2379,10 +2379,10 @@ export const articleContent: Record<string, ArticleBody> = {
       { question: "Mon conjoint travaille aussi depuis la maison. Peut-on cumuler nos part professionnelles ?", answer: "Chaque pièce ne peut être comptabilisée qu'une seule fois. Si votre conjoint exerce une activité distincte, il peut calculer sa propre part professionnelle — mais sans chevaucher les espaces déjà comptabilisés dans votre part professionnelle personnelle." },
       { question: "Y a-t-il un minimum de surface pour prétendre à la déduction ?", answer: "Aucun minimum légal. Ce qui compte : la réalité et la régularité de l'usage professionnel. Un bureau de 6 m² utilisé quotidiennement est plus défendable qu'un salon de 30 m² utilisé une fois par semaine pour un email." },
     ],
-    ctaText: "Calculer ma part professionnelle",
-    ctaDescription: "Résultat en 2 minutes avec pièces mixtes incluses. Rapport PDF documenté.",
-    ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle avec pièces mixtes",
+    ctaText: "Une pièce mixte, ça ne se calcule pas au hasard",
+    ctaDescription: "Votre estimation, vérifiée par un expert avant de la déclarer.",
+    ctaLink: "/contact/",
+    ctaLabel: "Parler à un expert",
   },
 
   "locataire-societe-sous-location-loyer": {
@@ -2482,7 +2482,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Part meubles (40 %) : revenu mobilier divers — imposé à ~7,5 % effectif (base 50 % × précompte mobilier libératoire 15 %)",
           "Côté société : elle déduit l'intégralité du loyer (immeuble + meubles) comme charge professionnelle déductible",
         ],
-        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
       },
       {
         heading: "Exemple chiffré : l'impact du bail meublé",
@@ -2530,7 +2529,6 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "stratégie de combinaison optimale", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
         ],
-        ctaInline: { text: "Générer mon bail meublé", link: "/ressources/generateur-bail/" },
       },
     ],
     faq: [
@@ -2541,7 +2539,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Générer mon bail meublé",
     ctaDescription: "Bail meublé 60/40 conforme au contexte belge. PDF généré en 6 étapes.",
     ctaLink: "/ressources/generateur-bail/",
-    ctaLabel: "Générer mon bail meublé 60/40",
+    ctaLabel: "Générer mon bail meublé →",
   },
 
   "comparatif-bureau-a-domicile-statut": {
