@@ -2359,6 +2359,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
         ],
+        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Comment documenter une pièce mixte ?",
