@@ -610,7 +610,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-05-20",
     seoTitle: "Fin de la déduction des intérêts immobiliers — Réforme 2026",
     metaDescription: "Dès 2026, fin de la déduction des intérêts d'emprunt sur l'immobilier secondaire en Belgique. Impact, autres mesures et stratégies pour dirigeants.",
-    pillarPage: "/services/fiscalite/",
   },
 ];
 
