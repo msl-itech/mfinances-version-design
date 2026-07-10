@@ -2680,10 +2680,10 @@ export const articleContent: Record<string, ArticleBody> = {
       { question: "Si je commets une erreur de bonne foi, quelle est la sanction ?", answer: "Erreur de bonne foi sans intention frauduleuse : redressement + intérêts de retard (actuellement 4 %/an). L'amende administrative est réduite ou supprimée si la bonne foi est démontrée. Déclarer spontanément une erreur passée est fortement conseillé." },
       { question: "Est-ce que télécharger la checklist m'expose davantage à un contrôle ?", answer: "Non. La checklist est un outil de mise en conformité. Se documenter sur ses droits et obligations ne constitue aucun signal pour l'administration fiscale. Au contraire, avoir ses dossiers en ordre est la meilleure protection en cas de contrôle." },
     ],
-    ctaText: "Télécharger la Checklist de contrôle de bureau",
+    ctaText: "Checklist de contrôle de bureau",
     ctaDescription: "5 points à vérifier avant chaque exercice. PDF gratuit et immédiat.",
     ctaLink: "/ressources/checklist-controle-bureau/",
-    ctaLabel: "Télécharger la Checklist de contrôle de bureau →",
+    ctaLabel: "Checklist de contrôle de bureau →",
   },
 
   "combinaison-bureau-a-domicile": {
