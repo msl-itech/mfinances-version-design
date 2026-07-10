@@ -374,7 +374,10 @@ export default function BlogArticle() {
                   {content.ctaDescription || "Premier échange gratuit : nous analysons votre situation."}
                 </p>
                 <Button variant="accent" className="rounded-full" asChild>
-                  <Link to={ctaLink}>{ctaLabel} <ArrowRight size={16} className="ml-1" /></Link>
+                  <Link to={ctaLink}>
+                    {ctaLabel}
+                    {!ctaLabel.endsWith("→") && <ArrowRight size={16} className="ml-1" />}
+                  </Link>
                 </Button>
               </div>
             </div>
