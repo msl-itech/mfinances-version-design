@@ -45,11 +45,11 @@ const homeVersions = [
 ];
 
 const outilsLinks = [
-  { label: "Frais Défendables", href: "/frais-defendables/", icon: Calculator, description: "Vérifiez la déductibilité de 30 charges" },
-  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/", icon: Home, description: "Calculez votre part professionnelle" },
-  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/", icon: FileText, description: "Bail meublé 60/40 en quelques clics" },
-  { label: "Checklist trésorerie", href: "/checklist-tresorerie/", icon: ClipboardCheck, description: "Anticipez les risques de trésorerie" },
-  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/", icon: CheckSquare, description: "Préparez votre contrôle fiscal" },
+  { label: "Frais Défendables", href: "/frais-defendables/", icon: Calculator, description: "30 charges testées" },
+  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/", icon: Home, description: "Part professionnelle calculée" },
+  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/", icon: FileText, description: "Bail 60/40 clé en main" },
+  { label: "Checklist trésorerie", href: "/checklist-tresorerie/", icon: ClipboardCheck, description: "Risques anticipés" },
+  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/", icon: CheckSquare, description: "Contrôle fiscal préparé" },
 ];
 
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
