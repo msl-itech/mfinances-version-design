@@ -2359,7 +2359,6 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "erreurs à éviter lors d'un contrôle", link: "/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" },
         ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       {
         heading: "Comment documenter une pièce mixte ?",
@@ -2700,7 +2699,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La sous-location crée un loyer déductible pour la société, moins imposé que la rémunération",
           "Le bail meublé ajoute un revenu mobilier taxé à ~7,5 % effectif — le niveau le plus favorable",
         ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
       { heading: "La stratégie en 4 étapes", paragraphs: [] },
       {
@@ -2740,17 +2738,16 @@ export const articleContent: Record<string, ArticleBody> = {
           "Total charge IPP : ≈ 847 €",
           "Économie ISOC : 4 416 € × 25 % = 1 104 €",
         ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
       },
     ],
     faq: [
       { question: "Faut-il être comptable pour mettre en place cette stratégie ?", answer: "Les outils (calculateur + générateur de bail) vous permettent de calculer et de documenter votre situation. Mais pour la mise en place complète — choix du montant du loyer, vérification du plafond légal, coordination des déclarations IPP et ISOC — l'accompagnement d'un expert-comptable est fortement recommandé. C'est ce que MFinances propose dans ses forfaits de pilotage financier." },
       { question: "Cette stratégie est-elle réservée aux grandes structures ?", answer: "Non. Elle est pertinente dès que vous avez un espace de travail à domicile et une société, quelle que soit sa taille. Même pour une micro-société à 100 000 € de CA, l'économie annuelle peut dépasser 1 000 € — ce qui couvre largement le coût d'un accompagnement comptable annuel." },
     ],
-    ctaText: "Calculer ma part professionnelle — première étape",
-    ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Gratuit.",
-    ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle — première étape",
+    ctaText: "Envie de mettre en place cette stratégie sans risque ?",
+    ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
+    ctaLink: "/contact/",
+    ctaLabel: "Parler à un expert",
   },
 
   "requalification-loyer-remuneration": {
