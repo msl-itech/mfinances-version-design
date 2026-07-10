@@ -2846,7 +2846,6 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Paiement mensuel par virement tracé avec référence claire. Déclaration du loyer dans votre IPP (revenus immobiliers pour la part immeuble, revenus mobiliers pour la part meubles). Cohérence assurée entre la déclaration ISOC de votre société et votre IPP personnel.",
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
     ],
     faq: [
