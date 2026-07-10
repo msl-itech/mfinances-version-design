@@ -209,15 +209,12 @@ export default function Header() {
                         <Link
                           key={link.label}
                           to={link.href}
-                          className="group flex items-start gap-3 p-3 rounded-xl transition-all hover:bg-muted"
+                          className="group flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-muted"
                         >
                           <div className="shrink-0 w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                             <Icon size={18} strokeWidth={1.5} />
                           </div>
-                          <div>
-                            <div className="text-[13px] font-semibold text-foreground leading-snug">{link.label}</div>
-                            <div className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{link.description}</div>
-                          </div>
+                          <span className="text-[13px] font-semibold text-foreground leading-snug">{link.label}</span>
                         </Link>
                       );
                     })}
