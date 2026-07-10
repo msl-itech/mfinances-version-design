@@ -172,31 +172,56 @@ export default function Header() {
             </Link>
 
             <DropdownWrapper label="Diagnostic & Outils" href="/diagnostic/">
-              <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
-                <div>
-                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
-                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Diagnostic</span>
-                  </div>
-                  <Link
-                    to="/diagnostic/"
-                    className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
-                  >
-                    Diagnostic gratuit
-                  </Link>
-                </div>
-                <div>
-                  <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
-                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Outils</span>
-                  </div>
-                  {outilsLinks.map((link) => (
+              <div className="flex min-w-[640px] rounded-2xl overflow-hidden bg-white shadow-[0_8px_40px_rgba(27,43,94,0.14)] border border-border/50">
+                {/* Left — Diagnostic featured */}
+                <div className="w-[260px] bg-primary p-6 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
+                  <div className="relative z-10">
+                    <span className="inline-block px-3 py-1 bg-primary-foreground/10 rounded-full text-[10px] font-bold tracking-wider uppercase mb-4">
+                      Diagnostic
+                    </span>
+                    <h3 className="font-display text-[22px] leading-tight mb-3">
+                      Suis-je en danger
+                      <br />sans le savoir ?
+                    </h3>
+                    <p className="text-primary-foreground/80 text-[13px] leading-relaxed mb-6">
+                      8 questions ciblées pour identifier vos fragilités financières en 3 minutes.
+                    </p>
                     <Link
-                      key={link.label}
-                      to={link.href}
-                      className="block px-4 py-2.5 rounded-lg text-[14px] text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                      to="/diagnostic/"
+                      className="group inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-full font-semibold text-[13px] transition-all hover:bg-accent/90"
                     >
-                      {link.label}
+                      Lancer le diagnostic
+                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                     </Link>
-                  ))}
+                  </div>
+                </div>
+
+                {/* Right — Outils grid */}
+                <div className="flex-1 p-6 bg-background">
+                  <div className="flex items-center justify-between mb-5">
+                    <h4 className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Outils & Ressources</h4>
+                    <span className="text-[11px] text-foreground/40">5 outils disponibles</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {outilsLinks.map((link) => {
+                      const Icon = link.icon;
+                      return (
+                        <Link
+                          key={link.label}
+                          to={link.href}
+                          className="group flex items-start gap-3 p-3 rounded-xl transition-all hover:bg-muted"
+                        >
+                          <div className="shrink-0 w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                            <Icon size={18} strokeWidth={1.5} />
+                          </div>
+                          <div>
+                            <div className="text-[13px] font-semibold text-foreground leading-snug">{link.label}</div>
+                            <div className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{link.description}</div>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </DropdownWrapper>
