@@ -516,7 +516,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-11",
     seoTitle: "Calcul bureau à domicile Belgique 2026 — Méthode et exemples chiffrés",
     metaDescription: "Comment calculer la déduction bureau à domicile en Belgique ? Méthode surfaces pondérées, exemple chiffré et rapport PDF gratuit. Cabinet MFinances Uccle.",
-    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
   {
     slug: "piece-usage-mixte-bureau",
