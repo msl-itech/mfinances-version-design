@@ -2844,7 +2844,7 @@ export const articleContent: Record<string, ArticleBody> = {
       { question: "Le bail meublé modifie-t-il le calcul du plafond de requalification ?", answer: "Oui, avantageusement. Le plafond s'applique à la part immeuble du loyer. La part meubles est traitée séparément comme revenu mobilier divers — elle n'entre pas dans le calcul de la requalification. C'est l'un des avantages structurels du bail meublé : il permet d'allouer une partie du loyer total hors du plafond RC." },
       { question: "Mon loyer actuel dépasse le plafond légal. Que faire ?", answer: "Si aucun contrôle n'est en cours, une régularisation volontaire est possible : réduisez le loyer au niveau du plafond pour les exercices futurs et discutez avec votre expert-comptable des options pour les exercices passés. MFinances réalise ce type d'audit de mise en conformité dans le cadre d'un diagnostic financier — sans jugement, avec un plan d'action concret." },
     ],
-    ctaText: "TEST DEBUG",
+    ctaText: "Envie de mettre en place cette stratégie sans risque ?",
     ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
     ctaLink: "/contact",
     ctaLabel: "Calculer ma part professionnelle",
