@@ -2372,7 +2372,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Factures d'achat du mobilier professionnel installé dans l'espace",
           "Contrats ou factures clients mentionnant des réunions tenues à votre domicile",
         ],
-        ],
+      },
     ],
     faq: [
       { question: "Puis-je déduire le même espace à la fois dans mon IPP et dans ma société ?", answer: "Non. Une même dépense ne peut pas être déduite deux fois. Si votre société vous rembourse les frais de bureau via un bail de sous-location, vous ne pouvez pas déduire les mêmes charges dans votre déclaration personnelle. Choisissez le mécanisme le plus avantageux selon votre situation globale." },
