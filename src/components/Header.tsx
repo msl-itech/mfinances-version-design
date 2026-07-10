@@ -1,6 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Phone,
+  ArrowRight,
+  Calculator,
+  Home,
+  FileText,
+  ClipboardCheck,
+  CheckSquare,
+} from "lucide-react";
 
 import logoSquare from "@/assets/logo-square.webp";
 
@@ -34,11 +45,11 @@ const homeVersions = [
 ];
 
 const outilsLinks = [
-  { label: "Frais Défendables", href: "/frais-defendables/" },
-  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/" },
-  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
-  { label: "Checklist trésorerie", href: "/checklist-tresorerie/" },
-  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
+  { label: "Frais Défendables", href: "/frais-defendables/", icon: Calculator, description: "Vérifiez la déductibilité de 30 charges" },
+  { label: "Calculateur bureau à domicile", href: "/ressources/calculateur-bureau/", icon: Home, description: "Calculez votre part professionnelle" },
+  { label: "Générateur de bail pro", href: "/ressources/generateur-bail/", icon: FileText, description: "Bail meublé 60/40 en quelques clics" },
+  { label: "Checklist trésorerie", href: "/checklist-tresorerie/", icon: ClipboardCheck, description: "Anticipez les risques de trésorerie" },
+  { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/", icon: CheckSquare, description: "Préparez votre contrôle fiscal" },
 ];
 
 function DropdownWrapper({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
