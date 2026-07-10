@@ -2802,7 +2802,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Fraction louée (bureau = 20 % du bien) : 4 368 × 20 % = 874 €/an",
           "Plafond légal : 874 × 5/3 = 1 457 €/an → 121 €/mois",
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
       },
       {
         heading: "Les principales causes de requalification",
