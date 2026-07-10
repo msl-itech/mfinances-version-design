@@ -2722,7 +2722,6 @@ export const articleContent: Record<string, ArticleBody> = {
       {
         subheading: "Étape 4 — Documenter et déclarer",
         paragraphs: ["Paiement mensuel par virement bancaire. Déclaration du loyer dans votre IPP (revenus immobiliers + mobiliers). Coordination avec votre expert-comptable pour assurer la cohérence entre la déclaration ISOC de votre société et votre IPP."],
-        ],
       },
       {
         heading: "Exemple chiffré complet",
