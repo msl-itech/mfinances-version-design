@@ -9,6 +9,7 @@ const servicesLinks = [
   { label: "Comptabilité", href: "/services/comptabilite/" },
   { label: "Fiscalité", href: "/services/fiscalite/" },
   { label: "Création d'entreprise", href: "/services/creation-entreprise/" },
+  { label: "À propos", href: "/a-propos/" },
 ];
 
 const profilsLinks = [
@@ -28,7 +29,6 @@ const ressourcesLinks = [
   { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
   { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
   { label: "Support", href: "/support/" },
-  { label: "À propos", href: "/a-propos/" },
 ];
 
 const structuresLinks = [
