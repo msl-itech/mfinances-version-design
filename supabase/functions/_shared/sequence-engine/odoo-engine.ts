@@ -1,42 +1,61 @@
-// OdooEngine — stub prêt pour bascule. Envoie le lead à l'API Odoo
-// avec un tag `seq_A|B|C|D`. Les campagnes Odoo Marketing Automation
-// filtrent sur ces tags et gèrent J0..J+30 côté Odoo.
+// OdooEngine — envoie le lead à l'API api-connect-odoo avec un tag CRM
+// nommé `seq_diagnostic_tresorerie`, `seq_generateur_bail`, etc.
+// L'API résout le nom → ID Odoo (crée le tag s'il n'existe pas).
+// Les campagnes Marketing Automation filtrent sur ces tags côté Odoo.
 //
-// Non actif par défaut : requiert EMAIL_ENGINE=odoo et la création
-// des 4 campagnes côté Odoo avant activation.
+// Activation : EMAIL_ENGINE=odoo dans les secrets Supabase.
 
 import type { EmailEngine, EnrollInput, StopInput } from './types.ts'
 
-const ODOO_API_URL = 'https://api-connect-odoo.vercel.app/api'
+const ODOO_API_URL = Deno.env.get('ODOO_API_URL') ?? 'https://api-connect-odoo.vercel.app/api'
 const ODOO_HEADERS = {
   'Content-Type': 'application/json',
-  'x-signature': '746b22e105d43521fc87e9ebc40fa1f88524855a7b54a311c4c3a37bcfec886a',
-  'x-client-id': 'client_mfinances',
-  'x-company-id': '3',
+  'x-signature': Deno.env.get('ODOO_API_SIGNATURE') ?? '',
+  'x-client-id': Deno.env.get('ODOO_API_CLIENT_ID') ?? 'client_mfinances',
+  'x-company-id': Deno.env.get('ODOO_API_COMPANY_ID') ?? '3',
+}
+
+// Mapping code séquence → nom du tag CRM dans Odoo
+const SEQUENCE_TAG_NAMES: Record<string, string> = {
+  A: 'seq_diagnostic_tresorerie',
+  B: 'seq_generateur_bail',
+  C: 'seq_calculateur_bureau',
+  D: 'seq_checklist_fiscale',
 }
 
 export class OdooEngine implements EmailEngine {
   async enroll({ firstName, email, sequence, resultHtml }: EnrollInput) {
+    const tagName = SEQUENCE_TAG_NAMES[sequence]
+    if (!tagName) {
+      throw new Error(`Séquence inconnue: ${sequence}`)
+    }
+
     const res = await fetch(`${ODOO_API_URL}/leads`, {
       method: 'POST',
       headers: ODOO_HEADERS,
       body: JSON.stringify({
-        name: firstName,
+        name: `[Tunnel] ${firstName} — ${tagName}`,
+        first_name: firstName,
         email_from: email,
-        description: `[SEQ:${sequence}]\n${resultHtml ?? ''}`,
-        tags: [`seq_${sequence}`],
+        description: resultHtml
+          ? `<div><h3>Résultat outil</h3>${resultHtml}</div>`
+          : `[Tunnel de vente] Séquence ${sequence}`,
+        tag_names: [tagName],
       }),
     })
+
     if (!res.ok) {
-      throw new Error(`Odoo enroll failed: ${res.status} ${await res.text()}`)
+      const body = await res.text()
+      throw new Error(`Odoo enroll failed: ${res.status} ${body}`)
     }
+
     return { enrolled: true }
   }
 
   async stop({ email, reason }: StopInput) {
-    // À implémenter côté Odoo : POST /leads/mark_stopped avec { email, reason }.
-    // Placeholder tant que l'endpoint n'existe pas côté API Odoo.
-    console.log('OdooEngine.stop noop', { email, reason })
+    // Géré côté Odoo Marketing Automation via conditions d'arrêt.
+    // Pas d'action côté API pour l'instant.
+    console.log('[OdooEngine] stop — géré côté Odoo MA', { email, reason })
     return { stopped: 0 }
   }
 }
