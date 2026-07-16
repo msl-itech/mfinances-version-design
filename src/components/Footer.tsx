@@ -28,7 +28,7 @@ const ressourcesLinks = [
   { label: "Générateur de bail pro", href: "/ressources/generateur-bail/" },
   { label: "Checklist contrôle bureau", href: "/ressources/checklist-controle-bureau/" },
   { label: "Support", href: "/support/" },
-  { label: "Pourquoi MFinances", href: "/a-propos/" },
+  { label: "À propos", href: "/a-propos/" },
 ];
 
 const structuresLinks = [
