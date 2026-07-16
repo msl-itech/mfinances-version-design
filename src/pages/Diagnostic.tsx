@@ -200,13 +200,8 @@ export default function Diagnostic() {
     }
 
     setTimeout(() => {
-      if (step < 7) {
-        setStep(step + 1);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        setStep(8);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
+      setStep(step + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, 300);
   };
 
@@ -275,6 +270,8 @@ export default function Diagnostic() {
     });
 
     setEmailSubmitted(true);
+    setStep(9);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const getResultConfig = () => {
@@ -552,8 +549,55 @@ export default function Diagnostic() {
               </div>
             )}
 
+            {/* ── STEP 8 — EMAIL CAPTURE ── */}
+            {step === 8 && (
+              <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 sm:mb-6">
+                  <CheckCircle2 size={26} className="text-primary" />
+                </div>
+                <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2 text-center">
+                  Recevez votre analyse complète par email
+                </h2>
+                <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-6 sm:mb-8 text-center max-w-[480px] mx-auto">
+                  Avec nos recommandations personnalisées selon votre profil.
+                </p>
+                <form onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto">
+                  <input
+                    type="text"
+                    placeholder="Prénom"
+                    required
+                    value={emailForm.prenom}
+                    onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email professionnel"
+                    required
+                    value={emailForm.email}
+                    onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                  <div className="flex justify-center">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={RECAPTCHA_SITE_KEY}
+                      onChange={(token) => setRecaptchaToken(token)}
+                      onExpired={() => setRecaptchaToken(null)}
+                    />
+                  </div>
+                  <Button variant="accent" className="rounded-full w-full" type="submit" disabled={!recaptchaToken}>
+                    Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
+                  </Button>
+                </form>
+                <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center max-w-[400px] mx-auto">
+                  En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
+                </p>
+              </div>
+            )}
+
             {/* ── RESULTS ── */}
-            {step === 8 && (() => {
+            {step === 9 && (() => {
               const r = getResultConfig();
               const scoredQuestions = questions.slice(3);
               const scoredAnswers = answers.slice(3);
@@ -712,63 +756,7 @@ export default function Diagnostic() {
                     </div>
                   </div>
 
-                  {/* ── 6. Email capture ── */}
-                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
-                    {!emailSubmitted ? (
-                      <>
-                        <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-1">
-                          Recevez votre analyse complète par email
-                        </h3>
-                        <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
-                          Avec nos recommandations personnalisées selon votre profil.
-                        </p>
-                        <form onSubmit={handleEmailSubmit} className="space-y-3">
-                          <div className="flex flex-col sm:flex-row gap-3">
-                          <input
-                            type="text"
-                            placeholder="Prénom"
-                            required
-                            value={emailForm.prenom}
-                            onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
-                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
-                          />
-                          <input
-                            type="email"
-                            placeholder="Email professionnel"
-                            required
-                            value={emailForm.email}
-                            onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                            className="flex-1 px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary min-w-0"
-                          />
-                          </div>
-                          <div className="flex justify-center">
-                            <ReCAPTCHA
-                              ref={recaptchaRef}
-                              sitekey={RECAPTCHA_SITE_KEY}
-                              onChange={(token) => setRecaptchaToken(token)}
-                              onExpired={() => setRecaptchaToken(null)}
-                            />
-                          </div>
-                          <Button variant="accent" className="rounded-full px-6 whitespace-nowrap w-full sm:w-auto" type="submit" disabled={!recaptchaToken}>
-                            Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                          </Button>
-                        </form>
-                        <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
-                          En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
-                        </p>
-                      </>
-                    ) : (
-                      <div className="text-center py-4">
-                        <CheckCircle2 size={32} className="text-[hsl(145,63%,42%)] mx-auto mb-3" />
-                        <h3 className="font-display text-[20px] text-foreground mb-1">Merci {emailForm.prenom} !</h3>
-                        <p className="text-[14px] text-muted-foreground font-body">
-                          Votre analyse complète arrivera dans votre boîte mail très bientôt.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* ── 7. Recommencer ── */}
+                  {/* ── 6. Recommencer ── */}
                   <div className="text-center">
                     <button
                       onClick={() => { setStep(-1); setAnswers(Array(8).fill(null)); setEmailSubmitted(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}

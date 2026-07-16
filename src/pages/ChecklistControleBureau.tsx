@@ -214,16 +214,38 @@ export default function ChecklistControleBureau() {
           </div>
         </section>
 
-        {/* ── SECTION 5 — FORMULAIRE ── */}
+        {/* ── SECTION 5 — POUR QUI ── */}
+        <section className="bg-card py-14 md:py-10">
+          <div className="mx-auto max-w-[720px] px-6 lg:px-12">
+            <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
+              Pour qui est cette checklist ?
+            </h2>
+            <p className="text-[15px] text-muted-foreground font-body leading-relaxed mb-8">
+              Cette checklist est utile si vous êtes dans l'une de ces situations :
+            </p>
+            <div className="space-y-4">
+              {pourQui.map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Users size={13} className="text-accent" />
+                  </div>
+                  <p className="text-[15px] text-foreground font-body leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 6 — FORMULAIRE ── */}
         <section id="formulaire" className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[480px] px-6">
             <div className="bg-card rounded-2xl p-7 md:p-10 border border-border/50 shadow-lg">
               <div className="text-center mb-6">
                 <h2 className="font-display text-[22px] md:text-[26px] text-foreground mb-2">
-                  Recevez votre checklist gratuitement
+                  Savez-vous ce que le fisc regarde en premier ?
                 </h2>
                 <p className="text-[14px] text-muted-foreground font-body">
-                  Téléchargement immédiat après votre inscription.
+                  Cette checklist vous montre les 10 points exacts qu'un contrôleur vérifie — et les preuves à avoir sous la main.
                 </p>
               </div>
 
@@ -267,7 +289,7 @@ export default function ChecklistControleBureau() {
                     </>
                   ) : (
                     <>
-                      Recevoir ma checklist
+                      Télécharger la checklist
                       <ArrowRight size={16} className="ml-1.5" />
                     </>
                   )}
@@ -275,38 +297,8 @@ export default function ChecklistControleBureau() {
               </form>
 
               <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
-                Votre email ne sera jamais partagé ni vendu. Désinscription en un clic.
+                Vos données sont confidentielles. Aucune revente.
               </p>
-              <div className="text-center mt-3">
-                <Link
-                  to="/diagnostic/"
-                  className="text-[12px] text-primary font-body underline underline-offset-2 hover:text-accent transition-colors"
-                >
-                  Faire le diagnostic de ma situation →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── SECTION 6 — POUR QUI ── */}
-        <section className="bg-card py-14 md:py-10">
-          <div className="mx-auto max-w-[720px] px-6 lg:px-12">
-            <h2 className="font-display text-[22px] md:text-[30px] text-foreground mb-3">
-              Pour qui est cette checklist ?
-            </h2>
-            <p className="text-[15px] text-muted-foreground font-body leading-relaxed mb-8">
-              Cette checklist est utile si vous êtes dans l'une de ces situations :
-            </p>
-            <div className="space-y-4">
-              {pourQui.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Users size={13} className="text-accent" />
-                  </div>
-                  <p className="text-[15px] text-foreground font-body leading-relaxed">{item}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -315,15 +307,15 @@ export default function ChecklistControleBureau() {
         <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[640px] px-6 lg:px-12 text-center">
             <h2 className="font-display text-[22px] md:text-[30px] text-primary-foreground mb-4">
-              Un point de votre checklist vous préoccupe ?
+              Un doute sur un point de la checklist ?
             </h2>
             <p className="text-primary-foreground/70 text-[15px] font-body leading-relaxed mb-3 max-w-[520px] mx-auto">
-              20 minutes avec Mika suffisent à valider votre situation exacte. Premier échange gratuit, confidentiel, sans engagement.
+              Un redressement fiscal sur un bureau à domicile peut dépasser 5 000 €. 20 minutes avec un expert suffisent à vérifier que votre dossier tient la route.
             </p>
             <div className="flex flex-col items-center gap-4 mt-8">
               <Button variant="accent" size="lg" className="rounded-full group" asChild>
-                <Link to="/diagnostic/">
-                  Faire le diagnostic de ma situation
+                <Link to="/contact/">
+                  Vérifier ma situation avec un expert
                   <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>

@@ -212,7 +212,7 @@ export default function CalculateurQuotite() {
   /* ── Progress bar (mobile) ── */
   const progressBar = (
     <div className="flex gap-1 mb-5">
-      {[1, 2, 3, 4].map((s) => (
+      {[1, 2, 3].map((s) => (
         <div
           key={s}
           className={`flex-1 h-1 rounded-full ${
@@ -227,7 +227,7 @@ export default function CalculateurQuotite() {
     <div className="bg-secondary py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-12">
       {/* ── Stepper (desktop) ── */}
       <div className="hidden sm:flex items-center max-w-[720px] mx-auto mb-8">
-        {[1, 2, 3, 4].map((s, i) => (
+        {[1, 2, 3].map((s, i) => (
           <div key={s} className="flex items-center flex-1 last:flex-none">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
@@ -240,7 +240,7 @@ export default function CalculateurQuotite() {
             >
               {s < step ? <Check size={14} /> : s}
             </div>
-            {i < 3 && (
+            {i < 2 && (
               <div className={`flex-1 h-0.5 mx-1 ${s < step ? "bg-green-700" : "bg-border"}`} />
             )}
           </div>
@@ -461,200 +461,186 @@ export default function CalculateurQuotite() {
         </div>
       )}
 
-      {/* ══════════ STEP 3 ══════════ */}
+      {/* ══════════ STEP 3 — Résultats + Email capture ══════════ */}
       {step === 3 && (
-        <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
-          <div className="mb-5">
-            <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 3 / 4
-            </span>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">3</div>
-              <div>
-                <div className="text-[11px] text-muted-foreground">Votre rapport</div>
-                <div className="text-[16px] font-semibold text-foreground">Recevoir votre rapport PDF</div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-[720px] mx-auto space-y-5">
 
-          {progressBar}
-
-          <div className="bg-blue-50 border-l-[3px] border-blue-700 rounded-r-lg p-3 text-[12px] text-blue-800 leading-relaxed mb-5">
-            <Info size={14} className="inline mr-1.5 -mt-0.5" />
-            Votre rapport PDF personnalisé sera envoyé à votre adresse email dans les 2 minutes. 100 % confidentiel — aucune revente de données.
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-              <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
-            </div>
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
-              <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} placeholder="+32 …" className="mt-1 h-9 text-[13px]" />
-            </div>
-            <div className="md:col-span-2">
-              <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
-              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
-            </div>
-          </div>
-
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            {[
-              { value: "dirigeant", label: "Dirigeant(e) de société" },
-              { value: "independant", label: "Indépendant(e)" },
-              { value: "les-deux", label: "Les deux" },
-              { value: "liberal", label: "Profession libérale" },
-            ].map((opt) => (
-              <button
-                key={opt.value}
-                type="button"
-                onClick={() => setStatut(opt.value)}
-                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                  statut === opt.value
-                    ? "border-primary bg-primary/10 text-foreground"
-                    : "border-border bg-card text-foreground hover:border-primary/40"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            {[
-              { value: "locataire", label: "Locataire" },
-              { value: "proprietaire", label: "Propriétaire" },
-            ].map((opt) => (
-              <button
-                key={opt.value}
-                type="button"
-                onClick={() => setLogement(opt.value)}
-                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                  logement === opt.value
-                    ? "border-primary bg-primary/10 text-foreground"
-                    : "border-border bg-card text-foreground hover:border-primary/40"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-
-          <p className="text-[10px] text-muted-foreground text-center leading-relaxed my-3">
-            Vos données sont confidentielles. Vous recevrez uniquement votre rapport et des conseils MFinances. Aucune revente.
-          </p>
-
-          <div className="flex justify-between items-center mt-5">
-            <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-              <ArrowLeft size={14} /> Retour
-            </button>
-            <Button
-              onClick={() => setStep(4)}
-              disabled={!prenom.trim() || !email.trim()}
-              variant="accent"
-              className="rounded-lg"
-            >
-              Voir mes résultats <ArrowRight size={16} className="ml-1" />
-            </Button>
-          </div>
-        </div>
-      )}
-
-      {/* ══════════ STEP 4 ══════════ */}
-      {step === 4 && (
-        <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
-          <div className="mb-5">
-            <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 mb-2.5">
-              ✓ Calcul terminé
-            </span>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-[13px] font-semibold flex-shrink-0">
-                <Check size={16} />
-              </div>
-              <div>
-                <div className="text-[11px] text-muted-foreground">Calcul terminé</div>
-                <div className="text-[16px] font-semibold text-foreground">Votre part professionnelle professionnelle</div>
-              </div>
-            </div>
-          </div>
-
-          {progressBar}
-
-          {/* Grand résultat */}
-          <div className="bg-primary rounded-xl p-5 sm:p-7 text-center mb-5">
-            <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle professionnelle calculée</div>
-            <div className="font-display text-[48px] sm:text-[64px] font-light text-primary-foreground leading-none">
-              {fmtDec(quotite)}<sup className="text-[22px] sm:text-[28px] align-super">%</sup>
-            </div>
-            <div className="text-[12px] sm:text-[13px] text-muted-foreground/70 mt-2">
-              {fmtDec(surfacePro)} m² pro / {fmtDec(surfaceTotal)} m² totaux
-            </div>
-          </div>
-
-          {/* Déductions */}
-          <div className="grid grid-cols-2 gap-2.5 mb-4">
-            <div className="bg-secondary border border-border rounded-xl p-3.5">
-              <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / an</div>
-              <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionAnnuelle))} €</div>
-              <div className="text-[10px] text-muted-foreground mt-1">Sur la base de vos charges</div>
-            </div>
-            <div className="bg-secondary border border-border rounded-xl p-3.5">
-              <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / mois</div>
-              <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionMensuelle))} €</div>
-              <div className="text-[10px] text-muted-foreground mt-1">Moyenne mensuelle</div>
-            </div>
-          </div>
-
-          {/* Simulateur par poste */}
-          {chargesDetails.length > 0 && (
-            <div className="bg-secondary border border-border rounded-xl p-3.5 mb-4">
-              <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-2.5">
-                Simulateur par poste de charge
-              </div>
-              {chargesDetails.map((d, i) => (
-                <div key={i} className="flex justify-between py-1.5 text-[12px] border-b border-border/50 last:border-0 last:font-bold last:text-[13px] last:text-primary last:pt-2">
-                  <span className="text-muted-foreground">{d.label}</span>
-                  <span className="font-semibold text-foreground">→ {fmt(Math.round(d.deduit))} € déduits</span>
+          {/* ── Résultats ── */}
+          <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 shadow-sm">
+            <div className="mb-5">
+              <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 mb-2.5">
+                ✓ Calcul terminé
+              </span>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-[13px] font-semibold flex-shrink-0">
+                  <Check size={16} />
                 </div>
-              ))}
-              <div className="flex justify-between pt-2 text-[13px] font-bold text-primary border-t border-border mt-1">
-                <span>Total déductible / an</span>
-                <span className="text-accent">{fmt(Math.round(deductionAnnuelle))} €</span>
+                <div>
+                  <div className="text-[11px] text-muted-foreground">Calcul terminé</div>
+                  <div className="text-[16px] font-semibold text-foreground">Votre part professionnelle</div>
+                </div>
               </div>
             </div>
-          )}
 
-          {/* CTAs */}
-          <div className="mt-5 space-y-2">
-            {sent ? (
-              <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
-                <div className="text-[14px] font-bold text-green-800">✓ Rapport envoyé à {email}</div>
-                <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
+            {progressBar}
+
+            {/* Grand résultat */}
+            <div className="bg-primary rounded-xl p-5 sm:p-7 text-center mb-5">
+              <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
+              <div className="font-display text-[48px] sm:text-[64px] font-light text-primary-foreground leading-none">
+                {fmtDec(quotite)}<sup className="text-[22px] sm:text-[28px] align-super">%</sup>
               </div>
-            ) : (
-              <Button
-                onClick={handleSubmit}
-                disabled={sending}
-                variant="accent"
-                className="w-full rounded-lg"
-              >
-                {sending ? "Envoi en cours…" : "Recevoir mon rapport PDF par email →"}
-              </Button>
+              <div className="text-[12px] sm:text-[13px] text-muted-foreground/70 mt-2">
+                {fmtDec(surfacePro)} m² pro / {fmtDec(surfaceTotal)} m² totaux
+              </div>
+            </div>
+
+            {/* Déductions */}
+            <div className="grid grid-cols-2 gap-2.5 mb-4">
+              <div className="bg-secondary border border-border rounded-xl p-3.5">
+                <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / an</div>
+                <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionAnnuelle))} €</div>
+                <div className="text-[10px] text-muted-foreground mt-1">Sur la base de vos charges</div>
+              </div>
+              <div className="bg-secondary border border-border rounded-xl p-3.5">
+                <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / mois</div>
+                <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionMensuelle))} €</div>
+                <div className="text-[10px] text-muted-foreground mt-1">Moyenne mensuelle</div>
+              </div>
+            </div>
+
+            {/* Simulateur par poste */}
+            {chargesDetails.length > 0 && (
+              <div className="bg-secondary border border-border rounded-xl p-3.5 mb-4">
+                <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-2.5">
+                  Simulateur par poste de charge
+                </div>
+                {chargesDetails.map((d, i) => (
+                  <div key={i} className="flex justify-between py-1.5 text-[12px] border-b border-border/50 last:border-0 last:font-bold last:text-[13px] last:text-primary last:pt-2">
+                    <span className="text-muted-foreground">{d.label}</span>
+                    <span className="font-semibold text-foreground">→ {fmt(Math.round(d.deduit))} € déduits</span>
+                  </div>
+                ))}
+                <div className="flex justify-between pt-2 text-[13px] font-bold text-primary border-t border-border mt-1">
+                  <span>Total déductible / an</span>
+                  <span className="text-accent">{fmt(Math.round(deductionAnnuelle))} €</span>
+                </div>
+              </div>
             )}
-            <Button variant="outline" className="w-full rounded-lg border-2 border-primary" asChild>
-              <Link to="/diagnostic/">Faire le diagnostic de ma situation <ArrowRight size={16} className="ml-1" /></Link>
-            </Button>
-            <Link to="/contact/" className="block text-center text-[12px] text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors">
-              Parler directement à Mika →
-            </Link>
+
+            <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-4">
+              Ce résultat est une estimation. Il ne remplace pas une analyse personnalisée par un expert-comptable agréé. MFinances · ITAA n°50.624.805
+            </p>
           </div>
 
-          <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-4">
-            Ce résultat est une estimation. Il ne remplace pas une analyse personnalisée par un expert-comptable agréé. MFinances · ITAA n°50.624.805
-          </p>
+          {/* ── Douleur ── */}
+          <div className="bg-amber-50 border-2 border-amber-200 rounded-xl sm:rounded-2xl p-5 sm:p-7 text-center">
+            <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-2">
+              Ce montant, vous le perdez peut-être chaque année
+            </h3>
+            <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body max-w-[480px] mx-auto">
+              Sans justificatifs solides, l'administration peut requalifier vos déductions lors d'un contrôle. Et sans analyse complète, d'autres frais déductibles passent probablement inaperçus.
+            </p>
+          </div>
+
+          {/* ── Email capture ── */}
+          <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-7 shadow-sm">
+            {!sent ? (
+              <>
+                <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-1">
+                  Recevez votre rapport détaillé par email
+                </h3>
+                <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
+                  Avec le détail par poste de charge et les points à vérifier avant votre prochaine déclaration.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                  <div>
+                    <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                    <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
+                  </div>
+                  <div>
+                    <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
+                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
+                  </div>
+                </div>
+
+                <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {[
+                    { value: "dirigeant", label: "Dirigeant(e) de société" },
+                    { value: "independant", label: "Indépendant(e)" },
+                    { value: "les-deux", label: "Les deux" },
+                    { value: "liberal", label: "Profession libérale" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => setStatut(opt.value)}
+                      className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                        statut === opt.value
+                          ? "border-primary bg-primary/10 text-foreground"
+                          : "border-border bg-card text-foreground hover:border-primary/40"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+
+                <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {[
+                    { value: "locataire", label: "Locataire" },
+                    { value: "proprietaire", label: "Propriétaire" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => setLogement(opt.value)}
+                      className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                        logement === opt.value
+                          ? "border-primary bg-primary/10 text-foreground"
+                          : "border-border bg-card text-foreground hover:border-primary/40"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+
+                <Button
+                  onClick={handleSubmit}
+                  disabled={sending || !prenom.trim() || !email.trim()}
+                  variant="accent"
+                  className="w-full rounded-lg"
+                >
+                  {sending ? "Envoi en cours…" : "Recevoir mon rapport PDF par email"}
+                </Button>
+                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
+                  Vos données sont confidentielles. Aucune revente.
+                </p>
+              </>
+            ) : (
+              <div className="text-center py-4">
+                <Check size={32} className="text-green-700 mx-auto mb-3" />
+                <h3 className="font-display text-[20px] text-foreground mb-1">Rapport envoyé à {email}</h3>
+                <p className="text-[14px] text-muted-foreground font-body">
+                  Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* ── Refaire ── */}
+          <div className="text-center">
+            <button
+              onClick={() => { setStep(1); setSent(false); }}
+              className="text-[13px] text-muted-foreground hover:text-foreground underline underline-offset-4 font-body transition-colors"
+            >
+              Refaire le calcul
+            </button>
+          </div>
         </div>
       )}
     </div>

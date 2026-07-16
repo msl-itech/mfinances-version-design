@@ -652,7 +652,7 @@ export default function GenerateurBail() {
       {/* ── STEP 6 ── */}
       {step === 6 && (
         <Card accent showStepBorder={step > 1}>
-          <StepHeader label="Finalisation" title="Recevoir votre bail par email" step={step} />
+          <StepHeader label="Finalisation" title="Votre bail est prêt" step={step} />
           <ProgressBar step={step} />
           <div className="bg-secondary border border-border rounded-xl p-4 mb-5">
             <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-3">Récapitulatif</div>
@@ -699,41 +699,40 @@ export default function GenerateurBail() {
             )}
             <div className="text-muted-foreground/50 text-[10px] mt-3 text-center">… 13 articles complets · Clause indexation · Garantie · Signatures</div>
           </div>
-          <div className="grid grid-cols-2 gap-2.5 mb-3">
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-              <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
-            </div>
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
-              <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
-            </div>
+          <div className="bg-amber-50 border-l-[3px] border-amber-500 rounded-r-lg p-3.5 text-[12px] text-amber-900 leading-relaxed mb-5">
+            <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros — charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
           </div>
-          <div className="mb-4">
-            <Label className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
-            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
-          </div>
-          <p className="text-[10px] text-muted-foreground text-center leading-relaxed mb-4">
-            Vos données sont confidentielles. Vous recevrez uniquement votre bail PDF et des conseils MFinances. Aucune revente.
-          </p>
-          <div className="space-y-2">
-            {sent ? (
-              <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
-                <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
-                <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes. Le bail est à valider avant signature.</div>
+
+          {!sent ? (
+            <>
+              <h4 className="text-[14px] font-semibold text-foreground mb-3">Recevez votre bail PDF par email</h4>
+              <div className="grid grid-cols-2 gap-2.5 mb-3">
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                  <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
+                </div>
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
+                  <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
+                </div>
               </div>
-            ) : (
+              <div className="mb-4">
+                <Label className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
+                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
+              </div>
               <Button onClick={handleSubmit} disabled={sending || !prenom.trim() || !email.trim()} variant="accent" className="w-full rounded-lg">
-                {sending ? "Envoi en cours…" : "Générer et recevoir mon bail par email →"}
+                {sending ? "Envoi en cours…" : "Générer et recevoir mon bail par email"}
               </Button>
-            )}
-            <Button variant="outline" className="w-full rounded-lg border-2 border-primary" asChild>
-              <Link to="/contact/">Faire le diagnostic de ma situation <ArrowRight size={16} className="ml-1" /></Link>
-            </Button>
-            <Link to="/contact/" className="block text-center text-[12px] text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors">
-              Parler directement à Mika →
-            </Link>
-          </div>
+              <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
+                Vos données sont confidentielles. Aucune revente.
+              </p>
+            </>
+          ) : (
+            <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
+              <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
+              <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
+            </div>
+          )}
           <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-4">
             Ce bail est basé sur un modèle utilisé en cabinet. À valider avant signature selon votre situation spécifique. MFinances · ITAA n°50.624.805
           </p>
