@@ -3,7 +3,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
 import { submitLead } from "@/lib/odoo-submit";
-import { enrollSequence } from "@/lib/enroll-sequence";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -256,30 +255,24 @@ export default function Diagnostic() {
       setRecaptchaToken(null);
       return;
     }
+    const result = getResultConfig();
     const descParts = [
-      `<h3>Diagnostic Trésorerie</h3>`,
+      `<h3>Diagnostic Trésorerie — ${result.title}</h3>`,
+      `<p>${result.zone} <strong>${result.title}</strong></p>`,
+      `<p>${result.desc}</p>`,
+      `<hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">`,
       `<p><strong>Score:</strong> ${score}/20</p>`,
       `<p><strong>Statut:</strong> ${statusLabel}</p>`,
       `<p><strong>Chiffre d'affaires:</strong> ${caLabel}</p>`,
       `<p><strong>Préoccupation principale:</strong> ${concernLabel}</p>`,
-      `<p><strong>Source:</strong> Diagnostic Trésorerie - Site MFinances</p>`,
     ];
 
     await submitLead({
       name: emailForm.prenom,
       email_from: emailForm.email,
       description: descParts.join(""),
+      tag_names: ["seq_diagnostic_tresorerie"],
     });
-
-    // Tunnel de vente — séquence A (Diagnostic Trésorerie), non bloquant
-    void enrollSequence({
-      firstName: emailForm.prenom,
-      email: emailForm.email,
-      sequence: "A",
-      resultHtml: descParts.join(""),
-    });
-
-
 
     setEmailSubmitted(true);
   };

@@ -12,6 +12,7 @@ export interface OdooLeadData {
   email_from: string;
   phone?: string;
   description: string;
+  tag_names?: string[];
 }
 
 export async function sendLeadToOdoo(leadData: OdooLeadData): Promise<boolean> {

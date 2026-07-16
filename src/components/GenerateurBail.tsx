@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info, AlertTriangle } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
-import { enrollSequence } from "@/lib/enroll-sequence";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
@@ -346,20 +345,13 @@ export default function GenerateurBail() {
         });
       }
 
-      // 4. Submit lead to Odoo
+      // 4. Submit lead to Odoo (tag déclenche Marketing Automation séquence B)
       await submitLead({
         name: prenom,
         email_from: email,
         phone: telephone || undefined,
         description,
-      });
-
-      // Tunnel de vente — séquence B (Générateur de Bail), non bloquant
-      void enrollSequence({
-        firstName: prenom,
-        email,
-        sequence: "B",
-        resultHtml: description,
+        tag_names: ["seq_generateur_bail"],
       });
     } catch (err) {
       console.error("Erreur lors de la génération du bail:", err);
