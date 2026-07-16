@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { enrollSequence } from "@/lib/enroll-sequence";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -102,6 +103,13 @@ export default function ChecklistTresorerie() {
           `<p><strong>Email:</strong> ${form.email}</p>`,
           `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
         ].join(""),
+      });
+
+      // Tunnel de vente — séquence A (funnel Trésorerie), non bloquant
+      void enrollSequence({
+        firstName: form.prenom,
+        email: form.email,
+        sequence: "A",
       });
 
       // Téléchargement du PDF
