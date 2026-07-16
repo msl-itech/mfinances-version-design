@@ -376,12 +376,12 @@ export default function Diagnostic() {
       bgColor: "hsl(145, 63%, 97%)",
       borderColor: "hsl(145, 63%, 85%)",
       title: "Trésorerie bien pilotée",
-      desc: "Vous pilotez votre trésorerie avec méthode. L'étape suivante : contrôle de gestion + DAF pour passer au niveau supérieur.",
-      ctaLabel: "Découvrir le forfait Excellence",
-      ctaHref: "/tarifs/",
+      desc: "Votre score est bon, mais sans tableau de bord prévisionnel, un imprévu (retard client, hausse de charges, investissement) peut faire basculer votre trésorerie en quelques semaines.",
+      ctaLabel: "Vérifier mes angles morts",
+      ctaHref: "/contact/",
       ctaVariant: "default" as const,
-      secondaryLabel: "Parler à un expert, c'est gratuit",
-      secondaryHref: "/contact/",
+      secondaryLabel: "Voir ce que nos clients surveillent",
+      secondaryHref: "/tarifs/",
     };
   };
 
@@ -658,14 +658,14 @@ export default function Diagnostic() {
                   {/* ── 4. CTA principal ── */}
                   <div className="rounded-2xl p-5 sm:p-8 text-center" style={{ backgroundColor: r.bgColor, border: `2px solid ${r.borderColor}` }}>
                     <h3 className="font-display text-[20px] sm:text-[22px] text-foreground mb-2">
-                      {score <= 8 ? "Agissez maintenant" : score <= 16 ? "Passez au niveau supérieur" : "Continuez sur cette lancée"}
+                      {score <= 8 ? "Agissez maintenant" : score <= 16 ? "Passez au niveau supérieur" : "Un bon score ne protège pas des imprévus"}
                     </h3>
                     <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5 sm:mb-6 max-w-[440px] mx-auto">
                       {score <= 8
                         ? "Plus vous attendez, plus les fragilités s'aggravent. Prenez rendez-vous pour un premier échange gratuit."
                         : score <= 16
                         ? "Quelques ajustements suffisent pour sécuriser votre croissance."
-                        : "Un DAF externalisé peut vous aider à aller encore plus loin."}
+                        : "Un retard de paiement client, une charge imprévue, un investissement mal calibré — sans visibilité à 90 jours, même une trésorerie saine peut se retourner."}
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <Button
@@ -688,7 +688,31 @@ export default function Diagnostic() {
                     </div>
                   </div>
 
-                  {/* ── 5. Email capture ── */}
+                  {/* ── 5. Fragilités ── */}
+                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
+                    <h3 className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-foreground mb-5 sm:mb-6">
+                      Les 5 fragilités de trésorerie <span className="text-accent">les plus courantes</span>
+                    </h3>
+                    <div className="space-y-2.5 sm:space-y-3">
+                      {fragilites.map((f, i) => (
+                        <Link
+                          key={i}
+                          to={f.href}
+                          className="group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl border border-border/30 hover:border-accent/30 hover:bg-accent/[0.02] transition-all"
+                        >
+                          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary/10 text-primary text-[12px] sm:text-[13px] font-bold flex items-center justify-center flex-shrink-0">
+                            {i + 1}
+                          </span>
+                          <span className="text-[13px] sm:text-[14px] font-body text-foreground/80 group-hover:text-foreground flex-1 leading-snug">
+                            {f.label}
+                          </span>
+                          <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors flex-shrink-0" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* ── 6. Email capture ── */}
                   <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
                     {!emailSubmitted ? (
                       <>
@@ -742,30 +766,6 @@ export default function Diagnostic() {
                         </p>
                       </div>
                     )}
-                  </div>
-
-                  {/* ── 6. Fragilités ── */}
-                  <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
-                    <h3 className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-foreground mb-5 sm:mb-6">
-                      Les 5 fragilités de trésorerie <span className="text-accent">les plus courantes</span>
-                    </h3>
-                    <div className="space-y-2.5 sm:space-y-3">
-                      {fragilites.map((f, i) => (
-                        <Link
-                          key={i}
-                          to={f.href}
-                          className="group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl border border-border/30 hover:border-accent/30 hover:bg-accent/[0.02] transition-all"
-                        >
-                          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary/10 text-primary text-[12px] sm:text-[13px] font-bold flex items-center justify-center flex-shrink-0">
-                            {i + 1}
-                          </span>
-                          <span className="text-[13px] sm:text-[14px] font-body text-foreground/80 group-hover:text-foreground flex-1 leading-snug">
-                            {f.label}
-                          </span>
-                          <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors flex-shrink-0" />
-                        </Link>
-                      ))}
-                    </div>
                   </div>
 
                   {/* ── 7. Recommencer ── */}
