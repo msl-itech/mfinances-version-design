@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Check, FileText, BookOpen, Users, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { enrollSequence } from "@/lib/enroll-sequence";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -101,6 +102,13 @@ export default function ChecklistControleBureau() {
           `<p><strong>Ressource:</strong> checklist-controle-fiscal-bureau-domicile</p>`,
           `<p><strong>Silo:</strong> bureau-a-domicile</p>`,
         ].join(""),
+      });
+
+      // Tunnel de vente — séquence D (Checklist Contrôle Fiscal), non bloquant
+      void enrollSequence({
+        firstName: form.prenom,
+        email: form.email,
+        sequence: "D",
       });
 
       navigate("/ressources/checklist-controle-bureau/confirmation/", {

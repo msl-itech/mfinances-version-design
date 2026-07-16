@@ -3,6 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
 import { submitLead } from "@/lib/odoo-submit";
+import { enrollSequence } from "@/lib/enroll-sequence";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -269,6 +270,16 @@ export default function Diagnostic() {
       email_from: emailForm.email,
       description: descParts.join(""),
     });
+
+    // Tunnel de vente — séquence A (Diagnostic Trésorerie), non bloquant
+    void enrollSequence({
+      firstName: emailForm.prenom,
+      email: emailForm.email,
+      sequence: "A",
+      resultHtml: descParts.join(""),
+    });
+
+
 
     setEmailSubmitted(true);
   };

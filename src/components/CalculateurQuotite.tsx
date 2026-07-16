@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { enrollSequence } from "@/lib/enroll-sequence";
 import { Link } from "react-router-dom";
 import { generateQuotitePdf } from "@/lib/generate-quotite-pdf";
 import { supabase } from "@/integrations/supabase/client";
@@ -202,6 +203,14 @@ export default function CalculateurQuotite() {
       email_from: email,
       phone: telephone || undefined,
       description,
+    });
+
+    // Tunnel de vente — séquence C (Calculateur Bureau à Domicile), non bloquant
+    void enrollSequence({
+      firstName: prenom,
+      email,
+      sequence: "C",
+      resultHtml: description,
     });
 
     setSending(false);

@@ -125,6 +125,54 @@ export type Database = {
         }
         Relationships: []
       }
+      sequence_enrollments: {
+        Row: {
+          created_at: string
+          current_step: number
+          email: string
+          enrolled_at: string
+          first_name: string | null
+          id: string
+          last_sent_at: string | null
+          next_send_at: string
+          result_html: string | null
+          sequence: string
+          status: string
+          stop_reason: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_step?: number
+          email: string
+          enrolled_at?: string
+          first_name?: string | null
+          id?: string
+          last_sent_at?: string | null
+          next_send_at?: string
+          result_html?: string | null
+          sequence: string
+          status?: string
+          stop_reason?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_step?: number
+          email?: string
+          enrolled_at?: string
+          first_name?: string | null
+          id?: string
+          last_sent_at?: string | null
+          next_send_at?: string
+          result_html?: string | null
+          sequence?: string
+          status?: string
+          stop_reason?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
