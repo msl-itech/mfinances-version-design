@@ -89,6 +89,27 @@ export default function Footer() {
               <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">ITAA 50.624.805</span>
               <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">BCE 0827.635.870</span>
             </div>
+
+            <div className="pt-2">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-white/40 font-semibold mb-2.5">Suivez-nous</p>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-white text-white/70 flex items-center justify-center transition-colors"
+                    >
+                      <Icon size={18} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           {/* Col 2 — Services */}
