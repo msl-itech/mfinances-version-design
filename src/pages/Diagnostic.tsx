@@ -264,6 +264,7 @@ export default function Diagnostic() {
 
     await submitLead({
       name: emailForm.prenom,
+      first_name: emailForm.prenom,
       email_from: emailForm.email,
       description: descParts.join(""),
       tag_names: ["seq_diagnostic_tresorerie"],
@@ -283,12 +284,12 @@ export default function Diagnostic() {
           bgColor: "hsl(0, 79%, 97%)",
           borderColor: "hsl(0, 79%, 90%)",
           title: "Trésorerie fragile",
-          desc: "Même en début d'activité, quelques outils simples changent tout. Votre trésorerie présente des points de fragilité qui méritent une attention immédiate.",
-          ctaLabel: "Télécharger la checklist gratuite",
-          ctaHref: "/checklist-tresorerie/",
+          desc: "Votre trésorerie présente des signaux d'alerte. Sans correction rapide, un imprévu — retard client, charge imprévue — peut bloquer votre activité.",
+          ctaLabel: "Comprendre d'où vient le problème",
+          ctaHref: "/contact/",
           ctaVariant: "accent" as const,
-          secondaryLabel: "Découvrir le forfait Essentiel",
-          secondaryHref: "/tarifs/",
+          secondaryLabel: "Télécharger la checklist trésorerie",
+          secondaryHref: "/checklist-tresorerie/",
         };
       }
       if (caProfile === "mid") {
@@ -298,12 +299,12 @@ export default function Diagnostic() {
           bgColor: "hsl(0, 79%, 97%)",
           borderColor: "hsl(0, 79%, 90%)",
           title: "Risques sérieux détectés",
-          desc: "À ce stade de développement, le forfait Premium vous donnera la visibilité manquante sur votre trésorerie et votre rentabilité.",
-          ctaLabel: "Prendre rendez-vous",
+          desc: "À votre stade, ces fragilités ne se corrigent pas toutes seules. Plus vous attendez, plus elles se cumulent — et plus les solutions deviennent coûteuses.",
+          ctaLabel: "Identifier les urgences",
           ctaHref: "/contact/",
           ctaVariant: "accent" as const,
-          secondaryLabel: "Découvrir le forfait Premium",
-          secondaryHref: "/tarifs/",
+          secondaryLabel: "Calculer mes déductions bureau",
+          secondaryHref: "/ressources/calculateur-bureau/",
         };
       }
       return {
@@ -312,12 +313,12 @@ export default function Diagnostic() {
         bgColor: "hsl(0, 79%, 97%)",
         borderColor: "hsl(0, 79%, 90%)",
         title: "Trésorerie en danger",
-        desc: "À ce niveau de chiffre d'affaires, chaque semaine sans prévisionnel coûte. Le forfait Excellence avec trésorerie mensuelle est indispensable.",
-        ctaLabel: "Rendez-vous urgent",
+        desc: "À votre niveau de CA, chaque semaine sans visibilité vous coûte. Un décalage de trésorerie non anticipé peut compromettre des mois de travail.",
+        ctaLabel: "Agir avant qu'il ne soit trop tard",
         ctaHref: "/contact/",
         ctaVariant: "accent" as const,
-        secondaryLabel: "Découvrir le forfait Excellence",
-        secondaryHref: "/tarifs/",
+        secondaryLabel: "Calculer mes déductions bureau",
+        secondaryHref: "/ressources/calculateur-bureau/",
       };
     }
 
@@ -329,12 +330,12 @@ export default function Diagnostic() {
           bgColor: "hsl(35, 90%, 97%)",
           borderColor: "hsl(35, 90%, 85%)",
           title: "Bonnes bases, quelques angles morts",
-          desc: "Le forfait Essentiel sécurise votre situation et vous donne les outils pour piloter sereinement.",
-          ctaLabel: "Télécharger la checklist gratuite",
-          ctaHref: "/checklist-tresorerie/",
+          desc: "Vous gérez l'essentiel, mais certains postes passent probablement entre les mailles. Un oubli de déduction ou un décalage de facturation peut coûter cher sur une année entière.",
+          ctaLabel: "Identifier ce que je rate",
+          ctaHref: "/contact/",
           ctaVariant: "default" as const,
-          secondaryLabel: "Découvrir le forfait Essentiel",
-          secondaryHref: "/tarifs/",
+          secondaryLabel: "Télécharger la checklist trésorerie",
+          secondaryHref: "/checklist-tresorerie/",
         };
       }
       if (caProfile === "mid") {
@@ -344,12 +345,12 @@ export default function Diagnostic() {
           bgColor: "hsl(35, 90%, 97%)",
           borderColor: "hsl(35, 90%, 85%)",
           title: "Vous avancez bien",
-          desc: "Votre croissance mérite un suivi structuré. Le forfait Premium vous apporte la visibilité nécessaire pour passer au niveau supérieur.",
-          ctaLabel: "Découvrir le forfait Premium",
-          ctaHref: "/tarifs/",
+          desc: "Votre trésorerie tient, mais votre croissance crée des tensions invisibles : BFR qui gonfle, charges fixes qui grimpent, marges qui s'érodent sans que vous le voyiez dans vos chiffres mensuels.",
+          ctaLabel: "Voir où je perds de l'argent",
+          ctaHref: "/contact/",
           ctaVariant: "default" as const,
-          secondaryLabel: "Prendre rendez-vous",
-          secondaryHref: "/contact/",
+          secondaryLabel: "Calculer mes déductions bureau",
+          secondaryHref: "/ressources/calculateur-bureau/",
         };
       }
       return {
@@ -358,12 +359,12 @@ export default function Diagnostic() {
         bgColor: "hsl(35, 90%, 97%)",
         borderColor: "hsl(35, 90%, 85%)",
         title: "Bases solides, mais votre stade exige plus",
-        desc: "Le forfait Excellence avec trésorerie mensuelle est l'étape suivante pour sécuriser votre croissance.",
-        ctaLabel: "Découvrir le forfait Excellence",
-        ctaHref: "/tarifs/",
+        desc: "À votre niveau de CA, un seul client en retard ou un investissement mal anticipé peut créer un trou de trésorerie de plusieurs dizaines de milliers d'euros. Sans prévisionnel, vous pilotez à vue.",
+        ctaLabel: "Sécuriser ma trésorerie",
+        ctaHref: "/contact/",
         ctaVariant: "default" as const,
-        secondaryLabel: "Prendre rendez-vous",
-        secondaryHref: "/contact/",
+        secondaryLabel: "Calculer mes déductions bureau",
+        secondaryHref: "/ressources/calculateur-bureau/",
       };
     }
 
@@ -702,13 +703,13 @@ export default function Diagnostic() {
                   {/* ── 4. CTA principal ── */}
                   <div className="rounded-2xl p-5 sm:p-8 text-center" style={{ backgroundColor: r.bgColor, border: `2px solid ${r.borderColor}` }}>
                     <h3 className="font-display text-[20px] sm:text-[22px] text-foreground mb-2">
-                      {score <= 8 ? "Agissez maintenant" : score <= 16 ? "Passez au niveau supérieur" : "Un bon score ne protège pas des imprévus"}
+                      {score <= 8 ? "Chaque semaine sans action aggrave la situation" : score <= 16 ? "Ce que votre score ne montre pas" : "Un bon score ne protège pas des imprévus"}
                     </h3>
                     <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5 sm:mb-6 max-w-[440px] mx-auto">
                       {score <= 8
-                        ? "Plus vous attendez, plus les fragilités s'aggravent. Prenez rendez-vous pour un premier échange gratuit."
+                        ? "Les entreprises qui rencontrent des difficultés de trésorerie ne s'en rendent compte qu'une fois le compte en banque à sec. À ce stade, les options se réduisent."
                         : score <= 16
-                        ? "Quelques ajustements suffisent pour sécuriser votre croissance."
+                        ? "Votre trésorerie tient aujourd'hui, mais les fissures sont là. Un client qui paie en retard, une charge qui augmente — et l'équilibre bascule."
                         : "Un retard de paiement client, une charge imprévue, un investissement mal calibré — sans visibilité à 90 jours, même une trésorerie saine peut se retourner."}
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

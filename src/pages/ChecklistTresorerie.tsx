@@ -95,6 +95,7 @@ export default function ChecklistTresorerie() {
       // Envoi vers Odoo avec tag (déclenche Marketing Automation séquence A)
       await submitLead({
         name: form.prenom,
+        first_name: form.prenom,
         email_from: form.email,
         description: [
           `<h3>Checklist Trésorerie</h3>`,

@@ -9,6 +9,7 @@ const ODOO_HEADERS: Record<string, string> = {
 
 export interface OdooLeadData {
   name: string;
+  first_name?: string;
   email_from: string;
   phone?: string;
   description: string;

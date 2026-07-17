@@ -92,6 +92,7 @@ export default function ChecklistControleBureau() {
 
       await submitLead({
         name: form.prenom,
+        first_name: form.prenom,
         email_from: form.email,
         description: [
           `<h3>Lead Magnet : Checklist Contrôle Bureau</h3>`,

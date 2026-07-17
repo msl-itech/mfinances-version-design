@@ -135,17 +135,19 @@ export default function CalculateurQuotite() {
     const statutLabel = statut === "dirigeant" ? "Dirigeant(e) de société" : statut === "independant" ? "Indépendant(e)" : statut === "les-deux" ? "Les deux" : "Profession libérale";
     const logementLabel = logement === "locataire" ? "Locataire" : "Propriétaire";
 
-    const description = [
-      `[Calculateur part professionnelle bureau]`,
-      `Part professionnelle : ${fmtDec(quotite)} %`,
-      `Surface pro pondérée : ${fmtDec(surfacePro)} m² / ${fmtDec(surfaceTotal)} m²`,
-      `Charges totales : ${fmt(chargesTotal)} €/an`,
-      `Déduction estimée : ${fmt(Math.round(deductionAnnuelle))} €/an`,
-      `Statut : ${statutLabel}`,
-      `Logement : ${logementLabel}`,
-      adresse ? `Adresse : ${adresse}` : "",
-      `Pièces : ${pieces.map((p) => `${p.name} (${p.surface}m², ${p.usagePro}% pro, ${PIECE_TYPES[p.type].label})`).join(" | ")}`,
-    ].filter(Boolean).join("\n");
+    const descParts = [
+      `<h3>Calculateur Bureau à Domicile</h3>`,
+      `<p><strong>Part professionnelle :</strong> ${fmtDec(quotite)} %</p>`,
+      `<p><strong>Surface pro pondérée :</strong> ${fmtDec(surfacePro)} m² / ${fmtDec(surfaceTotal)} m²</p>`,
+      `<p><strong>Charges totales :</strong> ${fmt(chargesTotal)} €/an</p>`,
+      `<p><strong>Déduction estimée :</strong> ${fmt(Math.round(deductionAnnuelle))} €/an</p>`,
+      `<hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">`,
+      `<p><strong>Statut :</strong> ${statutLabel}</p>`,
+      `<p><strong>Logement :</strong> ${logementLabel}</p>`,
+      adresse ? `<p><strong>Adresse :</strong> ${adresse}</p>` : "",
+      `<p><strong>Pièces :</strong> ${pieces.map((p) => `${p.name} (${p.surface}m², ${p.usagePro}% pro)`).join(", ")}</p>`,
+    ].filter(Boolean);
+    const description = descParts.join("");
 
     // Generate PDF
     try {
@@ -199,6 +201,7 @@ export default function CalculateurQuotite() {
     // Submit lead to Odoo (tag déclenche Marketing Automation séquence C)
     await submitLead({
       name: prenom,
+      first_name: prenom,
       email_from: email,
       phone: telephone || undefined,
       description,

@@ -285,24 +285,25 @@ export default function GenerateurBail() {
     const bailLabel = bailType === "meuble" ? `Bail meublé (${partImmeuble}/${partMeubles})` : "Bail immeuble seul";
     const qualiteLabel = qualite === "proprietaire" ? "Propriétaire" : "Locataire (sous-location)";
 
-    const description = [
-      `[Générateur de bail professionnel]`,
-      `Type : ${bailLabel}`,
-      `Qualité : ${qualiteLabel}`,
-      `Bailleur : ${civilite} ${prenomBailleur} ${nomBailleur}`,
-      `Adresse bailleur : ${adresseBailleur}, ${cpBailleur} ${villeBailleur}, ${paysBailleur}`,
-      `Preneur : ${denomination} ${formeJuridique} — BCE ${numeroBce}`,
-      `Siège : ${siegeSocial}`,
-      `Représentant : ${representant}`,
-      `Bien : ${adresseBien} — ${surfaceBien} m²`,
-      descriptionBien ? `Description : ${descriptionBien}` : "",
-      `Loyer : ${loyerNum} €/mois — durée ${duree} ans`,
-      bailType === "meuble" ? `Répartition : ${partImmeuble}% immeuble / ${partMeubles}% meubles` : "",
-      bailType === "meuble" ? `Meubles : ${meubles.map((m) => `${m.designation} (${m.valeur}€)`).join(", ")}` : "",
-      `Date début : ${dateDebut}`,
-      `Indexation : ${indexation ? "Oui" : "Non"}`,
-      `Garantie : ${garantie} mois`,
-    ].filter(Boolean).join("\n");
+    const descParts = [
+      `<h3>Générateur de Bail Professionnel</h3>`,
+      `<p><strong>Type :</strong> ${bailLabel}</p>`,
+      `<p><strong>Qualité :</strong> ${qualiteLabel}</p>`,
+      `<p><strong>Bailleur :</strong> ${civilite} ${prenomBailleur} ${nomBailleur}</p>`,
+      `<p><strong>Adresse bailleur :</strong> ${adresseBailleur}, ${cpBailleur} ${villeBailleur}, ${paysBailleur}</p>`,
+      `<p><strong>Preneur :</strong> ${denomination} ${formeJuridique} — BCE ${numeroBce}</p>`,
+      `<p><strong>Siège :</strong> ${siegeSocial}</p>`,
+      `<p><strong>Représentant :</strong> ${representant}</p>`,
+      `<p><strong>Bien :</strong> ${adresseBien} — ${surfaceBien} m²</p>`,
+      descriptionBien ? `<p><strong>Description :</strong> ${descriptionBien}</p>` : "",
+      `<p><strong>Loyer :</strong> ${loyerNum} €/mois — durée ${duree} ans</p>`,
+      bailType === "meuble" ? `<p><strong>Répartition :</strong> ${partImmeuble}% immeuble / ${partMeubles}% meubles</p>` : "",
+      bailType === "meuble" ? `<p><strong>Meubles :</strong> ${meubles.map((m) => `${m.designation} (${m.valeur}€)`).join(", ")}</p>` : "",
+      `<p><strong>Date début :</strong> ${dateDebut}</p>`,
+      `<p><strong>Indexation :</strong> ${indexation ? "Oui" : "Non"}</p>`,
+      `<p><strong>Garantie :</strong> ${garantie} mois</p>`,
+    ].filter(Boolean);
+    const description = descParts.join("");
 
     try {
       // 1. Generate PDF
@@ -346,11 +347,17 @@ export default function GenerateurBail() {
       }
 
       // 4. Submit lead to Odoo (tag déclenche Marketing Automation séquence B)
+      // Inclure le lien PDF dans la description pour que l'email Odoo B1 puisse l'afficher
+      const descWithLink = downloadUrl
+        ? `<p><strong>📄 <a href="${downloadUrl}" style="color:#124d5a;">Télécharger votre bail PDF</a></strong></p><hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">` + description
+        : description;
+
       await submitLead({
         name: prenom,
+        first_name: prenom,
         email_from: email,
         phone: telephone || undefined,
-        description,
+        description: descWithLink,
         tag_names: ["seq_generateur_bail"],
       });
     } catch (err) {
