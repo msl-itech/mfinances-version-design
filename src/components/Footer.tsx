@@ -92,7 +92,7 @@ export default function Footer() {
 
             <div className="pt-2">
               <p className="text-[11px] uppercase tracking-[0.18em] text-white/40 font-semibold mb-2.5">Suivez-nous</p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
