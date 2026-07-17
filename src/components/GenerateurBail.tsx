@@ -347,17 +347,17 @@ export default function GenerateurBail() {
       }
 
       // 4. Submit lead to Odoo (tag déclenche Marketing Automation séquence B)
-      // Inclure le lien PDF dans la description pour que l'email Odoo B1 puisse l'afficher
-      const descWithLink = downloadUrl
-        ? `<p><strong>📄 <a href="${downloadUrl}" style="color:#124d5a;">Télécharger votre bail PDF</a></strong></p><hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">` + description
-        : description;
+      // Le lien PDF est la seule info visible dans l'email B1 via {{ object.description }}
+      const descForOdoo = downloadUrl
+        ? `<p><strong>📄 <a href="${downloadUrl}" style="color:#124d5a;font-size:16px;">Télécharger votre bail PDF</a></strong></p>`
+        : `<p><em>Bail en cours de génération…</em></p>`;
 
       await submitLead({
         name: prenom,
         first_name: prenom,
         email_from: email,
         phone: telephone || undefined,
-        description: descWithLink,
+        description: descForOdoo,
         tag_names: ["seq_generateur_bail"],
       });
     } catch (err) {
