@@ -210,12 +210,13 @@ export default function CalculateurQuotite() {
 
     setSending(false);
     setSent(true);
+    setStep(4);
   };
 
   /* ── Progress bar (mobile) ── */
   const progressBar = (
     <div className="flex gap-1 mb-5">
-      {[1, 2, 3].map((s) => (
+      {[1, 2, 3, 4].map((s) => (
         <div
           key={s}
           className={`flex-1 h-1 rounded-full ${
@@ -230,7 +231,7 @@ export default function CalculateurQuotite() {
     <div className="bg-secondary py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-12">
       {/* ── Stepper (desktop) ── */}
       <div className="hidden sm:flex items-center max-w-[720px] mx-auto mb-8">
-        {[1, 2, 3].map((s, i) => (
+        {[1, 2, 3, 4].map((s, i) => (
           <div key={s} className="flex items-center flex-1 last:flex-none">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
@@ -243,7 +244,7 @@ export default function CalculateurQuotite() {
             >
               {s < step ? <Check size={14} /> : s}
             </div>
-            {i < 2 && (
+            {i < 3 && (
               <div className={`flex-1 h-0.5 mx-1 ${s < step ? "bg-green-700" : "bg-border"}`} />
             )}
           </div>
@@ -464,11 +465,106 @@ export default function CalculateurQuotite() {
         </div>
       )}
 
-      {/* ══════════ STEP 3 — Résultats + Email capture ══════════ */}
+      {/* ══════════ STEP 3 — Email capture ══════════ */}
       {step === 3 && (
-        <div className="max-w-[720px] mx-auto space-y-5">
+        <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+          <div className="mb-5">
+            <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
+              Étape 3 / 4
+            </span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">3</div>
+              <div>
+                <div className="text-[11px] text-muted-foreground">Votre rapport</div>
+                <div className="text-[16px] font-semibold text-foreground">Recevez votre rapport détaillé par email</div>
+              </div>
+            </div>
+          </div>
 
-          {/* ── Résultats ── */}
+          {progressBar}
+
+          <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5">
+            Avec le détail par poste de charge et les points à vérifier avant votre prochaine déclaration.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+            <div>
+              <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+              <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
+            </div>
+            <div>
+              <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
+              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
+            </div>
+          </div>
+
+          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {[
+              { value: "dirigeant", label: "Dirigeant(e) de société" },
+              { value: "independant", label: "Indépendant(e)" },
+              { value: "les-deux", label: "Les deux" },
+              { value: "liberal", label: "Profession libérale" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setStatut(opt.value)}
+                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                  statut === opt.value
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-card text-foreground hover:border-primary/40"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {[
+              { value: "locataire", label: "Locataire" },
+              { value: "proprietaire", label: "Propriétaire" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setLogement(opt.value)}
+                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                  logement === opt.value
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-card text-foreground hover:border-primary/40"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          <p className="text-[10px] text-muted-foreground text-center leading-relaxed my-3">
+            Vos données sont confidentielles. Aucune revente.
+          </p>
+
+          <div className="flex justify-between items-center mt-5">
+            <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <ArrowLeft size={14} /> Retour
+            </button>
+            <Button
+              onClick={handleSubmit}
+              disabled={sending || !prenom.trim() || !email.trim()}
+              variant="accent"
+              className="rounded-lg"
+            >
+              {sending ? "Envoi en cours…" : "Voir mes résultats"} <ArrowRight size={16} className="ml-1" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* ══════════ STEP 4 — Résultats ══════════ */}
+      {step === 4 && (
+        <div className="max-w-[720px] mx-auto space-y-5">
           <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 shadow-sm">
             <div className="mb-5">
               <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 mb-2.5">
@@ -544,95 +640,6 @@ export default function CalculateurQuotite() {
             <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body max-w-[480px] mx-auto">
               Sans justificatifs solides, l'administration peut requalifier vos déductions lors d'un contrôle. Et sans analyse complète, d'autres frais déductibles passent probablement inaperçus.
             </p>
-          </div>
-
-          {/* ── Email capture ── */}
-          <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-7 shadow-sm">
-            {!sent ? (
-              <>
-                <h3 className="font-display text-[18px] sm:text-[20px] text-foreground mb-1">
-                  Recevez votre rapport détaillé par email
-                </h3>
-                <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-4 sm:mb-5">
-                  Avec le détail par poste de charge et les points à vérifier avant votre prochaine déclaration.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                  <div>
-                    <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-                    <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
-                  </div>
-                  <div>
-                    <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
-                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
-                  </div>
-                </div>
-
-                <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {[
-                    { value: "dirigeant", label: "Dirigeant(e) de société" },
-                    { value: "independant", label: "Indépendant(e)" },
-                    { value: "les-deux", label: "Les deux" },
-                    { value: "liberal", label: "Profession libérale" },
-                  ].map((opt) => (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      onClick={() => setStatut(opt.value)}
-                      className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                        statut === opt.value
-                          ? "border-primary bg-primary/10 text-foreground"
-                          : "border-border bg-card text-foreground hover:border-primary/40"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-
-                <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {[
-                    { value: "locataire", label: "Locataire" },
-                    { value: "proprietaire", label: "Propriétaire" },
-                  ].map((opt) => (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      onClick={() => setLogement(opt.value)}
-                      className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                        logement === opt.value
-                          ? "border-primary bg-primary/10 text-foreground"
-                          : "border-border bg-card text-foreground hover:border-primary/40"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-
-                <Button
-                  onClick={handleSubmit}
-                  disabled={sending || !prenom.trim() || !email.trim()}
-                  variant="accent"
-                  className="w-full rounded-lg"
-                >
-                  {sending ? "Envoi en cours…" : "Recevoir mon rapport PDF par email"}
-                </Button>
-                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
-                  Vos données sont confidentielles. Aucune revente.
-                </p>
-              </>
-            ) : (
-              <div className="text-center py-4">
-                <Check size={32} className="text-green-700 mx-auto mb-3" />
-                <h3 className="font-display text-[20px] text-foreground mb-1">Rapport envoyé à {email}</h3>
-                <p className="text-[14px] text-muted-foreground font-body">
-                  Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.
-                </p>
-              </div>
-            )}
           </div>
 
           {/* ── Refaire ── */}
