@@ -1493,8 +1493,8 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Parler à un expert — c'est gratuit",
     ctaDescription: "Découvrez combien vous pourriez économiser légalement.",
-    ctaLink: "/contact/",
-    ctaLabel: "Voir si mon entreprise est en danger",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir nos leviers d'optimisation fiscale",
   },
 
   "pourquoi-comptable-aide-pas": {
