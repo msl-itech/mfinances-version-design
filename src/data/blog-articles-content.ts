@@ -2612,7 +2612,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "erreurs-bureau-a-domicile-controle-fiscal": {
-    heroCta: { text: "Télécharger la Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
+    heroCta: { text: "Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
     sections: [
       {
         paragraphs: [
