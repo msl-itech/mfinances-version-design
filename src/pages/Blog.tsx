@@ -18,6 +18,12 @@ import { Input } from "@/components/ui/input";
 import { blogArticles } from "@/data/blog-data";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
+import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
+import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -35,6 +41,7 @@ type ProblemCard = {
   badge: string;
   categorySlugs: string[];
   href: string;
+  image: string;
 };
 
 const problemCards: ProblemCard[] = [
@@ -45,6 +52,7 @@ const problemCards: ProblemCard[] = [
     badge: "Trésorerie",
     categorySlugs: ["tresorerie"],
     href: "/blog/tresorerie/",
+    image: heroTresorerie,
   },
   {
     emoji: "😩",
@@ -53,6 +61,7 @@ const problemCards: ProblemCard[] = [
     badge: "Fiscalité",
     categorySlugs: ["fiscalite-belgique"],
     href: "/blog/fiscalite-belgique/",
+    image: heroFiscalite,
   },
   {
     emoji: "📊",
@@ -61,6 +70,7 @@ const problemCards: ProblemCard[] = [
     badge: "Contrôle de gestion",
     categorySlugs: ["controle-de-gestion"],
     href: "/blog/controle-de-gestion/",
+    image: heroControle,
   },
   {
     emoji: "🧭",
@@ -69,6 +79,7 @@ const problemCards: ProblemCard[] = [
     badge: "DAF externalisé",
     categorySlugs: ["daf-externalise"],
     href: "/blog/daf-externalise/",
+    image: heroDaf,
   },
   {
     emoji: "🚀",
@@ -77,8 +88,10 @@ const problemCards: ProblemCard[] = [
     badge: "Création d'entreprise",
     categorySlugs: ["creation-societe"],
     href: "/blog/creation-societe/",
+    image: heroCreation,
   },
 ];
+
 
 export default function Blog() {
   const [mounted, setMounted] = useState(false);
@@ -185,29 +198,40 @@ export default function Blog() {
                     onClick={() => handleProblemClick(card)}
                     data-anim="fade-up"
                     data-delay={`${0.05 + i * 0.05}`}
-                    className={`group text-left bg-card rounded-2xl p-7 border transition-all duration-300 h-full flex flex-col ${
+                    className={`group text-left bg-card rounded-2xl overflow-hidden border transition-all duration-300 h-full flex flex-col ${
                       isActive
                         ? "border-accent shadow-[0_8px_30px_rgba(232,57,58,0.15)]"
                         : "border-border/50 hover:border-accent/40 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)]"
                     }`}
                     aria-label={`Voir les articles : ${card.badge}`}
                   >
-                    <h2 className="text-[18px] md:text-[19px] font-bold font-body text-foreground leading-snug">
-                      <span className="mr-2" aria-hidden="true">{card.emoji}</span>
-                      {card.title}
-                    </h2>
-                    <p className="italic text-[14px] text-muted-foreground leading-[1.7] font-body mt-3">
-                      « {card.quote} »
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-5 group-hover:gap-2 transition-all">
-                      Trouver la solution <ArrowRight size={14} />
-                    </span>
-                    <div className="mt-5 pt-4 border-t border-border/40">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.08em] uppercase text-foreground/50">
-                        <span aria-hidden="true">🏷️</span> {card.badge}
+                    <div className="h-[140px] overflow-hidden">
+                      <img
+                        src={card.image}
+                        alt={`${card.badge} — MFinances blog`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-7 flex flex-col flex-1">
+                      <h2 className="text-[18px] md:text-[19px] font-bold font-body text-foreground leading-snug">
+                        <span className="mr-2" aria-hidden="true">{card.emoji}</span>
+                        {card.title}
+                      </h2>
+                      <p className="italic text-[14px] text-muted-foreground leading-[1.7] font-body mt-3">
+                        « {card.quote} »
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-5 group-hover:gap-2 transition-all">
+                        Trouver la solution <ArrowRight size={14} />
                       </span>
+                      <div className="mt-5 pt-4 border-t border-border/40">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.08em] uppercase text-foreground/50">
+                          <span aria-hidden="true">🏷️</span> {card.badge}
+                        </span>
+                      </div>
                     </div>
                   </button>
+
                 );
               })}
             </div>
