@@ -32,7 +32,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "tresorerie-vs-benefices",
     title: "Trésorerie vs bénéfices — pourquoi votre entreprise peut être rentable et à court de cash",
-    excerpt: "Comprendre pourquoi une entreprise rentable peut manquer de cash. La distinction essentielle entre bénéfice et trésorerie expliquée avec des exemples concrets.",
+    hook: "😕 Mon entreprise est rentable… alors pourquoi mon compte est-il vide ?",
+    excerpt: "Comprenez pourquoi une entreprise rentable peut manquer de trésorerie.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -44,7 +45,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "investir-sans-fragiliser-tresorerie",
     title: "Investir dans votre entreprise sans vider votre trésorerie — le guide pratique",
-    excerpt: "Autofinancement, emprunt ou leasing ? Comment choisir le bon mode de financement pour préserver votre trésorerie. Guide pratique MFinances, Bruxelles.",
+    hook: "😟 J'ai peur d'investir… et de mettre ma trésorerie en danger.",
+    excerpt: "Découvrez comment développer votre entreprise sans fragiliser votre trésorerie.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -56,7 +58,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "gestion-stocks-tresorerie",
     title: "Votre stock immobilise du cash — voici comment le libérer",
-    excerpt: "Comment une mauvaise gestion des stocks immobilise des milliers d'euros de liquidités. Stratégies concrètes pour optimiser votre stock et libérer du cash.",
+    hook: "📦 Mon stock me coûte plus d'argent qu'il ne m'en rapporte.",
+    excerpt: "Découvrez comment libérer les liquidités immobilisées dans votre stock.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -68,7 +71,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "tresorerie-face-concurrence",
     title: "Un concurrent vous attaque sur les prix — comment protéger votre trésorerie sans vous brader",
-    excerpt: "Un concurrent agressif attaque vos prix. Comment protéger votre trésorerie sans entrer dans une guerre des prix perdante ? Stratégies concrètes pour TPE.",
+    hook: "⚔️ Mon concurrent casse les prix… comment réagir sans mettre mon entreprise en danger ?",
+    excerpt: "Découvrez comment protéger votre trésorerie sans entrer dans une guerre des prix.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -80,7 +84,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "fidelisation-tresorerie",
     title: "Fidéliser vos clients — l'impact direct sur votre trésorerie que personne ne calcule",
-    excerpt: "Un client fidèle coûte 5 fois moins cher qu'un nouveau client. Comment la fidélisation améliore directement votre trésorerie et stabilise vos flux financiers.",
+    hook: "🤝 Je dois constamment trouver de nouveaux clients pour faire tourner mon entreprise.",
+    excerpt: "Découvrez pourquoi fidéliser vos clients est l'un des meilleurs moyens de sécuriser votre trésorerie.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -92,7 +97,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "anticiper-flux-tresorerie",
     title: "Comment anticiper vos flux de trésorerie — et arrêter de subir vos finances",
-    excerpt: "Tableau de trésorerie prévisionnel, scénarios financiers, outils Odoo — comment anticiper vos besoins financiers avant que les problèmes n'arrivent. MFinances, Bruxelles.",
+    hook: "📅 Je découvre toujours mes problèmes de trésorerie lorsqu'il est déjà trop tard.",
+    excerpt: "Apprenez à anticiper vos besoins de trésorerie avant que les difficultés n'apparaissent.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -105,7 +111,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "daf-externalise-definition",
     title: "C'est quoi un DAF externalisé — définition et rôle pour une TPE",
-    excerpt: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
+    hook: "🤯 J'ai l'impression de diriger mon entreprise au feeling.",
+    excerpt: "Comprenez comment un DAF externalisé vous apporte des chiffres fiables pour décider avec confiance.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
     published: true,
@@ -117,7 +124,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "quand-faire-appel-daf",
     title: "Quand faire appel à un DAF externalisé ? Les 6 signaux qui ne trompent pas",
-    excerpt: "6 signaux concrets qui indiquent qu'une TPE a besoin d'un DAF à temps partiel. Guide pratique pour dirigeants en croissance. MFinances, Bruxelles.",
+    hook: "🤔 À partir de quand ai-je vraiment besoin d'un accompagnement financier ?",
+    excerpt: "Identifiez les situations où un DAF externalisé devient un véritable levier de croissance.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
     published: true,
@@ -129,7 +137,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "daf-externalise-vs-expert-comptable",
     title: "DAF externalisé vs expert-comptable — quelle différence concrète ?",
-    excerpt: "DAF externalisé ou expert-comptable — deux rôles complémentaires mais très différents. Comparatif complet pour dirigeants de TPE en Belgique.",
+    hook: "😟 Mon comptable fait ma comptabilité… mais personne ne m'aide à prendre les bonnes décisions.",
+    excerpt: "Découvrez en quoi un DAF externalisé accompagne le dirigeant dans le pilotage de son entreprise.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
     published: true,
@@ -141,7 +150,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "decisions-daf-fait-difference",
     title: "Les 5 décisions où un DAF externalisé change tout pour une TPE",
-    excerpt: "Recrutement, investissement, levée de fonds, restructuration — les 5 décisions stratégiques où un DAF à temps partiel fait réellement la différence.",
+    hook: "🚀 Je dois recruter, investir ou demander un crédit… mais je ne veux pas me tromper.",
+    excerpt: "Découvrez comment un DAF externalisé sécurise les décisions qui engagent l'avenir de votre entreprise.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
     published: true,
@@ -154,7 +164,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "controle-gestion-tpe-definition",
     title: "Contrôle de gestion pour TPE — c'est quoi et pourquoi ça change tout",
-    excerpt: "Définition simple du contrôle de gestion pour une TPE. Pourquoi ce n'est pas réservé aux grandes entreprises et comment ça transforme vos décisions.",
+    hook: "🤔 Je prends mes décisions au feeling… faute d'avoir les bons outils.",
+    excerpt: "Découvrez pourquoi le contrôle de gestion permet de piloter votre entreprise avec des données fiables plutôt qu'avec des intuitions.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -166,7 +177,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "kpis-tpe-dirigeant",
     title: "Les 5 KPIs financiers que tout dirigeant de TPE doit surveiller",
-    excerpt: "Marge brute, BFR, délai de paiement, taux d'endettement — les 5 indicateurs financiers clés pour piloter une TPE. Avec formules et seuils d'alerte.",
+    hook: "📊 Je ne sais pas quels chiffres regarder pour piloter mon entreprise.",
+    excerpt: "Découvrez les indicateurs financiers qui vous permettent de prendre les bonnes décisions.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -178,7 +190,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "budget-annuel-tpe",
     title: "Comment construire un budget annuel pour une TPE — guide en 5 étapes",
-    excerpt: "Construire un budget annuel réaliste en 5 étapes. Méthode pratique pour dirigeants de TPE en Belgique. Sans jargon, avec exemples concrets.",
+    hook: "📅 Je pilote mon entreprise au jour le jour… sans véritable budget.",
+    excerpt: "Apprenez à construire un budget réaliste pour anticiper vos décisions au lieu de les subir.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -190,7 +203,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "analyse-ecarts-budgetaires",
     title: "Analyse des écarts budgétaires — comment lire et agir sur vos résultats",
-    excerpt: "Comprendre et utiliser l'analyse des écarts entre budget et réalisé. Méthode pratique pour identifier les problèmes et corriger la trajectoire.",
+    hook: "📉 Mon budget n'est jamais respecté… mais je ne sais pas pourquoi.",
+    excerpt: "Comprenez comment analyser les écarts entre vos prévisions et la réalité pour corriger rapidement votre trajectoire.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -203,7 +217,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "vvprbis-belgique",
     title: "VVPRbis en Belgique — dividendes à taux réduit pour les PME",
-    excerpt: "Le régime VVPRbis permet aux PME belges de distribuer des dividendes à 15 % au lieu de 30 %. Conditions, avantages et pièges à éviter. Guide complet.",
+    hook: "📈 Je distribue des dividendes… mais ai-je choisi la meilleure solution fiscale ?",
+    excerpt: "Découvrez comment réduire la fiscalité sur vos dividendes grâce au régime VVPRbis.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -215,7 +230,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "reserve-liquidation-belgique",
     title: "Réserve de liquidation en Belgique — le mécanisme fiscal à connaître",
-    excerpt: "La réserve de liquidation permet aux PME belges de distribuer des dividendes avec une fiscalité réduite. Mécanisme, conditions et stratégie d'utilisation.",
+    hook: "🏦 Existe-t-il une solution plus avantageuse que les dividendes classiques ?",
+    excerpt: "Comprenez comment fonctionne la réserve de liquidation et dans quels cas elle est intéressante.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -227,7 +243,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "remuneration-dirigeant-belgique",
     title: "Rémunération du dirigeant en Belgique — salaire ou dividendes ?",
-    excerpt: "Salaire ou dividendes — comment optimiser la rémunération d'un dirigeant de société belge. Calcul de l'impact fiscal et social selon les situations.",
+    hook: "💶 Comment me verser plus d'argent… sans payer plus d'impôts que nécessaire ?",
+    excerpt: "Découvrez comment choisir la rémunération la plus avantageuse selon votre situation.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -239,7 +256,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "voiture-societe-belgique",
     title: "Voiture de société en Belgique 2026 — fiscalité, avantages et pièges",
-    excerpt: "Tout sur la fiscalité de la voiture de société en Belgique en 2026. ATN, déductibilité, cotisation CO2, voiture électrique. Guide complet pour dirigeants.",
+    hook: "🚗 Je veux acheter une voiture… mais je ne sais pas quelle solution est la plus intéressante fiscalement.",
+    excerpt: "Découvrez comment choisir la solution la plus avantageuse selon votre situation.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -251,7 +269,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "declaration-isoc-belgique",
     title: "Déclaration ISOC Belgique — préparer sa déclaration sans mauvaise surprise",
-    excerpt: "Comment préparer sa déclaration ISOC en Belgique, éviter les erreurs courantes et optimiser sa charge fiscale. Guide pratique pour dirigeants de sociétés.",
+    hook: "📄 J'ai peur de faire une erreur dans ma déclaration ISOC.",
+    excerpt: "Comprenez comment préparer votre déclaration sereinement et éviter les erreurs les plus fréquentes.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -264,7 +283,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "srl-vs-independant-belgique",
     title: "SRL ou indépendant en Belgique — comment choisir en 2026 ?",
-    excerpt: "SRL ou indépendant en personne physique — comparatif complet pour choisir la bonne structure en Belgique. Fiscalité, responsabilité, coûts, démarches.",
+    hook: "🤔 Je ne sais pas quel statut choisir pour démarrer mon activité.",
+    excerpt: "Découvrez quelle structure correspond le mieux à votre projet, à votre fiscalité et à vos objectifs.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
@@ -276,7 +296,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "creer-srl-belgique-2026",
     title: "Créer une SRL en Belgique en 2026 — toutes les étapes",
-    excerpt: "Guide complet pour créer une SRL en Belgique en 2026. Étapes, délais, coûts, documents requis. De l'acte notarié à la première déclaration TVA.",
+    hook: "🚀 Je veux créer ma société… mais je ne sais pas par où commencer.",
+    excerpt: "Découvrez toutes les étapes pour créer votre société en Belgique, de l'idée au lancement de votre activité.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
@@ -288,7 +309,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "cout-creation-societe-belgique",
     title: "Combien coûte la création d'une société en Belgique ? Tous les frais",
-    excerpt: "Frais de notaire, BCE, Moniteur belge, comptable — tous les coûts réels de la création d'une société en Belgique. Sans surprise.",
+    hook: "💶 Combien va réellement me coûter la création de ma société ?",
+    excerpt: "Découvrez tous les frais à prévoir pour créer votre entreprise sans mauvaise surprise.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
@@ -300,7 +322,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "plan-financier-obligatoire-belgique",
     title: "Plan financier obligatoire en Belgique — ce que la loi exige",
-    excerpt: "Le plan financier est obligatoire pour créer une SRL ou SA en Belgique. Ce qu'il doit contenir, pourquoi il engage votre responsabilité et comment le construire.",
+    hook: "📊 Je ne comprends pas ce qu'on attend de moi pour le plan financier.",
+    excerpt: "Comprenez pourquoi le plan financier est indispensable et comment le construire correctement.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
@@ -312,7 +335,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "erreurs-creation-societe-belgique",
     title: "Les 5 erreurs à éviter lors de la création d'une société en Belgique",
-    excerpt: "Capital insuffisant, mauvaise structure juridique, TVA mal configurée — les 5 erreurs les plus courantes à la création d'une société belge et comment les éviter.",
+    hook: "⚠️ J'ai peur de faire une erreur qui me coûtera cher dès le départ.",
+    excerpt: "Découvrez les erreurs les plus fréquentes lors de la création d'une société et comment les éviter.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
@@ -326,7 +350,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "pourquoi-pas-argent-sur-compte",
     title: "Pourquoi je n'ai jamais d'argent sur mon compte malgré mon activité ?",
-    excerpt: "Vous travaillez, vous facturez, et pourtant votre compte est toujours vide. Voici les vraies raisons — et ce que vous pouvez faire cette semaine.",
+    hook: "💸 Je travaille énormément… mais je n'ai jamais d'argent sur mon compte.",
+    excerpt: "Identifiez les véritables raisons qui empêchent votre entreprise de générer du cash.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -338,7 +363,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "argent-disparait-fin-mois",
     title: "Mon entreprise fait des bénéfices mais je n'ai jamais d'argent — pourquoi ?",
-    excerpt: "Vous êtes rentable sur le papier mais votre compte est vide. Ce paradoxe touche 60% des TPE en croissance. Voici l'explication simple.",
+    hook: "🤔 Mon entreprise fait des bénéfices… mais je manque toujours de liquidités.",
+    excerpt: "Comprenez pourquoi bénéfices et trésorerie sont deux réalités bien différentes.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -350,7 +376,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "stress-fin-mois-dirigeant-tpe",
     title: "Le stress de fin de mois des dirigeants de TPE — vous n'êtes pas seul",
-    excerpt: "Chaque fin de mois, vous vérifiez votre compte avec appréhension. C'est plus courant qu'on ne le dit. Voici ce que font les dirigeants qui dorment bien.",
+    hook: "😓 Chaque fin de mois est une source de stress.",
+    excerpt: "Découvrez comment retrouver de la visibilité et gérer votre trésorerie avec plus de sérénité.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -362,7 +389,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "combien-reserve-securite-tpe",
     title: "Combien mettre de côté en réserve de sécurité quand on est indépendant ?",
-    excerpt: "Combien faut-il avoir en réserve de trésorerie pour dormir tranquille ? La règle des 3 mois expliquée simplement, avec des exemples concrets.",
+    hook: "🛟 Je ne sais pas combien d'argent je devrais garder de côté.",
+    excerpt: "Découvrez comment constituer une réserve de sécurité adaptée à votre activité.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -374,7 +402,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "combien-me-payer-independant-belgique",
     title: "Combien puis-je me payer en tant qu'indépendant en Belgique ?",
-    excerpt: "Salaire, dividendes, cotisations sociales — combien un indépendant peut-il réellement se payer en Belgique ? Guide clair avec exemples chiffrés.",
+    hook: "💰 Combien puis-je réellement me payer sans mettre mon entreprise en difficulté ?",
+    excerpt: "Comprenez comment déterminer une rémunération adaptée à votre activité et à vos objectifs.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -386,7 +415,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "je-paye-trop-impots-belgique",
     title: "J'ai l'impression de payer trop d'impôts en Belgique — est-ce vrai ?",
-    excerpt: "La charge fiscale d'un dirigeant belge peut dépasser 50%. Mais combien payez-vous vraiment — et combien pourriez-vous économiser légalement ?",
+    hook: "😩 J'ai l'impression de payer beaucoup trop d'impôts.",
+    excerpt: "Découvrez comment réduire légalement votre charge fiscale en utilisant les dispositifs prévus par la législation belge.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -410,7 +440,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "suis-je-rentable-tpe",
     title: "Suis-je vraiment rentable ? Comment le savoir simplement pour une TPE",
-    excerpt: "Vous travaillez beaucoup mais vous ne savez pas si votre entreprise est vraiment rentable ? 3 questions simples pour le savoir — sans jargon comptable.",
+    hook: "😟 Je travaille énormément… mais je ne sais pas si mon entreprise est vraiment rentable.",
+    excerpt: "Découvrez comment mesurer simplement la rentabilité réelle de votre entreprise.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -424,7 +455,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "bfr-dossier-bancaire-credit-tpe",
     title: "Votre banquier vous demande votre BFR — voici comment répondre (et négocier)",
-    excerpt: "Votre banquier analyse votre BFR avant tout crédit. Comment le lire, l'améliorer et défendre votre dossier. Guide MFinances, Bruxelles.",
+    hook: "🏦 Mon banquier me parle de BFR… et je ne sais pas quoi lui répondre.",
+    excerpt: "Comprenez ce qu'est le BFR et comment défendre efficacement votre dossier bancaire.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -436,7 +468,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "bfr-definition-formule-tpe",
     title: "BFR — définition simple, formule et exemples concrets pour une TPE belge",
-    excerpt: "BFR : définition simple, formule et exemple chiffré pour une TPE belge. Calculez votre besoin en fonds de roulement en 2 minutes. MFinances, Bruxelles.",
+    hook: "📊 Tout le monde parle du BFR… mais je ne comprends toujours pas ce que c'est.",
+    excerpt: "Comprenez simplement le BFR et son impact sur la trésorerie de votre entreprise.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -448,7 +481,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "bfr-recrutement-impact-tresorerie",
     title: "Recruter en période de croissance — l'impact caché sur votre BFR et votre trésorerie",
-    excerpt: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
+    hook: "👥 J'aimerais recruter… mais j'ai peur que ma trésorerie ne tienne pas.",
+    excerpt: "Découvrez l'impact financier d'un recrutement avant de prendre votre décision.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
@@ -460,7 +494,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "seuil-de-rentabilite-multi-services",
     title: "Votre seuil de rentabilité ment — si vous vendez plusieurs services",
-    excerpt: "Votre entreprise vend plusieurs services ? Calculez votre seuil de rentabilité pondéré et détectez l'angle mort qui pèse sur vos marges. Outil gratuit.",
+    hook: "📈 Je ne connais pas les marges que je réalise sur mes produits ou mes services.",
+    excerpt: "Comprenez comment mesurer vos marges pour identifier les activités réellement rentables.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
@@ -473,7 +508,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "frais-professionnels-deductibles-belgique",
     title: "Frais professionnels déductibles en Belgique — ce qui est défendable, ce qui fragilise votre dossier",
-    excerpt: "Quels frais professionnels sont réellement défendables en Belgique ? Guide complet IPP et société : restaurant, voiture, bureau, téléphone.",
+    hook: "🧾 Quels frais puis-je réellement déduire… sans prendre de risques ?",
+    excerpt: "Découvrez quels frais professionnels sont fiscalement défendables et lesquels peuvent fragiliser votre dossier.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -484,7 +520,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "frais-mixtes-belgique",
     title: "Frais professionnels mixtes en Belgique — comment justifier la part déductible",
-    excerpt: "Comment justifier la part professionnelle d'un frais mixte en Belgique ? Voiture, téléphone, bureau à domicile : méthodes et justificatifs.",
+    hook: "📱 J'utilise certains biens à la fois pour mon activité et pour ma vie privée… comment les déduire correctement ?",
+    excerpt: "Comprenez comment justifier la part professionnelle de vos frais mixtes.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -497,7 +534,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "bureau-a-domicile",
     title: "Bureau à domicile en Belgique : le guide complet du dirigeant (2026)",
-    excerpt: "Part professionnelle, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque.",
+    hook: "🏠 Je travaille de chez moi… est-ce que je passe à côté d'économies d'impôts ?",
+    excerpt: "Découvrez comment optimiser légalement la déduction de votre bureau à domicile.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -510,7 +548,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "calcul-bureau-a-domicile",
     title: "Comment calculer la déduction bureau à domicile en Belgique (2026)",
-    excerpt: "Méthode des surfaces pondérées, exemple chiffré et rapport PDF personnalisé. Gratuit et sans inscription.",
+    hook: "📐 Je ne sais pas comment calculer la part déductible de mon bureau.",
+    excerpt: "Apprenez à calculer correctement votre déduction en respectant les règles fiscales belges.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -521,7 +560,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "piece-usage-mixte-bureau",
     title: "Pièce à usage mixte : comment calculer la part professionnelle ?",
-    excerpt: "Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation.",
+    hook: "🚪 Je n'ai pas de bureau dédié… puis-je quand même déduire une partie de mon logement ?",
+    excerpt: "Découvrez comment calculer la part professionnelle d'une pièce à usage mixte.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -533,7 +573,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "locataire-societe-sous-location-loyer",
     title: "Locataire et dirigeant : comment louer votre bureau à votre société",
-    excerpt: "Locataire et dirigeant en Belgique ? Sous-louez votre bureau à votre société légalement. Conditions, bail, plafonds fiscaux et générateur gratuit.",
+    hook: "🏡 Je suis locataire… puis-je louer une partie de mon logement à ma société ?",
+    excerpt: "Comprenez dans quelles conditions cette stratégie est autorisée et fiscalement intéressante.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -545,7 +586,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "louer-meubles-bureau-societe",
     title: "Louer vos meubles à votre société : la déduction à 7,5 %",
-    excerpt: "Louez vos meubles professionnels à votre société. Répartition 60/40, taxation effective 7,5 %. Exemple chiffré et générateur de bail meublé.",
+    hook: "🪑 Puis-je louer mes meubles à ma société pour réduire mes impôts ?",
+    excerpt: "Découvrez comment fonctionne cette stratégie et dans quelles limites elle est applicable.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -557,7 +599,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comparatif-bureau-a-domicile-statut",
     title: "Bureau à domicile : les différences entre indépendant, dirigeant et les deux",
-    excerpt: "Comparez les mécanismes de déduction bureau à domicile selon votre statut en Belgique. Part professionnelle, remboursement, sous-location, double statut.",
+    hook: "⚖️ Je suis indépendant, dirigeant… ou les deux. Quelle solution s'applique à moi ?",
+    excerpt: "Comprenez les différences de traitement fiscal selon votre statut.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -569,7 +612,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "erreurs-bureau-a-domicile-controle-fiscal",
     title: "5 erreurs qui déclenchent un contrôle fiscal sur votre bureau à domicile",
-    excerpt: "Part professionnelle excessive, bail absent, loyer hors plafond : 5 erreurs qui attirent l'administration fiscale belge sur le bureau à domicile.",
+    hook: "🚨 J'ai peur qu'un contrôle fiscal remette en cause mon bureau à domicile.",
+    excerpt: "Découvrez les erreurs qui attirent le plus souvent l'attention de l'administration fiscale.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -581,7 +625,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "combinaison-bureau-a-domicile",
     title: "Part professionnelle + sous-location + meubles : la stratégie bureau à domicile optimale",
-    excerpt: "Combinez les 3 mécanismes légaux pour maximiser vos déductions bureau à domicile. Exemple chiffré complet, 4 étapes et plafonds.",
+    hook: "📊 Comment optimiser au maximum mon bureau à domicile… tout en restant dans la légalité ?",
+    excerpt: "Découvrez comment combiner les différents mécanismes fiscaux prévus par la loi.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -593,7 +638,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "requalification-loyer-remuneration",
     title: "Requalification du loyer en rémunération de dirigeant : comment l'éviter",
-    excerpt: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention.",
+    hook: "⚠️ J'ai peur que l'administration fiscale requalifie mon loyer.",
+    excerpt: "Comprenez comment éviter la requalification de votre loyer en rémunération de dirigeant.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
@@ -604,7 +650,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "fin-deduction-interets-immobilier-2026",
     title: "Votre immeuble de rapport ne vous protège plus fiscalement. Ce que ça change en 2026.",
-    excerpt: "Dès l'exercice 2026, la déduction des intérêts d'emprunt sur l'immobilier secondaire disparaît. Impact concret, autres réformes et solutions structurelles.",
+    hook: "🏢 J'ai investi dans l'immobilier… les nouvelles règles fiscales vont-elles réduire ma rentabilité ?",
+    excerpt: "Comprenez les conséquences des réformes fiscales de 2026 et les solutions envisageables.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
