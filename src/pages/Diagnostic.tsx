@@ -184,6 +184,7 @@ export default function Diagnostic() {
     email: searchParams.get("email") || "",
   });
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [showEmailForm, setShowEmailForm] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
