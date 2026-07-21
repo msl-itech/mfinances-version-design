@@ -1,6 +1,7 @@
 export interface BlogArticle {
   slug: string;
   title: string;
+  hook?: string;
   excerpt: string;
   category: string;
   categorySlug: string;
