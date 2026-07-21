@@ -2427,7 +2427,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Enregistrement du bail recommandé pour lui conférer date certaine",
           "Déclaration du loyer perçu dans votre IPP (rubrique revenus immobiliers)",
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
       },
       {
         heading: "Le plafond légal anti-requalification",
