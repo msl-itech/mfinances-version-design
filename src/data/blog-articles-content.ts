@@ -2645,7 +2645,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
         ],
         relatedLinks: [{ text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" }],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
         heading: "Erreur 4 — Des paiements sans trace bancaire",
