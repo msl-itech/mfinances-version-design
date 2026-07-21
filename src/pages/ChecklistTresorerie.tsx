@@ -11,6 +11,7 @@ import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -165,12 +166,18 @@ export default function ChecklistTresorerie() {
               <div className="bg-card rounded-2xl p-7 border border-border/50 shadow-lg">
                 {!submitted ? (
                   <>
-                    <h2 className="font-display text-[20px] text-foreground mb-1 leading-tight">
-                      Téléchargez la checklist
-                    </h2>
-                    <p className="text-[13px] text-muted-foreground font-body mb-5">
-                      Vérifiez si vous commettez ces 5 erreurs : résultat immédiat.
-                    </p>
+                    <ReportUnlockBanner
+                      eyebrow="Guide gratuit · PDF"
+                      titleStart="Recevez la"
+                      titleItalic="checklist trésorerie"
+                      titleEnd="qui protège votre TPE"
+                      description="Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat."
+                      bullets={[
+                        { icon: "zap", text: "Téléchargement immédiat" },
+                        { icon: "mail", text: "Version PDF imprimable" },
+                        { icon: "shield", text: "Email jamais partagé" },
+                      ]}
+                    />
                     <form onSubmit={handleSubmit} className="space-y-3">
                       <input
                         type="text"

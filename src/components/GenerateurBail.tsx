@@ -15,6 +15,7 @@ import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
+import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 
 /* ── Types ── */
 interface Meuble {
@@ -709,7 +710,18 @@ export default function GenerateurBail() {
 
           {!sent ? (
             <>
-              <h4 className="text-[14px] font-semibold text-foreground mb-3">Recevez votre bail PDF par email</h4>
+              <ReportUnlockBanner
+                eyebrow="Dernière étape · Votre bail"
+                titleStart="Recevez votre"
+                titleItalic="bail professionnel"
+                titleEnd="prêt à signer"
+                description="PDF complet en 13 articles, personnalisé avec vos données et adapté au contexte belge. Envoyé immédiatement dans votre boîte mail."
+                bullets={[
+                  { icon: "zap", text: "Génération immédiate" },
+                  { icon: "mail", text: "PDF reçu par email" },
+                  { icon: "shield", text: "Vos données restent privées" },
+                ]}
+              />
               <div className="grid grid-cols-2 gap-2.5 mb-3">
                 <div>
                   <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
