@@ -2110,7 +2110,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de taux légal fixe pour la déduction du téléphone en Belgique. Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage privé réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
           "L'ordinateur est déductible à 100% si l'usage est exclusivement professionnel. En cas d'usage mixte, une ventilation justifiée est nécessaire.",
         ],
-        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         heading: "Les 6 erreurs les plus fréquentes en matière de frais professionnels",
