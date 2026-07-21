@@ -184,6 +184,7 @@ export default function Diagnostic() {
     email: searchParams.get("email") || "",
   });
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [showEmailForm, setShowEmailForm] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   useEffect(() => {
@@ -554,53 +555,64 @@ export default function Diagnostic() {
             {/* ── STEP 8 — EMAIL CAPTURE ── */}
             {step === 8 && (
               <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm">
-                <ReportUnlockBanner
-                  eyebrow="Dernière étape · Votre diagnostic"
-                  titleStart="Débloquez votre"
-                  titleItalic="analyse complète"
-                  titleEnd="et vos recommandations personnalisées"
-                  description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
-                  bullets={[
-                    { icon: "zap", text: "Score & analyse instantanés" },
-                    { icon: "mail", text: "Rapport PDF par email" },
-                    { icon: "shield", text: "Vos données restent privées" },
-                  ]}
-                  targetId="diagnostic-email-form"
-                />
-                <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto scroll-mt-24">
-                  <input
-                    type="text"
-                    placeholder="Prénom"
-                    required
-                    value={emailForm.prenom}
-                    onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                {!showEmailForm ? (
+                  <ReportUnlockBanner
+                    eyebrow="Dernière étape · Votre diagnostic"
+                    titleStart="Débloquez votre"
+                    titleItalic="analyse complète"
+                    titleEnd="et vos recommandations personnalisées"
+                    description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
+                    bullets={[
+                      { icon: "zap", text: "Score & analyse instantanés" },
+                      { icon: "mail", text: "Rapport PDF par email" },
+                      { icon: "shield", text: "Vos données restent privées" },
+                    ]}
+                    ctaLabel="Recevoir mon diagnostic"
+                    onCtaClick={() => {
+                      setShowEmailForm(true);
+                      setTimeout(() => {
+                        document.getElementById("diagnostic-prenom")?.focus();
+                      }, 50);
+                    }}
                   />
-                  <input
-                    type="email"
-                    placeholder="Email professionnel"
-                    required
-                    value={emailForm.email}
-                    onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  />
-                  <div className="flex justify-center">
-                    <ReCAPTCHA
-                      ref={recaptchaRef}
-                      sitekey={RECAPTCHA_SITE_KEY}
-                      onChange={(token) => setRecaptchaToken(token)}
-                      onExpired={() => setRecaptchaToken(null)}
+                ) : (
+                  <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto scroll-mt-24">
+                    <input
+                      id="diagnostic-prenom"
+                      type="text"
+                      placeholder="Prénom"
+                      required
+                      value={emailForm.prenom}
+                      onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                     />
-                  </div>
-                  <Button variant="accent" className="rounded-full w-full" type="submit" disabled={!recaptchaToken}>
-                    Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                  </Button>
-                </form>
-                <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center max-w-[400px] mx-auto">
-                  En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
-                </p>
+                    <input
+                      type="email"
+                      placeholder="Email professionnel"
+                      required
+                      value={emailForm.email}
+                      onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    />
+                    <div className="flex justify-center">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_SITE_KEY}
+                        onChange={(token) => setRecaptchaToken(token)}
+                        onExpired={() => setRecaptchaToken(null)}
+                      />
+                    </div>
+                    <Button variant="accent" className="rounded-full w-full" type="submit" disabled={!recaptchaToken}>
+                      Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
+                    </Button>
+                    <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
+                      En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
+                    </p>
+                  </form>
+                )}
               </div>
             )}
+
 
             {/* ── RESULTS ── */}
             {step === 9 && (() => {
