@@ -68,6 +68,7 @@ export default function ChecklistTresorerie() {
 
   const [form, setForm] = useState({ prenom: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
