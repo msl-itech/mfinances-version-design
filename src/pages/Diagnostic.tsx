@@ -559,8 +559,8 @@ export default function Diagnostic() {
                 <div
                   className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.12)] ${
                     showEmailForm
-                      ? "scale-100 translate-y-0 translate-x-0 opacity-100"
-                      : "scale-[0.95] translate-y-5 translate-x-1 opacity-70"
+                      ? "scale-100 translate-y-0 translate-x-0 rotate-0 opacity-100"
+                      : "scale-[0.98] translate-y-2 translate-x-[-2px] rotate-[-2deg] opacity-80"
                   }`}
                 >
                   <div className="max-w-[440px] mx-auto scroll-mt-24">
