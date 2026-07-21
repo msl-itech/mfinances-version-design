@@ -2190,7 +2190,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La justification de l'usage professionnel est centrale. Un suivi structuré — comme un carnet de route — renforce fortement la défendabilité du frais. Sans suivi, le pourcentage revendiqué doit rester cohérent avec la réalité de l'activité — pas avec ce que « tout le monde fait ».",
           "Un carnet de route numérique (application mobile, relevé GPS) est aujourd'hui la méthode la plus robuste. Sans lui, le fisc peut remettre en cause l'intégralité du pourcentage professionnel revendiqué.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         heading: "Ce que le fisc vérifie vraiment sur les frais mixtes",
