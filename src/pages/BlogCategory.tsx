@@ -151,9 +151,12 @@ export default function BlogCategory() {
                         <Clock size={16} className="text-foreground/30 mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
-                            {article.title}
+                            {article.hook || article.title}
                           </h3>
                           <p className="text-[13px] text-muted-foreground font-body mt-1">{article.excerpt}</p>
+                          <p className="text-[11px] italic text-foreground/45 font-body mt-1 leading-snug">
+                            {article.hook ? article.title : ""}
+                          </p>
                         </div>
                       </div>
                     </div>
