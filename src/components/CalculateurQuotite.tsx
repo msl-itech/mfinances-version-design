@@ -580,19 +580,22 @@ export default function CalculateurQuotite() {
           )}
 
 
-          <div className="flex justify-between items-center mt-5">
-            <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-              <ArrowLeft size={14} /> Retour
-            </button>
-            <Button
-              onClick={handleSubmit}
-              disabled={sending || !prenom.trim() || !email.trim()}
-              variant="accent"
-              className="rounded-lg"
-            >
-              {sending ? "Envoi en cours…" : "Voir mes résultats"} <ArrowRight size={16} className="ml-1" />
-            </Button>
-          </div>
+          {showForm && (
+            <div className="flex justify-between items-center mt-5">
+              <button onClick={() => setShowForm(false)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <ArrowLeft size={14} /> Retour
+              </button>
+              <Button
+                onClick={handleSubmit}
+                disabled={sending || !prenom.trim() || !email.trim()}
+                variant="accent"
+                className="rounded-lg"
+              >
+                {sending ? "Envoi en cours…" : "Voir mes résultats"} <ArrowRight size={16} className="ml-1" />
+              </Button>
+            </div>
+          )}
+
         </div>
       )}
 
