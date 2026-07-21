@@ -784,6 +784,20 @@ export default function Diagnostic() {
                     </div>
                   </div>
 
+                  {/* ── 4bis. Réservation 30 min ── */}
+                  <BookingCta
+                    eyebrow="Étape suivante · 30 min offertes"
+                    title={
+                      score <= 8
+                        ? "Reprenez le contrôle avec Mika en 30 minutes"
+                        : score <= 16
+                        ? "Sécurisez vos angles morts avec Mika en 30 minutes"
+                        : "Validez votre stratégie avec Mika en 30 minutes"
+                    }
+                    description="Un échange direct avec l'expert-comptable de MFinances pour analyser votre score, identifier les priorités et repartir avec un plan clair — sans engagement."
+                  />
+
+
                   {/* ── 5. Fragilités ── */}
                   <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
                     <h3 className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-foreground mb-5 sm:mb-6">
