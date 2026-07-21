@@ -755,7 +755,7 @@ export default function GenerateurBail() {
                   onCtaClick={() => setShowForm(true)}
                 />
               ) : (
-                <>
+                <div id="bail-unlock-form">
                   <div className="text-center mb-6">
                     <div className="flex items-center justify-center gap-2 mb-3">
                       <span className="h-px w-6 bg-accent" />
