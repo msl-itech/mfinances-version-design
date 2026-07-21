@@ -714,7 +714,7 @@ export default function GenerateurBail() {
             {!sent && !showForm && (
               <div className="absolute inset-0 flex flex-col items-center justify-end pb-5 bg-gradient-to-b from-transparent via-background/40 to-background rounded-xl">
                 <div className="flex items-center gap-2 mb-3 text-[11px] font-bold tracking-[0.15em] uppercase text-primary/70">
-                  <Lock size={12} /> Aperçu verrouillé
+                  <LockIcon size={12} /> Aperçu verrouillé
                 </div>
                 <Button
                   onClick={() => {
