@@ -85,6 +85,13 @@ export default function ChecklistControleBureauConfirmation() {
                 <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
+
+            <div className="mt-8">
+              <BookingCta
+                title="Ou parlez directement à Mika (30 min offertes)"
+                description="Un échange gratuit et confidentiel avec l'expert-comptable de MFinances pour sécuriser votre dossier bureau à domicile avant un éventuel contrôle."
+              />
+            </div>
           </div>
 
           {/* Separator */}
