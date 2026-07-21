@@ -777,7 +777,8 @@ export default function GenerateurBail() {
                 Vos données sont confidentielles. Aucune revente.
               </p>
             </div>
-          ) : (
+          )}
+          {sent && (
             <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
               <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
               <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
