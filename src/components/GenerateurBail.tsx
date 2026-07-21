@@ -736,7 +736,7 @@ export default function GenerateurBail() {
             <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros — charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
           </div>
 
-          {!sent ? (
+          {!sent && showForm && (
             <div id="bail-unlock-form">
               <div className="text-center mb-6">
                 <div className="flex items-center justify-center gap-2 mb-3">
