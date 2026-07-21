@@ -165,87 +165,67 @@ export default function ChecklistTresorerie() {
               <div className="bg-card rounded-2xl p-7 border border-border/50 shadow-lg">
                 {!submitted ? (
                   <>
-                    {!showForm ? (
-                      <ReportUnlockBanner
-                        eyebrow="Guide gratuit · PDF"
-                        titleStart="Recevez la"
-                        titleItalic="checklist trésorerie"
-                        titleEnd="qui protège votre TPE"
-                        description="Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat."
-                        bullets={[
-                          { icon: "zap", text: "Téléchargement immédiat" },
-                          { icon: "mail", text: "Version PDF imprimable" },
-                          { icon: "shield", text: "Email jamais partagé" },
-                        ]}
-                        ctaLabel="Recevoir la checklist"
-                        onCtaClick={() => setShowForm(true)}
+                    <div className="text-center mb-6">
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <span className="h-px w-6 bg-accent" />
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
+                          Guide gratuit · PDF
+                        </span>
+                        <span className="h-px w-6 bg-accent" />
+                      </div>
+                      <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
+                        Recevez la <span className="italic text-destructive">checklist trésorerie</span> qui protège votre TPE
+                      </h2>
+                      <p className="text-[14px] text-primary/65 font-body">
+                        Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat.
+                      </p>
+                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-3">
+                      <input
+                        type="text"
+                        placeholder="Prénom"
+                        required
+                        value={form.prenom}
+                        onChange={(e) => setForm({ ...form, prenom: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        disabled={isLoading}
                       />
-                    ) : (
-                      <>
-                        <div className="text-center mb-6">
-                          <div className="flex items-center justify-center gap-2 mb-3">
-                            <span className="h-px w-6 bg-accent" />
-                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
-                              Vos coordonnées
-                            </span>
-                            <span className="h-px w-6 bg-accent" />
-                          </div>
-                          <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
-                            Où envoyons-nous votre <span className="italic text-destructive">checklist</span> ?
-                          </h2>
-                          <p className="text-[14px] text-primary/65 font-body">
-                            PDF livré immédiatement dans votre boîte mail.
-                          </p>
-                        </div>
-                        <form onSubmit={handleSubmit} className="space-y-3">
-                          <input
-                            type="text"
-                            placeholder="Prénom"
-                            required
-                            value={form.prenom}
-                            onChange={(e) => setForm({ ...form, prenom: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                            disabled={isLoading}
-                          />
-                          <input
-                            type="email"
-                            placeholder="Email professionnel"
-                            required
-                            value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                            disabled={isLoading}
-                          />
-                          {error && (
-                            <p className="text-[13px] text-accent font-body">{error}</p>
-                          )}
-                          <div className="flex justify-center">
-                            <ReCAPTCHA
-                              ref={recaptchaRef}
-                              sitekey={RECAPTCHA_SITE_KEY}
-                              onChange={(token) => setRecaptchaToken(token)}
-                              onExpired={() => setRecaptchaToken(null)}
-                            />
-                          </div>
-                          <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading || !recaptchaToken}>
-                            {isLoading ? (
-                              <>
-                                <Loader2 size={16} className="mr-1 animate-spin" />
-                                Envoi en cours…
-                              </>
-                            ) : (
-                              <>
-                                Télécharger la checklist <Download size={16} className="ml-1" />
-                              </>
-                            )}
-                          </Button>
-                        </form>
-                        <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
-                          Votre email ne sera jamais partagé. Désinscription en un clic.
-                        </p>
-                      </>
-                    )}
-
+                      <input
+                        type="email"
+                        placeholder="Email professionnel"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        disabled={isLoading}
+                      />
+                      {error && (
+                        <p className="text-[13px] text-accent font-body">{error}</p>
+                      )}
+                      <div className="flex justify-center">
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={RECAPTCHA_SITE_KEY}
+                          onChange={(token) => setRecaptchaToken(token)}
+                          onExpired={() => setRecaptchaToken(null)}
+                        />
+                      </div>
+                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading || !recaptchaToken}>
+                        {isLoading ? (
+                          <>
+                            <Loader2 size={16} className="mr-1 animate-spin" />
+                            Envoi en cours…
+                          </>
+                        ) : (
+                          <>
+                            Télécharger la checklist <Download size={16} className="ml-1" />
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                    <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
+                      Votre email ne sera jamais partagé. Désinscription en un clic.
+                    </p>
                   </>
                 ) : (
                   <div className="text-center py-6">
