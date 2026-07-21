@@ -2437,7 +2437,6 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "requalification du loyer", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
       },
     ],
     faq: [
