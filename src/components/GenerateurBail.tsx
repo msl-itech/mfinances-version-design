@@ -15,7 +15,6 @@ import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
-import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 
 /* ── Types ── */
 interface Meuble {
