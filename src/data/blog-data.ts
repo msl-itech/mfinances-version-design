@@ -428,15 +428,17 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "pourquoi-comptable-aide-pas",
     title: "Pourquoi mon comptable ne m'aide pas à piloter mon entreprise ?",
-    excerpt: "Vous avez un comptable mais vous n'y comprenez rien à vos chiffres ? Vous n'êtes pas seul. Voici pourquoi — et ce qu'un vrai partenaire fait différemment.",
-    category: "Fiscalité belge",
-    categorySlug: "fiscalite-belgique",
+    hook: "😟 Mon comptable fait mes comptes... mais personne ne m'aide à prendre les bonnes décisions.",
+    excerpt: "Comprenez pourquoi la comptabilité ne suffit pas à piloter une entreprise et quel accompagnement peut réellement faire la différence.",
+    category: "DAF externalisé",
+    categorySlug: "daf-externalise",
     published: true,
     date: "2026-01-08",
     seoTitle: "Mon Comptable ne M'aide Pas — Pourquoi ?",
     metaDescription: "Vous avez un comptable mais vous ne comprenez rien à vos chiffres ? Voici pourquoi — et ce qu'un vrai partenaire financier fait différemment.",
     pillarPage: "/diagnostic/",
   },
+
   {
     slug: "suis-je-rentable-tpe",
     title: "Suis-je vraiment rentable ? Comment le savoir simplement pour une TPE",
