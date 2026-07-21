@@ -2401,7 +2401,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Côté vous (IPP) : vous percevez 300 €/mois → imposé sur 180 € après abattement 40 % → environ 81 €/mois au taux marginal de 45 %",
           "Comparaison : si vous perceviez ces 300 € en rémunération brute, charges sociales + IPP représenteraient environ 180 €/mois — soit 2,2× plus cher",
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+        ctaInline: { text: "Générer mon bail de sous-location", link: "/ressources/generateur-bail/" },
       },
       {
         heading: "La condition d'autorisation préalable",
