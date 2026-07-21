@@ -2218,7 +2218,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Besoin de sécuriser vos frais mixtes ?",
     ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
     ctaLink: "/contact/",
-    ctaLabel: "Recevoir la checklist des frais sensibles",
+    ctaLabel: "Parler à un expert →",
   },
 
   "calcul-bureau-a-domicile": {
