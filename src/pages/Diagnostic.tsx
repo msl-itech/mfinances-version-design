@@ -625,8 +625,10 @@ export default function Diagnostic() {
                     <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
                       En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
                     </p>
-                  </form>
+                    </form>
+                  </div>
                 )}
+
               </div>
             )}
 
