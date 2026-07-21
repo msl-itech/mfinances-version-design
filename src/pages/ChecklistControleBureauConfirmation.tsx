@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, CheckCircle2 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import BookingCta from "@/components/BookingCta";
 
 function triggerPdfDownload() {
   const link = document.createElement("a");
