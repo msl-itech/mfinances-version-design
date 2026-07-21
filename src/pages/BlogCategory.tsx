@@ -111,11 +111,18 @@ export default function BlogCategory() {
                       to={`/blog/${article.categorySlug}/${article.slug}/`}
                       className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300"
                     >
-                      <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors leading-snug">
+                      {article.hook && (
+                        <p className="text-[17px] md:text-[18px] font-bold text-foreground leading-snug group-hover:text-accent transition-colors">
+                          {article.hook}
+                        </p>
+                      )}
+                      <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mt-3">
+                        {article.excerpt}
+                      </p>
+                      <p className="text-[12px] italic text-foreground/45 font-body mt-4 leading-snug">
                         {article.title}
-                      </h3>
-                      <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mb-3">{article.excerpt}</p>
-                      <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold group-hover:gap-2 transition-all">
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
                         Lire l'article <ArrowRight size={14} />
                       </span>
                     </Link>
@@ -144,9 +151,12 @@ export default function BlogCategory() {
                         <Clock size={16} className="text-foreground/30 mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
-                            {article.title}
+                            {article.hook || article.title}
                           </h3>
                           <p className="text-[13px] text-muted-foreground font-body mt-1">{article.excerpt}</p>
+                          <p className="text-[11px] italic text-foreground/45 font-body mt-1 leading-snug">
+                            {article.hook ? article.title : ""}
+                          </p>
                         </div>
                       </div>
                     </div>
