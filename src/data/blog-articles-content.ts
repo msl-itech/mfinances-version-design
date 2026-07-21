@@ -2128,9 +2128,7 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Utilisez l'outil gratuit Frais Défendables pour analyser votre dépense en 3 questions et obtenir un premier niveau de lecture : défendable, à encadrer, ou zone sensible.",
         ],
-        relatedLinks: [
-          
-        ],
+        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
     ],
     faq: [
