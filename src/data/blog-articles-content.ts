@@ -2089,7 +2089,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La voiture de société est le poste le plus complexe et le plus surveillé du dossier fiscal d'un dirigeant belge. Sa déductibilité dépend des émissions CO₂ du véhicule et de la date d'acquisition — le taux n'est pas fixe et évolue dans le temps. Si le véhicule est mis à disposition du dirigeant à des fins privées, un Avantage de Toute Nature (ATN) doit être calculé et déclaré à l'IPP. Un véhicule sans ATN déclaré constitue un risque fiscal majeur.",
           "Le carburant est déductible en corrélation directe avec le taux de déductibilité du véhicule. Le parking professionnel est déductible à 100% si le lien avec un déplacement professionnel est documenté. Le vélo électrique bénéficie d'un régime fiscal généralement favorable — à vérifier selon les modalités exactes de mise à disposition.",
         ],
-        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         subheading: "Frais de représentation",
