@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { generateQuotitePdf } from "@/lib/generate-quotite-pdf";
 import { supabase } from "@/integrations/supabase/client";
 import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
+import BookingCta from "@/components/BookingCta";
 
 /* ── Types ── */
 interface Piece {
