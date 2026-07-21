@@ -15,6 +15,7 @@ import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
+import BookingCta from "@/components/BookingCta";
 
 /* ── Types ── */
 interface Meuble {
@@ -779,10 +780,18 @@ export default function GenerateurBail() {
             </div>
           )}
           {sent && (
-            <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
-              <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
-              <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
-            </div>
+            <>
+              <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
+                <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
+                <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
+              </div>
+              <div className="mt-5">
+                <BookingCta
+                  title="Faites relire votre bail par Mika en 30 minutes"
+                  description="Un échange gratuit avec l'expert-comptable de MFinances pour valider les clauses sensibles, la déduction 7,5% et sécuriser le bail avant signature."
+                />
+              </div>
+            </>
           )}
           <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-4">
             Ce bail est basé sur un modèle utilisé en cabinet. À valider avant signature selon votre situation spécifique. MFinances · ITAA n°50.624.805

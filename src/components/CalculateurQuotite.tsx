@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { generateQuotitePdf } from "@/lib/generate-quotite-pdf";
 import { supabase } from "@/integrations/supabase/client";
 import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
+import BookingCta from "@/components/BookingCta";
 
 /* ── Types ── */
 interface Piece {
@@ -684,6 +685,13 @@ export default function CalculateurQuotite() {
               Sans justificatifs solides, l'administration peut requalifier vos déductions lors d'un contrôle. Et sans analyse complète, d'autres frais déductibles passent probablement inaperçus.
             </p>
           </div>
+
+          {/* ── Réservation 30 min ── */}
+          <BookingCta
+            title="Sécurisez votre déduction avec Mika en 30 minutes"
+            description="Un échange gratuit avec l'expert-comptable de MFinances pour valider votre calcul, blinder vos justificatifs et identifier les autres frais déductibles que vous oubliez."
+          />
+
 
           {/* ── Refaire ── */}
           <div className="text-center">

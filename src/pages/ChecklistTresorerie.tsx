@@ -11,6 +11,7 @@ import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import BookingCta from "@/components/BookingCta";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -242,6 +243,12 @@ export default function ChecklistTresorerie() {
                       <Button variant="default" className="rounded-full" asChild>
                         <Link to="/diagnostic/">Faire le diagnostic complet →</Link>
                       </Button>
+                    </div>
+                    <div className="mt-6 text-left">
+                      <BookingCta
+                        title="Faites le point avec Mika en 30 minutes"
+                        description="Un échange gratuit avec l'expert-comptable de MFinances pour prioriser les actions de la checklist selon votre situation réelle."
+                      />
                     </div>
                   </div>
                 )}
