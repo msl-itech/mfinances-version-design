@@ -12,6 +12,7 @@ import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
+import BookingCta from "@/components/BookingCta";
 
 /* ───── DATA ───── */
 
