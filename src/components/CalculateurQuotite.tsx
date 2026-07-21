@@ -483,9 +483,19 @@ export default function CalculateurQuotite() {
 
           {progressBar}
 
-          <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-5">
-            Avec le détail par poste de charge et les points à vérifier avant votre prochaine déclaration.
-          </p>
+          <ReportUnlockBanner
+            eyebrow="Dernière étape · Votre rapport"
+            titleStart="Recevez votre"
+            titleItalic="quote-part professionnelle"
+            titleEnd="calculée et défendable"
+            description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
+            bullets={[
+              { icon: "zap", text: "Résultats en 30 secondes" },
+              { icon: "mail", text: "Rapport PDF par email" },
+              { icon: "shield", text: "Aucune revente de données" },
+            ]}
+          />
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             <div>
