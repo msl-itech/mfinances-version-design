@@ -41,7 +41,20 @@ type ProblemCard = {
   badge: string;
   categorySlugs: string[];
   href: string;
+  image: string;
 };
+
+const problemCards: ProblemCard[] = [
+  {
+    emoji: "💸",
+    title: "Je manque toujours de trésorerie",
+    quote: "Mon entreprise est rentable mais je n'ai jamais d'argent.",
+    badge: "Trésorerie",
+    categorySlugs: ["tresorerie"],
+    href: "/blog/tresorerie/",
+    image: heroTresorerie,
+  },
+
 
 const problemCards: ProblemCard[] = [
   {
