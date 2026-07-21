@@ -1554,7 +1554,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Prendre rendez-vous — premier échange gratuit",
     ctaDescription: "Découvrez ce qu'un vrai partenaire financier fait différemment.",
-    ctaLink: "/contact/",
+    ctaLink: "/diagnostic/",
     ctaLabel: "Faire le diagnostic gratuit",
   },
 
