@@ -244,6 +244,12 @@ export default function ChecklistTresorerie() {
                         <Link to="/diagnostic/">Faire le diagnostic complet →</Link>
                       </Button>
                     </div>
+                    <div className="mt-6 text-left">
+                      <BookingCta
+                        title="Faites le point avec Mika en 30 minutes"
+                        description="Un échange gratuit avec l'expert-comptable de MFinances pour prioriser les actions de la checklist selon votre situation réelle."
+                      />
+                    </div>
                   </div>
                 )}
               </div>
