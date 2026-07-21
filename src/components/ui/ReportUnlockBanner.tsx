@@ -8,7 +8,8 @@ export interface ReportUnlockBannerProps {
   description: string;
   bullets?: { icon: "mail" | "shield" | "zap"; text: string }[];
   className?: string;
-  targetId?: string;
+  ctaLabel?: string;
+  onCtaClick?: () => void;
 }
 
 const ICONS = { mail: Mail, shield: ShieldCheck, zap: Zap };
@@ -25,27 +26,9 @@ export default function ReportUnlockBanner({
     { icon: "shield", text: "100 % confidentiel" },
   ],
   className = "",
-  targetId,
+  ctaLabel,
+  onCtaClick,
 }: ReportUnlockBannerProps) {
-  const handleClick = () => {
-    if (!targetId) return;
-    const el = document.getElementById(targetId);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "center" });
-    const focusable = el.querySelector<HTMLElement>(
-      "input, textarea, select, button"
-    );
-    focusable?.focus({ preventScroll: true });
-  };
-
-  const Title = (
-    <>
-      <span className="text-white">{titleStart}</span>{" "}
-      <span className="italic font-normal text-accent">{titleItalic}</span>
-      {titleEnd && <span className="text-white"> {titleEnd}</span>}
-    </>
-  );
-
   return (
     <div
       className={`relative overflow-hidden rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 mb-5 shadow-md ${className}`}
@@ -66,26 +49,14 @@ export default function ReportUnlockBanner({
           </span>
         </div>
 
-        {targetId ? (
-          <button
-            type="button"
-            onClick={handleClick}
-            className="group text-left w-full font-display font-bold leading-[1.15] tracking-[-0.01em] mb-2 hover:opacity-95 transition-opacity"
-            style={{ fontSize: "clamp(18px, 2.2vw, 24px)" }}
-          >
-            {Title}
-            <span className="inline-flex items-center gap-1 ml-2 align-middle text-accent text-[13px] font-body font-semibold not-italic underline underline-offset-4 group-hover:no-underline">
-              Compléter <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </button>
-        ) : (
-          <h3
-            className="font-display font-bold leading-[1.15] tracking-[-0.01em] mb-2"
-            style={{ fontSize: "clamp(18px, 2.2vw, 24px)" }}
-          >
-            {Title}
-          </h3>
-        )}
+        <h3
+          className="font-display font-bold leading-[1.15] tracking-[-0.01em] mb-2"
+          style={{ fontSize: "clamp(18px, 2.2vw, 24px)" }}
+        >
+          <span className="text-white">{titleStart}</span>{" "}
+          <span className="italic font-normal text-accent">{titleItalic}</span>
+          {titleEnd && <span className="text-white"> {titleEnd}</span>}
+        </h3>
 
         <p className="text-white/80 text-[13px] sm:text-[14px] leading-relaxed font-body max-w-[520px]">
           {description}
@@ -104,7 +75,21 @@ export default function ReportUnlockBanner({
             );
           })}
         </div>
+
+        {ctaLabel && onCtaClick && (
+          <div className="mt-5">
+            <button
+              type="button"
+              onClick={onCtaClick}
+              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-[14px] px-5 py-3 rounded-full hover:brightness-110 transition"
+            >
+              {ctaLabel}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
