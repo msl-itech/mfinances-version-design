@@ -15,23 +15,9 @@ import {
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
-import { blogCategories, blogArticles } from "@/data/blog-data";
-import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
-import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
-import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
-import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
-import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
-import Stamp from "@/components/ui/Stamp";
+import { blogArticles } from "@/data/blog-data";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
-
-const categoryImages: Record<string, string> = {
-  "tresorerie": heroTresorerie,
-  "daf-externalise": heroDaf,
-  "controle-de-gestion": heroControle,
-  "fiscalite-belgique": heroFiscalite,
-  "creation-societe": heroCreation,
-};
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -42,11 +28,63 @@ const breadcrumbJsonLd = {
   ],
 };
 
+type ProblemCard = {
+  emoji: string;
+  title: string;
+  quote: string;
+  badge: string;
+  categorySlugs: string[];
+  href: string;
+};
 
+const problemCards: ProblemCard[] = [
+  {
+    emoji: "💸",
+    title: "Je manque toujours de trésorerie",
+    quote: "Mon entreprise est rentable mais je n'ai jamais d'argent.",
+    badge: "Trésorerie",
+    categorySlugs: ["tresorerie"],
+    href: "/blog/tresorerie/",
+  },
+  {
+    emoji: "😩",
+    title: "J'ai l'impression de payer trop d'impôts",
+    quote: "Comment réduire légalement ma fiscalité ?",
+    badge: "Fiscalité",
+    categorySlugs: ["fiscalite-belgique"],
+    href: "/blog/fiscalite-belgique/",
+  },
+  {
+    emoji: "📊",
+    title: "Je ne comprends pas mes chiffres",
+    quote: "Mon comptable m'envoie des documents que je ne comprends pas.",
+    badge: "Contrôle de gestion",
+    categorySlugs: ["controle-de-gestion"],
+    href: "/blog/controle-de-gestion/",
+  },
+  {
+    emoji: "🧭",
+    title: "J'ai besoin d'être accompagné",
+    quote: "J'ai un comptable, mais personne ne pilote mes finances.",
+    badge: "DAF externalisé",
+    categorySlugs: ["daf-externalise"],
+    href: "/blog/daf-externalise/",
+  },
+  {
+    emoji: "🚀",
+    title: "Je veux développer mon entreprise",
+    quote: "Puis-je recruter ? Investir ? Emprunter ?",
+    badge: "Création d'entreprise",
+    categorySlugs: ["creation-societe"],
+    href: "/blog/creation-societe/",
+  },
+];
 
 export default function Blog() {
   const [mounted, setMounted] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string[] | null>(null);
   const root = useRef<HTMLDivElement>(null);
+  const articlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,10 +94,6 @@ export default function Blog() {
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const ARTICLES_PER_PAGE = 6;
@@ -67,15 +101,19 @@ export default function Blog() {
   const latestPublished = blogArticles.filter((a) => a.published);
 
   const filteredArticles = useMemo(() => {
-    if (!searchQuery.trim()) return latestPublished;
+    let list = latestPublished;
+    if (activeCategory) {
+      list = list.filter((a) => activeCategory.includes(a.categorySlug));
+    }
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase();
-    return latestPublished.filter(
+    return list.filter(
       (a) =>
         a.title.toLowerCase().includes(q) ||
         a.excerpt.toLowerCase().includes(q) ||
         a.category.toLowerCase().includes(q)
     );
-  }, [searchQuery, latestPublished]);
+  }, [searchQuery, latestPublished, activeCategory]);
 
   const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE);
   const paginatedArticles = filteredArticles.slice(
@@ -85,10 +123,17 @@ export default function Blog() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery]);
+  }, [searchQuery, activeCategory]);
+
+  const handleProblemClick = (card: ProblemCard) => {
+    setActiveCategory(card.categorySlugs);
+    setTimeout(() => {
+      articlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" ref={root}>
       <SEOHead
         title="Blog — Pilotage financier TPE | MFinances Bruxelles"
         description="Articles sur la trésorerie, fiscalité belge, contrôle de gestion et création d'entreprise. Pour dirigeants de TPE qui veulent piloter mieux."
@@ -100,7 +145,7 @@ export default function Blog() {
       <main>
         {/* ── HERO ── */}
         <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
-          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
+          <div className="mx-auto max-w-[820px] px-6 lg:px-12 text-center">
             <Breadcrumb>
               <BreadcrumbList className="justify-center">
                 <BreadcrumbItem>
@@ -117,72 +162,77 @@ export default function Blog() {
 
             <div className="mt-8">
               <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
-                Le pilotage financier, <span className="text-accent">sans jargon comptable</span>
+                Quel est votre <span className="text-accent">défi</span> aujourd'hui ?
               </h1>
-              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[600px] mx-auto">
-                Des articles concrets pour les dirigeants de TPE qui veulent prendre de meilleures décisions financières.
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[620px] mx-auto">
+                Nous avons rédigé des guides simples pour répondre aux questions que se posent les dirigeants de PME.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── CATÉGORIES ── */}
+        {/* ── CARTES PROBLÈMES ── */}
         <section className="bg-secondary py-8 md:py-10">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <div data-anim="fade-up" className="text-center mb-12">
-              <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                Explorez par <span className="text-accent">catégorie</span>
-              </h2>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {blogCategories.map((cat, i) => {
-                const articleCount = blogArticles.filter((a) => a.categorySlug === cat.slug && a.published).length;
-                const upcomingCount = blogArticles.filter((a) => a.categorySlug === cat.slug && !a.published).length;
+              {problemCards.map((card, i) => {
+                const isActive =
+                  activeCategory && card.categorySlugs.every((s) => activeCategory.includes(s));
                 return (
-                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={cat.slug} >
-                    <Link
-                      to={cat.href}
-                      className="group block bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
-                    >
-                      {categoryImages[cat.slug] && (
-                        <div className="h-[140px] overflow-hidden">
-                          <img
-                            src={categoryImages[cat.slug]}
-                            alt={`${cat.label} — MFinances blog`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                      )}
-                      <div className="p-7">
-                        <h3 className="text-[17px] font-bold font-body text-foreground mb-2 group-hover:text-accent transition-colors">
-                          {cat.label}
-                        </h3>
-                        <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mb-4">{cat.description}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-[12px] text-foreground/40 font-body">
-                            {articleCount > 0 ? `${articleCount} article${articleCount > 1 ? "s" : ""}` : ""}
-                            {articleCount > 0 && upcomingCount > 0 ? " · " : ""}
-                            {upcomingCount > 0 ? `${upcomingCount} à venir` : ""}
-                          </span>
-                          <ArrowRight size={14} className="text-foreground/20 group-hover:text-accent transition-colors" />
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
+                  <button
+                    key={card.title}
+                    type="button"
+                    onClick={() => handleProblemClick(card)}
+                    data-anim="fade-up"
+                    data-delay={`${0.05 + i * 0.05}`}
+                    className={`group text-left bg-card rounded-2xl p-7 border transition-all duration-300 h-full flex flex-col ${
+                      isActive
+                        ? "border-accent shadow-[0_8px_30px_rgba(232,57,58,0.15)]"
+                        : "border-border/50 hover:border-accent/40 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)]"
+                    }`}
+                    aria-label={`Voir les articles : ${card.badge}`}
+                  >
+                    <h2 className="text-[18px] md:text-[19px] font-bold font-body text-foreground leading-snug">
+                      <span className="mr-2" aria-hidden="true">{card.emoji}</span>
+                      {card.title}
+                    </h2>
+                    <p className="italic text-[14px] text-muted-foreground leading-[1.7] font-body mt-3">
+                      « {card.quote} »
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-5 group-hover:gap-2 transition-all">
+                      Trouver la solution <ArrowRight size={14} />
+                    </span>
+                    <div className="mt-5 pt-4 border-t border-border/40">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.08em] uppercase text-foreground/50">
+                        <span aria-hidden="true">🏷️</span> {card.badge}
+                      </span>
+                    </div>
+                  </button>
                 );
               })}
             </div>
+
+            {activeCategory && (
+              <div className="text-center mt-6">
+                <button
+                  type="button"
+                  onClick={() => setActiveCategory(null)}
+                  className="text-[13px] font-body text-accent hover:underline"
+                >
+                  ← Voir tous les articles
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* ── DERNIERS ARTICLES ── */}
+        {/* ── ARTICLES ── */}
         {latestPublished.length > 0 && (
-          <section className="bg-card py-8 md:py-10">
+          <section className="bg-card py-8 md:py-10" ref={articlesRef}>
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-              <div data-anim="fade-up" className="text-center mb-12">
+              <div data-anim="fade-up" className="text-center mb-10">
                 <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
-                  Derniers <span className="text-accent">articles</span>
+                  {activeCategory ? "Articles" : "Derniers"} <span className="text-accent">{activeCategory ? "sélectionnés" : "articles"}</span>
                 </h2>
               </div>
 
@@ -201,19 +251,27 @@ export default function Blog() {
               {paginatedArticles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {paginatedArticles.map((article, i) => (
-                    <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
+                    <div data-anim="fade-up" data-delay={`${0.05 + i * 0.04}`} key={article.slug}>
                       <Link
                         to={`/blog/${article.categorySlug}/${article.slug}/`}
                         className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
                       >
                         <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
+
                         {article.hook && (
-                          <p className="text-[13px] font-semibold text-foreground/80 mt-2 leading-snug">{article.hook}</p>
+                          <p className="text-[17px] md:text-[18px] font-bold text-foreground mt-3 leading-snug group-hover:text-accent transition-colors">
+                            {article.hook}
+                          </p>
                         )}
-                        <h3 className="text-[16px] font-bold font-body text-foreground mt-2 mb-2 group-hover:text-accent transition-colors leading-snug">
+
+                        <p className={`text-[14px] text-muted-foreground leading-[1.7] font-body ${article.hook ? "mt-3" : "mt-3"}`}>
+                          {article.excerpt}
+                        </p>
+
+                        <p className="text-[12px] italic text-foreground/45 font-body mt-4 leading-snug">
                           {article.title}
-                        </h3>
-                        <p className="text-[13px] text-muted-foreground leading-[1.7] font-body">{article.excerpt}</p>
+                        </p>
+
                         <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
                           Lire <ArrowRight size={14} />
                         </span>
@@ -223,7 +281,7 @@ export default function Blog() {
                 </div>
               ) : (
                 <p className="text-center text-muted-foreground font-body py-12">
-                  Aucun article trouvé pour « {searchQuery} »
+                  Aucun article trouvé{searchQuery ? ` pour « ${searchQuery} »` : ""}.
                 </p>
               )}
 
