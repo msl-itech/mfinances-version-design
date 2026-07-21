@@ -1468,6 +1468,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "4. L'optimisation salaire/dividendes — trouver l'équilibre qui minimise la charge globale",
           "5. La société de management — facturer vos prestations via une structure séparée pour optimiser la remontée de revenus",
         ],
+        ctaInline: { text: "Vérifiez lesquels de vos frais sont vraiment défendables avec notre outil gratuit", link: "/frais-defendables/" },
       },
       {
         heading: "Ce que ça change concrètement",
