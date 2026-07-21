@@ -235,6 +235,7 @@ export default function GenerateurBail() {
   const [prenom, setPrenom] = useState("");
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
+  const [showForm, setShowForm] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
