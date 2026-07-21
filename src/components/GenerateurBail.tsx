@@ -678,33 +678,61 @@ export default function GenerateurBail() {
             ))}
           </div>
           <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-2">Aperçu du bail généré (extrait)</div>
-          <div className="bg-secondary border border-border rounded-xl p-4 mb-5 text-[11px] text-muted-foreground leading-[1.8]">
-            <div className="text-[12px] font-bold text-primary text-center mb-2">
-              CONTRAT DE BAIL DE LOCATION {bailType === "meuble" ? "MEUBLÉE" : "PROFESSIONNELLE"}
+          <div className="relative mb-5">
+            <div
+              className={`bg-secondary border border-border rounded-xl p-4 text-[11px] text-muted-foreground leading-[1.8] transition-all duration-500 ${
+                !sent && !showForm ? "blur-[5px] select-none pointer-events-none max-h-[280px] overflow-hidden" : ""
+              }`}
+              aria-hidden={!sent && !showForm}
+            >
+              <div className="text-[12px] font-bold text-primary text-center mb-2">
+                CONTRAT DE BAIL DE LOCATION {bailType === "meuble" ? "MEUBLÉE" : "PROFESSIONNELLE"}
+              </div>
+              <div className="text-[10px] text-muted-foreground text-center mb-3">À usage professionnel · Bureau à domicile · Belgique</div>
+              <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-2 mb-1">ENTRE LES SOUSSIGNÉS</div>
+              <div>
+                D'une part, {civilite} {prenomBailleur || "___"} {nomBailleur || "___"}, domicilié(e) à {adresseBailleur || "___"}, {cpBailleur} {villeBailleur}, {paysBailleur}, ci-après dénommé(e) « Le Bailleur »,
+                <br />
+                Et d'autre part, la société {denomination || "___"} {formeJuridique}, dont le siège social est établi à {siegeSocial || "___"}, numéro BCE {numeroBce || "___"}, représentée par {representant || "___"}, ci-après dénommée « Le Preneur ».
+              </div>
+              <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 1 — OBJET DU CONTRAT</div>
+              <div>
+                Le Bailleur donne en location au Preneur un espace {bailType === "meuble" ? "meublé " : ""}à usage exclusivement professionnel situé à {adresseBien || "___"}{surfaceBien ? `, surface approximative de ${surfaceBien} m²` : ""}, tel que décrit au présent contrat…
+              </div>
+              {bailType === "meuble" && loyerNum > 0 && (
+                <>
+                  <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 3 — LOYER ET RÉPARTITION</div>
+                  <div>
+                    Le loyer mensuel total est fixé à {fmt(loyerNum)} €, réparti comme suit :<br />
+                    — Location de l'immeuble ({partImmeuble} %) : {fmt(loyerImmeuble)} €/mois<br />
+                    — Location du mobilier ({partMeubles} %) : {fmt(loyerMeubles)} €/mois
+                  </div>
+                </>
+              )}
+              <div className="text-muted-foreground/50 text-[10px] mt-3 text-center">… 13 articles complets · Clause indexation · Garantie · Signatures</div>
             </div>
-            <div className="text-[10px] text-muted-foreground text-center mb-3">À usage professionnel · Bureau à domicile · Belgique</div>
-            <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-2 mb-1">ENTRE LES SOUSSIGNÉS</div>
-            <div>
-              D'une part, {civilite} {prenomBailleur || "___"} {nomBailleur || "___"}, domicilié(e) à {adresseBailleur || "___"}, {cpBailleur} {villeBailleur}, {paysBailleur}, ci-après dénommé(e) « Le Bailleur »,
-              <br />
-              Et d'autre part, la société {denomination || "___"} {formeJuridique}, dont le siège social est établi à {siegeSocial || "___"}, numéro BCE {numeroBce || "___"}, représentée par {representant || "___"}, ci-après dénommée « Le Preneur ».
-            </div>
-            <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 1 — OBJET DU CONTRAT</div>
-            <div>
-              Le Bailleur donne en location au Preneur un espace {bailType === "meuble" ? "meublé " : ""}à usage exclusivement professionnel situé à {adresseBien || "___"}{surfaceBien ? `, surface approximative de ${surfaceBien} m²` : ""}, tel que décrit au présent contrat…
-            </div>
-            {bailType === "meuble" && loyerNum > 0 && (
-              <>
-                <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 3 — LOYER ET RÉPARTITION</div>
-                <div>
-                  Le loyer mensuel total est fixé à {fmt(loyerNum)} €, réparti comme suit :<br />
-                  — Location de l'immeuble ({partImmeuble} %) : {fmt(loyerImmeuble)} €/mois<br />
-                  — Location du mobilier ({partMeubles} %) : {fmt(loyerMeubles)} €/mois
+            {!sent && !showForm && (
+              <div className="absolute inset-0 flex flex-col items-center justify-end pb-5 bg-gradient-to-b from-transparent via-background/40 to-background rounded-xl">
+                <div className="flex items-center gap-2 mb-3 text-[11px] font-bold tracking-[0.15em] uppercase text-primary/70">
+                  <Lock size={12} /> Aperçu verrouillé
                 </div>
-              </>
+                <Button
+                  onClick={() => {
+                    setShowForm(true);
+                    setTimeout(() => {
+                      document.getElementById("bail-unlock-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    }, 50);
+                  }}
+                  variant="accent"
+                  className="rounded-lg shadow-lg"
+                >
+                  Débloquer mon bail complet <ArrowRight size={16} className="ml-1" />
+                </Button>
+                <p className="text-[10px] text-muted-foreground mt-2">PDF 13 articles · reçu par email</p>
+              </div>
             )}
-            <div className="text-muted-foreground/50 text-[10px] mt-3 text-center">… 13 articles complets · Clause indexation · Garantie · Signatures</div>
           </div>
+
           <div className="bg-amber-50 border-l-[3px] border-amber-500 rounded-r-lg p-3.5 text-[12px] text-amber-900 leading-relaxed mb-5">
             <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros — charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
           </div>
