@@ -2142,7 +2142,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Besoin d'un avis clair sur vos frais ?",
     ctaDescription: "MFinances vous aide à sécuriser vos dépenses professionnelles — premier échange gratuit.",
     ctaLink: "/contact/",
-    ctaLabel: "Prendre rendez-vous avec MFinances",
+    ctaLabel: "Parler à un expert",
   },
 
   "frais-mixtes-belgique": {
