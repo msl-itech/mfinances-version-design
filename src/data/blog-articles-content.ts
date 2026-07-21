@@ -2659,7 +2659,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Votre société déduit le loyer. Vous devez le déclarer dans votre IPP. Cette symétrie est contrôlée par recoupement automatique entre les déclarations. Si votre société déclare une charge de loyer versé à son dirigeant et que ce dernier ne déclare rien dans son IPP, le système le détecte.",
           "Le loyer doit être déclaré comme revenu immobilier (part immeuble) et revenu mobilier (part meubles si bail meublé). Votre expert-comptable doit s'assurer de la cohérence entre vos deux déclarations.",
         ],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+        ctaInline: { text: "Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
       },
     ],
     faq: [
