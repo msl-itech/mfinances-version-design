@@ -207,6 +207,9 @@ export default function Blog() {
                         className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
                       >
                         <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
+                        {article.hook && (
+                          <p className="text-[13px] font-semibold text-foreground/80 mt-2 leading-snug">{article.hook}</p>
+                        )}
                         <h3 className="text-[16px] font-bold font-body text-foreground mt-2 mb-2 group-hover:text-accent transition-colors leading-snug">
                           {article.title}
                         </h3>

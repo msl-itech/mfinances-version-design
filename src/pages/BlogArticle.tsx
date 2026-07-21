@@ -176,6 +176,10 @@ export default function BlogArticle() {
             <div className="mt-6">
               <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
 
+              {article.hook && (
+                <p className="text-primary-foreground/80 text-[15px] md:text-[17px] font-semibold mt-2">{article.hook}</p>
+              )}
+
               {/* Hero CTA above H1 */}
               {content.heroCta && (
                 <Link to={content.heroCta.link} className="flex items-center gap-1.5 text-accent font-bold text-[14px] mt-5 mb-5 hover:underline">
