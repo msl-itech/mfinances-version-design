@@ -565,8 +565,9 @@ export default function Diagnostic() {
                     { icon: "mail", text: "Rapport PDF par email" },
                     { icon: "shield", text: "Vos données restent privées" },
                   ]}
+                  targetId="diagnostic-email-form"
                 />
-                <form onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto">
+                <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto scroll-mt-24">
                   <input
                     type="text"
                     placeholder="Prénom"
