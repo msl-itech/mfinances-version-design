@@ -15,7 +15,6 @@ import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
-import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 
 /* ── Types ── */
 interface Meuble {
@@ -737,68 +736,49 @@ export default function GenerateurBail() {
             <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros — charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
           </div>
 
-          {!sent ? (
-            <>
-              {!showForm ? (
-                <ReportUnlockBanner
-                  eyebrow="Dernière étape · Votre bail"
-                  titleStart="Recevez votre"
-                  titleItalic="bail professionnel"
-                  titleEnd="prêt à signer"
-                  description="PDF complet en 13 articles, personnalisé avec vos données et adapté au contexte belge. Envoyé immédiatement dans votre boîte mail."
-                  bullets={[
-                    { icon: "zap", text: "Génération immédiate" },
-                    { icon: "mail", text: "PDF reçu par email" },
-                    { icon: "shield", text: "Vos données restent privées" },
-                  ]}
-                  ctaLabel="Recevoir mon bail"
-                  onCtaClick={() => setShowForm(true)}
-                />
-              ) : (
-                <div id="bail-unlock-form">
-                  <div className="text-center mb-6">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      <span className="h-px w-6 bg-accent" />
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
-                        Vos coordonnées
-                      </span>
-                      <span className="h-px w-6 bg-accent" />
-                    </div>
-                    <h2 className="font-display text-[22px] sm:text-[26px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
-                      Où envoyons-nous votre <span className="italic text-destructive">bail</span> ?
-                    </h2>
-                    <p className="text-[13px] text-primary/65 font-body">
-                      PDF signé prêt à l'emploi livré sous 2 minutes.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2.5 mb-3">
-                    <div>
-                      <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-                      <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
-                    </div>
-                    <div>
-                      <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
-                      <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <Label className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
-                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
-                  </div>
-                  <Button onClick={handleSubmit} disabled={sending || !prenom.trim() || !email.trim()} variant="accent" className="w-full rounded-lg">
-                    {sending ? "Envoi en cours…" : "Générer et recevoir mon bail par email"}
-                  </Button>
-                  <button type="button" onClick={() => setShowForm(false)} className="mt-3 text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-                    ← Retour
-                  </button>
-                  <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
-                    Vos données sont confidentielles. Aucune revente.
-                  </p>
+          {!sent && showForm && (
+            <div id="bail-unlock-form">
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <span className="h-px w-6 bg-accent" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
+                    Dernière étape · Votre bail
+                  </span>
+                  <span className="h-px w-6 bg-accent" />
                 </div>
-              )}
-
-            </>
-          ) : (
+                <h2 className="font-display text-[22px] sm:text-[26px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
+                  Recevez votre <span className="italic text-destructive">bail professionnel</span> prêt à signer
+                </h2>
+                <p className="text-[13px] text-primary/65 font-body">
+                  PDF complet en 13 articles, personnalisé avec vos données et adapté au contexte belge. Envoyé immédiatement dans votre boîte mail.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-2.5 mb-3">
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                  <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
+                </div>
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
+                  <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
+                </div>
+              </div>
+              <div className="mb-4">
+                <Label className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
+                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
+              </div>
+              <Button onClick={handleSubmit} disabled={sending || !prenom.trim() || !email.trim()} variant="accent" className="w-full rounded-lg">
+                {sending ? "Envoi en cours…" : "Générer et recevoir mon bail par email"}
+              </Button>
+              <button type="button" onClick={() => setShowForm(false)} className="mt-3 text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+                ← Retour à l'aperçu
+              </button>
+              <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
+                Vos données sont confidentielles. Aucune revente.
+              </p>
+            </div>
+          )}
+          {sent && (
             <div className="bg-green-50 border border-green-300 rounded-xl p-4 text-center">
               <div className="text-[14px] font-bold text-green-800">✓ Bail envoyé à {email}</div>
               <div className="text-[12px] text-green-700 mt-1">Vérifiez vos spams si vous ne le recevez pas d'ici 2 minutes.</div>
