@@ -54,17 +54,6 @@ const problemCards: ProblemCard[] = [
     href: "/blog/tresorerie/",
     image: heroTresorerie,
   },
-
-
-const problemCards: ProblemCard[] = [
-  {
-    emoji: "💸",
-    title: "Je manque toujours de trésorerie",
-    quote: "Mon entreprise est rentable mais je n'ai jamais d'argent.",
-    badge: "Trésorerie",
-    categorySlugs: ["tresorerie"],
-    href: "/blog/tresorerie/",
-  },
   {
     emoji: "😩",
     title: "J'ai l'impression de payer trop d'impôts",
@@ -72,6 +61,7 @@ const problemCards: ProblemCard[] = [
     badge: "Fiscalité",
     categorySlugs: ["fiscalite-belgique"],
     href: "/blog/fiscalite-belgique/",
+    image: heroFiscalite,
   },
   {
     emoji: "📊",
@@ -80,6 +70,7 @@ const problemCards: ProblemCard[] = [
     badge: "Contrôle de gestion",
     categorySlugs: ["controle-de-gestion"],
     href: "/blog/controle-de-gestion/",
+    image: heroControle,
   },
   {
     emoji: "🧭",
@@ -88,6 +79,7 @@ const problemCards: ProblemCard[] = [
     badge: "DAF externalisé",
     categorySlugs: ["daf-externalise"],
     href: "/blog/daf-externalise/",
+    image: heroDaf,
   },
   {
     emoji: "🚀",
@@ -96,8 +88,10 @@ const problemCards: ProblemCard[] = [
     badge: "Création d'entreprise",
     categorySlugs: ["creation-societe"],
     href: "/blog/creation-societe/",
+    image: heroCreation,
   },
 ];
+
 
 export default function Blog() {
   const [mounted, setMounted] = useState(false);
