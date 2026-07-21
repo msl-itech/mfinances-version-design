@@ -2183,7 +2183,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La part professionnelle doit refléter l'usage réel. Plus l'usage privé est significatif, plus la justification doit être solide. Un ordinateur familial passé en charges sans documentation constitue un DNA (Dépense Non Admise) dans le chef du dirigeant.",
           "Pour les sociétés, l'achat direct au nom de la société simplifie la déductibilité et peut ouvrir droit à la déduction pour investissement numérique — à vérifier selon les conditions applicables.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "La voiture — le suivi structuré comme protection principale",
