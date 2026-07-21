@@ -1468,6 +1468,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "4. L'optimisation salaire/dividendes — trouver l'équilibre qui minimise la charge globale",
           "5. La société de management — facturer vos prestations via une structure séparée pour optimiser la remontée de revenus",
         ],
+        ctaInline: { text: "Vérifiez lesquels de vos frais sont vraiment défendables avec notre outil gratuit", link: "/frais-defendables/" },
       },
       {
         heading: "Ce que ça change concrètement",
@@ -1493,8 +1494,8 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Parler à un expert — c'est gratuit",
     ctaDescription: "Découvrez combien vous pourriez économiser légalement.",
-    ctaLink: "/contact/",
-    ctaLabel: "Voir si mon entreprise est en danger",
+    ctaLink: "/services/fiscalite/",
+    ctaLabel: "Découvrir nos leviers d'optimisation fiscale",
   },
 
   "pourquoi-comptable-aide-pas": {
@@ -1553,7 +1554,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Prendre rendez-vous — premier échange gratuit",
     ctaDescription: "Découvrez ce qu'un vrai partenaire financier fait différemment.",
-    ctaLink: "/contact/",
+    ctaLink: "/diagnostic/",
     ctaLabel: "Faire le diagnostic gratuit",
   },
 
@@ -2088,7 +2089,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La voiture de société est le poste le plus complexe et le plus surveillé du dossier fiscal d'un dirigeant belge. Sa déductibilité dépend des émissions CO₂ du véhicule et de la date d'acquisition — le taux n'est pas fixe et évolue dans le temps. Si le véhicule est mis à disposition du dirigeant à des fins privées, un Avantage de Toute Nature (ATN) doit être calculé et déclaré à l'IPP. Un véhicule sans ATN déclaré constitue un risque fiscal majeur.",
           "Le carburant est déductible en corrélation directe avec le taux de déductibilité du véhicule. Le parking professionnel est déductible à 100% si le lien avec un déplacement professionnel est documenté. Le vélo électrique bénéficie d'un régime fiscal généralement favorable — à vérifier selon les modalités exactes de mise à disposition.",
         ],
-        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         subheading: "Frais de représentation",
@@ -2110,7 +2110,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de taux légal fixe pour la déduction du téléphone en Belgique. Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage privé réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
           "L'ordinateur est déductible à 100% si l'usage est exclusivement professionnel. En cas d'usage mixte, une ventilation justifiée est nécessaire.",
         ],
-        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
       {
         heading: "Les 6 erreurs les plus fréquentes en matière de frais professionnels",
@@ -2129,9 +2128,7 @@ export const articleContent: Record<string, ArticleBody> = {
         paragraphs: [
           "Utilisez l'outil gratuit Frais Défendables pour analyser votre dépense en 3 questions et obtenir un premier niveau de lecture : défendable, à encadrer, ou zone sensible.",
         ],
-        relatedLinks: [
-          
-        ],
+        ctaInline: { text: "Vérifier si ce frais est défendable", link: "/frais-defendables/" },
       },
     ],
     faq: [
@@ -2145,7 +2142,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Besoin d'un avis clair sur vos frais ?",
     ctaDescription: "MFinances vous aide à sécuriser vos dépenses professionnelles — premier échange gratuit.",
     ctaLink: "/contact/",
-    ctaLabel: "Prendre rendez-vous avec MFinances",
+    ctaLabel: "Parler à un expert",
   },
 
   "frais-mixtes-belgique": {
@@ -2171,7 +2168,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de pourcentage universel pour le téléphone en Belgique. La déduction dépend de l'usage réel et de la cohérence de la ventilation. Un repère peut exister en pratique — mais il doit être défendable au regard de votre activité concrète.",
           "Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage mixte réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "Le bureau à domicile — une méthode, pas un taux standard",
@@ -2187,7 +2183,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La part professionnelle doit refléter l'usage réel. Plus l'usage privé est significatif, plus la justification doit être solide. Un ordinateur familial passé en charges sans documentation constitue un DNA (Dépense Non Admise) dans le chef du dirigeant.",
           "Pour les sociétés, l'achat direct au nom de la société simplifie la déductibilité et peut ouvrir droit à la déduction pour investissement numérique — à vérifier selon les conditions applicables.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "La voiture — le suivi structuré comme protection principale",
@@ -2195,7 +2190,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "La justification de l'usage professionnel est centrale. Un suivi structuré — comme un carnet de route — renforce fortement la défendabilité du frais. Sans suivi, le pourcentage revendiqué doit rester cohérent avec la réalité de l'activité — pas avec ce que « tout le monde fait ».",
           "Un carnet de route numérique (application mobile, relevé GPS) est aujourd'hui la méthode la plus robuste. Sans lui, le fisc peut remettre en cause l'intégralité du pourcentage professionnel revendiqué.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         heading: "Ce que le fisc vérifie vraiment sur les frais mixtes",
@@ -2224,7 +2218,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaText: "Besoin de sécuriser vos frais mixtes ?",
     ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
     ctaLink: "/contact/",
-    ctaLabel: "Recevoir la checklist des frais sensibles",
+    ctaLabel: "Parler à un expert →",
   },
 
   "calcul-bureau-a-domicile": {
@@ -2407,7 +2401,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Côté vous (IPP) : vous percevez 300 €/mois → imposé sur 180 € après abattement 40 % → environ 81 €/mois au taux marginal de 45 %",
           "Comparaison : si vous perceviez ces 300 € en rémunération brute, charges sociales + IPP représenteraient environ 180 €/mois — soit 2,2× plus cher",
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
+        ctaInline: { text: "Générer mon bail de sous-location", link: "/ressources/generateur-bail/" },
       },
       {
         heading: "La condition d'autorisation préalable",
@@ -2433,7 +2427,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Enregistrement du bail recommandé pour lui conférer date certaine",
           "Déclaration du loyer perçu dans votre IPP (rubrique revenus immobiliers)",
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
       },
       {
         heading: "Le plafond légal anti-requalification",
@@ -2444,7 +2437,6 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "requalification du loyer", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
         ],
-        ctaInline: { text: "Générer mon bail", link: "/ressources/generateur-bail/" },
       },
     ],
     faq: [
@@ -2620,7 +2612,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "erreurs-bureau-a-domicile-controle-fiscal": {
-    heroCta: { text: "Télécharger la Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
+    heroCta: { text: "Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
     sections: [
       {
         paragraphs: [
@@ -2653,7 +2645,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Le revenu cadastral revalorisé est souvent bien inférieur à la valeur locative de marché. Ce plafond est plus contraignant que les dirigeants ne l'imaginent. Faites calculer ce seuil par votre expert-comptable avant de fixer votre loyer.",
         ],
         relatedLinks: [{ text: "requalification du loyer en rémunération", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" }],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
       },
       {
         heading: "Erreur 4 — Des paiements sans trace bancaire",
@@ -2668,7 +2659,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Votre société déduit le loyer. Vous devez le déclarer dans votre IPP. Cette symétrie est contrôlée par recoupement automatique entre les déclarations. Si votre société déclare une charge de loyer versé à son dirigeant et que ce dernier ne déclare rien dans son IPP, le système le détecte.",
           "Le loyer doit être déclaré comme revenu immobilier (part immeuble) et revenu mobilier (part meubles si bail meublé). Votre expert-comptable doit s'assurer de la cohérence entre vos deux déclarations.",
         ],
-        ctaInline: { text: "Télécharger la checklist", link: "/ressources/checklist-controle-bureau/" },
+        ctaInline: { text: "Checklist de contrôle de bureau", link: "/ressources/checklist-controle-bureau/" },
       },
     ],
     faq: [
