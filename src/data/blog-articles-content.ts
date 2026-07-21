@@ -2168,7 +2168,6 @@ export const articleContent: Record<string, ArticleBody> = {
           "Il n'existe pas de pourcentage universel pour le téléphone en Belgique. La déduction dépend de l'usage réel et de la cohérence de la ventilation. Un repère peut exister en pratique — mais il doit être défendable au regard de votre activité concrète.",
           "Un taux de 100% sur une ligne personnelle est statistiquement incompatible avec un usage mixte réel. Si vous utilisez une ligne sociétaire dédiée, la déductibilité est totale et la discussion disparaît — c'est la solution la plus simple et la plus protectrice.",
         ],
-        ctaInline: { text: "Vérifier la défendabilité de ce frais", link: "/frais-defendables/" },
       },
       {
         subheading: "Le bureau à domicile — une méthode, pas un taux standard",
