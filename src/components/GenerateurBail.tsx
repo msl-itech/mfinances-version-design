@@ -15,6 +15,7 @@ import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
+import BookingCta from "@/components/BookingCta";
 
 /* ── Types ── */
 interface Meuble {
