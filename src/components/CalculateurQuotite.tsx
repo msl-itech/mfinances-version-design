@@ -63,6 +63,7 @@ export default function CalculateurQuotite() {
   // Step 4 – Sent
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   /* ── Calculs ── */
   const { surfacePro, surfaceTotal, quotite } = useMemo(() => {
