@@ -553,15 +553,18 @@ export default function Diagnostic() {
             {/* ── STEP 8 — EMAIL CAPTURE ── */}
             {step === 8 && (
               <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 sm:mb-6">
-                  <CheckCircle2 size={26} className="text-primary" />
-                </div>
-                <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2 text-center">
-                  Recevez votre analyse complète par email
-                </h2>
-                <p className="text-[13px] sm:text-[14px] text-muted-foreground font-body mb-6 sm:mb-8 text-center max-w-[480px] mx-auto">
-                  Avec nos recommandations personnalisées selon votre profil.
-                </p>
+                <ReportUnlockBanner
+                  eyebrow="Dernière étape · Votre diagnostic"
+                  titleStart="Débloquez votre"
+                  titleItalic="analyse complète"
+                  titleEnd="et vos recommandations personnalisées"
+                  description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
+                  bullets={[
+                    { icon: "zap", text: "Score & analyse instantanés" },
+                    { icon: "mail", text: "Rapport PDF par email" },
+                    { icon: "shield", text: "Vos données restent privées" },
+                  ]}
+                />
                 <form onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto">
                   <input
                     type="text"
