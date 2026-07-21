@@ -576,7 +576,24 @@ export default function Diagnostic() {
                     }}
                   />
                 ) : (
-                  <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3 max-w-[400px] mx-auto scroll-mt-24">
+                  <div className="max-w-[440px] mx-auto scroll-mt-24">
+                    <div className="text-center mb-6">
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <span className="h-px w-6 bg-accent" />
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
+                          Vos coordonnées
+                        </span>
+                        <span className="h-px w-6 bg-accent" />
+                      </div>
+                      <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
+                        Où envoyons-nous votre <span className="italic text-destructive">diagnostic</span> ?
+                      </h2>
+                      <p className="text-[14px] text-primary/65 font-body">
+                        Rapport PDF livré dans votre boîte mail sous 2 minutes.
+                      </p>
+                    </div>
+                    <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3">
+
                     <input
                       id="diagnostic-prenom"
                       type="text"
