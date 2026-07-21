@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight, ArrowLeft, Plus, X, Check, Info, AlertTriangle } from "lucide-react";
+import { ArrowRight, ArrowLeft, Plus, X, Check, Info, AlertTriangle, Lock as LockIcon } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
