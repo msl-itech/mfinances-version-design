@@ -18,6 +18,12 @@ import { Input } from "@/components/ui/input";
 import { blogArticles } from "@/data/blog-data";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
+import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
+import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
