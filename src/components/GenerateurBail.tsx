@@ -794,7 +794,7 @@ export default function GenerateurBail() {
                   <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-3">
                     Vos données sont confidentielles. Aucune revente.
                   </p>
-                </>
+                </div>
               )}
 
             </>
