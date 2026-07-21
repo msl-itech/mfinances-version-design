@@ -63,6 +63,7 @@ export default function CalculateurQuotite() {
   // Step 4 – Sent
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   /* ── Calculs ── */
   const { surfacePro, surfaceTotal, quotite } = useMemo(() => {
@@ -484,92 +485,123 @@ export default function CalculateurQuotite() {
 
           {progressBar}
 
-          <ReportUnlockBanner
-            eyebrow="Dernière étape · Votre rapport"
-            titleStart="Recevez votre"
-            titleItalic="quote-part professionnelle"
-            titleEnd="calculée et défendable"
-            description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
-            bullets={[
-              { icon: "zap", text: "Résultats en 30 secondes" },
-              { icon: "mail", text: "Rapport PDF par email" },
-              { icon: "shield", text: "Aucune revente de données" },
-            ]}
-          />
+          {!showForm ? (
+            <ReportUnlockBanner
+              eyebrow="Dernière étape · Votre rapport"
+              titleStart="Recevez votre"
+              titleItalic="quote-part professionnelle"
+              titleEnd="calculée et défendable"
+              description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
+              bullets={[
+                { icon: "zap", text: "Résultats en 30 secondes" },
+                { icon: "mail", text: "Rapport PDF par email" },
+                { icon: "shield", text: "Aucune revente de données" },
+              ]}
+              ctaLabel="Recevoir mon rapport"
+              onCtaClick={() => setShowForm(true)}
+            />
+          ) : (
+            <>
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <span className="h-px w-6 bg-accent" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
+                    Vos coordonnées
+                  </span>
+                  <span className="h-px w-6 bg-accent" />
+                </div>
+                <h2 className="font-display text-[22px] sm:text-[26px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
+                  Où envoyons-nous votre <span className="italic text-destructive">rapport</span> ?
+                </h2>
+                <p className="text-[13px] text-primary/65 font-body">
+                  Rapport PDF détaillé livré dans votre boîte mail sous 2 minutes.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                  <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
+                </div>
+                <div>
+                  <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
+                  <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
+                </div>
+              </div>
+
+              <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {[
+                  { value: "dirigeant", label: "Dirigeant(e) de société" },
+                  { value: "independant", label: "Indépendant(e)" },
+                  { value: "les-deux", label: "Les deux" },
+                  { value: "liberal", label: "Profession libérale" },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => setStatut(opt.value)}
+                    className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                      statut === opt.value
+                        ? "border-primary bg-primary/10 text-foreground"
+                        : "border-border bg-card text-foreground hover:border-primary/40"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+
+              <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {[
+                  { value: "locataire", label: "Locataire" },
+                  { value: "proprietaire", label: "Propriétaire" },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => setLogement(opt.value)}
+                    className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                      logement === opt.value
+                        ? "border-primary bg-primary/10 text-foreground"
+                        : "border-border bg-card text-foreground hover:border-primary/40"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+
+              <p className="text-[10px] text-muted-foreground text-center leading-relaxed my-3">
+                Vos données sont confidentielles. Aucune revente.
+              </p>
+            </>
+          )}
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-              <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
-            </div>
-            <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
-              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
-            </div>
-          </div>
-
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            {[
-              { value: "dirigeant", label: "Dirigeant(e) de société" },
-              { value: "independant", label: "Indépendant(e)" },
-              { value: "les-deux", label: "Les deux" },
-              { value: "liberal", label: "Profession libérale" },
-            ].map((opt) => (
-              <button
-                key={opt.value}
-                type="button"
-                onClick={() => setStatut(opt.value)}
-                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                  statut === opt.value
-                    ? "border-primary bg-primary/10 text-foreground"
-                    : "border-border bg-card text-foreground hover:border-primary/40"
-                }`}
-              >
-                {opt.label}
+          {showForm ? (
+            <div className="flex justify-between items-center mt-5">
+              <button onClick={() => setShowForm(false)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <ArrowLeft size={14} /> Retour
               </button>
-            ))}
-          </div>
-
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            {[
-              { value: "locataire", label: "Locataire" },
-              { value: "proprietaire", label: "Propriétaire" },
-            ].map((opt) => (
-              <button
-                key={opt.value}
-                type="button"
-                onClick={() => setLogement(opt.value)}
-                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                  logement === opt.value
-                    ? "border-primary bg-primary/10 text-foreground"
-                    : "border-border bg-card text-foreground hover:border-primary/40"
-                }`}
+              <Button
+                onClick={handleSubmit}
+                disabled={sending || !prenom.trim() || !email.trim()}
+                variant="accent"
+                className="rounded-lg"
               >
-                {opt.label}
+                {sending ? "Envoi en cours…" : "Voir mes résultats"} <ArrowRight size={16} className="ml-1" />
+              </Button>
+            </div>
+          ) : (
+            <div className="mt-5">
+              <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <ArrowLeft size={14} /> Retour à l'étape précédente
               </button>
-            ))}
-          </div>
+            </div>
+          )}
 
-          <p className="text-[10px] text-muted-foreground text-center leading-relaxed my-3">
-            Vos données sont confidentielles. Aucune revente.
-          </p>
-
-          <div className="flex justify-between items-center mt-5">
-            <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-              <ArrowLeft size={14} /> Retour
-            </button>
-            <Button
-              onClick={handleSubmit}
-              disabled={sending || !prenom.trim() || !email.trim()}
-              variant="accent"
-              className="rounded-lg"
-            >
-              {sending ? "Envoi en cours…" : "Voir mes résultats"} <ArrowRight size={16} className="ml-1" />
-            </Button>
-          </div>
         </div>
       )}
 
