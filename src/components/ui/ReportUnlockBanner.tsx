@@ -1,4 +1,4 @@
-import { Sparkles, Mail, ShieldCheck, Zap, ArrowRight } from "lucide-react";
+import { Mail, ShieldCheck, Zap, ArrowRight } from "lucide-react";
 
 export interface ReportUnlockBannerProps {
   eyebrow?: string;
@@ -31,45 +31,50 @@ export default function ReportUnlockBanner({
 }: ReportUnlockBannerProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 mb-5 shadow-md ${className}`}
+      className={`relative overflow-hidden rounded-2xl bg-[#FBF8F3] border border-primary/10 p-6 sm:p-8 mb-6 ${className}`}
+      style={{ boxShadow: "0 1px 0 0 hsl(var(--primary) / 0.04), 0 20px 40px -24px hsl(var(--primary) / 0.15)" }}
     >
+      {/* Gold hairline accent left */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -right-6 -bottom-10 font-display italic font-bold leading-none text-white/[0.06] select-none"
-        style={{ fontSize: "clamp(90px, 14vw, 160px)", letterSpacing: "-0.04em" }}
+        className="absolute left-0 top-6 bottom-6 w-[3px] bg-accent rounded-r"
+      />
+      {/* Editorial watermark */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-4 -bottom-8 font-display italic font-bold leading-none text-primary/[0.04] select-none"
+        style={{ fontSize: "clamp(100px, 15vw, 180px)", letterSpacing: "-0.04em" }}
       >
         {titleItalic}
       </span>
 
-      <div className="relative">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 rounded-full">
-            <Sparkles size={11} />
+      <div className="relative pl-3 sm:pl-4">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="h-px w-6 bg-accent" />
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
             {eyebrow}
           </span>
         </div>
 
         <h3
-          className="font-display font-bold leading-[1.15] tracking-[-0.01em] mb-2"
-          style={{ fontSize: "clamp(18px, 2.2vw, 24px)" }}
+          className="font-display font-bold text-primary leading-[1.15] tracking-[-0.015em] mb-3"
+          style={{ fontSize: "clamp(22px, 2.6vw, 30px)" }}
         >
-          <span className="text-white">{titleStart}</span>{" "}
-          <span className="italic font-normal text-accent">{titleItalic}</span>
-          {titleEnd && <span className="text-white"> {titleEnd}</span>}
+          {titleStart}{" "}
+          <span className="italic font-normal text-destructive">{titleItalic}</span>
+          {titleEnd && <> {titleEnd}</>}
         </h3>
 
-        <p className="text-white/80 text-[13px] sm:text-[14px] leading-relaxed font-body max-w-[520px]">
+        <p className="text-primary/70 text-[14px] sm:text-[15px] leading-relaxed font-body max-w-[560px]">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 pt-4 border-t border-white/15">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5 pt-5 border-t border-primary/10">
           {bullets.map((b, i) => {
             const Icon = ICONS[b.icon];
             return (
-              <div key={i} className="flex items-center gap-2 text-[12px] text-white/90 font-body">
-                <span className="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0">
-                  <Icon size={12} />
-                </span>
+              <div key={i} className="flex items-center gap-2 text-[12.5px] text-primary/75 font-body">
+                <Icon size={14} className="text-accent flex-shrink-0" strokeWidth={2} />
                 <span className="font-medium">{b.text}</span>
               </div>
             );
@@ -77,11 +82,11 @@ export default function ReportUnlockBanner({
         </div>
 
         {ctaLabel && onCtaClick && (
-          <div className="mt-5">
+          <div className="mt-6">
             <button
               type="button"
               onClick={onCtaClick}
-              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-[14px] px-5 py-3 rounded-full hover:brightness-110 transition"
+              className="group inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-body font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition shadow-sm"
             >
               {ctaLabel}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -92,4 +97,3 @@ export default function ReportUnlockBanner({
     </div>
   );
 }
-
