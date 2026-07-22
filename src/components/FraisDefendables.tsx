@@ -137,12 +137,13 @@ export default function FraisDefendables() {
   const goToStep = (n: number) => {
     if (n === 2) { setQIndex(0); setAnswers([undefined, undefined, undefined]); }
     setStep(n);
-    if (n === 1) setSubmitted(false);
+    if (n === 1) { setSubmitted(false); setShowForm(false); }
+    if (n === 3) setShowForm(false);
   };
 
   const resetTool = () => {
     setSelectedItem(null); setAnswers([undefined, undefined, undefined]); setQIndex(0);
-    setSearch(""); setCurrentCat("mobilite"); setStep(1); setSubmitted(false);
+    setSearch(""); setCurrentCat("mobilite"); setStep(1); setSubmitted(false); setShowForm(false);
     toolRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
