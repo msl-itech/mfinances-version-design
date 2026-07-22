@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, ArrowRight } from "lucide-react";
+import { buildUtmQuery } from "@/lib/utm-enrich";
 
 const BOOKING_URL = "https://odoo.mfinances.be/appointment/11";
 
