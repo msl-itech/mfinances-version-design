@@ -150,3 +150,39 @@ export function trackLeadSource(input: TrackLeadInput): void {
     console.debug("[trackLeadSource] fatal:", err);
   }
 }
+
+// ── trackPageView ──────────────────────────────────────────────────────
+// Fire-and-forget : envoie chaque page vue avec attribution source.
+// Appelé par trackPageVisit() dans visitor-tracker.ts à chaque route change.
+
+let _lastTrackedPath = "";
+
+export function trackPageView(path: string): void {
+  // Déduplique les doubles appels sur la même page (React StrictMode, etc.)
+  if (path === _lastTrackedPath) return;
+  _lastTrackedPath = path;
+
+  const utm = resolveUtm();
+  const payload = {
+    site_domain: SITE_DOMAIN,
+    page_path: path,
+    utm_source: utm.utm_source,
+    utm_medium: utm.utm_medium,
+    utm_campaign: utm.utm_campaign,
+    referrer: typeof document !== "undefined" ? document.referrer || null : null,
+  };
+
+  try {
+    fetch(`${SUPABASE_URL}/rest/v1/page_views`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {}
+}
