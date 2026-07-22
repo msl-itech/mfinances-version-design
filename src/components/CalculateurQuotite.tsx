@@ -216,7 +216,8 @@ export default function CalculateurQuotite() {
 
     setSending(false);
     setSent(true);
-    setStep(4);
+    setStep(5);
+
   };
 
   /* ── Progress bar (mobile) ── */
