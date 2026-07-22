@@ -223,7 +223,7 @@ export default function CalculateurQuotite() {
   /* ── Progress bar (mobile) ── */
   const progressBar = (
     <div className="flex gap-1 mb-5">
-      {[1, 2, 3, 4].map((s) => (
+      {[1, 2, 3, 4, 5].map((s) => (
         <div
           key={s}
           className={`flex-1 h-1 rounded-full ${
@@ -238,7 +238,7 @@ export default function CalculateurQuotite() {
     <div className="bg-secondary py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-12">
       {/* ── Stepper (desktop) ── */}
       <div className="hidden sm:flex items-center max-w-[720px] mx-auto mb-8">
-        {[1, 2, 3, 4].map((s, i) => (
+        {[1, 2, 3, 4, 5].map((s, i) => (
           <div key={s} className="flex items-center flex-1 last:flex-none">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
@@ -251,12 +251,13 @@ export default function CalculateurQuotite() {
             >
               {s < step ? <Check size={14} /> : s}
             </div>
-            {i < 3 && (
+            {i < 4 && (
               <div className={`flex-1 h-0.5 mx-1 ${s < step ? "bg-green-700" : "bg-border"}`} />
             )}
           </div>
         ))}
       </div>
+
 
       {/* ══════════ STEP 1 ══════════ */}
       {step === 1 && (
