@@ -35,7 +35,7 @@ export default function BookingCta({
         className="rounded-full px-6 sm:px-8 group"
         asChild
       >
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+        <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer">
           Réserver mon rendez-vous
           <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
         </a>
