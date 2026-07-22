@@ -110,6 +110,7 @@ export default function FraisDefendables() {
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | undefined)[]>([undefined, undefined, undefined]);
   const [submitted, setSubmitted] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const toolRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = useMemo(() => {
@@ -136,12 +137,13 @@ export default function FraisDefendables() {
   const goToStep = (n: number) => {
     if (n === 2) { setQIndex(0); setAnswers([undefined, undefined, undefined]); }
     setStep(n);
-    if (n === 1) setSubmitted(false);
+    if (n === 1) { setSubmitted(false); setShowForm(false); }
+    if (n === 3) setShowForm(false);
   };
 
   const resetTool = () => {
     setSelectedItem(null); setAnswers([undefined, undefined, undefined]); setQIndex(0);
-    setSearch(""); setCurrentCat("mobilite"); setStep(1); setSubmitted(false);
+    setSearch(""); setCurrentCat("mobilite"); setStep(1); setSubmitted(false); setShowForm(false);
     toolRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -403,43 +405,82 @@ export default function FraisDefendables() {
               <section className="animate-in fade-in slide-in-from-bottom-3 duration-500">
                 <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 3 sur 3 — Votre verdict</div>
 
-                {/* Verdict header */}
-                <div className={`rounded-2xl overflow-hidden mb-4 border-2 ${verdictHeadBg(verdictKey)}`}>
-                  <div className="flex gap-4 items-start p-5">
-                    <div className={`w-11 h-11 rounded-2xl grid place-items-center text-white font-bold text-base flex-shrink-0 shadow-lg ${iconBg(verdictKey)}`}>
-                      {v.icon}
-                    </div>
-                    <div>
-                      <div className={`text-[11px] uppercase tracking-widest font-bold mb-1.5 ${labelColor(verdictKey)}`}>
-                        {v.label} — {selectedItem.n}
+                {(() => {
+                  const locked = captureNeeded && !submitted;
+                  const ResultBlocks = (
+                    <>
+                      {/* Verdict header */}
+                      <div className={`rounded-2xl overflow-hidden mb-4 border-2 ${verdictHeadBg(verdictKey)}`}>
+                        <div className="flex gap-4 items-start p-5">
+                          <div className={`w-11 h-11 rounded-2xl grid place-items-center text-white font-bold text-base flex-shrink-0 shadow-lg ${iconBg(verdictKey)}`}>
+                            {v.icon}
+                          </div>
+                          <div>
+                            <div className={`text-[11px] uppercase tracking-widest font-bold mb-1.5 ${labelColor(verdictKey)}`}>
+                              {v.label} — {selectedItem.n}
+                            </div>
+                            <div className="font-display text-xl leading-snug text-primary">{v.title}</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="font-display text-xl leading-snug text-primary">{v.title}</div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Note */}
-                <div className="bg-primary/5 border-l-4 border-l-primary rounded-r-xl px-5 py-4 mb-4 text-sm leading-relaxed text-foreground/80">
-                  <b className="block text-[10.5px] uppercase tracking-widest mb-1.5 text-primary font-bold">Point clé pour ce frais</b>
-                  {selectedItem.note}
-                </div>
-
-                {/* Detail grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                  {[
-                    { label: "Régime applicable", val: v.regime, icon: ClipboardList },
-                    { label: "Justification attendue", val: v.justif, icon: FileText },
-                    { label: "Ce que le fisc vérifie", val: v.fisc, icon: Search },
-                    { label: "Pour défendre ce frais", val: v.defend, icon: Shield },
-                  ].map(d => (
-                    <div key={d.label} className="bg-muted border border-border rounded-2xl p-4 hover:shadow-sm transition-shadow">
-                      <div className="text-[10.5px] uppercase tracking-widest text-muted-foreground font-bold mb-1.5 flex items-center gap-1.5">
-                        <d.icon size={13} strokeWidth={2.5} /> {d.label}
+                      {/* Note */}
+                      <div className="bg-primary/5 border-l-4 border-l-primary rounded-r-xl px-5 py-4 mb-4 text-sm leading-relaxed text-foreground/80">
+                        <b className="block text-[10.5px] uppercase tracking-widest mb-1.5 text-primary font-bold">Point clé pour ce frais</b>
+                        {selectedItem.note}
                       </div>
-                      <div className="text-[13px] text-foreground leading-relaxed">{d.val}</div>
+
+                      {/* Detail grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        {[
+                          { label: "Régime applicable", val: v.regime, icon: ClipboardList },
+                          { label: "Justification attendue", val: v.justif, icon: FileText },
+                          { label: "Ce que le fisc vérifie", val: v.fisc, icon: Search },
+                          { label: "Pour défendre ce frais", val: v.defend, icon: Shield },
+                        ].map(d => (
+                          <div key={d.label} className="bg-muted border border-border rounded-2xl p-4 hover:shadow-sm transition-shadow">
+                            <div className="text-[10.5px] uppercase tracking-widest text-muted-foreground font-bold mb-1.5 flex items-center gap-1.5">
+                              <d.icon size={13} strokeWidth={2.5} /> {d.label}
+                            </div>
+                            <div className="text-[13px] text-foreground leading-relaxed">{d.val}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  );
+
+                  return locked ? (
+                    <div className="relative mb-5">
+                      <div aria-hidden className="pointer-events-none select-none blur-md opacity-60">
+                        {ResultBlocks}
+                      </div>
+                      <div className="absolute inset-0 grid place-items-center p-4">
+                        <div className="bg-card border border-border rounded-2xl shadow-xl p-5 sm:p-6 max-w-[440px] w-full text-center">
+                          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest border ${badgeBg(verdictKey)} mb-3`}>
+                            <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                            {v.label}
+                          </div>
+                          <h3 className="font-display text-[19px] sm:text-[21px] leading-snug text-primary mb-2">
+                            Votre verdict est prêt.
+                          </h3>
+                          <p className="text-muted-foreground text-[13px] leading-relaxed mb-4">
+                            Débloquez l'analyse complète de <b className="text-primary">{selectedItem.n}</b> : régime applicable, justificatifs, points de contrôle et méthode pour défendre ce frais.
+                          </p>
+                          <button
+                            type="button"
+                            onClick={() => setShowForm(true)}
+                            className="w-full px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110 active:scale-[0.97]"
+                          >
+                            Débloquer mon analyse →
+                          </button>
+                          <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                  ) : (
+                    <>{ResultBlocks}</>
+                  );
+                })()}
 
                 {/* Capture form or D card */}
                 {captureNeeded ? (
@@ -449,8 +490,8 @@ export default function FraisDefendables() {
                       <h3 className="font-display text-xl text-white mb-2">Reçu — merci.</h3>
                       <p className="text-white/80 text-sm">Votre demande a bien été notée. Nos experts vous répondent rapidement.</p>
                     </div>
-                  ) : (
-                    <form className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground rounded-2xl p-6" onSubmit={handleSubmitLead} noValidate>
+                  ) : showForm ? (
+                    <form className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground rounded-2xl p-6 animate-in fade-in slide-in-from-bottom-2 duration-300" onSubmit={handleSubmitLead} noValidate>
                       {isHighValue && (
                         <div className="bg-accent/15 border border-accent/30 rounded-xl px-4 py-3 mb-4 text-[13px] text-accent-foreground flex items-center gap-2.5">
                           <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse flex-shrink-0" />
@@ -488,7 +529,7 @@ export default function FraisDefendables() {
                       </button>
                       <div className="mt-3 text-xs text-white/50 text-center">🔒 Vos données sont transmises uniquement à MFinances, Uccle.</div>
                     </form>
-                  )
+                  ) : null
                 ) : (
                   <div className="bg-card border-2 border-[hsl(148,35%,82%)] rounded-2xl p-6">
                     <h3 className="text-lg text-[hsl(148,55%,30%)] font-bold mb-2 flex items-center gap-2">
