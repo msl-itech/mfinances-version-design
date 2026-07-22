@@ -762,7 +762,7 @@ export default function CalculateurQuotite() {
           {/* ── Refaire ── */}
           <div className="text-center">
             <button
-              onClick={() => { setStep(1); setSent(false); }}
+              onClick={() => { setStep(1); setSent(false); setShowForm(false); }}
               className="text-[13px] text-muted-foreground hover:text-foreground underline underline-offset-4 font-body transition-colors"
             >
               Refaire le calcul
