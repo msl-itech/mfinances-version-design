@@ -12,6 +12,7 @@ interface TrackerData {
   visitCount: number;
   source: string;
   utm_campaign: string;
+  utm_medium: string;
   diagnosticDone: boolean;
   checklistDownloaded: boolean;
   sector: string | null;
