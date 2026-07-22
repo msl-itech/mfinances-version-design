@@ -12,6 +12,7 @@ interface TrackerData {
   visitCount: number;
   source: string;
   utm_campaign: string;
+  utm_medium: string;
   diagnosticDone: boolean;
   checklistDownloaded: boolean;
   sector: string | null;
@@ -102,6 +103,7 @@ export function initTracker(): void {
     const params = new URLSearchParams(window.location.search);
     tracker.source = params.get("utm_source") || document.referrer || "direct";
     tracker.utm_campaign = params.get("utm_campaign") || "";
+    tracker.utm_medium = params.get("utm_medium") || (tracker.source === "direct" ? "none" : "referral");
   }
 
   // Session timer
