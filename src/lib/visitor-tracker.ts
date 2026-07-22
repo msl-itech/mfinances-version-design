@@ -11,8 +11,8 @@ const SESSION_KEY = "mf_session";
 interface TrackerData {
   visitCount: number;
   source: string;
-  utm_campaign: string;
   utm_medium: string;
+  utm_campaign: string;
   diagnosticDone: boolean;
   checklistDownloaded: boolean;
   sector: string | null;
@@ -30,6 +30,7 @@ export interface MFContext {
   visitCount: number;
   timeSeconds: number;
   source: string;
+  utmMedium: string;
   utmCampaign: string;
   behaviorScore: number;
   diagnosticDone: boolean;
@@ -173,6 +174,7 @@ export function getMFContext(): MFContext {
     visitCount: tracker.visitCount || 1,
     timeSeconds: elapsed,
     source: tracker.source || "direct",
+    utmMedium: tracker.utm_medium || "",
     utmCampaign: tracker.utm_campaign || "",
     behaviorScore: score,
     diagnosticDone: tracker.diagnosticDone || false,

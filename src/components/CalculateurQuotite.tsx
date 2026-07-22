@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import { Link } from "react-router-dom";
 import { generateQuotitePdf } from "@/lib/generate-quotite-pdf";
 import { supabase } from "@/integrations/supabase/client";
@@ -202,7 +203,7 @@ export default function CalculateurQuotite() {
     }
 
     // Submit lead to Odoo (tag déclenche Marketing Automation séquence C)
-    await submitLead({
+    const leadData = withUtm({
       name: prenom,
       first_name: prenom,
       email_from: email,
@@ -210,6 +211,8 @@ export default function CalculateurQuotite() {
       description,
       tag_names: ["seq_calculateur_bureau"],
     });
+    await submitLead(leadData);
+    trackLeadSource({ ...leadData, form_name: "calculateur_bureau" });
 
     setSending(false);
     setSent(true);

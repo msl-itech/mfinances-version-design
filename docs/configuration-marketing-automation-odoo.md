@@ -1,3 +1,5 @@
+oo![1784594638052](image/configuration-marketing-automation-odoo/1784594638052.png)
+
 # Configuration Marketing Automation Odoo — Tunnel de vente MFinances
 
 ## Vue d'ensemble
@@ -16,12 +18,12 @@ Visiteur → Outil sur le site → Lead CRM + tag → Marketing Automation → 5
 
 Créer ces 4 tags exactement (les noms doivent correspondre au code) :
 
-| Tag (nom exact) | Outil correspondant | Séquence |
-|---|---|---|
-| `seq_diagnostic_tresorerie` | Diagnostic Trésorerie | A |
-| `seq_generateur_bail` | Générateur de Bail Pro | B |
-| `seq_calculateur_bureau` | Calculateur Bureau à Domicile | C |
-| `seq_checklist_fiscale` | Checklist Contrôle Fiscal | D |
+| Tag (nom exact)               | Outil correspondant            | Séquence |
+| ----------------------------- | ------------------------------ | --------- |
+| `seq_diagnostic_tresorerie` | Diagnostic Trésorerie         | A         |
+| `seq_generateur_bail`       | Générateur de Bail Pro       | B         |
+| `seq_calculateur_bureau`    | Calculateur Bureau à Domicile | C         |
+| `seq_checklist_fiscale`     | Checklist Contrôle Fiscal     | D         |
 
 Tag supplémentaire (pour après les séquences) :
 | `newsletter_mensuelle` | Ajouté automatiquement après le dernier email (J+30) |
@@ -52,17 +54,19 @@ Pour le dernier email de chaque séquence, remplacer le texte du bouton par : `R
 ```html
 <p style="margin-top:24px;">
   <strong>Mika</strong><br>
-  Expert-comptable &amp; Conseil financier<br>
+  Expert-comptable & Conseil financier<br>
   <strong>Mfinances</strong>
 </p>
 ```
 
 ---
+
 ---
 
 ## CAMPAGNE A — Diagnostic Trésorerie
 
 **Configuration de base :**
+
 - **Nom** : Séquence Diagnostic Trésorerie
 - **Modèle cible** : Lead/Opportunité (`crm.lead`)
 - **Filtre** : `Etiquettes` → `contient` → `seq_diagnostic_tresorerie`
@@ -205,11 +209,13 @@ Je vous souhaite une pleine réussite dans le développement de votre entreprise
 **CTA :** [Bouton "Réserver un échange"]
 
 ---
+
 ---
 
 ## CAMPAGNE B — Générateur de Bail Professionnel
 
 **Configuration de base :**
+
 - **Nom** : Séquence Générateur Bail
 - **Modèle cible** : Lead/Opportunité (`crm.lead`)
 - **Filtre** : `Etiquettes` → `contient` → `seq_generateur_bail`
@@ -350,11 +356,13 @@ Je vous souhaite beaucoup de réussite dans le développement de votre activité
 **CTA :** [Bouton "Réserver un échange"]
 
 ---
+
 ---
 
 ## CAMPAGNE C — Calculateur Bureau à Domicile
 
 **Configuration de base :**
+
 - **Nom** : Séquence Calculateur Bureau
 - **Modèle cible** : Lead/Opportunité (`crm.lead`)
 - **Filtre** : `Etiquettes` → `contient` → `seq_calculateur_bureau`
@@ -485,11 +493,13 @@ Au plaisir d'échanger avec vous, le moment venu.
 **CTA :** [Bouton "Réserver un échange"]
 
 ---
+
 ---
 
 ## CAMPAGNE D — Checklist Contrôle Fiscal
 
 **Configuration de base :**
+
 - **Nom** : Séquence Checklist Contrôle Fiscal
 - **Modèle cible** : Lead/Opportunité (`crm.lead`)
 - **Filtre** : `Etiquettes` → `contient` → `seq_checklist_fiscale`
@@ -622,6 +632,7 @@ Au plaisir d'échanger avec vous.
 **CTA :** [Bouton "Réserver un échange"]
 
 ---
+
 ---
 
 ## Etape 3 : Configurer les conditions d'arrêt
@@ -633,6 +644,7 @@ Sur **chaque activité email** (sauf J0), ajouter un filtre d'exclusion :
    - `Etape` → `n'est pas égal à` → `Gagné` (Won)
 
 **Option avancée** : Si vous créez un tag `rdv_pris` dans CRM, vous pouvez aussi filtrer :
+
 - `Etiquettes` → `ne contient pas` → `rdv_pris`
 
 Cela arrêtera les emails pour les leads qui ont pris rendez-vous.
@@ -732,44 +744,45 @@ Une fois les 4 campagnes configurées et testées :
 
 ## Tableau récapitulatif des 20 emails
 
-| Séq. | Email | Envoi | Objet | CTA | Arrêt si RDV | Déclenche |
-|------|-------|-------|-------|-----|:---:|-----------|
-| A | A1 | J0 | Diagnostic prêt — résultats et pistes | Bouton RDV | oui | — |
-| A | A2 | J+2 | Ce que les chiffres ne disent pas | — | oui | — |
-| A | A3 | J+7 | PME de Liège — rupture de trésorerie | Bouton RDV | oui | — |
-| A | A4 | J+14 | Outil complémentaire | Lien Calculateur | non | Séq. C |
-| A | A5 | J+30 | Je reste disponible | Bouton RDV | oui | Newsletter |
-| B | B1 | J0 | Bail prêt | — | oui | — |
-| B | B2 | J+2 | 3 erreurs coûteuses | — | oui | — |
-| B | B3 | J+7 | Bail et fiscalité | Bouton RDV | oui | — |
-| B | B4 | J+14 | Aller plus loin | Lien Checklist | non | Séq. D |
-| B | B5 | J+30 | Si situation a évolué | Bouton RDV | oui | Newsletter |
-| C | C1 | J0 | Estimation dispo | Bouton RDV | oui | — |
-| C | C2 | J+2 | Ce que le calculateur ne mesure pas | — | oui | — |
-| C | C3 | J+7 | Déductions oubliées | Bouton RDV | oui | — |
-| C | C4 | J+14 | Récupérer 4 200 € | Bouton RDV | oui | — |
-| C | C5 | J+30 | Dernier message | Bouton RDV | oui | Newsletter |
-| D | D1 | J0 | 20 points essentiels | Bouton RDV | oui | — |
-| D | D2 | J+2 | 3 points négligés | — | oui | — |
-| D | D3 | J+7 | Se préparer en 4 étapes | Bouton RDV | oui | — |
-| D | D4 | J+14 | Complément utile | Lien Diagnostic | non | Séq. A |
-| D | D5 | J+30 | Je reste à disposition | Bouton RDV | oui | Newsletter |
+| Séq. | Email | Envoi | Objet                                    | CTA              | Arrêt si RDV | Déclenche |
+| ----- | ----- | ----- | ---------------------------------------- | ---------------- | :-----------: | ---------- |
+| A     | A1    | J0    | Diagnostic prêt — résultats et pistes | Bouton RDV       |      oui      | —         |
+| A     | A2    | J+2   | Ce que les chiffres ne disent pas        | —               |      oui      | —         |
+| A     | A3    | J+7   | PME de Liège — rupture de trésorerie  | Bouton RDV       |      oui      | —         |
+| A     | A4    | J+14  | Outil complémentaire                    | Lien Calculateur |      non      | Séq. C    |
+| A     | A5    | J+30  | Je reste disponible                      | Bouton RDV       |      oui      | Newsletter |
+| B     | B1    | J0    | Bail prêt                               | —               |      oui      | —         |
+| B     | B2    | J+2   | 3 erreurs coûteuses                     | —               |      oui      | —         |
+| B     | B3    | J+7   | Bail et fiscalité                       | Bouton RDV       |      oui      | —         |
+| B     | B4    | J+14  | Aller plus loin                          | Lien Checklist   |      non      | Séq. D    |
+| B     | B5    | J+30  | Si situation a évolué                  | Bouton RDV       |      oui      | Newsletter |
+| C     | C1    | J0    | Estimation dispo                         | Bouton RDV       |      oui      | —         |
+| C     | C2    | J+2   | Ce que le calculateur ne mesure pas      | —               |      oui      | —         |
+| C     | C3    | J+7   | Déductions oubliées                    | Bouton RDV       |      oui      | —         |
+| C     | C4    | J+14  | Récupérer 4 200 €                     | Bouton RDV       |      oui      | —         |
+| C     | C5    | J+30  | Dernier message                          | Bouton RDV       |      oui      | Newsletter |
+| D     | D1    | J0    | 20 points essentiels                     | Bouton RDV       |      oui      | —         |
+| D     | D2    | J+2   | 3 points négligés                      | —               |      oui      | —         |
+| D     | D3    | J+7   | Se préparer en 4 étapes                | Bouton RDV       |      oui      | —         |
+| D     | D4    | J+14  | Complément utile                        | Lien Diagnostic  |      non      | Séq. A    |
+| D     | D5    | J+30  | Je reste à disposition                  | Bouton RDV       |      oui      | Newsletter |
 
 ---
 
 ## Liens croisés entre outils
 
-| Email | Campagne source | Lien vers |
-|---|---|---|
-| A4 (J+14) | Diagnostic Trésorerie | `https://mfinances.be/ressources/calculateur-bureau/` |
-| B4 (J+14) | Générateur Bail | `https://mfinances.be/ressources/checklist-controle-bureau/` |
-| D4 (J+14) | Checklist Fiscale | `https://mfinances.be/diagnostic/` |
+| Email     | Campagne source        | Lien vers                                                      |
+| --------- | ---------------------- | -------------------------------------------------------------- |
+| A4 (J+14) | Diagnostic Trésorerie | `https://mfinances.be/ressources/calculateur-bureau/`        |
+| B4 (J+14) | Générateur Bail      | `https://mfinances.be/ressources/checklist-controle-bureau/` |
+| D4 (J+14) | Checklist Fiscale      | `https://mfinances.be/diagnostic/`                           |
 
 Quand un visiteur arrive via un lien croisé et soumet son email, un **nouveau lead** est créé avec le tag de la nouvelle séquence. Les deux campagnes tournent en parallèle.
 
 ## Lien de prise de rendez-vous
 
 Dans tous les emails avec CTA bouton, utiliser :
+
 ```
 https://odoo.mfinances.be/appointment/11
 ```

@@ -3,6 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import SEOHead from "@/components/SEOHead";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -265,13 +266,15 @@ export default function Diagnostic() {
       `<p><strong>Préoccupation principale:</strong> ${concernLabel}</p>`,
     ];
 
-    await submitLead({
+    const leadData = withUtm({
       name: emailForm.prenom,
       first_name: emailForm.prenom,
       email_from: emailForm.email,
       description: descParts.join(""),
       tag_names: ["seq_diagnostic_tresorerie"],
     });
+    await submitLead(leadData);
+    trackLeadSource({ ...leadData, form_name: "diagnostic" });
 
     setEmailSubmitted(true);
     setStep(9);

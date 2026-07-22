@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Check, FileText, BookOpen, Users, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -90,7 +91,7 @@ export default function ChecklistControleBureau() {
         return;
       }
 
-      await submitLead({
+      const leadData = withUtm({
         name: form.prenom,
         first_name: form.prenom,
         email_from: form.email,
@@ -104,6 +105,8 @@ export default function ChecklistControleBureau() {
         ].join(""),
         tag_names: ["seq_checklist_fiscale"],
       });
+      await submitLead(leadData);
+      trackLeadSource({ ...leadData, form_name: "checklist_controle_bureau" });
 
       navigate("/ressources/checklist-controle-bureau/confirmation/", {
         state: { prenom: form.prenom },

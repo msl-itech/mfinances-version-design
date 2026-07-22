@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import { Link } from "react-router-dom";
@@ -131,12 +132,14 @@ export default function Contact() {
       `<p><strong>Source:</strong> Formulaire Contact - Site MFinances</p>`,
     ].filter(Boolean);
 
-    await submitLead({
+    const leadData = withUtm({
       name: `${prenom} ${nom}`,
       email_from: email,
       phone: telephone,
       description: descParts.join(""),
     });
+    await submitLead(leadData);
+    trackLeadSource({ ...leadData, form_name: "contact" });
 
     setIsLoading(false);
     setSubmitted(true);
