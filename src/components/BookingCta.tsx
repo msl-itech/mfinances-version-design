@@ -25,7 +25,7 @@ export default function BookingCta({
         <CalendarCheck size={13} />
         {eyebrow}
       </div>
-      <h3 className="font-display text-[22px] sm:text-[26px] leading-[1.2] mb-2">{title}</h3>
+      <h3 className="font-display text-[22px] sm:text-[26px] leading-[1.2] mb-2 text-white">{title}</h3>
       <p className="text-[13px] sm:text-[14px] text-primary-foreground/80 font-body max-w-[460px] mx-auto mb-5">
         {description}
       </p>
