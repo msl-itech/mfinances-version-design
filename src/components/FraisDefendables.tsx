@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import { Car, UtensilsCrossed, Home, Laptop, BookOpen, ClipboardList, Target, Eye, BarChart3, AlertTriangle, FileText, Search, Shield, Mail, Scale } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import { toast } from "@/hooks/use-toast";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -188,11 +189,15 @@ export default function FraisDefendables() {
       `<p><strong>Priorité CRM :</strong> ${selectedItem.priority}</p>`,
     ].join("");
 
-    await submitLead({
-      name: prenom,
+    const leadData = withUtm({
+      name: selectedItem.n,
+      first_name: prenom,
       email_from: email,
       description,
+      tag_names: ["seq_frais_defendables"],
     });
+    await submitLead(leadData);
+    trackLeadSource({ ...leadData, form_name: "frais_defendables" });
 
     setSubmitted(true);
     setIsSubmitting(false);

@@ -3,7 +3,7 @@
  *
  * - `withUtm(lead)` : ajoute utm_source / utm_medium / utm_campaign au payload Odoo
  *   à partir de l'URL courante, du localStorage (première visite) ou du referrer.
- * - `trackLeadSource(...)` : envoie l'événement à la table `lead_events` du hub Supabase
+ * - `trackLeadSource(...)` : envoie l'événement à la table `lead_sources` du hub Supabase
  *   (fire-and-forget, ne bloque jamais l'UX).
  * - `buildUtmQuery(base)` : construit une URL avec les UTM en query string
  *   (utile pour les CTA sortants type Odoo Appointment).
@@ -122,21 +122,18 @@ export interface TrackLeadInput {
 export function trackLeadSource(input: TrackLeadInput): void {
   const utm = resolveUtm();
   const payload = {
-    email: input.email_from,
-    name: input.name || null,
+    contact_email: input.email_from,
+    contact_name: input.name || null,
     form_name: input.form_name,
     site_domain: SITE_DOMAIN,
     utm_source: utm.utm_source,
     utm_medium: utm.utm_medium,
     utm_campaign: utm.utm_campaign,
-    page_url: typeof window !== "undefined" ? window.location.href : null,
-    referrer: typeof document !== "undefined" ? document.referrer || null : null,
-    created_at: new Date().toISOString(),
   };
 
   // Fire-and-forget — ne bloque jamais la soumission du formulaire.
   try {
-    fetch(`${SUPABASE_URL}/rest/v1/lead_events`, {
+    fetch(`${SUPABASE_URL}/rest/v1/lead_sources`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
