@@ -216,13 +216,14 @@ export default function CalculateurQuotite() {
 
     setSending(false);
     setSent(true);
-    setStep(4);
+    setStep(5);
+
   };
 
   /* ── Progress bar (mobile) ── */
   const progressBar = (
     <div className="flex gap-1 mb-5">
-      {[1, 2, 3, 4].map((s) => (
+      {[1, 2, 3, 4, 5].map((s) => (
         <div
           key={s}
           className={`flex-1 h-1 rounded-full ${
@@ -237,7 +238,7 @@ export default function CalculateurQuotite() {
     <div className="bg-secondary py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-12">
       {/* ── Stepper (desktop) ── */}
       <div className="hidden sm:flex items-center max-w-[720px] mx-auto mb-8">
-        {[1, 2, 3, 4].map((s, i) => (
+        {[1, 2, 3, 4, 5].map((s, i) => (
           <div key={s} className="flex items-center flex-1 last:flex-none">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold flex-shrink-0 transition-colors ${
@@ -250,19 +251,20 @@ export default function CalculateurQuotite() {
             >
               {s < step ? <Check size={14} /> : s}
             </div>
-            {i < 3 && (
+            {i < 4 && (
               <div className={`flex-1 h-0.5 mx-1 ${s < step ? "bg-green-700" : "bg-border"}`} />
             )}
           </div>
         ))}
       </div>
 
+
       {/* ══════════ STEP 1 ══════════ */}
       {step === 1 && (
         <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
           <div className="mb-5">
             <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 1 / 4
+              Étape 1 / 5
             </span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">1</div>
@@ -384,7 +386,7 @@ export default function CalculateurQuotite() {
         <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
           <div className="mb-5">
             <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 2 / 4
+              Étape 2 / 5
             </span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">2</div>
@@ -471,15 +473,93 @@ export default function CalculateurQuotite() {
         </div>
       )}
 
-      {/* ══════════ STEP 3 — Email capture ══════════ */}
+      {/* ══════════ STEP 3 — Votre profil ══════════ */}
       {step === 3 && (
         <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
           <div className="mb-5">
             <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 3 / 4
+              Étape 3 / 5
             </span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">3</div>
+              <div>
+                <div className="text-[11px] text-muted-foreground">Votre profil</div>
+                <div className="text-[16px] font-semibold text-foreground">Votre statut fiscal et votre logement</div>
+              </div>
+            </div>
+          </div>
+
+          {progressBar}
+
+          <div className="bg-blue-50 border-l-[3px] border-blue-700 rounded-r-lg p-3 text-[12px] text-blue-800 leading-relaxed mb-5">
+            <Info size={14} className="inline mr-1.5 -mt-0.5" />
+            Ces informations personnalisent votre rapport : la logique de déduction diffère selon votre statut et votre situation de logement.
+          </div>
+
+          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
+          <div className="grid grid-cols-2 gap-2 mb-5">
+            {[
+              { value: "dirigeant", label: "Dirigeant(e) de société" },
+              { value: "independant", label: "Indépendant(e)" },
+              { value: "les-deux", label: "Les deux" },
+              { value: "liberal", label: "Profession libérale" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setStatut(opt.value)}
+                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                  statut === opt.value
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-card text-foreground hover:border-primary/40"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {[
+              { value: "locataire", label: "Locataire" },
+              { value: "proprietaire", label: "Propriétaire" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setLogement(opt.value)}
+                className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
+                  logement === opt.value
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-card text-foreground hover:border-primary/40"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex justify-between items-center mt-5">
+            <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <ArrowLeft size={14} /> Retour
+            </button>
+            <Button onClick={() => setStep(4)} className="rounded-lg bg-primary text-primary-foreground">
+              Suivant — Mon rapport <ArrowRight size={16} className="ml-1" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* ══════════ STEP 4 — Prévisualisation + capture email ══════════ */}
+      {step === 4 && (
+        <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
+          <div className="mb-5">
+            <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
+              Étape 4 / 5
+            </span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">4</div>
               <div>
                 <div className="text-[11px] text-muted-foreground">Votre rapport</div>
                 <div className="text-[16px] font-semibold text-foreground">Recevez votre rapport détaillé par email</div>
@@ -490,20 +570,46 @@ export default function CalculateurQuotite() {
           {progressBar}
 
           {!showForm ? (
-            <ReportUnlockBanner
-              eyebrow="Dernière étape · Votre rapport"
-              titleStart="Recevez votre"
-              titleItalic="quote-part professionnelle"
-              titleEnd="calculée et défendable"
-              description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
-              bullets={[
-                { icon: "zap", text: "Résultats en 30 secondes" },
-                { icon: "mail", text: "Rapport PDF par email" },
-                { icon: "shield", text: "Aucune revente de données" },
-              ]}
-              ctaLabel="Recevoir mon rapport"
-              onCtaClick={() => setShowForm(true)}
-            />
+            <div className="relative">
+              {/* Aperçu flouté du résultat */}
+              <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
+                <div className="bg-primary rounded-xl p-5 text-center">
+                  <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
+                  <div className="font-display text-[48px] font-light text-primary-foreground leading-none">
+                    {fmtDec(quotite)}<sup className="text-[22px] align-super">%</sup>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-2.5">
+                  <div className="bg-secondary border border-border rounded-xl p-3.5">
+                    <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / an</div>
+                    <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionAnnuelle))} €</div>
+                  </div>
+                  <div className="bg-secondary border border-border rounded-xl p-3.5">
+                    <div className="text-[11px] text-muted-foreground mb-1.5">Déduction / mois</div>
+                    <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionMensuelle))} €</div>
+                  </div>
+                </div>
+                <div className="bg-secondary border border-border rounded-xl p-3.5 h-24" />
+              </div>
+
+              {/* Overlay unlock */}
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <ReportUnlockBanner
+                  eyebrow="Dernière étape · Votre rapport"
+                  titleStart="Recevez votre"
+                  titleItalic="quote-part professionnelle"
+                  titleEnd="calculée et défendable"
+                  description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
+                  bullets={[
+                    { icon: "zap", text: "Résultats en 30 secondes" },
+                    { icon: "mail", text: "Rapport PDF par email" },
+                    { icon: "shield", text: "Aucune revente de données" },
+                  ]}
+                  ctaLabel="Débloquer mon rapport"
+                  onCtaClick={() => setShowForm(true)}
+                />
+              </div>
+            </div>
           ) : (
             <>
               <div className="text-center mb-6">
@@ -533,50 +639,6 @@ export default function CalculateurQuotite() {
                 </div>
               </div>
 
-              <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
-              <div className="grid grid-cols-2 gap-2 mb-4">
-                {[
-                  { value: "dirigeant", label: "Dirigeant(e) de société" },
-                  { value: "independant", label: "Indépendant(e)" },
-                  { value: "les-deux", label: "Les deux" },
-                  { value: "liberal", label: "Profession libérale" },
-                ].map((opt) => (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => setStatut(opt.value)}
-                    className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                      statut === opt.value
-                        ? "border-primary bg-primary/10 text-foreground"
-                        : "border-border bg-card text-foreground hover:border-primary/40"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-
-              <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
-              <div className="grid grid-cols-2 gap-2 mb-4">
-                {[
-                  { value: "locataire", label: "Locataire" },
-                  { value: "proprietaire", label: "Propriétaire" },
-                ].map((opt) => (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => setLogement(opt.value)}
-                    className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
-                      logement === opt.value
-                        ? "border-primary bg-primary/10 text-foreground"
-                        : "border-border bg-card text-foreground hover:border-primary/40"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-
               <p className="text-[10px] text-muted-foreground text-center leading-relaxed my-3">
                 Vos données sont confidentielles. Aucune revente.
               </p>
@@ -600,7 +662,7 @@ export default function CalculateurQuotite() {
             </div>
           ) : (
             <div className="mt-5">
-              <button onClick={() => setStep(2)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <button onClick={() => setStep(3)} className="text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 <ArrowLeft size={14} /> Retour à l'étape précédente
               </button>
             </div>
@@ -609,8 +671,9 @@ export default function CalculateurQuotite() {
         </div>
       )}
 
-      {/* ══════════ STEP 4 — Résultats ══════════ */}
-      {step === 4 && (
+      {/* ══════════ STEP 5 — Résultats ══════════ */}
+      {step === 5 && (
+
         <div className="max-w-[720px] mx-auto space-y-5">
           <div className="bg-card border border-border border-t-[3px] border-t-accent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 shadow-sm">
             <div className="mb-5">
@@ -699,7 +762,7 @@ export default function CalculateurQuotite() {
           {/* ── Refaire ── */}
           <div className="text-center">
             <button
-              onClick={() => { setStep(1); setSent(false); }}
+              onClick={() => { setStep(1); setSent(false); setShowForm(false); }}
               className="text-[13px] text-muted-foreground hover:text-foreground underline underline-offset-4 font-body transition-colors"
             >
               Refaire le calcul
