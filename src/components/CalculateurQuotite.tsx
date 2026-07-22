@@ -264,7 +264,7 @@ export default function CalculateurQuotite() {
         <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
           <div className="mb-5">
             <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 1 / 4
+              Étape 1 / 5
             </span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">1</div>
@@ -386,7 +386,7 @@ export default function CalculateurQuotite() {
         <div className="bg-card border border-border border-t-[3px] border-t-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 max-w-[720px] mx-auto shadow-sm">
           <div className="mb-5">
             <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mb-2.5">
-              Étape 2 / 4
+              Étape 2 / 5
             </span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-[13px] font-semibold flex-shrink-0">2</div>
