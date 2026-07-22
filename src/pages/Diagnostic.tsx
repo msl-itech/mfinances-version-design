@@ -560,49 +560,86 @@ export default function Diagnostic() {
             {step === 8 && (
               <div className="relative">
                 {!showEmailForm ? (
-                  <div className="relative">
-                    {/* Aperçu flouté du diagnostic */}
-                    <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
-                      <div className="bg-card border border-border/50 rounded-2xl p-6 text-center">
-                        <div className="text-[11px] text-muted-foreground mb-2">Votre score de risque</div>
-                        <div className="font-display text-[52px] font-light text-primary leading-none">
-                          {score}<span className="text-[24px] text-muted-foreground">/20</span>
+                  <div className="relative min-h-[720px]">
+                    {/* Aperçu flouté du diagnostic — taille réelle du rapport */}
+                    <div aria-hidden className="pointer-events-none select-none blur-[6px] opacity-80 space-y-4">
+                      <div className="bg-card border border-border/50 rounded-2xl p-6 sm:p-8">
+                        <div className="flex items-center justify-between mb-4">
+                          <div>
+                            <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-1">Votre diagnostic</div>
+                            <div className="font-display text-[22px] text-primary">Trésorerie — analyse complète</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-[10px] text-muted-foreground">Score</div>
+                            <div className="font-display text-[36px] font-light text-primary leading-none">
+                              {score}<span className="text-[16px] text-muted-foreground">/20</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="mt-3 h-2 rounded-full bg-secondary overflow-hidden">
+                        <div className="h-2 rounded-full bg-secondary overflow-hidden">
                           <div className="h-full bg-accent" style={{ width: `${(score / 20) * 100}%` }} />
                         </div>
+                        <p className="text-[13px] text-foreground/70 leading-relaxed mt-4">
+                          Votre trésorerie présente plusieurs signaux à surveiller. Voici les points de vigilance identifiés à partir de vos réponses et un plan d'action pour sécuriser vos flux dans les prochaines semaines.
+                        </p>
                       </div>
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <div className="bg-card border border-border/50 rounded-xl p-4 h-24" />
-                        <div className="bg-card border border-border/50 rounded-xl p-4 h-24" />
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-card border border-border/50 rounded-xl p-4">
+                          <div className="text-[10px] text-muted-foreground mb-1">Points forts</div>
+                          <div className="h-2 w-2/3 bg-secondary rounded mb-2" />
+                          <div className="h-2 w-1/2 bg-secondary rounded mb-2" />
+                          <div className="h-2 w-3/4 bg-secondary rounded" />
+                        </div>
+                        <div className="bg-card border border-border/50 rounded-xl p-4">
+                          <div className="text-[10px] text-muted-foreground mb-1">Points de vigilance</div>
+                          <div className="h-2 w-3/4 bg-secondary rounded mb-2" />
+                          <div className="h-2 w-2/3 bg-secondary rounded mb-2" />
+                          <div className="h-2 w-1/2 bg-secondary rounded" />
+                        </div>
                       </div>
-                      <div className="bg-card border border-border/50 rounded-2xl p-6 h-40" />
+
+                      <div className="bg-card border border-border/50 rounded-2xl p-6">
+                        <div className="text-[11px] font-bold uppercase text-primary mb-3">Plan d'action recommandé</div>
+                        {[1,2,3,4].map((i) => (
+                          <div key={i} className="flex gap-3 py-2 border-b border-border/40 last:border-0">
+                            <div className="w-6 h-6 rounded-full bg-primary/10 flex-shrink-0" />
+                            <div className="flex-1">
+                              <div className="h-2 w-3/4 bg-secondary rounded mb-2" />
+                              <div className="h-2 w-1/2 bg-secondary rounded" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Overlay unlock banner */}
+                    {/* Overlay unlock banner — centré */}
                     <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <ReportUnlockBanner
-                        className="mb-0 shadow-[0_25px_60px_-20px_hsl(var(--primary)/0.25)]"
-                        eyebrow="Dernière étape · Votre diagnostic"
-                        titleStart="Débloquez votre"
-                        titleItalic="analyse complète"
-                        titleEnd="et vos recommandations personnalisées"
-                        description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
-                        bullets={[
-                          { icon: "zap", text: "Score & analyse instantanés" },
-                          { icon: "mail", text: "Rapport PDF par email" },
-                          { icon: "shield", text: "Vos données restent privées" },
-                        ]}
-                        ctaLabel="Recevoir mon diagnostic"
-                        onCtaClick={() => {
-                          setShowEmailForm(true);
-                          setTimeout(() => {
-                            document.getElementById("diagnostic-prenom")?.focus();
-                          }, 50);
-                        }}
-                      />
+                      <div className="w-full max-w-[560px]">
+                        <ReportUnlockBanner
+                          className="mb-0 shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35)]"
+                          eyebrow="Dernière étape · Votre diagnostic"
+                          titleStart="Débloquez votre"
+                          titleItalic="analyse complète"
+                          titleEnd="et vos recommandations personnalisées"
+                          description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
+                          bullets={[
+                            { icon: "zap", text: "Score & analyse instantanés" },
+                            { icon: "mail", text: "Rapport PDF par email" },
+                            { icon: "shield", text: "Vos données restent privées" },
+                          ]}
+                          ctaLabel="Recevoir mon diagnostic"
+                          onCtaClick={() => {
+                            setShowEmailForm(true);
+                            setTimeout(() => {
+                              document.getElementById("diagnostic-prenom")?.focus();
+                            }, 50);
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
+
                 ) : (
                   <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.12)]">
                     <div className="max-w-[440px] mx-auto scroll-mt-24">
