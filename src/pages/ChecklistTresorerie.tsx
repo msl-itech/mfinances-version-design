@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -93,8 +94,8 @@ export default function ChecklistTresorerie() {
         setIsLoading(false);
         return;
       }
-      // Envoi vers Odoo avec tag (déclenche Marketing Automation séquence A)
-      await submitLead({
+      // Envoi vers Odoo avec tag (déclenche Marketing Automation séquence F)
+      const leadData = withUtm({
         name: form.prenom,
         first_name: form.prenom,
         email_from: form.email,
@@ -104,8 +105,10 @@ export default function ChecklistTresorerie() {
           `<p><strong>Email:</strong> ${form.email}</p>`,
           `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
         ].join(""),
-        tag_names: ["seq_diagnostic_tresorerie"],
+        tag_names: ["seq_checklist_tresorerie"],
       });
+      await submitLead(leadData);
+      trackLeadSource({ ...leadData, form_name: "checklist_tresorerie" });
 
       // Téléchargement du PDF
       triggerPdfDownload();
