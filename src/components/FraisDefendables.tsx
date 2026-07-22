@@ -164,8 +164,17 @@ export default function FraisDefendables() {
     setIsSubmitting(true);
 
     const form = e.currentTarget;
-    const prenom = (form.elements.namedItem("firstname") as HTMLInputElement).value.trim();
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+    const prenomInput = form.elements.namedItem("firstname") as HTMLInputElement;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+    const prenom = prenomInput.value.trim();
+    const email = emailInput.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!prenom || !emailOk) {
+      setIsSubmitting(false);
+      toast({ title: "Informations manquantes", description: !prenom ? "Merci d'indiquer votre prénom." : "Merci d'indiquer un email professionnel valide.", variant: "destructive" });
+      (!prenom ? prenomInput : emailInput).focus();
+      return;
+    }
     const statut = (form.elements.namedItem("cap-statut") as HTMLSelectElement).value;
     const verdict = getVerdict();
 
