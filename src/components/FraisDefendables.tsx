@@ -110,6 +110,7 @@ export default function FraisDefendables() {
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | undefined)[]>([undefined, undefined, undefined]);
   const [submitted, setSubmitted] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const toolRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = useMemo(() => {
