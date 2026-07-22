@@ -559,97 +559,114 @@ export default function Diagnostic() {
             {/* ── STEP 8 — EMAIL CAPTURE (stacked cards) ── */}
             {step === 8 && (
               <div className="relative">
-                {/* Back card — email form */}
-                <div
-                  className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.12)] ${
-                    showEmailForm
-                      ? "scale-100 translate-y-0 translate-x-0 rotate-0 opacity-100"
-                      : "scale-[0.96] translate-y-[-14px] translate-x-[8px] rotate-[-3deg] opacity-90"
-                  }`}
-                >
-                  <div className="max-w-[440px] mx-auto scroll-mt-24">
-                    <div className="text-center mb-6">
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <span className="h-px w-6 bg-accent" />
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
-                          Vos coordonnées
-                        </span>
-                        <span className="h-px w-6 bg-accent" />
+                {!showEmailForm ? (
+                  <div className="relative">
+                    {/* Aperçu flouté du diagnostic */}
+                    <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
+                      <div className="bg-card border border-border/50 rounded-2xl p-6 text-center">
+                        <div className="text-[11px] text-muted-foreground mb-2">Votre score de risque</div>
+                        <div className="font-display text-[52px] font-light text-primary leading-none">
+                          {score}<span className="text-[24px] text-muted-foreground">/20</span>
+                        </div>
+                        <div className="mt-3 h-2 rounded-full bg-secondary overflow-hidden">
+                          <div className="h-full bg-accent" style={{ width: `${(score / 20) * 100}%` }} />
+                        </div>
                       </div>
-                      <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
-                        Où envoyons-nous votre <span className="italic text-destructive">diagnostic</span> ?
-                      </h2>
-                      <p className="text-[14px] text-primary/65 font-body">
-                        Rapport PDF livré dans votre boîte mail sous 2 minutes.
-                      </p>
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div className="bg-card border border-border/50 rounded-xl p-4 h-24" />
+                        <div className="bg-card border border-border/50 rounded-xl p-4 h-24" />
+                      </div>
+                      <div className="bg-card border border-border/50 rounded-2xl p-6 h-40" />
                     </div>
-                    <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3">
-                      <input
-                        id="diagnostic-prenom"
-                        type="text"
-                        placeholder="Prénom"
-                        required
-                        value={emailForm.prenom}
-                        onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      />
-                      <input
-                        type="email"
-                        placeholder="Email professionnel"
-                        required
-                        value={emailForm.email}
-                        onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      />
-                      <div className="flex justify-center">
-                        <ReCAPTCHA
-                          ref={recaptchaRef}
-                          sitekey={RECAPTCHA_SITE_KEY}
-                          onChange={(token) => setRecaptchaToken(token)}
-                          onExpired={() => setRecaptchaToken(null)}
-                        />
-                      </div>
-                      <Button variant="accent" className="rounded-full w-full" type="submit" disabled={!recaptchaToken}>
-                        Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                      </Button>
-                      <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
-                        En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
-                      </p>
-                    </form>
-                  </div>
-                </div>
 
-                {/* Front card — unlock banner */}
-                <div
-                  className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 ${
-                    showEmailForm
-                      ? "-translate-y-[110%] opacity-0 pointer-events-none rotate-[-2deg] scale-[0.95]"
-                      : "translate-y-0 opacity-100 rotate-0 scale-100"
-                  }`}
-                >
-                  <ReportUnlockBanner
-                    className="h-full mb-0 shadow-[0_25px_60px_-20px_hsl(var(--primary)/0.25)]"
-                    eyebrow="Dernière étape · Votre diagnostic"
-                    titleStart="Débloquez votre"
-                    titleItalic="analyse complète"
-                    titleEnd="et vos recommandations personnalisées"
-                    description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
-                    bullets={[
-                      { icon: "zap", text: "Score & analyse instantanés" },
-                      { icon: "mail", text: "Rapport PDF par email" },
-                      { icon: "shield", text: "Vos données restent privées" },
-                    ]}
-                    ctaLabel="Recevoir mon diagnostic"
-                    onCtaClick={() => {
-                      setShowEmailForm(true);
-                      setTimeout(() => {
-                        document.getElementById("diagnostic-prenom")?.focus();
-                      }, 50);
-                    }}
-                  />
-                </div>
+                    {/* Overlay unlock banner */}
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <ReportUnlockBanner
+                        className="mb-0 shadow-[0_25px_60px_-20px_hsl(var(--primary)/0.25)]"
+                        eyebrow="Dernière étape · Votre diagnostic"
+                        titleStart="Débloquez votre"
+                        titleItalic="analyse complète"
+                        titleEnd="et vos recommandations personnalisées"
+                        description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
+                        bullets={[
+                          { icon: "zap", text: "Score & analyse instantanés" },
+                          { icon: "mail", text: "Rapport PDF par email" },
+                          { icon: "shield", text: "Vos données restent privées" },
+                        ]}
+                        ctaLabel="Recevoir mon diagnostic"
+                        onCtaClick={() => {
+                          setShowEmailForm(true);
+                          setTimeout(() => {
+                            document.getElementById("diagnostic-prenom")?.focus();
+                          }, 50);
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.12)]">
+                    <div className="max-w-[440px] mx-auto scroll-mt-24">
+                      <div className="text-center mb-6">
+                        <div className="flex items-center justify-center gap-2 mb-3">
+                          <span className="h-px w-6 bg-accent" />
+                          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent font-body">
+                            Vos coordonnées
+                          </span>
+                          <span className="h-px w-6 bg-accent" />
+                        </div>
+                        <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
+                          Où envoyons-nous votre <span className="italic text-destructive">diagnostic</span> ?
+                        </h2>
+                        <p className="text-[14px] text-primary/65 font-body">
+                          Rapport PDF livré dans votre boîte mail sous 2 minutes.
+                        </p>
+                      </div>
+                      <form id="diagnostic-email-form" onSubmit={handleEmailSubmit} className="space-y-3">
+                        <input
+                          id="diagnostic-prenom"
+                          type="text"
+                          placeholder="Prénom"
+                          required
+                          value={emailForm.prenom}
+                          onChange={(e) => setEmailForm({ ...emailForm, prenom: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        />
+                        <input
+                          type="email"
+                          placeholder="Email professionnel"
+                          required
+                          value={emailForm.email}
+                          onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        />
+                        <div className="flex justify-center">
+                          <ReCAPTCHA
+                            ref={recaptchaRef}
+                            sitekey={RECAPTCHA_SITE_KEY}
+                            onChange={(token) => setRecaptchaToken(token)}
+                            onExpired={() => setRecaptchaToken(null)}
+                          />
+                        </div>
+                        <Button variant="accent" className="rounded-full w-full" type="submit" disabled={!recaptchaToken}>
+                          Envoyer <ArrowRight size={16} className="ml-1 flex-shrink-0" />
+                        </Button>
+                        <button
+                          type="button"
+                          onClick={() => setShowEmailForm(false)}
+                          className="w-full text-[12px] text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center gap-1 mt-2"
+                        >
+                          <ArrowLeft size={14} /> Retour
+                        </button>
+                        <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
+                          En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
+
 
 
             {/* ── RESULTS ── */}
