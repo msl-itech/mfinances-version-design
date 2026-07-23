@@ -37,6 +37,7 @@ const audienceRight = [
   { label: "Société d'exploitation", href: "/qui-nous-accompagnons/societe-exploitation/" },
   { label: "Société de management", href: "/qui-nous-accompagnons/societe-de-management/" },
   { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
+  { label: "Société en veille", href: "/societe-en-veille/" },
 ];
 
 const homeVersions = [

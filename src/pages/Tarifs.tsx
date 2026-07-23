@@ -28,6 +28,7 @@ import {
 import {
   ArrowRight,
   ArrowUpRight,
+  Briefcase,
   Check,
   Minus,
   ShieldCheck,
@@ -46,22 +47,29 @@ import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
 
 const compareRows = [
-  { label: "Prix mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
-  { label: "Comptabilité complète", values: [true, true, true] },
-  { label: "Déclarations TVA", values: [true, true, true] },
-  { label: "Déclarations fiscales", values: [true, true, true] },
-  { label: "Bilan annuel", values: [true, true, true] },
-  { label: "Conseil fiscal", values: ["Ponctuel", "Régulier", "Proactif"] },
-  { label: "Situations intermédiaires", values: ["Semestrielles", "Trimestrielles", "Mensuelles"] },
-  { label: "Budget annuel", values: ["—", true, true] },
-  { label: "Analyse écarts budget/réalisé", values: ["—", "Trimestrielle", "Mensuelle"] },
-  { label: "Trésorerie prévisionnelle", values: ["—", "—", "✓ mensuelle"] },
-  { label: "Accès DAF à temps partiel", values: ["—", "—", "✓ option"] },
+  { label: "Prix mensuel HTVA", values: ["275 €", "À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
+  { label: "Comptabilité complète", values: [true, true, true, true] },
+  { label: "Déclarations TVA", values: [true, true, true, true] },
+  { label: "Déclarations fiscales", values: [true, true, true, true] },
+  { label: "Bilan annuel", values: [true, true, true, true] },
+  { label: "Conseil fiscal", values: ["—", "Ponctuel", "Régulier", "Proactif"] },
+  { label: "Situations intermédiaires", values: ["—", "Semestrielles", "Trimestrielles", "Mensuelles"] },
+  { label: "Budget annuel", values: ["—", "—", true, true] },
+  { label: "Analyse écarts budget/réalisé", values: ["—", "—", "Trimestrielle", "Mensuelle"] },
+  { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
+  { label: "Accès DAF à temps partiel", values: ["—", "—", "—", "✓ option"] },
 ];
 
-const planNames = ["Essentiel", "Premium", "Excellence"];
+const planNames = ["Basic", "Essentiel", "Premium", "Excellence"];
 
 const plans = [
+  {
+    icon: Briefcase,
+    name: "Basic",
+    price: "275",
+    tagline: "Pour être en règle",
+    desc: "Votre société est active mais votre activité reste limitée. Comptabilité conforme, déclarations fiscales dans les délais, obligations respectées. Vous sécurisez l'essentiel : les consultations fiscales et prestations ponctuelles sont disponibles sur demande à 150 € HTVA/heure.",
+  },
   {
     icon: ShieldCheck,
     name: "Essentiel",
@@ -101,7 +109,7 @@ const steps = [
 const faqs = [
   {
     q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
-    a: "Chez MFinances, les forfaits pour une TPE démarrent à 350 € HTVA/mois (Essentiel : comptabilité + déclarations), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.",
+    a: "Chez MFinances, les forfaits pour une TPE démarrent à 275 € HTVA/mois (Basic : comptabilité + conformité), 350 € HTVA/mois (Essentiel : + conseil fiscal + situations intermédiaires), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.",
   },
   {
     q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
@@ -183,8 +191,8 @@ export default function Tarifs() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Tarifs Expert-Comptable Bruxelles | 350€/mois | MFinances"
-        description="3 forfaits transparents pour TPE à Bruxelles. Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
+        title="Tarifs Expert-Comptable Bruxelles | Dès 275€/mois | MFinances"
+        description="4 forfaits transparents pour TPE à Bruxelles. Basic 275€, Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
         canonical="https://mfinances.be/tarifs/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd]}
       />
@@ -238,7 +246,7 @@ export default function Tarifs() {
                   <div className={`inline-flex items-center gap-4 mb-5 md:mb-6 transition-transform duration-1000 ${mounted ? "translate-y-0" : "translate-y-6"}`}>
                     <span className="font-display text-[14px] text-accent font-bold tracking-wider">— Tarifs</span>
                     <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
-                      03 forfaits
+                      04 forfaits
                     </span>
                   </div>
 
@@ -256,7 +264,7 @@ export default function Tarifs() {
                     data-anim="fade-up"
                     data-delay="0.4"
                   >
-                    Trois niveaux d'accompagnement, un seul engagement&nbsp;: vous donner une vision claire et anticipée de vos finances. À partir de <strong className="text-primary-foreground">350 € HTVA / mois</strong>.
+                    Quatre niveaux d'accompagnement, un seul engagement&nbsp;: vous donner une vision claire et anticipée de vos finances. À partir de <strong className="text-primary-foreground">275 € HTVA / mois</strong>.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start" data-anim="fade-up" data-delay="0.55">
@@ -316,7 +324,7 @@ export default function Tarifs() {
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Comparatif</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
-                Nos trois forfaits.
+                Nos quatre forfaits.
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Une lecture côte à côte, pour choisir en quelques secondes le niveau d'accompagnement qui vous correspond.
@@ -329,21 +337,23 @@ export default function Tarifs() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px] table-fixed">
                     <colgroup>
-                      <col style={{ width: "40%" }} />
-                      <col style={{ width: "20%" }} />
-                      <col style={{ width: "20%" }} />
-                      <col style={{ width: "20%" }} />
+                      <col style={{ width: "28%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
                     </colgroup>
                     <thead>
                       <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
                         <th className="text-left p-6 font-body font-normal text-muted-foreground" />
                         {[
+                          { name: "Basic", videoUrl: null, accent: false },
                           { name: "Essentiel", videoUrl: null, accent: false },
                           { name: "Premium", videoUrl: "https://www.youtube.com/embed/hZplCFSNXlk", accent: false },
                           { name: "Excellence", videoUrl: "https://www.youtube.com/embed/XJrFJicX7S0", accent: true },
                         ].map((plan, i) => (
-                          <th key={plan.name} className={`p-6 text-center relative ${i === 2 ? "bg-primary/[0.04]" : ""}`}>
-                            {i === 1 && (
+                          <th key={plan.name} className={`p-6 text-center relative ${i === 3 ? "bg-primary/[0.04]" : ""}`}>
+                            {i === 2 && (
                               <span className="absolute top-0 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.15em] px-3 py-1 rounded-b-md">
                                 POPULAIRE
                               </span>
@@ -387,7 +397,7 @@ export default function Tarifs() {
                         <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "bg-primary/[0.04]" : ""}`}>
                           <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
                           {row.values.map((v, ci) => (
-                            <td key={ci} className={`p-4 text-center ${ci === 2 ? "bg-primary/[0.025]" : ""}`}>
+                            <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
                               <CellValue v={v} isPrice={row.isPrice} />
                             </td>
                           ))}
@@ -403,10 +413,10 @@ export default function Tarifs() {
                 {compareRows.map((row) => (
                   <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
                     <p className="text-[13.5px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-4 gap-2">
                       {row.values.map((v, ci) => (
                         <div key={ci} className="text-center">
-                          <p className={`text-[10px] font-bold uppercase tracking-wider mb-1 font-body ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                          <p className={`text-[9px] font-bold uppercase tracking-wider mb-1 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
                           <CellValue v={v} isPrice={row.isPrice} />
                         </div>
                       ))}
@@ -422,6 +432,12 @@ export default function Tarifs() {
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground not-italic">réduction de 21%</strong> sur nos tarifs.
+              </p>
+              <p className="text-center mt-4 text-[13px] text-muted-foreground font-body">
+                Votre société est en veille (sans activité) ?{" "}
+                <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
+                  Découvrez notre formule dédiée aux sociétés en veille
+                </Link>.
               </p>
             </div>
           </div>
@@ -446,11 +462,11 @@ export default function Tarifs() {
                 Quel forfait est fait pour vous ?
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
-                Trois philosophies d'accompagnement, pensées pour suivre la trajectoire de votre entreprise.
+                Quatre niveaux d'accompagnement, pensés pour suivre la trajectoire de votre entreprise.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7" data-anim="stagger" data-stagger="0.1">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7" data-anim="stagger" data-stagger="0.1">
               {plans.map((plan, i) => {
                 const Icon = plan.icon;
                 const isExcellence = plan.name === "Excellence";
@@ -538,6 +554,13 @@ export default function Tarifs() {
                 );
               })}
             </div>
+
+            <p className="text-center mt-8 text-[13px] text-muted-foreground font-body" data-anim="fade-up" data-delay="0.4">
+              Votre société est en veille (sans activité) ?{" "}
+              <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
+                Découvrez notre formule dédiée aux sociétés en veille
+              </Link>.
+            </p>
           </div>
         </section>
 
