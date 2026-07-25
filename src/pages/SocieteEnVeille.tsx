@@ -234,7 +234,7 @@ export default function SocieteEnVeille() {
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Forfait</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
-                Le forfait Veille : conçu pour les sociétés en veille.
+                Le forfait dédié aux sociétés en veille.
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[640px] mx-auto" data-anim="fade-up" data-delay="0.2">
                 Votre société n'a pas de chiffre d'affaires car elle n'exerce plus d'activité ? Plutôt que de la liquider, le forfait Veille couvre l'essentiel de vos obligations comptables et fiscales : votre société reste prête à repartir.
