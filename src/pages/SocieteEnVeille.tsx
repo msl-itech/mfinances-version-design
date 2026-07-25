@@ -237,7 +237,7 @@ export default function SocieteEnVeille() {
                 Le forfait dédié aux sociétés en veille.
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[640px] mx-auto" data-anim="fade-up" data-delay="0.2">
-                Votre société n'a pas de chiffre d'affaires car elle n'exerce plus d'activité ? Plutôt que de la liquider, le forfait Veille couvre l'essentiel de vos obligations comptables et fiscales : votre société reste prête à repartir.
+                Votre société n'exerce plus d'activité et ne génère plus de chiffre d'affaires ? Plutôt que de la liquider, optez pour le forfait Veille. Il couvre l'essentiel de vos obligations comptables et fiscales afin que votre société reste prête à reprendre ses activités.
               </p>
             </div>
 
