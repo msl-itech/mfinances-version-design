@@ -438,7 +438,7 @@ export default function Tarifs() {
                 Les structures non assujetties à la TVA (ASBL, certaines professions médicales) Bénéficient d'une <strong className="text-foreground not-italic">réduction de 21 %</strong>.
               </p>
               <p className="text-center mt-4 text-[13px] text-muted-foreground font-body">
-                Votre société est en veille ? <Link to="/societe-en-veille/" className="underline underline-offset-2 text-foreground hover:text-accent transition-colors">Découvrez notre formule dédiée</Link>.
+                Votre société est en veille ? <Link to="/societe-en-veille/" className="font-semibold text-accent underline underline-offset-2 hover:text-accent/80 transition-colors">Découvrez notre formule dédiée</Link>.
               </p>
             </div>
           </div>
