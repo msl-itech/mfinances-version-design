@@ -440,13 +440,6 @@ export default function Tarifs() {
               <p className="text-center mt-4 text-[13px] text-muted-foreground font-body">
                 Votre société est en veille ? <Link to="/societe-en-veille/" className="underline underline-offset-2 text-foreground hover:text-accent transition-colors">Découvrez notre formule dédiée</Link>.
               </p>
-              <div className="text-center mt-4">
-                <Button variant="accent" className="rounded-full" asChild>
-                  <Link to="/societe-en-veille/">
-                    Découvrir la formule
-                  </Link>
-                </Button>
-              </div>
             </div>
           </div>
         </section>
