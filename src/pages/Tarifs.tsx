@@ -438,14 +438,18 @@ export default function Tarifs() {
                 Les tarifs affichés sont nos forfaits de base : ils ne changent pas de catégorie sans votre accord. Le premier échange nous permet simplement d'affiner selon votre volume et votre situation. Aucune mauvaise surprise.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
-                Pour les structures non assujetties à la TVA (ASBL, certaines professions médicales), nous appliquons une <strong className="text-foreground not-italic">réduction de 21%</strong> sur nos tarifs.
+                Les structures non assujetties à la TVA (ASBL, certaines professions médicales) Bénéficient d'une <strong className="text-foreground not-italic">réduction de 21 %</strong>.
               </p>
               <p className="text-center mt-4 text-[13px] text-muted-foreground font-body">
-                Votre société est en veille (sans activité) ?{" "}
-                <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
-                  Découvrez notre formule dédiée aux sociétés en veille
-                </Link>.
+                Votre société est en veille ? Découvrez notre formule dédiée.
               </p>
+              <div className="text-center mt-4">
+                <Button variant="accent" className="rounded-full" asChild>
+                  <Link to="/societe-en-veille/">
+                    Découvrir la formule
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
