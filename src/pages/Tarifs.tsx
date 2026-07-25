@@ -482,9 +482,9 @@ export default function Tarifs() {
                 const basicPlan = plans.find((p) => p.name === "Basic")!;
                 const topPlans = plans.filter((p) => p.name !== "Basic");
                 const topMeta = [
-                  { height: "h-[380px] md:h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
-                  { height: "h-[440px] md:h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 z-10" },
-                  { height: "h-[500px] md:h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
+                  { height: "min-h-[380px] md:min-h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
+                  { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 z-10" },
+                  { height: "min-h-[500px] md:min-h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
                 ];
                 return (
                   <>
@@ -501,7 +501,7 @@ export default function Tarifs() {
                               </span>
                             )}
                             <div
-                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height}`}
+                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height} overflow-hidden`}
                             >
                               <div className="flex-1">
                                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-2 block">
