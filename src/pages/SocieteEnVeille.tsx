@@ -268,10 +268,9 @@ export default function SocieteEnVeille() {
                 <h3 className="text-[15px] font-bold font-body text-foreground mb-4">Ce forfait comprend :</h3>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Tenue de la comptabilité de votre société",
-                    "Déclarations fiscales périodiques",
-                    "Obligations de conformité comptable",
-                    "Bilan annuel et comptes annuels",
+                    "Déclarations TVA,",
+                    "Impôt des sociétés",
+                    "Comptes annuels et formalités obligatoires",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[14px]">
                       <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
