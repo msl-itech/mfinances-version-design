@@ -536,7 +536,7 @@ export default function Tarifs() {
                       <div className="relative bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
                         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
                           <div className="text-center md:text-left">
-                            <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Entrée de gamme</span>
+                            <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Basic</span>
                             <div className="flex items-baseline gap-1.5 text-white font-display font-bold text-3xl md:text-4xl">
                               {basicPlan.price}€
                               <span className="text-[12px] font-body text-white/60">/mois HTVA</span>
