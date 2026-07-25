@@ -68,21 +68,21 @@ const plans = [
     name: "Basic",
     price: "275",
     tagline: "Pour être en règle",
-    desc: "Votre société est active mais votre activité reste limitée. Comptabilité conforme, déclarations fiscales dans les délais, obligations respectées. Vous sécurisez l'essentiel : les consultations fiscales et prestations ponctuelles sont disponibles sur demande à 150 € HTVA/heure.",
+    desc: "Ce que vous recherchez avant tout, c'est d'être en règle sur le plan légal. Consultations fiscales et prestations ponctuelles à la demande : 150 € HTVA/heure.",
   },
   {
     icon: ShieldCheck,
     name: "Essentiel",
     price: "350",
     tagline: "Pour sécuriser",
-    desc: "Vous êtes indépendant, vous venez de créer votre société, ou votre activité est encore en phase de démarrage. Comptabilité rigoureuse, déclarations fiscales dans les délais, interlocuteur de confiance. Vous sécurisez votre base comptable et fiscale : sans stress administratif.",
+    desc: "Vous souhaitez être accompagné et savoir où vous en êtes et où vous allez ?",
   },
   {
     icon: TrendingUp,
     name: "Premium",
     price: "450",
     tagline: "Pour structurer",
-    desc: "Votre activité se développe. Vous prenez des décisions de plus en plus structurantes. Budget annuel, suivi trimestriel, anticipation de la charge fiscale avant la clôture. Vous structurez votre pilotage financier : et vous commencez à décider sur la base de chiffres réels.",
+    desc: "Vous voulez trouver les bons leviers pour améliorer les performances de votre entreprise",
     popular: true,
   },
   {
@@ -90,7 +90,7 @@ const plans = [
     name: "Excellence",
     price: "650",
     tagline: "Pour piloter avec un temps d'avance",
-    desc: "Votre entreprise est en croissance active. Vision financière mensuelle, prévisionnel de trésorerie fiable, partenaire disponible pour les décisions qui engagent votre avenir. Vous pilotez avec un temps d'avance : comme les grandes entreprises.",
+    desc: "Vous ne cherchez pas seulement à améliorer vos performances, mais à renforcer durablement votre trésorerie.",
   },
 ];
 
