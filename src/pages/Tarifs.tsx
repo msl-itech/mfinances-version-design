@@ -501,7 +501,7 @@ export default function Tarifs() {
                               </span>
                             )}
                             <div
-                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height}`}
+                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height} overflow-hidden`}
                             >
                               <div className="flex-1">
                                 <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-2 block">
