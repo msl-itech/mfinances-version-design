@@ -177,13 +177,21 @@ export default function SocieteEnVeille() {
                     Votre société est en veille : <em className="italic font-normal text-accent">une alternative à la liquidation</em>.
                   </h1>
 
-                  <p
-                    className="mt-6 md:mt-7 text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body max-w-[520px] mx-auto lg:mx-0"
+                  <div
+                    className="mt-6 md:mt-7 max-w-[520px] mx-auto lg:mx-0 space-y-4"
                     data-anim="fade-up"
                     data-delay="0.4"
                   >
-                    Vous partez à l'étranger, vous changez temporairement d'activité ou vous souhaitez simplement mettre votre société en pause ? Plutôt que de la liquider, maintenez-la en veille. Nous gérons vos obligations comptables et fiscales pour que tout soit en ordre le jour où vous reprenez.
-                  </p>
+                    <p className="text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body">
+                      Lorsque vous vous absentez, un business center peut gérer votre courrier grâce à une simple boîte aux lettres louée entre 100 et 150 € par mois. Notre forfait Société en veille va beaucoup plus loin.
+                    </p>
+                    <p className="text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body">
+                      Pendant que votre société est en veille, nous assurons le suivi de toutes ses obligations comptables et fiscales : déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires.
+                    </p>
+                    <p className="text-primary-foreground/70 text-[15px] md:text-[16px] leading-[1.75] font-body">
+                      Vous gardez ainsi une société parfaitement en ordre, sans avoir à vous soucier des échéances ni des risques d'amendes liés à un retard administratif.
+                    </p>
+                  </div>
 
                   <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start" data-anim="fade-up" data-delay="0.55">
                     <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group h-12 text-[14px]" asChild>
