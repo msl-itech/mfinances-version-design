@@ -477,93 +477,88 @@ export default function Tarifs() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7" data-anim="stagger" data-stagger="0.1">
-              {plans.map((plan, i) => {
-                const Icon = plan.icon;
-                const isExcellence = plan.name === "Excellence";
-                const isPopular = plan.popular;
+            <div className="flex flex-col gap-8" data-anim="stagger" data-stagger="0.1">
+              {(() => {
+                const basicPlan = plans.find((p) => p.name === "Basic")!;
+                const topPlans = plans.filter((p) => p.name !== "Basic");
+                const topMeta = [
+                  { height: "h-[380px] md:h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
+                  { height: "h-[440px] md:h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 z-10" },
+                  { height: "h-[500px] md:h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
+                ];
                 return (
-                  <div key={plan.name} className="relative pt-3">
-                    {isPopular && !isExcellence && (
-                      <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
-                        POPULAIRE
-                      </span>
-                    )}
-                    <div
-                      data-tilt
-                      data-tilt-max="5"
-                      className={`group relative rounded-3xl p-7 md:p-9 flex flex-col h-full transition-shadow duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] cut-corner ${isExcellence
-                          ? "bg-primary text-primary-foreground border border-primary"
-                          : isPopular
-                            ? "bg-card border-2 border-accent/40"
-                            : "bg-card border border-border/50 hover:border-accent/30"
-                        }`}
-                    >
-                      {/* Numéro éditorial en filigrane */}
-                      <span
-                        aria-hidden="true"
-                        className={`absolute top-5 right-6 font-display italic text-[64px] leading-none ${isExcellence ? "text-primary-foreground/[0.08]" : "text-primary/[0.05]"
-                          }`}
-                      >
-                        0{i + 1}
-                      </span>
+                  <>
+                    {/* Stepped upper cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-5 md:gap-6">
+                      {topPlans.map((plan, i) => {
+                        const meta = topMeta[i];
+                        const isPopular = plan.popular;
+                        return (
+                          <div key={plan.name} className={`relative ${meta.scale}`}>
+                            {isPopular && (
+                              <span className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
+                                POPULAIRE
+                              </span>
+                            )}
+                            <div
+                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height}`}
+                            >
+                              <div className="flex-1">
+                                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-2 block">
+                                  {plan.name}
+                                </span>
+                                <div className={`flex items-baseline gap-1.5 mb-2 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight`}>
+                                  {plan.price}€
+                                  <span className="text-[13px] font-body text-muted-foreground">/mois HTVA</span>
+                                </div>
+                                <p className="text-accent text-[13px] italic font-body mb-5">: {plan.tagline}</p>
+                                <hr className="border-border/40 mb-5" />
+                                <p className={`${meta.textSize} leading-[1.75] font-body text-muted-foreground flex-1`}>
+                                  {plan.desc}
+                                </p>
+                              </div>
+                              <Link
+                                to="/contact/"
+                                className="mt-7 inline-flex items-center text-accent font-bold text-[15px] md:text-[17px] hover:underline decoration-2 underline-offset-4 group/cta"
+                              >
+                                Choisir {plan.name}
+                                <ArrowRight size={16} className="ml-2 group-hover/cta:translate-x-1 transition-transform" />
+                              </Link>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
 
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 transition-transform duration-500 group-hover:rotate-[-6deg] ${isExcellence ? "bg-accent/15 ring-1 ring-accent/30" : "bg-accent/10"
-                          }`}
-                      >
-                        <Icon size={22} className="text-accent" strokeWidth={1.5} />
-                      </div>
-
-                      <span
-                        className={`font-body text-[10px] font-bold tracking-[0.25em] uppercase mb-2 ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"
-                          }`}
-                      >
-                        {plan.name}
-                      </span>
-
-                      <div className="flex items-baseline gap-1.5 mb-2">
-                        <span
-                          className={`font-display text-[44px] md:text-[52px] font-bold leading-none tracking-tight ${isExcellence ? "text-primary-foreground" : "text-primary"
-                            }`}
-                        >
-                          {plan.price}€
-                        </span>
-                        <span className={`text-[13px] ${isExcellence ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
-                          /mois HTVA
-                        </span>
-                      </div>
-
-                      <p className={`text-[13px] italic font-body mb-5 ${isExcellence ? "text-accent" : "text-accent"}`}>
-                        : {plan.tagline}
-                      </p>
-
-                      <hr className={`mb-5 ${isExcellence ? "border-primary-foreground/15" : "border-border/40"}`} />
-
-                      <p
-                        className={`text-[14px] leading-[1.75] font-body flex-1 ${isExcellence ? "text-primary-foreground/75" : "text-muted-foreground"
-                          }`}
-                      >
-                        {plan.desc}
-                      </p>
-
-                      <div className="mt-7">
+                    {/* Basic gradient bar */}
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent via-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000" />
+                      <div className="relative bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
+                          <div className="text-center md:text-left">
+                            <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Entrée de gamme</span>
+                            <div className="flex items-baseline gap-1.5 text-white font-display font-bold text-3xl md:text-4xl">
+                              {basicPlan.price}€
+                              <span className="text-[12px] font-body text-white/60">/mois HTVA</span>
+                            </div>
+                          </div>
+                          <div className="max-w-xl text-center md:text-left">
+                            <p className="text-white/90 text-[13px] md:text-[14px] leading-relaxed font-body">
+                              {basicPlan.desc}
+                            </p>
+                          </div>
+                        </div>
                         <Link
                           to="/contact/"
-                          className={`inline-flex items-center justify-center w-full rounded-full gap-2 py-3 text-[14px] font-medium transition-colors ${isExcellence
-                              ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                              : isPopular
-                                ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                                : "border border-border/60 hover:bg-secondary"
-                            }`}
+                          className="whitespace-nowrap bg-white text-accent font-bold px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors duration-300 shadow-lg text-[14px]"
                         >
-                          Choisir {plan.name} <ArrowRight size={14} />
+                          Choisir Basic
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </>
                 );
-              })}
+              })()}
             </div>
 
             <p className="text-center mt-8 text-[13px] text-muted-foreground font-body" data-anim="fade-up" data-delay="0.4">
