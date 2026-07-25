@@ -52,7 +52,7 @@ const compareRows = [
   { label: "Déclarations TVA", values: [true, true, true, true] },
   { label: "Déclarations fiscales", values: [true, true, true, true] },
   { label: "Bilan annuel", values: [true, true, true, true] },
-  { label: "Conseil fiscal", values: ["—", "Ponctuel", "Régulier", "Proactif"] },
+  { label: "Conseil fiscal", values: ["À la demande\n150€ H/HTVA", "Ponctuel", "Régulier", "Proactif"] },
   { label: "Situations intermédiaires", values: ["—", "Semestrielles", "Trimestrielles", "Mensuelles"] },
   { label: "Budget annuel", values: ["—", "—", true, true] },
   { label: "Analyse écarts budget/réalisé", values: ["—", "—", "Trimestrielle", "Mensuelle"] },
