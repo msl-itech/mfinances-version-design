@@ -197,7 +197,7 @@ export default function SocieteEnVeille() {
                     <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group h-12 text-[14px]" asChild>
                       <Link to="/contact/">
                         <span className="flex items-center gap-3">
-                          Consultation gratuite
+                          Demander une consultation gratuite
                           <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                             <ArrowUpRight size={14} />
                           </span>
