@@ -257,8 +257,7 @@ export default function SocieteEnVeille() {
                   <div>
                     <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground">VEILLE</span>
                     <div className="flex items-baseline gap-1.5">
-                      <span className="font-display text-[44px] md:text-[52px] font-bold text-primary leading-none tracking-tight">175€</span>
-                      <span className="text-[13px] text-muted-foreground">/mois HTVA</span>
+                      <span className="font-display text-[44px] md:text-[52px] font-bold text-primary leading-none tracking-tight">175 € HTVA/mois</span>
                     </div>
                   </div>
                 </div>
