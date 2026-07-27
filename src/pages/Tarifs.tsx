@@ -433,19 +433,32 @@ export default function Tarifs() {
 
               {/* Mobile cards */}
               <div className="sm:hidden space-y-4">
-                {compareRows.map((row) => (
-                  <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
-                    <p className="text-[13.5px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
-                    <div className="grid grid-cols-4 gap-2">
-                      {row.values.map((v, ci) => (
-                        <div key={ci} className="text-center">
-                          <p className={`text-[9px] font-bold uppercase tracking-wider mb-1 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
-                          <CellValue v={v} isPrice={row.isPrice} />
-                        </div>
-                      ))}
+                {compareRows.map((row, ri) => {
+                  const resolveMobileValue = (ci: number) => {
+                    const v = row.values[ci];
+                    if (v !== null) return v;
+                    for (let i = ri - 1; i >= 0; i--) {
+                      const prevV = compareRows[i].values[ci];
+                      if (prevV && typeof prevV === "object" && "span" in prevV) {
+                        if (i + prevV.span > ri) return prevV;
+                      }
+                    }
+                    return null;
+                  };
+                  return (
+                    <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
+                      <p className="text-[13.5px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
+                      <div className="grid grid-cols-4 gap-2">
+                        {row.values.map((_, ci) => (
+                          <div key={ci} className="text-center">
+                            <p className={`text-[9px] font-bold uppercase tracking-wider mb-1 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                            <CellValue v={resolveMobileValue(ci)} isPrice={row.isPrice} />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
