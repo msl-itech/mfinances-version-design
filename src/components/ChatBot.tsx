@@ -103,6 +103,11 @@ const PAGE_SUGGESTIONS: Record<string, string[]> = {
     "Y a-t-il une réduction pour les ASBL ?",
     "Que comprend le forfait Essentiel ?",
   ],
+  "/societe-en-veille/": [
+    "Que comprend le forfait société en veille ?",
+    "Je suis en veille, quel est mon tarif ?",
+    "Est-ce que la TVA est incluse ?",
+  ],
   "/services/": [
     "C'est quoi un DAF externalisé ?",
     "Comment fonctionne le contrôle de gestion ?",
