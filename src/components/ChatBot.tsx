@@ -68,7 +68,7 @@ const PROFANITY_PATTERNS = [
 const VALID_INTERNAL_ROUTES = new Set([
   "/", "/tarifs/", "/services/", "/services/daf-externalise/", "/services/controle-de-gestion/",
   "/services/tresorerie/", "/services/comptabilite/", "/services/fiscalite/",
-  "/services/creation-entreprise/", "/qui-nous-accompagnons/",
+  "/services/creation-entreprise/", "/qui-nous-accompagnons/", "/societe-en-veille/",
   "/qui-nous-accompagnons/independants-et-startups/", "/qui-nous-accompagnons/commerce-et-horeca/",
   "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
   "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
