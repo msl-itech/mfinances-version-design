@@ -282,7 +282,7 @@ export default function SocieteEnVeille() {
                 </ul>
 
                 <h3 className="text-[15px] font-bold font-body text-foreground mb-4">Prestations complémentaires (sur demande) :</h3>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-4">
                   {[
                     "Situations comptables intermédiaires",
                     "Consultations fiscales",
@@ -296,6 +296,10 @@ export default function SocieteEnVeille() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-[13px] text-muted-foreground font-body italic mb-6">
+                  Tarif : <strong className="text-foreground not-italic">150 € HTVA/heure</strong>.
+                </p>
+
 
 
                 <div className="mt-7">
