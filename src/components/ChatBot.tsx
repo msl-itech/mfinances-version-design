@@ -168,6 +168,7 @@ const PROACTIVE_MESSAGES: Record<string, string> = {
   "/services/fiscalite/": "L'optimisation fiscale peut représenter plusieurs milliers d'euros par an. Vous connaissez votre taux effectif d'imposition ?",
   "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
   "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
+  "/societe-en-veille/": "Votre société est en veille ? Même sans activité, vos obligations légales continuent. Je peux vous expliquer ce qui est inclus dans notre forfait à 175€ HTVA/mois.",
   "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
   "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
   "/diagnostic/": "",
