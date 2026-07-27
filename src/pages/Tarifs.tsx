@@ -551,9 +551,9 @@ export default function Tarifs() {
             </div>
 
             <p className="text-center mt-8 text-[13px] text-muted-foreground font-body" data-anim="fade-up" data-delay="0.4">
-              Votre société est en veille (sans activité) ?{" "}
+              Votre société est en veille ?{" "}
               <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
-                Découvrez notre formule dédiée aux sociétés en veille
+                Découvrez notre formule dédiée
               </Link>.
             </p>
           </div>
