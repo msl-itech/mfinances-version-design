@@ -260,7 +260,7 @@ export default function GenerateurBail() {
     setMeubles((prev) => prev.filter((m) => m.id !== id));
   }, []);
 
-  const updateMeuble = useCallback((id: string, field: keyof Meuble, value: any) => {
+  const updateMeuble = useCallback((id: string, field: keyof Meuble, value: Meuble[keyof Meuble]) => {
     setMeubles((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: value } : m)));
   }, []);
 

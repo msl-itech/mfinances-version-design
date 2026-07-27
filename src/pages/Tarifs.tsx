@@ -196,7 +196,7 @@ export default function Tarifs() {
           <div
             ref={heroRef}
             className="group/hero relative overflow-hidden bg-primary py-6 md:py-12 bg-precision-grid-light"
-            style={{ ["--glow-x" as any]: "50%", ["--glow-y" as any]: "50%", ["--glow-o" as any]: "0" }}
+            style={{ "--glow-x": "50%", "--glow-y": "50%", "--glow-o": "0" } as React.CSSProperties}
           >
             <span
               aria-hidden="true"

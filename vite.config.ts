@@ -100,10 +100,9 @@ export default defineConfig(async ({ mode }) => {
             headless: true,
             maxConcurrentRoutes: 4,
           },
-          postProcess(renderedRoute: any) {
+          postProcess(_renderedRoute: { html: string; route: string }) {
             // Nettoyage : retirer les scripts d'analytics du HTML pré-rendu inutiles
             // (ils s'exécuteront via le bundle JS comme d'habitude)
-            return renderedRoute;
           },
         }),
     ].filter(Boolean),

@@ -73,7 +73,7 @@ Deno.serve(async (req) => {
 
       const enrolledAt = new Date(row.enrolled_at)
       const nextIdx = nextStep // index dans STEP_DELAYS_DAYS pour l'étape SUIVANTE
-      let updates: Record<string, unknown> = {
+      const updates: Record<string, unknown> = {
         current_step: nextStep,
         last_sent_at: new Date().toISOString(),
       }

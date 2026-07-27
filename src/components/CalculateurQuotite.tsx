@@ -123,7 +123,7 @@ export default function CalculateurQuotite() {
     setPieces((prev) => prev.filter((p) => p.id !== id));
   }, []);
 
-  const updatePiece = useCallback((id: string, field: keyof Piece, value: any) => {
+  const updatePiece = useCallback((id: string, field: keyof Piece, value: Piece[keyof Piece]) => {
     setPieces((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
   }, []);
 

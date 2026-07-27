@@ -41,7 +41,7 @@ export class SupabaseEngine implements EmailEngine {
 
     if (error) {
       // 23505 = doublon (course entre 2 inscriptions parallèles) — bénin
-      if ((error as any).code === '23505') {
+      if ((error as { code?: string }).code === '23505') {
         return { enrolled: false, reason: 'already_active' }
       }
       throw error

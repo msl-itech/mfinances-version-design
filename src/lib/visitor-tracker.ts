@@ -61,13 +61,13 @@ function getSession(): SessionData {
 function saveTracker(data: TrackerData): void {
   try {
     localStorage.setItem(TRACKER_KEY, JSON.stringify(data));
-  } catch {}
+  } catch { /* storage unavailable */ }
 }
 
 function saveSession(data: SessionData): void {
   try {
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(data));
-  } catch {}
+  } catch { /* storage unavailable */ }
 }
 
 // ── Score calculation ──

@@ -71,7 +71,7 @@ function getSocialProof(sector: string | null): string {
   return SOCIAL_PROOF.default;
 }
 
-function getPalierInstructions(palier: string, ctx: any, messageCount: number): string {
+function getPalierInstructions(palier: string, ctx: Record<string, unknown> | null, messageCount: number): string {
   const socialProof = getSocialProof(ctx?.sector);
 
   switch (palier) {
@@ -113,7 +113,7 @@ function getPalierInstructions(palier: string, ctx: any, messageCount: number): 
   }
 }
 
-function buildContextBlock(ctx: any, conversationalScore: number): string {
+function buildContextBlock(ctx: Record<string, unknown> | null, conversationalScore: number): string {
   if (!ctx && conversationalScore === 0) return "Aucun contexte visiteur disponible.";
 
   const behaviorScore = ctx?.behaviorScore || 0;
@@ -224,7 +224,7 @@ serve(async (req) => {
     const totalScore = conversationalScore + behaviorScore;
     const palier = getPalier(totalScore);
     const contextBlock = buildContextBlock(context, conversationalScore);
-    const userMessageCount = messages.filter((m: any) => m.role === "user").length;
+    const userMessageCount = messages.filter((m: { role: string }) => m.role === "user").length;
     const palierInstructions = getPalierInstructions(palier, context, userMessageCount);
 
     const socialProofBlock = `===== BIBLIOTHÈQUE SOCIAL PROOF =====

@@ -341,7 +341,7 @@ export default function Asbl() {
                                   <Minus size={16} className="text-foreground/20 mx-auto" />
                                 ) : (
                                   <span className={`font-body ${
-                                    (row as any).isDiscount ? "font-semibold text-accent text-[14px]" :
+                                    "isDiscount" in row && row.isDiscount ? "font-semibold text-accent text-[14px]" :
                                     "text-foreground/70 text-[13px]"
                                   }`}>{v}</span>
                                 )}
@@ -370,7 +370,7 @@ export default function Asbl() {
                             <Minus size={14} className="text-foreground/20 mx-auto" />
                           ) : (
                             <span className={`font-body text-[11px] ${
-                              (row as any).isDiscount ? "font-semibold text-accent" :
+                              "isDiscount" in row && row.isDiscount ? "font-semibold text-accent" :
                               "text-foreground/70"
                             }`}>{row.values[ci]}</span>
                           )}
