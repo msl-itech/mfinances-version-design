@@ -46,17 +46,17 @@ const services = [
   {
     icon: Scale,
     title: "Déclarations fiscales périodiques",
-    desc: "TVA, impôt des sociétés, déclarations néant : toutes vos obligations fiscales sont respectées dans les délais.",
+    desc: "TVA, impôt des sociétés et déclarations néant : nous réalisons toutes vos déclarations dans les délais.",
   },
   {
     icon: ShieldCheck,
-    title: "Conformité comptable",
-    desc: "Bilan annuel, comptes annuels, dépôt à la BNB : votre société reste en règle même en période de veille.",
+    title: "Comptes annuels",
+    desc: "Nous établissons vos comptes annuels et effectuons leur dépôt auprès de la Banque nationale de Belgique.",
   },
   {
     icon: AlertCircle,
     title: "Suivi des obligations légales",
-    desc: "Nous veillons à ce que votre société respecte toutes les obligations légales, même en l'absence d'activité commerciale.",
+    desc: "Nous assurons le suivi des obligations comptables, fiscales et administratives de votre société pendant toute sa période de veille.",
   },
   {
     icon: Clock,
