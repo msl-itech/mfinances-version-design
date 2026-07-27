@@ -68,7 +68,7 @@ const plans = [
     name: "Basic",
     price: "275",
     tagline: "Pour être en règle",
-    desc: "Ce que vous recherchez avant tout, c'est d'être en règle sur le plan légal. Consultations fiscales et prestations ponctuelles à la demande : 150 € HTVA/heure.",
+    desc: "Votre priorité est d'être en conformité avec vos obligations légales. Consultations fiscales et prestations ponctuelles sur demande : 150 € HTVA/heure.",
   },
   {
     icon: ShieldCheck,
