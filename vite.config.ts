@@ -91,6 +91,7 @@ export default defineConfig(async ({ mode }) => {
       react(),
       mode === "development" && componentTagger(),
       mode === "production" &&
+        !process.env.VERCEL &&
         prerender({
           routes: allRoutes,
           renderer: "@prerenderer/renderer-puppeteer",
