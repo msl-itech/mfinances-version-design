@@ -140,7 +140,19 @@ const faqJsonLd = {
   })),
 };
 
-function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
+function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number; value: string }; isPrice?: boolean }) {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "object" && "value" in v) {
+    const text = v.value;
+    if (text.includes("150€ H/HTVA")) {
+      return (
+        <span className="inline-block border border-accent/40 rounded-xl px-3 py-2 text-accent font-body text-[12px] leading-tight whitespace-pre-line">
+          {text}
+        </span>
+      );
+    }
+    return <span className="font-body text-foreground/70 text-[13px] whitespace-pre-line">{text}</span>;
+  }
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
   if (typeof v === "string" && v.includes("150€ H/HTVA")) {
