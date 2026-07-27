@@ -52,8 +52,8 @@ const compareRows = [
   { label: "Déclarations TVA", values: [true, true, true, true] },
   { label: "Déclarations fiscales", values: [true, true, true, true] },
   { label: "Bilan annuel", values: [true, true, true, true] },
-  { label: "Contrôle fiscal", values: ["À la demande\n150€ H/HTVA", "Ponctuel", "Régulier", "Proactif"] },
-  { label: "Situations intermédiaires", values: ["À la demande\n150€ H/HTVA", "Semestrielles", "Trimestrielles", "Mensuelles"] },
+  { label: "Contrôle fiscal", values: [{ span: 2, value: "À la demande\n150€ H/HTVA" }, "Ponctuel", "Régulier", "Proactif"] },
+  { label: "Situations intermédiaires", values: [null, "Semestrielles", "Trimestrielles", "Mensuelles"] },
   { label: "Budget annuel", values: ["—", "—", true, true] },
   { label: "Analyse écarts budget/réalisé", values: ["—", "—", "Trimestrielle", "Mensuelle"] },
   { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
@@ -140,7 +140,19 @@ const faqJsonLd = {
   })),
 };
 
-function CellValue({ v, isPrice }: { v: boolean | string; isPrice?: boolean }) {
+function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number; value: string }; isPrice?: boolean }) {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "object" && "value" in v) {
+    const text = v.value;
+    if (text.includes("150€ H/HTVA")) {
+      return (
+        <span className="inline-block border border-accent/40 rounded-xl px-3 py-2 text-accent font-body text-[12px] leading-tight whitespace-pre-line">
+          {text}
+        </span>
+      );
+    }
+    return <span className="font-body text-foreground/70 text-[13px] whitespace-pre-line">{text}</span>;
+  }
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
   if (typeof v === "string" && v.includes("150€ H/HTVA")) {
@@ -403,11 +415,15 @@ export default function Tarifs() {
                       {compareRows.map((row, ri) => (
                         <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "bg-primary/[0.04]" : ""}`}>
                           <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
-                          {row.values.map((v, ci) => (
-                            <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
-                              <CellValue v={v} isPrice={row.isPrice} />
-                            </td>
-                          ))}
+                          {row.values.map((v, ci) => {
+                            if (v === null) return null;
+                            const rowSpan = typeof v === "object" && "span" in v ? v.span : undefined;
+                            return (
+                              <td key={ci} rowSpan={rowSpan} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
+                                <CellValue v={v} isPrice={row.isPrice} />
+                              </td>
+                            );
+                          })}
                         </tr>
                       ))}
                     </tbody>
