@@ -267,9 +267,10 @@ export default function SocieteEnVeille() {
                 <h3 className="text-[15px] font-bold font-body text-foreground mb-4">Ce forfait comprend :</h3>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Déclarations TVA,",
-                    "Impôt des sociétés",
-                    "Comptes annuels et formalités obligatoires",
+                    "Déclarations TVA",
+                    "Déclaration à l'impôt des sociétés",
+                    "Comptes annuels",
+                    "Formalités légales obligatoires",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[14px]">
                       <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -280,10 +281,10 @@ export default function SocieteEnVeille() {
                   ))}
                 </ul>
 
-                <h3 className="text-[15px] font-bold font-body text-foreground mb-4">Non inclus dans ce forfait :</h3>
+                <h3 className="text-[15px] font-bold font-body text-foreground mb-4">Prestations complémentaires (sur demande) :</h3>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Situations comptables provisoires",
+                    "Situations comptables intermédiaires",
                     "Consultations fiscales",
                     "Prestations ponctuelles",
                   ].map((item) => (
@@ -298,7 +299,7 @@ export default function SocieteEnVeille() {
 
                 <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
                   <p className="text-[13px] text-foreground/70 font-body leading-relaxed">
-                    Ces prestations sont facturées sur demande, selon notre tarif horaire de <strong className="text-foreground">150 € HTVA par heure</strong>.
+                    Tarif : <strong className="text-foreground">150 € HTVA/heure</strong>.
                   </p>
                 </div>
 
