@@ -297,11 +297,6 @@ export default function SocieteEnVeille() {
                   ))}
                 </ul>
 
-                <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
-                  <p className="text-[13px] text-foreground/70 font-body leading-relaxed">
-                    Tarif : <strong className="text-foreground">150 € HTVA/heure</strong>.
-                  </p>
-                </div>
 
                 <div className="mt-7">
                   <Link
