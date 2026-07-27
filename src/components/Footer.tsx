@@ -102,7 +102,7 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-12 h-12 rounded-full bg-white/10 hover:bg-accent hover:text-white text-white/70 flex items-center justify-center transition-colors"
+                      className="w-12 h-12 rounded-full bg-white/10 hover:bg-accent hover:text-white text-white/70 flex items-center justify-center shrink-0 aspect-square transition-colors"
                     >
                       <Icon size={22} />
                     </a>
