@@ -186,7 +186,7 @@ export default function SocieteEnVeille() {
                       Lorsque vous vous absentez, un business center peut gérer votre courrier grâce à une simple boîte aux lettres louée entre 100 et 150 € par mois. <strong className="text-primary-foreground font-semibold">Notre forfait Société en veille va beaucoup plus loin.</strong>
                     </p>
                     <p className="text-primary-foreground/80 text-[15px] md:text-[16px] leading-[1.75] font-body">
-                      Pendant que votre société est en veille, nous assurons le suivi de toutes ses obligations comptables et fiscales : déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires.
+                      Pendant que votre société est en veille, nous assurons le suivi de toutes ses obligations comptables et fiscales : <strong className="text-primary-foreground font-semibold">déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires</strong>.
                     </p>
                     <p className="text-primary-foreground/80 text-[15px] md:text-[16px] leading-[1.75] font-body">
                       Vous gardez ainsi une société parfaitement en ordre, sans avoir à vous soucier des échéances ni des risques d'amendes liés à un retard administratif.
