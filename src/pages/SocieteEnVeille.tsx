@@ -63,11 +63,6 @@ const services = [
     title: "Réactivation simplifiée",
     desc: "Le jour où vous reprenez votre activité, votre comptabilité est à jour et la transition se fait sans délai.",
   },
-  {
-    icon: Briefcase,
-    title: "Consultations sur demande",
-    desc: "Besoin d'un conseil fiscal ou d'une prestation ponctuelle ? Nous intervenons à 150 € HTVA/heure, sur demande.",
-  },
 ];
 
 const faqs = [
