@@ -178,13 +178,28 @@ export default function SocieteEnVeille() {
                     data-delay="0.4"
                   >
                     <p className="text-primary-foreground/80 text-[15px] md:text-[16px] leading-[1.75] font-body">
-                      Lorsque vous vous absentez, un business center peut gérer votre courrier grâce à une simple boîte aux lettres louée entre 100 et 150 € par mois. <strong className="text-primary-foreground font-semibold">Notre forfait Société en veille va beaucoup plus loin.</strong>
+                      <span className="md:hidden">
+                        <strong className="text-primary-foreground font-semibold">Notre forfait Société en veille</strong> va beaucoup plus loin qu'une simple boîte aux lettres.
+                      </span>
+                      <span className="hidden md:inline">
+                        Lorsque vous vous absentez, un business center peut gérer votre courrier grâce à une simple boîte aux lettres louée entre 100 et 150 € par mois. <strong className="text-primary-foreground font-semibold">Notre forfait Société en veille va beaucoup plus loin.</strong>
+                      </span>
                     </p>
                     <p className="text-primary-foreground/80 text-[15px] md:text-[16px] leading-[1.75] font-body">
-                      Pendant que votre société est en veille, nous assurons le suivi de toutes ses obligations comptables et fiscales : <strong className="text-primary-foreground font-semibold">déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires</strong>.
+                      <span className="md:hidden">
+                        Nous assurons le suivi de vos obligations comptables et fiscales : <strong className="text-primary-foreground font-semibold">déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires</strong>.
+                      </span>
+                      <span className="hidden md:inline">
+                        Pendant que votre société est en veille, nous assurons le suivi de toutes ses obligations comptables et fiscales : <strong className="text-primary-foreground font-semibold">déclarations TVA, impôt des sociétés, comptes annuels et formalités obligatoires</strong>.
+                      </span>
                     </p>
                     <p className="text-primary-foreground/80 text-[15px] md:text-[16px] leading-[1.75] font-body">
-                      Vous gardez ainsi une société parfaitement en ordre, sans avoir à vous soucier des échéances ni des risques d'amendes liés à un retard administratif.
+                      <span className="md:hidden">
+                        Vous gardez une société en ordre, sans risque d'amendes lié à un retard administratif.
+                      </span>
+                      <span className="hidden md:inline">
+                        Vous gardez ainsi une société parfaitement en ordre, sans avoir à vous soucier des échéances ni des risques d'amendes liés à un retard administratif.
+                      </span>
                     </p>
                   </div>
 
