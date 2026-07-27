@@ -523,24 +523,24 @@ export default function Tarifs() {
                     {/* Basic gradient bar */}
                     <div className="relative group">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-accent via-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000" />
-                      <div className="relative bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                      <div className="relative bg-background rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl border border-border/60">
                         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
                           <div className="text-center md:text-left">
                             <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Basic</span>
-                            <div className="flex items-baseline gap-1.5 text-white font-display font-bold text-3xl md:text-4xl">
+                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-3xl md:text-4xl">
                               {basicPlan.price}€
-                              <span className="text-[12px] font-body text-white/60">/mois HTVA</span>
+                              <span className="text-[12px] font-body text-muted-foreground">/mois HTVA</span>
                             </div>
                           </div>
                           <div className="max-w-xl text-center md:text-left">
-                            <p className="text-white/90 text-[13px] md:text-[14px] leading-relaxed font-body">
+                            <p className="text-foreground/80 text-[13px] md:text-[14px] leading-relaxed font-body">
                               {basicPlan.desc}
                             </p>
                           </div>
                         </div>
                         <Link
                           to="/contact/"
-                          className="whitespace-nowrap bg-white text-accent font-bold px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors duration-300 shadow-lg text-[14px]"
+                          className="whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px]"
                         >
                           Choisir Basic
                         </Link>
