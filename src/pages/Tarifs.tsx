@@ -520,10 +520,9 @@ export default function Tarifs() {
                       })}
                     </div>
 
-                    {/* Basic gradient bar */}
+                    {/* Basic bar */}
                     <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent via-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000" />
-                      <div className="relative bg-background rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl border border-border/60">
+                      <div className="relative bg-background rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border border-border/60">
                         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
                           <div className="text-center md:text-left">
                             <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Basic</span>
