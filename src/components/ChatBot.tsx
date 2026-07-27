@@ -181,6 +181,7 @@ const EXIT_MESSAGES: Record<string, string> = {
   "/tarifs/": "Avant de partir — si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
   "/services/daf-externalise/": "Avant de partir — saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
   "/services/creation-entreprise/": "Avant de partir — une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
+  "/societe-en-veille/": "Avant de partir — une société en veille reste soumise à des obligations. Notre forfait à 175€ HTVA/mois vous permet de rester en règle sans surprise. Prenons 5 min pour en parler ?",
   default: "Avant de partir — vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
 };
 
