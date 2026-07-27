@@ -75,7 +75,7 @@ const plans = [
     name: "Essentiel",
     price: "350",
     tagline: "Pour sécuriser",
-    desc: "Vous souhaitez être accompagné et savoir où vous en êtes et où vous allez ?",
+    desc: "Vous souhaitez être accompagné pour savoir où vous en êtes et où vous allez ?",
   },
   {
     icon: TrendingUp,
