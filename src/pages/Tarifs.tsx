@@ -415,11 +415,15 @@ export default function Tarifs() {
                       {compareRows.map((row, ri) => (
                         <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "bg-primary/[0.04]" : ""}`}>
                           <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
-                          {row.values.map((v, ci) => (
-                            <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
-                              <CellValue v={v} isPrice={row.isPrice} />
-                            </td>
-                          ))}
+                          {row.values.map((v, ci) => {
+                            if (v === null) return null;
+                            const rowSpan = typeof v === "object" && "span" in v ? v.span : undefined;
+                            return (
+                              <td key={ci} rowSpan={rowSpan} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
+                                <CellValue v={v} isPrice={row.isPrice} />
+                              </td>
+                            );
+                          })}
                         </tr>
                       ))}
                     </tbody>
