@@ -450,7 +450,7 @@ export default function Tarifs() {
                       <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{row.label}</p>
                       <div className="grid grid-cols-2 gap-3">
                         {row.values.map((_, ci) => (
-                          <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3 flex flex-col items-center justify-center min-h-[80px]">
+                          <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
                             <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
                             <CellValue v={resolveMobileValue(ci)} isPrice={row.isPrice} />
                           </div>
