@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgMeeting from "@/assets/daf-meeting-team.png";
@@ -389,16 +389,15 @@ export default function Tarifs() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px] table-fixed">
                     <colgroup>
-                      <col style={{ width: "12%" }} />
-                      <col />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
+                      <col style={{ width: "28%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
+                      <col style={{ width: "18%" }} />
                     </colgroup>
                     <thead>
                       <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
-                        <th colSpan={2} className="text-left p-6 font-body font-normal text-muted-foreground" />
+                        <th className="text-left p-6 font-body font-normal text-muted-foreground" />
                         {[
                           { name: "Basic", videoUrl: null, accent: false },
                           { name: "Essentiel", videoUrl: null, accent: false },
@@ -448,7 +447,7 @@ export default function Tarifs() {
                     <tbody>
                       {/* Prix row */}
                       <tr className="border-b border-border/20 bg-primary/[0.04]">
-                        <td colSpan={2} className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{priceRow.label}</td>
+                        <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{priceRow.label}</td>
                         {priceRow.values.map((v, ci) => (
                           <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
                             <CellValue v={v} isPrice />
@@ -457,27 +456,36 @@ export default function Tarifs() {
                       </tr>
                       {/* Categorised rows */}
                       {compareCategories.map((cat) => (
-                        <>
-                          {cat.rows.map((row, ri) => (
-                            <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "border-t border-border/30" : ""}`} style={cat.rows.length === 1 ? { height: "120px" } : undefined}>
-                              {ri === 0 && (
-                                <td
-                                  rowSpan={cat.rows.length}
-                                  className="relative border-r border-border/20 overflow-hidden"
-                                  style={{ backgroundColor: cat.color }}
+                        <Fragment key={cat.num}>
+                          {/* Category header row — horizontal label with continuous left-side colored band */}
+                          <tr>
+                            <td
+                              colSpan={5}
+                              className="p-0 border-b border-border/20"
+                              style={{ backgroundColor: cat.color, borderLeft: `5px solid ${cat.barColor}` }}
+                            >
+                              <div className="flex items-center gap-3 py-2.5 pl-5">
+                                <span
+                                  className="font-display italic text-[16px] font-bold leading-none"
+                                  style={{ color: cat.barColor }}
                                 >
-                                  <span className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                                    <span
-                                      className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-center leading-[1.4] whitespace-pre-line"
-                                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", maxHeight: "90%" }}
-                                    >
-                                      {cat.title}
-                                    </span>
-                                  </span>
-                                  <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
-                                </td>
-                              )}
-                              <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
+                                  {cat.num}
+                                </span>
+                                <span className="font-display text-[12px] font-bold tracking-[0.12em] text-primary/80 uppercase">
+                                  {cat.title.replace(/\n\s*/g, " ")}
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                          {/* Data rows — same left border continues down */}
+                          {cat.rows.map((row) => (
+                            <tr key={row.label} className="border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30">
+                              <td
+                                className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]"
+                                style={{ borderLeft: `5px solid ${cat.barColor}` }}
+                              >
+                                {row.label}
+                              </td>
                               {row.values.map((v, ci) => (
                                 <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
                                   <CellValue v={v === null ? "—" : v} />
@@ -485,7 +493,7 @@ export default function Tarifs() {
                               ))}
                             </tr>
                           ))}
-                        </>
+                        </Fragment>
                       ))}
                     </tbody>
                   </table>
@@ -611,11 +619,11 @@ export default function Tarifs() {
                                 </p>
                               </div>
                               <Link
-                                to="/contact/"
-                                className="mt-7 inline-flex items-center text-accent font-bold text-[15px] md:text-[17px] hover:underline decoration-2 underline-offset-4 group/cta"
+                                to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
+                                className="mt-7 inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px] group/cta"
                               >
                                 Choisir {plan.name}
-                                <ArrowRight size={16} className="ml-2 group-hover/cta:translate-x-1 transition-transform" />
+                                <ArrowRight size={16} className="group-hover/cta:translate-x-1 transition-transform" />
                               </Link>
                             </div>
                           </div>
@@ -641,7 +649,7 @@ export default function Tarifs() {
                           </div>
                         </div>
                         <Link
-                          to="/contact/"
+                          to="/contact/?forfait=Basic"
                           className="whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px]"
                         >
                           Choisir Basic

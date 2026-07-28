@@ -3,7 +3,7 @@ import { submitLead } from "@/lib/odoo-submit";
 import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { createBreadcrumbSchema } from "@/lib/seo-schemas";
 import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
@@ -94,6 +94,9 @@ export default function Contact() {
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
 
+  const [searchParams] = useSearchParams();
+  const [forfait] = useState(() => searchParams.get("forfait") || "");
+
   const [step, setStep] = useState(1);
   const [situation, setSituation] = useState("");
   const [besoin, setBesoin] = useState("");
@@ -125,6 +128,7 @@ export default function Contact() {
 
     const descParts = [
       `<h3>Informations du contact</h3>`,
+      forfait ? `<p><strong>Forfait sélectionné:</strong> ${forfait}</p>` : "",
       `<p><strong>Situation actuelle:</strong> ${situation}</p>`,
       `<p><strong>Besoin principal:</strong> ${besoin}</p>`,
       `<p><strong>Téléphone:</strong> ${telephone}</p>`,
@@ -276,6 +280,15 @@ export default function Contact() {
                     </div>
                   ) : (
                     <>
+                      {forfait && (
+                        <div className="mb-5 flex items-center gap-3 rounded-xl bg-accent/10 border border-accent/30 px-4 py-3">
+                          <CheckCircle size={18} className="text-accent flex-shrink-0" strokeWidth={2} />
+                          <p className="text-[13px] font-body text-foreground">
+                            Forfait sélectionné : <strong className="text-accent">{forfait}</strong>
+                          </p>
+                        </div>
+                      )}
+
                       <ProgressBar current={step} />
 
                       {/* STEP 1 */}
