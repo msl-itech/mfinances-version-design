@@ -46,17 +46,43 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
 
-const compareRows = [
-  { label: "Prix mensuel HTVA", values: ["275 €", "À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
-  { label: "Comptabilité complète", values: [true, true, true, true] },
-  { label: "Déclarations TVA", values: [true, true, true, true] },
-  { label: "Déclarations fiscales", values: [true, true, true, true] },
-  { label: "Bilan annuel", values: [true, true, true, true] },
-  { label: "Contrôle fiscal", values: [{ span: 2, value: "À la demande\n150€ H/HTVA" }, "Ponctuel", "Régulier", "Proactif"] },
-  { label: "Situations intermédiaires", values: [null, "Semestrielles", "Trimestrielles", "Mensuelles"] },
-  { label: "Budget annuel", values: ["—", "—", true, true] },
-  { label: "Analyse écarts budget/réalisé", values: ["—", "—", "Trimestrielle", "Mensuelle"] },
-  { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
+const priceRow = { label: "Prix mensuel HTVA", values: ["275 €", "À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true };
+
+const compareCategories = [
+  {
+    num: "I",
+    title: "Conformité légale",
+    rows: [
+      { label: "Bilan annuel", values: [true, true, true, true] },
+      { label: "Déclarations fiscales", values: [true, true, true, true] },
+    ],
+  },
+  {
+    num: "II",
+    title: "Anticipation",
+    rows: [
+      { label: "Situations intermédiaires", values: ["À la demande\n150€ H/HTVA", "Semestrielles", "Trimestrielles", "Mensuelles"] },
+    ],
+  },
+  {
+    num: "III",
+    title: "Contrôle de gestion",
+    rows: [
+      { label: "Budget annuel", values: ["—", "—", true, true] },
+      { label: "Analyse écarts budget/réalisé", values: ["—", "—", "Trimestrielle", "Mensuelle"] },
+    ],
+  },
+  {
+    num: "IV",
+    title: "Optimalisation de la trésorerie",
+    rows: [
+      { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
+    ],
+  },
+];
+
+const horsForfaitRows = [
+  { label: "Contrôle fiscal", values: ["À la demande\n150€ H/HTVA", "Ponctuel", "Régulier", "Proactif"] },
   { label: "Accès DAF à temps partiel", values: ["—", "—", "—", "✓ option"] },
 ];
 
@@ -412,19 +438,37 @@ export default function Tarifs() {
                       </tr>
                     </thead>
                     <tbody>
-                      {compareRows.map((row, ri) => (
-                        <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "bg-primary/[0.04]" : ""}`}>
-                          <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
-                          {row.values.map((v, ci) => {
-                            if (v === null) return null;
-                            const rowSpan = typeof v === "object" && "span" in v ? v.span : undefined;
-                            return (
-                              <td key={ci} rowSpan={rowSpan} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
-                                <CellValue v={v} isPrice={row.isPrice} />
-                              </td>
-                            );
-                          })}
-                        </tr>
+                      {/* Prix row */}
+                      <tr className="border-b border-border/20 bg-primary/[0.04]">
+                        <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{priceRow.label}</td>
+                        {priceRow.values.map((v, ci) => (
+                          <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
+                            <CellValue v={v} isPrice />
+                          </td>
+                        ))}
+                      </tr>
+                      {/* Categorised rows */}
+                      {compareCategories.map((cat) => (
+                        <>
+                          <tr key={`cat-${cat.num}`}>
+                            <td colSpan={5} className="p-0">
+                              <div className="bg-secondary/70 border-y border-border/30 px-6 py-3 flex items-center gap-3">
+                                <span className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center font-display italic text-accent text-[12px] font-bold flex-shrink-0">{cat.num}</span>
+                                <span className="font-display text-[12px] font-bold text-primary/80 tracking-[0.15em] uppercase">{cat.title}</span>
+                              </div>
+                            </td>
+                          </tr>
+                          {cat.rows.map((row) => (
+                            <tr key={row.label} className="border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30">
+                              <td className="p-4 pl-10 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
+                              {row.values.map((v, ci) => (
+                                <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
+                                  <CellValue v={v === null ? "—" : v} />
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </>
                       ))}
                     </tbody>
                   </table>
@@ -432,33 +476,106 @@ export default function Tarifs() {
               </div>
 
               {/* Mobile cards */}
-              <div className="sm:hidden space-y-4">
-                {compareRows.map((row, ri) => {
-                  const resolveMobileValue = (ci: number) => {
-                    const v = row.values[ci];
-                    if (v !== null) return v;
-                    for (let i = ri - 1; i >= 0; i--) {
-                      const prevV = compareRows[i].values[ci];
-                      if (prevV && typeof prevV === "object" && "span" in prevV) {
-                        if (i + prevV.span > ri) return prevV;
-                      }
-                    }
-                    return null;
-                  };
-                  return (
-                    <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5 shadow-sm">
-                      <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{row.label}</p>
-                      <div className="grid grid-cols-2 gap-3">
-                        {row.values.map((_, ci) => (
-                          <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
-                            <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
-                            <CellValue v={resolveMobileValue(ci)} isPrice={row.isPrice} />
-                          </div>
-                        ))}
+              <div className="sm:hidden space-y-6">
+                {/* Prix mobile */}
+                <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-sm">
+                  <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{priceRow.label}</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {priceRow.values.map((v, ci) => (
+                      <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
+                        <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                        <CellValue v={v} isPrice />
                       </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Categorised mobile */}
+                {compareCategories.map((cat) => (
+                  <div key={cat.num}>
+                    <div className="flex items-center gap-3 mb-3 bg-secondary/70 border border-border/30 rounded-xl px-4 py-2.5">
+                      <span className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center font-display italic text-accent text-[12px] font-bold flex-shrink-0">{cat.num}</span>
+                      <span className="font-display text-[12px] font-bold text-primary/80 tracking-[0.15em] uppercase">{cat.title}</span>
                     </div>
-                  );
-                })}
+                    <div className="space-y-3">
+                      {cat.rows.map((row) => (
+                        <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5 shadow-sm">
+                          <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{row.label}</p>
+                          <div className="grid grid-cols-2 gap-3">
+                            {row.values.map((v, ci) => (
+                              <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
+                                <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                                <CellValue v={v ?? "—"} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Hors forfaits ── */}
+            <div className="mt-10" data-anim="fade-up" data-delay="0.35">
+              <div className="max-w-[820px] mx-auto text-center mb-6">
+                <span className="inline-flex items-center gap-2 text-[12px] font-body font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  <span className="w-5 h-px bg-accent/40" />
+                  Hors forfaits
+                  <span className="w-5 h-px bg-accent/40" />
+                </span>
+              </div>
+
+              {/* Desktop */}
+              <div className="hidden sm:block bg-background rounded-2xl border border-dashed border-border/80 overflow-hidden">
+                <table className="w-full text-[14px] table-fixed">
+                  <colgroup>
+                    <col style={{ width: "28%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                  </colgroup>
+                  <thead>
+                    <tr className="border-b border-border/30">
+                      <th className="text-left p-4 pl-6 font-body font-normal text-muted-foreground" />
+                      {planNames.map((name, i) => (
+                        <th key={name} className={`p-4 text-center font-body text-[11px] font-bold tracking-[0.2em] uppercase text-muted-foreground/60 ${i === 3 ? "bg-primary/[0.025]" : ""}`}>
+                          {name}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {horsForfaitRows.map((row) => (
+                      <tr key={row.label} className="border-b border-border/15 last:border-0 transition-colors hover:bg-secondary/20">
+                        <td className="p-4 pl-6 font-medium text-foreground/70 font-body text-[13px] italic">{row.label}</td>
+                        {row.values.map((v, ci) => (
+                          <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
+                            <CellValue v={v} />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile */}
+              <div className="sm:hidden space-y-3">
+                {horsForfaitRows.map((row) => (
+                  <div key={row.label} className="bg-background rounded-2xl border border-dashed border-border/60 p-5">
+                    <p className="text-[13px] font-medium text-foreground/70 mb-4 font-body italic">{row.label}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      {row.values.map((v, ci) => (
+                        <div key={ci} className="text-center bg-secondary/30 rounded-xl p-3">
+                          <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                          <CellValue v={v} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
