@@ -52,6 +52,8 @@ const compareCategories = [
   {
     num: "I",
     title: "Conformité\nlégale",
+    color: "hsla(224, 55%, 24%, 0.08)",
+    barColor: "hsla(224, 55%, 24%, 0.5)",
     rows: [
       { label: "Bilan annuel", values: [true, true, true, true] },
       { label: "Déclarations fiscales", values: [true, true, true, true] },
@@ -60,6 +62,8 @@ const compareCategories = [
   {
     num: "II",
     title: "Anticipation",
+    color: "hsla(0, 79%, 53%, 0.08)",
+    barColor: "hsla(0, 79%, 53%, 0.5)",
     rows: [
       { label: "Situations intermédiaires", values: ["Hors forfait", "Semestrielles", "Trimestrielles", "Mensuelles"] },
     ],
@@ -67,13 +71,17 @@ const compareCategories = [
   {
     num: "III",
     title: "Développement",
+    color: "hsla(160, 50%, 40%, 0.08)",
+    barColor: "hsla(160, 50%, 40%, 0.5)",
     rows: [
       { label: "Contrôle de gestion", values: ["—", "—", "Trimestriel", "Mensuel"] },
     ],
   },
   {
     num: "IV",
-    title: "Optimalisation de la trésorerie",
+    title: "Optimalisation de\n la trésorerie",
+    color: "hsla(36, 70%, 50%, 0.08)",
+    barColor: "hsla(36, 70%, 50%, 0.5)",
     rows: [
       { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
       { label: "Contrôle fiscal", values: ["—", "—", "—", "Hors forfait"] },
@@ -379,7 +387,7 @@ export default function Tarifs() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px] table-fixed">
                     <colgroup>
-                      <col style={{ width: "56px" }} />
+                      <col style={{ width: "12%" }} />
                       <col />
                       <col style={{ width: "17%" }} />
                       <col style={{ width: "17%" }} />
@@ -453,17 +461,18 @@ export default function Tarifs() {
                               {ri === 0 && (
                                 <td
                                   rowSpan={cat.rows.length}
-                                  className="relative border-r border-accent/20 bg-primary/[0.06] overflow-hidden"
+                                  className="relative border-r border-border/20 overflow-hidden"
+                                  style={{ backgroundColor: cat.color }}
                                 >
                                   <span className="absolute inset-0 flex items-center justify-center overflow-hidden">
                                     <span
-                                      className="font-display text-[7px] font-bold tracking-[0.08em] uppercase text-primary/80 text-center leading-[1.4] whitespace-pre-line"
+                                      className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-center leading-[1.4] whitespace-pre-line"
                                       style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", maxHeight: "90%" }}
                                     >
                                       {cat.title}
                                     </span>
                                   </span>
-                                  <span className="absolute left-0 inset-y-0 w-[3px] bg-accent/50" />
+                                  <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
                                 </td>
                               )}
                               <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
