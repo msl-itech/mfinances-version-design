@@ -57,6 +57,7 @@ const compareCategories = [
     rows: [
       { label: "Bilan annuel", values: [true, true, true, true] },
       { label: "Déclarations fiscales", values: [true, true, true, true] },
+      { label: "Assistante administrative", values: [true, true, true, true] },
     ],
   },
   {
@@ -74,7 +75,7 @@ const compareCategories = [
     color: "hsla(160, 50%, 40%, 0.08)",
     barColor: "hsla(160, 50%, 40%, 0.5)",
     rows: [
-      { label: "Contrôle de gestion", values: ["—", "—", "Trimestriel", "Mensuel"] },
+      { label: "Contrôle de gestion", values: ["Hors forfait", "Hors forfait", "Trimestriel", "Mensuel"] },
     ],
   },
   {
@@ -83,9 +84,9 @@ const compareCategories = [
     color: "hsla(36, 70%, 50%, 0.08)",
     barColor: "hsla(36, 70%, 50%, 0.5)",
     rows: [
-      { label: "Trésorerie prévisionnelle", values: ["—", "—", "—", "✓ mensuelle"] },
-      { label: "Contrôle fiscal", values: ["—", "—", "—", "Hors forfait"] },
-      { label: "Accès DAF à temps partiel", values: ["—", "—", "—", "Hors forfait"] },
+      { label: "Trésorerie prévisionnelle", values: ["Hors forfait", "Hors forfait", "Hors forfait", "✓ mensuelle"] },
+      { label: "Contrôle fiscal", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Hors forfait"] },
+      { label: "Accès DAF à temps partiel", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Hors forfait"] },
     ],
   },
 ];
@@ -186,6 +187,7 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
   }
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
+  if (v === "Hors forfait") return <span className="font-body text-[12px] italic text-muted-foreground/60">Hors forfait</span>;
   if (typeof v === "string" && v.includes("150€ H/HTVA")) {
     return (
       <span className="inline-block border border-accent/40 rounded-xl px-3 py-2 text-accent font-body text-[12px] leading-tight whitespace-pre-line">
