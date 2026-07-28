@@ -50,6 +50,7 @@ import SocieteDeManagement from "./pages/SocieteDeManagement.tsx";
 import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
 import SocieteExploitation from "./pages/SocieteExploitation.tsx";
 import Support from "./pages/Support.tsx";
+import SocieteEnVeille from "./pages/SocieteEnVeille.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
@@ -102,6 +103,7 @@ const App = () => {
               element={<CreationEntreprise />}
             />
             <Route path="/tarifs/" element={<Tarifs />} />
+            <Route path="/societe-en-veille/" element={<SocieteEnVeille />} />
             <Route path="/diagnostic/" element={<Diagnostic />} />
             <Route
               path="/qui-nous-accompagnons/"

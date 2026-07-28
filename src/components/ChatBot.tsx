@@ -68,7 +68,7 @@ const PROFANITY_PATTERNS = [
 const VALID_INTERNAL_ROUTES = new Set([
   "/", "/tarifs/", "/services/", "/services/daf-externalise/", "/services/controle-de-gestion/",
   "/services/tresorerie/", "/services/comptabilite/", "/services/fiscalite/",
-  "/services/creation-entreprise/", "/qui-nous-accompagnons/",
+  "/services/creation-entreprise/", "/qui-nous-accompagnons/", "/societe-en-veille/",
   "/qui-nous-accompagnons/independants-et-startups/", "/qui-nous-accompagnons/commerce-et-horeca/",
   "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
   "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
@@ -102,6 +102,11 @@ const PAGE_SUGGESTIONS: Record<string, string[]> = {
     "Quelle différence entre Premium et Excellence ?",
     "Y a-t-il une réduction pour les ASBL ?",
     "Que comprend le forfait Essentiel ?",
+  ],
+  "/societe-en-veille/": [
+    "Que comprend le forfait société en veille ?",
+    "Je suis en veille, quel est mon tarif ?",
+    "Est-ce que la TVA est incluse ?",
   ],
   "/services/": [
     "C'est quoi un DAF externalisé ?",
@@ -163,6 +168,7 @@ const PROACTIVE_MESSAGES: Record<string, string> = {
   "/services/fiscalite/": "L'optimisation fiscale peut représenter plusieurs milliers d'euros par an. Vous connaissez votre taux effectif d'imposition ?",
   "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
   "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
+  "/societe-en-veille/": "Votre société est en veille ? Même sans activité, vos obligations légales continuent. Je peux vous expliquer ce qui est inclus dans notre forfait à 175€ HTVA/mois.",
   "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
   "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
   "/diagnostic/": "",
@@ -175,6 +181,7 @@ const EXIT_MESSAGES: Record<string, string> = {
   "/tarifs/": "Avant de partir — si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
   "/services/daf-externalise/": "Avant de partir — saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
   "/services/creation-entreprise/": "Avant de partir — une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
+  "/societe-en-veille/": "Avant de partir — une société en veille reste soumise à des obligations. Notre forfait à 175€ HTVA/mois vous permet de rester en règle sans surprise. Prenons 5 min pour en parler ?",
   default: "Avant de partir — vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
 };
 

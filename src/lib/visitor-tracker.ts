@@ -4,6 +4,8 @@
  * sessionStorage (session)  : pages[], startTime, behaviorScore
  */
 
+import { trackPageView } from "./utm-enrich";
+
 const TRACKER_KEY = "mf_tracker";
 const SESSION_KEY = "mf_session";
 
@@ -121,6 +123,9 @@ export function initTracker(): void {
 
   saveTracker(tracker);
   saveSession(session);
+
+  // Envoie la page d'atterrissage vers Supabase
+  trackPageView(currentPage);
 }
 
 // ── Track a new page visit (called on route change) ──
@@ -133,6 +138,9 @@ export function trackPageVisit(path: string): void {
   const tracker = getTracker();
   session.behaviorScore = computeScore(tracker, session);
   saveSession(session);
+
+  // Envoie la page vue vers Supabase (fire-and-forget)
+  trackPageView(path);
 }
 
 // ── Flag setters (call from tools/forms) ──

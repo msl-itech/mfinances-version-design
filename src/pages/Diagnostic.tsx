@@ -613,31 +613,35 @@ export default function Diagnostic() {
                       </div>
                     </div>
 
-                    {/* Overlay unlock banner — centré */}
-                    <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <div className="w-full max-w-[560px]">
-                        <ReportUnlockBanner
-                          className="mb-0 shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35)]"
-                          eyebrow="Dernière étape · Votre diagnostic"
-                          titleStart="Débloquez votre"
-                          titleItalic="analyse complète"
-                          titleEnd="et vos recommandations personnalisées"
-                          description="Score de risque détaillé, points de vigilance et plan d'action adapté à votre profil : envoyés immédiatement dans votre boîte mail."
-                          bullets={[
-                            { icon: "zap", text: "Score & analyse instantanés" },
-                            { icon: "mail", text: "Rapport PDF par email" },
-                            { icon: "shield", text: "Vos données restent privées" },
-                          ]}
-                          ctaLabel="Recevoir mon diagnostic"
-                          onCtaClick={() => {
+                    {/* Overlay unlock card — style FraisDefendables */}
+                    <div className="absolute inset-0 grid place-items-center p-4">
+                      <div className="bg-card border border-border rounded-2xl shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35)] p-5 sm:p-6 max-w-[440px] w-full text-center">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest border border-accent/30 bg-accent/10 text-accent mb-3">
+                          <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                          Diagnostic prêt
+                        </div>
+                        <h3 className="font-display text-[19px] sm:text-[21px] leading-snug text-primary mb-2">
+                          Votre diagnostic est prêt.
+                        </h3>
+                        <p className="text-muted-foreground text-[13px] leading-relaxed mb-4">
+                          Débloquez votre <b className="text-primary">analyse complète</b> : score de risque, points de vigilance et plan d'action personnalisé, envoyés immédiatement dans votre boîte mail.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
                             setShowEmailForm(true);
                             setTimeout(() => {
                               document.getElementById("diagnostic-prenom")?.focus();
                             }, 50);
                           }}
-                        />
+                          className="w-full px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110 active:scale-[0.97]"
+                        >
+                          Recevoir mon diagnostic →
+                        </button>
+                        <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
                       </div>
                     </div>
+
                   </div>
 
                 ) : (

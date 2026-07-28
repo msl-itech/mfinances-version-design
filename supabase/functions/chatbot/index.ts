@@ -11,7 +11,7 @@ const corsHeaders = {
 const VALID_ROUTES = new Set([
   "/", "/tarifs/", "/services/", "/services/daf-externalise/", "/services/controle-de-gestion/",
   "/services/tresorerie/", "/services/comptabilite/", "/services/fiscalite/",
-  "/services/creation-entreprise/", "/qui-nous-accompagnons/",
+  "/services/creation-entreprise/", "/qui-nous-accompagnons/", "/societe-en-veille/",
   "/qui-nous-accompagnons/independants-et-startups/", "/qui-nous-accompagnons/commerce-et-horeca/",
   "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
   "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
@@ -162,7 +162,7 @@ Tu incarnes l'expertise MFinances — tu n'es pas une IA, tu es le conseiller.
 ===== WHITELIST LIENS AUTORISÉS =====
 /tarifs/ | /services/ | /services/daf-externalise/ | /services/controle-de-gestion/
 /services/tresorerie/ | /services/comptabilite/ | /services/fiscalite/
-/services/creation-entreprise/ | /qui-nous-accompagnons/
+/services/creation-entreprise/ | /qui-nous-accompagnons/ | /societe-en-veille/
 /qui-nous-accompagnons/independants-et-startups/ | /qui-nous-accompagnons/commerce-et-horeca/
 /qui-nous-accompagnons/professions-de-sante/ | /qui-nous-accompagnons/entreprises-en-croissance/
 /qui-nous-accompagnons/promoteurs-immobiliers/ | /qui-nous-accompagnons/asbl/
@@ -179,8 +179,11 @@ Tu incarnes l'expertise MFinances — tu n'es pas une IA, tu es le conseiller.
 - Comptabilité sur Odoo → /services/comptabilite/
 - Fiscalité (ISOC, IPP, TVA, VVPRbis) → /services/fiscalite/
 - Création d'entreprise (800€ HTVA) → /services/creation-entreprise/
-- Essentiel : 350€ HTVA/mois — sécuriser | Premium : 450€ HTVA/mois — structurer
-- Excellence : 650€ HTVA/mois — piloter (inclut DAF + trésorerie)
+- Basic : 275€ HTVA/mois — conformité légale, conseil et situations intermédiaires à la demande (150€ HTVA/h)
+- Essentiel : à partir de 350€ HTVA/mois — sécuriser
+- Premium : à partir de 450€ HTVA/mois — structurer
+- Excellence : à partir de 650€ HTVA/mois — piloter (inclut DAF + trésorerie)
+- Société en veille : 175€ HTVA/mois (tenue comptable, déclarations fiscales, comptes annuels, formalités légales) → /societe-en-veille/
 - Réduction -21% pour structures non assujetties TVA (ASBL, médecins)
 
 ===== ANTI-HALLUCINATION =====
@@ -190,11 +193,14 @@ Tu incarnes l'expertise MFinances — tu n'es pas une IA, tu es le conseiller.
 
 ===== PRIX AUTORISÉS (WHITELIST STRICTE) =====
 Tu ne peux mentionner QUE ces montants. Tout autre prix est INTERDIT :
+- Basic : 275€ HTVA/mois
 - Essentiel : à partir de 350€ HTVA/mois
 - Premium : à partir de 450€ HTVA/mois
 - Excellence : à partir de 650€ HTVA/mois
+- Société en veille : 175€ HTVA/mois
 - DAF externalisé : 150€ HTVA/h (forfait Excellence uniquement)
 - Création d'entreprise : 800€ HTVA (forfait fixe)
+- Consultations fiscales / prestations ponctuelles : 150€ HTVA/h
 - Réduction -21% pour structures non assujetties TVA (ASBL, médecins)
 Si le visiteur demande un prix personnalisé ou un devis → redirige vers [Réserver un diagnostic →](/diagnostic/) sans inventer de montant.`;
 

@@ -570,46 +570,56 @@ export default function CalculateurQuotite() {
           {progressBar}
 
           {!showForm ? (
-            <div className="relative">
-              {/* Aperçu flouté du résultat */}
-              <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
-                <div className="bg-primary rounded-xl p-5 text-center">
-                  <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
-                  <div className="font-display text-[48px] font-light text-primary-foreground leading-none">
-                    {fmtDec(quotite)}<sup className="text-[22px] align-super">%</sup>
+            <div>
+              <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 4 sur 5 — Votre rapport</div>
+              <div className="relative">
+                {/* Aperçu flouté du résultat */}
+                <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
+                  <div className="bg-primary rounded-xl p-5 text-center">
+                    <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
+                    <div className="font-display text-[48px] font-light text-primary-foreground leading-none">
+                      {fmtDec(quotite)}<sup className="text-[22px] align-super">%</sup>
+                    </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div className="bg-secondary border border-border rounded-xl p-3.5">
+                      <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / an</div>
+                      <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionAnnuelle))} €</div>
+                    </div>
+                    <div className="bg-secondary border border-border rounded-xl p-3.5">
+                      <div className="text-[11px] text-muted-foreground mb-1.5">Déduction / mois</div>
+                      <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionMensuelle))} €</div>
+                    </div>
+                  </div>
+                  <div className="bg-secondary border border-border rounded-xl p-3.5 h-24" />
                 </div>
-                <div className="grid grid-cols-2 gap-2.5">
-                  <div className="bg-secondary border border-border rounded-xl p-3.5">
-                    <div className="text-[11px] text-muted-foreground mb-1.5">Déduction estimée / an</div>
-                    <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionAnnuelle))} €</div>
-                  </div>
-                  <div className="bg-secondary border border-border rounded-xl p-3.5">
-                    <div className="text-[11px] text-muted-foreground mb-1.5">Déduction / mois</div>
-                    <div className="text-[22px] font-semibold text-foreground">{fmt(Math.round(deductionMensuelle))} €</div>
-                  </div>
-                </div>
-                <div className="bg-secondary border border-border rounded-xl p-3.5 h-24" />
-              </div>
 
-              {/* Overlay unlock */}
-              <div className="absolute inset-0 flex items-center justify-center p-4">
-                <ReportUnlockBanner
-                  eyebrow="Dernière étape · Votre rapport"
-                  titleStart="Recevez votre"
-                  titleItalic="quote-part professionnelle"
-                  titleEnd="calculée et défendable"
-                  description="Détail par poste de charge, méthode des surfaces pondérées et points à vérifier avant votre prochaine déclaration : envoyés immédiatement."
-                  bullets={[
-                    { icon: "zap", text: "Résultats en 30 secondes" },
-                    { icon: "mail", text: "Rapport PDF par email" },
-                    { icon: "shield", text: "Aucune revente de données" },
-                  ]}
-                  ctaLabel="Débloquer mon rapport"
-                  onCtaClick={() => setShowForm(true)}
-                />
+                {/* Overlay unlock card — style FraisDefendables */}
+                <div className="absolute inset-0 grid place-items-center p-4">
+                  <div className="bg-card border border-border rounded-2xl shadow-xl p-5 sm:p-6 max-w-[440px] w-full text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest border border-accent/30 bg-accent/10 text-accent mb-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      Rapport prêt
+                    </div>
+                    <h3 className="font-display text-[19px] sm:text-[21px] leading-snug text-primary mb-2">
+                      Votre rapport est prêt.
+                    </h3>
+                    <p className="text-muted-foreground text-[13px] leading-relaxed mb-4">
+                      Débloquez votre <b className="text-primary">quote-part professionnelle</b> calculée, la déduction estimée et la méthode des surfaces pondérées à vérifier avant votre déclaration.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(true)}
+                      className="w-full px-6 py-3.5 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25 hover:brightness-110 active:scale-[0.97]"
+                    >
+                      Débloquer mon rapport →
+                    </button>
+                    <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
+                  </div>
+                </div>
               </div>
             </div>
+
           ) : (
             <>
               <div className="text-center mb-6">
