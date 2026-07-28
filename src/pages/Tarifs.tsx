@@ -584,7 +584,7 @@ export default function Tarifs() {
                 const topPlans = plans.filter((p) => p.name !== "Basic");
                 const topMeta = [
                   { height: "min-h-[380px] md:min-h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
-                  { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 z-10" },
+                  { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },
                   { height: "min-h-[500px] md:min-h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
                 ];
                 return (
