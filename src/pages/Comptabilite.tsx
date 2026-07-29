@@ -440,7 +440,7 @@ export default function Comptabilite() {
 
               <div className="text-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
-                  <Link to="/contact/">Choisir mon forfait <ArrowRight size={16} className="ml-1.5" /></Link>
+                  <Link to="/contact/?service=comptabilite">Choisir mon forfait <ArrowRight size={16} className="ml-1.5" /></Link>
                 </Button>
               </div>
             </div>

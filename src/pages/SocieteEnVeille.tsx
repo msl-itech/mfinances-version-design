@@ -314,7 +314,7 @@ export default function SocieteEnVeille() {
 
                 <div className="mt-7">
                   <Link
-                    to="/contact/"
+                    to="/contact/?forfait=Veille"
                     className="inline-flex items-center justify-center w-full rounded-full gap-2 py-3 text-[14px] font-medium bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
                   >
                     Choisir Veille <ArrowRight size={14} />

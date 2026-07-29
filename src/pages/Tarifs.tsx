@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgMeeting from "@/assets/daf-meeting-team.png";
@@ -30,7 +30,9 @@ import {
   ArrowUpRight,
   Briefcase,
   Check,
+  X,
   Minus,
+  SlidersHorizontal,
   ShieldCheck,
   TrendingUp,
   Rocket,
@@ -84,9 +86,17 @@ const compareCategories = [
     color: "hsla(36, 70%, 50%, 0.08)",
     barColor: "hsla(36, 70%, 50%, 0.5)",
     rows: [
-      { label: "Trésorerie prévisionnelle", values: ["Hors forfait", "Hors forfait", "Hors forfait", "✓ mensuelle"] },
-      { label: "Contrôle fiscal", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Hors forfait"] },
-      { label: "Accès DAF à temps partiel", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Hors forfait"] },
+      { label: "Trésorerie prévisionnelle", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Mensuelle"] },
+    ],
+  },
+  {
+    num: "V",
+    title: "",
+    color: "hsla(0, 0%, 50%, 0.08)",
+    barColor: "hsla(0, 0%, 50%, 0.5)",
+    rows: [
+      { label: "Contrôle fiscal", values: ["À la demande", "À la demande", "À la demande", "À la demande"] },
+      { label: "Accès DAF à temps partiel", values: ["À la demande", "À la demande", "À la demande", "À la demande"] },
     ],
   },
 ];
@@ -187,7 +197,10 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
   }
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
-  if (v === "Hors forfait") return <span className="font-body text-[12px] italic text-muted-foreground/60">Hors forfait</span>;
+  if (v === "Hors forfait") return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">Hors forfait</span>;
+  if (typeof v === "string" && /^(Semestrielles|Trimestrielles|Mensuelles|Mensuelle|Mensuel|Trimestriel)$/i.test(v)) {
+    return <span className="font-body font-semibold text-accent text-[13px]">{v}</span>;
+  }
   if (typeof v === "string" && v.includes("150€ H/HTVA")) {
     return (
       <span className="inline-block border border-accent/40 rounded-xl px-3 py-2 text-accent font-body text-[12px] leading-tight whitespace-pre-line">
@@ -239,6 +252,45 @@ export default function Tarifs() {
       cancelAnimationFrame(raf);
     };
   }, []);
+
+  // ── Mobile card deck state ──
+  const [activeMobileCard, setActiveMobileCard] = useState(0);
+  const [showCompareSheet, setShowCompareSheet] = useState(false);
+  const mobileDeckRef = useRef<HTMLDivElement>(null);
+  const mobileRailRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCard = useCallback((i: number) => {
+    const deck = mobileDeckRef.current;
+    if (!deck || !deck.children[i]) return;
+    const card = deck.children[i] as HTMLElement;
+    deck.scrollTo({ left: card.offsetLeft - deck.offsetLeft - 20, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const deck = mobileDeckRef.current;
+    if (!deck) return;
+    const onScroll = () => {
+      const cardWidth = (deck.children[0] as HTMLElement)?.offsetWidth;
+      if (!cardWidth) return;
+      const i = Math.round(deck.scrollLeft / (cardWidth + 12));
+      if (i !== activeMobileCard && i >= 0 && i < plans.length) {
+        setActiveMobileCard(i);
+        const rail = mobileRailRef.current;
+        const pill = rail?.children[i] as HTMLElement | undefined;
+        if (rail && pill) {
+          rail.scrollTo({ left: pill.offsetLeft - rail.offsetWidth / 2 + pill.offsetWidth / 2, behavior: "smooth" });
+        }
+      }
+    };
+    deck.addEventListener("scroll", onScroll, { passive: true });
+    return () => deck.removeEventListener("scroll", onScroll);
+  }, [activeMobileCard]);
+
+  // Lock body scroll when compare sheet is open
+  useEffect(() => {
+    document.body.style.overflow = showCompareSheet ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [showCompareSheet]);
 
   return (
     <div className="min-h-screen bg-background" ref={root}>
@@ -384,8 +436,8 @@ export default function Tarifs() {
             </div>
 
             <div data-anim="fade-up" data-delay="0.3">
-              {/* Desktop table */}
-              <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]">
+              {/* Desktop table (lg+) */}
+              <div className="hidden lg:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]">
                 <div className="overflow-x-auto">
                   <table className="w-full text-[14px] table-fixed">
                     <colgroup>
@@ -492,34 +544,35 @@ export default function Tarifs() {
                 </div>
               </div>
 
-              {/* Mobile cards */}
-              <div className="sm:hidden space-y-6">
-                {/* Prix mobile */}
-                <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-sm">
-                  <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{priceRow.label}</p>
-                  <div className="grid grid-cols-2 gap-3">
+              {/* Tablet layout (sm → lg) */}
+              <div className="hidden sm:block lg:hidden space-y-5">
+                {/* Prix tablet */}
+                <div className="bg-card rounded-2xl border border-border/60 p-6 shadow-sm">
+                  <p className="text-[14px] font-semibold text-foreground mb-5 font-body">{priceRow.label}</p>
+                  <div className="grid grid-cols-4 gap-3">
                     {priceRow.values.map((v, ci) => (
-                      <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
-                        <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                      <div key={ci} className={`text-center rounded-xl p-4 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
+                        <p className={`text-[10px] font-bold uppercase tracking-wider mb-2.5 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
                         <CellValue v={v} isPrice />
                       </div>
                     ))}
                   </div>
                 </div>
-                {/* Categorised mobile */}
+                {/* Categorised tablet */}
                 {compareCategories.map((cat) => (
-                  <div key={cat.num}>
-                    <div className="flex items-center gap-3 mb-3 bg-secondary/70 border border-border/30 rounded-xl px-4 py-2.5">
-                      <span className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center font-display italic text-accent text-[12px] font-bold flex-shrink-0">{cat.num}</span>
-                      <span className="font-display text-[12px] font-bold text-primary/80 tracking-[0.15em] uppercase">{cat.title}</span>
+                  <div key={cat.num} className="bg-card rounded-2xl border border-border/60 overflow-hidden shadow-sm">
+                    <div className="relative flex items-center gap-3 px-6 py-4 border-b border-border/30" style={{ backgroundColor: cat.color }}>
+                      <span className="absolute left-0 inset-y-0 w-[3px] rounded-l-2xl" style={{ backgroundColor: cat.barColor }} />
+                      <span className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center font-display italic text-primary text-[13px] font-bold flex-shrink-0">{cat.num}</span>
+                      <span className="font-display text-[13px] font-bold text-primary tracking-[0.1em] uppercase whitespace-pre-line">{cat.title}</span>
                     </div>
-                    <div className="space-y-3">
+                    <div className="divide-y divide-border/20">
                       {cat.rows.map((row) => (
-                        <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5 shadow-sm">
-                          <p className="text-[13.5px] font-semibold text-foreground mb-4 font-body">{row.label}</p>
-                          <div className="grid grid-cols-2 gap-3">
+                        <div key={row.label} className="px-6 py-5">
+                          <p className="text-[14px] font-semibold text-foreground mb-4 font-body">{row.label}</p>
+                          <div className="grid grid-cols-4 gap-3">
                             {row.values.map((v, ci) => (
-                              <div key={ci} className="text-center bg-secondary/40 rounded-xl p-3">
+                              <div key={ci} className={`text-center rounded-xl p-3 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
                                 <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
                                 <CellValue v={v ?? "—"} />
                               </div>
@@ -531,6 +584,199 @@ export default function Tarifs() {
                   </div>
                 ))}
               </div>
+
+              {/* ── Mobile swipeable card deck (< sm) ── */}
+              <div className="sm:hidden">
+                {/* Sticky nav: pills + dots merged */}
+                <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-md border-b border-border/40 -mx-5 px-5 py-2.5">
+                  <div ref={mobileRailRef} className="flex gap-2 overflow-x-auto scrollbar-hide">
+                    {plans.map((plan, i) => (
+                      <button
+                        key={plan.name}
+                        onClick={() => scrollToCard(i)}
+                        className={`flex-shrink-0 rounded-full px-4 py-2 border transition-all duration-200 ${
+                          activeMobileCard === i
+                            ? "bg-primary border-primary text-primary-foreground shadow-sm"
+                            : "bg-card border-border/50 text-muted-foreground"
+                        }`}
+                      >
+                        <span className="text-[12px] font-bold font-body whitespace-nowrap">
+                          {plan.name} · {plan.price} €
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Swipeable card deck — peek next card */}
+                <div
+                  ref={mobileDeckRef}
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-4 pb-1 pl-5 pr-12 -mx-5 scrollbar-hide"
+                >
+                  {plans.map((plan, pi) => {
+                    const isPopular = (plan as typeof plans[number] & { popular?: boolean }).popular;
+                    return (
+                      <article
+                        key={plan.name}
+                        className={`flex-shrink-0 w-[85vw] snap-start bg-card rounded-2xl border overflow-hidden relative ${
+                          isPopular ? "border-2 border-accent shadow-[0_8px_24px_rgba(218,11,41,0.10)]" : "border-border/50 shadow-sm"
+                        }`}
+                      >
+                        {isPopular && (
+                          <span className="absolute top-0 right-0 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.1em] uppercase px-3 py-1.5 rounded-bl-xl">
+                            Populaire
+                          </span>
+                        )}
+
+                        {/* Header */}
+                        <div className="px-5 pt-5 pb-3">
+                          <h3 className="font-display text-[20px] font-bold text-primary leading-none">{plan.name}</h3>
+                          <p className="text-accent text-[12px] italic font-body mt-1">{plan.tagline}</p>
+                          <div className="flex items-baseline gap-1 mt-2">
+                            {pi > 0 && <span className="text-[11px] text-muted-foreground font-body">Dès</span>}
+                            <span className="text-[28px] font-bold font-display text-primary leading-none tracking-tight tabular-nums">{plan.price} €</span>
+                            <span className="text-[11px] text-muted-foreground font-body">/mois HTVA</span>
+                          </div>
+                        </div>
+
+                        {/* Features */}
+                        <div className="px-5 pb-4 border-t border-border/20 pt-3">
+                          {compareCategories.map((cat) => {
+                            const includedRows = cat.rows.filter(
+                              (row) => row.values[pi] !== "Hors forfait" && row.values[pi] !== "À la demande"
+                            );
+                            if (includedRows.length === 0) return null;
+                            return (
+                              <div key={cat.num}>
+                                {cat.title && (
+                                  <p className="text-[9px] tracking-[0.1em] uppercase font-bold text-muted-foreground font-body mt-2.5 mb-1">
+                                    {cat.title.replace(/\n\s*/g, " ")}
+                                  </p>
+                                )}
+                                {includedRows.map((row) => {
+                                  const v = row.values[pi];
+                                  return (
+                                    <div key={row.label} className="flex items-center gap-2.5 py-[5px]">
+                                      <Check size={14} className="text-accent flex-shrink-0" strokeWidth={2.5} />
+                                      <span className="flex-1 text-[13px] text-foreground font-body">{row.label}</span>
+                                      {v !== true && (
+                                        <span className="flex-shrink-0 text-[11px] font-semibold text-accent">
+                                          {v as string}
+                                        </span>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+
+                {/* Dots */}
+                <div className="flex justify-center gap-1.5 pt-2 pb-1">
+                  {plans.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-[5px] rounded-full transition-all duration-300 ${
+                        activeMobileCard === i ? "w-5 bg-primary" : "w-[5px] bg-border"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Sticky bottom bar */}
+                <div className="sticky bottom-0 z-30 flex gap-3 bg-card/98 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] -mx-5 px-4 py-3">
+                  {/* <button
+                    onClick={() => setShowCompareSheet(true)}
+                    className="flex-shrink-0 bg-secondary text-foreground rounded-xl p-3"
+                    aria-label="Comparatif détaillé"
+                  >
+                    <SlidersHorizontal size={18} strokeWidth={2} />
+                  </button> */}
+                  <Link
+                    to={`/contact/?forfait=${encodeURIComponent(plans[activeMobileCard].name)}`}
+                    className="flex-1 bg-accent text-accent-foreground font-bold rounded-xl py-3 text-center text-[14px] shadow-sm"
+                  >
+                    Choisir {plans[activeMobileCard].name}
+                  </Link>
+                </div>
+              </div>
+
+              {/* ── Mobile comparison sheet (modal) ── */}
+              {showCompareSheet && (
+                <div className="sm:hidden fixed inset-0 z-[60] flex flex-col">
+                  {/* Backdrop */}
+                  <div className="absolute inset-0 bg-black/40" onClick={() => setShowCompareSheet(false)} />
+                  {/* Sheet */}
+                  <div className="relative mt-auto bg-background rounded-t-3xl flex flex-col max-h-[88vh] shadow-2xl">
+                    {/* Handle + header */}
+                    <div className="sticky top-0 z-10 bg-background rounded-t-3xl border-b border-border/30 px-5 pt-3 pb-4">
+                      <div className="w-10 h-1 rounded-full bg-border mx-auto mb-4" />
+                      <div className="flex items-center justify-between">
+                        <h2 className="font-display text-[20px] font-bold text-primary">Comparatif</h2>
+                        <button
+                          onClick={() => setShowCompareSheet(false)}
+                          className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center active:scale-95 transition-transform"
+                          aria-label="Fermer"
+                        >
+                          <X size={20} strokeWidth={2.5} />
+                        </button>
+                      </div>
+                    </div>
+                    {/* Content */}
+                    <div className="flex-1 overflow-y-auto px-5 pb-8 pt-4 space-y-5">
+                      {/* Prix */}
+                      <div className="bg-card rounded-2xl border border-border/50 p-4">
+                        <p className="text-[13px] font-semibold text-foreground mb-3 font-body">{priceRow.label}</p>
+                        <div className="grid grid-cols-2 gap-2.5">
+                          {priceRow.values.map((v, ci) => (
+                            <div key={ci} className={`text-center rounded-xl p-3 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
+                              <p className={`text-[10px] font-bold uppercase tracking-wider mb-1.5 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                              <CellValue v={v} isPrice />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      {/* Categories */}
+                      {compareCategories.map((cat) => (
+                        <div key={cat.num}>
+                          {cat.title && (
+                            <div className="flex items-center gap-2.5 mb-2.5 px-1">
+                              <span className="w-[3px] h-5 rounded-full" style={{ backgroundColor: cat.barColor }} />
+                              <span className="font-display text-[12px] font-bold text-primary tracking-wide">
+                                {cat.title.replace(/\n\s*/g, " ")}
+                              </span>
+                            </div>
+                          )}
+                          <div className="space-y-2.5">
+                            {cat.rows.map((row) => (
+                              <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4">
+                                <p className="text-[13px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
+                                <div className="grid grid-cols-2 gap-2.5">
+                                  {row.values.map((v, ci) => (
+                                    <div key={ci} className={`text-center rounded-xl p-2.5 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
+                                      <p className={`text-[10px] font-bold uppercase tracking-wider mb-1.5 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
+                                      <CellValue v={v ?? "—"} />
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                      {/* Légende */}
+                      <p className="text-center text-[12px] text-muted-foreground font-body pt-2">
+                        <strong className="text-accent">Hors forfait</strong> = 150 € HTVA / heure
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div data-anim="fade-up" data-delay="0.4">
@@ -576,7 +822,7 @@ export default function Tarifs() {
                 const topPlans = plans.filter((p) => p.name !== "Basic");
                 const topMeta = [
                   { height: "min-h-[380px] md:min-h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
-                  { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 z-10" },
+                 { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },            
                   { height: "min-h-[500px] md:min-h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
                 ];
                 return (
@@ -611,11 +857,10 @@ export default function Tarifs() {
                                 </p>
                               </div>
                               <Link
-                                to="/contact/"
-                                className="mt-7 inline-flex items-center text-accent font-bold text-[15px] md:text-[17px] hover:underline decoration-2 underline-offset-4 group/cta"
+                                to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
+                                className="mt-7 whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px] text-center"
                               >
                                 Choisir {plan.name}
-                                <ArrowRight size={16} className="ml-2 group-hover/cta:translate-x-1 transition-transform" />
                               </Link>
                             </div>
                           </div>
@@ -641,7 +886,7 @@ export default function Tarifs() {
                           </div>
                         </div>
                         <Link
-                          to="/contact/"
+                          to="/contact/?forfait=Basic"
                           className="whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px]"
                         >
                           Choisir Basic
