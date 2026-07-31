@@ -434,12 +434,15 @@ export default function Diagnostic() {
 
                 {/* Question card */}
                 <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
-                  <button
-                    onClick={goBack}
-                    className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-4 sm:mb-5"
-                  >
-                    <ArrowLeft size={14} /> Retour
-                  </button>
+                  {step > 0 && (
+                    <button
+                      onClick={goBack}
+                      className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-4 sm:mb-5"
+                    >
+                      <ArrowLeft size={14} /> Retour
+                    </button>
+                  )}
+                  {!step && <div className="mb-4 sm:mb-5" />}
 
                   <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2">
                     {questions[step].title}
