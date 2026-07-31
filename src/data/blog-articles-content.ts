@@ -1424,7 +1424,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Prendre rendez-vous",
     ctaDescription: "Premier échange gratuit pour analyser votre situation.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -1717,7 +1717,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Mon dossier bancaire mérite mieux qu'un bilan",
     ctaDescription: "En discuter avec MFinances — premier échange offert, sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "bfr-definition-formule-tpe": {
@@ -1842,7 +1842,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Un expert MFinances analyse votre BFR avec vous — gratuitement",
     ctaDescription: "Premier échange offert, sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "bfr-recrutement-impact-tresorerie": {
@@ -1950,7 +1950,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Modélisez votre recrutement avec un DAF MFinances",
     ctaDescription: "Premier échange offert — sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "seuil-de-rentabilite-multi-services": {
@@ -2047,7 +2047,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Un expert MFinances analyse votre rentabilité avec vous",
     ctaDescription: "Premier échange offert — sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Prendre rendez-vous",
   },
 
@@ -2137,7 +2137,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Besoin d'un avis clair sur vos frais ?",
     ctaDescription: "MFinances vous aide à sécuriser vos dépenses professionnelles — premier échange gratuit.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -2213,7 +2213,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Besoin de sécuriser vos frais mixtes ?",
     ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert →",
   },
 
@@ -2370,7 +2370,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Une pièce mixte, ça ne se calcule pas au hasard",
     ctaDescription: "Votre estimation, vérifiée par un expert avant de la déclarer.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -2530,7 +2530,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "comparatif-bureau-a-domicile-statut": {
-    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
     sections: [
       {
         paragraphs: [
@@ -2553,7 +2553,7 @@ export const articleContent: Record<string, ArticleBody> = {
             ["Taux effectif le plus bas", "Taux marginal IPP (jusqu'à 50 %+)", "~7,5 % sur part meubles (bail meublé)", "Dépend de la répartition"],
           ],
         },
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
       {
         heading: "L'indépendant en personne physique",
@@ -2583,7 +2583,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
       {
         heading: "Le double statut : indépendant ET dirigeant",
@@ -2594,7 +2594,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "stratégie optimale de combinaison", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
     ],
     faq: [
@@ -2603,7 +2603,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
-    ctaLink: "/contact",
+    ctaLink: "/contact/#form",
     ctaLabel: "Faire le diagnostic de ma situation",
   },
 
@@ -2732,12 +2732,12 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Envie de mettre en place cette stratégie sans risque ?",
     ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
   "requalification-loyer-remuneration": {
-    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
     sections: [
       {
         paragraphs: [
@@ -2833,7 +2833,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Envie de mettre en place cette stratégie sans risque ?",
     ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
-    ctaLink: "/contact",
+    ctaLink: "/contact/#form",
     ctaLabel: "Calculer ma part professionnelle",
   },
   "fin-deduction-interets-immobilier-2026": {
@@ -2932,7 +2932,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La réponse dépend de votre situation — revenus, projets, horizon temporel. Ce que nous savons avec certitude : avec la suppression de la déduction des intérêts, la question mérite d'être posée maintenant. Pas dans six mois.",
           "Le premier échange est gratuit et confidentiel. Nous analysons votre situation et nous vous disons clairement si la structure a du sens pour vous.",
         ],
-        ctaInline: { text: "Analyser ma situation", link: "/contact/" },
+        ctaInline: { text: "Analyser ma situation", link: "/contact/#form" },
       },
     ],
     faq: [
@@ -2951,7 +2951,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Analyser ma situation",
     ctaDescription: "Premier échange gratuit et confidentiel — nous vous disons clairement si une société de management a du sens pour vous.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Analyser ma situation",
   },
 };

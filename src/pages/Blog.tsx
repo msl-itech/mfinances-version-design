@@ -352,7 +352,7 @@ export default function Blog() {
                   <Link to="/diagnostic/">Faire le diagnostic gratuit <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>
+                  <Link to="/contact/#form">Parler à un expert <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
               </div>
             </div>
