@@ -455,7 +455,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-01",
     seoTitle: "BFR et dossier bancaire — ce que votre banquier regarde vraiment",
     metaDescription: "Votre banquier analyse votre BFR avant tout crédit. Comment le lire, l'améliorer et défendre votre dossier. Guide MFinances, Bruxelles.",
-    pillarPage: "/services/daf-externalise/",
   },
   {
     slug: "bfr-definition-formule-tpe",
