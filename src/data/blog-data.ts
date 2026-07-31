@@ -40,7 +40,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-11-15",
     seoTitle: "Trésorerie vs Bénéfices — La Différence Clé en TPE",
     metaDescription: "Comprendre pourquoi une entreprise rentable peut manquer de cash. La distinction essentielle entre bénéfice et trésorerie expliquée avec des exemples concrets.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "investir-sans-fragiliser-tresorerie",
@@ -53,7 +52,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-10-28",
     seoTitle: "Investir sans Fragiliser sa Trésorerie — Guide TPE",
     metaDescription: "Autofinancement, emprunt ou leasing ? Comment choisir le bon mode de financement pour préserver votre trésorerie. Guide pratique MFinances, Bruxelles.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "gestion-stocks-tresorerie",
@@ -66,7 +64,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-10-10",
     seoTitle: "Stocks et Trésorerie — Libérez vos Liquidités",
     metaDescription: "Comment une mauvaise gestion des stocks immobilise des milliers d'euros de liquidités. Stratégies concrètes pour optimiser votre stock et libérer du cash.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "tresorerie-face-concurrence",
@@ -79,7 +76,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-09-22",
     seoTitle: "Concurrence et Trésorerie — Protéger vos Marges",
     metaDescription: "Un concurrent agressif attaque vos prix. Comment protéger votre trésorerie sans entrer dans une guerre des prix perdante ? Stratégies concrètes pour TPE.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "fidelisation-tresorerie",
@@ -92,7 +88,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-09-05",
     seoTitle: "Fidélisation Client et Trésorerie — Le Lien Caché",
     metaDescription: "Un client fidèle coûte 5 fois moins cher qu'un nouveau client. Comment la fidélisation améliore directement votre trésorerie et stabilise vos flux financiers.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "anticiper-flux-tresorerie",
@@ -105,7 +100,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-08-18",
     seoTitle: "Anticiper ses Flux de Trésorerie — Guide TPE",
     metaDescription: "Tableau prévisionnel, scénarios financiers et outils pour anticiper vos besoins de trésorerie avant que les problèmes n'arrivent.",
-    pillarPage: "/services/tresorerie/",
   },
   // ── DAF EXTERNALISÉ (à venir) ──
   {
