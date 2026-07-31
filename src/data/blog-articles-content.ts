@@ -1424,7 +1424,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Prendre rendez-vous",
     ctaDescription: "Premier échange gratuit pour analyser votre situation.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -1717,7 +1717,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Mon dossier bancaire mérite mieux qu'un bilan",
     ctaDescription: "En discuter avec MFinances — premier échange offert, sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "bfr-definition-formule-tpe": {
@@ -1842,7 +1842,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Un expert MFinances analyse votre BFR avec vous — gratuitement",
     ctaDescription: "Premier échange offert, sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "bfr-recrutement-impact-tresorerie": {
@@ -1950,7 +1950,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Modélisez votre recrutement avec un DAF MFinances",
     ctaDescription: "Premier échange offert — sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
   "seuil-de-rentabilite-multi-services": {
@@ -2047,7 +2047,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Un expert MFinances analyse votre rentabilité avec vous",
     ctaDescription: "Premier échange offert — sans engagement.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Prendre rendez-vous",
   },
 
@@ -2137,7 +2137,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Besoin d'un avis clair sur vos frais ?",
     ctaDescription: "MFinances vous aide à sécuriser vos dépenses professionnelles — premier échange gratuit.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -2213,7 +2213,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Besoin de sécuriser vos frais mixtes ?",
     ctaDescription: "MFinances vous aide à sécuriser vos frais mixtes — premier échange gratuit.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert →",
   },
 
@@ -2370,7 +2370,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Une pièce mixte, ça ne se calcule pas au hasard",
     ctaDescription: "Votre estimation, vérifiée par un expert avant de la déclarer.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -2603,7 +2603,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Faire le diagnostic de ma situation",
     ctaDescription: "Premier échange gratuit — nous analysons votre structure et vos mécanismes de déduction.",
-    ctaLink: "/contact",
+    ctaLink: "/contact/#form",
     ctaLabel: "Faire le diagnostic de ma situation",
   },
 
@@ -2732,7 +2732,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Envie de mettre en place cette stratégie sans risque ?",
     ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Parler à un expert",
   },
 
@@ -2833,7 +2833,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Envie de mettre en place cette stratégie sans risque ?",
     ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
-    ctaLink: "/contact",
+    ctaLink: "/contact/#form",
     ctaLabel: "Calculer ma part professionnelle",
   },
   "fin-deduction-interets-immobilier-2026": {
@@ -2951,7 +2951,7 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
     ctaText: "Analyser ma situation",
     ctaDescription: "Premier échange gratuit et confidentiel — nous vous disons clairement si une société de management a du sens pour vous.",
-    ctaLink: "/contact/",
+    ctaLink: "/contact/#form",
     ctaLabel: "Analyser ma situation",
   },
 };
