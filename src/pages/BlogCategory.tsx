@@ -176,7 +176,7 @@ export default function BlogCategory() {
               </h2>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full" asChild>
-                  <Link to="/contact/">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
+                  <Link to="/contact/#form">Consultation gratuite <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
                 <Button variant="outline-white" size="lg" className="rounded-full" asChild>
                   <Link to="/blog/">Toutes les catégories <ArrowRight size={16} className="ml-1" /></Link>
