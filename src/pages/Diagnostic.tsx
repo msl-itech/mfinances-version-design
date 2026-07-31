@@ -8,7 +8,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, CheckCircle2, Clock, Shield, BarChart3, AlertTriangle, TrendingUp, Wallet, PiggyBank, Landmark } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Clock, AlertTriangle, TrendingUp, Wallet, PiggyBank, Landmark } from "lucide-react";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -178,7 +178,7 @@ export default function Diagnostic() {
   useTilt(root, [mounted]);
 
   const [searchParams] = useSearchParams();
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
   const [showMidMessage, setShowMidMessage] = useState(false);
   const [emailForm, setEmailForm] = useState({
@@ -219,15 +219,7 @@ export default function Diagnostic() {
     if (step > 0) {
       setStep(step - 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (step === 0) {
-      setStep(-1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
-
-  const startDiagnostic = () => {
-    setStep(0);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const score = answers.slice(3).reduce((sum, ansIdx, qIdx) => {
@@ -419,63 +411,6 @@ export default function Diagnostic() {
         <section className="bg-secondary py-8 md:py-8">
           <div className="mx-auto max-w-[700px] px-4 sm:px-6 lg:px-12">
 
-            {/* ── STEP 0: INTRO / ACCROCHE ── */}
-            {step === -1 && (
-              <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border/50 shadow-sm text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 sm:mb-6">
-                  <BarChart3 size={26} className="text-primary" />
-                </div>
-                <h2 className="font-display text-[22px] sm:text-[24px] md:text-[30px] text-foreground leading-[1.2] mb-3">
-                  Votre diagnostic trésorerie personnalisé
-                </h2>
-                <p className="text-[14px] sm:text-[15px] text-muted-foreground font-body mb-6 sm:mb-8 max-w-[520px] mx-auto leading-relaxed">
-                  3 questions rapides pour personnaliser votre analyse, puis 5 questions sur votre trésorerie.
-                </p>
-
-                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <Clock size={15} className="text-primary/60 flex-shrink-0" />
-                    <span>Moins de 3 minutes</span>
-                  </div>
-                  <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
-                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <BarChart3 size={15} className="text-primary/60 flex-shrink-0" />
-                    <span>Résultat immédiat</span>
-                  </div>
-                  <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
-                  <div className="flex items-center gap-2 text-[13px] text-foreground/60 font-body">
-                    <Shield size={15} className="text-primary/60 flex-shrink-0" />
-                    <span>100% confidentiel</span>
-                  </div>
-                </div>
-
-                <Button variant="accent" size="lg" className="rounded-full w-full sm:w-auto px-8 sm:px-10 whitespace-normal text-center" onClick={startDiagnostic}>
-                  Commencer le diagnostic <ArrowRight size={16} className="ml-1 flex-shrink-0" />
-                </Button>
-
-                <div className="mt-8 pt-6 border-t border-border/40">
-                  <div className="flex items-center justify-center gap-2 mb-5">
-                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <p className="text-[13px] sm:text-[14px] font-body text-foreground/80">
-                      <strong className="font-bold text-foreground">500+ dirigeants bruxellois</strong> ont déjà obtenu leur score.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                    {[
-                      { q: "Est-ce que je vais être rappelé de force ?", a: "Non, vous choisissez." },
-                      { q: "Mon score sera-t-il mauvais ?", a: "C'est le but : pour savoir où agir." },
-                      { q: "Que reçois-je après ?", a: "3 actions prioritaires immédiates." },
-                    ].map((item, i) => (
-                      <div key={i} className="rounded-xl border border-border/40 p-3.5 bg-secondary/30">
-                        <p className="font-body text-[13px] font-bold text-foreground mb-1">{item.q}</p>
-                        <p className="font-body text-[12.5px] text-muted-foreground leading-relaxed">{item.a}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
             {/* ── QUESTIONS ── */}
             {step >= 0 && step <= 7 && !showMidMessage && (
               <>
@@ -499,12 +434,15 @@ export default function Diagnostic() {
 
                 {/* Question card */}
                 <div className="bg-card rounded-2xl p-5 sm:p-8 border border-border/50 shadow-sm">
-                  <button
-                    onClick={goBack}
-                    className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-4 sm:mb-5"
-                  >
-                    <ArrowLeft size={14} /> Retour
-                  </button>
+                  {step > 0 && (
+                    <button
+                      onClick={goBack}
+                      className="flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors mb-4 sm:mb-5"
+                    >
+                      <ArrowLeft size={14} /> Retour
+                    </button>
+                  )}
+                  {!step && <div className="mb-4 sm:mb-5" />}
 
                   <h2 className="font-display text-[20px] sm:text-[22px] md:text-[26px] text-foreground leading-[1.2] mb-2">
                     {questions[step].title}
