@@ -178,7 +178,7 @@ export default function Diagnostic() {
   useTilt(root, [mounted]);
 
   const [searchParams] = useSearchParams();
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>(Array(8).fill(null));
   const [showMidMessage, setShowMidMessage] = useState(false);
   const [emailForm, setEmailForm] = useState({
