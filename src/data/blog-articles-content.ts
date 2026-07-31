@@ -122,6 +122,7 @@ export const articleContent: Record<string, ArticleBody> = {
         answer: "Comparez les gains générés (économies de coût, revenus supplémentaires, gains de productivité) aux coûts totaux (prix d'achat ou loyers, maintenance, formation). Si le ROI annuel dépasse le coût du financement, l'investissement mérite d'être financé plutôt que de puiser dans la trésorerie.",
       },
     ],
+  "gestion-stocks-tresorerie": {
     sections: [
       {
         heading: "Le stock, c'est de l'argent qui dort",
@@ -154,6 +155,7 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
       },
     ],
+  "tresorerie-face-concurrence": {
     sections: [
       {
         heading: "Le réflexe qui coûte cher",
@@ -182,6 +184,7 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
       },
     ],
+  "fidelisation-tresorerie": {
     sections: [
       {
         heading: "Le lien invisible entre fidélisation et trésorerie",
@@ -206,6 +209,7 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
       },
     ],
+  "anticiper-flux-tresorerie": {
     sections: [
       {
         heading: "Réactif ou proactif — deux façons de gérer sa trésorerie",
@@ -258,6 +262,7 @@ export const articleContent: Record<string, ArticleBody> = {
         answer: "Pour une TPE débutante : un tableau Excel bien structuré suffit. Pour une TPE en croissance : un ERP comme Odoo permet une synchronisation automatique des données et une vision en temps réel.",
       },
     ],
+  "daf-externalise-definition": {
     sections: [
       {
         heading: "Définition simple en 3 phrases",
