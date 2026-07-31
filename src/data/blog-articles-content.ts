@@ -2530,7 +2530,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "comparatif-bureau-a-domicile-statut": {
-    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
     sections: [
       {
         paragraphs: [
@@ -2553,7 +2553,7 @@ export const articleContent: Record<string, ArticleBody> = {
             ["Taux effectif le plus bas", "Taux marginal IPP (jusqu'à 50 %+)", "~7,5 % sur part meubles (bail meublé)", "Dépend de la répartition"],
           ],
         },
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
       {
         heading: "L'indépendant en personne physique",
@@ -2583,7 +2583,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "sous-location professionnelle", link: "/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
       {
         heading: "Le double statut : indépendant ET dirigeant",
@@ -2594,7 +2594,7 @@ export const articleContent: Record<string, ArticleBody> = {
         relatedLinks: [
           { text: "stratégie optimale de combinaison", link: "/blog/fiscalite-belgique/combinaison-bureau-a-domicile/" },
         ],
-        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+        ctaInline: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
       },
     ],
     faq: [
@@ -2737,7 +2737,7 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "requalification-loyer-remuneration": {
-    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
     sections: [
       {
         paragraphs: [
@@ -2932,7 +2932,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La réponse dépend de votre situation — revenus, projets, horizon temporel. Ce que nous savons avec certitude : avec la suppression de la déduction des intérêts, la question mérite d'être posée maintenant. Pas dans six mois.",
           "Le premier échange est gratuit et confidentiel. Nous analysons votre situation et nous vous disons clairement si la structure a du sens pour vous.",
         ],
-        ctaInline: { text: "Analyser ma situation", link: "/contact/" },
+        ctaInline: { text: "Analyser ma situation", link: "/contact/#form" },
       },
     ],
     faq: [
