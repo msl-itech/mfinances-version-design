@@ -352,7 +352,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-20",
     seoTitle: "Jamais d'Argent sur mon Compte — Pourquoi ?",
     metaDescription: "Vous travaillez beaucoup, vous facturez, et pourtant votre compte est toujours vide. Voici les vraies raisons — et ce que vous pouvez faire cette semaine.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "argent-disparait-fin-mois",
@@ -365,7 +364,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-15",
     seoTitle: "Bénéfices mais pas d'Argent — Pourquoi ?",
     metaDescription: "Vous êtes rentable sur le papier mais votre compte est vide. Ce paradoxe touche 60% des TPE en croissance. Voici l'explication simple.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "stress-fin-mois-dirigeant-tpe",
@@ -378,7 +376,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-10",
     seoTitle: "Stress Fin de Mois Dirigeant TPE — Solutions",
     metaDescription: "Chaque fin de mois, vous vérifiez votre compte avec appréhension. C'est courant. Voici ce que font les dirigeants qui dorment bien.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "combien-reserve-securite-tpe",
@@ -391,7 +388,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-05",
     seoTitle: "Réserve de Sécurité Indépendant — Combien ?",
     metaDescription: "Combien faut-il avoir en réserve de trésorerie pour dormir tranquille ? La règle des 3 mois expliquée simplement, avec des exemples concrets pour TPE belges.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "combien-me-payer-independant-belgique",
@@ -472,7 +468,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-01",
     seoTitle: "BFR : définition, formule et exemples pour TPE belge | MFinances",
     metaDescription: "BFR : définition simple, formule et exemple chiffré pour une TPE belge. Calculez votre besoin en fonds de roulement en 2 minutes. MFinances, Bruxelles.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "bfr-recrutement-impact-tresorerie",
@@ -485,7 +480,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-01",
     seoTitle: "Recruter en TPE : l'impact caché sur votre BFR et votre trésorerie",
     metaDescription: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
-    pillarPage: "/services/tresorerie/",
   },
   {
     slug: "seuil-de-rentabilite-multi-services",
