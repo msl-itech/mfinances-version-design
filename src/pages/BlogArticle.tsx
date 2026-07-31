@@ -133,7 +133,7 @@ export default function BlogArticle() {
       }
     : null;
 
-  const ctaLink = content.ctaLink || "/contact/";
+  const ctaLink = content.ctaLink || "/contact/#form";
   const ctaLabel = content.ctaLabel || "Parler à un expert";
 
   const schemas = [articleLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])];
