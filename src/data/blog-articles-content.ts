@@ -82,10 +82,6 @@ export const articleContent: Record<string, ArticleBody> = {
         answer: "La méthode la plus simple : un tableau avec deux colonnes — encaissements prévus et décaissements prévus — semaine par semaine sur 3 mois glissants. Mis à jour chaque semaine avec les données réelles. Pour une version automatisée, c'est ce que MFinances met en place dans Odoo.",
       },
     ],
-    ctaText: "Besoin d'un accompagnement ?",
-    ctaDescription: "Premier échange gratuit — nous analysons votre situation.",
-    ctaLink: "/services/tresorerie/",
-    ctaLabel: "Découvrir notre service trésorerie prévisionnelle",
   },
   "investir-sans-fragiliser-tresorerie": {
     sections: [
