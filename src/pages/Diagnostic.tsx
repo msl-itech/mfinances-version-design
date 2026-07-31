@@ -219,15 +219,7 @@ export default function Diagnostic() {
     if (step > 0) {
       setStep(step - 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (step === 0) {
-      setStep(-1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
-
-  const startDiagnostic = () => {
-    setStep(0);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const score = answers.slice(3).reduce((sum, ansIdx, qIdx) => {
