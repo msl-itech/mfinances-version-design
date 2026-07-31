@@ -237,7 +237,7 @@ export default function Contact() {
 
 
         {/* Form + sidebar */}
-        <section className="bg-background pb-14 md:pb-28 relative overflow-hidden">
+        <section id="form" className="bg-background pb-14 md:pb-28 relative overflow-hidden">
           <span
             aria-hidden="true"
             data-anim="text-scrub"
