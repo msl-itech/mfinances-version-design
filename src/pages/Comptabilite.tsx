@@ -82,6 +82,19 @@ const faqJsonLd = {
 
 
 
+function CellValue({ v, isPrice }: { v: string; isPrice?: boolean }) {
+  if (v === "Inclus") {
+    return <span className="font-body text-[13px] font-medium text-foreground/70">{v}</span>;
+  }
+  if (v === "À la demande") {
+    return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{v}</span>;
+  }
+  if (/^(Trimestrielles|Trimestrielle|Trimestriel|Mensuelles|Mensuelle|Mensuel)$/i.test(v)) {
+    return <span className="font-body font-semibold text-accent text-[13px]">{v}</span>;
+  }
+  return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v}</span>;
+}
+
 export default function Comptabilite() {
   const [mounted, setMounted] = useState(false);
   const root = useRef<HTMLDivElement>(null);
