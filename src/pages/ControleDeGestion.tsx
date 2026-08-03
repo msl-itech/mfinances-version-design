@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
@@ -313,8 +313,8 @@ export default function ControleDeGestion() {
                   </thead>
                   <tbody>
                     {tableCategories.map((cat) => (
-                      <>
-                        <tr key={cat.num} style={{ background: cat.tint }}>
+                      <Fragment key={cat.num}>
+                        <tr style={{ background: cat.tint }}>
                           <td colSpan={3} className="px-8 py-3.5">
                             <span className="flex items-center gap-3">
                               <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
@@ -334,7 +334,7 @@ export default function ControleDeGestion() {
                             <td className="px-6 py-5 text-center bg-accent/[0.03]"><CellValue value={row.excellence} /></td>
                           </tr>
                         ))}
-                      </>
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>
