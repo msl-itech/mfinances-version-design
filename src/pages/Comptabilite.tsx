@@ -23,8 +23,6 @@ import {
   BarChart3,
   Settings,
   Lightbulb,
-  Check,
-  Minus,
   Quote,
   RefreshCw,
 } from "lucide-react";
