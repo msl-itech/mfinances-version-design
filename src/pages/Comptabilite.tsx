@@ -51,12 +51,52 @@ const faqs = [
   { q: "Quelles déclarations fiscales MFinances gère-t-il pour une société belge ?", a: "Déclarations TVA périodiques, déclaration ISOC, IPP pour les indépendants, comptes annuels et bilans déposés à la Banque Nationale de Belgique." },
 ];
 
-const planRows = [
-  { label: "Comptabilité + déclarations", values: ["Inclus", "Inclus", "Inclus"] },
-  { label: "Tableaux de bord Odoo", values: ["Inclus", "Inclus", "Inclus"] },
-  { label: "Contrôle de gestion", values: ["À la demande", "Trimestriel", "Mensuel"] },
-  { label: "Trésorerie prévisionnelle", values: ["À la demande", "À la demande", "Mensuelle"] },
-  { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
+const tableCategories = [
+  {
+    num: "I",
+    title: "Conformité légale",
+    barColor: "hsla(224, 55%, 24%, 0.5)",
+    tint: "hsla(224, 55%, 24%, 0.06)",
+    rows: [
+      { label: "Comptabilité + déclarations", values: ["Inclus", "Inclus", "Inclus"] },
+    ],
+  },
+  {
+    num: "II",
+    title: "Reporting",
+    barColor: "hsla(0, 79%, 53%, 0.5)",
+    tint: "hsla(0, 79%, 53%, 0.06)",
+    rows: [
+      { label: "Tableaux de bord Odoo", values: ["Inclus", "Inclus", "Inclus"] },
+    ],
+  },
+  {
+    num: "III",
+    title: "Anticipation",
+    barColor: "hsla(160, 50%, 40%, 0.5)",
+    tint: "hsla(160, 50%, 40%, 0.06)",
+    rows: [
+      { label: "Contrôle de gestion", values: ["À la demande", "Trimestriel", "Mensuel"] },
+    ],
+  },
+  {
+    num: "IV",
+    title: "Trésorerie",
+    barColor: "hsla(36, 70%, 50%, 0.5)",
+    tint: "hsla(36, 70%, 50%, 0.06)",
+    rows: [
+      { label: "Trésorerie prévisionnelle", values: ["À la demande", "À la demande", "Mensuelle"] },
+    ],
+  },
+  {
+    num: "V",
+    title: "Tarification",
+    barColor: "hsla(0, 0%, 50%, 0.5)",
+    tint: "hsla(0, 0%, 50%, 0.06)",
+    rows: [
+      { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
+    ],
+  },
 ];
 
 const breadcrumbJsonLd = {
