@@ -49,13 +49,16 @@ const services = [
 ];
 
 const tableRows = [
+  { label: "Prix mensuel HTVA", premium: "À partir de 450 €", excellence: "À partir de 650 €" },
   { label: "Budget annuel", premium: true, excellence: true },
-  { label: "Situations financières", premium: "Trimestrielles", excellence: "Mensuelles" },
+  { label: "Situations intermédiaires", premium: "Trimestrielles", excellence: "Mensuelles" },
+  { label: "Contrôle de gestion", premium: "Trimestriel", excellence: "Mensuel" },
   { label: "Analyse des écarts", premium: "Trimestrielle", excellence: "Mensuelle" },
-  { label: "Prévisionnel trésorerie", premium: false, excellence: true },
-  { label: "Réunion de pilotage", premium: false, excellence: "Mensuelle" },
-  { label: "DAF à temps partiel", premium: false, excellence: "En option" },
+  { label: "Trésorerie prévisionnelle", premium: "Hors forfait", excellence: "Mensuelle" },
+  { label: "Réunion de pilotage", premium: "Trimestrielle", excellence: "Mensuelle" },
+  { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
 ];
+
 
 const kpis = [
   { icon: Percent, label: "Marge brute", desc: "Votre rentabilité opérationnelle après coûts directs." },
