@@ -25,6 +25,7 @@ import {
   Lightbulb,
   Quote,
   RefreshCw,
+  Check,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
