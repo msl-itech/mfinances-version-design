@@ -431,13 +431,7 @@ export default function Comptabilite() {
                       {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
                         <div key={plan} className={`text-center p-2.5 rounded-xl ${ci === 2 ? "bg-accent/5 border border-accent/20" : "bg-card"}`}>
                           <span className={`text-[10px] font-semibold uppercase tracking-[0.18em] font-body block mb-1.5 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
-                          {row.values[ci] === true ? (
-                            <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" />
-                          ) : row.values[ci] === "—" ? (
-                            <Minus size={14} className="text-foreground/20 mx-auto" />
-                          ) : (
-                            <span className={`font-semibold font-body text-[12px] ${ri === planRows.length - 1 ? "text-primary" : "text-foreground/70"}`}>{row.values[ci]}</span>
-                          )}
+                          <CellValue v={row.values[ci]} isPrice={ri === planRows.length - 1} />
                         </div>
                       ))}
                     </div>
