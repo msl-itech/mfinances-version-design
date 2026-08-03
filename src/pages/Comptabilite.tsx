@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/compta-hero.jpg";
@@ -51,12 +51,52 @@ const faqs = [
   { q: "Quelles déclarations fiscales MFinances gère-t-il pour une société belge ?", a: "Déclarations TVA périodiques, déclaration ISOC, IPP pour les indépendants, comptes annuels et bilans déposés à la Banque Nationale de Belgique." },
 ];
 
-const planRows = [
-  { label: "Comptabilité + déclarations", values: ["Inclus", "Inclus", "Inclus"] },
-  { label: "Tableaux de bord Odoo", values: ["Inclus", "Inclus", "Inclus"] },
-  { label: "Contrôle de gestion", values: ["À la demande", "Trimestriel", "Mensuel"] },
-  { label: "Trésorerie prévisionnelle", values: ["À la demande", "À la demande", "Mensuelle"] },
-  { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
+const tableCategories = [
+  {
+    num: "I",
+    title: "Conformité légale",
+    barColor: "hsla(224, 55%, 24%, 0.5)",
+    tint: "hsla(224, 55%, 24%, 0.06)",
+    rows: [
+      { label: "Comptabilité + déclarations", values: ["Inclus", "Inclus", "Inclus"] },
+    ],
+  },
+  {
+    num: "II",
+    title: "Reporting",
+    barColor: "hsla(0, 79%, 53%, 0.5)",
+    tint: "hsla(0, 79%, 53%, 0.06)",
+    rows: [
+      { label: "Tableaux de bord Odoo", values: ["Inclus", "Inclus", "Inclus"] },
+    ],
+  },
+  {
+    num: "III",
+    title: "Anticipation",
+    barColor: "hsla(160, 50%, 40%, 0.5)",
+    tint: "hsla(160, 50%, 40%, 0.06)",
+    rows: [
+      { label: "Contrôle de gestion", values: ["À la demande", "Trimestriel", "Mensuel"] },
+    ],
+  },
+  {
+    num: "IV",
+    title: "Trésorerie",
+    barColor: "hsla(36, 70%, 50%, 0.5)",
+    tint: "hsla(36, 70%, 50%, 0.06)",
+    rows: [
+      { label: "Trésorerie prévisionnelle", values: ["À la demande", "À la demande", "Mensuelle"] },
+    ],
+  },
+  {
+    num: "V",
+    title: "Tarification",
+    barColor: "hsla(0, 0%, 50%, 0.5)",
+    tint: "hsla(0, 0%, 50%, 0.06)",
+    rows: [
+      { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
+    ],
+  },
 ];
 
 const breadcrumbJsonLd = {
@@ -377,60 +417,98 @@ export default function Comptabilite() {
               </h2>
             </div>
 
-            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[920px] mx-auto">
+            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[980px] mx-auto">
               <div className="hidden sm:block bg-secondary/30 rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-[14px]">
-                    <thead className="bg-gradient-to-b from-card to-transparent">
-                      <tr className="border-b border-border/60">
-                        <th className="text-left p-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
-                          <div className="flex items-center gap-2">
-                            <div className="h-px w-6 bg-accent" />
-                            Fonctionnalité
-                          </div>
+                <table className="w-full text-[14px] table-fixed">
+                  <colgroup>
+                    <col style={{ width: "22%" }} />
+                    <col style={{ width: "30%" }} />
+                    <col style={{ width: "16%" }} />
+                    <col style={{ width: "16%" }} />
+                    <col style={{ width: "16%" }} />
+                  </colgroup>
+                  <thead className="bg-gradient-to-b from-card to-transparent">
+                    <tr className="border-b border-border/60">
+                      <th className="px-5 py-6 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                        <span className="inline-flex items-center gap-2">
+                          <div className="h-px w-6 bg-accent" />
+                          Catégorie
+                        </span>
+                      </th>
+                      <th className="px-6 py-6 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                        Fonctionnalité
+                      </th>
+                      {["Essentiel", "Premium", "Excellence"].map((plan, i) => (
+                        <th key={plan} className={`px-6 py-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] font-body ${i === 2 ? "text-accent" : "text-muted-foreground"}`}>
+                          <span className="flex items-center justify-center gap-2">
+                            {plan}
+                            {i === 2 && <span>★</span>}
+                          </span>
                         </th>
-                        {["Essentiel", "Premium", "Excellence"].map((plan, i) => (
-                          <th key={plan} className={`p-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] font-body ${i === 2 ? "text-accent" : "text-muted-foreground"}`}>
-                            <span className="flex items-center justify-center gap-2">
-                              {plan}
-                              {i === 2 && <span>★</span>}
-                            </span>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {planRows.map((row, ri) => (
-                        <tr key={row.label} className={`border-b border-border/40 last:border-b-0 hover:bg-card/50 transition-colors ${ri === planRows.length - 1 ? "bg-primary/[0.04]" : ""}`}>
-                          <td className="p-5 font-medium text-foreground/85 font-body">
-                            <span className="flex items-center gap-3">
-                              <span className="font-display italic text-muted-foreground/40 text-[12px]">
-                                {String(ri + 1).padStart(2, "0")}
-                              </span>
-                              {row.label}
-                            </span>
-                          </td>
-                          {row.values.map((v, ci) => (
-                            <td key={ci} className={`p-5 text-center ${ci === 2 ? "bg-accent/[0.03]" : ""}`}>
-                              <CellValue v={v} isPrice={ri === planRows.length - 1} />
-                            </td>
-                          ))}
-                        </tr>
                       ))}
-                    </tbody>
-                  </table>
-                </div>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tableCategories.map((cat) => (
+                      <Fragment key={cat.num}>
+                        {cat.rows.map((row, ri) => {
+                          const isPrice = cat.num === "V";
+                          return (
+                            <tr key={row.label} className={`border-b border-border/40 hover:bg-card/50 transition-colors ${isPrice ? "bg-primary/[0.04]" : ""}`}>
+                              {ri === 0 && (
+                                <td
+                                  rowSpan={cat.rows.length}
+                                  className="relative border-r border-border/20 align-middle px-5 py-5"
+                                  style={{ backgroundColor: cat.tint }}
+                                >
+                                  <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
+                                  <span className="relative z-10 flex flex-col items-start gap-1">
+                                    <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                    <span className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-left leading-[1.3] whitespace-pre-line">
+                                      {cat.title}
+                                    </span>
+                                  </span>
+                                </td>
+                              )}
+                              <td className="px-6 py-5 text-[14px] text-foreground font-medium font-body">
+                                {row.label}
+                              </td>
+                              {row.values.map((v, ci) => (
+                                <td key={ci} className={`px-6 py-5 text-center ${ci === 2 ? "bg-accent/[0.03]" : ""}`}>
+                                  <CellValue v={v} isPrice={isPrice} />
+                                </td>
+                              ))}
+                            </tr>
+                          );
+                        })}
+                      </Fragment>
+                    ))}
+                  </tbody>
+                </table>
               </div>
 
-              <div className="sm:hidden space-y-3">
-                {planRows.map((row, ri) => (
-                  <div key={row.label} className={`bg-secondary/40 rounded-2xl border border-border/50 p-5 ${ri === planRows.length - 1 ? "border-accent/30" : ""}`}>
-                    <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
-                    <div className="grid grid-cols-3 gap-2">
-                      {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
-                        <div key={plan} className={`text-center p-2.5 rounded-xl ${ci === 2 ? "bg-accent/5 border border-accent/20" : "bg-card"}`}>
-                          <span className={`text-[10px] font-semibold uppercase tracking-[0.18em] font-body block mb-1.5 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
-                          <CellValue v={row.values[ci]} isPrice={ri === planRows.length - 1} />
+              <div className="sm:hidden space-y-5">
+                {tableCategories.map((cat) => (
+                  <div key={cat.num}>
+                    <div className="flex items-center gap-3 mb-3 px-1">
+                      <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
+                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                      <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
+                        {cat.title}
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      {cat.rows.map((row) => (
+                        <div key={row.label} className={`bg-secondary/40 rounded-2xl border border-border/50 p-5 ${cat.num === "V" ? "border-accent/30" : ""}`}>
+                          <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
+                          <div className="grid grid-cols-3 gap-2">
+                            {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
+                              <div key={plan} className={`text-center p-2.5 rounded-xl ${ci === 2 ? "bg-accent/5 border border-accent/20" : "bg-card"}`}>
+                                <span className={`text-[10px] font-semibold uppercase tracking-[0.18em] font-body block mb-1.5 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
+                                <CellValue v={row.values[ci]} isPrice={cat.num === "V"} />
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>
