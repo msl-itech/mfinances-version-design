@@ -463,7 +463,9 @@ export default function Comptabilite() {
                                 >
                                   <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
                                   <span className="relative z-10 flex flex-col items-start gap-1">
-                                    <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                    {cat.num !== "V" && (
+                                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                    )}
                                     <span className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-left leading-[1.3] whitespace-pre-line">
                                       {cat.title}
                                     </span>
