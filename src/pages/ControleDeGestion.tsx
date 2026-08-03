@@ -97,7 +97,7 @@ const tableCategories = [
     tint: "hsla(0, 0%, 50%, 0.06)",
     rows: [
       { label: "Contrôle fiscal", premium: "À la demande", excellence: "À la demande" },
-      { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
+      { label: "DAF à temps partiel", premium: "À la demande", excellence: "À la demande" },
     ],
   },
 ];
