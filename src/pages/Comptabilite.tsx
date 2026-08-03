@@ -439,6 +439,10 @@ export default function Comptabilite() {
                 ))}
               </div>
 
+              <p className="mt-6 text-center text-[13px] text-muted-foreground font-body">
+                <strong className="text-foreground">Hors forfait</strong> = prestations facturées à 150 € HTVA / heure, disponibles à la demande pour aller plus loin.
+              </p>
+
               <div className="text-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                   <Link to="/contact/?service=comptabilite">Choisir mon forfait <ArrowRight size={16} className="ml-1.5" /></Link>
