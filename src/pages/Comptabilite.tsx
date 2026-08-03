@@ -25,6 +25,7 @@ import {
   Lightbulb,
   Quote,
   RefreshCw,
+  Check,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -82,7 +83,7 @@ const faqJsonLd = {
 
 function CellValue({ v, isPrice }: { v: string; isPrice?: boolean }) {
   if (v === "Inclus") {
-    return <span className="font-body text-[13px] font-medium text-foreground/70">{v}</span>;
+    return <Check size={18} className="mx-auto text-accent" strokeWidth={2.5} />;
   }
   if (v === "À la demande") {
     return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{v}</span>;
