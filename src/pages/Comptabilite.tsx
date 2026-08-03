@@ -56,7 +56,7 @@ const planRows = [
   { label: "Comptabilité + déclarations", values: [true, true, true] },
   { label: "Tableaux de bord Odoo", values: [true, true, true] },
   { label: "Contrôle de gestion", values: ["—", "Trimestriel", "Mensuel"] },
-  { label: "Trésorerie prévisionnelle", values: ["—", "—", "✓ mensuelle"] },
+  { label: "Trésorerie prévisionnelle", values: ["—", "—", "Mensuelle"] },
   { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
 ];
 
