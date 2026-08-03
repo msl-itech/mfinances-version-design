@@ -48,16 +48,60 @@ const services = [
   },
 ];
 
-const tableRows = [
-  { label: "Prix mensuel HTVA", premium: "À partir de 450 €", excellence: "À partir de 650 €" },
-  { label: "Budget annuel", premium: true, excellence: true },
-  { label: "Situations intermédiaires", premium: "Trimestrielles", excellence: "Mensuelles" },
-  { label: "Contrôle de gestion", premium: "Trimestriel", excellence: "Mensuel" },
-  { label: "Analyse des écarts", premium: "Trimestrielle", excellence: "Mensuelle" },
-  { label: "Trésorerie prévisionnelle", premium: "Hors forfait", excellence: "Mensuelle" },
-  { label: "Réunion de pilotage", premium: "Trimestrielle", excellence: "Mensuelle" },
-  { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
+const tableCategories = [
+  {
+    num: "I",
+    title: "Conformité légale",
+    barColor: "hsla(224, 55%, 24%, 0.5)",
+    tint: "hsla(224, 55%, 24%, 0.06)",
+    rows: [
+      { label: "Bilan annuel", premium: true, excellence: true },
+      { label: "Déclarations fiscales", premium: true, excellence: true },
+      { label: "Assistante administrative", premium: true, excellence: true },
+    ],
+  },
+  {
+    num: "II",
+    title: "Anticipation",
+    barColor: "hsla(0, 79%, 53%, 0.5)",
+    tint: "hsla(0, 79%, 53%, 0.06)",
+    rows: [
+      { label: "Situations intermédiaires", premium: "Trimestrielles", excellence: "Mensuelles" },
+    ],
+  },
+  {
+    num: "III",
+    title: "Développement",
+    barColor: "hsla(160, 50%, 40%, 0.5)",
+    tint: "hsla(160, 50%, 40%, 0.06)",
+    rows: [
+      { label: "Budget annuel", premium: true, excellence: true },
+      { label: "Contrôle de gestion", premium: "Trimestriel", excellence: "Mensuel" },
+      { label: "Analyse des écarts", premium: "Trimestrielle", excellence: "Mensuelle" },
+      { label: "Réunion de pilotage", premium: "Trimestrielle", excellence: "Mensuelle" },
+    ],
+  },
+  {
+    num: "IV",
+    title: "Optimalisation de la trésorerie",
+    barColor: "hsla(36, 70%, 50%, 0.5)",
+    tint: "hsla(36, 70%, 50%, 0.06)",
+    rows: [
+      { label: "Trésorerie prévisionnelle", premium: "Hors forfait", excellence: "Mensuelle" },
+    ],
+  },
+  {
+    num: "V",
+    title: "À la demande",
+    barColor: "hsla(0, 0%, 50%, 0.5)",
+    tint: "hsla(0, 0%, 50%, 0.06)",
+    rows: [
+      { label: "Contrôle fiscal", premium: "À la demande", excellence: "À la demande" },
+      { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
+    ],
+  },
 ];
+
 
 
 const kpis = [
