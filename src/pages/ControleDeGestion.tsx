@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.jpg";
@@ -48,16 +48,60 @@ const services = [
   },
 ];
 
-const tableRows = [
-  { label: "Prix mensuel HTVA", premium: "À partir de 450 €", excellence: "À partir de 650 €" },
-  { label: "Budget annuel", premium: true, excellence: true },
-  { label: "Situations intermédiaires", premium: "Trimestrielles", excellence: "Mensuelles" },
-  { label: "Contrôle de gestion", premium: "Trimestriel", excellence: "Mensuel" },
-  { label: "Analyse des écarts", premium: "Trimestrielle", excellence: "Mensuelle" },
-  { label: "Trésorerie prévisionnelle", premium: "Hors forfait", excellence: "Mensuelle" },
-  { label: "Réunion de pilotage", premium: "Trimestrielle", excellence: "Mensuelle" },
-  { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
+const tableCategories = [
+  {
+    num: "I",
+    title: "Conformité légale",
+    barColor: "hsla(224, 55%, 24%, 0.5)",
+    tint: "hsla(224, 55%, 24%, 0.06)",
+    rows: [
+      { label: "Bilan annuel", premium: true, excellence: true },
+      { label: "Déclarations fiscales", premium: true, excellence: true },
+      { label: "Assistante administrative", premium: true, excellence: true },
+    ],
+  },
+  {
+    num: "II",
+    title: "Anticipation",
+    barColor: "hsla(0, 79%, 53%, 0.5)",
+    tint: "hsla(0, 79%, 53%, 0.06)",
+    rows: [
+      { label: "Situations intermédiaires", premium: "Trimestrielles", excellence: "Mensuelles" },
+    ],
+  },
+  {
+    num: "III",
+    title: "Développement",
+    barColor: "hsla(160, 50%, 40%, 0.5)",
+    tint: "hsla(160, 50%, 40%, 0.06)",
+    rows: [
+      { label: "Budget annuel", premium: true, excellence: true },
+      { label: "Contrôle de gestion", premium: "Trimestriel", excellence: "Mensuel" },
+      { label: "Analyse des écarts", premium: "Trimestrielle", excellence: "Mensuelle" },
+      { label: "Réunion de pilotage", premium: "Trimestrielle", excellence: "Mensuelle" },
+    ],
+  },
+  {
+    num: "IV",
+    title: "Optimalisation de la trésorerie",
+    barColor: "hsla(36, 70%, 50%, 0.5)",
+    tint: "hsla(36, 70%, 50%, 0.06)",
+    rows: [
+      { label: "Trésorerie prévisionnelle", premium: "Hors forfait", excellence: "Mensuelle" },
+    ],
+  },
+  {
+    num: "V",
+    title: "À la demande",
+    barColor: "hsla(0, 0%, 50%, 0.5)",
+    tint: "hsla(0, 0%, 50%, 0.06)",
+    rows: [
+      { label: "Contrôle fiscal", premium: "À la demande", excellence: "À la demande" },
+      { label: "DAF à temps partiel", premium: "Hors forfait", excellence: "À la demande" },
+    ],
+  },
 ];
+
 
 
 const kpis = [
@@ -268,41 +312,73 @@ export default function ControleDeGestion() {
                     </tr>
                   </thead>
                   <tbody>
-                    {tableRows.map((row, i) => (
-                      <tr key={row.label} className="border-b border-border/40 last:border-b-0 hover:bg-secondary/30 transition-colors">
-                        <td className="px-8 py-5 text-[14px] text-foreground font-medium font-body">
-                          <span className="flex items-center gap-3">
-                            <span className="font-display italic text-muted-foreground/40 text-[12px]">
-                              {String(i + 1).padStart(2, "0")}
+                    {tableCategories.map((cat) => (
+                      <Fragment key={cat.num}>
+                        <tr style={{ background: cat.tint }}>
+                          <td colSpan={3} className="px-8 py-3.5">
+                            <span className="flex items-center gap-3">
+                              <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
+                              <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
+                                {cat.title}
+                              </span>
                             </span>
-                            {row.label}
-                          </span>
-                        </td>
-                        <td className="px-6 py-5 text-center"><CellValue value={row.premium} /></td>
-                        <td className="px-6 py-5 text-center bg-accent/[0.03]"><CellValue value={row.excellence} /></td>
-                      </tr>
+                          </td>
+                        </tr>
+                        {cat.rows.map((row) => (
+                          <tr key={row.label} className="border-b border-border/40 hover:bg-secondary/30 transition-colors">
+                            <td className="px-8 py-5 text-[14px] text-foreground font-medium font-body pl-14">
+                              {row.label}
+                            </td>
+                            <td className="px-6 py-5 text-center"><CellValue value={row.premium} /></td>
+                            <td className="px-6 py-5 text-center bg-accent/[0.03]"><CellValue value={row.excellence} /></td>
+                          </tr>
+                        ))}
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              <div className="sm:hidden space-y-3">
-                {tableRows.map((row) => (
-                  <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5">
-                    <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="text-center p-3 rounded-xl bg-secondary/40">
-                        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.18em] font-body block mb-2">Premium</span>
-                        <CellValue value={row.premium} />
-                      </div>
-                      <div className="text-center p-3 rounded-xl bg-accent/5 border border-accent/20">
-                        <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.18em] font-body block mb-2">Excellence</span>
-                        <CellValue value={row.excellence} />
-                      </div>
+              <div className="sm:hidden space-y-5">
+                {tableCategories.map((cat) => (
+                  <div key={cat.num}>
+                    <div className="flex items-center gap-3 mb-3 px-1">
+                      <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
+                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                      <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
+                        {cat.title}
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      {cat.rows.map((row) => (
+                        <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-5">
+                          <p className="text-[14px] font-semibold text-foreground font-body mb-4">{row.label}</p>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="text-center p-3 rounded-xl bg-secondary/40">
+                              <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.18em] font-body block mb-2">Premium</span>
+                              <CellValue value={row.premium} />
+                            </div>
+                            <div className="text-center p-3 rounded-xl bg-accent/5 border border-accent/20">
+                              <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.18em] font-body block mb-2">Excellence</span>
+                              <CellValue value={row.excellence} />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
               </div>
+
+              <p className="mt-6 text-center text-[13px] text-muted-foreground font-body">
+                <span className="inline-flex items-center gap-2">
+                  <Check size={14} className="text-accent" /> Inclus
+                </span>
+                <span className="mx-3 text-border">·</span>
+                <strong className="text-foreground">Hors forfait</strong> = prestation facturée 150 € HTVA / heure, à la demande
+              </p>
+
 
               <div className="text-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
