@@ -23,8 +23,6 @@ import {
   BarChart3,
   Settings,
   Lightbulb,
-  Check,
-  Minus,
   Quote,
   RefreshCw,
 } from "lucide-react";
@@ -53,10 +51,10 @@ const faqs = [
 ];
 
 const planRows = [
-  { label: "Comptabilité + déclarations", values: [true, true, true] },
-  { label: "Tableaux de bord Odoo", values: [true, true, true] },
-  { label: "Contrôle de gestion", values: ["—", "Trimestriel", "Mensuel"] },
-  { label: "Trésorerie prévisionnelle", values: ["—", "—", "Mensuelle"] },
+  { label: "Comptabilité + déclarations", values: ["Inclus", "Inclus", "Inclus"] },
+  { label: "Tableaux de bord Odoo", values: ["Inclus", "Inclus", "Inclus"] },
+  { label: "Contrôle de gestion", values: ["À la demande", "Trimestriel", "Mensuel"] },
+  { label: "Trésorerie prévisionnelle", values: ["À la demande", "À la demande", "Mensuelle"] },
   { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
 ];
 
@@ -81,6 +79,19 @@ const faqJsonLd = {
 };
 
 
+
+function CellValue({ v, isPrice }: { v: string; isPrice?: boolean }) {
+  if (v === "Inclus") {
+    return <span className="font-body text-[13px] font-medium text-foreground/70">{v}</span>;
+  }
+  if (v === "À la demande") {
+    return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{v}</span>;
+  }
+  if (/^(Trimestrielles|Trimestrielle|Trimestriel|Mensuelles|Mensuelle|Mensuel)$/i.test(v)) {
+    return <span className="font-body font-semibold text-accent text-[13px]">{v}</span>;
+  }
+  return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v}</span>;
+}
 
 export default function Comptabilite() {
   const [mounted, setMounted] = useState(false);
@@ -400,13 +411,7 @@ export default function Comptabilite() {
                           </td>
                           {row.values.map((v, ci) => (
                             <td key={ci} className={`p-5 text-center ${ci === 2 ? "bg-accent/[0.03]" : ""}`}>
-                              {v === true ? (
-                                <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />
-                              ) : v === "—" ? (
-                                <Minus size={16} className="text-foreground/20 mx-auto" />
-                              ) : (
-                                <span className={`font-semibold font-body ${ri === planRows.length - 1 ? "text-primary text-[16px]" : "text-foreground/70"}`}>{v}</span>
-                              )}
+                              <CellValue v={v} isPrice={ri === planRows.length - 1} />
                             </td>
                           ))}
                         </tr>
@@ -424,19 +429,17 @@ export default function Comptabilite() {
                       {["Essentiel", "Premium", "Excellence"].map((plan, ci) => (
                         <div key={plan} className={`text-center p-2.5 rounded-xl ${ci === 2 ? "bg-accent/5 border border-accent/20" : "bg-card"}`}>
                           <span className={`text-[10px] font-semibold uppercase tracking-[0.18em] font-body block mb-1.5 ${ci === 2 ? "text-accent" : "text-muted-foreground"}`}>{plan}</span>
-                          {row.values[ci] === true ? (
-                            <Check size={16} className="text-[hsl(145,63%,42%)] mx-auto" />
-                          ) : row.values[ci] === "—" ? (
-                            <Minus size={14} className="text-foreground/20 mx-auto" />
-                          ) : (
-                            <span className={`font-semibold font-body text-[12px] ${ri === planRows.length - 1 ? "text-primary" : "text-foreground/70"}`}>{row.values[ci]}</span>
-                          )}
+                          <CellValue v={row.values[ci]} isPrice={ri === planRows.length - 1} />
                         </div>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
+
+              <p className="mt-6 text-center text-[13px] text-muted-foreground font-body">
+                <strong className="text-foreground">Hors forfait</strong> = prestations facturées à 150 € HTVA / heure, disponibles à la demande pour aller plus loin.
+              </p>
 
               <div className="text-center mt-10">
                 <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
