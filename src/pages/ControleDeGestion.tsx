@@ -291,16 +291,25 @@ export default function ControleDeGestion() {
               </h2>
             </div>
 
-            <div data-anim="fade-up" data-delay="0.1"  className="max-w-[920px] mx-auto">
+            <div data-anim="fade-up" data-delay="0.1" className="max-w-[980px] mx-auto">
               <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
-                <table className="w-full text-left">
+                <table className="w-full text-left table-fixed">
+                  <colgroup>
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "44%" }} />
+                    <col style={{ width: "19%" }} />
+                    <col style={{ width: "19%" }} />
+                  </colgroup>
                   <thead className="bg-gradient-to-b from-secondary/40 to-transparent">
                     <tr className="border-b border-border/60">
-                      <th className="px-8 py-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
-                        <div className="flex items-center gap-2">
+                      <th className="px-5 py-6 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                        <span className="inline-flex items-center gap-2">
                           <div className="h-px w-6 bg-accent" />
-                          Fonctionnalité
-                        </div>
+                          Catégorie
+                        </span>
+                      </th>
+                      <th className="px-6 py-6 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">
+                        Fonctionnalité
                       </th>
                       <th className="px-6 py-6 text-center text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.22em] font-body">Premium</th>
                       <th className="px-6 py-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] font-body text-accent">
@@ -314,20 +323,24 @@ export default function ControleDeGestion() {
                   <tbody>
                     {tableCategories.map((cat) => (
                       <Fragment key={cat.num}>
-                        <tr style={{ background: cat.tint }}>
-                          <td colSpan={3} className="px-8 py-3.5">
-                            <span className="flex items-center gap-3">
-                              <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
-                              <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
-                              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
-                                {cat.title}
-                              </span>
-                            </span>
-                          </td>
-                        </tr>
-                        {cat.rows.map((row) => (
+                        {cat.rows.map((row, ri) => (
                           <tr key={row.label} className="border-b border-border/40 hover:bg-secondary/30 transition-colors">
-                            <td className="px-8 py-5 text-[14px] text-foreground font-medium font-body pl-14">
+                            {ri === 0 && (
+                              <td
+                                rowSpan={cat.rows.length}
+                                className="relative border-r border-border/20 align-middle px-5 py-5"
+                                style={{ backgroundColor: cat.tint }}
+                              >
+                                <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
+                                <span className="relative z-10 flex flex-col items-start gap-1">
+                                  <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                  <span className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-left leading-[1.3] whitespace-pre-line">
+                                    {cat.title}
+                                  </span>
+                                </span>
+                              </td>
+                            )}
+                            <td className="px-6 py-5 text-[14px] text-foreground font-medium font-body">
                               {row.label}
                             </td>
                             <td className="px-6 py-5 text-center"><CellValue value={row.premium} /></td>
