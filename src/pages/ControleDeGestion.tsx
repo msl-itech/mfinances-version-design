@@ -295,8 +295,8 @@ export default function ControleDeGestion() {
               <div className="hidden sm:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_12px_40px_-20px_hsl(var(--primary)/0.15)]">
                 <table className="w-full text-left table-fixed">
                   <colgroup>
-                    <col style={{ width: "18%" }} />
-                    <col style={{ width: "44%" }} />
+                    <col style={{ width: "22%" }} />
+                    <col style={{ width: "40%" }} />
                     <col style={{ width: "19%" }} />
                     <col style={{ width: "19%" }} />
                   </colgroup>
