@@ -413,13 +413,7 @@ export default function Comptabilite() {
                           </td>
                           {row.values.map((v, ci) => (
                             <td key={ci} className={`p-5 text-center ${ci === 2 ? "bg-accent/[0.03]" : ""}`}>
-                              {v === true ? (
-                                <Check size={18} className="text-[hsl(145,63%,42%)] mx-auto" />
-                              ) : v === "—" ? (
-                                <Minus size={16} className="text-foreground/20 mx-auto" />
-                              ) : (
-                                <span className={`font-semibold font-body ${ri === planRows.length - 1 ? "text-primary text-[16px]" : "text-foreground/70"}`}>{v}</span>
-                              )}
+                              <CellValue v={v} isPrice={ri === planRows.length - 1} />
                             </td>
                           ))}
                         </tr>
