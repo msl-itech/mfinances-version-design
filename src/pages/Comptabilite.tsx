@@ -90,7 +90,7 @@ const tableCategories = [
   },
   {
     num: "V",
-    title: "Tarification",
+    title: "",
     barColor: "hsla(0, 0%, 50%, 0.5)",
     tint: "hsla(0, 0%, 50%, 0.06)",
     rows: [
