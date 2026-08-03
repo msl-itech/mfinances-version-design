@@ -152,6 +152,12 @@ const faqJsonLd = {
 function CellValue({ value }: { value: boolean | string }) {
   if (value === true) return <Check size={18} className="text-accent mx-auto" />;
   if (value === false) return <Minus size={18} className="text-muted-foreground/40 mx-auto" />;
+  if (typeof value === "string" && /^(Trimestrielles|Trimestrielle|Trimestriel|Mensuelles|Mensuelle|Mensuel)$/i.test(value)) {
+    return <span className="font-body font-semibold text-accent text-[13px]">{value}</span>;
+  }
+  if (typeof value === "string" && /^(Hors forfait|À la demande)$/i.test(value)) {
+    return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{value}</span>;
+  }
   return <span className="text-[13px] font-medium text-foreground">{value}</span>;
 }
 
