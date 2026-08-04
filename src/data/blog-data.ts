@@ -539,7 +539,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-04-11",
     seoTitle: "Pièce à usage mixte bureau à domicile Belgique — Calcul et documentation",
     metaDescription: "Pas de bureau dédié ? Calculez la part professionnelle de vos pièces mixtes. Méthode temporelle, règles de prudence et documentation. Cabinet MFinances.",
-    pillarPage: "/blog/fiscalite-belgique/bureau-a-domicile/",
   },
   {
     slug: "locataire-societe-sous-location-loyer",
