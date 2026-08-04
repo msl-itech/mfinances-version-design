@@ -285,7 +285,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-15",
     seoTitle: "SRL ou Indépendant en Belgique — Comment Choisir en 2026 ?",
     metaDescription: "SRL ou indépendant en personne physique — comparatif complet pour choisir la bonne structure en Belgique. Fiscalité, responsabilité, coûts, démarches.",
-    pillarPage: "/services/creation-entreprise/",
   },
   {
     slug: "creer-srl-belgique-2026",
@@ -298,7 +297,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-10",
     seoTitle: "Créer une SRL en Belgique en 2026 — Toutes les Étapes",
     metaDescription: "Guide complet pour créer une SRL en Belgique en 2026. Étapes, délais, coûts, documents requis. De l'acte notarié à la première déclaration TVA.",
-    pillarPage: "/services/creation-entreprise/",
   },
   {
     slug: "cout-creation-societe-belgique",
@@ -311,7 +309,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-05",
     seoTitle: "Coût Création Société Belgique — Tous les Frais",
     metaDescription: "Frais de notaire, BCE, Moniteur belge, comptable — tous les coûts réels de la création d'une société en Belgique. Sans surprise.",
-    pillarPage: "/services/creation-entreprise/",
   },
   {
     slug: "plan-financier-obligatoire-belgique",
@@ -324,7 +321,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-12-30",
     seoTitle: "Plan Financier Obligatoire Belgique — Guide",
     metaDescription: "Le plan financier est obligatoire pour créer une SRL ou SA en Belgique. Contenu requis, responsabilité du fondateur et conseils pratiques.",
-    pillarPage: "/services/creation-entreprise/",
   },
   {
     slug: "erreurs-creation-societe-belgique",
@@ -337,7 +333,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2025-12-25",
     seoTitle: "5 Erreurs Création Société Belgique — À Éviter",
     metaDescription: "Capital insuffisant, mauvaise structure, TVA mal configurée — les 5 erreurs courantes à la création d'une société belge et comment les éviter.",
-    pillarPage: "/services/creation-entreprise/",
   },
 
   // ── ARTICLES FROIDS ──
