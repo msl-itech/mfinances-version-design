@@ -162,7 +162,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-03-01",
     seoTitle: "Contrôle de Gestion pour TPE — Définition et Impact",
     metaDescription: "Définition simple du contrôle de gestion pour une TPE. Pourquoi ce n'est pas réservé aux grandes entreprises et comment ça transforme vos décisions.",
-    pillarPage: "/services/controle-de-gestion/",
   },
   {
     slug: "kpis-tpe-dirigeant",
@@ -175,7 +174,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-25",
     seoTitle: "5 KPIs Financiers Essentiels pour Dirigeant de TPE",
     metaDescription: "Marge brute, BFR, délai de paiement, taux d'endettement — les 5 indicateurs financiers clés pour piloter une TPE. Avec formules et seuils d'alerte.",
-    pillarPage: "/services/controle-de-gestion/",
   },
   {
     slug: "budget-annuel-tpe",
@@ -188,7 +186,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-20",
     seoTitle: "Budget Annuel TPE — Guide Pratique en 5 Étapes",
     metaDescription: "Construire un budget annuel réaliste en 5 étapes. Méthode pratique pour dirigeants de TPE en Belgique. Sans jargon, avec exemples concrets.",
-    pillarPage: "/services/controle-de-gestion/",
   },
   {
     slug: "analyse-ecarts-budgetaires",
@@ -201,7 +198,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-15",
     seoTitle: "Analyse des Écarts Budgétaires — Lire et Agir",
     metaDescription: "Comprendre et utiliser l'analyse des écarts entre budget et réalisé. Méthode pratique pour identifier les problèmes et corriger la trajectoire.",
-    pillarPage: "/services/controle-de-gestion/",
   },
   // ── FISCALITÉ BELGE ──
   {
