@@ -211,7 +211,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-10",
     seoTitle: "VVPRbis Belgique — Dividendes à Taux Réduit PME",
     metaDescription: "Le régime VVPRbis permet aux PME belges de distribuer des dividendes à 15% au lieu de 30%. Conditions, avantages et pièges à éviter. Guide complet.",
-    pillarPage: "/services/fiscalite/",
   },
   {
     slug: "reserve-liquidation-belgique",
@@ -224,7 +223,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-05",
     seoTitle: "Réserve de Liquidation Belgique — Guide Fiscal",
     metaDescription: "La réserve de liquidation permet aux PME belges de distribuer des dividendes avec une fiscalité réduite. Mécanisme, conditions et stratégie d'utilisation.",
-    pillarPage: "/services/fiscalite/",
   },
   {
     slug: "remuneration-dirigeant-belgique",
@@ -237,7 +235,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-30",
     seoTitle: "Rémunération Dirigeant Belgique — Salaire ou Dividendes",
     metaDescription: "Salaire ou dividendes — comment optimiser la rémunération d'un dirigeant de société belge. Calcul de l'impact fiscal et social selon les situations.",
-    pillarPage: "/services/fiscalite/",
   },
   {
     slug: "voiture-societe-belgique",
@@ -250,7 +247,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-25",
     seoTitle: "Voiture de Société Belgique 2026 — Guide Fiscal",
     metaDescription: "Tout sur la fiscalité de la voiture de société en Belgique en 2026. ATN, déductibilité, cotisation CO2, voiture électrique. Guide complet pour dirigeants.",
-    pillarPage: "/services/fiscalite/",
   },
   {
     slug: "declaration-isoc-belgique",
@@ -263,7 +259,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-01-20",
     seoTitle: "Déclaration ISOC Belgique — Guide Sans Surprise",
     metaDescription: "Comment préparer sa déclaration ISOC en Belgique, éviter les erreurs courantes et optimiser sa charge fiscale. Guide pratique pour dirigeants de sociétés.",
-    pillarPage: "/services/fiscalite/",
   },
   // ── CRÉATION D'ENTREPRISE ──
   {
