@@ -113,7 +113,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-03-20",
     seoTitle: "DAF Externalisé — Définition et Rôle pour TPE",
     metaDescription: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
-    pillarPage: "/services/daf-externalise/",
   },
   {
     slug: "quand-faire-appel-daf",
@@ -126,7 +125,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-03-15",
     seoTitle: "Quand Faire Appel à un DAF Externalisé ? 6 Signaux",
     metaDescription: "6 signaux concrets qui indiquent qu'une TPE a besoin d'un DAF à temps partiel. Guide pratique pour dirigeants en croissance. MFinances, Bruxelles.",
-    pillarPage: "/services/daf-externalise/",
   },
   {
     slug: "daf-externalise-vs-expert-comptable",
@@ -139,7 +137,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-03-10",
     seoTitle: "DAF Externalisé vs Expert-Comptable — Comparatif",
     metaDescription: "DAF externalisé ou expert-comptable — deux rôles complémentaires mais très différents. Comparatif complet pour dirigeants de TPE en Belgique.",
-    pillarPage: "/services/daf-externalise/",
   },
   {
     slug: "decisions-daf-fait-difference",
@@ -152,7 +149,6 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-03-05",
     seoTitle: "5 Décisions où un DAF Externalisé Change Tout",
     metaDescription: "Recrutement, investissement, levée de fonds, restructuration — les 5 décisions stratégiques où un DAF à temps partiel fait réellement la différence.",
-    pillarPage: "/services/daf-externalise/",
   },
   // ── CONTRÔLE DE GESTION ──
   {
