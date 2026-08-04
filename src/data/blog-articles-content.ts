@@ -2286,7 +2286,6 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "piece-usage-mixte-bureau": {
-    heroCta: { text: "Calculer ma part professionnelle avec pièces mixtes", link: "/ressources/calculateur-bureau/" },
     sections: [
       {
         paragraphs: [
