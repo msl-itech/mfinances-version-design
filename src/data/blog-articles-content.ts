@@ -2898,7 +2898,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "La documentation est structurée pour résister à un contrôle fiscal.",
         ],
         relatedLinks: [
-          { text: "Découvrir la société de management patrimoniale", link: "/societe-de-management/" },
+          { text: "Découvrir la société de management patrimoniale", link: "/qui-nous-accompagnons/societe-de-management/" },
         ],
       },
       {
