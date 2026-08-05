@@ -1,0 +1,104 @@
+<!--
+  DIAGNOSTIC MFINANCES
+  1) Charger diagnostic-mfinances.css dans le <head>.
+  2) Coller ce bloc à l'emplacement du diagnostic.
+  3) Charger diagnostic-mfinances.js juste avant </body> avec defer.
+-->
+<section class="mf-diagnostic" data-mfinances-diagnostic aria-labelledby="mf-diagnostic-title">
+  <div class="mf-diagnostic__top">
+    <span class="mf-diagnostic__progress-text" data-progress-text>Question 1 sur 4</span>
+    <span class="mf-diagnostic__track" aria-hidden="true">
+      <span class="mf-diagnostic__bar" data-progress-bar></span>
+    </span>
+  </div>
+
+  <h2 id="mf-diagnostic-title">Quel niveau d’accompagnement correspond réellement à votre entreprise ?</h2>
+
+  <article class="mf-question" data-question="1">
+    <div class="mf-question__number">01</div>
+    <h3>Votre priorité est-elle uniquement de respecter vos obligations comptables et fiscales ?</h3>
+    <p>Un bilan annuel et des déclarations déposées dans les délais vous suffisent-ils aujourd’hui ?</p>
+    <div class="mf-answers">
+      <button class="mf-answer" type="button" data-answer data-value="conformite" data-level="1">
+        <span class="mf-answer__index">01</span>
+        <span><strong>Oui, principalement</strong><small>Je souhaite avant tout être en règle.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+      <button class="mf-answer" type="button" data-answer data-value="anticiper" data-level="2">
+        <span class="mf-answer__index">02</span>
+        <span><strong>Non, je veux également anticiper</strong><small>Je veux comprendre mes chiffres avant la clôture annuelle.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+    </div>
+  </article>
+
+  <article class="mf-question" data-question="2" hidden>
+    <div class="mf-question__number">02</div>
+    <h3>Souhaitez-vous connaître à l’avance vos résultats et vos principales échéances ?</h3>
+    <p>L’objectif est de ne plus découvrir les difficultés après la clôture.</p>
+    <div class="mf-answers">
+      <button class="mf-answer" type="button" data-answer data-value="annuel" data-level="1">
+        <span class="mf-answer__index">01</span>
+        <span><strong>Non, un suivi annuel me suffit</strong><small>Je n’ai pas besoin d’une visibilité intermédiaire.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+      <button class="mf-answer" type="button" data-answer data-value="visibilite" data-level="2">
+        <span class="mf-answer__index">02</span>
+        <span><strong>Oui, je souhaite une meilleure visibilité</strong><small>Je veux voir venir les échéances et les résultats.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+    </div>
+  </article>
+
+  <article class="mf-question" data-question="3" hidden>
+    <div class="mf-question__number">03</div>
+    <h3>Avez-vous besoin de comprendre pourquoi vos résultats évoluent ?</h3>
+    <p>Il s’agit d’identifier les écarts et les actions permettant d’améliorer la rentabilité.</p>
+    <div class="mf-answers">
+      <button class="mf-answer" type="button" data-answer data-value="pas-maintenant" data-level="2">
+        <span class="mf-answer__index">01</span>
+        <span><strong>Pas actuellement</strong><small>La visibilité sur les résultats me suffit pour le moment.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+      <button class="mf-answer" type="button" data-answer data-value="performance" data-level="3">
+        <span class="mf-answer__index">02</span>
+        <span><strong>Oui, je veux piloter mes performances</strong><small>Je veux comprendre les écarts et améliorer la rentabilité.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+    </div>
+  </article>
+
+  <article class="mf-question" data-question="4" hidden>
+    <div class="mf-question__number">04</div>
+    <h3>Souhaitez-vous anticiper et optimiser vos besoins de trésorerie ?</h3>
+    <p>Vous voulez savoir combien vous pouvez investir, rémunérer ou distribuer sans fragiliser l’entreprise.</p>
+    <div class="mf-answers">
+      <button class="mf-answer" type="button" data-answer data-value="performance-seule" data-level="3">
+        <span class="mf-answer__index">01</span>
+        <span><strong>Non, le suivi des résultats me suffit</strong><small>Je ne souhaite pas encore intégrer la trésorerie au pilotage.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+      <button class="mf-answer" type="button" data-answer data-value="tresorerie" data-level="4">
+        <span class="mf-answer__index">02</span>
+        <span><strong>Oui, je veux sécuriser ma trésorerie</strong><small>Je souhaite anticiper les besoins de cash et mes décisions.</small></span>
+        <span class="mf-answer__arrow">›</span>
+      </button>
+    </div>
+  </article>
+
+  <article class="mf-result" data-result hidden aria-live="polite">
+    <p>Le forfait qui semble le plus adapté à votre situation :</p>
+    <h3 data-result-name></h3>
+    <div class="mf-result__promise" data-result-promise></div>
+    <div class="mf-result__price" data-result-price></div>
+    <p data-result-explanation></p>
+    <ul data-result-reasons></ul>
+    <a class="mf-result__cta" data-result-cta href="#"></a>
+    <a class="mf-result__upgrade" data-result-upgrade href="#"></a>
+  </article>
+
+  <div class="mf-diagnostic__footer">
+    <button class="mf-link-button" type="button" data-back hidden>← Revenir à la question précédente</button>
+    <button class="mf-link-button" type="button" data-restart>Recommencer</button>
+  </div>
+</section>
