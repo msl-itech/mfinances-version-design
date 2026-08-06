@@ -47,6 +47,7 @@ import {
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
+import DiagnosticQuiz from "@/components/DiagnosticQuiz";
 
 const priceRow = { label: "Prix mensuel HTVA", values: ["275 €", "À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true };
 
@@ -68,7 +69,7 @@ const compareCategories = [
     color: "hsla(0, 79%, 53%, 0.08)",
     barColor: "hsla(0, 79%, 53%, 0.5)",
     rows: [
-      { label: "Situations intermédiaires", values: ["Hors forfait", "Semestrielles", "Trimestrielles", "Mensuelles"] },
+      { label: "Situations intermédiaires", values: ["À la demande", "Semestrielles", "Trimestrielles", "Mensuelles"] },
     ],
   },
   {
@@ -77,7 +78,7 @@ const compareCategories = [
     color: "hsla(160, 50%, 40%, 0.08)",
     barColor: "hsla(160, 50%, 40%, 0.5)",
     rows: [
-      { label: "Contrôle de gestion", values: ["Hors forfait", "Hors forfait", "Trimestriel", "Mensuel"] },
+      { label: "Contrôle de gestion", values: ["À la demande", "À la demande", "Trimestriel", "Mensuel"] },
     ],
   },
   {
@@ -86,17 +87,16 @@ const compareCategories = [
     color: "hsla(36, 70%, 50%, 0.08)",
     barColor: "hsla(36, 70%, 50%, 0.5)",
     rows: [
-      { label: "Trésorerie prévisionnelle", values: ["Hors forfait", "Hors forfait", "Hors forfait", "Mensuelle"] },
+      { label: "Trésorerie prévisionnelle", values: ["Non incluse", "Non incluse", "Non incluse", "Mensuelle"] },
     ],
   },
   {
     num: "V",
-    title: "",
-    color: "hsla(0, 0%, 50%, 0.08)",
-    barColor: "hsla(0, 0%, 50%, 0.5)",
+    title: "Relation\nclient",
+    color: "hsla(270, 40%, 50%, 0.08)",
+    barColor: "hsla(270, 40%, 50%, 0.5)",
     rows: [
-      { label: "Contrôle fiscal", values: ["À la demande", "À la demande", "À la demande", "À la demande"] },
-      { label: "Accès DAF à temps partiel", values: ["À la demande", "À la demande", "À la demande", "À la demande"] },
+      { label: "Mode de suivi", values: ["À la demande", "Inclus", "Régulier", "Proactif"] },
     ],
   },
 ];
@@ -109,30 +109,38 @@ const plans = [
     icon: Briefcase,
     name: "Basic",
     price: "275",
-    tagline: "Pour être en règle",
-    desc: "Votre priorité est d'être en conformité avec vos obligations légales. Consultations fiscales et prestations ponctuelles sur demande : 150 € HTVA/heure.",
+    profile: "Pour les besoins strictement comptables",
+    tagline: "Être en règle",
+    desc: "Le socle comptable et fiscal indispensable.",
+    mode: "Prestations de conseil disponibles à la demande, au tarif horaire.",
   },
   {
     icon: ShieldCheck,
     name: "Essentiel",
     price: "350",
-    tagline: "Pour sécuriser",
-    desc: "Vous souhaitez être accompagné pour savoir où vous en êtes et où vous allez ?",
+    profile: "Pour gagner en visibilité",
+    tagline: "Anticiper",
+    desc: "Les premiers outils pour voir venir vos échéances et vos résultats.",
+    mode: "L'anticipation essentielle est comprise dans votre forfait.",
   },
   {
     icon: TrendingUp,
     name: "Premium",
     price: "450",
-    tagline: "Pour structurer",
-    desc: "Vous voulez trouver les bons leviers pour améliorer les performances de votre entreprise",
+    profile: "Le choix recommandé pour piloter",
+    tagline: "Piloter",
+    desc: "Un suivi régulier pour comprendre vos résultats et améliorer vos performances.",
+    mode: "Le contrôle de gestion est intégré à votre accompagnement.",
     popular: true,
   },
   {
     icon: Rocket,
     name: "Excellence",
     price: "650",
-    tagline: "Pour piloter avec un temps d'avance",
-    desc: "Vous ne cherchez pas seulement à améliorer vos performances, mais à renforcer durablement votre trésorerie.",
+    profile: "Pour une direction financière complète",
+    tagline: "Optimiser",
+    desc: "Un pilotage financier proactif pour améliorer vos performances et votre trésorerie.",
+    mode: "La vision financière et la trésorerie sont suivies en continu.",
   },
 ];
 
@@ -148,10 +156,21 @@ const steps = [
   { icon: Clock, num: "3", title: "Démarrage sous 48h", desc: "Dossier intégré dans Odoo" },
 ];
 
-const faqs = [
+const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
-    a: "Chez MFinances, les forfaits pour une TPE démarrent à 275 € HTVA/mois (Basic : comptabilité + conformité), 350 € HTVA/mois (Essentiel : + conseil fiscal + situations intermédiaires), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.",
+    a: (
+      <>
+        <p>Chez MFinances, les forfaits pour une TPE :</p>
+        <ul className="list-none space-y-2 my-3">
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span>275 € HTVA/mois — comptabilité + conformité</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span>350 € HTVA/mois — + conseil fiscal + situations intermédiaires</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span>450 € HTVA/mois — + contrôle de gestion trimestriel</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span>650 € HTVA/mois — + trésorerie prévisionnelle + accès DAF à temps partiel</span></li>
+        </ul>
+        <p>Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.</p>
+      </>
+    ),
   },
   {
     q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
@@ -172,10 +191,25 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLdEntries = [
+  {
+    q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
+    a: "Chez MFinances, les forfaits pour une TPE démarrent à 275 € HTVA/mois (Basic : comptabilité + conformité), 350 € HTVA/mois (Essentiel : + conseil fiscal + situations intermédiaires), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle + accès DAF à temps partiel). Ces tarifs sont transparents et sans surprise.",
+  },
+  {
+    q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
+    a: "Oui. Les structures non assujetties à la TVA (ASBL, certaines professions médicales) bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
+  },
+  {
+    q: "Faut-il s'engager sur une durée minimum ?",
+    a: "Nos forfaits sont conclus pour une durée d'un an, avec tacite reconduction. Un préavis de 3 mois avant la date d'échéance annuelle est requis pour mettre fin au contrat.",
+  },
+];
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: faqJsonLdEntries.map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -198,6 +232,12 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
   if (v === "Hors forfait") return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">Hors forfait</span>;
+  if (v === "À la demande") return <span className="inline-block font-body text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 rounded-full px-2.5 py-1 leading-snug">À la demande<br />150 €/h</span>;
+  if (v === "Non incluse") return <span className="inline-block font-body text-[10px] font-bold bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2.5 py-1">Non incluse</span>;
+  if (v === "Inclus") return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">Inclus</span>;
+  if (typeof v === "string" && /^(Régulier|Proactif)$/.test(v)) {
+    return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">{v}</span>;
+  }
   if (typeof v === "string" && /^(Semestrielles|Trimestrielles|Mensuelles|Mensuelle|Mensuel|Trimestriel)$/i.test(v)) {
     return <span className="font-body font-semibold text-accent text-[13px]">{v}</span>;
   }
@@ -373,17 +413,17 @@ export default function Tarifs() {
 
                   <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start" data-anim="fade-up" data-delay="0.55">
                     <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group h-12 text-[14px]" asChild>
-                      <Link to="/contact/">
+                      <a href="#progression">
                         <span className="flex items-center gap-3">
-                          Consultation gratuite
+                          Comprendre la progression
                           <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                             <ArrowUpRight size={14} />
                           </span>
                         </span>
-                      </Link>
+                      </a>
                     </Button>
                     <Button variant="outline" size="lg" className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                      <a href="#forfaits">Comparer les forfaits</a>
+                      <a href="#diagnostic">Trouver mon forfait</a>
                     </Button>
                   </div>
                 </div>
@@ -412,7 +452,361 @@ export default function Tarifs() {
           </div>
         </section>
 
-        {/* ── SECTION 1 — Tableau comparatif ── */}
+        {/* ── SECTION 1 — Progression ── */}
+        <section id="progression" className="py-10 md:py-14 bg-card relative overflow-hidden">
+          <span
+            aria-hidden="true" data-anim="text-scrub"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-accent/[0.035] pointer-events-none select-none whitespace-nowrap"
+          >
+            Piloter
+          </span>
+
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Progression</span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Jusqu'où voulez-vous piloter votre entreprise ?
+              </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
+                Chaque niveau enrichit le précédent avec davantage de prestations incluses et un suivi plus régulier.
+              </p>
+            </div>
+
+            {/* Desktop: 4 columns, staircase — Basic lowest (most top-margin), Excellence highest (no margin) */}
+            <div className="hidden md:grid grid-cols-4 items-start gap-5 relative" data-anim="stagger" data-stagger="0.12">
+              {/* Diagonal connecting line through the dots */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none z-0"
+                aria-hidden="true"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="prog-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#d7dbe5" />
+                    <stop offset="35%" stopColor="#cfd6e7" />
+                    <stop offset="68%" stopColor="hsl(var(--accent))" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" />
+                  </linearGradient>
+                </defs>
+                {/* Line from dot 1 (bottom-left) to dot 4 (top-right), dots are at marginTop 180/120/60/0 + 21px center */}
+                <line
+                  x1="12.5%" y1={(180 + 21).toString()}
+                  x2="87.5%" y2={(0 + 21).toString()}
+                  stroke="url(#prog-line)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+
+              {[
+                { name: "Basic", price: "275 €", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", topPx: 180, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Essentiel", price: "350 €", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", topPx: 120, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Premium", price: "450 €", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, topPx: 60, dotBg: "bg-accent border-accent text-accent-foreground" },
+                { name: "Excellence", price: "650 €", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", topPx: 0, dotBg: "bg-primary border-primary text-primary-foreground" },
+              ].map((stage, i) => (
+                <div key={stage.name} className="relative z-[1]" style={{ marginTop: stage.topPx }}>
+                  <div className={`w-[42px] h-[42px] rounded-full border-2 flex items-center justify-center font-bold text-[14px] mx-auto mb-4 relative z-10 ${stage.dotBg}`}>
+                    {i + 1}
+                  </div>
+                  <article
+                    data-tilt data-tilt-max="5"
+                    className={`bg-card rounded-3xl p-5 shadow-[0_12px_28px_rgba(31,48,96,0.07)] relative flex flex-col ${
+                      stage.premium
+                        ? "border-2 border-accent shadow-[0_18px_38px_rgba(239,43,45,0.10)]"
+                        : "border border-border/60"
+                    }`}
+                  >
+                    {stage.premium && (
+                      <span className="absolute -top-3.5 right-4 bg-accent text-accent-foreground rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.13em] uppercase">
+                        Choix recommandé
+                      </span>
+                    )}
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-foreground font-body">
+                        {stage.name} · {stage.price}
+                      </span>
+                      <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-1 text-[11px] font-bold font-body">
+                        {stage.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-2">{stage.tagline}</h3>
+                    <p className="text-[13px] text-muted-foreground font-body leading-relaxed">{stage.desc}</p>
+                    <div className="mt-auto pt-3 border-t border-border/40 text-[11px] text-accent font-bold font-body">
+                      {stage.mode}
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile: vertical timeline */}
+            <div className="md:hidden relative pl-[58px]" data-anim="stagger" data-stagger="0.1">
+              {/* Vertical line */}
+              <div className="absolute left-[24px] top-7 bottom-7 w-[3px] rounded-full" style={{ background: "linear-gradient(#dfe2e8 0% 45%, hsl(var(--accent)) 70%, hsl(var(--primary)) 100%)" }} aria-hidden="true" />
+
+              <div className="space-y-5">
+                {[
+                  { name: "Basic", price: "275 €", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", dotBg: "bg-card border-border text-primary" },
+                  { name: "Essentiel", price: "350 €", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", dotBg: "bg-card border-border text-primary" },
+                  { name: "Premium", price: "450 €", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, dotBg: "bg-accent border-accent text-accent-foreground" },
+                  { name: "Excellence", price: "650 €", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", dotBg: "bg-primary border-primary text-primary-foreground" },
+                ].map((stage, i) => (
+                  <div key={stage.name} className="relative">
+                    <div className={`absolute -left-[58px] top-[18px] w-[52px] h-[52px] rounded-full border-2 flex items-center justify-center font-bold text-[18px] z-10 ${stage.dotBg}`}>
+                      {i + 1}
+                    </div>
+                    <article className={`bg-card rounded-3xl p-5 shadow-[0_12px_28px_rgba(31,48,96,0.07)] relative ${stage.premium ? "border-2 border-accent" : "border border-border/60"
+                      }`}>
+                      {stage.premium && (
+                        <span className="absolute -top-3 right-4 bg-accent text-accent-foreground rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.13em] uppercase">
+                          Choix recommandé
+                        </span>
+                      )}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-foreground font-body">{stage.name} · {stage.price}</span>
+                        <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-1 text-[11px] font-bold font-body">{stage.badge}</span>
+                      </div>
+                      <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-2">{stage.tagline}</h3>
+                      <p className="text-[13px] text-muted-foreground font-body">{stage.desc}</p>
+                      <div className="mt-4 pt-3 border-t border-border/40 text-[11px] text-accent font-bold font-body">{stage.mode}</div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Axis bar */}
+            <div data-anim="fade-up" data-delay="0.3" className="mt-8">
+              {/* Desktop axis */}
+              <div className="hidden md:flex items-center justify-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-4 max-w-[870px] mx-auto">
+                {["À la demande", "Inclus", "Régulier", "Proactif"].map((label, i) => (
+                  <span key={label} className="contents">
+                    {i > 0 && <span className="text-primary-foreground/40 text-[14px]">→</span>}
+                    <span className="font-bold text-[13px] font-body">{label}</span>
+                  </span>
+                ))}
+              </div>
+              {/* Mobile axis */}
+              <div className="md:hidden bg-card border border-border/60 rounded-3xl overflow-hidden">
+                {["À la demande", "Inclus", "Régulier", "Proactif"].map((label, i) => (
+                  <div key={label} className={`flex items-center gap-2 px-4 py-3 text-[12px] font-bold text-primary font-body ${i < 3 ? "border-b border-border/30" : ""}`}>
+                    <span className="text-accent">{i + 1}</span>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Note */}
+            <div data-anim="fade-up" data-delay="0.4" className="max-w-[920px] mx-auto mt-8 p-5 border-l-4 border-accent bg-card rounded-r-2xl shadow-[0_10px_25px_rgba(31,48,96,0.05)]">
+              <p className="text-[13px] md:text-[14px] text-muted-foreground font-body leading-relaxed">
+                <strong className="text-primary">Avec Basic, vous commandez les conseils lorsque vous en avez besoin.</strong>{" "}
+                Avec les forfaits supérieurs, nous les intégrons progressivement à votre accompagnement afin d'anticiper vos besoins avant qu'ils ne deviennent urgents.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2 — Diagnostic ── */}
+        <section id="diagnostic" className="py-10 md:py-14 bg-secondary/50 relative overflow-hidden">
+          <span
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[220px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+          >
+            Choix
+          </span>
+
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Diagnostic</span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Quel niveau d'accompagnement correspond réellement à votre entreprise ?
+              </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
+                Répondez à quatre questions pour identifier le forfait adapté à vos besoins actuels et à vos objectifs.
+              </p>
+            </div>
+
+            <div data-anim="fade-up" data-delay="0.3">
+              <DiagnosticQuiz />
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3 — Détail forfaits (3 cards) ── */}
+        <section className="py-10 md:py-14 relative overflow-hidden bg-secondary/50">
+          <span
+            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
+            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
+          >
+            Choisir
+          </span>
+
+          <div className="container-mf relative">
+            <div className="max-w-[820px] mx-auto text-center mb-14">
+              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Forfaits</span>
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
+                Le prix reflète aussi le niveau d'accompagnement.
+              </h2>
+              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
+                Vous ne payez pas seulement davantage de prestations : vous payez pour qu'elles soient prévues, intégrées à une méthode et réalisées avec une fréquence adaptée.
+              </p>
+            </div>
+
+            {/* ── Mobile: 4 cards in order (Basic first) ── */}
+            <div className="md:hidden flex flex-col gap-5" data-anim="stagger" data-stagger="0.1">
+              {plans.map((plan) => {
+                const isPopular = (plan as typeof plans[number] & { popular?: boolean }).popular;
+                return (
+                  <article
+                    key={plan.name}
+                    className={`bg-card rounded-3xl p-6 shadow-[0_12px_28px_rgba(31,48,96,0.07)] relative flex flex-col ${
+                      isPopular ? "border-2 border-accent shadow-[0_18px_38px_rgba(239,43,45,0.10)]" : "border border-border/60"
+                    }`}
+                  >
+                    {isPopular && (
+                      <span className="absolute -top-3 right-4 bg-accent text-accent-foreground rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.13em] uppercase">
+                        Populaire
+                      </span>
+                    )}
+                    <span className="font-body text-[11px] font-bold tracking-[0.13em] uppercase text-accent mb-2 block">{plan.profile}</span>
+                    <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-1">{plan.name}</h3>
+                    <p className="text-accent text-[13px] italic font-body mb-3">{plan.tagline}</p>
+                    <div className="flex items-baseline gap-1.5 mb-4 font-display font-bold text-primary text-[32px] leading-none tracking-tight">
+                      {plan.price}€
+                      <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                    </div>
+                    <p className="text-[14px] leading-[1.75] font-body text-muted-foreground mb-4">{plan.desc}</p>
+                    <hr className="border-border/60" />
+                    <div className="mt-auto pt-4">
+                      <p className="text-primary text-[12px] font-bold font-body mb-4">{plan.mode}</p>
+                      <Link
+                        to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
+                        className={`block whitespace-nowrap font-bold px-6 py-3 rounded-full transition-colors duration-300 shadow-lg text-[14px] text-center ${
+                          isPopular ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
+                        }`}
+                      >
+                        Choisir {plan.name}
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* ── Desktop: stepped cards (Essentiel/Premium/Excellence) + Basic bar ── */}
+            <div className="hidden md:flex flex-col gap-8" data-anim="stagger" data-stagger="0.1">
+              {(() => {
+                const basicPlan = plans.find((p) => p.name === "Basic")!;
+                const topPlans = plans.filter((p) => p.name !== "Basic");
+                const topMeta = [
+                  { height: "min-h-[400px]", padding: "p-8", priceSize: "text-[44px]", textSize: "text-[14px]", scale: "" },
+                  { height: "min-h-[500px]", padding: "p-10", priceSize: "text-[56px]", textSize: "text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },
+                  { height: "min-h-[600px]", padding: "p-12", priceSize: "text-[68px]", textSize: "text-[19px]", scale: "" },
+                ];
+                return (
+                  <>
+                    {/* Stepped upper cards */}
+                    <div className="grid grid-cols-3 items-end gap-6">
+                      {topPlans.map((plan, i) => {
+                        const meta = topMeta[i];
+                        const isPopular = plan.popular;
+                        return (
+                          <div key={plan.name} className={`relative ${meta.scale}`}>
+                            {isPopular && (
+                              <span className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
+                                POPULAIRE
+                              </span>
+                            )}
+                            <div
+                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height} overflow-hidden`}
+                            >
+                              <div className="flex-1">
+                                <span className="font-body text-[11px] font-bold tracking-[0.13em] uppercase text-accent mb-3 block">
+                                  {plan.profile}
+                                </span>
+                                <h3 className="font-display text-[38px] leading-none font-bold text-primary mb-1.5">
+                                  {plan.name}
+                                </h3>
+                                <p className="text-accent text-[14px] italic font-body mb-4">{plan.tagline}</p>
+                                <div className={`flex items-baseline gap-1.5 mb-5 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight`}>
+                                  {plan.price}€
+                                  <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                                </div>
+                                <p className={`${meta.textSize} leading-[1.75] font-body text-muted-foreground`}>
+                                  {plan.desc}
+                                </p>
+                              </div>
+                              <div className="mt-auto pt-4 border-t border-border/40">
+                                <p className="text-primary text-[12px] font-bold font-body mb-5">{plan.mode}</p>
+                                <Link
+                                  to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
+                                  className={`block whitespace-nowrap font-bold px-6 py-3 rounded-full transition-colors duration-300 shadow-lg text-[14px] text-center ${isPopular
+                                      ? "bg-accent text-accent-foreground hover:bg-accent-hover"
+                                      : "bg-primary text-primary-foreground hover:bg-primary/90"
+                                    }`}
+                                >
+                                  Choisir {plan.name}
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Basic bar */}
+                    <div className="relative group">
+                      <div className="relative bg-background rounded-2xl px-10 py-8 flex flex-row items-center justify-between gap-6 shadow-lg border border-border/60">
+                        <div className="flex flex-row items-center gap-8 lg:gap-12 flex-1">
+                          <div className="text-left">
+                            <span className="text-accent font-bold text-[11px] uppercase tracking-[0.13em] block mb-1">{basicPlan.profile}</span>
+                            <span className="font-display text-[32px] font-bold text-primary leading-none block">{basicPlan.name}</span>
+                            <p className="text-accent text-[13px] italic font-body mt-1">{basicPlan.tagline}</p>
+                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-4xl mt-2">
+                              {basicPlan.price}€
+                              <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                            </div>
+                          </div>
+                          <div className="max-w-xl text-left">
+                            <p className="text-foreground/80 text-[14px] leading-relaxed font-body mb-2">
+                              {basicPlan.desc}
+                            </p>
+                            <p className="text-primary text-[12px] font-bold font-body">{basicPlan.mode}</p>
+                          </div>
+                        </div>
+                        <Link
+                          to="/contact/?forfait=Basic"
+                          className="whitespace-nowrap bg-primary text-primary-foreground font-bold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors duration-300 shadow-lg text-[14px]"
+                        >
+                          Choisir Basic
+                        </Link>
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+
+            <p className="text-center mt-8 text-[13px] text-muted-foreground font-body" data-anim="fade-up" data-delay="0.4">
+              Votre société est en veille ?{" "}
+              <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
+                Découvrez notre formule dédiée
+              </Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* ── SECTION 4 — Tableau comparatif ── */}
         <section id="forfaits" className="py-10 md:py-14 bg-card relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub"
@@ -424,7 +818,7 @@ export default function Tarifs() {
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 01</span>
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Comparatif</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
@@ -594,11 +988,10 @@ export default function Tarifs() {
                       <button
                         key={plan.name}
                         onClick={() => scrollToCard(i)}
-                        className={`flex-shrink-0 rounded-full px-4 py-2 border transition-all duration-200 ${
-                          activeMobileCard === i
+                        className={`flex-shrink-0 rounded-full px-4 py-2 border transition-all duration-200 ${activeMobileCard === i
                             ? "bg-primary border-primary text-primary-foreground shadow-sm"
                             : "bg-card border-border/50 text-muted-foreground"
-                        }`}
+                          }`}
                       >
                         <span className="text-[12px] font-bold font-body whitespace-nowrap">
                           {plan.name} · {plan.price} €
@@ -618,9 +1011,8 @@ export default function Tarifs() {
                     return (
                       <article
                         key={plan.name}
-                        className={`flex-shrink-0 w-[85vw] snap-start bg-card rounded-2xl border overflow-hidden relative ${
-                          isPopular ? "border-2 border-accent shadow-[0_8px_24px_rgba(218,11,41,0.10)]" : "border-border/50 shadow-sm"
-                        }`}
+                        className={`flex-shrink-0 w-[85vw] snap-start bg-card rounded-2xl border overflow-hidden relative ${isPopular ? "border-2 border-accent shadow-[0_8px_24px_rgba(218,11,41,0.10)]" : "border-border/50 shadow-sm"
+                          }`}
                       >
                         {isPopular && (
                           <span className="absolute top-0 right-0 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.1em] uppercase px-3 py-1.5 rounded-bl-xl">
@@ -643,7 +1035,7 @@ export default function Tarifs() {
                         <div className="px-5 pb-4 border-t border-border/20 pt-3">
                           {compareCategories.map((cat) => {
                             const includedRows = cat.rows.filter(
-                              (row) => row.values[pi] !== "Hors forfait" && row.values[pi] !== "À la demande"
+                              (row) => row.values[pi] !== "À la demande" && row.values[pi] !== "Non incluse"
                             );
                             if (includedRows.length === 0) return null;
                             return (
@@ -681,29 +1073,12 @@ export default function Tarifs() {
                   {plans.map((_, i) => (
                     <span
                       key={i}
-                      className={`h-[5px] rounded-full transition-all duration-300 ${
-                        activeMobileCard === i ? "w-5 bg-primary" : "w-[5px] bg-border"
-                      }`}
+                      className={`h-[5px] rounded-full transition-all duration-300 ${activeMobileCard === i ? "w-5 bg-primary" : "w-[5px] bg-border"
+                        }`}
                     />
                   ))}
                 </div>
 
-                {/* Sticky bottom bar */}
-                <div className="sticky bottom-0 z-30 flex gap-3 bg-card/98 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] -mx-5 px-4 py-3">
-                  {/* <button
-                    onClick={() => setShowCompareSheet(true)}
-                    className="flex-shrink-0 bg-secondary text-foreground rounded-xl p-3"
-                    aria-label="Comparatif détaillé"
-                  >
-                    <SlidersHorizontal size={18} strokeWidth={2} />
-                  </button> */}
-                  <Link
-                    to={`/contact/?forfait=${encodeURIComponent(plans[activeMobileCard].name)}`}
-                    className="flex-1 bg-accent text-accent-foreground font-bold rounded-xl py-3 text-center text-[14px] shadow-sm"
-                  >
-                    Choisir {plans[activeMobileCard].name}
-                  </Link>
-                </div>
               </div>
 
               {/* ── Mobile comparison sheet (modal) ── */}
@@ -771,7 +1146,7 @@ export default function Tarifs() {
                       ))}
                       {/* Légende */}
                       <p className="text-center text-[12px] text-muted-foreground font-body pt-2">
-                        <strong className="text-accent">Hors forfait</strong> = 150 € HTVA / heure
+                        <strong className="text-amber-700">À la demande</strong> = 150 € HTVA / heure
                       </p>
                     </div>
                   </div>
@@ -781,7 +1156,7 @@ export default function Tarifs() {
 
             <div data-anim="fade-up" data-delay="0.4">
               <p className="text-center mt-3 text-[13px] text-muted-foreground font-body">
-                <strong className="text-accent not-italic">Hors forfait</strong> = prestations facturées à <strong className="text-foreground not-italic">150 € HTVA / heure</strong>, disponibles à la demande pour aller plus loin.
+                <strong className="text-amber-700 not-italic">À la demande</strong> = prestations facturées à <strong className="text-foreground not-italic">150 € HTVA / heure</strong>, disponibles sur demande pour aller plus loin.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Les structures non assujetties à la TVA (ASBL, certaines professions médicales) bénéficient d'une <strong className="text-foreground not-italic">réduction de 21 %</strong>.
@@ -793,121 +1168,7 @@ export default function Tarifs() {
           </div>
         </section>
 
-        {/* ── SECTION 2 — Détail forfaits (3 cards) ── */}
-        <section className="py-10 md:py-14 relative overflow-hidden bg-secondary/50">
-          <span
-            aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
-            className="absolute inset-x-0 top-12 text-center font-display italic font-bold text-[140px] md:text-[240px] leading-none text-primary/[0.03] pointer-events-none select-none whitespace-nowrap"
-          >
-            Choisir
-          </span>
-
-          <div className="container-mf relative">
-            <div className="max-w-[820px] mx-auto text-center mb-14">
-              <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 02</span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Détail</span>
-              </div>
-              <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
-                Quel forfait est fait pour vous ?
-              </h2>
-              <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
-                Quatre niveaux d'accompagnement, pensés pour suivre la trajectoire de votre entreprise.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-8" data-anim="stagger" data-stagger="0.1">
-              {(() => {
-                const basicPlan = plans.find((p) => p.name === "Basic")!;
-                const topPlans = plans.filter((p) => p.name !== "Basic");
-                const topMeta = [
-                  { height: "min-h-[380px] md:min-h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
-                 { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },            
-                  { height: "min-h-[500px] md:min-h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
-                ];
-                return (
-                  <>
-                    {/* Stepped upper cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-5 md:gap-6">
-                      {topPlans.map((plan, i) => {
-                        const meta = topMeta[i];
-                        const isPopular = plan.popular;
-                        return (
-                          <div key={plan.name} className={`relative ${meta.scale}`}>
-                            {isPopular && (
-                              <span className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.15em] px-3 py-1 rounded-full shadow-md">
-                                POPULAIRE
-                              </span>
-                            )}
-                            <div
-                              className={`bg-card border-2 border-border/50 rounded-3xl ${meta.padding} shadow-xl flex flex-col transition-all duration-300 hover:border-accent hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] ${meta.height} overflow-hidden`}
-                            >
-                              <div className="flex-1">
-                                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-2 block">
-                                  {plan.name}
-                                </span>
-                                <div className={`flex items-baseline gap-1.5 mb-2 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight`}>
-                                  {plan.price}€
-                                  <span className="text-[13px] font-body text-muted-foreground">/mois HTVA</span>
-                                </div>
-                                <p className="text-accent text-[13px] italic font-body mb-5">: {plan.tagline}</p>
-                                <hr className="border-border/40 mb-5" />
-                                <p className={`${meta.textSize} leading-[1.75] font-body text-muted-foreground flex-1`}>
-                                  {plan.desc}
-                                </p>
-                              </div>
-                              <Link
-                                to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
-                                className="mt-7 whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px] text-center"
-                              >
-                                Choisir {plan.name}
-                              </Link>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Basic bar */}
-                    <div className="relative group">
-                      <div className="relative bg-background rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border border-border/60">
-                        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
-                          <div className="text-center md:text-left">
-                            <span className="text-accent font-black text-[10px] uppercase tracking-[0.2em] block mb-1">Basic</span>
-                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-3xl md:text-4xl">
-                              {basicPlan.price}€
-                              <span className="text-[12px] font-body text-muted-foreground">/mois HTVA</span>
-                            </div>
-                          </div>
-                          <div className="max-w-xl text-center md:text-left">
-                            <p className="text-foreground/80 text-[13px] md:text-[14px] leading-relaxed font-body">
-                              {basicPlan.desc}
-                            </p>
-                          </div>
-                        </div>
-                        <Link
-                          to="/contact/?forfait=Basic"
-                          className="whitespace-nowrap bg-accent text-accent-foreground font-bold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors duration-300 shadow-lg text-[14px]"
-                        >
-                          Choisir Basic
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
-
-            <p className="text-center mt-8 text-[13px] text-muted-foreground font-body" data-anim="fade-up" data-delay="0.4">
-              Votre société est en veille ?{" "}
-              <Link to="/societe-en-veille/" className="text-accent font-semibold hover:underline">
-                Découvrez notre formule dédiée
-              </Link>.
-            </p>
-          </div>
-        </section>
-
-        {/* ── SECTION 3 — DAF option (split card éditorial) ── */}
+        {/* ── SECTION 5 — DAF option (split card éditorial) ── */}
         <section className="py-10 md:py-14 relative overflow-hidden">
           <div className="container-mf">
             <div data-anim="fade-up" className="relative rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)] border border-primary-foreground/10">
@@ -922,26 +1183,30 @@ export default function Tarifs() {
 
               <div className="relative grid md:grid-cols-[1fr_1.3fr] gap-0">
                 {/* Colonne gauche — visuel + badge */}
-                <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-primary-foreground/10 flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 mb-5">
+                <div className="p-5 md:p-12 border-b md:border-b-0 md:border-r border-primary-foreground/10 flex md:flex-col items-center md:items-start gap-4 md:gap-0 md:justify-center">
+                  <div className="hidden md:inline-flex items-center gap-2 mb-5">
                     <Sparkles size={14} className="text-accent" strokeWidth={1.5} />
                     <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Option Excellence</span>
                   </div>
-                  <div className="w-16 h-16 rounded-2xl bg-accent/15 ring-1 ring-accent/30 flex items-center justify-center mb-6">
-                    <Users size={28} className="text-accent" strokeWidth={1.5} />
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-accent/15 ring-1 ring-accent/30 flex items-center justify-center md:mb-6 flex-shrink-0">
+                    <Users size={22} className="text-accent md:hidden" strokeWidth={1.5} />
+                    <Users size={28} className="text-accent hidden md:block" strokeWidth={1.5} />
                   </div>
-                  <span className="font-display text-[44px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
-                    150€
-                  </span>
-                  <span className="text-primary-foreground/60 text-[13px] font-body mt-1">HTVA / heure</span>
+                  <div>
+                    <span className="md:hidden font-body text-[10px] font-bold tracking-[0.2em] uppercase text-accent block mb-1">Option Excellence</span>
+                    <span className="font-display text-[32px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
+                      150€
+                    </span>
+                    <span className="text-primary-foreground/60 text-[12px] md:text-[13px] font-body mt-0.5 block">HTVA / heure</span>
+                  </div>
                 </div>
 
                 {/* Colonne droite — narration */}
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <h2 className="font-display text-[26px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
+                <div className="p-5 md:p-12 flex flex-col justify-center">
+                  <h2 className="font-display text-[22px] md:text-[36px] text-primary-foreground leading-[1.15] tracking-tight">
                     Le DAF à temps partiel : <span className="italic font-light text-accent">au plus près de vos décisions</span>
                   </h2>
-                  <p className="text-primary-foreground/75 text-[15px] leading-[1.8] mt-5 font-body">
+                  <p className="text-primary-foreground/75 text-[14px] md:text-[15px] leading-[1.7] md:leading-[1.8] mt-4 md:mt-5 font-body">
                     Réservé exclusivement aux clients <strong className="text-primary-foreground">Excellence</strong>. Réunion mensuelle de pilotage, disponibilité ad hoc lors des moments critiques, vision stratégique partagée : comme un directeur financier interne, sans le coût fixe.
                   </p>
                   <div>
@@ -962,7 +1227,7 @@ export default function Tarifs() {
           </div>
         </section>
 
-        {/* ── SECTION 4 — Missions ponctuelles ── */}
+        {/* ── SECTION 6 — Missions ponctuelles ── */}
         <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub"
@@ -974,7 +1239,7 @@ export default function Tarifs() {
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5 border-l-2 border-accent pl-4">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 03</span>
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 05</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Au-delà des forfaits</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
@@ -1051,7 +1316,7 @@ export default function Tarifs() {
           </div>
         </section>
 
-        {/* ── SECTION 5 — Comment ça se passe ── */}
+        {/* ── SECTION 7 — Comment ça se passe ── */}
         <section className="py-10 md:py-14 relative overflow-hidden">
           <span
             aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right"
@@ -1063,7 +1328,7 @@ export default function Tarifs() {
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 04</span>
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 06</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Démarrage</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-[1.05]" data-anim="split">
