@@ -92,11 +92,11 @@ const compareCategories = [
   },
   {
     num: "V",
-    title: "",
-    color: "hsla(0, 0%, 50%, 0.08)",
-    barColor: "hsla(0, 0%, 50%, 0.5)",
+    title: "Relation\nclient",
+    color: "hsla(270, 40%, 50%, 0.08)",
+    barColor: "hsla(270, 40%, 50%, 0.5)",
     rows: [
-      { label: "Mode d'accompagnement", values: ["À la demande", "Inclus", "Régulier", "Proactif"] },
+      { label: "Mode de suivi", values: ["À la demande", "Inclus", "Régulier", "Proactif"] },
     ],
   },
 ];
@@ -662,19 +662,61 @@ export default function Tarifs() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-8" data-anim="stagger" data-stagger="0.1">
+            {/* ── Mobile: 4 cards in order (Basic first) ── */}
+            <div className="md:hidden flex flex-col gap-5" data-anim="stagger" data-stagger="0.1">
+              {plans.map((plan) => {
+                const isPopular = (plan as typeof plans[number] & { popular?: boolean }).popular;
+                return (
+                  <article
+                    key={plan.name}
+                    className={`bg-card rounded-3xl p-6 shadow-[0_12px_28px_rgba(31,48,96,0.07)] relative flex flex-col ${
+                      isPopular ? "border-2 border-accent shadow-[0_18px_38px_rgba(239,43,45,0.10)]" : "border border-border/60"
+                    }`}
+                  >
+                    {isPopular && (
+                      <span className="absolute -top-3 right-4 bg-accent text-accent-foreground rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.13em] uppercase">
+                        Populaire
+                      </span>
+                    )}
+                    <span className="font-body text-[11px] font-bold tracking-[0.13em] uppercase text-accent mb-2 block">{plan.profile}</span>
+                    <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-1">{plan.name}</h3>
+                    <p className="text-accent text-[13px] italic font-body mb-3">{plan.tagline}</p>
+                    <div className="flex items-baseline gap-1.5 mb-4 font-display font-bold text-primary text-[32px] leading-none tracking-tight">
+                      {plan.price}€
+                      <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                    </div>
+                    <p className="text-[14px] leading-[1.75] font-body text-muted-foreground mb-4">{plan.desc}</p>
+                    <hr className="border-border/60" />
+                    <div className="mt-auto pt-4">
+                      <p className="text-primary text-[12px] font-bold font-body mb-4">{plan.mode}</p>
+                      <Link
+                        to={`/contact/?forfait=${encodeURIComponent(plan.name)}`}
+                        className={`block whitespace-nowrap font-bold px-6 py-3 rounded-full transition-colors duration-300 shadow-lg text-[14px] text-center ${
+                          isPopular ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
+                        }`}
+                      >
+                        Choisir {plan.name}
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* ── Desktop: stepped cards (Essentiel/Premium/Excellence) + Basic bar ── */}
+            <div className="hidden md:flex flex-col gap-8" data-anim="stagger" data-stagger="0.1">
               {(() => {
                 const basicPlan = plans.find((p) => p.name === "Basic")!;
                 const topPlans = plans.filter((p) => p.name !== "Basic");
                 const topMeta = [
-                  { height: "min-h-[380px] md:min-h-[400px]", padding: "p-7 md:p-8", priceSize: "text-3xl md:text-[44px]", textSize: "text-[14px]", scale: "" },
-                  { height: "min-h-[440px] md:min-h-[500px]", padding: "p-8 md:p-10", priceSize: "text-4xl md:text-[56px]", textSize: "text-[15px] md:text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },
-                  { height: "min-h-[500px] md:min-h-[600px]", padding: "p-9 md:p-12", priceSize: "text-5xl md:text-[68px]", textSize: "text-[16px] md:text-[19px]", scale: "" },
+                  { height: "min-h-[400px]", padding: "p-8", priceSize: "text-[44px]", textSize: "text-[14px]", scale: "" },
+                  { height: "min-h-[500px]", padding: "p-10", priceSize: "text-[56px]", textSize: "text-[17px]", scale: "md:scale-105 md:origin-bottom z-10" },
+                  { height: "min-h-[600px]", padding: "p-12", priceSize: "text-[68px]", textSize: "text-[19px]", scale: "" },
                 ];
                 return (
                   <>
                     {/* Stepped upper cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-5 md:gap-6">
+                    <div className="grid grid-cols-3 items-end gap-6">
                       {topPlans.map((plan, i) => {
                         const meta = topMeta[i];
                         const isPopular = plan.popular;
@@ -692,7 +734,7 @@ export default function Tarifs() {
                                 <span className="font-body text-[11px] font-bold tracking-[0.13em] uppercase text-accent mb-3 block">
                                   {plan.profile}
                                 </span>
-                                <h3 className="font-display text-[32px] md:text-[38px] leading-none font-bold text-primary mb-1.5">
+                                <h3 className="font-display text-[38px] leading-none font-bold text-primary mb-1.5">
                                   {plan.name}
                                 </h3>
                                 <p className="text-accent text-[14px] italic font-body mb-4">{plan.tagline}</p>
@@ -724,19 +766,19 @@ export default function Tarifs() {
 
                     {/* Basic bar */}
                     <div className="relative group">
-                      <div className="relative bg-background rounded-2xl p-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border border-border/60">
-                        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-12 flex-1">
-                          <div className="text-center md:text-left">
+                      <div className="relative bg-background rounded-2xl px-10 py-8 flex flex-row items-center justify-between gap-6 shadow-lg border border-border/60">
+                        <div className="flex flex-row items-center gap-8 lg:gap-12 flex-1">
+                          <div className="text-left">
                             <span className="text-accent font-bold text-[11px] uppercase tracking-[0.13em] block mb-1">{basicPlan.profile}</span>
-                            <span className="font-display text-[28px] md:text-[32px] font-bold text-primary leading-none block">{basicPlan.name}</span>
+                            <span className="font-display text-[32px] font-bold text-primary leading-none block">{basicPlan.name}</span>
                             <p className="text-accent text-[13px] italic font-body mt-1">{basicPlan.tagline}</p>
-                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-3xl md:text-4xl mt-2">
+                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-4xl mt-2">
                               {basicPlan.price}€
                               <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
                             </div>
                           </div>
-                          <div className="max-w-xl text-center md:text-left">
-                            <p className="text-foreground/80 text-[13px] md:text-[14px] leading-relaxed font-body mb-2">
+                          <div className="max-w-xl text-left">
+                            <p className="text-foreground/80 text-[14px] leading-relaxed font-body mb-2">
                               {basicPlan.desc}
                             </p>
                             <p className="text-primary text-[12px] font-bold font-body">{basicPlan.mode}</p>
