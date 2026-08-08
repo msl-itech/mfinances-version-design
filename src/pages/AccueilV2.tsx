@@ -805,10 +805,13 @@ export default function AccueilV2() {
 
             <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
               <div className="relative min-h-[420px] lg:min-h-[520px] overflow-hidden" data-anim="clip-reveal" data-clip-direction="left">
-                <img
-                  src={mikaPhoto}
+                <ResponsiveImage
+                  src={mikaPhoto720}
+                  srcLarge={mikaPhoto}
+                  displayWidth={480}
                   alt="Mika Musungayi"
                   className="absolute inset-0 w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-primary/40" />
                 <div className="absolute bottom-6 left-6 right-6">
