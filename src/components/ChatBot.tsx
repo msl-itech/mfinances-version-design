@@ -741,10 +741,12 @@ export default function ChatBot() {
                 />
                 <button
                   type="submit"
+                  aria-label="Envoyer le message"
+                  title="Envoyer le message"
                   disabled={!input.trim() || isLoading}
                   className="w-9 h-9 rounded-full bg-accent text-accent-foreground flex items-center justify-center disabled:opacity-40 hover:brightness-105 transition-all"
                 >
-                  <Send size={15} />
+                  <Send size={15} aria-hidden="true" />
                 </button>
               </form>
             )}
