@@ -137,11 +137,11 @@ const steps = [
 
 // V1 — AudienceSection
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, tag: "Démarrage" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain" },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, tag: "Libéral" },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, tag: "Scale-up" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, tag: "Immobilier" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, imageSmall: audIndependants400, tag: "Démarrage" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, imageSmall: audHoreca400, tag: "Terrain" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, imageSmall: audSante400, tag: "Libéral" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, imageSmall: audCroissance400, tag: "Scale-up" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, imageSmall: audPromoteurs400, tag: "Immobilier" },
 ];
 
 // V1 — PricingSection
