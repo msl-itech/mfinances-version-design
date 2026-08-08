@@ -9,7 +9,7 @@ interface SEOHeadProps {
   schemaJson?: object | object[];
 }
 
-const DEFAULT_OG_IMAGE = "https://mfinances.be/og-default.png";
+const DEFAULT_OG_IMAGE = "https://mfinances.be/og-default.webp";
 
 export default function SEOHead({
   title,
