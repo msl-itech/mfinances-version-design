@@ -19,6 +19,7 @@ const services = [
     desc: "Tableaux de bord, indicateurs clés, suivi mensuel. Vous savez exactement où en est votre entreprise.",
     href: "/services/controle-de-gestion/",
     image: imgControle,
+    imageSmall: imgControle400,
     tag: "Pilotage",
   },
   {
@@ -28,6 +29,7 @@ const services = [
     desc: "Un Directeur Administratif et Financier à temps partiel. Vos décisions financières sont enfin éclairées.",
     href: "/services/daf-externalise/",
     image: imgDaf,
+    imageSmall: imgDaf400,
     tag: "Stratégie",
   },
   {
@@ -37,6 +39,7 @@ const services = [
     desc: "Un prévisionnel actualisé chaque mois. Vous voyez les tensions 3 mois à l'avance.",
     href: "/services/tresorerie/",
     image: imgTresorerie,
+    imageSmall: imgTresorerie400,
     tag: "Anticipation",
   },
 ];
