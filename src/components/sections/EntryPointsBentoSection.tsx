@@ -145,8 +145,11 @@ export default function EntryPointsBentoSection() {
             data-delay="0.15"
           >
             <div className="relative h-44 md:h-40 overflow-hidden shrink-0">
-              <img
+              <ResponsiveImage
                 src={rdvImg}
+                srcSmall={rdvImg400}
+                srcLarge={rdvImg}
+                displayWidth={400}
                 alt="Mika MFinances"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={{ objectPosition: "center 22%" }}
