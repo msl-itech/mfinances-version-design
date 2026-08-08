@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/tresorerie-hero.webp";
+import imgHero400 from "@/assets/tresorerie-hero-400.webp";
 import imgOdoo from "@/assets/tresorerie-odoo.webp";
 
 import Header from "@/components/Header";
