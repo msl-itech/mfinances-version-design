@@ -335,10 +335,15 @@ export default function AccueilV2() {
 
               {/* --- Colonne droite : image avec fondu --- */}
               <div className="relative min-h-[320px] lg:min-h-0">
-                <img
+                <ResponsiveImage
                   src={equipePhoto}
+                  srcSmall={equipePhoto400}
+                  srcLarge={equipePhoto}
+                  displayWidth={600}
                   alt="Équipe MFinances en réunion"
                   className="absolute inset-0 w-full h-full object-cover object-center"
+                  loading="eager"
+                  fetchPriority="high"
                 />
                 {/* Fondu artistique gauche — transition très douce sur 60% */}
                 <div
