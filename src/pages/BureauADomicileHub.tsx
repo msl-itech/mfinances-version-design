@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { createBreadcrumbSchema, createFaqSchema } from "@/lib/seo-schemas";
 
-import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.webp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 

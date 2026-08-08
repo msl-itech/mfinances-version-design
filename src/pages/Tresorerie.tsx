@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/tresorerie-hero.jpg";
-import imgOdoo from "@/assets/tresorerie-odoo.jpg";
+import imgHero from "@/assets/tresorerie-hero.webp";
+import imgHero400 from "@/assets/tresorerie-hero-400.webp";
+import imgOdoo from "@/assets/tresorerie-odoo.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -132,6 +133,7 @@ export default function Tresorerie() {
           description="Un prévisionnel actualisé chaque mois sur vos données réelles Odoo. Vous voyez les tensions 3 mois à l'avance et avez le temps de réagir, plutôt que de subir."
           pills={["Forfait Excellence", "Mise à jour mensuelle", "Synchro Odoo"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Prévisionnel de trésorerie sur écran — MFinances"
           plaque="N°03 / Trésorerie"
           cardTitlePrefix="Le cash,"

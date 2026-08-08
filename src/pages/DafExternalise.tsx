@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/daf-hero.jpg";
-import imgDashboard from "@/assets/daf-dashboard.jpg";
+import imgHero from "@/assets/daf-hero.webp";
+import imgHero400 from "@/assets/daf-hero-400.webp";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import imgDashboard from "@/assets/daf-dashboard.webp";
+import imgDashboard400 from "@/assets/daf-dashboard-400.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -145,6 +148,7 @@ export default function DafExternalise() {
           description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
           pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Réunion de pilotage financier avec un DAF externalisé MFinances"
           plaque="N°01 / Pilotage stratégique"
           cardTitlePrefix="Copilote"
@@ -229,8 +233,11 @@ export default function DafExternalise() {
                   Un DAF externalisé ne remplace pas votre comptable. <span className="italic text-accent">Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.</span>
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
-                  <img
+                  <ResponsiveImage
                     src={imgDashboard}
+                    srcSmall={imgDashboard400}
+                    srcLarge={imgDashboard}
+                    displayWidth={600}
                     alt="Tableau de bord financier personnalisé"
                     className="w-full h-[260px] object-cover"
                     loading="lazy"

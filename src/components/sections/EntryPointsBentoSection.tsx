@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { FileText, Activity, Calendar, ArrowUpRight } from "lucide-react";
-import checklistImg from "@/assets/service-tresorerie.jpg";
-import diagnosticImg from "@/assets/daf-dashboard.jpg";
-import rdvImg from "@/assets/mika-contact.png";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import checklistImg from "@/assets/service-tresorerie.webp";
+import checklistImg400 from "@/assets/service-tresorerie-400.webp";
+import diagnosticImg from "@/assets/daf-dashboard.webp";
+import diagnosticImg400 from "@/assets/daf-dashboard-400.webp";
+import rdvImg from "@/assets/mika-contact.webp";
+import rdvImg400 from "@/assets/mika-contact-400.webp";
 
 export default function EntryPointsBentoSection() {
   return (
@@ -42,8 +46,11 @@ export default function EntryPointsBentoSection() {
             data-anim="fade-up"
           >
             <div className="relative h-32 md:h-28 overflow-hidden shrink-0">
-              <img
+              <ResponsiveImage
                 src={checklistImg}
+                srcSmall={checklistImg400}
+                srcLarge={checklistImg}
+                displayWidth={400}
                 alt="Checklist trésorerie"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
@@ -82,8 +89,11 @@ export default function EntryPointsBentoSection() {
             data-delay="0.1"
           >
             <div className="relative flex-1 overflow-hidden">
-              <img
+              <ResponsiveImage
                 src={diagnosticImg}
+                srcSmall={diagnosticImg400}
+                srcLarge={diagnosticImg}
+                displayWidth={400}
                 alt="Diagnostic trésorerie"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
@@ -135,8 +145,11 @@ export default function EntryPointsBentoSection() {
             data-delay="0.15"
           >
             <div className="relative h-44 md:h-40 overflow-hidden shrink-0">
-              <img
+              <ResponsiveImage
                 src={rdvImg}
+                srcSmall={rdvImg400}
+                srcLarge={rdvImg}
+                displayWidth={400}
                 alt="Mika MFinances"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={{ objectPosition: "center 22%" }}

@@ -3,9 +3,13 @@ import { BarChart2, Briefcase, TrendingUp, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import MobileCarousel from "@/components/MobileCarousel";
-import imgControle from "@/assets/service-controle-gestion.jpg";
-import imgDaf from "@/assets/service-daf-externalise.jpg";
-import imgTresorerie from "@/assets/service-tresorerie.jpg";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import imgControle from "@/assets/service-controle-gestion.webp";
+import imgControle400 from "@/assets/service-controle-gestion-400.webp";
+import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
+import imgTresorerie from "@/assets/service-tresorerie.webp";
+import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
 
 const services = [
   {
@@ -15,6 +19,7 @@ const services = [
     desc: "Tableaux de bord, indicateurs clés, suivi mensuel. Vous savez exactement où en est votre entreprise.",
     href: "/services/controle-de-gestion/",
     image: imgControle,
+    imageSmall: imgControle400,
     tag: "Pilotage",
   },
   {
@@ -24,6 +29,7 @@ const services = [
     desc: "Un Directeur Administratif et Financier à temps partiel. Vos décisions financières sont enfin éclairées.",
     href: "/services/daf-externalise/",
     image: imgDaf,
+    imageSmall: imgDaf400,
     tag: "Stratégie",
   },
   {
@@ -33,6 +39,7 @@ const services = [
     desc: "Un prévisionnel actualisé chaque mois. Vous voyez les tensions 3 mois à l'avance.",
     href: "/services/tresorerie/",
     image: imgTresorerie,
+    imageSmall: imgTresorerie400,
     tag: "Anticipation",
   },
 ];
@@ -45,8 +52,11 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       className="group relative bg-card rounded-3xl overflow-hidden border border-border/40 h-full flex flex-col transition-all duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.14)] hover:border-primary/20"
     >
       <div className="relative h-52 md:h-60 overflow-hidden">
-        <img
+        <ResponsiveImage
           src={s.image}
+          srcSmall={s.imageSmall}
+          srcLarge={s.image}
+          displayWidth={600}
           alt={s.title}
           className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
           loading="lazy"

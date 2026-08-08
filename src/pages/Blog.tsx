@@ -18,11 +18,11 @@ import { Input } from "@/components/ui/input";
 import { blogArticles } from "@/data/blog-data";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
-import heroTresorerie from "@/assets/blog/hero-tresorerie.jpg";
-import heroDaf from "@/assets/blog/hero-daf-externalise.jpg";
-import heroControle from "@/assets/blog/hero-controle-gestion.jpg";
-import heroFiscalite from "@/assets/blog/hero-fiscalite.jpg";
-import heroCreation from "@/assets/blog/hero-creation-societe.jpg";
+import heroTresorerie from "@/assets/blog/hero-tresorerie.webp";
+import heroDaf from "@/assets/blog/hero-daf-externalise.webp";
+import heroControle from "@/assets/blog/hero-controle-gestion.webp";
+import heroFiscalite from "@/assets/blog/hero-fiscalite.webp";
+import heroCreation from "@/assets/blog/hero-creation-societe.webp";
 
 
 const breadcrumbJsonLd = {

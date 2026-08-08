@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/fiscalite-hero.jpg";
-import imgLeviers from "@/assets/fiscalite-leviers.jpg";
+import imgHero from "@/assets/fiscalite-hero.webp";
+import imgHero400 from "@/assets/fiscalite-hero-400.webp";
+import imgLeviers from "@/assets/fiscalite-leviers.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -116,6 +117,7 @@ export default function Fiscalite() {
           disclaimer="Toute optimisation est réalisée dans le strict respect du cadre légal après analyse personnalisée. Les résultats varient selon les situations."
           pills={["ISOC · IPP · TVA", "Planification patrimoniale", "Préparation contrôle"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Optimisation fiscale pour dirigeants de TPE — MFinances"
           plaque="N°05 / Fiscalité"
           cardTitlePrefix="Leviers"

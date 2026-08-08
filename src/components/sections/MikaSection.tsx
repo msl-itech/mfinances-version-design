@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { Check, ArrowRight, Quote, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
 
 export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -49,8 +51,10 @@ export default function MikaSection() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] relative">
             {/* Left — Photo */}
             <div className="relative hidden md:block min-h-[420px] lg:min-h-[520px]">
-              <img
-                src={mikaPhoto}
+              <ResponsiveImage
+                src={mikaPhoto720}
+                srcLarge={mikaPhoto}
+                displayWidth={480}
                 alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                 className="absolute inset-0 w-full h-full object-cover object-top"
                 loading="lazy"

@@ -32,14 +32,20 @@ import {
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
-import equipePhoto from "@/assets/mfinances-equipe-travail.png";
-import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
-import mikaPhoto from "@/assets/mika-musungayi.png";
-import imgControle from "@/assets/service-controle-gestion.jpg";
-import imgDaf from "@/assets/service-daf-externalise.jpg";
-import imgTresorerie from "@/assets/service-tresorerie.jpg";
-import dafMeeting from "@/assets/daf-meeting-team.png";
-import financialDesk from "@/assets/financial-desk.jpg";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
+import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
+import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
+import imgControle from "@/assets/service-controle-gestion.webp";
+import imgControle400 from "@/assets/service-controle-gestion-400.webp";
+import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
+import imgTresorerie from "@/assets/service-tresorerie.webp";
+import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
+import dafMeeting from "@/assets/daf-meeting-team.webp";
+import dafMeeting400 from "@/assets/daf-meeting-team-400.webp";
+import financialDesk from "@/assets/financial-desk.webp";
 import audIndependants from "@/assets/audience-independants.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
 import audSante from "@/assets/audience-sante.webp";
@@ -70,9 +76,9 @@ const services = [
 ];
 
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon.", image: imgControle },
-  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: imgDaf },
-  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresorerie },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon.", image: imgControle, imageSmall: imgControle400 },
+  { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: imgDaf, imageSmall: imgDaf400 },
+  { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresorerie, imageSmall: imgTresorerie400 },
 ];
 
 const audiences = [
@@ -170,8 +176,11 @@ export default function AccueilV3() {
         <section className="relative">
           <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
             {/* Image équipe en arrière-plan, désaturée */}
-            <img
+            <ResponsiveImage
               src={equipePhoto}
+              srcSmall={equipePhoto400}
+              srcLarge={equipePhoto}
+              displayWidth={1280}
               alt="Équipe MFinances en réunion"
               className="absolute inset-0 w-full h-full object-cover object-center md:object-top opacity-55 grayscale"
             />
@@ -541,8 +550,11 @@ export default function AccueilV3() {
                       data-anim="clip-reveal"
                       data-clip-direction={i % 2 === 0 ? "up" : "down"}
                     >
-                      <img
+                      <ResponsiveImage
                         src={s.image}
+                        srcSmall={s.imageSmall}
+                        srcLarge={s.image}
+                        displayWidth={400}
                         alt={s.title}
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.05]"
@@ -775,10 +787,12 @@ export default function AccueilV3() {
                   <div className="absolute -top-5 -left-5 w-2/3 h-2/3 bg-accent/10 rounded-3xl" aria-hidden="true" />
                   <div className="absolute -bottom-5 -right-5 w-1/2 h-1/2 border-2 border-primary/15 rounded-3xl" aria-hidden="true" />
                   <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(27,43,94,0.18)]" data-anim="clip-reveal" data-clip-direction="left">
-                    <img
-                      src={mikaPhoto}
+                    <ResponsiveImage
+                      src={mikaPhoto720}
+                      srcLarge={mikaPhoto}
+                      displayWidth={460}
                       alt="Mika Musungayi — fondateur de MFinances"
-                      loading="lazy"
+                      fetchPriority="high"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>

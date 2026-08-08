@@ -9,7 +9,9 @@ import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import mikaPhoto from "@/assets/mika-contact.png";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import mikaPhoto from "@/assets/mika-contact.webp";
+import mikaPhoto400 from "@/assets/mika-contact-400.webp";
 import {
   Phone,
   Mail,
@@ -507,10 +509,14 @@ export default function Contact() {
                     Mika
                   </span>
                   <div className="relative overflow-hidden">
-                    <img
+                    <ResponsiveImage
                       src={mikaPhoto}
+                      srcSmall={mikaPhoto400}
+                      srcLarge={mikaPhoto}
+                      displayWidth={340}
                       alt="Mika MUSUNGAYI, fondateur MFinances"
                       className="w-full h-[320px] object-cover object-top"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
                     <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-3 py-1.5">

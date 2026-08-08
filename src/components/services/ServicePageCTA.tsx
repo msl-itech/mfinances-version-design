@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import imgMeeting from "@/assets/daf-meeting-team.png";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import imgMeeting from "@/assets/daf-meeting-team.webp";
+import imgMeeting400 from "@/assets/daf-meeting-team-400.webp";
 
 export interface ServicePageCTAProps {
   /** Title — split for italic accent */
@@ -34,10 +36,14 @@ export default function ServicePageCTA({
 }: ServicePageCTAProps) {
   return (
     <section className="relative bg-primary py-10 md:py-32 overflow-hidden">
-      <img
+      <ResponsiveImage
         src={bgImage || imgMeeting}
+        srcSmall={imgMeeting400}
+        srcLarge={bgImage || imgMeeting}
+        displayWidth={1280}
         alt={bgImageAlt}
         className="absolute inset-0 w-full h-full object-cover opacity-[0.12]"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/85 to-primary" />
 

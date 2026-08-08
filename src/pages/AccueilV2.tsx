@@ -39,18 +39,31 @@ import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
-import equipePhoto from "@/assets/mfinances-equipe-travail.png";
-import equipeSourire from "@/assets/mfinances-equipe-sourire.jpg";
-import mikaPhoto from "@/assets/mika-musungayi.png";
-import imgControle from "@/assets/service-controle-gestion.jpg";
-import imgDaf from "@/assets/service-daf-externalise.jpg";
-import imgTresorerie from "@/assets/service-tresorerie.jpg";
-import dafMeeting from "@/assets/daf-meeting-team.png";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
+import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
+import equipeSourire from "@/assets/mfinances-equipe-sourire.webp";
+import equipeSourire400 from "@/assets/mfinances-equipe-sourire-400.webp";
+import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
+import imgControle from "@/assets/service-controle-gestion.webp";
+import imgControle400 from "@/assets/service-controle-gestion-400.webp";
+import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
+import imgTresorerie from "@/assets/service-tresorerie.webp";
+import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
+import dafMeeting from "@/assets/daf-meeting-team.webp";
+import dafMeeting400 from "@/assets/daf-meeting-team-400.webp";
 import audIndependants from "@/assets/audience-independants.webp";
+import audIndependants400 from "@/assets/audience-independants-400.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
+import audHoreca400 from "@/assets/audience-commerce-horeca-400.webp";
 import audSante from "@/assets/audience-sante.webp";
+import audSante400 from "@/assets/audience-sante-400.webp";
 import audCroissance from "@/assets/audience-croissance.webp";
+import audCroissance400 from "@/assets/audience-croissance-400.webp";
 import audPromoteurs from "@/assets/audience-promoteurs.webp";
+import audPromoteurs400 from "@/assets/audience-promoteurs-400.webp";
 
 /* ============================================================
    DATA : texts copied verbatim from the V1 homepage sections
@@ -90,6 +103,7 @@ const services = [
     desc: "Tableaux de bord, indicateurs clés, suivi mensuel. Vous savez exactement où en est votre entreprise.",
     href: "/services/controle-de-gestion/",
     image: imgControle,
+    imageSmall: imgControle400,
     tag: "Pilotage",
   },
   {
@@ -99,6 +113,7 @@ const services = [
     desc: "Un Directeur Administratif et Financier à temps partiel. Vos décisions financières sont enfin éclairées.",
     href: "/services/daf-externalise/",
     image: imgDaf,
+    imageSmall: imgDaf400,
     tag: "Stratégie",
   },
   {
@@ -108,6 +123,7 @@ const services = [
     desc: "Un prévisionnel actualisé chaque mois. Vous voyez les tensions 3 mois à l'avance.",
     href: "/services/tresorerie/",
     image: imgTresorerie,
+    imageSmall: imgTresorerie400,
     tag: "Anticipation",
   },
 ];
@@ -121,11 +137,11 @@ const steps = [
 
 // V1 — AudienceSection
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, tag: "Démarrage" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, tag: "Terrain" },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, tag: "Libéral" },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, tag: "Scale-up" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, tag: "Immobilier" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, imageSmall: audIndependants400, tag: "Démarrage" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, imageSmall: audHoreca400, tag: "Terrain" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, imageSmall: audSante400, tag: "Libéral" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, imageSmall: audCroissance400, tag: "Scale-up" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, imageSmall: audPromoteurs400, tag: "Immobilier" },
 ];
 
 // V1 — PricingSection
@@ -319,10 +335,15 @@ export default function AccueilV2() {
 
               {/* --- Colonne droite : image avec fondu --- */}
               <div className="relative min-h-[320px] lg:min-h-0">
-                <img
+                <ResponsiveImage
                   src={equipePhoto}
+                  srcSmall={equipePhoto400}
+                  srcLarge={equipePhoto}
+                  displayWidth={600}
                   alt="Équipe MFinances en réunion"
                   className="absolute inset-0 w-full h-full object-cover object-center"
+                  loading="eager"
+                  fetchPriority="high"
                 />
                 {/* Fondu artistique gauche — transition très douce sur 60% */}
                 <div
@@ -506,10 +527,14 @@ export default function AccueilV2() {
                     className="group bg-card cut-corner overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
                   >
                     <div className="relative h-52 overflow-hidden" data-anim="clip-reveal" data-clip-direction="up">
-                      <img
+                      <ResponsiveImage
                         src={s.image}
+                        srcSmall={s.imageSmall}
+                        srcLarge={s.image}
+                        displayWidth={600}
                         alt={s.title}
                         className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
                       <span className="absolute top-4 left-4 bg-card/90 backdrop-blur text-primary text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] uppercase">
@@ -614,8 +639,11 @@ export default function AccueilV2() {
                   data-tilt-max="7"
                   className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.22)]"
                 >
-                  <img
+                  <ResponsiveImage
                     src={a.image}
+                    srcSmall={a.imageSmall}
+                    srcLarge={a.image}
+                    displayWidth={240}
                     alt={a.label}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.12]"
@@ -777,10 +805,13 @@ export default function AccueilV2() {
 
             <div className="bg-primary rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(27,43,94,0.20)] grid grid-cols-1 lg:grid-cols-[2fr_3fr]">
               <div className="relative min-h-[420px] lg:min-h-[520px] overflow-hidden" data-anim="clip-reveal" data-clip-direction="left">
-                <img
-                  src={mikaPhoto}
+                <ResponsiveImage
+                  src={mikaPhoto720}
+                  srcLarge={mikaPhoto}
+                  displayWidth={480}
                   alt="Mika Musungayi"
                   className="absolute inset-0 w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-primary/40" />
                 <div className="absolute bottom-6 left-6 right-6">
