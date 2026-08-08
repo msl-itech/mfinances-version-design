@@ -81,4 +81,4 @@ Forfaits mensuels : Essentiel à partir de 350€ HTVA (sécuriser), Premium à 
 - [Version complète llms-full.txt](https://mfinances.be/llms-full.txt): Texte intégral des articles pour les LLMs.
 - [Blog complet](https://mfinances.be/blog/): Tous les articles classés par problématique de dirigeant.
 - [Mentions légales](https://mfinances.be/mentions-legales/): Informations légales du cabinet.
-- [Politique de confidentialité](https://mfinances.be/politique-confidentialite/): Traitement des données personnelles.
+- [Politique de confidentialité](https://mfinances.be/politique-de-confidentialite/): Traitement des données personnelles.
