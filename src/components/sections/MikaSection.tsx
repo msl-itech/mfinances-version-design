@@ -51,8 +51,10 @@ export default function MikaSection() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] relative">
             {/* Left — Photo */}
             <div className="relative hidden md:block min-h-[420px] lg:min-h-[520px]">
-              <img
-                src={mikaPhoto}
+              <ResponsiveImage
+                src={mikaPhoto720}
+                srcLarge={mikaPhoto}
+                displayWidth={480}
                 alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
                 className="absolute inset-0 w-full h-full object-cover object-top"
                 loading="lazy"
