@@ -176,8 +176,11 @@ export default function AccueilV3() {
         <section className="relative">
           <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
             {/* Image équipe en arrière-plan, désaturée */}
-            <img
+            <ResponsiveImage
               src={equipePhoto}
+              srcSmall={equipePhoto400}
+              srcLarge={equipePhoto}
+              displayWidth={1280}
               alt="Équipe MFinances en réunion"
               className="absolute inset-0 w-full h-full object-cover object-center md:object-top opacity-55 grayscale"
             />
