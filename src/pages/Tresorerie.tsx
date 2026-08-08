@@ -133,6 +133,7 @@ export default function Tresorerie() {
           description="Un prévisionnel actualisé chaque mois sur vos données réelles Odoo. Vous voyez les tensions 3 mois à l'avance et avez le temps de réagir, plutôt que de subir."
           pills={["Forfait Excellence", "Mise à jour mensuelle", "Synchro Odoo"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Prévisionnel de trésorerie sur écran — MFinances"
           plaque="N°03 / Trésorerie"
           cardTitlePrefix="Le cash,"
