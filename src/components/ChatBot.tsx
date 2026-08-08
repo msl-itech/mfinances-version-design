@@ -747,6 +747,7 @@ export default function ChatBot() {
                   className="w-9 h-9 rounded-full bg-accent text-accent-foreground flex items-center justify-center disabled:opacity-40 hover:brightness-105 transition-all"
                 >
                   <Send size={15} aria-hidden="true" />
+                  <span className="sr-only">Envoyer</span>
                 </button>
               </form>
             )}

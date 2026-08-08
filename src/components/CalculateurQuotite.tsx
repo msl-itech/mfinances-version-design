@@ -301,8 +301,8 @@ export default function CalculateurQuotite() {
                   onChange={(e) => updatePiece(piece.id, "name", e.target.value)}
                   className="h-9 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none flex-1"
                 />
-                <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[36px] min-h-[36px] flex items-center justify-center">
-                  <X size={14} />
+                <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[36px] min-h-[36px] flex items-center justify-center">
+                  <X size={14} aria-hidden="true" />
                 </button>
               </div>
 
@@ -346,8 +346,8 @@ export default function CalculateurQuotite() {
               </div>
 
               {/* Bouton supprimer (desktop) */}
-              <button onClick={() => removePiece(piece.id)} className="text-muted-foreground/30 hover:text-destructive transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <X size={14} />
+              <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground/30 hover:text-destructive transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <X size={14} aria-hidden="true" />
               </button>
             </div>
           ))}
