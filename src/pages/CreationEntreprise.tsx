@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/creation-hero.webp";
+import imgHero400 from "@/assets/creation-hero-400.webp";
 import imgSteps from "@/assets/creation-steps.webp";
 
 import Header from "@/components/Header";
@@ -110,6 +111,7 @@ export default function CreationEntreprise() {
           disclaimer="Les erreurs de départ sont les plus coûteuses : et les plus évitables."
           pills={["Plan financier", "Forme juridique", "Acte authentique"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Création d'entreprise à Bruxelles — MFinances"
           plaque="N°06 / Création"
           cardTitlePrefix="Démarrage"
