@@ -33,6 +33,8 @@ export interface ServicePageHeroProps {
   pills?: string[];
   /** Hero image src */
   image: string;
+  /** Optional smaller hero image src for responsive srcset */
+  imageSmall?: string;
   /** Hero image alt */
   imageAlt: string;
   /** Image plaque label, top-right corner of image card */
