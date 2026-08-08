@@ -52,8 +52,11 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       className="group relative bg-card rounded-3xl overflow-hidden border border-border/40 h-full flex flex-col transition-all duration-500 hover:shadow-[0_24px_60px_rgba(27,43,94,0.14)] hover:border-primary/20"
     >
       <div className="relative h-52 md:h-60 overflow-hidden">
-        <img
+        <ResponsiveImage
           src={s.image}
+          srcSmall={s.imageSmall}
+          srcLarge={s.image}
+          displayWidth={600}
           alt={s.title}
           className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
           loading="lazy"
