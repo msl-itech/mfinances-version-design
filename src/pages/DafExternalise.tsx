@@ -231,8 +231,11 @@ export default function DafExternalise() {
                   Un DAF externalisé ne remplace pas votre comptable. <span className="italic text-accent">Il vous donne une vision stratégique de vos finances pour prendre de meilleures décisions.</span>
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
-                  <img
+                  <ResponsiveImage
                     src={imgDashboard}
+                    srcSmall={imgDashboard400}
+                    srcLarge={imgDashboard}
+                    displayWidth={600}
                     alt="Tableau de bord financier personnalisé"
                     className="w-full h-[260px] object-cover"
                     loading="lazy"
