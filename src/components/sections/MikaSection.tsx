@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { Check, ArrowRight, Quote, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
 
 export default function MikaSection() {
   const { ref, isVisible } = useScrollReveal();
