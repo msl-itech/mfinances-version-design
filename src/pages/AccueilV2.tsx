@@ -639,8 +639,11 @@ export default function AccueilV2() {
                   data-tilt-max="7"
                   className="group relative rounded-3xl overflow-hidden block aspect-[3/4] md:aspect-[3/4.4] transition-shadow duration-500 shadow-[0_8px_24px_rgba(27,43,94,0.06)] hover:shadow-[0_28px_70px_rgba(27,43,94,0.22)]"
                 >
-                  <img
+                  <ResponsiveImage
                     src={a.image}
+                    srcSmall={a.imageSmall}
+                    srcLarge={a.image}
+                    displayWidth={240}
                     alt={a.label}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.12]"
