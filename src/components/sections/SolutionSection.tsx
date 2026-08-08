@@ -3,9 +3,13 @@ import { BarChart2, Briefcase, TrendingUp, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import MobileCarousel from "@/components/MobileCarousel";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import imgControle from "@/assets/service-controle-gestion.webp";
+import imgControle400 from "@/assets/service-controle-gestion-400.webp";
 import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
 import imgTresorerie from "@/assets/service-tresorerie.webp";
+import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
 
 const services = [
   {
