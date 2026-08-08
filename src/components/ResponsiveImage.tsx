@@ -13,7 +13,7 @@ interface ResponsiveImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const ResponsiveImage = forwardRef<HTMLImageElement, ResponsiveImageProps>(
-  ({ src, srcSmall, srcLarge, displayWidth, alt, loading, ...props }, ref) => {
+  ({ src, srcSmall, srcLarge, displayWidth, alt, loading, fetchPriority, ...props }, ref) => {
     const srcSet =
       srcSmall && srcLarge
         ? `${srcSmall} 1x, ${srcLarge} 2x`
@@ -31,6 +31,7 @@ export const ResponsiveImage = forwardRef<HTMLImageElement, ResponsiveImageProps
         sizes={sizes}
         alt={alt}
         loading={loading}
+        fetchPriority={fetchPriority}
         {...props}
       />
     );
@@ -38,3 +39,4 @@ export const ResponsiveImage = forwardRef<HTMLImageElement, ResponsiveImageProps
 );
 
 ResponsiveImage.displayName = "ResponsiveImage";
+
