@@ -225,10 +225,15 @@ export default function ServicePageHero({
                 <Stamp className="text-accent drop-shadow-lg" />
               </div>
               <div className="relative rounded-[28px] overflow-hidden ring-1 ring-primary-foreground/10 cut-corner">
-                <img
+                <ResponsiveImage
                   src={image}
+                  srcSmall={imageSmall || image}
+                  srcLarge={image}
+                  displayWidth={600}
                   alt={imageAlt}
                   className="w-full h-[340px] md:h-[440px] object-cover transition-transform duration-[1.4s] group-hover:scale-[1.04]"
+                  loading="eager"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/45 via-transparent to-transparent" />
                 <div className="absolute top-5 right-5 bg-primary-foreground/90 backdrop-blur-sm rounded-full px-3.5 py-1.5">
