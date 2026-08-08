@@ -550,8 +550,11 @@ export default function AccueilV3() {
                       data-anim="clip-reveal"
                       data-clip-direction={i % 2 === 0 ? "up" : "down"}
                     >
-                      <img
+                      <ResponsiveImage
                         src={s.image}
+                        srcSmall={s.imageSmall}
+                        srcLarge={s.image}
+                        displayWidth={400}
                         alt={s.title}
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.05]"
