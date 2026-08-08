@@ -148,6 +148,7 @@ export default function DafExternalise() {
           description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
           pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Réunion de pilotage financier avec un DAF externalisé MFinances"
           plaque="N°01 / Pilotage stratégique"
           cardTitlePrefix="Copilote"
