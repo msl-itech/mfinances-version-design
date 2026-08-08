@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/daf-hero.webp";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import imgDashboard from "@/assets/daf-dashboard.webp";
+import imgDashboard400 from "@/assets/daf-dashboard-400.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
