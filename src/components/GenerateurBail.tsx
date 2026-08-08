@@ -528,7 +528,7 @@ export default function GenerateurBail() {
                 <div key={m.id} className="grid grid-cols-[1fr_120px_28px] gap-2 items-center py-2 border-b border-border/30">
                   <Input value={m.designation} onChange={(e) => updateMeuble(m.id, "designation", e.target.value)} className="h-[30px] text-[12px]" placeholder="Bureau en bois chêne" />
                   <Input type="number" value={m.valeur} onChange={(e) => updateMeuble(m.id, "valeur", numVal(e.target.value))} className="h-[30px] text-[12px] text-center" placeholder="450" />
-                  <button type="button" onClick={() => removeMeuble(m.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors"><X size={14} /></button>
+                  <button type="button" aria-label="Supprimer ce meuble" onClick={() => removeMeuble(m.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors"><X size={14} aria-hidden="true" /></button>
                 </div>
               ))}
               <button type="button" onClick={addMeuble} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 hover:underline">
