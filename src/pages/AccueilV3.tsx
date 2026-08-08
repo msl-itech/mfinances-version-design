@@ -787,10 +787,12 @@ export default function AccueilV3() {
                   <div className="absolute -top-5 -left-5 w-2/3 h-2/3 bg-accent/10 rounded-3xl" aria-hidden="true" />
                   <div className="absolute -bottom-5 -right-5 w-1/2 h-1/2 border-2 border-primary/15 rounded-3xl" aria-hidden="true" />
                   <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(27,43,94,0.18)]" data-anim="clip-reveal" data-clip-direction="left">
-                    <img
-                      src={mikaPhoto}
+                    <ResponsiveImage
+                      src={mikaPhoto720}
+                      srcLarge={mikaPhoto}
+                      displayWidth={460}
                       alt="Mika Musungayi — fondateur de MFinances"
-                      loading="lazy"
+                      fetchpriority="high"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
