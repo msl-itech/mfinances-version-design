@@ -527,10 +527,14 @@ export default function AccueilV2() {
                     className="group bg-card cut-corner overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(27,43,94,0.12)] transition-shadow relative"
                   >
                     <div className="relative h-52 overflow-hidden" data-anim="clip-reveal" data-clip-direction="up">
-                      <img
+                      <ResponsiveImage
                         src={s.image}
+                        srcSmall={s.imageSmall}
+                        srcLarge={s.image}
+                        displayWidth={600}
                         alt={s.title}
                         className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
                       <span className="absolute top-4 left-4 bg-card/90 backdrop-blur text-primary text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.12em] uppercase">
