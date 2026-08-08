@@ -64,6 +64,7 @@ export default function ServicePageHero({
   disclaimer,
   pills,
   image,
+  imageSmall,
   imageAlt,
   plaque,
   cardTitlePrefix,
