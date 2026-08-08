@@ -792,7 +792,7 @@ export default function AccueilV3() {
                       srcLarge={mikaPhoto}
                       displayWidth={460}
                       alt="Mika Musungayi — fondateur de MFinances"
-                      fetchpriority="high"
+                      fetchPriority="high"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
