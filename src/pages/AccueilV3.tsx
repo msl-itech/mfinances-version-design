@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
-import ResponsiveImage from "@/components/ResponsiveImage";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
 import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
