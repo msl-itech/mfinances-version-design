@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { FileText, Activity, Calendar, ArrowUpRight } from "lucide-react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import checklistImg from "@/assets/service-tresorerie.webp";
+import checklistImg400 from "@/assets/service-tresorerie-400.webp";
 import diagnosticImg from "@/assets/daf-dashboard.webp";
+import diagnosticImg400 from "@/assets/daf-dashboard-400.webp";
 import rdvImg from "@/assets/mika-contact.webp";
+import rdvImg400 from "@/assets/mika-contact-400.webp";
 
 export default function EntryPointsBentoSection() {
   return (
