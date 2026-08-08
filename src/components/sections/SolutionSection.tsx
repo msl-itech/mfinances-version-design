@@ -3,9 +3,9 @@ import { BarChart2, Briefcase, TrendingUp, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import MobileCarousel from "@/components/MobileCarousel";
-import imgControle from "@/assets/service-controle-gestion.jpg";
-import imgDaf from "@/assets/service-daf-externalise.jpg";
-import imgTresorerie from "@/assets/service-tresorerie.jpg";
+import imgControle from "@/assets/service-controle-gestion.webp";
+import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgTresorerie from "@/assets/service-tresorerie.webp";
 
 const services = [
   {

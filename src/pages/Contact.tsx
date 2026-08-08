@@ -9,7 +9,7 @@ import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import mikaPhoto from "@/assets/mika-contact.png";
+import mikaPhoto from "@/assets/mika-contact.webp";
 import {
   Phone,
   Mail,

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import imgMeeting from "@/assets/daf-meeting-team.png";
+import imgMeeting from "@/assets/daf-meeting-team.webp";
 
 export interface ServicePageCTAProps {
   /** Title — split for italic accent */

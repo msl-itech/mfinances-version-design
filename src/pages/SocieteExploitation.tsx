@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/societe-exploitation-hero.jpg";
-import imgMeeting from "@/assets/daf-meeting-team.png";
+import imgMeeting from "@/assets/daf-meeting-team.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
