@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import {
   Breadcrumb,
   BreadcrumbItem,
