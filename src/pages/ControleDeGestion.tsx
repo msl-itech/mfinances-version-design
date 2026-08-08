@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/controle-gestion-hero.webp";
+import imgHero400 from "@/assets/controle-gestion-hero-400.webp";
 import imgKpi from "@/assets/controle-gestion-kpi.webp";
 
 import Header from "@/components/Header";
@@ -199,6 +200,7 @@ export default function ControleDeGestion() {
           description="Budget annuel, situations intermédiaires et analyse des écarts — un cycle de pilotage complet pour décider sur des bases factuelles, pas sur des intuitions."
           pills={["Forfaits Premium & Excellence", "Budget annuel", "5 KPIs surveillés"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Tableaux de bord et rapports financiers pour le contrôle de gestion"
           plaque="N°02 / Contrôle de gestion"
           cardTitlePrefix="Vos chiffres,"
