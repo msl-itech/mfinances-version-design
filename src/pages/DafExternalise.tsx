@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/daf-hero.jpg";
+import imgHero from "@/assets/daf-hero.webp";
 import imgDashboard from "@/assets/daf-dashboard.webp";
 
 import Header from "@/components/Header";

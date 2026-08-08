@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/compta-hero.jpg";
-import imgOdoo from "@/assets/compta-odoo.jpg";
+import imgHero from "@/assets/compta-hero.webp";
+import imgOdoo from "@/assets/compta-odoo.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

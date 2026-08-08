@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/fiscalite-hero.jpg";
-import imgLeviers from "@/assets/fiscalite-leviers.jpg";
+import imgHero from "@/assets/fiscalite-hero.webp";
+import imgLeviers from "@/assets/fiscalite-leviers.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

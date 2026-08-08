@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
-import imgHero from "@/assets/tresorerie-hero.jpg";
-import imgOdoo from "@/assets/tresorerie-odoo.jpg";
+import imgHero from "@/assets/tresorerie-hero.webp";
+import imgOdoo from "@/assets/tresorerie-odoo.webp";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

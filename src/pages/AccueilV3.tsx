@@ -45,7 +45,7 @@ import imgTresorerie from "@/assets/service-tresorerie.webp";
 import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
 import dafMeeting from "@/assets/daf-meeting-team.webp";
 import dafMeeting400 from "@/assets/daf-meeting-team-400.webp";
-import financialDesk from "@/assets/financial-desk.jpg";
+import financialDesk from "@/assets/financial-desk.webp";
 import audIndependants from "@/assets/audience-independants.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
 import audSante from "@/assets/audience-sante.webp";

@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import equipePhoto from "@/assets/mfinances-team-hero.png";
-import mikaPortrait from "@/assets/mika-apropos-hero.png";
-import imgStory from "@/assets/about-story.jpg";
-import imgMeeting from "@/assets/meeting-warm.jpg";
-import imgDashboard from "@/assets/dashboard-laptop.jpg";
+import equipePhoto from "@/assets/mfinances-team-hero.webp";
+import mikaPortrait from "@/assets/mika-apropos-hero.webp";
+import imgStory from "@/assets/about-story.webp";
+import imgMeeting from "@/assets/meeting-warm.webp";
+import imgDashboard from "@/assets/dashboard-laptop.webp";
 import {
   ArrowRight,
   MapPin,
