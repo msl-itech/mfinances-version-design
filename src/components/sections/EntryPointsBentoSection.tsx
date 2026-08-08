@@ -89,8 +89,11 @@ export default function EntryPointsBentoSection() {
             data-delay="0.1"
           >
             <div className="relative flex-1 overflow-hidden">
-              <img
+              <ResponsiveImage
                 src={diagnosticImg}
+                srcSmall={diagnosticImg400}
+                srcLarge={diagnosticImg}
+                displayWidth={400}
                 alt="Diagnostic trésorerie"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
