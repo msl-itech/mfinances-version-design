@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>MFINANCES — Tarifs — Maquette mobile V5 — Comparatif vertical</title><meta name="description" content="Maquette mobile MFINANCES optimisée : progression compacte, diagnostic, forfaits et comparatif vertical par critères."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{
+  --navy:#21366f;
+  --navy-dark:#172754;
+  --navy-soft:#eef2fb;
+  --red:#ef2b2d;
+  --red-dark:#d92124;
+  --ink:#1f2f5f;
+  --text:#606b87;
+  --paper:#ffffff;
+  --cream:#faf9f6;
+  --soft:#f6f7f9;
+  --line:#e6e8ee;
+  --shadow:0 18px 42px rgba(31,48,96,.11);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#fff}
+body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.55;background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} button{font:inherit} h1,h2,h3,p{margin-top:0}
+.page{min-height:100vh;overflow:hidden;background:#fff}
+.header{height:96px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.97);position:sticky;top:0;z-index:70;border-bottom:1px solid rgba(33,54,111,.08);box-shadow:0 7px 18px rgba(30,42,87,.05);backdrop-filter:blur(12px)}
+.logo{width:50px;height:auto;display:block}.hamburger{width:44px;height:44px;border:0;background:transparent;display:grid;place-content:center;gap:6px;cursor:pointer}.hamburger span{width:29px;height:2px;background:var(--navy);border-radius:99px;display:block}
+.hero{position:relative;overflow:hidden;color:#fff;background-color:var(--navy);background-image:linear-gradient(rgba(255,255,255,.105) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.105) 1px,transparent 1px);background-size:38px 38px}
+.hero:after{content:"Tarifs";position:absolute;font:600 italic 180px/1 var(--serif);color:rgba(255,255,255,.035);pointer-events:none}
+.breadcrumb{display:flex;justify-content:center;gap:14px;font-size:13px;color:rgba(255,255,255,.72);margin-bottom:30px}.breadcrumb strong{color:#fff}
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.21em;text-transform:uppercase}.eyebrow:before{content:"";height:39px;width:3px;background:var(--red);margin-right:6px}.eyebrow .dash{width:24px;height:2px;background:var(--red)}.eyebrow .number{font:700 18px var(--serif);letter-spacing:.04em;color:var(--red)}
+.hero .eyebrow:before{display:none}.hero .eyebrow .number{font-size:19px}.hero .eyebrow{color:#fff}.hero .eyebrow .word{color:var(--red);font-family:var(--serif);font-size:18px;letter-spacing:.04em;text-transform:none}
+.hero h1{font-family:var(--serif);font-weight:600;letter-spacing:-.035em;text-align:center;margin:24px auto 20px;position:relative;z-index:1}.hero-copy{text-align:center;color:rgba(255,255,255,.78);max-width:770px;margin:0 auto 28px;position:relative;z-index:1}.hero-copy strong{color:#fff}.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:13px;position:relative;z-index:1}
+.btn{border:0;border-radius:999px;min-height:58px;padding:14px 25px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn-red{background:var(--red);color:#fff;box-shadow:0 15px 28px rgba(239,43,45,.25)}.btn-red:hover{background:var(--red-dark)}.btn-light{border:2px solid rgba(255,255,255,.44);color:#fff;background:transparent}.btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff}.btn-full{width:100%}.round-arrow{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.13)}
+.section{position:relative}.section.soft{background:var(--soft)}.section.cream{background:var(--cream)}.section-head{max-width:850px;margin:0 auto;text-align:center;position:relative;z-index:2}.section-head h2{font:600 var(--section-title,52px)/1.02 var(--serif);letter-spacing:-.035em;color:var(--navy);margin:25px auto 18px}.section-head p{color:var(--text);margin:0 auto;max-width:760px}.watermark{position:absolute;left:50%;transform:translateX(-50%);font:600 italic 175px/1 var(--serif);color:rgba(239,43,45,.035);pointer-events:none;white-space:nowrap}
+
+/* Progression */
+.progression-wrap{max-width:1240px;margin:48px auto 0;position:relative}.progress-note{max-width:920px;margin:34px auto 0;padding:22px 26px;border-left:4px solid var(--red);background:#fff;border-radius:0 20px 20px 0;color:var(--text);box-shadow:0 10px 25px rgba(31,48,96,.05)}.progress-note strong{color:var(--navy)}
+.stage-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 12px 28px rgba(31,48,96,.07);position:relative}.stage-card.premium{border:2px solid var(--red);box-shadow:0 18px 38px rgba(239,43,45,.10)}.recommended{position:absolute;top:-14px;right:18px;background:var(--red);color:#fff;border-radius:999px;padding:7px 12px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.stage-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.stage-plan{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}.stage-badge{display:inline-flex;align-items:center;background:var(--navy-soft);color:var(--navy);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800}.stage-card h3{font:700 31px/1 var(--serif);color:var(--navy);margin:17px 0 9px}.stage-card p{font-size:13px;color:var(--text);margin-bottom:0}.stage-mode{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--red);font-weight:800}.stage-card.premium .stage-mode{color:var(--red)}
+.axis{display:grid;grid-template-columns:repeat(7,auto);align-items:center;justify-content:center;gap:13px;margin:32px auto 0;padding:18px 24px;border-radius:999px;background:var(--navy);color:#fff;max-width:870px}.axis span{font-weight:800;font-size:13px}.axis i{font-style:normal;color:rgba(255,255,255,.48)}
+
+/* Quiz — version autonome sans JavaScript */
+.quiz-shell{max-width:790px;margin:44px auto 0;position:relative;z-index:2}.quiz-card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:30px;box-shadow:var(--shadow);overflow:hidden}.quiz-form{margin:0}.quiz-radio{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important;overflow:hidden!important}.quiz-flow{position:relative}.quiz-step,.quiz-result{display:none}.quiz-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.step-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text)}.progressbar{height:8px;flex:1;max-width:220px;background:#eceef3;border-radius:999px;overflow:hidden}.progressbar span{display:block;height:100%;background:var(--red);border-radius:999px}.q-number{font:700 34px/1 var(--serif);color:var(--red);margin-bottom:10px}.q-title{font:600 34px/1.08 var(--serif);letter-spacing:-.025em;color:var(--navy);margin-bottom:13px}.q-help{color:var(--text);font-size:14px;margin-bottom:23px}.answers{display:grid;gap:12px}.answer{width:100%;display:grid;grid-template-columns:43px 1fr 24px;align-items:center;gap:13px;padding:17px 16px;border-radius:19px;border:1px solid var(--line);background:#fff;text-align:left;cursor:pointer;transition:.18s ease;-webkit-tap-highlight-color:transparent}.answer:hover,.answer:active{border-color:rgba(239,43,45,.65);box-shadow:0 10px 24px rgba(31,48,96,.08);transform:translateY(-1px)}.answer-icon{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:var(--navy-soft);color:var(--navy);font-weight:900}.answer b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}.answer small{display:block;color:var(--text);font-size:11px;line-height:1.45}.answer-arrow{color:var(--red);font-weight:900;font-size:21px}.quiz-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px;min-height:24px}.back{border:0;background:transparent;color:var(--text);font-size:12px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.privacy{font-size:10px;color:#8b93a7;margin-left:auto}.result-band{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:-30px -30px 25px;padding:18px 30px;background:var(--navy);color:#fff}.result-band span{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.result-band b{background:var(--red);border-radius:999px;padding:8px 12px;font-size:10px;letter-spacing:.12em}.result-name{font:700 52px/.95 var(--serif);color:var(--navy);margin-bottom:3px}.result-tagline{color:var(--red);font-style:italic;margin-bottom:10px}.result-price{font:700 39px/1 var(--serif);color:var(--navy);margin-bottom:18px}.result-price small{font:600 12px var(--sans);color:var(--text)}.result-copy{color:var(--text);font-size:14px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:17px}.reason-list{display:grid;gap:10px;margin-bottom:21px}.reason{display:flex;gap:10px;color:var(--text);font-size:12px}.reason:before{content:"✓";color:var(--red);font-weight:900}.upgrade{margin-top:15px;padding:15px 16px;border-radius:17px;background:var(--cream);color:var(--text);font-size:12px}.upgrade a{color:var(--red);font-weight:800;text-decoration:underline;text-underline-offset:3px}.result-actions{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:15px}.restart{display:inline-flex;border:0;background:transparent;color:var(--text);font-size:11px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+/* Navigation du diagnostic : tous les écrans et résultats sont déjà dans le HTML. */
+#q1-none:checked ~ .quiz-flow .step-1{display:block}
+#q1-basic:checked ~ #q2-none:checked ~ .quiz-flow .step-2,
+#q1-anticipate:checked ~ #q2-none:checked ~ .quiz-flow .step-2{display:block}
+#q2-annual:checked ~ #q3-none:checked ~ .quiz-flow .step-3,
+#q2-visibility:checked ~ #q3-none:checked ~ .quiz-flow .step-3{display:block}
+#q3-no:checked ~ #q4-none:checked ~ .quiz-flow .step-4,
+#q3-performance:checked ~ #q4-none:checked ~ .quiz-flow .step-4{display:block}
+#q1-basic:checked ~ #q2-annual:checked ~ #q3-no:checked ~ #q4-no:checked ~ .quiz-flow .result-basic{display:block}
+#q1-anticipate:checked ~ #q3-no:checked ~ #q4-no:checked ~ .quiz-flow .result-essentiel,
+#q2-visibility:checked ~ #q3-no:checked ~ #q4-no:checked ~ .quiz-flow .result-essentiel{display:block}
+#q3-performance:checked ~ #q4-no:checked ~ .quiz-flow .result-premium{display:block}
+#q4-cash:checked ~ .quiz-flow .result-excellence{display:block}
+
+/* Pricing cards */
+.pricing-grid{max-width:1240px;margin:46px auto 0;display:grid;gap:18px}.price-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:27px;box-shadow:0 14px 34px rgba(31,48,96,.07);position:relative;display:flex;flex-direction:column}.price-card.premium{border:2px solid var(--red);box-shadow:0 18px 42px rgba(239,43,45,.11)}.price-card .ribbon{position:absolute;right:0;top:0;background:var(--red);color:#fff;border-radius:0 25px 0 22px;padding:10px 16px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.price-profile{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:13px}.price-card h3{font:700 38px/1 var(--serif);color:var(--navy);margin-bottom:6px}.price-promise{font-style:italic;color:var(--red);font-size:14px;margin-bottom:17px}.price{font:700 43px/1 var(--serif);color:var(--navy);margin-bottom:22px}.price small{font:600 12px var(--sans);color:var(--text)}.price-card .main-copy{color:var(--text);font-size:14px;margin-bottom:15px}.price-card .mode-copy{color:var(--navy);font-size:12px;font-weight:800;padding:15px 0 20px;border-top:1px solid var(--line);margin-top:auto}.price-card .btn{min-height:54px}.price-card:not(.premium) .btn{background:var(--navy);color:#fff}
+
+/* Table */
+.table-wrap{max-width:1240px;margin:45px auto 0;overflow:auto;border:1px solid var(--line);border-radius:26px;background:#fff;box-shadow:0 16px 38px rgba(31,48,96,.07)}.comparison{width:100%;border-collapse:separate;border-spacing:0;min-width:880px}.comparison th,.comparison td{padding:20px 17px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:middle}.comparison th:last-child,.comparison td:last-child{border-right:0}.comparison tr:last-child td{border-bottom:0}.comparison thead th{background:var(--navy);color:#fff;font-size:12px;letter-spacing:.04em}.comparison thead th:first-child{text-align:left}.comparison thead th.premium{background:var(--red)}.comparison tbody th{position:sticky;left:0;background:#fff;text-align:left;color:var(--navy);font-size:13px;min-width:210px;z-index:2}.comparison td{font-size:12px;color:var(--text)}.status{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 10px;border-radius:999px;font-size:10px;font-weight:800;line-height:1.25}.included{background:#edf7ef;color:#27723b}.ondemand{background:#fff4e7;color:#a36300}.reserved{background:#f2f3f6;color:#6f7789}.frequency{color:var(--red);font-weight:800}.table-note{max-width:1050px;margin:18px auto 0;color:var(--text);font-size:12px;text-align:center}.table-note strong{color:var(--navy)}
+
+.final-cta{background:var(--navy);color:#fff;text-align:center}.final-cta h2{font:600 48px/1 var(--serif);margin:0 auto 17px;max-width:780px}.final-cta p{color:rgba(255,255,255,.75);max-width:660px;margin:0 auto 26px}.chat{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;z-index:80;box-shadow:0 14px 30px rgba(239,43,45,.27);font-size:25px;border:5px solid rgba(255,255,255,.75)}
+
+body.mobile{--section-title:45px}.mobile .header{height:92px;padding:0 27px}.mobile .logo{width:45px}.mobile .hero{padding:38px 26px 52px}.mobile .hero:after{right:-45px;top:95px;font-size:145px}.mobile .hero h1{font-size:47px;line-height:.98;max-width:680px}.mobile .hero-copy{font-size:16px}.mobile .hero-actions{display:grid;max-width:350px;margin:0 auto}.mobile .section{padding:72px 24px}.mobile .watermark{top:100px;font-size:150px}.mobile .section-head h2{font-size:45px}.mobile .progression-wrap{margin-top:42px}.mobile .progression-grid{position:relative;display:grid;gap:22px;padding-left:58px}.mobile .progression-grid:before{content:"";position:absolute;left:24px;top:28px;bottom:28px;width:3px;background:linear-gradient(#dfe2e8 0 45%,var(--red) 70%,var(--navy) 100%);border-radius:99px}.mobile .stage{position:relative}.mobile .step-dot{position:absolute;left:-58px;top:18px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid #dfe2e8;color:var(--navy);font-weight:900;font-size:18px;z-index:2}.mobile .stage:nth-child(3) .step-dot{background:var(--red);border-color:var(--red);color:#fff}.mobile .stage:nth-child(4) .step-dot{background:var(--navy);border-color:var(--navy);color:#fff}.mobile .stage-card{padding:21px 20px}.mobile .stage-card h3{font-size:30px}.mobile .axis{grid-template-columns:1fr;gap:0;border-radius:24px;padding:0;overflow:hidden;background:#fff;border:1px solid var(--line);color:var(--navy);box-shadow:0 12px 28px rgba(31,48,96,.06)}.mobile .axis span{padding:14px 17px;border-bottom:1px solid var(--line);font-size:12px}.mobile .axis span:last-of-type{border-bottom:0}.mobile .axis i{display:none}.mobile .axis span:nth-of-type(1):before{content:"1  ";color:var(--red)}.mobile .axis span:nth-of-type(2):before{content:"2  ";color:var(--red)}.mobile .axis span:nth-of-type(3):before{content:"3  ";color:var(--red)}.mobile .axis span:nth-of-type(4):before{content:"4  ";color:var(--red)}.mobile .progress-note{font-size:13px;padding:19px 20px}.mobile .quiz-card{padding:25px 21px;border-radius:27px}.mobile .result-band{margin:-25px -21px 23px;padding:17px 21px}.mobile .q-title{font-size:31px}.mobile .pricing-grid{grid-template-columns:1fr}.mobile .price-card{min-height:0}.mobile .table-wrap{margin-left:-4px;margin-right:-4px;border-radius:20px}.mobile .comparison tbody th{min-width:170px}.mobile .comparison th,.mobile .comparison td{padding:17px 13px}.mobile .table-note{text-align:left}.mobile .final-cta{padding:72px 25px}.mobile .final-cta h2{font-size:43px}.mobile .chat{right:18px;bottom:18px}
+
+/* ===== V5 MOBILE — corrections UX + comparatif vertical ===== */
+body.mobile{--section-title:42px}
+.mobile .section{padding:64px 22px}
+.mobile .section-head h2{font-size:42px;line-height:1.02}
+.mobile .section-head p{font-size:15px;line-height:1.65}
+.mobile .watermark{font-size:132px;opacity:.9}
+
+/* Progression plus courte : une seule lecture, sans axe redondant */
+.mobile .progression-wrap{margin-top:34px}
+.mobile .progression-grid{gap:15px;padding-left:52px}
+.mobile .progression-grid:before{left:21px;top:24px;bottom:24px;width:3px}
+.mobile .step-dot{left:-52px;top:16px;width:44px;height:44px;font-size:16px}
+.mobile .stage-card{padding:18px 18px 16px;border-radius:21px}
+.mobile .stage-card h3{font-size:28px;margin:13px 0 7px}
+.mobile .stage-card p{font-size:12.5px;line-height:1.5}
+.mobile .stage-plan{font-size:11px}
+.mobile .stage-badge{padding:6px 9px;font-size:10px}
+.mobile .stage-mode{margin-top:12px;padding-top:11px;font-size:10.5px}
+.mobile .recommended{top:-10px;right:14px;padding:6px 10px;font-size:9px}
+.mobile .axis{display:none!important}
+.mobile .progress-note{margin-top:24px;padding:17px 18px;font-size:12.5px;line-height:1.6;border-radius:0 17px 17px 0}
+
+/* Forfaits : cartes conservées pour vendre l'offre, mais plus compactes */
+.mobile .pricing-grid{margin-top:36px;gap:14px}
+.mobile .price-card{padding:23px 21px;border-radius:24px}
+.mobile .price-card .ribbon{font-size:9px;padding:8px 13px;border-radius:0 22px 0 18px}
+.mobile .price-profile{font-size:10px;margin-bottom:9px;padding-right:78px}
+.mobile .price-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mobile .price-title-row h3{margin:0;font-size:35px}
+.mobile .mini-badge{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;background:var(--navy-soft);color:var(--navy);font-size:9.5px;font-weight:800}
+.mobile .price-promise{margin:5px 0 13px}
+.mobile .price{font-size:38px;margin-bottom:15px}
+.mobile .price-prefix{display:block;font:700 10px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.mobile .price-card .main-copy{font-size:13px;margin-bottom:11px}
+.mobile .price-card .mode-copy{font-size:11.5px;padding:12px 0 16px}
+.mobile .price-card .btn{min-height:50px;font-size:13px}
+
+/* Nouveau comparatif mobile vertical — aucun défilement horizontal */
+.mobile-compare{max-width:620px;margin:36px auto 0;display:grid;gap:16px;position:relative;z-index:2}
+.common-card,.criterion-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 14px 34px rgba(31,48,96,.07);overflow:hidden}
+.common-card{padding:20px}
+.common-head,.criterion-head{display:flex;align-items:center;gap:13px}
+.common-head{margin-bottom:16px}
+.category-icon{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;flex:0 0 40px;background:var(--navy);color:#fff;font:800 12px var(--sans)}
+.cat-blue{background:#3d84ff}
+.compare-kicker{display:block;color:var(--text);font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2px}
+.common-card h3,.criterion-card h3{font:700 24px/1.05 var(--serif);color:var(--navy);margin:0}
+.common-list{display:grid;gap:9px;padding:14px 15px;border-radius:16px;background:#f8faff;color:var(--navy);font-size:12.5px;font-weight:700}
+.common-list span::first-letter{color:var(--red)}
+
+.criterion-card{--accent:#ff6678;--tint:#fff4f5}
+.criterion-card.c-green{--accent:#53bd85;--tint:#f1fbf6}
+.criterion-card.c-orange{--accent:#ffad42;--tint:#fff8ef}
+.criterion-card.c-purple{--accent:#8f6dd8;--tint:#f7f3ff}
+.criterion-head{padding:17px 18px;background:linear-gradient(90deg,var(--tint),#fff);border-left:4px solid var(--accent)}
+.criterion-head .category-icon{background:var(--accent)}
+.criterion-head .compare-kicker{color:var(--accent)}
+.plan-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px;padding:13px 17px;border-top:1px solid #eef0f4;background:#fff}
+.plan-row:first-of-type{border-top:0}
+.plan-row.premium-row{background:#fffafa;box-shadow:inset 3px 0 0 var(--red)}
+.plan-ident{min-width:95px;display:flex;flex-direction:column;gap:2px}
+.plan-ident b{font-size:12px;letter-spacing:.02em;color:var(--navy)}
+.plan-ident small{font-size:9.5px;color:var(--text)}
+.value-stack,.follow-value{display:flex;align-items:flex-end;flex-direction:column;gap:5px;text-align:right}
+.red-value{font-size:13px;color:var(--red);white-space:nowrap}
+.recommend-inline{display:inline-flex;background:var(--red);color:#fff;border-radius:999px;padding:4px 7px;font-size:7.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:800;line-height:1.1;white-space:nowrap}
+.pill small{font-size:8px}
+.pill-orange{background:#fffaf0;border:1px solid #f2c35d;color:#c96800}
+.pill-gray{background:#eef2f7;border:1px solid #dbe2ec;color:#6d7a93}
+.pill-green{background:#ecfbf3;border:1px solid #a8e9c6;color:#148c56}
+.plan-row-copy{align-items:flex-start;padding-top:14px;padding-bottom:14px}
+.follow-value{max-width:62%}
+.follow-value p{font-size:9.5px;line-height:1.45;color:var(--text);margin:0}
+.compare-legend{display:grid;gap:8px;padding:3px 4px 0;color:var(--text);font-size:10px}
+.compare-legend span{display:flex;align-items:center;gap:8px}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:0 0 10px}.legend-dot.orange{background:#f2c35d}.legend-dot.gray{background:#cfd7e3}.legend-dot.green{background:#8ee1b5}
+.compare-note{display:flex;gap:12px;align-items:flex-start;padding:17px;border:1px solid #d9e2ef;background:linear-gradient(180deg,#fbfdff,#f5f9ff);border-radius:19px}
+.info-mark{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:0 0 30px;background:#3d84ff;color:#fff;font:700 17px var(--serif)}
+.compare-note p{margin:0;color:#456083;font-size:10.5px;line-height:1.6}.compare-note strong{color:var(--navy)}
+
+/* Chat : moins intrusif et zone de sécurité sur les blocs bas */
+.mobile .chat{right:14px;bottom:max(14px,env(safe-area-inset-bottom));width:52px;height:52px;border-width:4px;font-size:21px}
+.mobile .final-cta{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+.mobile-compare,.mobile .pricing-grid{padding-bottom:4px}
+@media(max-width:390px){
+  .mobile .section{padding-left:18px;padding-right:18px}
+  .mobile .section-head h2{font-size:39px}
+  .mobile .progression-grid{padding-left:48px}
+  .mobile .step-dot{left:-48px}
+  .plan-row{padding-left:14px;padding-right:14px;gap:10px}
+  .plan-ident{min-width:82px}
+  .pill{padding:6px 8px;font-size:8.5px}
+  .red-value{font-size:12px}
+  .follow-value{max-width:64%}
+}
+
+</style></head>
+<body class="mobile"><div class="page">
+<header class="header"><img class="logo" src="data:image/png;base64,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" alt="MFINANCES"><button class="hamburger" aria-label="Ouvrir le menu" type="button"><span></span><span></span><span></span></button></header>
+<main>
+<section class="hero"><div class="breadcrumb"><span>Accueil</span><span>›</span><strong>Tarifs</strong></div><div class="eyebrow"><span class="dash"></span><span class="word">Tarifs</span><span>04 forfaits</span></div><h1>Des forfaits transparents, adaptés à votre stade de croissance.</h1><p class="hero-copy">Quatre niveaux d’accompagnement, un seul engagement : vous donner une vision claire et anticipée de vos finances. <strong>À partir de 275 € HTVA/mois.</strong></p><div class="hero-actions"><a class="btn btn-red" href="#progression">Comprendre la progression <span class="round-arrow">↘</span></a><a class="btn btn-light" href="#diagnostic">Trouver mon forfait</a></div></section>
+<section class="section" id="progression"><div class="watermark">Piloter</div><div class="section-head"><div class="eyebrow"><span class="dash"></span><span class="number">01</span><span>Progression</span></div><h2>Jusqu’où voulez-vous piloter votre entreprise ?</h2><p>Chaque niveau enrichit le précédent avec davantage de prestations incluses et un suivi plus régulier.</p></div>
+<div class="progression-wrap">
+  <div class="progression-grid">
+    <div class="stage"><div class="step-dot">1</div><article class="stage-card"><div class="stage-top"><span class="stage-plan">Basic · 275 €</span><span class="stage-badge">Conformité</span></div><h3>Être en règle</h3><p>Le socle comptable et fiscal pour respecter vos obligations.</p><div class="stage-mode">Conseils à la demande</div></article></div>
+    <div class="stage"><div class="step-dot">2</div><article class="stage-card"><div class="stage-top"><span class="stage-plan">Essentiel · dès 350 €</span><span class="stage-badge">Visibilité</span></div><h3>Anticiper</h3><p>Voir venir vos échéances et vos résultats avant la clôture.</p><div class="stage-mode">Anticipation incluse</div></article></div>
+    <div class="stage"><div class="step-dot">3</div><article class="stage-card premium"><span class="recommended">Choix recommandé</span><div class="stage-top"><span class="stage-plan">Premium · dès 450 €</span><span class="stage-badge">Performance</span></div><h3>Piloter</h3><p>Comprendre les écarts et agir régulièrement sur la performance.</p><div class="stage-mode">Pilotage régulier</div></article></div>
+    <div class="stage"><div class="step-dot">4</div><article class="stage-card"><div class="stage-top"><span class="stage-plan">Excellence · dès 650 €</span><span class="stage-badge">Trésorerie</span></div><h3>Optimiser</h3><p>Piloter la performance et anticiper votre trésorerie.</p><div class="stage-mode">Suivi proactif</div></article></div>
+  </div>
+<div class="progress-note"><strong>Avec Basic, vous commandez les conseils lorsque vous en avez besoin.</strong> Avec les forfaits supérieurs, nous les intégrons progressivement à votre accompagnement afin d’anticiper vos besoins avant qu’ils ne deviennent urgents.</div>
+</div>
+</section>
+<section class="section soft" id="diagnostic"><div class="watermark">Choix</div><div class="section-head"><div class="eyebrow"><span class="dash"></span><span class="number">02</span><span>Diagnostic</span></div><h2>Quel niveau d’accompagnement correspond réellement à votre entreprise ?</h2><p>Répondez à quatre questions pour identifier le forfait adapté à vos besoins actuels et à vos objectifs.</p></div>
+<div class="quiz-shell"><article class="quiz-card">
+<form class="quiz-form" id="mfinancesDiagnostic" autocomplete="off">
+  <!-- Les quatre groupes de réponses sont présents dans le fichier. Le diagnostic fonctionne sans JavaScript. -->
+  <input class="quiz-radio" type="radio" name="q1" id="q1-none" checked>
+  <input class="quiz-radio" type="radio" name="q1" id="q1-basic">
+  <input class="quiz-radio" type="radio" name="q1" id="q1-anticipate">
+  <input class="quiz-radio" type="radio" name="q2" id="q2-none" checked>
+  <input class="quiz-radio" type="radio" name="q2" id="q2-annual">
+  <input class="quiz-radio" type="radio" name="q2" id="q2-visibility">
+  <input class="quiz-radio" type="radio" name="q3" id="q3-none" checked>
+  <input class="quiz-radio" type="radio" name="q3" id="q3-no">
+  <input class="quiz-radio" type="radio" name="q3" id="q3-performance">
+  <input class="quiz-radio" type="radio" name="q4" id="q4-none" checked>
+  <input class="quiz-radio" type="radio" name="q4" id="q4-no">
+  <input class="quiz-radio" type="radio" name="q4" id="q4-cash">
+
+  <div class="quiz-flow" aria-live="polite">
+    <section class="quiz-step step-1" id="quiz-step-1" aria-labelledby="question-title-1">
+      <div class="quiz-head"><div class="step-label">Question 1 sur 4</div><div class="progressbar"><span style="width:25%"></span></div></div>
+      <div class="q-number">01</div>
+      <h3 class="q-title" id="question-title-1">Votre priorité est-elle uniquement de respecter vos obligations comptables et fiscales&nbsp;?</h3>
+      <p class="q-help">Un bilan annuel et des déclarations déposées dans les délais vous suffisent-ils aujourd’hui&nbsp;?</p>
+      <div class="answers">
+        <label class="answer" for="q1-basic"><span class="answer-icon">01</span><span><b>Oui, principalement</b><small>Je souhaite avant tout être en règle.</small></span><span class="answer-arrow">›</span></label>
+        <label class="answer" for="q1-anticipate"><span class="answer-icon">02</span><span><b>Non, je veux également anticiper</b><small>Je veux comprendre mes chiffres avant la clôture annuelle.</small></span><span class="answer-arrow">›</span></label>
+      </div>
+      <div class="quiz-footer"><span class="privacy">Aucune donnée personnelle demandée</span></div>
+    </section>
+
+    <section class="quiz-step step-2" id="quiz-step-2" aria-labelledby="question-title-2">
+      <div class="quiz-head"><div class="step-label">Question 2 sur 4</div><div class="progressbar"><span style="width:50%"></span></div></div>
+      <div class="q-number">02</div>
+      <h3 class="q-title" id="question-title-2">Souhaitez-vous connaître vos résultats et vos principales échéances à l’avance&nbsp;?</h3>
+      <p class="q-help">L’objectif est de ne plus découvrir une difficulté après la clôture ou lorsqu’il est trop tard pour agir.</p>
+      <div class="answers">
+        <label class="answer" for="q2-annual"><span class="answer-icon">01</span><span><b>Non, un suivi annuel me suffit</b><small>Je n’ai pas besoin d’une visibilité intermédiaire pour le moment.</small></span><span class="answer-arrow">›</span></label>
+        <label class="answer" for="q2-visibility"><span class="answer-icon">02</span><span><b>Oui, je veux mieux voir venir</b><small>Je souhaite anticiper les résultats, les échéances et les risques.</small></span><span class="answer-arrow">›</span></label>
+      </div>
+      <div class="quiz-footer"><label class="back" for="q1-none">← Question précédente</label><span class="privacy">Aucune donnée personnelle demandée</span></div>
+    </section>
+
+    <section class="quiz-step step-3" id="quiz-step-3" aria-labelledby="question-title-3">
+      <div class="quiz-head"><div class="step-label">Question 3 sur 4</div><div class="progressbar"><span style="width:75%"></span></div></div>
+      <div class="q-number">03</div>
+      <h3 class="q-title" id="question-title-3">Avez-vous besoin de comprendre pourquoi vos résultats évoluent et comment améliorer votre rentabilité&nbsp;?</h3>
+      <p class="q-help">Il ne s’agit plus seulement de constater un chiffre, mais d’identifier les écarts et les actions correctrices.</p>
+      <div class="answers">
+        <label class="answer" for="q3-no"><span class="answer-icon">01</span><span><b>Pas actuellement</b><small>La visibilité sur les chiffres me suffit pour le moment.</small></span><span class="answer-arrow">›</span></label>
+        <label class="answer" for="q3-performance"><span class="answer-icon">02</span><span><b>Oui, je veux piloter mes performances</b><small>Je veux mesurer, expliquer et améliorer les résultats.</small></span><span class="answer-arrow">›</span></label>
+      </div>
+      <div class="quiz-footer"><label class="back" for="q2-none">← Question précédente</label><span class="privacy">Aucune donnée personnelle demandée</span></div>
+    </section>
+
+    <section class="quiz-step step-4" id="quiz-step-4" aria-labelledby="question-title-4">
+      <div class="quiz-head"><div class="step-label">Question 4 sur 4</div><div class="progressbar"><span style="width:100%"></span></div></div>
+      <div class="q-number">04</div>
+      <h3 class="q-title" id="question-title-4">Souhaitez-vous anticiper vos besoins de trésorerie et sécuriser vos décisions financières&nbsp;?</h3>
+      <p class="q-help">Par exemple&nbsp;: savoir combien investir, rémunérer ou distribuer sans fragiliser l’entreprise.</p>
+      <div class="answers">
+        <label class="answer" for="q4-no"><span class="answer-icon">01</span><span><b>Non, le suivi des résultats me suffit</b><small>Je ne souhaite pas encore un pilotage continu de la trésorerie.</small></span><span class="answer-arrow">›</span></label>
+        <label class="answer" for="q4-cash"><span class="answer-icon">02</span><span><b>Oui, je veux sécuriser ma trésorerie</b><small>Je veux anticiper le cash et décider avec un temps d’avance.</small></span><span class="answer-arrow">›</span></label>
+      </div>
+      <div class="quiz-footer"><label class="back" for="q3-none">← Question précédente</label><span class="privacy">Aucune donnée personnelle demandée</span></div>
+    </section>
+
+    <section class="quiz-result result-basic" aria-label="Recommandation Basic">
+      <div class="result-band"><span>Votre recommandation</span><b>PERSONNALISÉE</b></div>
+      <h3 class="result-name">Basic</h3><div class="result-tagline">Être en règle</div><div class="result-price">275 € <small>/mois HTVA</small></div>
+      <p class="result-copy">Votre priorité est de disposer d’un socle comptable et fiscal fiable. Les prestations de conseil complémentaires restent disponibles à la demande, au tarif horaire.</p>
+      <div class="reason-list"><div class="reason">Un suivi annuel correspond à votre rythme de décision actuel.</div><div class="reason">Votre besoin porte principalement sur la conformité comptable et fiscale.</div></div>
+      <a class="btn btn-red btn-full" href="#basic">Découvrir le forfait Basic</a>
+      <div class="upgrade">Vous souhaitez ne plus découvrir vos résultats trop tard&nbsp;? <a href="#essentiel">Découvrez le forfait Essentiel.</a></div>
+      <div class="result-actions"><label class="back" for="q4-none">← Modifier la dernière réponse</label><button class="restart" type="reset">Recommencer le diagnostic</button></div>
+    </section>
+
+    <section class="quiz-result result-essentiel" aria-label="Recommandation Essentiel">
+      <div class="result-band"><span>Votre recommandation</span><b>PERSONNALISÉE</b></div>
+      <h3 class="result-name">Essentiel</h3><div class="result-tagline">Anticiper</div><div class="result-price">350 € <small>/mois HTVA</small></div>
+      <p class="result-copy">Vous ne cherchez pas uniquement à respecter vos obligations. Vous souhaitez également voir venir vos échéances et disposer de premiers outils d’anticipation inclus dans votre forfait.</p>
+      <div class="reason-list"><div class="reason">Vous recherchez davantage qu’une simple conformité annuelle.</div><div class="reason">Vous souhaitez voir venir les échéances et les résultats plutôt que les subir.</div></div>
+      <a class="btn btn-red btn-full" href="#essentiel">Découvrir le forfait Essentiel</a>
+      <div class="upgrade">Vous souhaitez aussi comprendre les écarts et améliorer votre rentabilité&nbsp;? <a href="#premium">Découvrez le forfait Premium.</a></div>
+      <div class="result-actions"><label class="back" for="q4-none">← Modifier la dernière réponse</label><button class="restart" type="reset">Recommencer le diagnostic</button></div>
+    </section>
+
+    <section class="quiz-result result-premium" aria-label="Recommandation Premium">
+      <div class="result-band"><span>Votre recommandation</span><b>PERSONNALISÉE</b></div>
+      <h3 class="result-name">Premium</h3><div class="result-tagline">Piloter</div><div class="result-price">450 € <small>/mois HTVA</small></div>
+      <p class="result-copy">Vous souhaitez anticiper vos résultats, comprendre les écarts et améliorer régulièrement les performances de votre entreprise. Le contrôle de gestion est intégré à votre accompagnement.</p>
+      <div class="reason-list"><div class="reason">Vous voulez comprendre pourquoi les résultats évoluent.</div><div class="reason">Vous souhaitez agir régulièrement sur les écarts et la rentabilité.</div></div>
+      <a class="btn btn-red btn-full" href="#premium">Découvrir le forfait Premium</a>
+      <div class="upgrade">Vous souhaitez également anticiper et optimiser votre trésorerie&nbsp;? <a href="#excellence">Découvrez le forfait Excellence.</a></div>
+      <div class="result-actions"><label class="back" for="q4-none">← Modifier la dernière réponse</label><button class="restart" type="reset">Recommencer le diagnostic</button></div>
+    </section>
+
+    <section class="quiz-result result-excellence" aria-label="Recommandation Excellence">
+      <div class="result-band"><span>Votre recommandation</span><b>PERSONNALISÉE</b></div>
+      <h3 class="result-name">Excellence</h3><div class="result-tagline">Optimiser</div><div class="result-price">650 € <small>/mois HTVA</small></div>
+      <p class="result-copy">Votre besoin porte sur un pilotage financier proactif&nbsp;: performances, décisions et trésorerie sont suivies avec un temps d’avance afin de réduire les imprévus.</p>
+      <div class="reason-list"><div class="reason">Vous souhaitez intégrer la trésorerie à vos décisions.</div><div class="reason">Vous voulez anticiper les besoins de cash avant qu’ils ne deviennent urgents.</div></div>
+      <a class="btn btn-red btn-full" href="#excellence">Découvrir le forfait Excellence</a>
+      <div class="upgrade">Ce niveau est adapté lorsque la trésorerie doit devenir un véritable outil de décision, et non un solde constaté après coup.</div>
+      <div class="result-actions"><label class="back" for="q4-none">← Modifier la dernière réponse</label><button class="restart" type="reset">Recommencer le diagnostic</button></div>
+    </section>
+  </div>
+</form>
+</article></div>
+</section>
+<section class="section" id="tarifs"><div class="watermark">Offres</div><div class="section-head"><div class="eyebrow"><span class="dash"></span><span class="number">03</span><span>Forfaits</span></div><h2>Le prix reflète aussi le niveau d’accompagnement.</h2><p>Vous ne payez pas seulement davantage de prestations : vous payez pour qu’elles soient prévues, intégrées à une méthode et réalisées avec une fréquence adaptée.</p></div>
+<div class="pricing-grid">
+  <article class="price-card" id="basic"><div class="price-profile">Pour les besoins strictement comptables</div><div class="price-title-row"><h3>Basic</h3><span class="mini-badge">Conformité</span></div><div class="price-promise">Être en règle</div><div class="price">275 € <small>/mois HTVA</small></div><p class="main-copy">Le socle comptable et fiscal indispensable.</p><div class="mode-copy">Conseils et pilotage disponibles à la demande — 150 €/h.</div><a class="btn" href="#comparatif">Comparer Basic</a></article>
+  <article class="price-card" id="essentiel"><div class="price-profile">Pour gagner en visibilité</div><div class="price-title-row"><h3>Essentiel</h3><span class="mini-badge">Visibilité</span></div><div class="price-promise">Anticiper</div><div class="price"><span class="price-prefix">À partir de</span> 350 € <small>/mois HTVA</small></div><p class="main-copy">Voir venir vos échéances et vos résultats avant la clôture.</p><div class="mode-copy">Situations intermédiaires semestrielles incluses.</div><a class="btn" href="#comparatif">Comparer Essentiel</a></article>
+  <article class="price-card premium" id="premium"><span class="ribbon">Recommandé</span><div class="price-profile">Le choix recommandé pour piloter</div><div class="price-title-row"><h3>Premium</h3><span class="mini-badge">Performance</span></div><div class="price-promise">Piloter</div><div class="price"><span class="price-prefix">À partir de</span> 450 € <small>/mois HTVA</small></div><p class="main-copy">Comprendre les écarts et agir régulièrement sur vos performances.</p><div class="mode-copy">Situations et contrôle de gestion trimestriels inclus.</div><a class="btn btn-red" href="#comparatif">Comparer Premium</a></article>
+  <article class="price-card" id="excellence"><div class="price-profile">Pour une direction financière complète</div><div class="price-title-row"><h3>Excellence</h3><span class="mini-badge">Trésorerie</span></div><div class="price-promise">Optimiser</div><div class="price"><span class="price-prefix">À partir de</span> 650 € <small>/mois HTVA</small></div><p class="main-copy">Piloter la performance et anticiper votre trésorerie avec un suivi mensuel.</p><div class="mode-copy">Trésorerie prévisionnelle et pilotage mensuel inclus.</div><a class="btn" href="#comparatif">Comparer Excellence</a></article>
+</div>
+</section>
+<section class="section cream" id="comparatif"><div class="watermark">Détail</div><div class="section-head"><div class="eyebrow"><span class="dash"></span><span class="number">04</span><span>Comparatif</span></div><h2>Comparez uniquement ce qui change vraiment.</h2><p>Le socle comptable est commun. Sur mobile, la comparaison se fait par critère pour voir immédiatement la progression entre les quatre forfaits.</p></div>
+
+<div class="mobile-compare" aria-label="Comparatif mobile des forfaits MFINANCES">
+  <article class="common-card">
+    <div class="common-head"><span class="category-icon cat-blue" aria-hidden="true">✓</span><div><span class="compare-kicker">Socle commun</span><h3>Inclus dans les 4 forfaits</h3></div></div>
+    <div class="common-list"><span>✓ Bilan annuel</span><span>✓ Déclarations fiscales</span><span>✓ Assistante administrative</span></div>
+  </article>
+
+  <article class="criterion-card c-pink">
+    <header class="criterion-head"><span class="category-icon" aria-hidden="true">01</span><div><span class="compare-kicker">Anticipation</span><h3>Situations intermédiaires</h3></div></header>
+    <div class="plan-row"><div class="plan-ident"><b>Basic</b><small>275 €</small></div><span class="pill pill-orange">À la demande <small>150 €/h</small></span></div>
+    <div class="plan-row"><div class="plan-ident"><b>Essentiel</b><small>Dès 350 €</small></div><strong class="red-value">Semestrielles</strong></div>
+    <div class="plan-row premium-row"><div class="plan-ident"><b>Premium</b><small>Dès 450 €</small></div><div class="value-stack"><span class="recommend-inline">Recommandé</span><strong class="red-value">Trimestrielles</strong></div></div>
+    <div class="plan-row"><div class="plan-ident"><b>Excellence</b><small>Dès 650 €</small></div><strong class="red-value">Mensuelles</strong></div>
+  </article>
+
+  <article class="criterion-card c-green">
+    <header class="criterion-head"><span class="category-icon" aria-hidden="true">02</span><div><span class="compare-kicker">Développement</span><h3>Contrôle de gestion</h3></div></header>
+    <div class="plan-row"><div class="plan-ident"><b>Basic</b><small>275 €</small></div><span class="pill pill-orange">À la demande <small>150 €/h</small></span></div>
+    <div class="plan-row"><div class="plan-ident"><b>Essentiel</b><small>Dès 350 €</small></div><span class="pill pill-orange">À la demande <small>150 €/h</small></span></div>
+    <div class="plan-row premium-row"><div class="plan-ident"><b>Premium</b><small>Dès 450 €</small></div><div class="value-stack"><span class="recommend-inline">Recommandé</span><strong class="red-value">Trimestriel</strong></div></div>
+    <div class="plan-row"><div class="plan-ident"><b>Excellence</b><small>Dès 650 €</small></div><strong class="red-value">Mensuel</strong></div>
+  </article>
+
+  <article class="criterion-card c-orange">
+    <header class="criterion-head"><span class="category-icon" aria-hidden="true">03</span><div><span class="compare-kicker">Optimisation de la trésorerie</span><h3>Trésorerie prévisionnelle</h3></div></header>
+    <div class="plan-row"><div class="plan-ident"><b>Basic</b><small>275 €</small></div><span class="pill pill-gray">Non incluse</span></div>
+    <div class="plan-row"><div class="plan-ident"><b>Essentiel</b><small>Dès 350 €</small></div><span class="pill pill-gray">Non incluse</span></div>
+    <div class="plan-row premium-row"><div class="plan-ident"><b>Premium</b><small>Dès 450 €</small></div><div class="value-stack"><span class="recommend-inline">Recommandé</span><span class="pill pill-gray">Non incluse</span></div></div>
+    <div class="plan-row"><div class="plan-ident"><b>Excellence</b><small>Dès 650 €</small></div><strong class="red-value">Mensuelle</strong></div>
+  </article>
+
+  <article class="criterion-card c-purple">
+    <header class="criterion-head"><span class="category-icon" aria-hidden="true">04</span><div><span class="compare-kicker">Relation client</span><h3>Mode de suivi</h3></div></header>
+    <div class="plan-row plan-row-copy"><div class="plan-ident"><b>Basic</b><small>275 €</small></div><div class="follow-value"><span class="pill pill-orange">À la demande</span><p>Vous nous contactez lorsque vous en avez besoin.</p></div></div>
+    <div class="plan-row plan-row-copy"><div class="plan-ident"><b>Essentiel</b><small>Dès 350 €</small></div><div class="follow-value"><span class="pill pill-green">Périodique</span><p>Des points planifiés à intervalles réguliers.</p></div></div>
+    <div class="plan-row plan-row-copy premium-row"><div class="plan-ident"><b>Premium</b><small>Dès 450 €</small></div><div class="follow-value"><span class="recommend-inline">Recommandé</span><span class="pill pill-green">Régulier</span><p>Un suivi fréquent pour piloter vos performances.</p></div></div>
+    <div class="plan-row plan-row-copy"><div class="plan-ident"><b>Excellence</b><small>Dès 650 €</small></div><div class="follow-value"><span class="pill pill-green">Proactif</span><p>Nous anticipons vos besoins et sécurisons vos décisions.</p></div></div>
+  </article>
+
+  <div class="compare-legend" aria-label="Légende du comparatif"><span><i class="legend-dot orange"></i> À la demande = 150 €/h</span><span><i class="legend-dot gray"></i> Non inclus dans le forfait</span><span><i class="legend-dot green"></i> Suivi intégré</span></div>
+  <div class="compare-note"><span class="info-mark">i</span><p><strong>Chaque niveau enrichit le précédent.</strong> Avec Basic, vous commandez les conseils lorsque vous en avez besoin. Les forfaits supérieurs intègrent progressivement ces prestations avec une fréquence plus soutenue.</p></div>
+</div>
+</section>
+<section class="final-cta"><h2>Un doute entre deux forfaits ?</h2><p>Une consultation gratuite permet de confirmer le niveau adapté à votre rythme de décision et à la maturité financière de votre entreprise.</p><a class="btn btn-red" href="#diagnostic">Refaire le diagnostic</a></section>
+</main><a class="chat" href="#diagnostic" aria-label="Aide au choix">◯</a></div>
+</body></html>
