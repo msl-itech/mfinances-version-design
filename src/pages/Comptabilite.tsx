@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import imgHero from "@/assets/compta-hero.webp";
+import imgHero400 from "@/assets/compta-hero-400.webp";
 import imgOdoo from "@/assets/compta-odoo.webp";
 
 import Header from "@/components/Header";
@@ -172,6 +173,7 @@ export default function Comptabilite() {
           description="Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps."
           pills={["Inclus dès le forfait Essentiel", "Intégration Odoo", "Encodage automatisé"]}
           image={imgHero}
+          imageSmall={imgHero400}
           imageAlt="Tableau de bord comptable Odoo — MFinances"
           plaque="N°04 / Comptabilité"
           cardTitlePrefix="Compta"
