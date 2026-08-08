@@ -46,8 +46,11 @@ export default function EntryPointsBentoSection() {
             data-anim="fade-up"
           >
             <div className="relative h-32 md:h-28 overflow-hidden shrink-0">
-              <img
+              <ResponsiveImage
                 src={checklistImg}
+                srcSmall={checklistImg400}
+                srcLarge={checklistImg}
+                displayWidth={400}
                 alt="Checklist trésorerie"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
