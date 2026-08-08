@@ -214,8 +214,11 @@ export default function HeroSection() {
               {/* Photo with editorial frame */}
               <div className="relative bg-gradient-to-br from-primary/8 via-transparent to-accent/5 rounded-[28px] overflow-hidden">
                 <div className="absolute inset-0 ring-1 ring-inset ring-border/30 rounded-[28px] z-10 pointer-events-none" />
-                <img
+                <ResponsiveImage
                   src={equipePhoto}
+                  srcSmall={equipePhoto400}
+                  srcLarge={equipePhoto}
+                  displayWidth={600}
                   alt="Équipe MFinances en réunion de travail"
                   className="w-full h-[460px] md:h-[540px] object-cover object-top transition-transform duration-[1.4s] group-hover:scale-[1.04]"
                   loading="eager"
