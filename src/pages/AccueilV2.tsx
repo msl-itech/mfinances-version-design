@@ -39,18 +39,31 @@ import { accountingServiceSchema, createFaqSchema } from "@/lib/seo-schemas";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
+import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
 import equipeSourire from "@/assets/mfinances-equipe-sourire.webp";
+import equipeSourire400 from "@/assets/mfinances-equipe-sourire-400.webp";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
+import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
 import imgControle from "@/assets/service-controle-gestion.webp";
+import imgControle400 from "@/assets/service-controle-gestion-400.webp";
 import imgDaf from "@/assets/service-daf-externalise.webp";
+import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
 import imgTresorerie from "@/assets/service-tresorerie.webp";
+import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
 import dafMeeting from "@/assets/daf-meeting-team.webp";
+import dafMeeting400 from "@/assets/daf-meeting-team-400.webp";
 import audIndependants from "@/assets/audience-independants.webp";
+import audIndependants400 from "@/assets/audience-independants-400.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
+import audHoreca400 from "@/assets/audience-commerce-horeca-400.webp";
 import audSante from "@/assets/audience-sante.webp";
+import audSante400 from "@/assets/audience-sante-400.webp";
 import audCroissance from "@/assets/audience-croissance.webp";
+import audCroissance400 from "@/assets/audience-croissance-400.webp";
 import audPromoteurs from "@/assets/audience-promoteurs.webp";
+import audPromoteurs400 from "@/assets/audience-promoteurs-400.webp";
 
 /* ============================================================
    DATA : texts copied verbatim from the V1 homepage sections
