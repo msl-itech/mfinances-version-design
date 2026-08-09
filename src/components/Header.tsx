@@ -42,7 +42,6 @@ const audienceRight = [
 
 const homeVersions = [
   { label: "Accueil V2", href: "/accueilv2/" },
-  { label: "Accueil V3", href: "/accueilv3/" },
 ];
 
 const outilsLinks = [

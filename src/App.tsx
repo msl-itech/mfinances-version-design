@@ -85,7 +85,7 @@ const App = () => {
             {/* <Route path="/accueilv2/" element={<AccueilV2 />} /> */}
             {/* <Route path="/accueilv2" element={<AccueilV2 />} /> */}
             {/* <Route path="/accueilv3/" element={<AccueilV3 />} /> */}
-            <Route path="/accueilv3" element={<AccueilV3 />} />
+            {/* <Route path="/accueilv3" element={<AccueilV3 />} /> */}
             <Route path="/services/" element={<Services />} />
             <Route
               path="/services/daf-externalise/"
