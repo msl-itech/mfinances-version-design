@@ -26,7 +26,11 @@ export const personMikaSchema = {
   },
   "url": "https://mfinances.be/a-propos/",
   "sameAs": [
-    "https://www.linkedin.com/company/mfinances"
+    "https://www.linkedin.com/in/mika-musungayi-4b0b9798/",
+    "https://www.facebook.com/profile.php?id=61575798073143",
+    "https://www.instagram.com/mfinances_expertcomptable",
+    "https://www.tiktok.com/@mfinances8",
+    "https://www.youtube.com/channel/UCS-d-jxSx2kdOb9i06UUNqw"
   ]
 };
 
@@ -142,7 +146,11 @@ export const accountingServiceSchema = {
     "Réserve de liquidation"
   ],
   "sameAs": [
-    "https://www.linkedin.com/company/mfinances"
+    "https://www.linkedin.com/in/mika-musungayi-4b0b9798/",
+    "https://www.facebook.com/profile.php?id=61575798073143",
+    "https://www.instagram.com/mfinances_expertcomptable",
+    "https://www.tiktok.com/@mfinances8",
+    "https://www.youtube.com/channel/UCS-d-jxSx2kdOb9i06UUNqw"
   ]
 };
 
