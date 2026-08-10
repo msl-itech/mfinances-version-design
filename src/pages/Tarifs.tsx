@@ -66,7 +66,7 @@ const compareCategories = [
     rows: [
       { label: "Bilan annuel", values: [true, true, true, true] },
       { label: "Déclarations fiscales", values: [true, true, true, true] },
-      { label: "Assistante administrative", values: [true, true, true, true] },
+      { label: "Assistance administrative", values: [true, true, true, true] },
     ],
   },
   {
