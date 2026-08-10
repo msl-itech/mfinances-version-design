@@ -169,18 +169,20 @@ export default function DiagnosticQuiz() {
   return (
     <div className="max-w-[790px] mx-auto">
       <div className="bg-card border border-border/60 rounded-3xl p-6 sm:p-8 shadow-[0_18px_42px_rgba(31,48,96,0.11)] overflow-hidden">
-        {/* Progress bar */}
-        <div className="flex items-center gap-4 mb-6">
-          <span className="flex-shrink-0 text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-body">
-            {showResult ? "Votre recommandation" : `Question ${currentIndex + 1} sur ${questions.length}`}
-          </span>
-          <span className="flex-1 h-2 rounded-full bg-secondary overflow-hidden">
-            <span
-              className="block h-full rounded-full bg-accent transition-all duration-300 ease-out"
-              style={{ width: `${progressPercent}%` }}
-            />
-          </span>
-        </div>
+        {/* Progress bar — hidden on result screen to avoid duplicate label */}
+        {!showResult && (
+          <div className="flex items-center gap-4 mb-6">
+            <span className="flex-shrink-0 text-[11px] font-bold tracking-[0.14em] uppercase text-muted-foreground font-body">
+              Question {currentIndex + 1} sur {questions.length}
+            </span>
+            <span className="flex-1 h-2 rounded-full bg-secondary overflow-hidden">
+              <span
+                className="block h-full rounded-full bg-accent transition-all duration-300 ease-out"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </span>
+          </div>
+        )}
 
         {/* Questions */}
         {!showResult && (

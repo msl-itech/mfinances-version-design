@@ -43,6 +43,12 @@ import {
   PlayCircle,
   Sparkles,
   Quote,
+  CalendarDays,
+  RefreshCcw,
+  Info,
+  MessageCircle,
+  MessageSquare,
+  PieChart,
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -83,7 +89,7 @@ const compareCategories = [
   },
   {
     num: "IV",
-    title: "Optimalisation de\n la trésorerie",
+    title: "Optimisation\nde la trésorerie",
     color: "hsla(36, 70%, 50%, 0.08)",
     barColor: "hsla(36, 70%, 50%, 0.5)",
     rows: [
@@ -96,7 +102,7 @@ const compareCategories = [
     color: "hsla(270, 40%, 50%, 0.08)",
     barColor: "hsla(270, 40%, 50%, 0.5)",
     rows: [
-      { label: "Mode de suivi", values: ["À la demande", "Inclus", "Régulier", "Proactif"] },
+      { label: "Rythme d'accompagnement (suivi global)", values: ["À la demande", "Périodique", "Régulier", "Proactif"] },
     ],
   },
 ];
@@ -235,6 +241,7 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
   if (v === "À la demande") return <span className="inline-block font-body text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 rounded-full px-2.5 py-1 leading-snug">À la demande<br />150 €/h</span>;
   if (v === "Non incluse") return <span className="inline-block font-body text-[10px] font-bold bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2.5 py-1">Non incluse</span>;
   if (v === "Inclus") return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">Inclus</span>;
+  if (v === "Périodique") return <span className="inline-block font-body text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-2.5 py-1">Périodique</span>;
   if (typeof v === "string" && /^(Régulier|Proactif)$/.test(v)) {
     return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">{v}</span>;
   }
@@ -831,111 +838,194 @@ export default function Tarifs() {
 
             <div data-anim="fade-up" data-delay="0.3">
               {/* Desktop table (lg+) */}
-              <div className="hidden lg:block bg-card rounded-3xl border border-border/60 overflow-hidden shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.25)]">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-[14px] table-fixed">
-                    <colgroup>
-                      <col style={{ width: "12%" }} />
-                      <col />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
-                      <col style={{ width: "17%" }} />
-                    </colgroup>
-                    <thead>
-                      <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
-                        <th colSpan={2} className="text-left p-6 font-body font-normal text-muted-foreground" />
-                        {[
-                          { name: "Basic", videoUrl: null, accent: false },
-                          { name: "Essentiel", videoUrl: null, accent: false },
-                          { name: "Premium", videoUrl: "https://www.youtube.com/embed/hZplCFSNXlk", accent: false },
-                          { name: "Excellence", videoUrl: "https://www.youtube.com/embed/XJrFJicX7S0", accent: true },
-                        ].map((plan, i) => (
-                          <th key={plan.name} className={`p-6 text-center relative ${i === 3 ? "bg-primary/[0.04]" : ""}`}>
-                            {i === 2 && (
-                              <span className="absolute top-0 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.15em] px-3 py-1 rounded-b-md">
-                                POPULAIRE
-                              </span>
-                            )}
-                            <span className="block font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 mb-1.5">
-                              0{i + 1}
+              <div className="hidden lg:block rounded-2xl overflow-visible bg-white border border-slate-200 shadow-xs">
+                <table className="w-full text-[14px] border-collapse" style={{ borderSpacing: 0 }}>
+                  <colgroup>
+                    <col style={{ width: "10%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                    <col style={{ width: "18%" }} />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th colSpan={2} className="p-6 pb-7 text-left align-middle border-b border-r border-slate-200 bg-white">
+                        <p className="font-body text-[20px] leading-snug tracking-tight">
+                          <strong className="block text-[22px] font-body font-bold text-[#1b2559]">4 niveaux d'accompagnement,</strong>
+                          <span className="font-normal text-slate-500 text-[16px] font-body">une progression logique.</span>
+                        </p>
+                      </th>
+                      {[
+                        { num: "01", name: "Basic", tagline: "Être en règle", price: "275 €", prefix: "", accent: false, recommended: false },
+                        { num: "02", name: "Essentiel", tagline: "Anticiper", price: "350 €", prefix: "À partir de ", accent: false, recommended: false },
+                        { num: "03", name: "Premium", tagline: "Piloter", price: "450 €", prefix: "À partir de ", accent: true, recommended: true },
+                        { num: "04", name: "Excellence", tagline: "Optimiser", price: "650 €", prefix: "À partir de ", accent: false, recommended: false },
+                      ].map((plan) => (
+                        <th
+                          key={plan.name}
+                          className={`p-5 pb-6 text-center align-top relative border-b border-r border-slate-200 ${
+                            plan.recommended
+                              ? "border-x-2 border-t-2 border-[#fca5a5] bg-[#fff5f5]/60 rounded-t-2xl border-r-[#fca5a5]"
+                              : "bg-white"
+                          }`}
+                        >
+                          {plan.recommended && (
+                            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#dc2626] text-white text-[9px] font-extrabold tracking-widest px-3 py-1 rounded-md uppercase z-20 shadow-xs">
+                              RECOMMANDÉ
                             </span>
-                            <span className={`font-display font-bold text-[18px] ${plan.accent ? "text-accent" : "text-primary"} inline-flex items-center gap-1.5`}>
-                              {plan.name}
-                              {plan.videoUrl && (
-                                <Popover>
-                                  <PopoverTrigger asChild>
-                                    <button className="inline-flex text-accent hover:text-accent/80 transition-all group/play relative" aria-label={`Voir la vidéo ${plan.name}`}>
-                                      <span className="absolute inset-0 rounded-full bg-accent/20 animate-ping" />
-                                      <PlayCircle size={18} strokeWidth={1.5} className="relative z-10 group-hover/play:scale-125 transition-transform duration-200" />
-                                    </button>
-                                  </PopoverTrigger>
-                                  <PopoverContent className="w-[min(420px,90vw)] p-2" side="bottom" align="center">
-                                    <div className="aspect-video rounded-lg overflow-hidden">
-                                      <iframe
-                                        width="100%"
-                                        height="100%"
-                                        src={plan.videoUrl}
-                                        title={`Vidéo ${plan.name}`}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerPolicy="strict-origin-when-cross-origin"
-                                        allowFullScreen
-                                      />
-                                    </div>
-                                  </PopoverContent>
-                                </Popover>
-                              )}
-                            </span>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {/* Prix row */}
-                      <tr className="border-b border-border/20 bg-primary/[0.04]">
-                        <td colSpan={2} className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{priceRow.label}</td>
-                        {priceRow.values.map((v, ci) => (
-                          <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
-                            <CellValue v={v} isPrice />
-                          </td>
-                        ))}
-                      </tr>
-                      {/* Categorised rows */}
-                      {compareCategories.map((cat) => (
-                        <>
-                          {cat.rows.map((row, ri) => (
-                            <tr key={row.label} className={`border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/30 ${ri === 0 ? "border-t border-border/30" : ""}`} style={cat.rows.length === 1 ? { height: "120px" } : undefined}>
-                              {ri === 0 && (
-                                <td
-                                  rowSpan={cat.rows.length}
-                                  className="relative border-r border-border/20 overflow-hidden"
-                                  style={{ backgroundColor: cat.color }}
-                                >
-                                  <span className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                                    <span
-                                      className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-center leading-[1.4] whitespace-pre-line"
-                                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", maxHeight: "90%" }}
-                                    >
-                                      {cat.title}
-                                    </span>
-                                  </span>
-                                  <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
-                                </td>
-                              )}
-                              <td className="p-4 pl-6 font-medium text-foreground/85 font-body text-[13.5px]">{row.label}</td>
-                              {row.values.map((v, ci) => (
-                                <td key={ci} className={`p-4 text-center ${ci === 3 ? "bg-primary/[0.025]" : ""}`}>
-                                  <CellValue v={v === null ? "—" : v} />
-                                </td>
-                              ))}
-                            </tr>
-                          ))}
-                        </>
+                          )}
+                          <span className={`block font-body text-[11px] font-bold tracking-[0.2em] mb-1 mt-1 ${plan.recommended ? "text-[#dc2626]" : "text-slate-400"}`}>
+                            {plan.num}
+                          </span>
+                          <span className={`block font-display font-bold leading-none ${plan.accent ? "text-[#dc2626] text-[28px]" : "text-[#1b2559] text-[26px]"}`}>
+                            {plan.name}
+                          </span>
+                          <span className="block font-body text-[13px] font-bold text-[#1b2559] mt-2 mb-3">
+                            {plan.tagline}
+                          </span>
+                          <span className="block font-body text-[13px] text-slate-600">
+                            {plan.prefix && <span className="text-[11px] text-slate-500">{plan.prefix}</span>}
+                            <strong className={`text-[20px] font-display font-bold ${plan.accent ? "text-[#dc2626]" : "text-[#1b2559]"}`}>{plan.price}</strong>
+                            <span className="text-[11px] text-slate-500 font-body"> / mois HTVA</span>
+                          </span>
+                        </th>
                       ))}
-                    </tbody>
-                  </table>
-                </div>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {compareCategories.flatMap((cat, catIdx) => {
+                      const catIcons = [
+                        { Icon: ShieldCheck, bg: "bg-[#2563eb]", color: "text-white", labelColor: "text-[#1d4ed8]", cellBg: "#eff6ff" },
+                        { Icon: CalendarDays, bg: "bg-[#dc2626]", color: "text-white", labelColor: "text-[#dc2626]", cellBg: "#fef2f2" },
+                        { Icon: TrendingUp, bg: "bg-[#16a34a]", color: "text-white", labelColor: "text-[#15803d]", cellBg: "#f0fdf4" },
+                        { Icon: PieChart, bg: "bg-[#ea580c]", color: "text-white", labelColor: "text-[#c2410c]", cellBg: "#fff7ed" },
+                        { Icon: Users, bg: "bg-[#9333ea]", color: "text-white", labelColor: "text-[#7e22ce]", cellBg: "#faf5ff" },
+                      ];
+                      const catStyle = catIcons[catIdx];
+                      const isLastCat = catIdx === compareCategories.length - 1;
+                      const isRelationClient = catIdx === 4;
+
+                      return cat.rows.map((row, ri) => {
+                        const isFirstRow = ri === 0;
+                        const isLastRow = ri === cat.rows.length - 1;
+                        const isLastCatLastRow = isLastCat && isLastRow;
+
+                        return (
+                          <tr
+                            key={`${cat.num}-${ri}`}
+                            className={`transition-colors hover:bg-slate-50/50 ${!isLastCatLastRow ? "border-b border-slate-200" : ""}`}
+                            style={cat.rows.length === 1 ? { height: "110px" } : undefined}
+                          >
+                            {isFirstRow && (
+                              <td
+                                rowSpan={cat.rows.length}
+                                className="p-4 text-center align-middle border-r border-b border-slate-200"
+                                style={{ backgroundColor: catStyle.cellBg }}
+                              >
+                                <div className="flex flex-col items-center gap-2">
+                                  <div className={`w-10 h-10 rounded-full ${catStyle.bg} flex items-center justify-center shadow-xs`}>
+                                    <catStyle.Icon size={20} className={catStyle.color} strokeWidth={2} />
+                                  </div>
+                                  <span className={`font-body text-[10px] font-extrabold tracking-wider uppercase leading-tight text-center whitespace-pre-line ${catStyle.labelColor}`}>
+                                    {cat.title}
+                                  </span>
+                                </div>
+                              </td>
+                            )}
+                            <td className="p-4 pl-5 font-semibold text-[#1b2559] font-body text-[13px] border-r border-slate-200 whitespace-pre-line bg-white">
+                              {row.label}
+                            </td>
+                            {row.values.map((v, ci) => {
+                              const isPremium = ci === 2;
+
+                              const isExcellence = ci === 3;
+                              const freqColor = isExcellence ? "text-[#dc2626]" : "text-[#1b2559]";
+
+                              let content;
+                              if (v === true) {
+                                content = <Check size={22} className="text-[#dc2626] mx-auto" strokeWidth={3} />;
+                              } else if (v === "À la demande" && !isRelationClient) {
+                                content = (
+                                  <span className="inline-block border border-[#fde68a] bg-[#fffbeb] rounded-xl px-3.5 py-2 font-body text-[11px] font-bold leading-snug text-center text-[#92400e]">
+                                    À la demande<br />150 €/h
+                                  </span>
+                                );
+                              } else if (v === "Non incluse") {
+                                content = (
+                                  <span className="inline-block font-body text-[11px] font-medium bg-slate-100 text-slate-500 border border-slate-200/80 rounded-lg px-3 py-1">
+                                    Non incluse
+                                  </span>
+                                );
+                              } else if (typeof v === "string" && /^(Semestrielles|Trimestrielles|Mensuelles)$/.test(v)) {
+                                content = (
+                                  <div className="text-center">
+                                    <span className={`font-body font-bold ${freqColor} text-[14px]`}>{v}</span>
+                                    <span className="font-body text-[12px] text-slate-500 block">incluses</span>
+                                  </div>
+                                );
+                              } else if (typeof v === "string" && /^(Trimestriel|Mensuel)$/.test(v)) {
+                                content = (
+                                  <div className="text-center">
+                                    <span className={`font-body font-bold ${freqColor} text-[14px]`}>{v}</span>
+                                    <span className="font-body text-[12px] text-slate-500 block">inclus</span>
+                                  </div>
+                                );
+                              } else if (typeof v === "string" && v === "Mensuelle") {
+                                content = (
+                                  <div className="text-center">
+                                    <span className="font-body font-bold text-[#dc2626] text-[14px]">Mensuelle</span>
+                                    <span className="font-body text-[12px] text-slate-500 block">incluse</span>
+                                  </div>
+                                );
+                              } else if (isRelationClient && typeof v === "string") {
+                                const relationDescs: Record<string, string> = {
+                                  "À la demande": "Vous contactez\nquand vous en avez besoin.",
+                                  "Périodique": "Des points planifiés\nà intervalles réguliers.",
+                                  "Régulier": "Un suivi fréquent pour\npiloter vos performances.",
+                                  "Proactif": "Nous anticipons vos besoins\net sécurisons vos décisions.",
+                                };
+                                const badgeStyles: Record<string, string> = {
+                                  "À la demande": "bg-red-50 text-[#dc2626] border-red-300",
+                                  "Périodique": "bg-blue-50 text-[#2563eb] border-blue-300",
+                                  "Régulier": "bg-green-50 text-[#16a34a] border-green-300",
+                                  "Proactif": "bg-blue-50 text-[#2563eb] border-blue-300",
+                                };
+                                content = (
+                                  <div className="text-center">
+                                    <span className={`inline-block font-body text-[11px] font-bold border rounded-full px-3.5 py-1.5 ${badgeStyles[v] || ""}`}>
+                                      {v}
+                                    </span>
+                                    {relationDescs[v] && (
+                                      <p className="font-body text-[11px] text-slate-500 mt-2 leading-snug whitespace-pre-line">
+                                        {relationDescs[v]}
+                                      </p>
+                                    )}
+                                  </div>
+                                );
+                              } else {
+                                content = <CellValue v={v === null ? "—" : v} />;
+                              }
+
+                              return (
+                                <td
+                                  key={ci}
+                                  className={`p-4 text-center align-middle border-r border-slate-200 ${
+                                    isPremium
+                                      ? `border-x-2 border-[#fca5a5] bg-[#fff5f5]/60 ${isLastCatLastRow ? "border-b-2 border-[#fca5a5] rounded-b-2xl" : ""}`
+                                      : "bg-white"
+                                  }`}
+                                >
+                                  {content}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      });
+                    })}
+                  </tbody>
+                </table>
               </div>
 
               {/* Tablet layout (sm → lg) */}
@@ -979,182 +1069,195 @@ export default function Tarifs() {
                 ))}
               </div>
 
-              {/* ── Mobile swipeable card deck (< sm) ── */}
-              <div className="sm:hidden">
-                {/* Sticky nav: pills + dots merged */}
-                <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-md border-b border-border/40 -mx-5 px-5 py-2.5">
-                  <div ref={mobileRailRef} className="flex gap-2 overflow-x-auto scrollbar-hide">
-                    {plans.map((plan, i) => (
-                      <button
-                        key={plan.name}
-                        onClick={() => scrollToCard(i)}
-                        className={`flex-shrink-0 rounded-full px-4 py-2 border transition-all duration-200 ${activeMobileCard === i
-                            ? "bg-primary border-primary text-primary-foreground shadow-sm"
-                            : "bg-card border-border/50 text-muted-foreground"
-                          }`}
-                      >
-                        <span className="text-[12px] font-bold font-body whitespace-nowrap">
-                          {plan.name} · {plan.price} €
-                        </span>
-                      </button>
+              {/* ── Mobile/Tablet vertical comparatif (< lg) ── */}
+              <div className="lg:hidden space-y-4">
+                {/* Socle commun — Conformité */}
+                <article className="bg-card rounded-3xl border border-border/50 p-5 shadow-[0_14px_34px_rgba(31,48,96,0.07)]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="w-10 h-10 rounded-[14px] bg-[#3d84ff] text-white flex items-center justify-center flex-shrink-0">
+                      <Check size={20} strokeWidth={3} />
+                    </span>
+                    <div>
+                      <span className="block text-[9px] font-bold tracking-[0.15em] uppercase text-muted-foreground font-body">Socle commun</span>
+                      <h3 className="font-display text-[22px] leading-[1.05] font-bold text-primary mt-0.5">Inclus dans les 4 forfaits</h3>
+                    </div>
+                  </div>
+                  <div className="grid gap-2 bg-[#f8faff] rounded-2xl p-4">
+                    {compareCategories[0].rows.map((row) => (
+                      <span key={row.label} className="text-[12.5px] font-bold text-primary font-body flex items-center gap-2">
+                        <Check size={14} className="text-accent flex-shrink-0" strokeWidth={3} />
+                        {row.label}
+                      </span>
                     ))}
                   </div>
-                </div>
+                </article>
 
-                {/* Swipeable card deck — peek next card */}
-                <div
-                  ref={mobileDeckRef}
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-4 pb-1 pl-5 pr-12 -mx-5 scrollbar-hide"
-                >
-                  {plans.map((plan, pi) => {
-                    const isPopular = (plan as typeof plans[number] & { popular?: boolean }).popular;
-                    return (
-                      <article
-                        key={plan.name}
-                        className={`flex-shrink-0 w-[85vw] snap-start bg-card rounded-2xl border overflow-hidden relative ${isPopular ? "border-2 border-accent shadow-[0_8px_24px_rgba(218,11,41,0.10)]" : "border-border/50 shadow-sm"
-                          }`}
+                {/* Criterion cards — skip Conformité (index 0) */}
+                {compareCategories.slice(1).map((cat, catIdx) => {
+                  const catColors = [
+                    { accent: "#ff6678", tint: "#fff4f5", label: "Anticipation" },
+                    { accent: "#53bd85", tint: "#f1fbf6", label: "Développement" },
+                    { accent: "#ffad42", tint: "#fff8ef", label: "Optimisation de la trésorerie" },
+                    { accent: "#8f6dd8", tint: "#f7f3ff", label: "Relation client" },
+                  ];
+                  const cc = catColors[catIdx];
+                  const isRelationClient = catIdx === 3;
+
+                  return cat.rows.map((row) => (
+                    <article key={`${cat.num}-${row.label}`} className="bg-card rounded-3xl border border-border/50 shadow-[0_14px_34px_rgba(31,48,96,0.07)] overflow-hidden">
+                      {/* Header */}
+                      <header
+                        className="flex items-center gap-3 px-[18px] py-[17px] border-l-4"
+                        style={{ borderLeftColor: cc.accent, background: `linear-gradient(90deg, ${cc.tint}, #fff)` }}
                       >
-                        {isPopular && (
-                          <span className="absolute top-0 right-0 bg-accent text-accent-foreground text-[9px] font-bold tracking-[0.1em] uppercase px-3 py-1.5 rounded-bl-xl">
-                            Populaire
-                          </span>
-                        )}
-
-                        {/* Header */}
-                        <div className="px-5 pt-5 pb-3">
-                          <h3 className="font-display text-[20px] font-bold text-primary leading-none">{plan.name}</h3>
-                          <p className="text-accent text-[12px] italic font-body mt-1">{plan.tagline}</p>
-                          <div className="flex items-baseline gap-1 mt-2">
-                            {pi > 0 && <span className="text-[11px] text-muted-foreground font-body">Dès</span>}
-                            <span className="text-[28px] font-bold font-display text-primary leading-none tracking-tight tabular-nums">{plan.price} €</span>
-                            <span className="text-[11px] text-muted-foreground font-body">/mois HTVA</span>
-                          </div>
+                        <span className="w-10 h-10 rounded-[14px] text-white flex items-center justify-center flex-shrink-0 text-[12px] font-bold font-body" style={{ background: cc.accent }}>
+                          {String(catIdx + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <span className="block text-[9px] font-bold tracking-[0.15em] uppercase font-body" style={{ color: cc.accent }}>{cc.label}</span>
+                          <h3 className="font-display text-[20px] sm:text-[22px] leading-[1.05] font-bold text-primary mt-0.5">{row.label.replace(/\n/g, " ")}</h3>
                         </div>
+                      </header>
 
-                        {/* Features */}
-                        <div className="px-5 pb-4 border-t border-border/20 pt-3">
-                          {compareCategories.map((cat) => {
-                            const includedRows = cat.rows.filter(
-                              (row) => row.values[pi] !== "À la demande" && row.values[pi] !== "Non incluse"
-                            );
-                            if (includedRows.length === 0) return null;
-                            return (
-                              <div key={cat.num}>
-                                {cat.title && (
-                                  <p className="text-[9px] tracking-[0.1em] uppercase font-bold text-muted-foreground font-body mt-2.5 mb-1">
-                                    {cat.title.replace(/\n\s*/g, " ")}
-                                  </p>
-                                )}
-                                {includedRows.map((row) => {
-                                  const v = row.values[pi];
-                                  return (
-                                    <div key={row.label} className="flex items-center gap-2.5 py-[5px]">
-                                      <Check size={14} className="text-accent flex-shrink-0" strokeWidth={2.5} />
-                                      <span className="flex-1 text-[13px] text-foreground font-body">{row.label}</span>
-                                      {v !== true && (
-                                        <span className="flex-shrink-0 text-[11px] font-semibold text-accent">
-                                          {v as string}
-                                        </span>
-                                      )}
-                                    </div>
-                                  );
-                                })}
+                      {/* Plan rows */}
+                      {plans.map((plan, pi) => {
+                        const v = row.values[pi];
+                        const isPremium = pi === 2;
+
+                        let valueContent;
+                        if (v === true) {
+                          valueContent = <Check size={16} className="text-accent" strokeWidth={3} />;
+                        } else if (v === "À la demande" && !isRelationClient) {
+                          valueContent = (
+                            <span className="inline-flex items-center gap-1 rounded-full px-[10px] py-[7px] text-[9px] font-bold bg-[#fffaf0] border border-[#f2c35d] text-[#c96800] whitespace-nowrap">
+                              À la demande <span className="text-[8px]">150 €/h</span>
+                            </span>
+                          );
+                        } else if (v === "Non incluse") {
+                          valueContent = (
+                            <span className="inline-flex rounded-full px-[10px] py-[7px] text-[9px] font-bold bg-[#eef2f7] border border-[#dbe2ec] text-[#6d7a93] whitespace-nowrap">
+                              Non incluse
+                            </span>
+                          );
+                        } else if (typeof v === "string" && /^(Semestrielles|Trimestrielles|Mensuelles|Trimestriel|Mensuel|Mensuelle)$/i.test(v)) {
+                          valueContent = <strong className="text-[13px] text-accent font-body">{v}</strong>;
+                        } else if (isRelationClient && typeof v === "string") {
+                          const followDescs: Record<string, string> = {
+                            "À la demande": "Vous nous contactez lorsque vous en avez besoin.",
+                            "Périodique": "Des points planifiés à intervalles réguliers.",
+                            "Régulier": "Un suivi fréquent pour piloter vos performances.",
+                            "Proactif": "Nous anticipons vos besoins et sécurisons vos décisions.",
+                          };
+                          const followPills: Record<string, string> = {
+                            "À la demande": "bg-[#fffaf0] border-[#f2c35d] text-[#c96800]",
+                            "Périodique": "bg-[#ecfbf3] border-[#a8e9c6] text-[#148c56]",
+                            "Régulier": "bg-[#ecfbf3] border-[#a8e9c6] text-[#148c56]",
+                            "Proactif": "bg-[#ecfbf3] border-[#a8e9c6] text-[#148c56]",
+                          };
+                          valueContent = (
+                            <div className="flex flex-col items-end gap-[5px] text-right max-w-[62%]">
+                              {isPremium && <span className="inline-flex bg-accent text-white rounded-full px-[7px] py-[4px] text-[7.5px] font-bold tracking-[0.08em] uppercase whitespace-nowrap">Recommandé</span>}
+                              <span className={`inline-flex rounded-full px-[10px] py-[7px] text-[9px] font-bold border whitespace-nowrap ${followPills[v] || ""}`}>{v}</span>
+                              {followDescs[v] && <p className="text-[9.5px] text-muted-foreground leading-[1.45] font-body m-0">{followDescs[v]}</p>}
+                            </div>
+                          );
+                        } else {
+                          valueContent = <CellValue v={v ?? "—"} />;
+                        }
+
+                        return (
+                          <div
+                            key={plan.name}
+                            className={`flex items-center justify-between gap-3 min-h-[70px] px-[17px] py-[13px] border-t border-[#eef0f4] ${
+                              isPremium ? "bg-[#fffafa] shadow-[inset_3px_0_0_var(--accent)]" : "bg-white"
+                            } ${isRelationClient ? "items-start pt-[14px] pb-[14px]" : ""}`}
+                          >
+                            <div className="min-w-[95px] flex flex-col gap-[2px]">
+                              <b className="text-[12px] tracking-[0.02em] text-primary font-body">{plan.name}</b>
+                              <small className="text-[9.5px] text-muted-foreground font-body">{pi === 0 ? `${plan.price} €` : `Dès ${plan.price} €`}</small>
+                            </div>
+                            {!isRelationClient && isPremium ? (
+                              <div className="flex flex-col items-end gap-[5px]">
+                                <span className="inline-flex bg-accent text-white rounded-full px-[7px] py-[4px] text-[7.5px] font-bold tracking-[0.08em] uppercase whitespace-nowrap">Recommandé</span>
+                                {valueContent}
                               </div>
-                            );
-                          })}
-                        </div>
-                      </article>
-                    );
-                  })}
+                            ) : (
+                              valueContent
+                            )}
+                          </div>
+                        );
+                      })}
+                    </article>
+                  ));
+                })}
+
+                {/* Legend */}
+                <div className="grid gap-2 px-1 text-[10px] text-muted-foreground font-body">
+                  <span className="flex items-center gap-2"><span className="w-[10px] h-[10px] rounded-full bg-[#f2c35d] flex-shrink-0" /> À la demande = 150 €/h</span>
+                  <span className="flex items-center gap-2"><span className="w-[10px] h-[10px] rounded-full bg-[#cfd7e3] flex-shrink-0" /> Non inclus dans le forfait</span>
+                  <span className="flex items-center gap-2"><span className="w-[10px] h-[10px] rounded-full bg-[#8ee1b5] flex-shrink-0" /> Suivi intégré</span>
                 </div>
 
-                {/* Dots */}
-                <div className="flex justify-center gap-1.5 pt-2 pb-1">
-                  {plans.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`h-[5px] rounded-full transition-all duration-300 ${activeMobileCard === i ? "w-5 bg-primary" : "w-[5px] bg-border"
-                        }`}
-                    />
-                  ))}
+                {/* Note */}
+                <div className="flex gap-3 items-start p-[17px] border border-[#d9e2ef] bg-gradient-to-b from-[#fbfdff] to-[#f5f9ff] rounded-[19px]">
+                  <span className="w-[30px] h-[30px] rounded-full bg-[#3d84ff] text-white flex items-center justify-center flex-shrink-0 font-display font-bold text-[17px]">i</span>
+                  <p className="text-[10.5px] leading-[1.6] text-[#456083] font-body m-0">
+                    <strong className="text-primary">Chaque niveau enrichit le précédent.</strong> Avec Basic, vous commandez les conseils lorsque vous en avez besoin. Les forfaits supérieurs intègrent progressivement ces prestations avec une fréquence plus soutenue.
+                  </p>
                 </div>
-
               </div>
-
-              {/* ── Mobile comparison sheet (modal) ── */}
-              {showCompareSheet && (
-                <div className="sm:hidden fixed inset-0 z-[60] flex flex-col">
-                  {/* Backdrop */}
-                  <div className="absolute inset-0 bg-black/40" onClick={() => setShowCompareSheet(false)} />
-                  {/* Sheet */}
-                  <div className="relative mt-auto bg-background rounded-t-3xl flex flex-col max-h-[88vh] shadow-2xl">
-                    {/* Handle + header */}
-                    <div className="sticky top-0 z-10 bg-background rounded-t-3xl border-b border-border/30 px-5 pt-3 pb-4">
-                      <div className="w-10 h-1 rounded-full bg-border mx-auto mb-4" />
-                      <div className="flex items-center justify-between">
-                        <h2 className="font-display text-[20px] font-bold text-primary">Comparatif</h2>
-                        <button
-                          onClick={() => setShowCompareSheet(false)}
-                          className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center active:scale-95 transition-transform"
-                          aria-label="Fermer"
-                        >
-                          <X size={20} strokeWidth={2.5} />
-                        </button>
-                      </div>
-                    </div>
-                    {/* Content */}
-                    <div className="flex-1 overflow-y-auto px-5 pb-8 pt-4 space-y-5">
-                      {/* Prix */}
-                      <div className="bg-card rounded-2xl border border-border/50 p-4">
-                        <p className="text-[13px] font-semibold text-foreground mb-3 font-body">{priceRow.label}</p>
-                        <div className="grid grid-cols-2 gap-2.5">
-                          {priceRow.values.map((v, ci) => (
-                            <div key={ci} className={`text-center rounded-xl p-3 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
-                              <p className={`text-[10px] font-bold uppercase tracking-wider mb-1.5 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
-                              <CellValue v={v} isPrice />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      {/* Categories */}
-                      {compareCategories.map((cat) => (
-                        <div key={cat.num}>
-                          {cat.title && (
-                            <div className="flex items-center gap-2.5 mb-2.5 px-1">
-                              <span className="w-[3px] h-5 rounded-full" style={{ backgroundColor: cat.barColor }} />
-                              <span className="font-display text-[12px] font-bold text-primary tracking-wide">
-                                {cat.title.replace(/\n\s*/g, " ")}
-                              </span>
-                            </div>
-                          )}
-                          <div className="space-y-2.5">
-                            {cat.rows.map((row) => (
-                              <div key={row.label} className="bg-card rounded-2xl border border-border/50 p-4">
-                                <p className="text-[13px] font-semibold text-foreground mb-3 font-body">{row.label}</p>
-                                <div className="grid grid-cols-2 gap-2.5">
-                                  {row.values.map((v, ci) => (
-                                    <div key={ci} className={`text-center rounded-xl p-2.5 ${ci === 3 ? "bg-primary/[0.06] ring-1 ring-accent/20" : "bg-secondary/40"}`}>
-                                      <p className={`text-[10px] font-bold uppercase tracking-wider mb-1.5 font-body ${ci === 3 ? "text-accent" : "text-muted-foreground"}`}>{planNames[ci]}</p>
-                                      <CellValue v={v ?? "—"} />
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                      {/* Légende */}
-                      <p className="text-center text-[12px] text-muted-foreground font-body pt-2">
-                        <strong className="text-amber-700">À la demande</strong> = 150 € HTVA / heure
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
-            <div data-anim="fade-up" data-delay="0.4">
+            {/* Légende */}
+            <div data-anim="fade-up" data-delay="0.4" className="hidden lg:block">
+              <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 mt-6 py-4 px-8 text-[13px] font-body text-slate-600 bg-white border border-slate-200 rounded-xl shadow-xs">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">LÉGENDE</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check size={18} className="text-[#dc2626]" strokeWidth={3} />
+                  <span className="text-slate-700 font-medium">Inclus dans le forfait</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block border border-[#fde68a] bg-[#fffbeb] rounded-full px-3 py-1 text-[#b45309] font-bold text-[11px]">
+                    À la demande <span className="text-[#dc2626]">150 €/h</span>
+                  </span>
+                  <span className="text-slate-700 font-medium">Prestation facturée à l'heure</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block bg-slate-100 text-slate-500 border border-slate-200/80 rounded-full px-3 py-1 text-[11px] font-semibold">
+                    Non incluse
+                  </span>
+                  <span className="text-slate-700 font-medium">Non incluse dans le forfait</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Info box + Besoin d'aide — single bar */}
+            <div data-anim="fade-up" data-delay="0.5" className="hidden lg:flex items-center gap-6 mt-5 bg-[#f0f4fa] border border-[#dce3ef] rounded-2xl px-6 py-5">
+              <div className="w-10 h-10 rounded-full bg-[#2563eb] text-white flex items-center justify-center flex-shrink-0">
+                <Info size={20} strokeWidth={2.5} />
+              </div>
+              <p className="flex-1 text-[13px] text-slate-600 font-body leading-relaxed">
+                Chaque niveau enrichit le précédent avec davantage de prestations incluses et un suivi plus fréquent.<br />
+                Avec Basic, vous commandez les conseils lorsque vous en avez besoin. Avec les forfaits supérieurs,{" "}
+                nous intégrons progressivement ces prestations à votre accompagnement afin d'anticiper vos besoins avant qu'ils ne deviennent urgents.
+              </p>
+              <div className="flex items-center gap-3 flex-shrink-0 border-l border-slate-300/60 pl-6">
+                <div className="w-10 h-10 rounded-xl bg-white border border-red-200/60 flex items-center justify-center flex-shrink-0">
+                  <MessageCircle size={20} className="text-accent" strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="font-display font-bold text-primary text-[14px] leading-tight">Besoin d'aide pour choisir ?</p>
+                  <p className="text-[12px] text-slate-500 font-body mt-0.5">
+                    <Link to="/contact/" className="text-slate-600 hover:underline">Contactez-nous, nous vous conseillons.</Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile/tablet bottom notes */}
+            <div data-anim="fade-up" data-delay="0.4" className="lg:hidden">
               <p className="text-center mt-3 text-[13px] text-muted-foreground font-body">
                 <strong className="text-amber-700 not-italic">À la demande</strong> = prestations facturées à <strong className="text-foreground not-italic">150 € HTVA / heure</strong>, disponibles sur demande pour aller plus loin.
               </p>
