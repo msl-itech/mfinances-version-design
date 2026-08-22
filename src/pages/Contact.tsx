@@ -143,6 +143,7 @@ export default function Contact() {
       email_from: email,
       phone: telephone,
       description: descParts.join(""),
+      tag_names: ["contact_formulaire"],
     });
     await submitLead(leadData);
     trackLeadSource({ ...leadData, form_name: "contact" });
