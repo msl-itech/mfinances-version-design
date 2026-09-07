@@ -9,8 +9,8 @@ Forfaits mensuels : Basic à partir de 275€ HTVA (comptabilité + conformité)
 ## Pages principales
 
 - [Accueil](https://mfinances.be/): Positionnement, méthode de pilotage et offres du cabinet.
-- [À propos](https://mfinances.be/a-propos/): Mika Musungayi, expert-comptable ITAA, expertise et valeurs (E-E-A-T).
-- [Notre organisation](https://mfinances.be/notre-organisation/): Architecture du groupe MFINANCES — trois expertises intégrées (MFINANCES, MSL ANALYTICA, MSL-iTECH) et chaîne Collecter → Fiabiliser → Analyser → Décider.
+- [À propos](https://mfinances.be/a-propos/): histoire de MFINANCES, conviction de pilotage, fondateur et principes de travail.
+- [Notre organisation](https://mfinances.be/notre-organisation/): fonctionnement des pôles MFINANCES, MSL ANALYTICA et MSL-iTECH, chaîne de traitement de la donnée, supervision et transparence.
 - [Services](https://mfinances.be/services/): Vue d'ensemble des prestations comptables et financières.
 - [Tarifs](https://mfinances.be/tarifs/): Détail des forfaits Basic, Essentiel, Premium et Excellence.
 - [Contact](https://mfinances.be/contact/): Formulaire de contact et prise de rendez-vous.

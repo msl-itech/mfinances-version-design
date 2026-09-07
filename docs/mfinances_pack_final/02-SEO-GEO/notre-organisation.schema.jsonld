@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mfinances.be/notre-organisation/#webpage",
+      "url": "https://mfinances.be/notre-organisation/",
+      "name": "Notre organisation | MFINANCES",
+      "inLanguage": "fr-BE",
+      "about": {
+        "@id": "https://mfinances.be/#organization"
+      },
+      "mentions": [
+        {
+          "@type": "Organization",
+          "name": "MSL ANALYTICA",
+          "description": "Société liée à MFINANCES intervenant dans le soutien administratif, le traitement documentaire et les processus Odoo Finances."
+        },
+        {
+          "@type": "Organization",
+          "name": "MSL-iTECH",
+          "description": "Société liée à MFINANCES spécialisée dans l’intégration, l’automatisation et le développement sous Odoo."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://mfinances.be/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "À propos",
+          "item": "https://mfinances.be/a-propos/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Notre organisation",
+          "item": "https://mfinances.be/notre-organisation/"
+        }
+      ]
+    }
+  ]
+}

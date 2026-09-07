@@ -186,3 +186,33 @@ export function trackPageView(path: string): void {
     }).catch(() => {});
   } catch {}
 }
+
+// ── trackEvent ─────────────────────────────────────────────────────────
+// Fire-and-forget : envoie un événement nommé vers la table `custom_events`.
+// Utilisation : trackEvent('org_bridge_click_about')
+
+export function trackEvent(eventName: string): void {
+  const utm = resolveUtm();
+  const payload = {
+    site_domain: SITE_DOMAIN,
+    event_name: eventName,
+    page_path: typeof window !== "undefined" ? window.location.pathname : "",
+    utm_source: utm.utm_source,
+    utm_medium: utm.utm_medium,
+    utm_campaign: utm.utm_campaign,
+  };
+
+  try {
+    fetch(`${SUPABASE_URL}/rest/v1/custom_events`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {}
+}

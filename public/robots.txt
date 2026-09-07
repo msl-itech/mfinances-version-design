@@ -27,6 +27,10 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# ─── OPENAI CHATGPT SEARCH ──────────────────────────
+User-agent: OAI-SearchBot
+Allow: /
+
 # ─── ANTHROPIC (Claude) ─────────────────────────────
 User-agent: anthropic-ai
 Allow: /

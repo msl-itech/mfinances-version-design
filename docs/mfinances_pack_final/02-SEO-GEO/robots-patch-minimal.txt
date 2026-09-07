@@ -1,0 +1,9 @@
+# PATCH MINIMAL A AJOUTER AU robots.txt EXISTANT
+# Objectif : permettre la découverte et la citation dans ChatGPT Search.
+# Vérifié le 25/08/2026 sur la documentation OpenAI.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# IMPORTANT : GPTBot concerne un usage distinct lié à l'entraînement potentiel.
+# Ne pas modifier sa règle actuelle sans décision explicite de politique de données.

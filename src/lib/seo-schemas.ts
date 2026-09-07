@@ -147,6 +147,39 @@ export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+export const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://mfinances.be/a-propos/#webpage",
+  "url": "https://mfinances.be/a-propos/",
+  "name": "À propos de MFINANCES",
+  "inLanguage": "fr-BE",
+  "about": { "@id": "https://mfinances.be/#organization" },
+  "mainEntity": { "@id": "https://mfinances.be/a-propos/#mika-musungayi" },
+};
+
+export const organisationPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://mfinances.be/notre-organisation/#webpage",
+  "url": "https://mfinances.be/notre-organisation/",
+  "name": "Notre organisation | MFINANCES",
+  "inLanguage": "fr-BE",
+  "about": { "@id": "https://mfinances.be/#organization" },
+  "mentions": [
+    {
+      "@type": "Organization",
+      "name": "MSL ANALYTICA",
+      "description": "Société liée à MFINANCES intervenant dans le soutien administratif, le traitement documentaire et les processus Odoo Finances.",
+    },
+    {
+      "@type": "Organization",
+      "name": "MSL-iTECH",
+      "description": "Société liée à MFINANCES spécialisée dans l'intégration, l'automatisation et le développement sous Odoo.",
+    },
+  ],
+};
+
 export function createFaqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

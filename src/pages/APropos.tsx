@@ -22,7 +22,8 @@ import {
   BarChart3,
   Sparkles,
 } from "lucide-react";
-import { createBreadcrumbSchema, personMikaSchema } from "@/lib/seo-schemas";
+import { createBreadcrumbSchema, personMikaSchema, aboutPageSchema } from "@/lib/seo-schemas";
+import { trackEvent } from "@/lib/visitor-tracker";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -90,6 +91,7 @@ export default function APropos() {
         description="MFinances, cabinet d'expertise comptable à Uccle (Bruxelles) fondé par Mika Musungayi, expert-comptable ITAA. Pilotage financier et contrôle de gestion pour TPE."
         canonical="https://mfinances.be/a-propos/"
         schemaJson={[
+          aboutPageSchema,
           createBreadcrumbSchema([
             { name: "Accueil", url: "https://mfinances.be/" },
             { name: "À propos", url: "https://mfinances.be/a-propos/" },
@@ -553,6 +555,60 @@ export default function APropos() {
                   className="relative rounded-3xl w-full h-[280px] md:h-[400px] object-cover shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 07 · NOTRE ORGANISATION ── */}
+        <section className="py-14 md:py-20 bg-secondary/50 relative overflow-hidden">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-anim="fade-up">
+              <div className="inline-flex items-center gap-2 mb-5">
+                <span className="h-px w-8 bg-accent" />
+                <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">07 · Notre organisation</span>
+                <span className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="font-display text-[26px] md:text-[38px] text-foreground leading-[1.1] tracking-tight mb-5">
+                Une conviction ne suffit pas.<br />
+                <span className="italic font-light text-accent">Il faut l'organisation qui la rend possible.</span>
+              </h2>
+              <p className="text-muted-foreground text-[15px] leading-[1.75] mb-3">
+                Donner à une PME davantage de visibilité, d'anticipation et de pilotage suppose de ne pas organiser la comptabilité comme une simple production de comptes annuels.
+              </p>
+              <p className="text-muted-foreground text-[15px] leading-[1.75] mb-8">
+                MFINANCES s'appuie pour cela sur une organisation intégrée réunissant expertise comptable, traitement de la donnée financière et maîtrise d'Odoo. Chaque pôle intervient là où il apporte le plus de valeur, sous une responsabilité clairement définie.
+              </p>
+              <Button variant="accent" size="default" className="rounded-full" asChild>
+                <Link
+                  to="/notre-organisation/"
+                  onClick={() => trackEvent("org_bridge_click_about")}
+                >
+                  Découvrir notre organisation
+                  <ArrowRight size={15} className="ml-1.5" />
+                </Link>
+              </Button>
+            </div>
+
+            {/* Mini organigramme */}
+            <div data-anim="fade-up" className="flex flex-col items-center gap-4">
+              <div className="bg-primary text-primary-foreground rounded-2xl px-6 py-4 text-center w-full max-w-[300px]">
+                <p className="font-display text-[15px] font-semibold tracking-wide">MFINANCES</p>
+                <p className="text-primary-foreground/65 text-[12px] mt-1 font-body">Expertise comptable & pilotage</p>
+              </div>
+              <div className="h-5 w-px bg-border" aria-hidden="true" />
+              <div className="grid grid-cols-2 gap-3 w-full max-w-[360px]">
+                <div className="bg-card border border-border rounded-xl px-4 py-3 text-center">
+                  <p className="font-semibold text-[13px] text-foreground">MSL ANALYTICA</p>
+                  <p className="text-muted-foreground text-[11px] mt-0.5 leading-snug">Données & processus financiers</p>
+                </div>
+                <div className="bg-card border border-border rounded-xl px-4 py-3 text-center">
+                  <p className="font-semibold text-[13px] text-foreground">MSL-iTECH</p>
+                  <p className="text-muted-foreground text-[11px] mt-0.5 leading-snug">Odoo & automatisation</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-[12px] italic text-center max-w-[300px]">
+                Des rôles distincts, une chaîne de valeur cohérente.
+              </p>
             </div>
           </div>
         </section>

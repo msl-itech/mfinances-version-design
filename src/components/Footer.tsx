@@ -23,7 +23,11 @@ const servicesLinks = [
   { label: "Comptabilité", href: "/services/comptabilite/" },
   { label: "Fiscalité", href: "/services/fiscalite/" },
   { label: "Création d'entreprise", href: "/services/creation-entreprise/" },
+];
+
+const cabinetLinks = [
   { label: "À propos", href: "/a-propos/" },
+  { label: "Notre organisation", href: "/notre-organisation/" },
 ];
 
 const profilsLinks = [
@@ -152,14 +156,24 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 5 — Légal */}
-          <div>
-            <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-[#E8393A]">Légal</h3>
-            <nav className="space-y-0.5">
-              {legalLinks.map((l) => (
-                <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
-              ))}
-            </nav>
+          {/* Col 5 — Le cabinet + Légal */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-[#E8393A]">Le cabinet</h3>
+              <nav className="space-y-0.5">
+                {cabinetLinks.map((l) => (
+                  <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+                ))}
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-[#E8393A]">Légal</h3>
+              <nav className="space-y-0.5">
+                {legalLinks.map((l) => (
+                  <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
       </div>

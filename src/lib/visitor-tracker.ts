@@ -4,7 +4,7 @@
  * sessionStorage (session)  : pages[], startTime, behaviorScore
  */
 
-import { trackPageView } from "./utm-enrich";
+import { trackPageView, trackEvent as _trackEvent } from "./utm-enrich";
 
 const TRACKER_KEY = "mf_tracker";
 const SESSION_KEY = "mf_session";
@@ -166,6 +166,11 @@ export function setPrenom(prenom: string): void {
   const tracker = getTracker();
   tracker.prenom = prenom;
   saveTracker(tracker);
+}
+
+// ── Custom event (click tracking) ──
+export function trackEvent(name: string): void {
+  _trackEvent(name);
 }
 
 // ── Get context for chatbot API call ──

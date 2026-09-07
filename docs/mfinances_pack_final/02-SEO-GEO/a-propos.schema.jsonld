@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://mfinances.be/a-propos/#webpage",
+      "url": "https://mfinances.be/a-propos/",
+      "name": "À propos de MFINANCES",
+      "inLanguage": "fr-BE",
+      "about": {
+        "@id": "https://mfinances.be/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://mfinances.be/a-propos/#mika-musungayi"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mfinances.be/a-propos/#mika-musungayi",
+      "name": "Mika Musungayi",
+      "jobTitle": "Expert-comptable",
+      "url": "https://mfinances.be/a-propos/",
+      "worksFor": {
+        "@id": "https://mfinances.be/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/mika-musungayi-4b0b9798"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://mfinances.be/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "À propos",
+          "item": "https://mfinances.be/a-propos/"
+        }
+      ]
+    }
+  ]
+}

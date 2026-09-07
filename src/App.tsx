@@ -54,6 +54,7 @@ import SocieteEnVeille from "./pages/SocieteEnVeille.tsx";
 import Tarifs from "./pages/Tarifs.tsx";
 import Tresorerie from "./pages/Tresorerie.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
+import NotreOrganisation from "./pages/NotreOrganisation.tsx";
 
 const queryClient = new QueryClient();
 
@@ -217,6 +218,7 @@ const App = () => {
             />
             <Route path="/contact/" element={<Contact />} />
             <Route path="/a-propos/" element={<APropos />} />
+            <Route path="/notre-organisation/" element={<NotreOrganisation />} />
             <Route path="/support/" element={<Support />} />
             <Route path="/blog/" element={<Blog />} />
             <Route

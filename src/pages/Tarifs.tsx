@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/visitor-tracker";
 import SEOHead from "@/components/SEOHead";
 import { tarifsOfferCatalogSchema } from "@/lib/seo-service-schemas";
 import { Link } from "react-router-dom";
@@ -50,7 +51,7 @@ import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
 import DiagnosticQuiz from "@/components/DiagnosticQuiz";
 
-const priceRow = { label: "Prix mensuel HTVA", values: ["275 €", "À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true };
+const priceRow = { label: "Prix mensuel HTVA", values: ["275\u00a0€", "À partir de 350\u00a0€", "À partir de 450\u00a0€", "À partir de 650\u00a0€"], isPrice: true };
 
 const compareCategories = [
   {
@@ -146,9 +147,9 @@ const plans = [
 ];
 
 const missions = [
-  { label: "Création d'entreprise (forfait complet)", tarif: "800 € HTVA" },
-  { label: "Approfondissement contrôle de gestion", tarif: "150 € HTVA / heure" },
-  { label: "DAF à temps partiel (clients Excellence)", tarif: "150 € HTVA / heure" },
+  { label: "Création d'entreprise (forfait complet)", tarif: "800\u00a0€ HTVA" },
+  { label: "Approfondissement contrôle de gestion", tarif: "150\u00a0€ HTVA / heure" },
+  { label: "DAF à temps partiel (clients Excellence)", tarif: "150\u00a0€ HTVA / heure" },
 ];
 
 const steps = [
@@ -164,10 +165,10 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         <p>Chez MFinances, les forfaits pour une TPE :</p>
         <ul className="list-none space-y-2 my-3">
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span>275 € HTVA/mois — comptabilité + conformité</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span>350 € HTVA/mois — + conseil fiscal + situations intermédiaires</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span>450 € HTVA/mois — + contrôle de gestion trimestriel</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span>650 € HTVA/mois — + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : 150 € HTVA/h)</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span><span className="whitespace-nowrap">275&nbsp;€ HTVA/mois</span> — comptabilité + conformité</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span><span className="whitespace-nowrap">350&nbsp;€ HTVA/mois</span> — + conseil fiscal + situations intermédiaires</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span><span className="whitespace-nowrap">450&nbsp;€ HTVA/mois</span> — + contrôle de gestion trimestriel</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span><span className="whitespace-nowrap">650&nbsp;€ HTVA/mois</span> — + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : <span className="whitespace-nowrap">150&nbsp;€ HTVA/h</span>)</span></li>
         </ul>
         <p>Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.</p>
       </>
@@ -249,7 +250,7 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
       </span>
     );
   }
-  return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px]" : "text-foreground/70 text-[13px]"}`}>{v as string}</span>;
+  return <span className={`font-body ${isPrice ? "font-bold text-primary text-[15px] whitespace-nowrap" : "text-foreground/70 text-[13px]"}`}>{v as string}</span>;
 }
 
 export default function Tarifs() {
@@ -503,10 +504,10 @@ export default function Tarifs() {
               </svg>
 
               {[
-                { name: "Basic", price: "275 €", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", topPx: 180, dotBg: "bg-card border-border/80 text-primary" },
-                { name: "Essentiel", price: "350 €", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", topPx: 120, dotBg: "bg-card border-border/80 text-primary" },
-                { name: "Premium", price: "450 €", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, topPx: 60, dotBg: "bg-accent border-accent text-accent-foreground" },
-                { name: "Excellence", price: "650 €", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", topPx: 0, dotBg: "bg-primary border-primary text-primary-foreground" },
+                { name: "Basic", price: "275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", topPx: 180, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Essentiel", price: "350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", topPx: 120, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Premium", price: "450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, topPx: 60, dotBg: "bg-accent border-accent text-accent-foreground" },
+                { name: "Excellence", price: "650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", topPx: 0, dotBg: "bg-primary border-primary text-primary-foreground" },
               ].map((stage, i) => (
                 <div key={stage.name} className="relative z-[1]" style={{ marginTop: stage.topPx }}>
                   <div className={`w-[42px] h-[42px] rounded-full border-2 flex items-center justify-center font-bold text-[14px] mx-auto mb-4 relative z-10 ${stage.dotBg}`}>
@@ -525,11 +526,11 @@ export default function Tarifs() {
                         Choix recommandé
                       </span>
                     )}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-foreground font-body">
-                        {stage.name} · {stage.price}
+                    <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 mb-3">
+                      <span className="text-[11.5px] font-bold tracking-[0.05em] uppercase text-muted-foreground font-body whitespace-nowrap">
+                        {stage.name}&nbsp;·&nbsp;{stage.price}
                       </span>
-                      <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-1 text-[11px] font-bold font-body">
+                      <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-0.5 text-[10.5px] font-bold font-body shrink-0 whitespace-nowrap">
                         {stage.badge}
                       </span>
                     </div>
@@ -550,10 +551,10 @@ export default function Tarifs() {
 
               <div className="space-y-5">
                 {[
-                  { name: "Basic", price: "275 €", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", dotBg: "bg-card border-border text-primary" },
-                  { name: "Essentiel", price: "350 €", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", dotBg: "bg-card border-border text-primary" },
-                  { name: "Premium", price: "450 €", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, dotBg: "bg-accent border-accent text-accent-foreground" },
-                  { name: "Excellence", price: "650 €", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", dotBg: "bg-primary border-primary text-primary-foreground" },
+                  { name: "Basic", price: "275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", dotBg: "bg-card border-border text-primary" },
+                  { name: "Essentiel", price: "350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", dotBg: "bg-card border-border text-primary" },
+                  { name: "Premium", price: "450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, dotBg: "bg-accent border-accent text-accent-foreground" },
+                  { name: "Excellence", price: "650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", dotBg: "bg-primary border-primary text-primary-foreground" },
                 ].map((stage, i) => (
                   <div key={stage.name} className="relative">
                     <div className={`absolute -left-[58px] top-[18px] w-[52px] h-[52px] rounded-full border-2 flex items-center justify-center font-bold text-[18px] z-10 ${stage.dotBg}`}>
@@ -566,9 +567,9 @@ export default function Tarifs() {
                           Choix recommandé
                         </span>
                       )}
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-foreground font-body">{stage.name} · {stage.price}</span>
-                        <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-1 text-[11px] font-bold font-body">{stage.badge}</span>
+                      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 mb-3">
+                        <span className="text-[12px] font-bold tracking-[0.06em] uppercase text-muted-foreground font-body whitespace-nowrap">{stage.name}&nbsp;·&nbsp;{stage.price}</span>
+                        <span className="inline-flex items-center bg-secondary text-primary rounded-full px-2.5 py-1 text-[11px] font-bold font-body shrink-0 whitespace-nowrap">{stage.badge}</span>
                       </div>
                       <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-2">{stage.tagline}</h3>
                       <p className="text-[13px] text-muted-foreground font-body">{stage.desc}</p>
@@ -682,9 +683,9 @@ export default function Tarifs() {
                     <span className="font-body text-[11px] font-bold tracking-[0.13em] uppercase text-accent mb-2 block">{plan.profile}</span>
                     <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-1">{plan.name}</h3>
                     <p className="text-accent text-[13px] italic font-body mb-3">{plan.tagline}</p>
-                    <div className="flex items-baseline gap-1.5 mb-4 font-display font-bold text-primary text-[32px] leading-none tracking-tight">
-                      {plan.price}€
-                      <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                    <div className="flex items-baseline gap-1.5 mb-4 font-display font-bold text-primary text-[32px] leading-none tracking-tight whitespace-nowrap">
+                      <span>{plan.price}&nbsp;€</span>
+                      <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                     </div>
                     <p className="text-[14px] leading-[1.75] font-body text-muted-foreground mb-4">{plan.desc}</p>
                     <hr className="border-border/60" />
@@ -739,9 +740,9 @@ export default function Tarifs() {
                                   {plan.name}
                                 </h3>
                                 <p className="text-accent text-[14px] italic font-body mb-4">{plan.tagline}</p>
-                                <div className={`flex items-baseline gap-1.5 mb-5 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight`}>
-                                  {plan.price}€
-                                  <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                                <div className={`flex items-baseline gap-1.5 mb-5 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight whitespace-nowrap`}>
+                                  <span>{plan.price}&nbsp;€</span>
+                                  <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                                 </div>
                                 <p className={`${meta.textSize} leading-[1.75] font-body text-muted-foreground`}>
                                   {plan.desc}
@@ -773,9 +774,9 @@ export default function Tarifs() {
                             <span className="text-accent font-bold text-[11px] uppercase tracking-[0.13em] block mb-1">{basicPlan.profile}</span>
                             <span className="font-display text-[32px] font-bold text-primary leading-none block">{basicPlan.name}</span>
                             <p className="text-accent text-[13px] italic font-body mt-1">{basicPlan.tagline}</p>
-                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-4xl mt-2">
-                              {basicPlan.price}€
-                              <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+                            <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-4xl mt-2 whitespace-nowrap">
+                              <span>{basicPlan.price}&nbsp;€</span>
+                              <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                             </div>
                           </div>
                           <div className="max-w-xl text-left">
@@ -995,7 +996,7 @@ export default function Tarifs() {
                           }`}
                       >
                         <span className="text-[12px] font-bold font-body whitespace-nowrap">
-                          {plan.name} · {plan.price} €
+                          {plan.name}&nbsp;·&nbsp;{plan.price}&nbsp;€
                         </span>
                       </button>
                     ))}
@@ -1025,10 +1026,10 @@ export default function Tarifs() {
                         <div className="px-5 pt-5 pb-3">
                           <h3 className="font-display text-[20px] font-bold text-primary leading-none">{plan.name}</h3>
                           <p className="text-accent text-[12px] italic font-body mt-1">{plan.tagline}</p>
-                          <div className="flex items-baseline gap-1 mt-2">
-                            {pi > 0 && <span className="text-[11px] text-muted-foreground font-body">Dès</span>}
-                            <span className="text-[28px] font-bold font-display text-primary leading-none tracking-tight tabular-nums">{plan.price} €</span>
-                            <span className="text-[11px] text-muted-foreground font-body">/mois HTVA</span>
+                          <div className="flex items-baseline gap-1 mt-2 whitespace-nowrap">
+                            {pi > 0 && <span className="text-[11px] text-muted-foreground font-body whitespace-nowrap">Dès</span>}
+                            <span className="text-[28px] font-bold font-display text-primary leading-none tracking-tight tabular-nums whitespace-nowrap">{plan.price}&nbsp;€</span>
+                            <span className="text-[11px] text-muted-foreground font-body whitespace-nowrap">/mois HTVA</span>
                           </div>
                         </div>
 
@@ -1195,10 +1196,10 @@ export default function Tarifs() {
                   </div>
                   <div>
                     <span className="md:hidden font-body text-[10px] font-bold tracking-[0.2em] uppercase text-accent block mb-1">Option Excellence</span>
-                    <span className="font-display text-[32px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight">
-                      150€
+                    <span className="font-display text-[32px] md:text-[56px] font-bold text-primary-foreground leading-none tracking-tight whitespace-nowrap">
+                      150&nbsp;€
                     </span>
-                    <span className="text-primary-foreground/60 text-[12px] md:text-[13px] font-body mt-0.5 block">HTVA / heure</span>
+                    <span className="text-primary-foreground/60 text-[12px] md:text-[13px] font-body mt-0.5 block whitespace-nowrap">HTVA / heure</span>
                   </div>
                 </div>
 
@@ -1270,7 +1271,7 @@ export default function Tarifs() {
                             {m.label}
                           </span>
                         </td>
-                        <td className="p-5 pr-7 text-right font-display font-bold text-primary text-[16px]">{m.tarif}</td>
+                        <td className="p-5 pr-7 text-right font-display font-bold text-primary text-[16px] whitespace-nowrap">{m.tarif}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1283,7 +1284,7 @@ export default function Tarifs() {
                   <div key={i} className="bg-card rounded-2xl border border-border/50 p-4 shadow-sm">
                     <span className="font-display italic text-accent text-[12px]">0{i + 1}</span>
                     <p className="text-[14px] font-medium text-foreground/85 font-body mb-2 mt-1">{m.label}</p>
-                    <p className="font-display text-[18px] font-bold text-primary">{m.tarif}</p>
+                    <p className="font-display text-[18px] font-bold text-primary whitespace-nowrap">{m.tarif}</p>
                   </div>
                 ))}
               </div>
@@ -1412,6 +1413,32 @@ export default function Tarifs() {
                 ))}
               </Accordion>
             </div>
+          </div>
+        </section>
+
+        {/* ── NOTRE ORGANISATION — passerelle ── */}
+        <section className="py-10 md:py-14 bg-secondary/50 relative overflow-hidden">
+          <div className="container-mf max-w-[800px] text-center" data-anim="fade-up">
+            <div className="inline-flex items-center gap-2 mb-5">
+              <span className="h-px w-8 bg-accent" />
+              <span className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent">Notre organisation</span>
+              <span className="h-px w-8 bg-accent" />
+            </div>
+            <h2 className="font-display text-[26px] md:text-[34px] text-foreground leading-[1.1] tracking-tight mb-5">
+              Pourquoi MFINANCES peut <span className="italic font-light text-accent">tenir ces engagements</span>
+            </h2>
+            <p className="text-muted-foreground text-[15px] leading-[1.75] mb-7 max-w-[580px] mx-auto">
+              L'organisation intégrée entre MFINANCES, MSL ANALYTICA et MSL-iTECH permet de traiter la donnée, l'automatiser et l'analyser sans multiplier vos interlocuteurs.
+            </p>
+            <Button variant="default" size="lg" className="rounded-full" asChild>
+              <Link
+                to="/notre-organisation/"
+                onClick={() => trackEvent("org_bridge_click_pricing")}
+              >
+                Découvrir notre organisation
+                <ArrowRight size={15} className="ml-1.5" />
+              </Link>
+            </Button>
           </div>
         </section>
 

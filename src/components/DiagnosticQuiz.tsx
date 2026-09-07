@@ -67,7 +67,7 @@ const planResults: Record<number, PlanResult> = {
     key: "basic",
     name: "Basic",
     promise: "Être en règle",
-    price: "275 €",
+    price: "275\u00a0€",
     explanation:
       "Votre besoin porte principalement sur la conformité comptable et fiscale. Les prestations de conseil complémentaires restent disponibles à la demande, au tarif horaire.",
     reasons: [
@@ -82,7 +82,7 @@ const planResults: Record<number, PlanResult> = {
     key: "essentiel",
     name: "Essentiel",
     promise: "Anticiper",
-    price: "350 €",
+    price: "350\u00a0€",
     explanation:
       "Vous ne cherchez pas uniquement à respecter vos obligations. Vous souhaitez voir venir vos échéances et disposer de premiers outils d'anticipation inclus dans votre forfait.",
     reasons: [
@@ -97,7 +97,7 @@ const planResults: Record<number, PlanResult> = {
     key: "premium",
     name: "Premium",
     promise: "Piloter",
-    price: "450 €",
+    price: "450\u00a0€",
     explanation:
       "Vous souhaitez anticiper vos résultats, comprendre les écarts et améliorer régulièrement les performances de votre entreprise. Le contrôle de gestion est intégré à votre accompagnement.",
     reasons: [
@@ -112,7 +112,7 @@ const planResults: Record<number, PlanResult> = {
     key: "excellence",
     name: "Excellence",
     promise: "Optimiser",
-    price: "650 €",
+    price: "650\u00a0€",
     explanation:
       "Votre besoin porte sur un pilotage financier proactif\u00a0: performances, décisions et trésorerie sont suivies avec un temps d'avance afin de réduire les imprévus.",
     reasons: [
@@ -235,8 +235,8 @@ export default function DiagnosticQuiz() {
               {plan.name}
             </h3>
             <p className="text-accent italic text-[14px] font-body mb-2">{plan.promise}</p>
-            <p className="font-display text-[36px] sm:text-[42px] leading-none font-bold text-primary mb-5">
-              {plan.price} <span className="text-[12px] font-body font-semibold text-muted-foreground">/mois HTVA</span>
+            <p className="font-display text-[36px] sm:text-[42px] leading-none font-bold text-primary mb-5 whitespace-nowrap">
+              <span className="whitespace-nowrap">{plan.price}</span> <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
             </p>
 
             <p className="text-muted-foreground text-[14px] font-body leading-relaxed pb-5 border-b border-border/40 mb-4">
