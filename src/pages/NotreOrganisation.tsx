@@ -275,6 +275,10 @@ export default function NotreOrganisation() {
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
