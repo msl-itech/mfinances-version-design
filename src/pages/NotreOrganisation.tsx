@@ -294,6 +294,71 @@ export default function NotreOrganisation() {
           ]),
         ]}
       />
+      {/* ── Élément audio global (caché) ── */}
+      <audio
+        ref={audioRef}
+        preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => { setIsPlaying(false); setCurrentTime(0); }}
+        onTimeUpdate={() => {
+          const a = audioRef.current;
+          if (!a) return;
+          setCurrentTime(a.currentTime);
+          if (isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+        }}
+        onLoadedMetadata={() => {
+          const a = audioRef.current;
+          if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+        }}
+        onDurationChange={() => {
+          const a = audioRef.current;
+          if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+        }}
+      >
+        <source src="/ressources/Notre organisation 1.wav" type="audio/wav" />
+      </audio>
+
+      {/* ── Grand cercle flottant fixe — visible pendant tout le scroll ── */}
+      <div
+        className={`fixed bottom-7 left-7 z-50 transition-all duration-500 ${
+          isPlaying ? "opacity-100 scale-100" : "opacity-0 scale-75 pointer-events-none"
+        }`}
+      >
+        <div className="relative w-24 h-24">
+          {/* Anneau externe tournant */}
+          <div
+            className="absolute inset-0 rounded-full border-[2px] border-dashed border-red-400/40"
+            style={{ animation: "spin 12s linear infinite" }}
+          />
+          {/* Arc de progression SVG */}
+          <svg className="absolute inset-[4px] -rotate-90" style={{ width: "calc(100% - 8px)", height: "calc(100% - 8px)" }} viewBox="0 0 88 88">
+            <circle cx="44" cy="44" r="39" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
+            <circle
+              cx="44" cy="44" r="39"
+              fill="none" stroke="#ef4444" strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray={`${2 * Math.PI * 39}`}
+              strokeDashoffset={`${2 * Math.PI * 39 * (1 - (duration > 0 ? Math.min(currentTime / duration, 1) : 0))}`}
+              style={{ transition: "stroke-dashoffset 0.2s linear" }}
+            />
+          </svg>
+          {/* Pulse */}
+          <span className="absolute inset-[14px] rounded-full bg-red-500/20 animate-ping" style={{ animationDuration: "2s" }} />
+          {/* Bouton central */}
+          <button
+            onClick={togglePlay}
+            aria-label="Pause"
+            className="absolute inset-[14px] rounded-full bg-red-500 hover:bg-red-400 active:scale-95 shadow-2xl shadow-red-500/50 flex flex-col items-center justify-center gap-0.5 transition-all duration-200"
+          >
+            <Pause size={18} className="text-white" />
+            <span className="text-white/80 text-[9px] font-mono tabular-nums leading-none">
+              {formatTime(currentTime)}
+            </span>
+          </button>
+        </div>
+      </div>
+
       <Header />
 
       <main>
@@ -374,280 +439,230 @@ export default function NotreOrganisation() {
                 </Button>
               </div>
 
-              {/* Sceaux de réassurance immédiats */}
-              <div className="pt-6 border-t border-primary-foreground/15 grid grid-cols-3 gap-4 max-w-[580px]">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                    <ShieldCheck size={14} className="text-accent" />
-                  </div>
-                  <span className="text-[12px] font-medium text-primary-foreground/90 leading-tight">
-                    Supervision légale ITAA
-                  </span>
+              {/* Piliers de réassurance */}
+              <div className="pt-6 border-t border-primary-foreground/15 flex flex-wrap items-center gap-y-2 gap-x-6 text-[12px] text-primary-foreground/75 font-body">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={16} className="text-accent shrink-0" />
+                  <span>Agrément ITAA n° 50.812.433</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                    <Cpu size={14} className="text-accent" />
-                  </div>
-                  <span className="text-[12px] font-medium text-primary-foreground/90 leading-tight">
-                    Environnement Odoo calibré
-                  </span>
+                <div className="flex items-center gap-2">
+                  <Database size={16} className="text-accent shrink-0" />
+                  <span>Données consolidées à J+15</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                    <BarChart3 size={14} className="text-accent" />
-                  </div>
-                  <span className="text-[12px] font-medium text-primary-foreground/90 leading-tight">
-                    Données fiables à J+15
-                  </span>
+                <div className="flex items-center gap-2">
+                  <Cpu size={16} className="text-accent shrink-0" />
+                  <span>Intégration certifiée Odoo</span>
                 </div>
               </div>
             </div>
 
             {/* Colonne Droite : Architecture Visuelle / Hub Écosystème */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl bg-primary-dark/80 border border-primary-foreground/15 p-6 sm:p-7 shadow-2xl backdrop-blur-md overflow-hidden">
-                {/* Micro badge supérieur */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-primary-foreground/10">
+              {/* Lueur diffuse d'arrière-plan ultra-douce (effet aura veloutée) */}
+              <div className="pointer-events-none absolute -inset-4 bg-gradient-to-tr from-accent/15 via-sky-500/10 to-indigo-500/15 rounded-[40px] blur-3xl opacity-70" />
+
+              {/* Hub Écosystème Unifié — Design Soft, Velouté & Aérien */}
+              <div className="relative rounded-3xl bg-white/[0.04] border border-white/[0.12] p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.12)] backdrop-blur-2xl overflow-hidden">
+                {/* Reflet lumineux supérieur subtil */}
+                <div className="pointer-events-none absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+                {/* Micro badge supérieur doux */}
+                <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/[0.08] relative z-10">
                   <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                     </span>
-                    <span className="text-[11px] font-semibold tracking-wider text-primary-foreground/80 uppercase">
+                    <span className="text-[11px] font-semibold tracking-wider text-white/85 uppercase font-mono">
                       Écosystème Unifié
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-accent bg-accent/10 px-2 py-0.5 rounded-full border border-accent/25">
+                  <span className="text-[10.5px] font-mono text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/25 font-medium">
                     1 Dossier Unique
                   </span>
                 </div>
 
-                {/* Cœur : Le Dirigeant & Sa PME */}
-                <div className="bg-primary/90 border border-accent/40 rounded-2xl p-4 text-center mb-5 relative group shadow-md">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent mb-1.5">
+                {/* Cœur : Le Dirigeant & Sa PME (Pivot Central velouté) */}
+                <div className="relative bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] rounded-2xl p-3.5 sm:p-4 text-center mb-3 transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] group">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/15 text-accent mb-1.5 shadow-sm ring-4 ring-accent/10">
                     <Users size={16} />
                   </div>
-                  <p className="font-display text-[17px] font-semibold text-primary-foreground tracking-wide">
-                    Le Dirigeant de PME
-                  </p>
-                  <p className="text-primary-foreground/70 text-[11.5px] mt-0.5 font-body">
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="font-display text-[16px] font-semibold text-white tracking-wide">
+                      Le Dirigeant de PME
+                    </p>
+                    <span className="bg-accent/20 text-accent border border-accent/30 text-[8.5px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm">
+                      Pivot Central
+                    </span>
+                  </div>
+                  <p className="text-white/65 text-[11px] mt-0.5 font-body">
                     Pilote unique • Décisions éclairées • Visibilité en temps réel
                   </p>
-                  <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full shadow-sm">
-                    Centre de l'action
-                  </div>
                 </div>
 
-                {/* Les 3 piliers interconnectés */}
-                <div className="space-y-3 pt-2">
+                {/* Les 3 piliers interconnectés — Cartes douces & translucides */}
+                <div className="space-y-2.5 relative z-10">
                   {/* Pôle 1 : MFINANCES */}
-                  <div className="bg-gradient-to-r from-accent/25 to-accent/10 border border-accent/40 rounded-xl p-3.5 flex items-center gap-3.5 transition-all duration-200 hover:border-accent">
-                    <div className="w-10 h-10 rounded-xl bg-accent text-accent-foreground flex items-center justify-center shrink-0 shadow-md">
-                      <Building2 size={18} />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-accent/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-9 h-9 rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0 shadow-sm border border-accent/25 group-hover:scale-105 transition-transform">
+                      <Building2 size={17} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="font-display font-bold text-[14.5px] text-primary-foreground tracking-wide">
+                        <p className="font-display font-bold text-[14px] text-white tracking-wide">
                           MFINANCES
                         </p>
-                        <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">
+                        <span className="text-[10px] font-mono font-semibold text-accent uppercase tracking-wider bg-accent/10 px-2 py-0.5 rounded-full border border-accent/20">
                           Agrément ITAA
                         </span>
                       </div>
-                      <p className="text-primary-foreground/75 text-[11.5px] leading-snug truncate">
-                        Supervision légale • Arbitrage fiscal • Direction Financière DAF
+                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                        Supervision légale • Arbitrage fiscal • Direction DAF
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 2 : MSL ANALYTICA */}
-                  <div className="bg-primary-foreground/5 border border-primary-foreground/15 rounded-xl p-3.5 flex items-center gap-3.5 transition-all duration-200 hover:bg-primary-foreground/10">
-                    <div className="w-10 h-10 rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0">
-                      <Database size={18} className="text-accent" />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-sky-400/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-9 h-9 rounded-xl bg-sky-400/15 text-sky-300 flex items-center justify-center shrink-0 shadow-sm border border-sky-400/25 group-hover:scale-105 transition-transform">
+                      <Database size={17} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="font-display font-semibold text-[14px] text-primary-foreground">
+                        <p className="font-display font-semibold text-[14px] text-white">
                           MSL ANALYTICA
                         </p>
-                        <span className="text-[10px] font-semibold text-primary-foreground/50 uppercase tracking-wider">
-                          Data & Rapprochements
+                        <span className="text-[10px] font-mono font-semibold text-sky-300 uppercase tracking-wider bg-sky-400/10 px-2 py-0.5 rounded-full border border-sky-400/20">
+                          Data & Flux
                         </span>
                       </div>
-                      <p className="text-primary-foreground/70 text-[11.5px] leading-snug truncate">
-                        Collecte Peppol & Coda • Contrôle qualité • Données à J+15
+                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                        Collecte Peppol & Coda • Rapprochements à J+15
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 3 : MSL-iTECH */}
-                  <div className="bg-primary-foreground/5 border border-primary-foreground/15 rounded-xl p-3.5 flex items-center gap-3.5 transition-all duration-200 hover:bg-primary-foreground/10">
-                    <div className="w-10 h-10 rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0">
-                      <Cpu size={18} className="text-accent" />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-indigo-400/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-400/15 text-indigo-300 flex items-center justify-center shrink-0 shadow-sm border border-indigo-400/25 group-hover:scale-105 transition-transform">
+                      <Cpu size={17} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="font-display font-semibold text-[14px] text-primary-foreground">
+                        <p className="font-display font-semibold text-[14px] text-white">
                           MSL-iTECH
                         </p>
-                        <span className="text-[10px] font-semibold text-primary-foreground/50 uppercase tracking-wider">
+                        <span className="text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-400/10 px-2 py-0.5 rounded-full border border-indigo-400/20">
                           Odoo Expert
                         </span>
                       </div>
-                      <p className="text-primary-foreground/70 text-[11.5px] leading-snug truncate">
-                        Paramétrage Odoo Belgique • Automatisations • Connecteurs API
+                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                        Paramétrage Odoo Belgique • Automatisations & API
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Footer du hub */}
-                <div className="mt-4 pt-3 border-t border-primary-foreground/10 flex items-center justify-between text-[11px] text-primary-foreground/60">
-                  <span>Interlocuteur unique & identifié</span>
-                  <span className="text-accent font-medium">Zéro guichet anonyme</span>
-                </div>
-
-                {/* Indicateur audio — s'anime quand le player est en lecture */}
-                <div className="absolute bottom-4 right-4" title="Résumé audio en cours">
-                  <div className="relative flex items-center justify-center w-9 h-9">
-                    {/* Anneaux d'oscillation */}
-                    <span
-                      className={`absolute inset-0 rounded-full bg-accent/30 transition-opacity duration-300 ${isPlaying ? "animate-ping" : "opacity-0"}`}
-                      style={{ animationDuration: "1.4s" }}
-                    />
-                    <span
-                      className={`absolute w-6 h-6 rounded-full bg-accent/20 transition-opacity duration-300 ${isPlaying ? "animate-ping" : "opacity-0"}`}
-                      style={{ animationDuration: "1.4s", animationDelay: "0.45s" }}
-                    />
-                    {/* Cercle central */}
-                    <span
-                      className={`relative w-5 h-5 rounded-full flex items-center justify-center shadow-md transition-all duration-500 ${isPlaying ? "bg-accent scale-110" : "bg-primary-foreground/15"}`}
-                    >
-                      <Headphones
-                        size={10}
-                        className={`transition-colors duration-300 ${isPlaying ? "text-accent-foreground" : "text-primary-foreground/40"}`}
-                      />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            BANDE AUDIO : ALTERNATIVE À LA LECTURE
-        ══════════════════════════════════════════════════════════════ */}
-        <section className="bg-primary/95 border-y border-primary-light/20 py-6">
-          <div className="mx-auto max-w-[1240px] px-6 lg:px-12">
-            <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
-              {/* Signalétique gauche */}
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shadow-md shrink-0">
-                  <Headphones size={18} className="text-accent-foreground" />
-                </div>
-                <div>
-                  <p className="text-primary-foreground font-display font-semibold text-[15px] leading-tight">
-                    Pas le temps de tout lire ?
-                  </p>
-                  <p className="text-primary-foreground/60 text-[12px] font-body">
-                    Écoutez le résumé de notre organisation
-                  </p>
-                </div>
               </div>
 
-              {/* Séparateur vertical */}
-              <div className="hidden sm:block h-10 w-px bg-primary-foreground/15 shrink-0" />
-
-              {/* Player audio custom */}
-              <div className="flex-1 w-full">
-                {/* Élément audio caché */}
-                <audio
-                  ref={audioRef}
-                  preload="auto"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => { setIsPlaying(false); setCurrentTime(0); }}
-                  onTimeUpdate={() => {
-                    const a = audioRef.current;
-                    if (!a) return;
-                    setCurrentTime(a.currentTime);
-                    if (isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
-                  }}
-                  onLoadedMetadata={() => {
-                    const a = audioRef.current;
-                    if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
-                  }}
-                  onDurationChange={() => {
-                    const a = audioRef.current;
-                    if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
-                  }}
+              {/* ── Cercle Bouton Play Flottant — ULTRA MIS EN ÉVIDENCE AVEC PULSE CONTINU ── */}
+              <div className="absolute -bottom-7 -right-3 sm:-bottom-8 sm:-right-6 z-30 flex items-center gap-2.5 group">
+                {/* Bulle d'Accroche Magnétique & Lumineuse */}
+                <button
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? "Mettre en pause le résumé audio" : "Écouter le résumé audio de notre organisation"}
+                  className="bg-primary-dark/95 border-2 border-accent/70 hover:border-accent rounded-full py-2 px-4 shadow-[0_8px_30px_rgba(239,68,68,0.35)] backdrop-blur-2xl transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-2.5 cursor-pointer group/pill"
                 >
-                  <source src="/ressources/Notre organisation 1.wav" type="audio/wav" />
-                </audio>
+                  {/* Point radio pulsant avec double halo */}
+                  <span className="relative flex h-2.5 w-2.5 shrink-0">
+                    <span className={`absolute inline-flex h-full w-full rounded-full ${isPlaying ? "bg-emerald-400 animate-ping opacity-80" : "bg-accent animate-ping opacity-80"}`} />
+                    <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isPlaying ? "bg-emerald-400" : "bg-accent shadow-sm"}`} />
+                  </span>
+                  
+                  <div className="text-left">
+                    <p className="text-[12px] font-bold text-white leading-tight tracking-tight flex items-center gap-1.5">
+                      <span>{isPlaying ? "En cours d'écoute" : "Pas le temps de tout lire ?"}</span>
+                      {!isPlaying && (
+                        <span className="text-[9.5px] font-mono text-accent bg-accent/20 px-1.5 py-0.2 rounded-full border border-accent/40 font-semibold uppercase">
+                          Audio
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-[10px] text-white/70 leading-none mt-0.5 font-body">
+                      {isPlaying ? (
+                        <span className="text-accent font-mono font-semibold tabular-nums">
+                          {formatTime(currentTime)}{duration > 0 ? ` / ${formatTime(duration)}` : ""}
+                        </span>
+                      ) : (
+                        "Écoutez le résumé · ~2 min"
+                      )}
+                    </p>
+                  </div>
 
-                {/* Keyframe shimmer lecture */}
-                <style>{`
-                  @keyframes audio-shimmer {
-                    0% { background-position: -200% center; }
-                    100% { background-position: 200% center; }
-                  }
-                `}</style>
+                  {/* Égaliseur sonore dynamique */}
+                  <div className="flex items-center gap-0.5 h-3.5 ml-1">
+                    <span className={`w-0.5 rounded-full bg-accent transition-all ${isPlaying ? "h-3.5 animate-pulse" : "h-1.5 opacity-50"}`} />
+                    <span className={`w-0.5 rounded-full bg-accent transition-all ${isPlaying ? "h-2.5 animate-pulse delay-75" : "h-2.5 opacity-70"}`} />
+                    <span className={`w-0.5 rounded-full bg-accent transition-all ${isPlaying ? "h-3.5 animate-pulse delay-150" : "h-1 opacity-40"}`} />
+                    <span className={`w-0.5 rounded-full bg-accent transition-all ${isPlaying ? "h-2 animate-pulse delay-100" : "h-2 opacity-60"}`} />
+                  </div>
+                </button>
 
-                <div className="flex items-center gap-3 w-full">
-                  {/* Bouton play/pause */}
+                {/* Cercle Play interactif vinyle débordant avec ONDES PULSE RADAR CONTINUES */}
+                <div className="relative shrink-0 w-18 h-18 sm:w-20 sm:h-20">
+                  {/* Onde radar pulsante permanente 1 (pulse visuel immédiat) */}
+                  <span
+                    className="absolute -inset-2 rounded-full bg-accent/35 animate-ping pointer-events-none"
+                    style={{ animationDuration: "2.4s" }}
+                  />
+                  {/* Onde radar pulsante permanente 2 (halo étendu) */}
+                  <span
+                    className="absolute -inset-3.5 rounded-full bg-accent/20 animate-pulse pointer-events-none"
+                    style={{ animationDuration: "1.6s" }}
+                  />
+
+                  {/* Anneau externe tournant */}
+                  <div
+                    className="absolute inset-0 rounded-full border-[2px] border-dashed border-accent/60 shadow-[0_0_15px_rgba(239,68,68,0.4)]"
+                    style={{ animation: isPlaying ? "spin 12s linear infinite" : "spin 25s linear infinite" }}
+                  />
+
+                  {/* Deuxième anneau interne tournant sens inverse */}
+                  <div
+                    className="absolute inset-[5px] rounded-full border border-dotted border-white/20"
+                    style={{ animation: isPlaying ? "spin 8s linear infinite reverse" : "spin 20s linear infinite reverse" }}
+                  />
+
+                  {/* Arc de progression SVG */}
+                  <svg
+                    className="absolute inset-[2px] -rotate-90 w-[calc(100%-4px)] h-[calc(100%-4px)]"
+                    viewBox="0 0 80 80"
+                  >
+                    <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="3" />
+                    <circle
+                      cx="40" cy="40" r="35"
+                      fill="none" stroke="hsl(var(--accent))" strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeDasharray={`${2 * Math.PI * 35}`}
+                      strokeDashoffset={`${2 * Math.PI * 35 * (1 - (duration > 0 ? Math.min(currentTime / duration, 1) : 0))}`}
+                      style={{ transition: "stroke-dashoffset 0.2s linear" }}
+                    />
+                  </svg>
+
+                  {/* Bouton central radiant avec Play / Pause */}
                   <button
                     onClick={togglePlay}
-                    aria-label={isPlaying ? "Pause" : "Lecture"}
-                    className="w-10 h-10 rounded-full bg-red-500 hover:bg-red-400 active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 shadow-lg shadow-red-500/30"
+                    aria-label={isPlaying ? "Mettre en pause" : "Écouter le résumé audio"}
+                    className="absolute inset-[8px] rounded-full bg-gradient-to-tr from-accent via-red-500 to-rose-500 hover:from-accent-hover hover:to-red-400 text-white flex items-center justify-center shadow-[0_0_25px_rgba(239,68,68,0.7),0_8px_16px_rgba(0,0,0,0.4)] active:scale-90 transition-all duration-200 cursor-pointer hover:scale-105"
                   >
-                    {isPlaying
-                      ? <Pause size={15} className="text-white" />
-                      : <Play size={15} className="text-white ml-0.5" />
-                    }
+                    {isPlaying ? (
+                      <Pause size={20} className="fill-current text-white" />
+                    ) : (
+                      <Play size={20} className="fill-current text-white ml-0.5" />
+                    )}
                   </button>
-
-                  {/* Barre de progression */}
-                  <div className="flex-1 flex items-center gap-3">
-                    <span className="text-white/70 text-[11px] font-mono tabular-nums shrink-0 w-8 text-right">
-                      {formatTime(currentTime)}
-                    </span>
-
-                    <div
-                      className="relative flex-1 h-[3px] bg-white/15 rounded-full cursor-pointer group"
-                      onClick={seek}
-                    >
-                      {/* Remplissage rouge avec shimmer pendant la lecture */}
-                      <div
-                        className="absolute left-0 top-0 h-full rounded-full"
-                        style={{
-                          width: `${duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0}%`,
-                          transition: "width 0.2s linear",
-                          background: isPlaying
-                            ? "linear-gradient(90deg, #ef4444 0%, #f87171 40%, #ffffff55 50%, #f87171 60%, #ef4444 100%)"
-                            : "#ef4444",
-                          backgroundSize: isPlaying ? "200% 100%" : "100% 100%",
-                          animation: isPlaying ? "audio-shimmer 2s linear infinite" : "none",
-                        }}
-                      />
-                      {/* Curseur blanc au survol */}
-                      <div
-                        className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-150"
-                        style={{ left: `calc(${duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0}% - 6px)` }}
-                      />
-                    </div>
-
-                    <span className="text-white/35 text-[11px] font-mono tabular-nums shrink-0 w-8">
-                      {duration > 0 ? formatTime(duration) : "—:——"}
-                    </span>
-                  </div>
                 </div>
               </div>
-
-              {/* Badge durée */}
-              <span className="shrink-0 text-[11px] font-bold tracking-wider uppercase text-accent bg-accent/10 border border-accent/25 px-3 py-1.5 rounded-full">
-                ~ 2 min
-              </span>
             </div>
           </div>
         </section>
