@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { retryPendingLeads } from "@/lib/odoo-submit";
 import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
@@ -58,6 +58,19 @@ import NotreOrganisation from "./pages/NotreOrganisation.tsx";
 
 const queryClient = new QueryClient();
 
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useLayoutEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 // Track route changes
 function RouteTracker() {
   const location = useLocation();
@@ -69,6 +82,9 @@ function RouteTracker() {
 
 const App = () => {
   useEffect(() => {
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
     initTracker();
     retryPendingLeads().catch(() => {});
   }, []);
@@ -79,6 +95,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <RouteTracker />
           <Routes>
             <Route path="/" element={<AccueilV2 />} />

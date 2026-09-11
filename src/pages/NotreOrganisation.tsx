@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -267,17 +267,13 @@ export default function NotreOrganisation() {
     audioRef.current.currentTime = ratio * duration;
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     setMounted(true);
   }, []);
 
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div ref={root} className="min-h-screen bg-background">

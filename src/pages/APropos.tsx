@@ -581,7 +581,10 @@ export default function APropos() {
               <Button variant="accent" size="default" className="rounded-full" asChild>
                 <Link
                   to="/notre-organisation/"
-                  onClick={() => trackEvent("org_bridge_click_about")}
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+                    trackEvent("org_bridge_click_about");
+                  }}
                 >
                   Découvrir notre organisation
                   <ArrowRight size={15} className="ml-1.5" />
