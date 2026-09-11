@@ -11,6 +11,9 @@ import {
   CheckCircle2,
   Database,
   ShieldCheck,
+  Headphones,
+  Play,
+  Pause,
   BarChart3,
   Lightbulb,
   Cpu,
@@ -239,7 +242,30 @@ const faqs = [
 
 export default function NotreOrganisation() {
   const root = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const formatTime = (s: number) => {
+    if (!s || isNaN(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, "0")}`;
+  };
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+  };
+
+  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!audioRef.current || !duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    audioRef.current.currentTime = ratio * duration;
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -476,7 +502,148 @@ export default function NotreOrganisation() {
                   <span>Interlocuteur unique & identifié</span>
                   <span className="text-accent font-medium">Zéro guichet anonyme</span>
                 </div>
+
+                {/* Indicateur audio — s'anime quand le player est en lecture */}
+                <div className="absolute bottom-4 right-4" title="Résumé audio en cours">
+                  <div className="relative flex items-center justify-center w-9 h-9">
+                    {/* Anneaux d'oscillation */}
+                    <span
+                      className={`absolute inset-0 rounded-full bg-accent/30 transition-opacity duration-300 ${isPlaying ? "animate-ping" : "opacity-0"}`}
+                      style={{ animationDuration: "1.4s" }}
+                    />
+                    <span
+                      className={`absolute w-6 h-6 rounded-full bg-accent/20 transition-opacity duration-300 ${isPlaying ? "animate-ping" : "opacity-0"}`}
+                      style={{ animationDuration: "1.4s", animationDelay: "0.45s" }}
+                    />
+                    {/* Cercle central */}
+                    <span
+                      className={`relative w-5 h-5 rounded-full flex items-center justify-center shadow-md transition-all duration-500 ${isPlaying ? "bg-accent scale-110" : "bg-primary-foreground/15"}`}
+                    >
+                      <Headphones
+                        size={10}
+                        className={`transition-colors duration-300 ${isPlaying ? "text-accent-foreground" : "text-primary-foreground/40"}`}
+                      />
+                    </span>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            BANDE AUDIO : ALTERNATIVE À LA LECTURE
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-primary/95 border-y border-primary-light/20 py-6">
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12">
+            <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
+              {/* Signalétique gauche */}
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shadow-md shrink-0">
+                  <Headphones size={18} className="text-accent-foreground" />
+                </div>
+                <div>
+                  <p className="text-primary-foreground font-display font-semibold text-[15px] leading-tight">
+                    Pas le temps de tout lire ?
+                  </p>
+                  <p className="text-primary-foreground/60 text-[12px] font-body">
+                    Écoutez le résumé de notre organisation
+                  </p>
+                </div>
+              </div>
+
+              {/* Séparateur vertical */}
+              <div className="hidden sm:block h-10 w-px bg-primary-foreground/15 shrink-0" />
+
+              {/* Player audio custom */}
+              <div className="flex-1 w-full">
+                {/* Élément audio caché */}
+                <audio
+                  ref={audioRef}
+                  preload="auto"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => { setIsPlaying(false); setCurrentTime(0); }}
+                  onTimeUpdate={() => {
+                    const a = audioRef.current;
+                    if (!a) return;
+                    setCurrentTime(a.currentTime);
+                    if (isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+                  }}
+                  onLoadedMetadata={() => {
+                    const a = audioRef.current;
+                    if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+                  }}
+                  onDurationChange={() => {
+                    const a = audioRef.current;
+                    if (a && isFinite(a.duration) && a.duration > 0) setDuration(a.duration);
+                  }}
+                >
+                  <source src="/ressources/Notre organisation 1.wav" type="audio/wav" />
+                </audio>
+
+                {/* Keyframe shimmer lecture */}
+                <style>{`
+                  @keyframes audio-shimmer {
+                    0% { background-position: -200% center; }
+                    100% { background-position: 200% center; }
+                  }
+                `}</style>
+
+                <div className="flex items-center gap-3 w-full">
+                  {/* Bouton play/pause */}
+                  <button
+                    onClick={togglePlay}
+                    aria-label={isPlaying ? "Pause" : "Lecture"}
+                    className="w-10 h-10 rounded-full bg-red-500 hover:bg-red-400 active:scale-95 flex items-center justify-center shrink-0 transition-all duration-200 shadow-lg shadow-red-500/30"
+                  >
+                    {isPlaying
+                      ? <Pause size={15} className="text-white" />
+                      : <Play size={15} className="text-white ml-0.5" />
+                    }
+                  </button>
+
+                  {/* Barre de progression */}
+                  <div className="flex-1 flex items-center gap-3">
+                    <span className="text-white/70 text-[11px] font-mono tabular-nums shrink-0 w-8 text-right">
+                      {formatTime(currentTime)}
+                    </span>
+
+                    <div
+                      className="relative flex-1 h-[3px] bg-white/15 rounded-full cursor-pointer group"
+                      onClick={seek}
+                    >
+                      {/* Remplissage rouge avec shimmer pendant la lecture */}
+                      <div
+                        className="absolute left-0 top-0 h-full rounded-full"
+                        style={{
+                          width: `${duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0}%`,
+                          transition: "width 0.2s linear",
+                          background: isPlaying
+                            ? "linear-gradient(90deg, #ef4444 0%, #f87171 40%, #ffffff55 50%, #f87171 60%, #ef4444 100%)"
+                            : "#ef4444",
+                          backgroundSize: isPlaying ? "200% 100%" : "100% 100%",
+                          animation: isPlaying ? "audio-shimmer 2s linear infinite" : "none",
+                        }}
+                      />
+                      {/* Curseur blanc au survol */}
+                      <div
+                        className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-md scale-0 group-hover:scale-100 transition-transform duration-150"
+                        style={{ left: `calc(${duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0}% - 6px)` }}
+                      />
+                    </div>
+
+                    <span className="text-white/35 text-[11px] font-mono tabular-nums shrink-0 w-8">
+                      {duration > 0 ? formatTime(duration) : "—:——"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Badge durée */}
+              <span className="shrink-0 text-[11px] font-bold tracking-wider uppercase text-accent bg-accent/10 border border-accent/25 px-3 py-1.5 rounded-full">
+                ~ 2 min
+              </span>
             </div>
           </div>
         </section>
