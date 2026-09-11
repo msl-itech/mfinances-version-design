@@ -17,6 +17,7 @@ import {
   Layers,
   Sparkles,
   ArrowUpRight,
+  ArrowLeftRight,
   Shield,
   FileSpreadsheet,
   Zap,
@@ -251,7 +252,7 @@ export default function NotreOrganisation() {
   return (
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
-        title="Notre Organisation Intégrée | MFINANCES, MSL ANALYTICA & MSL-iTECH"
+        title="Notre organisation | MFINANCES, Odoo & pilotage financier"
         description="Découvrez comment MFINANCES associe expertise comptable ITAA, traitement des données financières et maîtrise d'Odoo pour un pilotage financier d'élite des PME."
         canonical="https://mfinances.be/notre-organisation/"
         schemaJson={[
@@ -513,57 +514,51 @@ export default function NotreOrganisation() {
                 return (
                   <div
                     key={pole.id}
-                    className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative group ${
-                      isMain
+                    className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative group ${isMain
                         ? "bg-primary text-primary-foreground shadow-xl ring-1 ring-primary-light/50 cut-corner"
                         : "bg-card text-foreground border border-border/80 shadow-md hover:shadow-xl hover:border-accent/40"
-                    }`}
+                      }`}
                   >
                     {/* Header de carte */}
                     <div>
                       <div className="flex items-center justify-between mb-6">
                         <div
-                          className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${
-                            isMain
+                          className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${isMain
                               ? "bg-accent text-accent-foreground"
                               : "bg-primary/5 text-primary border border-border"
-                          }`}
+                            }`}
                         >
                           <IconComponent size={22} className={isMain ? "text-accent-foreground" : "text-accent"} />
                         </div>
                         <span
-                          className={`text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full whitespace-nowrap shrink-0 ${
-                            isMain
+                          className={`text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full whitespace-nowrap shrink-0 ${isMain
                               ? "bg-primary-foreground/10 text-accent-hover border border-primary-foreground/20"
                               : "bg-accent/10 text-accent border border-accent/20"
-                          }`}
+                            }`}
                         >
                           {pole.badge}
                         </span>
                       </div>
 
                       <h3
-                        className={`font-display text-[26px] font-bold tracking-tight mb-2 ${
-                          isMain ? "text-primary-foreground" : "text-primary"
-                        }`}
+                        className={`font-display text-[26px] font-bold tracking-tight mb-2 ${isMain ? "text-primary-foreground" : "text-primary"
+                          }`}
                       >
                         {pole.name}
                       </h3>
 
                       <p
-                        className={`text-[13.5px] font-medium leading-snug mb-4 ${
-                          isMain ? "text-primary-foreground/80" : "text-foreground/80"
-                        }`}
+                        className={`text-[13.5px] font-medium leading-snug mb-4 ${isMain ? "text-primary-foreground/80" : "text-foreground/80"
+                          }`}
                       >
                         {pole.tagline}
                       </p>
 
                       <p
-                        className={`text-[12.5px] italic mb-6 pb-6 border-b ${
-                          isMain
+                        className={`text-[12.5px] italic mb-6 pb-6 border-b ${isMain
                             ? "text-primary-foreground/60 border-primary-foreground/15"
                             : "text-muted-foreground border-border/60"
-                        }`}
+                          }`}
                       >
                         {pole.lead}
                       </p>
@@ -571,27 +566,24 @@ export default function NotreOrganisation() {
                       {/* Liste des missions */}
                       <div className="space-y-3 mb-8">
                         <p
-                          className={`text-[11px] font-bold uppercase tracking-wider ${
-                            isMain ? "text-accent" : "text-accent"
-                          }`}
+                          className={`text-[11px] font-bold uppercase tracking-wider ${isMain ? "text-accent" : "text-accent"
+                            }`}
                         >
                           Missions & Responsabilités :
                         </p>
                         {pole.missions.map((mission, idx) => (
                           <div key={idx} className="flex items-start gap-2.5">
                             <span
-                              className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                                isMain
+                              className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${isMain
                                   ? "bg-accent/20 text-accent"
                                   : "bg-accent/10 text-accent"
-                              }`}
+                                }`}
                             >
                               <Check size={11} strokeWidth={3} />
                             </span>
                             <span
-                              className={`text-[13px] leading-snug ${
-                                isMain ? "text-primary-foreground/85" : "text-muted-foreground"
-                              }`}
+                              className={`text-[13px] leading-snug ${isMain ? "text-primary-foreground/85" : "text-muted-foreground"
+                                }`}
                             >
                               {mission}
                             </span>
@@ -602,11 +594,10 @@ export default function NotreOrganisation() {
 
                     {/* Footer de carte : Livrables & Équipe */}
                     <div
-                      className={`pt-5 border-t rounded-2xl p-4 ${
-                        isMain
+                      className={`pt-5 border-t rounded-2xl p-4 ${isMain
                           ? "bg-primary-dark/60 border-primary-foreground/10 text-primary-foreground/80"
                           : "bg-secondary/70 border-border/50 text-foreground"
-                      }`}
+                        }`}
                     >
                       <div className="mb-2.5">
                         <span className="text-[10px] font-bold uppercase tracking-wider block opacity-70 mb-0.5">
@@ -1015,6 +1006,83 @@ export default function NotreOrganisation() {
                   Supervision directe ITAA
                 </span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            6. RESPONSABILITÉ & TRANSPARENCE
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="py-16 md:py-24 bg-background relative overflow-hidden border-t border-border/60">
+          <div className="mx-auto max-w-[1240px] px-6 lg:px-12">
+            {/* En-tête */}
+            <div className="max-w-[760px] mb-14">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="h-px w-6 bg-accent" />
+                <span className="font-body text-[10.5px] font-bold tracking-[0.25em] uppercase text-accent">
+                  06 · Responsabilité & transparence
+                </span>
+              </div>
+              <h2 className="font-display text-[30px] md:text-[44px] text-foreground leading-[1.1] tracking-tight mb-4">
+                Une organisation intégrée ne doit jamais rendre les{" "}
+                <span className="italic font-light text-accent">responsabilités moins lisibles</span>
+              </h2>
+            </div>
+
+            {/* Cartes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {/* Supervision */}
+              <div className="bg-card border border-border/80 rounded-3xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-lg hover:border-accent/40 transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={20} className="text-accent" />
+                  </div>
+                  <span className="font-display text-[11px] font-bold uppercase tracking-widest text-accent">
+                    Supervision
+                  </span>
+                </div>
+                <p className="text-muted-foreground text-[14px] leading-[1.75]">
+                  La supervision, la revue et la validation de la mission comptable relèvent de MFINANCES et de l'expert-comptable responsable du dossier.
+                </p>
+              </div>
+
+              {/* Confidentialité */}
+              <div className="bg-card border border-border/80 rounded-3xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-lg hover:border-accent/40 transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
+                    <Lock size={20} className="text-accent" />
+                  </div>
+                  <span className="font-display text-[11px] font-bold uppercase tracking-widest text-accent">
+                    Confidentialité
+                  </span>
+                </div>
+                <p className="text-muted-foreground text-[14px] leading-[1.75]">
+                  Les accès et interventions doivent être encadrés par les obligations professionnelles et les dispositifs contractuels applicables.
+                </p>
+              </div>
+
+              {/* Libre choix Odoo */}
+              <div className="bg-card border border-border/80 rounded-3xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-lg hover:border-accent/40 transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
+                    <ArrowLeftRight size={20} className="text-accent" />
+                  </div>
+                  <span className="font-display text-[11px] font-bold uppercase tracking-widest text-accent">
+                    Libre choix Odoo
+                  </span>
+                </div>
+                <p className="text-muted-foreground text-[14px] leading-[1.75]">
+                  Lorsqu'un projet distinct est proposé par MSL-iTECH, le lien entre les sociétés est communiqué. Le client reste libre de choisir son intégrateur.
+                </p>
+              </div>
+            </div>
+
+            {/* Note éditoriale avant publication */}
+            <div className="bg-secondary/70 border border-border/70 rounded-2xl px-6 py-4 flex items-start gap-3 w-full">
+              <span className="text-accent font-bold text-[16px] shrink-0 mt-0.5">!</span>
+              <p className="text-[13px] text-muted-foreground leading-[1.7]">
+                <strong className="text-foreground">Avant publication :</strong> les formulations détaillées relatives aux transferts de données hors EEE, à l'hébergement et aux garanties RGPD doivent rester alignées sur les conventions et la politique de confidentialité effectivement en vigueur.
+              </p>
             </div>
           </div>
         </section>
