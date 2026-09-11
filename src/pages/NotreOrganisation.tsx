@@ -566,7 +566,7 @@ export default function NotreOrganisation() {
               </div>
 
               {/* ── Cercle Bouton Play Flottant — ULTRA MIS EN ÉVIDENCE AVEC PULSE CONTINU ── */}
-              <div className="absolute -bottom-7 -right-3 sm:-bottom-8 sm:-right-6 z-30 flex items-center gap-2.5 group">
+              <div className="absolute -bottom-11 -right-3 sm:-bottom-13 sm:-right-6 z-30 flex items-center gap-2.5 group">
                 {/* Bulle d'Accroche Magnétique & Lumineuse */}
                 <button
                   onClick={togglePlay}
