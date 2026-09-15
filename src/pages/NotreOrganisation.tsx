@@ -458,7 +458,7 @@ export default function NotreOrganisation() {
               <div className="pointer-events-none absolute -inset-4 bg-gradient-to-tr from-accent/15 via-sky-500/10 to-indigo-500/15 rounded-[40px] blur-3xl opacity-70" />
 
               {/* Hub Écosystème Unifié — Design Soft, Velouté & Aérien */}
-              <div className="relative rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/[0.12] p-3 sm:p-5 md:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.12)] backdrop-blur-2xl overflow-hidden">
+              <div className="relative rounded-2xl sm:rounded-3xl bg-primary-dark/95 border border-primary-foreground/25 p-3 sm:p-5 md:p-6 shadow-2xl backdrop-blur-2xl overflow-hidden">
                 {/* Reflet lumineux supérieur subtil */}
                 <div className="pointer-events-none absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
@@ -469,7 +469,7 @@ export default function NotreOrganisation() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                     </span>
-                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-white/85 uppercase font-mono">
+                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-primary-foreground uppercase font-mono">
                       Écosystème Unifié
                     </span>
                   </div>
@@ -479,7 +479,7 @@ export default function NotreOrganisation() {
                 </div>
 
                 {/* Cœur : Le Dirigeant & Sa PME (Pivot Central velouté) */}
-                <div className="relative bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] rounded-xl sm:rounded-2xl p-2.5 sm:p-4 mb-2.5 sm:mb-3 transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] group">
+                <div className="relative bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 mb-2.5 sm:mb-3 transition-all duration-300 shadow-md group">
                   <div className="flex items-center gap-2.5 sm:flex-col sm:text-center sm:gap-0">
                     <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/15 text-accent shadow-sm ring-4 ring-accent/10 shrink-0 sm:mb-1.5">
                       <Users size={14} className="sm:hidden" />
@@ -487,14 +487,14 @@ export default function NotreOrganisation() {
                     </div>
                     <div className="flex-1 sm:flex-initial min-w-0">
                       <div className="flex items-center gap-1.5 sm:justify-center sm:gap-2">
-                        <p className="font-display text-[13px] sm:text-[16px] font-semibold text-white tracking-wide truncate">
+                        <p className="font-display text-[13px] sm:text-[16px] font-semibold text-primary-foreground tracking-wide truncate">
                           Le Dirigeant de PME
                         </p>
                         <span className="bg-accent/20 text-accent border border-accent/30 text-[7.5px] sm:text-[8.5px] font-bold tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm shrink-0">
                           Pivot Central
                         </span>
                       </div>
-                      <p className="text-white/65 text-[10px] sm:text-[11px] mt-0.5 font-body hidden sm:block">
+                      <p className="text-primary-foreground/90 text-[10px] sm:text-[11px] mt-0.5 font-body hidden sm:block">
                         Pilote unique • Décisions éclairées • Visibilité en temps réel
                       </p>
                     </div>
@@ -504,63 +504,63 @@ export default function NotreOrganisation() {
                 {/* Les 3 piliers interconnectés — Cartes douces & translucides */}
                 <div className="space-y-1.5 sm:space-y-2.5 relative z-10">
                   {/* Pôle 1 : MFINANCES */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-accent/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-accent/50 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0 shadow-sm border border-accent/25 group-hover:scale-105 transition-transform">
                       <Building2 size={15} className="sm:hidden" />
                       <Building2 size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-bold text-[12px] sm:text-[14px] text-white tracking-wide">
+                        <p className="font-display font-bold text-[12px] sm:text-[14px] text-primary-foreground tracking-wide">
                           MFINANCES
                         </p>
                         <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-accent uppercase tracking-wider bg-accent/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-accent/20 shrink-0">
                           Agrément ITAA
                         </span>
                       </div>
-                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
+                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Supervision légale • Arbitrage fiscal • Direction DAF
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 2 : MSL ANALYTICA */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-sky-400/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-sky-400/15 text-sky-300 flex items-center justify-center shrink-0 shadow-sm border border-sky-400/25 group-hover:scale-105 transition-transform">
+                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-primary-foreground/40 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0 shadow-sm border border-primary-foreground/30 group-hover:scale-105 transition-transform">
                       <Database size={15} className="sm:hidden" />
                       <Database size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-white">
+                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-primary-foreground">
                           MSL ANALYTICA
                         </p>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-sky-300 uppercase tracking-wider bg-sky-400/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-sky-400/20 shrink-0">
+                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-primary-foreground uppercase tracking-wider bg-primary-foreground/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-primary-foreground/25 shrink-0">
                           Data & Flux
                         </span>
                       </div>
-                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
+                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Collecte Peppol & Coda • Rapprochements à J+15
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 3 : MSL-iTECH */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-indigo-400/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-indigo-400/15 text-indigo-300 flex items-center justify-center shrink-0 shadow-sm border border-indigo-400/25 group-hover:scale-105 transition-transform">
+                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-primary-foreground/40 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0 shadow-sm border border-primary-foreground/30 group-hover:scale-105 transition-transform">
                       <Cpu size={15} className="sm:hidden" />
                       <Cpu size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-white">
+                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-primary-foreground">
                           MSL-iTECH
                         </p>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-400/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-indigo-400/20 shrink-0">
+                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-primary-foreground uppercase tracking-wider bg-primary-foreground/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-primary-foreground/25 shrink-0">
                           Odoo Expert
                         </span>
                       </div>
-                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
+                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Paramétrage Odoo Belgique • Automatisations & API
                       </p>
                     </div>
