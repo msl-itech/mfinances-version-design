@@ -361,7 +361,7 @@ export default function NotreOrganisation() {
         {/* ══════════════════════════════════════════════════════════════
             1. HERO : MODÈLE TRIPARTITE D'ÉLITE
         ══════════════════════════════════════════════════════════════ */}
-        <section className="bg-primary py-12 md:py-20 relative overflow-hidden bg-precision-grid-light">
+        <section className="bg-primary py-10 sm:py-14 md:py-20 relative overflow-hidden bg-precision-grid-light">
           {/* Filigrane éditorial de fond */}
           <span
             aria-hidden="true"
@@ -374,9 +374,9 @@ export default function NotreOrganisation() {
           <div className="pointer-events-none absolute -bottom-40 -right-40 w-[550px] h-[550px] rounded-full bg-accent/15 blur-3xl" />
           <div className="pointer-events-none absolute top-0 right-1/3 w-[380px] h-[380px] rounded-full bg-primary-light/30 blur-3xl" />
 
-          <div className="mx-auto max-w-[1240px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-center relative z-10">
             {/* Colonne Gauche : Pitch & Accroche */}
-            <div className="lg:col-span-7">
+            <div className="md:col-span-7">
               <Breadcrumb className="mb-6">
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -410,18 +410,18 @@ export default function NotreOrganisation() {
                 </span>
               </div>
 
-              <h1 className="font-display text-[32px] sm:text-[42px] md:text-[54px] leading-[1.08] text-primary-foreground tracking-tight mb-6">
+              <h1 className="font-display text-[26px] sm:text-[34px] md:text-[42px] lg:text-[54px] leading-[1.08] text-primary-foreground tracking-tight mb-5 sm:mb-6">
                 Trois expertises intégrées.{" "}
                 <span className="italic font-light text-accent">Une responsabilité claire.</span>
               </h1>
 
-              <p className="text-primary-foreground/85 text-[15.5px] md:text-[17.5px] leading-[1.75] font-body mb-8 max-w-[600px]">
+              <p className="text-primary-foreground/85 text-[14px] sm:text-[15.5px] md:text-[17.5px] leading-[1.7] sm:leading-[1.75] font-body mb-6 sm:mb-8 max-w-[600px]">
                 Pour qu'un chef d'entreprise pilote en toute clarté, la finance ne peut plus être fragmentée.
                 Nous avons réuni l'<strong>expertise comptable ITAA</strong>, le <strong>traitement opérationnel des données</strong> et l'<strong>intégration Odoo</strong> au sein d'une même dynamique au service de vos décisions.
               </p>
 
               {/* Boutons d'action */}
-              <div className="flex flex-wrap gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <Button variant="accent" size="lg" className="rounded-full shadow-lg" asChild>
                   <a href="#poles">
                     Explorer les 3 pôles
@@ -436,7 +436,7 @@ export default function NotreOrganisation() {
               </div>
 
               {/* Piliers de réassurance */}
-              <div className="pt-6 border-t border-primary-foreground/15 flex flex-wrap items-center gap-y-2 gap-x-6 text-[12px] text-primary-foreground/75 font-body">
+              <div className="pt-5 sm:pt-6 border-t border-primary-foreground/15 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-y-2.5 gap-x-5 sm:gap-x-6 text-[11.5px] sm:text-[12px] text-primary-foreground/75 font-body">
                 <div className="flex items-center gap-2">
                   <ShieldCheck size={16} className="text-accent shrink-0" />
                   <span>Agrément ITAA n° 50.812.433</span>
@@ -453,106 +453,114 @@ export default function NotreOrganisation() {
             </div>
 
             {/* Colonne Droite : Architecture Visuelle / Hub Écosystème */}
-            <div className="lg:col-span-5 relative">
+            <div className="md:col-span-5 relative">
               {/* Lueur diffuse d'arrière-plan ultra-douce (effet aura veloutée) */}
               <div className="pointer-events-none absolute -inset-4 bg-gradient-to-tr from-accent/15 via-sky-500/10 to-indigo-500/15 rounded-[40px] blur-3xl opacity-70" />
 
               {/* Hub Écosystème Unifié — Design Soft, Velouté & Aérien */}
-              <div className="relative rounded-3xl bg-white/[0.04] border border-white/[0.12] p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.12)] backdrop-blur-2xl overflow-hidden">
+              <div className="relative rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/[0.12] p-3 sm:p-5 md:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.12)] backdrop-blur-2xl overflow-hidden">
                 {/* Reflet lumineux supérieur subtil */}
                 <div className="pointer-events-none absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
                 {/* Micro badge supérieur doux */}
-                <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/[0.08] relative z-10">
+                <div className="flex items-center justify-between pb-2.5 sm:pb-3.5 mb-2.5 sm:mb-3.5 border-b border-white/[0.08] relative z-10">
                   <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                     </span>
-                    <span className="text-[11px] font-semibold tracking-wider text-white/85 uppercase font-mono">
+                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-white/85 uppercase font-mono">
                       Écosystème Unifié
                     </span>
                   </div>
-                  <span className="text-[10.5px] font-mono text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/25 font-medium">
+                  <span className="text-[9.5px] sm:text-[10.5px] font-mono text-accent bg-accent/10 px-2 sm:px-2.5 py-0.5 rounded-full border border-accent/25 font-medium">
                     1 Dossier Unique
                   </span>
                 </div>
 
                 {/* Cœur : Le Dirigeant & Sa PME (Pivot Central velouté) */}
-                <div className="relative bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] rounded-2xl p-3.5 sm:p-4 text-center mb-3 transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] group">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/15 text-accent mb-1.5 shadow-sm ring-4 ring-accent/10">
-                    <Users size={16} />
+                <div className="relative bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] rounded-xl sm:rounded-2xl p-2.5 sm:p-4 mb-2.5 sm:mb-3 transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] group">
+                  <div className="flex items-center gap-2.5 sm:flex-col sm:text-center sm:gap-0">
+                    <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/15 text-accent shadow-sm ring-4 ring-accent/10 shrink-0 sm:mb-1.5">
+                      <Users size={14} className="sm:hidden" />
+                      <Users size={16} className="hidden sm:block" />
+                    </div>
+                    <div className="flex-1 sm:flex-initial min-w-0">
+                      <div className="flex items-center gap-1.5 sm:justify-center sm:gap-2">
+                        <p className="font-display text-[13px] sm:text-[16px] font-semibold text-white tracking-wide truncate">
+                          Le Dirigeant de PME
+                        </p>
+                        <span className="bg-accent/20 text-accent border border-accent/30 text-[7.5px] sm:text-[8.5px] font-bold tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm shrink-0">
+                          Pivot Central
+                        </span>
+                      </div>
+                      <p className="text-white/65 text-[10px] sm:text-[11px] mt-0.5 font-body hidden sm:block">
+                        Pilote unique • Décisions éclairées • Visibilité en temps réel
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <p className="font-display text-[16px] font-semibold text-white tracking-wide">
-                      Le Dirigeant de PME
-                    </p>
-                    <span className="bg-accent/20 text-accent border border-accent/30 text-[8.5px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm">
-                      Pivot Central
-                    </span>
-                  </div>
-                  <p className="text-white/65 text-[11px] mt-0.5 font-body">
-                    Pilote unique • Décisions éclairées • Visibilité en temps réel
-                  </p>
                 </div>
 
                 {/* Les 3 piliers interconnectés — Cartes douces & translucides */}
-                <div className="space-y-2.5 relative z-10">
+                <div className="space-y-1.5 sm:space-y-2.5 relative z-10">
                   {/* Pôle 1 : MFINANCES */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-accent/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                    <div className="w-9 h-9 rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0 shadow-sm border border-accent/25 group-hover:scale-105 transition-transform">
-                      <Building2 size={17} />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-accent/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0 shadow-sm border border-accent/25 group-hover:scale-105 transition-transform">
+                      <Building2 size={15} className="sm:hidden" />
+                      <Building2 size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between">
-                        <p className="font-display font-bold text-[14px] text-white tracking-wide">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="font-display font-bold text-[12px] sm:text-[14px] text-white tracking-wide">
                           MFINANCES
                         </p>
-                        <span className="text-[10px] font-mono font-semibold text-accent uppercase tracking-wider bg-accent/10 px-2 py-0.5 rounded-full border border-accent/20">
+                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-accent uppercase tracking-wider bg-accent/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-accent/20 shrink-0">
                           Agrément ITAA
                         </span>
                       </div>
-                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Supervision légale • Arbitrage fiscal • Direction DAF
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 2 : MSL ANALYTICA */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-sky-400/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                    <div className="w-9 h-9 rounded-xl bg-sky-400/15 text-sky-300 flex items-center justify-center shrink-0 shadow-sm border border-sky-400/25 group-hover:scale-105 transition-transform">
-                      <Database size={17} />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-sky-400/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-sky-400/15 text-sky-300 flex items-center justify-center shrink-0 shadow-sm border border-sky-400/25 group-hover:scale-105 transition-transform">
+                      <Database size={15} className="sm:hidden" />
+                      <Database size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between">
-                        <p className="font-display font-semibold text-[14px] text-white">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-white">
                           MSL ANALYTICA
                         </p>
-                        <span className="text-[10px] font-mono font-semibold text-sky-300 uppercase tracking-wider bg-sky-400/10 px-2 py-0.5 rounded-full border border-sky-400/20">
+                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-sky-300 uppercase tracking-wider bg-sky-400/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-sky-400/20 shrink-0">
                           Data & Flux
                         </span>
                       </div>
-                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Collecte Peppol & Coda • Rapprochements à J+15
                       </p>
                     </div>
                   </div>
 
                   {/* Pôle 3 : MSL-iTECH */}
-                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-indigo-400/30 rounded-2xl p-3 flex items-center gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                    <div className="w-9 h-9 rounded-xl bg-indigo-400/15 text-indigo-300 flex items-center justify-center shrink-0 shadow-sm border border-indigo-400/25 group-hover:scale-105 transition-transform">
-                      <Cpu size={17} />
+                  <div className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] hover:border-indigo-400/30 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-indigo-400/15 text-indigo-300 flex items-center justify-center shrink-0 shadow-sm border border-indigo-400/25 group-hover:scale-105 transition-transform">
+                      <Cpu size={15} className="sm:hidden" />
+                      <Cpu size={17} className="hidden sm:block" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between">
-                        <p className="font-display font-semibold text-[14px] text-white">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-white">
                           MSL-iTECH
                         </p>
-                        <span className="text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-400/10 px-2 py-0.5 rounded-full border border-indigo-400/20">
+                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-400/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-indigo-400/20 shrink-0">
                           Odoo Expert
                         </span>
                       </div>
-                      <p className="text-white/65 text-[11.5px] leading-snug mt-0.5 font-body">
+                      <p className="text-white/65 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
                         Paramétrage Odoo Belgique • Automatisations & API
                       </p>
                     </div>
@@ -562,12 +570,12 @@ export default function NotreOrganisation() {
               </div>
 
               {/* ── Cercle Bouton Play Flottant — ULTRA MIS EN ÉVIDENCE AVEC PULSE CONTINU ── */}
-              <div className="absolute -bottom-11 -right-3 sm:-bottom-13 sm:-right-6 z-30 flex items-center gap-2.5 group">
+              <div className="relative sm:absolute mt-5 sm:mt-0 flex justify-center sm:justify-end sm:-bottom-13 sm:-right-6 z-30 items-center gap-2 sm:gap-2.5 group">
                 {/* Bulle d'Accroche Magnétique & Lumineuse */}
                 <button
                   onClick={togglePlay}
                   aria-label={isPlaying ? "Mettre en pause le résumé audio" : "Écouter le résumé audio de notre organisation"}
-                  className="bg-primary-dark/95 border-2 border-accent/70 hover:border-accent rounded-full py-2 px-4 shadow-[0_8px_30px_rgba(239,68,68,0.35)] backdrop-blur-2xl transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-2.5 cursor-pointer group/pill"
+                  className="bg-primary-dark/95 border-2 border-accent/70 hover:border-accent rounded-full py-1.5 px-3 sm:py-2 sm:px-4 shadow-[0_8px_30px_rgba(239,68,68,0.35)] backdrop-blur-2xl transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-2 sm:gap-2.5 cursor-pointer group/pill"
                 >
                   {/* Point radio pulsant avec double halo */}
                   <span className="relative flex h-2.5 w-2.5 shrink-0">
@@ -605,7 +613,7 @@ export default function NotreOrganisation() {
                 </button>
 
                 {/* Cercle Play interactif vinyle débordant avec ONDES PULSE RADAR CONTINUES */}
-                <div className="relative shrink-0 w-18 h-18 sm:w-20 sm:h-20">
+                <div className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20">
                   {/* Onde radar pulsante permanente 1 (pulse visuel immédiat) */}
                   <span
                     className="absolute -inset-2 rounded-full bg-accent/35 animate-ping pointer-events-none"
