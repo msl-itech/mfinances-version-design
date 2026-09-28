@@ -125,6 +125,66 @@ export type Database = {
         }
         Relationships: []
       }
+      google_reviews: {
+        Row: {
+          comment: string | null
+          create_time: string | null
+          rating: number
+          review_id: string
+          reviewer_name: string
+          synced_at: string
+          update_time: string | null
+        }
+        Insert: {
+          comment?: string | null
+          create_time?: string | null
+          rating: number
+          review_id: string
+          reviewer_name: string
+          synced_at?: string
+          update_time?: string | null
+        }
+        Update: {
+          comment?: string | null
+          create_time?: string | null
+          rating?: number
+          review_id?: string
+          reviewer_name?: string
+          synced_at?: string
+          update_time?: string | null
+        }
+        Relationships: []
+      }
+      google_reviews_summary: {
+        Row: {
+          average_rating: number | null
+          id: number
+          last_attempt_at: string | null
+          last_error: string | null
+          last_synced_at: string | null
+          location_name: string | null
+          total_review_count: number | null
+        }
+        Insert: {
+          average_rating?: number | null
+          id?: number
+          last_attempt_at?: string | null
+          last_error?: string | null
+          last_synced_at?: string | null
+          location_name?: string | null
+          total_review_count?: number | null
+        }
+        Update: {
+          average_rating?: number | null
+          id?: number
+          last_attempt_at?: string | null
+          last_error?: string | null
+          last_synced_at?: string | null
+          location_name?: string | null
+          total_review_count?: number | null
+        }
+        Relationships: []
+      }
       sequence_enrollments: {
         Row: {
           created_at: string
