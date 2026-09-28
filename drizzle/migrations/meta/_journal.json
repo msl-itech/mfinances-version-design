@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790592025198,
+      "tag": "0000_google_reviews",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790592055680,
+      "tag": "0001_v32_avis_google",
+      "breakpoints": true
+    }
+  ]
+}
