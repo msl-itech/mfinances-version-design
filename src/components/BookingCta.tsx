@@ -9,6 +9,7 @@ type Props = {
   title?: string;
   description?: string;
   className?: string;
+  buttonClassName?: string;
 };
 
 export default function BookingCta({
@@ -16,6 +17,7 @@ export default function BookingCta({
   title = "Réservez 30 minutes avec Mika",
   description = "Un échange gratuit, confidentiel et sans engagement pour valider votre situation et vos prochaines étapes.",
   className = "",
+  buttonClassName = "",
 }: Props) {
   return (
     <div
@@ -32,7 +34,7 @@ export default function BookingCta({
       <Button
         variant="accent"
         size="lg"
-        className="rounded-full px-6 sm:px-8 group"
+        className={`max-w-full rounded-full px-6 sm:px-8 group ${buttonClassName}`}
         asChild
       >
         <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer">
