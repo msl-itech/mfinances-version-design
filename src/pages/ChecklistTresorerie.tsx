@@ -258,7 +258,7 @@ export default function ChecklistTresorerie() {
                       <BookingCta
                         title="Faites le point avec Mika en 30 minutes"
                         description="Un échange gratuit avec l'expert-comptable de MFinances pour prioriser les actions de la checklist selon votre situation réelle."
-                        buttonClassName="w-full text-[15px] sm:text-[16px]"
+                        buttonClassName="w-full text-[15px] px-5 sm:px-6"
                       />
                     </div>
                   </div>
