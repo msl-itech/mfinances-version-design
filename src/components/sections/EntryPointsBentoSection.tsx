@@ -7,8 +7,10 @@ import diagnosticImg from "@/assets/daf-dashboard.webp";
 import diagnosticImg400 from "@/assets/daf-dashboard-400.webp";
 import rdvImg from "@/assets/mika-contact.webp";
 import rdvImg400 from "@/assets/mika-contact-400.webp";
+import { useGoogleReviews, formatReviewSummary } from "@/hooks/use-google-reviews";
 
 export default function EntryPointsBentoSection() {
+  const { count: reviewCount, rating: reviewRating } = useGoogleReviews();
   return (
     <section className="py-8 md:py-14 bg-secondary relative overflow-hidden">
       {/* Watermark */}
@@ -212,7 +214,7 @@ export default function EntryPointsBentoSection() {
                 <span className="italic text-accent">200+</span> dirigeants accompagnés
               </p>
               <p className="text-[12px] text-primary-foreground/65 mt-2 leading-[1.55]">
-                <span className="font-bold">16 avis Google · 5,0/5</span> · 20 ans d'expertise comptable à Bruxelles.
+                <span className="font-bold">{formatReviewSummary(reviewCount, reviewRating)}</span> · 20 ans d'expertise comptable à Bruxelles.
               </p>
             </div>
           </div>

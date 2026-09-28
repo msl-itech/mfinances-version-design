@@ -4,7 +4,7 @@ import type { FAQItem } from "@/components/SchemaFAQ";
 export const faqDafExternalise: FAQItem[] = [
   {
     question: "Combien coûte un DAF externalisé pour une TPE à Bruxelles ?",
-    answer: "Chez MFinances, le DAF à temps partiel est une option réservée aux clients Excellence, facturée 150 € HTVA/heure selon le temps réellement presté (le forfait Excellence lui-même démarre à 650 € HTVA/mois). Cette prestation couvre la supervision comptable, le pilotage de trésorerie et le reporting mensuel.",
+    answer: "Chez MFinances, le DAF à temps partiel est une option réservée aux clients Excellence, facturée 150 € HTVA/heure selon le temps réellement presté (le forfait Excellence lui-même est proposé à partir de 650 € HTVA/mois). Cette prestation couvre la supervision comptable, le pilotage de trésorerie et le reporting mensuel.",
   },
   {
     question: "Quelle est la différence entre un DAF externalisé et un expert-comptable ?",
@@ -88,7 +88,7 @@ export const faqTresorerie: FAQItem[] = [
 export const faqTarifs: FAQItem[] = [
   {
     question: "Quelle est la différence entre les forfaits Essentiel, Premium et Excellence ?",
-    answer: "Essentiel (350 € HTVA/mois) couvre la comptabilité et la fiscalité. Premium (450 €) ajoute le contrôle de gestion trimestriel. Excellence (650 €) inclut le contrôle de gestion mensuel, la trésorerie prévisionnelle mensuelle et le copilotage stratégique ; le DAF à temps partiel y est une option (150 € HTVA/h), non inclus dans le forfait.",
+    answer: "Essentiel (à partir de 350 € HTVA/mois) ajoute à la comptabilité et à la fiscalité une situation intermédiaire semestrielle. Premium (à partir de 450 €) ajoute le contrôle de gestion trimestriel. Excellence (à partir de 650 €) inclut le contrôle de gestion mensuel, la trésorerie prévisionnelle mensuelle et le copilotage stratégique ; le DAF à temps partiel y est une option (150 € HTVA/h), non inclus dans le forfait.",
   },
   {
     question: "Y a-t-il une réduction pour les ASBL ou les médecins ?",
@@ -100,7 +100,7 @@ export const faqTarifs: FAQItem[] = [
   },
   {
     question: "Combien coûte un expert-comptable pour une PME en Belgique ?",
-    answer: "Chez MFinances, les forfaits commencent à 275 € HTVA/mois (Basic — comptabilité + conformité). Le prix final dépend du volume d'opérations et du niveau de service souhaité. Notre diagnostic gratuit de 30 min permet d'établir un devis précis.",
+    answer: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic — comptabilité + conformité). Le prix final dépend du volume d'opérations et du niveau de service souhaité. Notre diagnostic gratuit de 30 min permet d'établir un devis précis.",
   },
 ];
 

@@ -14,6 +14,7 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 import BookingCta from "@/components/BookingCta";
+import { trackEvent } from "@/lib/clarity-events";
 
 /* ───── DATA ───── */
 
@@ -194,6 +195,8 @@ export default function Diagnostic() {
   }, []);
 
   const selectAnswer = (optionIndex: number) => {
+    if (step === 0 && answers.every((a) => a === null)) trackEvent("diagnostic_start");
+    if (step === 7) trackEvent("diagnostic_complete");
     const newAnswers = [...answers];
     newAnswers[step] = optionIndex;
     setAnswers(newAnswers);
@@ -268,6 +271,7 @@ export default function Diagnostic() {
     await submitLead(leadData);
     trackLeadSource({ ...leadData, form_name: "diagnostic" });
 
+    trackEvent("diagnostic_result");
     setEmailSubmitted(true);
     setStep(9);
     window.scrollTo({ top: 0, behavior: "smooth" });

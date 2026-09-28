@@ -78,7 +78,7 @@ export const accountingServiceSchema = {
       "identifier": "10.923.614"
     }
   },
-  "priceRange": "275€ - 650€ HTVA/mois",
+  "priceRange": "À partir de 275 € HTVA/mois",
   // Avis/notes volontairement retirés du JSON-LD : sur un LocalBusiness/Organization,
   // les avis "self-serving" ne donnent pas d'étoiles (politique Google 2019) et agréger
   // des avis d'autres plateformes dans son propre balisage est déconseillé. Les avis

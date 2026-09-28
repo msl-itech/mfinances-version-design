@@ -40,10 +40,9 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { useGoogleReviews, formatReviewSummary } from "@/hooks/use-google-reviews";
 import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
 import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
-import equipeSourire from "@/assets/mfinances-equipe-sourire.webp";
-import equipeSourire400 from "@/assets/mfinances-equipe-sourire-400.webp";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
 import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
 import imgControle from "@/assets/service-controle-gestion.webp";
@@ -52,8 +51,10 @@ import imgDaf from "@/assets/service-daf-externalise.webp";
 import imgDaf400 from "@/assets/service-daf-externalise-400.webp";
 import imgTresorerie from "@/assets/service-tresorerie.webp";
 import imgTresorerie400 from "@/assets/service-tresorerie-400.webp";
-import dafMeeting from "@/assets/daf-meeting-team.webp";
-import dafMeeting400 from "@/assets/daf-meeting-team-400.webp";
+// Vignettes 96 × 96 des trois pastilles « 200+ entreprises » (au lieu des photos pleine taille)
+import avatarMika from "@/assets/avatar-mika-96.webp";
+import avatarEquipe from "@/assets/avatar-equipe-96.webp";
+import avatarDaf from "@/assets/avatar-daf-96.webp";
 import audIndependants from "@/assets/audience-independants.webp";
 import audIndependants400 from "@/assets/audience-independants-400.webp";
 import audHoreca from "@/assets/audience-commerce-horeca.webp";
@@ -72,7 +73,7 @@ import audPromoteurs400 from "@/assets/audience-promoteurs-400.webp";
 const heroFeatures = [
   { title: "Vision claire", desc: "Vous savez exactement où va votre argent : chaque mois." },
   { title: "Conseil expert", desc: "20+ ans d'expérience au service de votre pilotage." },
-  { title: "Support efficace", desc: "Une équipe dédiée, réactive et 100% bilingue FR/EN." },
+  { title: "Odoo Finance", desc: "Votre comptabilité, votre reporting et votre pilotage financier dans un même environnement." },
 ];
 
 // V1 — PainSection
@@ -147,13 +148,13 @@ const audiences = [
 // V1 — PricingSection
 const plans = [
   { label: "BASIC", price: "275", subtitle: "Pour être en règle", features: ["Comptabilité & bilan", "Déclarations fiscales", "Conseil à la demande (150 €/h)"], popular: false },
-  { label: "ESSENTIEL", price: "350", subtitle: "Pour sécuriser vos bases", features: ["Comptabilité complète", "Déclarations fiscales", "Expert dédié"], popular: false },
+  { label: "ESSENTIEL", price: "350", subtitle: "Pour anticiper", features: ["Comptabilité complète & bilan", "Déclarations fiscales", "Situation intermédiaire semestrielle", "Suivi et consultations courantes inclus"], popular: false },
   { label: "PREMIUM", price: "450", subtitle: "Pour structurer votre croissance", features: ["Tout Essentiel +", "Contrôle de gestion trimestriel", "Analyse des écarts & conseils"], popular: true },
   { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle mensuelle", "DAF à temps partiel en option — 150 € HTVA/h"], popular: false },
 ];
 
-// V1 — TestimonialsSection (16 avis Google)
-const reviews = [
+// Avis Google de secours (affichés tant que la synchronisation automatique n'a pas tourné)
+const fallbackReviews = [
   { name: "Mari Carmen Rejas Martin", text: "Sans hésitation, je ne peux que recommander MFinances, tant pour son professionnalisme, son accueil, sa réactivité lors d'un doute, son humanité etc." },
   { name: "Audrey Pepka épouse Mbog", text: "Tellement satisfaite du service accordé par MFinances ! Je recommande vivement." },
   { name: "Luc Jeazet", text: "MFINANCES MERCI !! Avec Mika et sa merveilleuse équipe, mon entreprise a pris un vrai tournant." },
@@ -179,7 +180,7 @@ function getInitials(name: string) {
 // V1 — homepage FAQ (Index.tsx)
 const faqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 275€ HTVA/mois (Basic — comptabilité + conformité), puis 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel) et 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic — comptabilité + conformité), à partir de 350 € HTVA/mois (Essentiel, avec situation intermédiaire semestrielle), à partir de 450 € HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650 € HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion et trésorerie prévisionnelle intégrés dans les forfaits selon le niveau ; DAF à temps partiel en option (150 € HTVA/h, clients Excellence)." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
 ];
@@ -191,6 +192,7 @@ const faqs = [
 export default function AccueilV2() {
   const [mounted, setMounted] = useState(false);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const { reviews, count: reviewCount, rating: reviewRating } = useGoogleReviews(fallbackReviews);
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -203,9 +205,9 @@ export default function AccueilV2() {
       setReviewIndex((i) => (i + 1) % reviews.length);
     }, 5500);
     return () => clearInterval(t);
-  }, []);
+  }, [reviews.length]);
 
-  const currentReview = reviews[reviewIndex];
+  const currentReview = reviews[reviewIndex % reviews.length];
 
   // Wire GSAP reveals + tilt across the whole page after mount
   useGsapReveal(root, [mounted]);
@@ -392,12 +394,12 @@ export default function AccueilV2() {
                 200+ <span className="text-[12px] md:text-[14px] font-body align-middle opacity-80">entreprises</span>
               </p>
               <div className="flex -space-x-2 shrink-0">
-                {[mikaPhoto, equipeSourire, dafMeeting].map((src, i) => (
+                {[avatarMika, avatarEquipe, avatarDaf].map((src, i) => (
                   <div
                     key={i}
                     className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-accent overflow-hidden bg-card"
                   >
-                    <img src={src} alt="" className="w-full h-full object-cover" />
+                    <img src={src} alt="" width={36} height={36} decoding="async" className="w-full h-full object-cover" />
                   </div>
                 ))}
                 <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-card text-accent flex items-center justify-center text-sm font-bold border-2 border-accent">
@@ -505,7 +507,8 @@ export default function AccueilV2() {
               <div className="max-w-md" data-anim="fade-up" data-delay="0.2">
                 <p className="text-muted-foreground text-[14.5px] leading-relaxed">
                   Trois services pensés comme une seule mission : faire de votre comptabilité
-                  un véritable outil de pilotage.
+                  un véritable outil de pilotage. Avec Odoo Finance, votre comptabilité, votre
+                  reporting et votre pilotage financier sont réunis dans un même environnement.
                 </p>
                 <Link
                   to="/services/"
@@ -707,7 +710,7 @@ export default function AccueilV2() {
                 </h2>
                 <div className="h-px w-16 bg-accent mt-6" />
                 <p className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mt-4">
-                  {reviews.length} avis Google · 5,0/5
+                  {formatReviewSummary(reviewCount, reviewRating)}
                 </p>
 
                 {/* Carousel controls */}
@@ -739,7 +742,7 @@ export default function AccueilV2() {
                   className="animate-fade-in"
                 >
                   <Quote size={40} className="text-accent/30 mb-4" />
-                  <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary min-h-[180px] md:min-h-[160px]">
+                  <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-primary min-h-[180px] md:min-h-[160px] line-clamp-6">
                     « {currentReview.text} »
                   </p>
                   <div className="flex items-center justify-between mt-8 pt-6 border-t border-border/50">
@@ -794,7 +797,7 @@ export default function AccueilV2() {
           <div className="container-mf relative">
             <div className="max-w-[820px] mx-auto text-center mb-12">
               <div className="inline-flex items-center gap-4 mb-5">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 07</span>
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
                   Le fondateur
                 </span>
@@ -841,8 +844,8 @@ export default function AccueilV2() {
                     <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">dirigeants</p>
                   </div>
                   <div>
-                    <p className="font-display text-[28px] text-primary-foreground">FR<span className="text-accent">/</span>EN</p>
-                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">bilingue</p>
+                    <p className="font-display text-[28px] text-primary-foreground">Odoo</p>
+                    <p className="text-[11px] text-primary-foreground/55 uppercase tracking-wider mt-1">Finance connectée</p>
                   </div>
                 </div>
               </div>
@@ -858,7 +861,7 @@ export default function AccueilV2() {
           <div className="container-mf">
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-4 mb-5">
-                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
+                <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 10</span>
                 <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">Nos forfaits</span>
               </div>
               <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
@@ -873,7 +876,10 @@ export default function AccueilV2() {
                 >
                   <span className="text-accent text-[10px] font-bold tracking-[0.2em]">{p.label}</span>
                   <p className={`text-[13px] italic mt-1 ${p.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.subtitle}</p>
-                  <div className="mt-6 flex items-baseline gap-1">
+                  <p className={`mt-6 text-[11px] uppercase tracking-[0.16em] font-semibold ${p.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                    À partir de
+                  </p>
+                  <div className="mt-1 flex items-baseline gap-1">
                     <span className={`font-display text-[52px] font-bold leading-none ${p.popular ? "text-primary-foreground" : "text-primary"}`}>{p.price}</span>
                     <span className="font-display text-[26px] text-accent font-bold">€</span>
                     <span className={`text-[12px] ml-1 ${p.popular ? "text-primary-foreground/55" : "text-muted-foreground"}`}>/mois HTVA</span>
@@ -904,7 +910,7 @@ export default function AccueilV2() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
                 <div className="inline-flex items-center gap-4 mb-5">
-                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
+                  <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 11</span>
                   <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">FAQ</span>
                 </div>
                 <h2 className="font-display text-[34px] md:text-[48px] leading-[1.05]" data-anim="split">
@@ -939,7 +945,7 @@ export default function AccueilV2() {
         <section className="py-10 md:py-14 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="container-mf text-center relative">
             <div className="inline-flex items-center gap-4 mb-5">
-              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 10</span>
+              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 12</span>
               <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
                 Bruxelles · Uccle
               </span>

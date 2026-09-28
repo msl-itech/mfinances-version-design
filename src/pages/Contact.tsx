@@ -29,6 +29,8 @@ import {
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import { useGoogleReviews, formatReviewSummary } from "@/hooks/use-google-reviews";
+import { trackEvent } from "@/lib/clarity-events";
 
 const situations = [
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
@@ -85,6 +87,7 @@ function ProgressBar({ current }: { current: number }) {
 
 
 export default function Contact() {
+  const { count: reviewCount, rating: reviewRating } = useGoogleReviews();
   const [mounted, setMounted] = useState(false);
   const root = useRef<HTMLDivElement>(null);
 
@@ -151,6 +154,7 @@ export default function Contact() {
     });
     await submitLead(leadData);
     trackLeadSource({ ...leadData, form_name: "contact" });
+    trackEvent("contact_form_submit");
 
     setIsLoading(false);
     setSubmitted(true);
@@ -584,7 +588,7 @@ export default function Contact() {
                     ))}
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-foreground font-body">5,0 / 5 · 16 avis Google</p>
+                    <p className="text-[13px] font-semibold text-foreground font-body">{formatReviewSummary(reviewCount, reviewRating)}</p>
                     <p className="text-[11px] text-muted-foreground font-body">Voir tous les avis</p>
                   </div>
                   <ArrowRight size={14} className="text-accent ml-auto group-hover:translate-x-1 transition-transform" />

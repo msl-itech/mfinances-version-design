@@ -157,7 +157,7 @@ export default function EntreprisesCroissance() {
                     </Link>
                   </Button>
                   <span className="text-primary-foreground/60 text-[15px] md:text-[16px] font-body">
-                    Forfait Excellence : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">650 €</span> HTVA/mois
+                    Forfait Excellence : à partir de <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">650 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
@@ -294,6 +294,7 @@ export default function EntreprisesCroissance() {
                     <span className="text-accent text-[10px] font-bold tracking-[0.25em] uppercase">Forfait Excellence</span>
                   </div>
                   <div className="flex items-baseline gap-2 mb-6">
+                    <span className="text-[14px] text-primary-foreground/60 font-body">À partir de</span>
                     <span className="font-display text-[64px] md:text-[80px] font-bold text-primary-foreground leading-none tracking-tight">650€</span>
                     <span className="text-[14px] text-primary-foreground/60 font-body">/mois HTVA</span>
                   </div>

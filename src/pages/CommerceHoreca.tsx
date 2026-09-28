@@ -158,7 +158,7 @@ export default function CommerceHoreca() {
                     </Link>
                   </Button>
                   <span className="text-primary-foreground/60 text-[15px] md:text-[16px] font-body">
-                    Forfait Premium minimum : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">dès 450 €</span> HTVA/mois
+                    Forfait Premium minimum : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">à partir de 450 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
@@ -320,11 +320,11 @@ export default function CommerceHoreca() {
                       <th className="text-left p-5 font-body font-normal text-muted-foreground w-[40%]" />
                       <th className="p-5 text-center">
                         <span className="font-display font-bold text-[17px] text-primary block">Premium</span>
-                        <span className="text-[12px] text-muted-foreground font-body">450 €/mois</span>
+                        <span className="text-[12px] text-muted-foreground font-body">À partir de 450 €/mois</span>
                       </th>
                       <th className="p-5 text-center bg-accent/[0.05]">
                         <span className="font-display font-bold text-[17px] text-accent block">Excellence</span>
-                        <span className="text-[12px] text-muted-foreground font-body">650 €/mois</span>
+                        <span className="text-[12px] text-muted-foreground font-body">À partir de 650 €/mois</span>
                       </th>
                     </tr>
                   </thead>

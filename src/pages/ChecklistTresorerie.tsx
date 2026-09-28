@@ -13,6 +13,7 @@ import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import BookingCta from "@/components/BookingCta";
+import { trackEvent } from "@/lib/clarity-events";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -107,13 +108,19 @@ export default function ChecklistTresorerie() {
         ].join(""),
         tag_names: ["seq_checklist_tresorerie"],
       });
-      await submitLead(leadData);
-      trackLeadSource({ ...leadData, form_name: "checklist_tresorerie" });
-
-      // Téléchargement du PDF
+      // Téléchargement du PDF garanti, même si Odoo ne répond pas
+      trackEvent("checklist_submit");
       triggerPdfDownload();
-
+      trackEvent("checklist_download");
       setSubmitted(true);
+
+      // Enregistrement du lead dans Odoo (une panne Odoo ne bloque plus le PDF)
+      try {
+        await submitLead(leadData);
+        trackLeadSource({ ...leadData, form_name: "checklist_tresorerie" });
+      } catch (odooErr) {
+        console.error("Lead checklist non transmis à Odoo :", odooErr);
+      }
     } catch (err) {
       console.error("Erreur:", err);
       setError("Une erreur est survenue. Veuillez réessayer.");
@@ -126,7 +133,7 @@ export default function ChecklistTresorerie() {
     <div ref={root} className="min-h-screen">
       <SEOHead
         title="Checklist Trésorerie TPE — 5 erreurs qui vident votre compte | MFinances"
-        description="Téléchargez notre checklist gratuite : les 7 erreurs de trésorerie qui menacent votre TPE et comment les corriger. Guide PDF offert par MFinances."
+        description="Téléchargez notre checklist gratuite : les 5 erreurs de trésorerie qui menacent votre TPE et comment les corriger. Guide PDF offert par MFinances."
         canonical="https://mfinances.be/checklist-tresorerie/"
         schemaJson={breadcrumbJsonLd}
       />

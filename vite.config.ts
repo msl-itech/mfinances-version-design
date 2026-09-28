@@ -28,6 +28,8 @@ const staticRoutes = [
   "/qui-nous-accompagnons/societe-de-management/",
   "/contact/",
   "/a-propos/",
+  "/notre-organisation/",
+  "/societe-en-veille/",
   "/support/",
   "/blog/",
   "/blog/tresorerie/",
@@ -74,6 +76,38 @@ async function loadBlogRoutes(): Promise<string[]> {
   }
 }
 
+// Contrôle des PDF publiés : bloque la mise en ligne si un PDF de /public est vide ou tronqué
+function checkPublicPdfs() {
+  return {
+    name: "check-public-pdfs",
+    async buildStart() {
+      const fs = await import("fs/promises");
+      const publicDir = path.resolve(__dirname, "public");
+      const files: string[] = [];
+      async function walk(dir: string) {
+        for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+          const full = path.join(dir, entry.name);
+          if (entry.isDirectory()) await walk(full);
+          else if (entry.name.toLowerCase().endsWith(".pdf")) files.push(full);
+        }
+      }
+      await walk(publicDir);
+      const broken: string[] = [];
+      for (const file of files) {
+        const buf = await fs.readFile(file);
+        const head = buf.subarray(0, 5).toString("latin1");
+        const tail = buf.subarray(Math.max(0, buf.length - 1024)).toString("latin1");
+        if (buf.length < 1024 || head !== "%PDF-" || !tail.includes("%%EOF")) {
+          broken.push(`${path.relative(publicDir, file)} (${buf.length} octets)`);
+        }
+      }
+      if (broken.length > 0) {
+        throw new Error(`[check-public-pdfs] PDF vide ou tronqué, mise en ligne bloquée : ${broken.join(", ")}`);
+      }
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
   const blogRoutes = mode === "production" ? await loadBlogRoutes() : [];
@@ -88,6 +122,7 @@ export default defineConfig(async ({ mode }) => {
       },
     },
     plugins: [
+      checkPublicPdfs(),
       react(),
       mode === "development" && componentTagger(),
       mode === "production" &&

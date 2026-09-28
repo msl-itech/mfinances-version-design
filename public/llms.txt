@@ -26,7 +26,7 @@ Forfaits mensuels : Basic à partir de 275€ HTVA (comptabilité + conformité)
 
 ## Outils interactifs gratuits
 
-- [Diagnostic financier](https://mfinances.be/diagnostic/): 20 questions, score personnalisé et recommandations.
+- [Diagnostic financier](https://mfinances.be/diagnostic/): 8 questions, score personnalisé et recommandations.
 - [Frais professionnels défendables](https://mfinances.be/frais-defendables/): 30 postes analysés, verdict feu tricolore.
 - [Calculateur bureau à domicile](https://mfinances.be/ressources/calculateur-bureau/): Déduction fiscale du télétravail en Belgique.
 - [Générateur de bail bureau à domicile](https://mfinances.be/ressources/generateur-bail/): PDF de sous-location prêt à signer.

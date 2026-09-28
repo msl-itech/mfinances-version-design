@@ -80,7 +80,7 @@ const beforeAfterRows = [
 ];
 
 const compareRows = [
-  { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"], isPrice: true },
+  { label: "Tarif mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
   { label: "Comptabilité + ISOC", values: [true, true, true] },
   { label: "Documentation mgmt fees", values: [true, true, true] },
   { label: "Suivi patrimoine", values: ["—", "Trimestriel", "Mensuel"] },

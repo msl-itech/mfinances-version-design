@@ -179,7 +179,7 @@ export default function DafExternalise() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">✓</span>
-                  <span className="text-[15px] font-body text-foreground/80"><strong>Prix :</strong> 150€ HTVA / heure, service réservé aux clients du <strong>Forfait Excellence</strong> (dès 650€/mois).</span>
+                  <span className="text-[15px] font-body text-foreground/80"><strong>Prix :</strong> 150€ HTVA / heure, service réservé aux clients du <strong>Forfait Excellence</strong> (à partir de 650 €/mois).</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">✓</span>
@@ -386,7 +386,7 @@ export default function DafExternalise() {
 
                 <div className="mt-10 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <span className="text-[12px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">
-                    Forfait Excellence : 650 € HTVA / mois
+                    Forfait Excellence : à partir de 650 € HTVA / mois
                   </span>
                   <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>
                     <Link to="/tarifs/">

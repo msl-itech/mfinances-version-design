@@ -27,7 +27,7 @@ export default function LeadMagnetSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
             <div className="inline-flex items-center gap-4 mb-6">
-              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 09</span>
+              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
               <span className="text-accent/80 text-[11px] font-bold tracking-[0.2em] uppercase">
                 Checklist gratuite · PDF
               </span>

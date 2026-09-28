@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
+import { useGoogleReviews, type SiteReview } from "@/hooks/use-google-reviews";
 
 const services = [
   { icon: BookOpen, title: "Comptabilité générale et analytique", desc: "Tenue complète de votre comptabilité avec analyse détaillée par activité, projet ou centre de coût." },
@@ -41,10 +42,12 @@ const services = [
   { icon: Lightbulb, title: "Conseil fiscal continu", desc: "Nous vous accompagnons tout au long de l'exercice pour anticiper et réduire votre charge fiscale." },
 ];
 
-const testimonials = [
-  { quote: "Depuis que notre comptabilité est gérée sur Odoo avec MFinances, nous avons gagné en visibilité, en efficacité et en sérénité.", author: "Damien", role: "Dirigeant d'une société de services B2B" },
-  { quote: "En tant qu'indépendante, j'avais besoin de clarté. MFinances a tout mis en place pour que je puisse me concentrer sur mon métier.", author: "Cindie", role: "Kinésithérapeute à Bruxelles" },
-  { quote: "Gérer une activité Horeca implique beaucoup de flux. MFinances a su intégrer Odoo à notre gestion quotidienne.", author: "Yanis", role: "Restaurateur à Bruxelles" },
+// Avis Google de secours : verbatims identiques à ceux de l'accueil.
+// Dès la première synchronisation, la page affiche les 3 avis Google les plus récents.
+const fallbackTestimonials: SiteReview[] = [
+  { name: "Cindie Adonai", text: "Un service de qualité, mais surtout complet, ce qui est très rare. Je recommande à 100 %." },
+  { name: "Yannick Nguangu", text: "Mon entreprise se porte mieux grâce à Mfinances. Suivi et conseils exceptionnels et personnalisés : tout est clair et transparent." },
+  { name: "Verdilamil", text: "J'ai la chance d'avoir croisé le chemin de MFINANCES. Cela fait déjà trois ans que je ne me fais plus de soucis pour ma comptabilité." },
 ];
 
 const faqs = [
@@ -96,7 +99,7 @@ const tableCategories = [
     barColor: "hsla(0, 0%, 50%, 0.5)",
     tint: "hsla(0, 0%, 50%, 0.06)",
     rows: [
-      { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"] },
+      { label: "Tarif mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"] },
     ],
   },
 ];
@@ -137,6 +140,8 @@ function CellValue({ v, isPrice }: { v: string; isPrice?: boolean }) {
 }
 
 export default function Comptabilite() {
+  const { reviews: googleReviews } = useGoogleReviews(fallbackTestimonials);
+  const testimonials = googleReviews.slice(0, 3).map((r) => ({ quote: r.text, author: r.name, role: "Avis Google vérifié" }));
   const [mounted, setMounted] = useState(false);
   const root = useRef<HTMLDivElement>(null);
 
@@ -313,7 +318,7 @@ export default function Comptabilite() {
                   className="group relative bg-secondary/40 hover:bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] flex flex-col"
                 >
                   <span className="font-display italic text-accent text-[44px] leading-none mb-6 group-hover:scale-110 transition-transform duration-500 origin-left">"</span>
-                  <p className="text-[14px] md:text-[15px] text-foreground/85 leading-[1.75] font-body italic flex-1">
+                  <p className="text-[14px] md:text-[15px] text-foreground/85 leading-[1.75] font-body italic flex-1 line-clamp-6">
                     {t.quote}
                   </p>
                   <div className="mt-7 pt-5 border-t border-border/40 flex items-center justify-between">
@@ -527,7 +532,7 @@ export default function Comptabilite() {
 
               <p className="mt-3 text-center text-[13px] text-muted-foreground font-body">
                 Pour les besoins de comptabilité et conformité uniquement,{" "}
-                <Link to="/tarifs/" className="text-accent font-semibold hover:underline">le forfait Basic est disponible à 275 € HTVA/mois</Link>.
+                <Link to="/tarifs/" className="text-accent font-semibold hover:underline">le forfait Basic est disponible à partir de 275 € HTVA/mois</Link>.
               </p>
 
               <div className="text-center mt-10">

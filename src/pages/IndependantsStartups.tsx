@@ -164,7 +164,7 @@ export default function IndependantsStartups() {
                     </Link>
                   </Button>
                   <span className="text-primary-foreground/60 text-[15px] md:text-[16px] font-body">
-                    Forfait Essentiel : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">dès 350 €</span> HTVA/mois
+                    Forfait Essentiel : <span className="text-primary-foreground font-semibold text-[16px] md:text-[18px]">à partir de 350 €</span> HTVA/mois
                   </span>
                 </div>
               </div>
@@ -341,6 +341,7 @@ export default function IndependantsStartups() {
                     <h3 className="font-display font-bold text-[22px] md:text-[26px] text-primary mt-1">Essentiel</h3>
                   </div>
                   <div className="text-right">
+                    <div className="text-[11px] text-muted-foreground mb-1">À partir de</div>
                     <div className="font-display text-[28px] md:text-[32px] font-bold text-primary leading-none">350 €</div>
                     <div className="text-[12px] text-muted-foreground mt-1">/mois HTVA</div>
                   </div>

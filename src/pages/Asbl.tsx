@@ -68,7 +68,7 @@ const services = [
 ];
 
 const compareRows = [
-  { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"], isPrice: true },
+  { label: "Tarif mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
   { label: "Réduction non-assujetti TVA", values: ["-21 %", "-21 %", "-21 %"], isDiscount: true },
   { label: "Comptabilité + obligations", values: [true, true, true] },
   { label: "Comptabilité analytique", values: ["—", true, true] },

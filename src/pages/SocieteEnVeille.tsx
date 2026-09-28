@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     q: "Que comprend le forfait Veille ?",
-    a: "Le forfait Veille à 275 € HTVA/mois couvre la tenue de la comptabilité, les déclarations fiscales périodiques et les obligations de conformité comptable. Les consultations fiscales et prestations ponctuelles sont facturées sur demande à 150 € HTVA/heure.",
+    a: "Le forfait Veille à 175 € HTVA/mois couvre la tenue de la comptabilité, les déclarations fiscales périodiques et les obligations de conformité comptable. Les consultations fiscales et prestations ponctuelles sont facturées sur demande à 150 € HTVA/heure.",
   },
   {
     q: "Puis-je passer à un forfait supérieur si je reprends mon activité ?",
@@ -118,8 +118,8 @@ export default function SocieteEnVeille() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Société en Veille — Alternative à la Liquidation | 275€/mois | MFinances"
-        description="Votre société est en veille ? Plutôt que de la liquider, maintenez-la en conformité avec notre forfait Veille à 275 € HTVA/mois : comptabilité, déclarations fiscales et conformité à Bruxelles."
+        title="Société en Veille — Alternative à la Liquidation | 175€/mois | MFinances"
+        description="Votre société est en veille ? Plutôt que de la liquider, maintenez-la en conformité avec notre forfait Veille à 175 € HTVA/mois : comptabilité, déclarations fiscales et conformité à Bruxelles."
         canonical="https://mfinances.be/societe-en-veille/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd]}
       />
@@ -159,7 +159,7 @@ export default function SocieteEnVeille() {
                   <div className={`inline-flex items-center gap-4 mb-5 md:mb-6 transition-transform duration-1000 ${mounted ? "translate-y-0" : "translate-y-6"}`}>
                     <span className="font-display text-[14px] text-accent font-bold tracking-wider">— Veille</span>
                     <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
-                      Forfait Veille · 275 € HTVA / mois
+                      Forfait Veille · 175 € HTVA / mois
                     </span>
                   </div>
 

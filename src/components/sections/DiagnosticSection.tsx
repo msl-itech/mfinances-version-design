@@ -33,7 +33,7 @@ export default function DiagnosticSection() {
           {/* Left — Text */}
           <div className={`reveal ${isVisible ? "visible" : ""}`}>
             <div className="inline-flex items-center gap-4 mb-5">
-              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 08</span>
+              <span className="font-display text-[14px] text-accent font-bold tracking-wider">— 07</span>
               <span className="text-accent/80 text-[11px] font-bold tracking-[0.18em] uppercase">
                 Diagnostic gratuit · 3 min
               </span>

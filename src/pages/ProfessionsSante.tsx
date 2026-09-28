@@ -47,7 +47,7 @@ const services = [
 ];
 
 const compareRows = [
-  { label: "Tarif mensuel HTVA", values: ["350 €", "450 €", "650 €"], isPrice: true },
+  { label: "Tarif mensuel HTVA", values: ["À partir de 350 €", "À partir de 450 €", "À partir de 650 €"], isPrice: true },
   { label: "Comptabilité + TVA mixte", values: [true, true, true] },
   { label: "Conseil fiscal", values: ["Ponctuel", "Régulier", "Proactif"] },
   { label: "Trésorerie prévisionnelle", values: ["—", "—", true] },

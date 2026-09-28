@@ -34,7 +34,10 @@ export default function SEOHead({
     : null;
 
   return (
-    <Helmet>
+    // defer={false} : balises écrites immédiatement, sans attendre requestAnimationFrame.
+    // Indispensable au pré-rendu : dans un onglet de navigateur en arrière-plan,
+    // requestAnimationFrame est suspendu et le <head> restait celui de l'accueil.
+    <Helmet defer={false}>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />

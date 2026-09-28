@@ -363,7 +363,7 @@ export default function Fiscalite() {
                 { title: "Combien me payer en indépendant en Belgique ?", href: "/blog/fiscalite-belgique/combien-me-payer-independant-belgique/" },
                 { title: "Je paye trop d'impôts en Belgique : vrai ou faux ?", href: "/blog/fiscalite-belgique/je-paye-trop-impots-belgique/" },
                 { title: "Déclaration ISOC — guide sans surprise", href: "/blog/fiscalite-belgique/declaration-isoc-belgique/" },
-                { title: "Pourquoi mon comptable ne m'aide pas ?", href: "/blog/fiscalite-belgique/pourquoi-comptable-aide-pas/" },
+                { title: "Pourquoi mon comptable ne m'aide pas ?", href: "/blog/daf-externalise/pourquoi-comptable-aide-pas/" },
                 { title: "Rémunération du dirigeant : salaire ou dividendes", href: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
                 { title: "Voiture de société Belgique 2026", href: "/blog/fiscalite-belgique/voiture-societe-belgique/" },
               ].map((a) => (

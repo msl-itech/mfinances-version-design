@@ -51,7 +51,7 @@ import { useTilt } from "@/hooks/use-tilt";
 import Stamp from "@/components/ui/Stamp";
 import DiagnosticQuiz from "@/components/DiagnosticQuiz";
 
-const priceRow = { label: "Prix mensuel HTVA", values: ["275\u00a0€", "À partir de 350\u00a0€", "À partir de 450\u00a0€", "À partir de 650\u00a0€"], isPrice: true };
+const priceRow = { label: "Prix mensuel HTVA", values: ["À partir de 275\u00a0€", "À partir de 350\u00a0€", "À partir de 450\u00a0€", "À partir de 650\u00a0€"], isPrice: true };
 
 const compareCategories = [
   {
@@ -165,10 +165,10 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         <p>Chez MFinances, les forfaits pour une TPE :</p>
         <ul className="list-none space-y-2 my-3">
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span><span className="whitespace-nowrap">275&nbsp;€ HTVA/mois</span> — comptabilité + conformité</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span><span className="whitespace-nowrap">350&nbsp;€ HTVA/mois</span> — + conseil fiscal + situations intermédiaires</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span><span className="whitespace-nowrap">450&nbsp;€ HTVA/mois</span> — + contrôle de gestion trimestriel</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span><span className="whitespace-nowrap">650&nbsp;€ HTVA/mois</span> — + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : <span className="whitespace-nowrap">150&nbsp;€ HTVA/h</span>)</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span><span className="whitespace-nowrap">À partir de 275&nbsp;€ HTVA/mois</span> — comptabilité + conformité</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span><span className="whitespace-nowrap">À partir de 350&nbsp;€ HTVA/mois</span> — + conseil fiscal + situations intermédiaires</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span><span className="whitespace-nowrap">À partir de 450&nbsp;€ HTVA/mois</span> — + contrôle de gestion trimestriel</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span><span className="whitespace-nowrap">À partir de 650&nbsp;€ HTVA/mois</span> — + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : <span className="whitespace-nowrap">150&nbsp;€ HTVA/h</span>)</span></li>
         </ul>
         <p>Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.</p>
       </>
@@ -196,7 +196,7 @@ const breadcrumbJsonLd = {
 const faqJsonLdEntries = [
   {
     q: "Combien coûte un expert-comptable pour une TPE en Belgique ?",
-    a: "Chez MFinances, les forfaits pour une TPE démarrent à 275 € HTVA/mois (Basic : comptabilité + conformité), 350 € HTVA/mois (Essentiel : + conseil fiscal + situations intermédiaires), 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option, 150 € HTVA/h). Ces tarifs sont transparents et sans surprise.",
+    a: "Chez MFinances, les forfaits pour une TPE sont proposés à partir de 275 € HTVA/mois (Basic : comptabilité + conformité), à partir de 350 € HTVA/mois (Essentiel : + conseil fiscal + situations intermédiaires), à partir de 450 € HTVA/mois (Premium : + contrôle de gestion trimestriel) et à partir de 650 € HTVA/mois (Excellence : + trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option, 150 € HTVA/h). Ces tarifs sont transparents et sans surprise.",
   },
   {
     q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
@@ -337,8 +337,8 @@ export default function Tarifs() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Tarifs Expert-Comptable Bruxelles | Dès 275€/mois | MFinances"
-        description="4 forfaits transparents pour TPE à Bruxelles. Basic 275€, Essentiel 350€, Premium 450€, Excellence 650€ HTVA/mois. DAF à temps partiel en option."
+        title="Tarifs Expert-Comptable Bruxelles | À partir de 275€/mois | MFinances"
+        description="4 forfaits transparents pour TPE à Bruxelles, à partir de 275 € (Basic), 350 € (Essentiel), 450 € (Premium) et 650 € HTVA/mois (Excellence). DAF à temps partiel en option."
         canonical="https://mfinances.be/tarifs/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, tarifsOfferCatalogSchema]}
       />
@@ -504,10 +504,10 @@ export default function Tarifs() {
               </svg>
 
               {[
-                { name: "Basic", price: "275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", topPx: 180, dotBg: "bg-card border-border/80 text-primary" },
-                { name: "Essentiel", price: "350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", topPx: 120, dotBg: "bg-card border-border/80 text-primary" },
-                { name: "Premium", price: "450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, topPx: 60, dotBg: "bg-accent border-accent text-accent-foreground" },
-                { name: "Excellence", price: "650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", topPx: 0, dotBg: "bg-primary border-primary text-primary-foreground" },
+                { name: "Basic", price: "à partir de 275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", topPx: 180, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Essentiel", price: "à partir de 350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", topPx: 120, dotBg: "bg-card border-border/80 text-primary" },
+                { name: "Premium", price: "à partir de 450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, topPx: 60, dotBg: "bg-accent border-accent text-accent-foreground" },
+                { name: "Excellence", price: "à partir de 650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", topPx: 0, dotBg: "bg-primary border-primary text-primary-foreground" },
               ].map((stage, i) => (
                 <div key={stage.name} className="relative z-[1]" style={{ marginTop: stage.topPx }}>
                   <div className={`w-[42px] h-[42px] rounded-full border-2 flex items-center justify-center font-bold text-[14px] mx-auto mb-4 relative z-10 ${stage.dotBg}`}>
@@ -551,10 +551,10 @@ export default function Tarifs() {
 
               <div className="space-y-5">
                 {[
-                  { name: "Basic", price: "275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", dotBg: "bg-card border-border text-primary" },
-                  { name: "Essentiel", price: "350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", dotBg: "bg-card border-border text-primary" },
-                  { name: "Premium", price: "450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, dotBg: "bg-accent border-accent text-accent-foreground" },
-                  { name: "Excellence", price: "650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", dotBg: "bg-primary border-primary text-primary-foreground" },
+                  { name: "Basic", price: "à partir de 275\u00a0€", badge: "Conformité", tagline: "Être en règle", desc: "Le socle comptable et fiscal nécessaire pour respecter vos obligations.", mode: "Conseils à la demande", dotBg: "bg-card border-border text-primary" },
+                  { name: "Essentiel", price: "à partir de 350\u00a0€", badge: "Visibilité", tagline: "Anticiper", desc: "Les premiers outils pour voir venir vos échéances et vos résultats.", mode: "Anticipation incluse", dotBg: "bg-card border-border text-primary" },
+                  { name: "Premium", price: "à partir de 450\u00a0€", badge: "Performance", tagline: "Piloter", desc: "Un suivi régulier pour comprendre les écarts et améliorer les performances.", mode: "Pilotage régulier", premium: true, dotBg: "bg-accent border-accent text-accent-foreground" },
+                  { name: "Excellence", price: "à partir de 650\u00a0€", badge: "Trésorerie", tagline: "Optimiser", desc: "Un pilotage proactif pour améliorer les performances et sécuriser le cash.", mode: "Suivi proactif", dotBg: "bg-primary border-primary text-primary-foreground" },
                 ].map((stage, i) => (
                   <div key={stage.name} className="relative">
                     <div className={`absolute -left-[58px] top-[18px] w-[52px] h-[52px] rounded-full border-2 flex items-center justify-center font-bold text-[18px] z-10 ${stage.dotBg}`}>
@@ -684,6 +684,7 @@ export default function Tarifs() {
                     <h3 className="font-display text-[28px] leading-none font-bold text-primary mb-1">{plan.name}</h3>
                     <p className="text-accent text-[13px] italic font-body mb-3">{plan.tagline}</p>
                     <div className="flex items-baseline gap-1.5 mb-4 font-display font-bold text-primary text-[32px] leading-none tracking-tight whitespace-nowrap">
+                      <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">À partir de</span>
                       <span>{plan.price}&nbsp;€</span>
                       <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                     </div>
@@ -741,6 +742,7 @@ export default function Tarifs() {
                                 </h3>
                                 <p className="text-accent text-[14px] italic font-body mb-4">{plan.tagline}</p>
                                 <div className={`flex items-baseline gap-1.5 mb-5 ${meta.priceSize} font-display font-bold text-primary leading-none tracking-tight whitespace-nowrap`}>
+                                  <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">À partir de</span>
                                   <span>{plan.price}&nbsp;€</span>
                                   <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                                 </div>
@@ -775,6 +777,7 @@ export default function Tarifs() {
                             <span className="font-display text-[32px] font-bold text-primary leading-none block">{basicPlan.name}</span>
                             <p className="text-accent text-[13px] italic font-body mt-1">{basicPlan.tagline}</p>
                             <div className="flex items-baseline gap-1.5 text-primary font-display font-bold text-4xl mt-2 whitespace-nowrap">
+                              <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">À partir de</span>
                               <span>{basicPlan.price}&nbsp;€</span>
                               <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
                             </div>
@@ -996,7 +999,7 @@ export default function Tarifs() {
                           }`}
                       >
                         <span className="text-[12px] font-bold font-body whitespace-nowrap">
-                          {plan.name}&nbsp;·&nbsp;{plan.price}&nbsp;€
+                          {plan.name}&nbsp;·&nbsp;à partir de&nbsp;{plan.price}&nbsp;€
                         </span>
                       </button>
                     ))}
@@ -1027,7 +1030,7 @@ export default function Tarifs() {
                           <h3 className="font-display text-[20px] font-bold text-primary leading-none">{plan.name}</h3>
                           <p className="text-accent text-[12px] italic font-body mt-1">{plan.tagline}</p>
                           <div className="flex items-baseline gap-1 mt-2 whitespace-nowrap">
-                            {pi > 0 && <span className="text-[11px] text-muted-foreground font-body whitespace-nowrap">Dès</span>}
+                            <span className="text-[11px] text-muted-foreground font-body whitespace-nowrap">À partir de</span>
                             <span className="text-[28px] font-bold font-display text-primary leading-none tracking-tight tabular-nums whitespace-nowrap">{plan.price}&nbsp;€</span>
                             <span className="text-[11px] text-muted-foreground font-body whitespace-nowrap">/mois HTVA</span>
                           </div>

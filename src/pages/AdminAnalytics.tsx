@@ -15,6 +15,7 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import SEOHead from "@/components/SEOHead";
 
 interface Stats {
   totals: {
@@ -34,7 +35,23 @@ interface Stats {
 
 const PASSWORD_KEY = "mf_admin_pwd";
 
+// Espace interne : jamais indexé par les moteurs de recherche (mécanisme centralisé SEOHead).
 export default function AdminAnalytics() {
+  return (
+    <>
+      <SEOHead
+        title="Espace interne — MFinances"
+        description="Espace interne MFinances."
+        canonical="https://mfinances.be/admin/analytics/"
+        noIndex
+      />
+      <AdminAnalyticsContent />
+    </>
+  );
+}
+
+function AdminAnalyticsContent() {
+
   const [mounted, setMounted] = useState(false);
   const root = useRef<HTMLDivElement>(null);
 

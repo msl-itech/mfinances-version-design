@@ -3,58 +3,114 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { retryPendingLeads } from "@/lib/odoo-submit";
 import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
+import { installClickTracking, tagSession } from "@/lib/clarity-events";
+import { recordLandingPage } from "@/lib/utm-enrich";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect, useLayoutEffect } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect } from "react";
+import { lazyPage, type LazyPage } from "@/lib/lazy-page";
 import {
   BrowserRouter,
   Navigate,
   Route,
   Routes,
+  matchPath,
   useLocation,
 } from "react-router-dom";
-import ChatBot from "./components/ChatBot";
 import AccueilV2 from "./pages/AccueilV2.tsx";
-import AccueilV3 from "./pages/AccueilV3.tsx";
-import AdminAnalytics from "./pages/AdminAnalytics.tsx";
-import APropos from "./pages/APropos.tsx";
-import Asbl from "./pages/Asbl.tsx";
-import Blog from "./pages/Blog.tsx";
-import BlogArticle from "./pages/BlogArticle.tsx";
-import BlogCategory from "./pages/BlogCategory.tsx";
-import BureauADomicileHub from "./pages/BureauADomicileHub.tsx";
-import CalculateurBureau from "./pages/CalculateurBureau.tsx";
-import ChecklistControleBureau from "./pages/ChecklistControleBureau.tsx";
-import ChecklistControleBureauConfirmation from "./pages/ChecklistControleBureauConfirmation.tsx";
-import ChecklistTresorerie from "./pages/ChecklistTresorerie.tsx";
-import CommerceHoreca from "./pages/CommerceHoreca.tsx";
-import Comptabilite from "./pages/Comptabilite.tsx";
-import Contact from "./pages/Contact.tsx";
-import ControleDeGestion from "./pages/ControleDeGestion.tsx";
-import CreationEntreprise from "./pages/CreationEntreprise.tsx";
-import DafExternalise from "./pages/DafExternalise.tsx";
-import Diagnostic from "./pages/Diagnostic.tsx";
-import EntreprisesCroissance from "./pages/EntreprisesCroissance.tsx";
-import Fiscalite from "./pages/Fiscalite.tsx";
-import FraisDefendables from "./pages/FraisDefendables.tsx";
-import GenerateurBailPage from "./pages/GenerateurBailPage.tsx";
-import IndependantsStartups from "./pages/IndependantsStartups.tsx";
-import MentionsLegales from "./pages/MentionsLegales.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
-import PolitiqueCookies from "./pages/PolitiqueCookies.tsx";
-import ProfessionsSante from "./pages/ProfessionsSante.tsx";
-import PromoteursImmobiliers from "./pages/PromoteursImmobiliers.tsx";
-import QuiNousAccompagnons from "./pages/QuiNousAccompagnons.tsx";
-import Services from "./pages/Services.tsx";
-import SocieteDeManagement from "./pages/SocieteDeManagement.tsx";
-import SocieteDeMoyens from "./pages/SocieteDeMoyens.tsx";
-import SocieteExploitation from "./pages/SocieteExploitation.tsx";
-import Support from "./pages/Support.tsx";
-import SocieteEnVeille from "./pages/SocieteEnVeille.tsx";
-import Tarifs from "./pages/Tarifs.tsx";
-import Tresorerie from "./pages/Tresorerie.tsx";
-import Unsubscribe from "./pages/Unsubscribe.tsx";
-import NotreOrganisation from "./pages/NotreOrganisation.tsx";
+
+// Chargement à la demande : chaque page n'est téléchargée que lorsqu'elle est visitée.
+// L'accueil reste chargé immédiatement pour ne pas retarder son affichage.
+const AdminAnalytics = lazyPage(() => import("./pages/AdminAnalytics.tsx"));
+const APropos = lazyPage(() => import("./pages/APropos.tsx"));
+const Asbl = lazyPage(() => import("./pages/Asbl.tsx"));
+const Blog = lazyPage(() => import("./pages/Blog.tsx"));
+const BlogArticle = lazyPage(() => import("./pages/BlogArticle.tsx"));
+const BlogCategory = lazyPage(() => import("./pages/BlogCategory.tsx"));
+const BureauADomicileHub = lazyPage(() => import("./pages/BureauADomicileHub.tsx"));
+const CalculateurBureau = lazyPage(() => import("./pages/CalculateurBureau.tsx"));
+const ChecklistControleBureau = lazyPage(() => import("./pages/ChecklistControleBureau.tsx"));
+const ChecklistControleBureauConfirmation = lazyPage(() => import("./pages/ChecklistControleBureauConfirmation.tsx"));
+const ChecklistTresorerie = lazyPage(() => import("./pages/ChecklistTresorerie.tsx"));
+const CommerceHoreca = lazyPage(() => import("./pages/CommerceHoreca.tsx"));
+const Comptabilite = lazyPage(() => import("./pages/Comptabilite.tsx"));
+const Contact = lazyPage(() => import("./pages/Contact.tsx"));
+const ControleDeGestion = lazyPage(() => import("./pages/ControleDeGestion.tsx"));
+const CreationEntreprise = lazyPage(() => import("./pages/CreationEntreprise.tsx"));
+const DafExternalise = lazyPage(() => import("./pages/DafExternalise.tsx"));
+const Diagnostic = lazyPage(() => import("./pages/Diagnostic.tsx"));
+const EntreprisesCroissance = lazyPage(() => import("./pages/EntreprisesCroissance.tsx"));
+const Fiscalite = lazyPage(() => import("./pages/Fiscalite.tsx"));
+const FraisDefendables = lazyPage(() => import("./pages/FraisDefendables.tsx"));
+const GenerateurBailPage = lazyPage(() => import("./pages/GenerateurBailPage.tsx"));
+const IndependantsStartups = lazyPage(() => import("./pages/IndependantsStartups.tsx"));
+const MentionsLegales = lazyPage(() => import("./pages/MentionsLegales.tsx"));
+const PolitiqueConfidentialite = lazyPage(() => import("./pages/PolitiqueConfidentialite.tsx"));
+const PolitiqueCookies = lazyPage(() => import("./pages/PolitiqueCookies.tsx"));
+const ProfessionsSante = lazyPage(() => import("./pages/ProfessionsSante.tsx"));
+const PromoteursImmobiliers = lazyPage(() => import("./pages/PromoteursImmobiliers.tsx"));
+const QuiNousAccompagnons = lazyPage(() => import("./pages/QuiNousAccompagnons.tsx"));
+const Services = lazyPage(() => import("./pages/Services.tsx"));
+const SocieteDeManagement = lazyPage(() => import("./pages/SocieteDeManagement.tsx"));
+const SocieteDeMoyens = lazyPage(() => import("./pages/SocieteDeMoyens.tsx"));
+const SocieteExploitation = lazyPage(() => import("./pages/SocieteExploitation.tsx"));
+const Support = lazyPage(() => import("./pages/Support.tsx"));
+const SocieteEnVeille = lazyPage(() => import("./pages/SocieteEnVeille.tsx"));
+const Tarifs = lazyPage(() => import("./pages/Tarifs.tsx"));
+const Tresorerie = lazyPage(() => import("./pages/Tresorerie.tsx"));
+const Unsubscribe = lazyPage(() => import("./pages/Unsubscribe.tsx"));
+const NotreOrganisation = lazyPage(() => import("./pages/NotreOrganisation.tsx"));
+const ChatBot = lazy(() => import("./components/ChatBot"));
+
+
+// Table utilisée pour précharger la page demandée avant le premier affichage.
+const preloadableRoutes: { path: string; page: LazyPage }[] = [
+  { path: "/services/", page: Services },
+  { path: "/services/daf-externalise/", page: DafExternalise },
+  { path: "/services/controle-de-gestion/", page: ControleDeGestion },
+  { path: "/services/tresorerie/", page: Tresorerie },
+  { path: "/services/comptabilite/", page: Comptabilite },
+  { path: "/services/fiscalite/", page: Fiscalite },
+  { path: "/services/creation-entreprise/", page: CreationEntreprise },
+  { path: "/tarifs/", page: Tarifs },
+  { path: "/societe-en-veille/", page: SocieteEnVeille },
+  { path: "/diagnostic/", page: Diagnostic },
+  { path: "/qui-nous-accompagnons/", page: QuiNousAccompagnons },
+  { path: "/qui-nous-accompagnons/independants-et-startups/", page: IndependantsStartups },
+  { path: "/qui-nous-accompagnons/commerce-et-horeca/", page: CommerceHoreca },
+  { path: "/qui-nous-accompagnons/professions-de-sante/", page: ProfessionsSante },
+  { path: "/qui-nous-accompagnons/entreprises-en-croissance/", page: EntreprisesCroissance },
+  { path: "/qui-nous-accompagnons/promoteurs-immobiliers/", page: PromoteursImmobiliers },
+  { path: "/qui-nous-accompagnons/asbl/", page: Asbl },
+  { path: "/qui-nous-accompagnons/societe-exploitation/", page: SocieteExploitation },
+  { path: "/qui-nous-accompagnons/societe-de-moyens/", page: SocieteDeMoyens },
+  { path: "/qui-nous-accompagnons/societe-de-management/", page: SocieteDeManagement },
+  { path: "/contact/", page: Contact },
+  { path: "/a-propos/", page: APropos },
+  { path: "/notre-organisation/", page: NotreOrganisation },
+  { path: "/support/", page: Support },
+  { path: "/blog/", page: Blog },
+  { path: "/blog/fiscalite-belgique/bureau-a-domicile/", page: BureauADomicileHub },
+  { path: "/blog/:categorySlug/", page: BlogCategory },
+  { path: "/blog/:categorySlug/:articleSlug/", page: BlogArticle },
+  { path: "/mentions-legales/", page: MentionsLegales },
+  { path: "/politique-de-confidentialite/", page: PolitiqueConfidentialite },
+  { path: "/politique-de-cookies/", page: PolitiqueCookies },
+  { path: "/checklist-tresorerie/", page: ChecklistTresorerie },
+  { path: "/frais-defendables/", page: FraisDefendables },
+  { path: "/ressources/calculateur-bureau/", page: CalculateurBureau },
+  { path: "/ressources/generateur-bail/", page: GenerateurBailPage },
+  { path: "/ressources/checklist-controle-bureau/", page: ChecklistControleBureau },
+  { path: "/ressources/checklist-controle-bureau/confirmation/", page: ChecklistControleBureauConfirmation },
+  { path: "/unsubscribe/", page: Unsubscribe },
+  { path: "/admin/analytics/", page: AdminAnalytics },
+];
+
+/** Précharge la page correspondant à l'adresse, pour l'afficher sans écran d'attente. */
+export function preloadRoute(pathname: string): Promise<unknown> {
+  const route = preloadableRoutes.find((r) => matchPath({ path: r.path, end: true }, pathname));
+  return route ? route.page.preload() : Promise.resolve();
+}
 
 const queryClient = new QueryClient();
 
@@ -85,8 +141,12 @@ const App = () => {
     if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
+    recordLandingPage();
     initTracker();
     retryPendingLeads().catch(() => {});
+    // Mesure Clarity : étiquette « environment » + clics contact / rendez-vous / tarifs
+    tagSession();
+    return installClickTracking();
   }, []);
 
   return (
@@ -97,6 +157,7 @@ const App = () => {
         <BrowserRouter>
           <ScrollToTop />
           <RouteTracker />
+          <Suspense fallback={<div className="min-h-screen" aria-busy="true" />}>
           <Routes>
             <Route path="/" element={<AccueilV2 />} />
             {/* <Route path="/accueil-v1/" element={<Index />} /> */}
@@ -282,7 +343,10 @@ const App = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <ChatBot />
+          </Suspense>
+          <Suspense fallback={null}>
+            <ChatBot />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

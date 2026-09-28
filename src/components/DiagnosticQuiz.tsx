@@ -236,6 +236,7 @@ export default function DiagnosticQuiz() {
             </h3>
             <p className="text-accent italic text-[14px] font-body mb-2">{plan.promise}</p>
             <p className="font-display text-[36px] sm:text-[42px] leading-none font-bold text-primary mb-5 whitespace-nowrap">
+              <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">À partir de</span>{" "}
               <span className="whitespace-nowrap">{plan.price}</span> <span className="text-[12px] font-body font-semibold text-muted-foreground whitespace-nowrap">/mois HTVA</span>
             </p>
 

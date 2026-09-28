@@ -93,8 +93,65 @@ export function resolveUtm(): UtmData {
 }
 
 /** Ajoute les 3 champs UTM au payload d'un lead Odoo. */
+// ── Provenance du lead : page d'entrée, page de conversion, référent ─────
+// La page d'entrée et le référent sont mémorisés une fois par session (sessionStorage).
+
+const LANDING_KEY = "mf_landing_page";
+const REFERRER_KEY = "mf_referrer";
+
+/** À appeler au démarrage du site : mémorise la page d'entrée et le site d'origine de la session. */
+export function recordLandingPage(): void {
+  try {
+    if (typeof window === "undefined" || sessionStorage.getItem(LANDING_KEY)) return;
+    sessionStorage.setItem(LANDING_KEY, window.location.pathname + window.location.search);
+    let referrer = "";
+    try {
+      const ref = document.referrer ? new URL(document.referrer) : null;
+      if (ref && ref.hostname !== window.location.hostname) referrer = ref.origin + ref.pathname;
+    } catch {
+      referrer = "";
+    }
+    sessionStorage.setItem(REFERRER_KEY, referrer);
+  } catch {
+    /* stockage indisponible : la provenance restera partielle */
+  }
+}
+
+export interface LeadProvenance {
+  landing_page: string;
+  conversion_page: string;
+  referrer: string;
+}
+
+export function getProvenance(): LeadProvenance {
+  let landing = "";
+  let referrer = "";
+  try {
+    landing = sessionStorage.getItem(LANDING_KEY) || "";
+    referrer = sessionStorage.getItem(REFERRER_KEY) || "";
+  } catch {
+    /* ignoré */
+  }
+  const conversion = typeof window !== "undefined" ? window.location.pathname : "";
+  return { landing_page: landing || conversion, conversion_page: conversion, referrer: referrer || "direct" };
+}
+
+/**
+ * Ajoute au lead Odoo les UTM et un bloc « Provenance » dans la description.
+ * La provenance est écrite dans la description (champ texte déjà transmis à Odoo)
+ * plutôt que dans de nouveaux champs, pour ne pas dépendre du format accepté par l'API Odoo.
+ */
 export function withUtm<T extends Record<string, unknown>>(lead: T): T & UtmData {
-  return { ...lead, ...resolveUtm() };
+  const utm = resolveUtm();
+  const p = getProvenance();
+  const block =
+    "Provenance du contact\n" +
+    `- Page d'entrée : ${p.landing_page}\n` +
+    `- Page de conversion : ${p.conversion_page}\n` +
+    `- Référent : ${p.referrer}\n` +
+    `- UTM : ${utm.utm_source || "-"} / ${utm.utm_medium || "-"} / ${utm.utm_campaign || "-"}`;
+  const existing = typeof lead.description === "string" ? lead.description : "";
+  return { ...lead, ...utm, description: existing ? `${existing}\n\n${block}` : block };
 }
 
 /** Construit une URL avec les UTM en query string (CTA sortants). */
@@ -130,9 +187,9 @@ export function trackLeadSource(input: TrackLeadInput): void {
     utm_medium: utm.utm_medium,
     utm_campaign: utm.utm_campaign,
   };
+  const provenance = getProvenance();
 
-  // Fire-and-forget — ne bloque jamais la soumission du formulaire.
-  try {
+  const send = (body: Record<string, unknown>) =>
     fetch(`${SUPABASE_URL}/rest/v1/lead_sources`, {
       method: "POST",
       headers: {
@@ -141,9 +198,17 @@ export function trackLeadSource(input: TrackLeadInput): void {
         Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         Prefer: "return=minimal",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(body),
       keepalive: true,
-    }).catch((err) => {
+    });
+
+  // Fire-and-forget — ne bloque jamais la soumission du formulaire.
+  // Si les colonnes de provenance n'existent pas encore en base (migration non appliquée),
+  // on renvoie la ligne sans elles pour ne perdre aucun lead.
+  try {
+    send({ ...payload, ...provenance })
+      .then((res) => (res.ok ? res : send(payload)))
+      .catch((err) => {
       console.debug("[trackLeadSource] non-blocking error:", err);
     });
   } catch (err) {
