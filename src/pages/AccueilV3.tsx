@@ -121,7 +121,7 @@ function getInitials(name: string) {
 
 const faqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits démarrent à 275€ HTVA/mois (Basic — comptabilité + conformité), puis 350€ HTVA/mois (Essentiel), 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel) et 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275€ HTVA/mois (Basic — comptabilité + conformité), à partir de 350€ HTVA/mois (Essentiel), à partir de 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion et trésorerie prévisionnelle intégrés dans les forfaits selon le niveau ; DAF à temps partiel en option (150 € HTVA/h, clients Excellence)." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
 ];
@@ -889,7 +889,10 @@ export default function AccueilV3() {
                 >
                   <span className="text-accent text-[10px] font-bold tracking-[0.2em]">{p.label}</span>
                   <p className={`text-[13px] italic mt-1 ${p.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.subtitle}</p>
-                  <div className="mt-6 flex items-baseline gap-1">
+                  <p className={`mt-6 text-[11px] uppercase tracking-[0.16em] font-semibold ${p.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                    À partir de
+                  </p>
+                  <div className="mt-1 flex items-baseline gap-1">
                     <span className={`font-display text-[52px] font-bold leading-none ${p.popular ? "text-primary-foreground" : "text-primary"}`}>{p.price}</span>
                     <span className="font-display text-[26px] text-accent font-bold">€</span>
                     <span className={`text-[12px] ml-1 ${p.popular ? "text-primary-foreground/55" : "text-muted-foreground"}`}>/mois HTVA</span>

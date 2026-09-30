@@ -313,7 +313,8 @@ export default function Asbl() {
                       </span>
                     )}
                     <p className={`font-display text-[15px] md:text-[18px] font-bold ${p.featured ? "text-accent" : "text-primary"}`}>{p.name}</p>
-                    <div className="flex items-baseline justify-center gap-1 mt-2">
+                    <p className={`mt-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em] font-semibold font-body ${p.featured ? "text-primary-foreground/60" : "text-muted-foreground"}`}>À partir de</p>
+                    <div className="flex items-baseline justify-center gap-1 mt-1">
                       <span className={`font-display text-[26px] md:text-[36px] font-bold ${p.featured ? "text-primary-foreground" : "text-primary"}`}>{p.price}€</span>
                       <span className={`text-[10px] md:text-[11px] font-body ${p.featured ? "text-primary-foreground/60" : "text-muted-foreground"}`}>/mois HTVA</span>
                     </div>
