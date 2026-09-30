@@ -334,6 +334,7 @@ export default function PromoteursImmobiliers() {
                       Le pilotage <span className="italic text-accent">complet</span> pour promoteurs.
                     </h3>
 
+                    <p className="text-primary-foreground/60 text-[11px] font-semibold tracking-[0.16em] uppercase font-body mb-2">À partir de</p>
                     <div className="flex items-baseline gap-2 mb-4">
                       <span className="font-display text-[80px] md:text-[110px] font-bold text-primary-foreground leading-none">650</span>
                       <span className="font-display text-[40px] text-accent leading-none">€</span>

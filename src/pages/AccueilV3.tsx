@@ -889,7 +889,10 @@ export default function AccueilV3() {
                 >
                   <span className="text-accent text-[10px] font-bold tracking-[0.2em]">{p.label}</span>
                   <p className={`text-[13px] italic mt-1 ${p.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.subtitle}</p>
-                  <div className="mt-6 flex items-baseline gap-1">
+                  <p className={`mt-6 text-[11px] uppercase tracking-[0.16em] font-semibold ${p.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                    À partir de
+                  </p>
+                  <div className="mt-1 flex items-baseline gap-1">
                     <span className={`font-display text-[52px] font-bold leading-none ${p.popular ? "text-primary-foreground" : "text-primary"}`}>{p.price}</span>
                     <span className="font-display text-[26px] text-accent font-bold">€</span>
                     <span className={`text-[12px] ml-1 ${p.popular ? "text-primary-foreground/55" : "text-muted-foreground"}`}>/mois HTVA</span>
