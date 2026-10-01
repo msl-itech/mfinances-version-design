@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-equipe-sourire.webp";
-import imgMeeting from "@/assets/meeting-warm.webp";
+import imgMeeting from "@/assets/mika-poignee-dirigeant.webp";
 import imgAtelier from "@/assets/notre-organisation-atelier.webp";
 import {
   ArrowRight,
@@ -1030,9 +1030,9 @@ export default function NotreOrganisation() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-border/80 ring-1 ring-primary/5">
                 <img
                   src={imgMeeting}
-                  alt="Échange de pilotage financier"
+                  alt="Mika MUSUNGAYI serrant la main d'un dirigeant d'entreprise devant les locaux de sa société"
                   width={640}
-                  height={430}
+                  height={800}
                   className="w-full h-[460px] object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
