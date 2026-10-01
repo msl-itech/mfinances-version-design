@@ -1031,9 +1031,9 @@ export default function NotreOrganisation() {
                 <img
                   src={imgMeeting}
                   alt="Mika MUSUNGAYI serrant la main d'un dirigeant d'entreprise devant les locaux de sa société"
-                  width={640}
-                  height={800}
-                  className="w-full h-[460px] object-cover transition-transform duration-500 hover:scale-105"
+                  width={1536}
+                  height={1920}
+                  className="w-full h-[400px] sm:h-[460px] object-cover object-top transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
               </div>
