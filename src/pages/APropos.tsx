@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-team-hero.webp";
 import mikaPortrait from "@/assets/mika-assis-1.webp";
 import imgStory from "@/assets/about-story-terminaux.webp";
-import imgMeeting from "@/assets/meeting-warm.webp";
+import imgMeeting from "@/assets/reunion-conseil.webp";
 import imgDashboard from "@/assets/dashboard-laptop.webp";
 import {
   ArrowRight,
@@ -551,7 +551,7 @@ export default function APropos() {
                 <div className="absolute -inset-3 bg-accent/10 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
                   src={imgMeeting}
-                  alt="Réunion de conseil avec un dirigeant"
+                  alt="Réunion de conseil comptable avec les dirigeants"
                   className="relative rounded-3xl w-full h-[280px] md:h-[400px] object-cover shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
               </div>
