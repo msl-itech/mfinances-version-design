@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-team-hero.webp";
-import mikaPortrait from "@/assets/mika-apropos-hero.webp";
+import mikaPortrait from "@/assets/mika-assis-1.webp.asset.json";
 import imgStory from "@/assets/about-story-terminaux.webp";
 import imgMeeting from "@/assets/meeting-warm.webp";
 import imgDashboard from "@/assets/dashboard-laptop.webp";
