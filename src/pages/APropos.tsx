@@ -448,7 +448,7 @@ export default function APropos() {
                 <img
                   src={mikaPortrait}
                   alt="Mika MUSUNGAYI — Fondateur de MFinances"
-                  className="relative rounded-3xl w-full h-[340px] md:h-[440px] object-cover object-top shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
+                  className="relative rounded-3xl w-full aspect-[4/5] min-[480px]:aspect-[3/4] md:aspect-auto md:h-[440px] object-cover object-top shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
                 <span className="absolute -bottom-4 left-4 bg-primary text-primary-foreground rounded-2xl px-5 py-3 shadow-lg flex items-center gap-2">
                   <Sparkles size={14} className="text-accent" strokeWidth={1.5} />
