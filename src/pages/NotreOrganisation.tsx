@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-equipe-sourire.webp";
 import imgMeeting from "@/assets/meeting-warm.webp";
+import imgAtelier from "@/assets/notre-organisation-atelier.webp";
 import {
   ArrowRight,
   CheckCircle2,
