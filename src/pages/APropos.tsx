@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import equipePhoto from "@/assets/mfinances-team-hero.webp";
-import mikaPortrait from "@/assets/mika-assis-1.webp.asset.json";
+import mikaPortrait from "@/assets/mika-assis-1.webp";
 import imgStory from "@/assets/about-story-terminaux.webp";
 import imgMeeting from "@/assets/meeting-warm.webp";
 import imgDashboard from "@/assets/dashboard-laptop.webp";
@@ -446,7 +446,7 @@ export default function APropos() {
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/15 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
-                  src={mikaPortrait.url}
+                  src={mikaPortrait}
                   alt="Mika MUSUNGAYI — Fondateur de MFinances"
                   className="relative rounded-3xl w-full h-[340px] md:h-[440px] object-cover object-top shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
