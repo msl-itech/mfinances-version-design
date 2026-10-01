@@ -454,120 +454,19 @@ export default function NotreOrganisation() {
 
             {/* Colonne Droite : Architecture Visuelle / Hub Écosystème */}
             <div className="md:col-span-5 relative">
-              {/* Lueur diffuse d'arrière-plan ultra-douce (effet aura veloutée) */}
-              <div className="pointer-events-none absolute -inset-4 bg-gradient-to-tr from-accent/15 via-sky-500/10 to-indigo-500/15 rounded-[40px] blur-3xl opacity-70" />
-
-              {/* Hub Écosystème Unifié — Design Soft, Velouté & Aérien */}
-              <div className="relative rounded-2xl sm:rounded-3xl bg-primary-dark/95 border border-primary-foreground/25 p-3 sm:p-5 md:p-6 shadow-2xl backdrop-blur-2xl overflow-hidden">
-                {/* Reflet lumineux supérieur subtil */}
-                <div className="pointer-events-none absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-
-                {/* Micro badge supérieur doux */}
-                <div className="flex items-center justify-between pb-2.5 sm:pb-3.5 mb-2.5 sm:mb-3.5 border-b border-white/[0.08] relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-primary-foreground uppercase font-mono">
-                      Écosystème Unifié
-                    </span>
-                  </div>
-                  <span className="text-[9.5px] sm:text-[10.5px] font-mono text-accent bg-accent/10 px-2 sm:px-2.5 py-0.5 rounded-full border border-accent/25 font-medium">
-                    1 Dossier Unique
-                  </span>
-                </div>
-
-                {/* Cœur : Le Dirigeant & Sa PME (Pivot Central velouté) */}
-                <div className="relative bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 mb-2.5 sm:mb-3 transition-all duration-300 shadow-md group">
-                  <div className="flex items-center gap-2.5 sm:flex-col sm:text-center sm:gap-0">
-                    <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/15 text-accent shadow-sm ring-4 ring-accent/10 shrink-0 sm:mb-1.5">
-                      <Users size={14} className="sm:hidden" />
-                      <Users size={16} className="hidden sm:block" />
-                    </div>
-                    <div className="flex-1 sm:flex-initial min-w-0">
-                      <div className="flex items-center gap-1.5 sm:justify-center sm:gap-2">
-                        <p className="font-display text-[13px] sm:text-[16px] font-semibold text-primary-foreground tracking-wide truncate">
-                          Le Dirigeant de PME
-                        </p>
-                        <span className="bg-accent/20 text-accent border border-accent/30 text-[7.5px] sm:text-[8.5px] font-bold tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm shrink-0">
-                          Pivot Central
-                        </span>
-                      </div>
-                      <p className="text-primary-foreground/90 text-[10px] sm:text-[11px] mt-0.5 font-body hidden sm:block">
-                        Pilote unique • Décisions éclairées • Visibilité en temps réel
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Les 3 piliers interconnectés — Cartes douces & translucides */}
-                <div className="space-y-1.5 sm:space-y-2.5 relative z-10">
-                  {/* Pôle 1 : MFINANCES */}
-                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-accent/50 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0 shadow-sm border border-accent/25 group-hover:scale-105 transition-transform">
-                      <Building2 size={15} className="sm:hidden" />
-                      <Building2 size={17} className="hidden sm:block" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-bold text-[12px] sm:text-[14px] text-primary-foreground tracking-wide">
-                          MFINANCES
-                        </p>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-accent uppercase tracking-wider bg-accent/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-accent/20 shrink-0">
-                          Agrément ITAA
-                        </span>
-                      </div>
-                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
-                        Supervision légale • Arbitrage fiscal • Direction DAF
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Pôle 2 : MSL ANALYTICA */}
-                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-primary-foreground/40 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0 shadow-sm border border-primary-foreground/30 group-hover:scale-105 transition-transform">
-                      <Database size={15} className="sm:hidden" />
-                      <Database size={17} className="hidden sm:block" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-primary-foreground">
-                          MSL ANALYTICA
-                        </p>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-primary-foreground uppercase tracking-wider bg-primary-foreground/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-primary-foreground/25 shrink-0">
-                          Data & Flux
-                        </span>
-                      </div>
-                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
-                        Collecte Peppol & Coda • Rapprochements à J+15
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Pôle 3 : MSL-iTECH */}
-                  <div className="bg-primary-light/90 hover:bg-primary-light border border-primary-foreground/20 hover:border-primary-foreground/40 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 group shadow-md">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-primary-foreground/15 text-primary-foreground flex items-center justify-center shrink-0 shadow-sm border border-primary-foreground/30 group-hover:scale-105 transition-transform">
-                      <Cpu size={15} className="sm:hidden" />
-                      <Cpu size={17} className="hidden sm:block" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="font-display font-semibold text-[12px] sm:text-[14px] text-primary-foreground">
-                          MSL-iTECH
-                        </p>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-primary-foreground uppercase tracking-wider bg-primary-foreground/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-primary-foreground/25 shrink-0">
-                          Odoo Expert
-                        </span>
-                      </div>
-                      <p className="text-primary-foreground/90 text-[10.5px] sm:text-[11.5px] leading-snug mt-0.5 font-body hidden sm:block">
-                        Paramétrage Odoo Belgique • Automatisations & API
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
+              {/* Visuel : le dirigeant et son équipe au quotidien */}
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-primary-foreground/25 ring-1 ring-primary-foreground/10">
+                <img
+                  src={imgAtelier}
+                  alt="Un dirigeant de PME et son équipe pilotent l'activité ensemble, tablette en main, dans leur atelier"
+                  width={800}
+                  height={1000}
+                  className="w-full aspect-[4/5] object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                />
               </div>
+            </div>
 
               {/* ── Cercle Bouton Play Flottant — ULTRA MIS EN ÉVIDENCE AVEC PULSE CONTINU ── */}
               <div className="relative sm:absolute mt-5 sm:mt-0 flex justify-center sm:justify-end sm:-bottom-13 sm:-right-6 z-30 items-center gap-2 sm:gap-2.5 group">
