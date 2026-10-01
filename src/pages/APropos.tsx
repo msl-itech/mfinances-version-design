@@ -446,7 +446,7 @@ export default function APropos() {
               <div className="relative">
                 <div className="absolute -inset-3 bg-accent/15 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
-                  src={mikaPortrait}
+                  src={mikaPortrait.url}
                   alt="Mika MUSUNGAYI — Fondateur de MFinances"
                   className="relative rounded-3xl w-full h-[340px] md:h-[440px] object-cover object-top shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
