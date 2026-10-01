@@ -461,7 +461,7 @@ export default function NotreOrganisation() {
                   alt="Un dirigeant de PME et son équipe pilotent l'activité ensemble, tablette en main, dans leur atelier"
                   width={800}
                   height={1000}
-                  className="w-full aspect-[4/5] object-cover"
+                  className="w-full aspect-[4/3] md:aspect-[4/5] object-cover"
                   loading="eager"
                   fetchPriority="high"
                 />
