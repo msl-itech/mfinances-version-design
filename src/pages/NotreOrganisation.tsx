@@ -466,7 +466,7 @@ export default function NotreOrganisation() {
                   fetchPriority="high"
                 />
               </div>
-            </div>
+
 
               {/* ── Cercle Bouton Play Flottant — ULTRA MIS EN ÉVIDENCE AVEC PULSE CONTINU ── */}
               <div className="relative sm:absolute mt-5 sm:mt-0 flex justify-center sm:justify-end sm:-bottom-13 sm:-right-6 z-30 items-center gap-2 sm:gap-2.5 group">
