@@ -30,7 +30,6 @@ import {
   FileCheck,
   Lock,
   ChevronDown,
-  Users,
   Compass,
   Briefcase,
   TrendingUp,
