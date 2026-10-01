@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import equipePhoto from "@/assets/mfinances-equipe-sourire.webp";
+import equipePhoto from "@/assets/mika-reunion-equipe.webp";
 import imgMeeting from "@/assets/mika-poignee-dirigeant.webp";
 import imgAtelier from "@/assets/notre-organisation-atelier.webp";
 import {
@@ -1051,9 +1051,9 @@ export default function NotreOrganisation() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-border/80 ring-1 ring-primary/5">
                 <img
                   src={equipePhoto}
-                  alt="Équipe MFINANCES"
-                  width={720}
-                  height={430}
+                  alt="Mika MUSUNGAYI en réunion avec ses collaboratrices et collaborateurs autour de la table, ordinateurs portables ouverts"
+                  width={1440}
+                  height={962}
                   className="w-full h-[420px] object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
