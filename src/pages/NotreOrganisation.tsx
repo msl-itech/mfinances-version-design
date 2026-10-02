@@ -458,10 +458,10 @@ export default function NotreOrganisation() {
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-primary-foreground/25 ring-1 ring-primary-foreground/10">
                 <img
                   src={imgAtelier}
-                  alt="Un dirigeant de PME et son équipe pilotent l'activité ensemble, tablette en main, dans leur atelier"
-                  width={800}
-                  height={1000}
-                  className="w-full aspect-[4/3] md:aspect-[4/5] object-cover"
+                  alt="Une présentation des trois expertises intégrées de MFINANCES : expertise comptable ITAA, traitement opérationnel des données et intégration Odoo"
+                  width={1536}
+                  height={1024}
+                  className="w-full aspect-[4/3] md:aspect-[3/2] object-cover"
                   loading="eager"
                   fetchPriority="high"
                 />
