@@ -1,5 +1,5 @@
 import mikaAssisImg from "@/assets/mika-assis-1.webp";
-import financeConnectee529 from "@/assets/newsroom/DSC08529.jpg";
+import financeConnectee530 from "@/assets/newsroom/DSC08530.webp";
 import financeConnectee521 from "@/assets/newsroom/DSC08521.jpg";
 import terminauxImg from "@/assets/about-story-terminaux.webp";
 import atelierImg from "@/assets/notre-organisation-atelier.webp";
