@@ -1,5 +1,5 @@
 import mikaAssisImg from "@/assets/mika-assis-1.webp";
-import financeConnectee529 from "@/assets/newsroom/DSC08529.jpg";
+import financeConnectee530 from "@/assets/newsroom/DSC08530.webp";
 import financeConnectee521 from "@/assets/newsroom/DSC08521.jpg";
 import terminauxImg from "@/assets/about-story-terminaux.webp";
 import atelierImg from "@/assets/notre-organisation-atelier.webp";
@@ -62,7 +62,7 @@ export const newsroomArticles: NewsroomArticle[] = [
     eventDate: "2026-09-07",
     displayDate: "7 septembre 2026",
     featured: true,
-    coverImage: financeConnectee529,
+    coverImage: financeConnectee530,
     coverImageAlt: "Mika Musungayi lors de son intervention à Finance Connectée, Marrakech 2026 — bannière MSL-iTECH visible en arrière-plan",
     author: {
       name: "Mika Musungayi",
