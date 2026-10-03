@@ -28,7 +28,6 @@ const servicesLinks = [
 const cabinetLinks = [
   { label: "À propos", href: "/a-propos/" },
   { label: "Notre organisation", href: "/notre-organisation/" },
-  { label: "Newsroom & Presse", href: "/newsroom/" },
 ];
 
 const profilsLinks = [

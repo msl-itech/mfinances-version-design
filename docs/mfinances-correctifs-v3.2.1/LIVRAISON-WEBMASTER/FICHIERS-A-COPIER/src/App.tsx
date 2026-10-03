@@ -59,8 +59,6 @@ const SocieteEnVeille = lazyPage(() => import("./pages/SocieteEnVeille.tsx"));
 const Tarifs = lazyPage(() => import("./pages/Tarifs.tsx"));
 const Tresorerie = lazyPage(() => import("./pages/Tresorerie.tsx"));
 const Unsubscribe = lazyPage(() => import("./pages/Unsubscribe.tsx"));
-const Newsroom = lazyPage(() => import("./pages/Newsroom.tsx"));
-const NewsroomArticle = lazyPage(() => import("./pages/NewsroomArticle.tsx"));
 const NotreOrganisation = lazyPage(() => import("./pages/NotreOrganisation.tsx"));
 const ChatBot = lazy(() => import("./components/ChatBot"));
 
@@ -90,7 +88,6 @@ const preloadableRoutes: { path: string; page: LazyPage }[] = [
   { path: "/contact/", page: Contact },
   { path: "/a-propos/", page: APropos },
   { path: "/notre-organisation/", page: NotreOrganisation },
-  { path: "/newsroom/", page: Newsroom },
   { path: "/support/", page: Support },
   { path: "/blog/", page: Blog },
   { path: "/blog/fiscalite-belgique/bureau-a-domicile/", page: BureauADomicileHub },
@@ -302,8 +299,6 @@ const App = () => {
             <Route path="/notre-organisation/" element={<NotreOrganisation />} />
             <Route path="/support/" element={<Support />} />
             <Route path="/blog/" element={<Blog />} />
-            <Route path="/newsroom/" element={<Newsroom />} />
-            <Route path="/newsroom/:slug/" element={<NewsroomArticle />} />
             <Route
               path="/blog/fiscalite-belgique/bureau-a-domicile/"
               element={<BureauADomicileHub />}
