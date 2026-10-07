@@ -1,4 +1,4 @@
-import financeConnectee530 from "@/assets/newsroom/DSC08530.webp";
+import financeConnectee530 from "@/assets/newsroom/DSC08551.jpg";
 import avatarMika from "@/assets/avatar-mika-96.webp";
 
 export interface NewsroomArticle {

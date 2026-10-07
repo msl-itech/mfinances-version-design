@@ -231,7 +231,7 @@ export default function NewsroomArticlePage() {
             src={article.coverImage}
             alt={article.coverImageAlt}
             className="w-full h-[360px] object-cover"
-            style={{ objectPosition: "center 20%" }}
+            style={{ objectPosition: "center 50%" }}
             loading="eager"
           />
         </div>
