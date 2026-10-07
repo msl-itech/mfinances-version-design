@@ -1,13 +1,21 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, MapPin } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { newsroomArticles } from "@/data/newsroom-data";
-import { buildUtmQuery } from "@/lib/utm-enrich";
-
-const BOOKING_URL = "https://odoo.mfinances.be/appointment/11";
+import { useGsapReveal } from "@/hooks/use-gsap-reveal";
+import { useTilt } from "@/hooks/use-tilt";
 
 /* Texte éditorial « À la une » (emplacement évolutif, remplacé par une actualité plus forte le moment venu). */
 const FEATURED_COPY = {
@@ -18,9 +26,16 @@ const FEATURED_COPY = {
 };
 
 export default function Newsroom() {
+  const [mounted, setMounted] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMounted(true);
   }, []);
+
+  useGsapReveal(root, [mounted]);
+  useTilt(root, [mounted]);
 
   const featured = useMemo(
     () => newsroomArticles.find((a) => a.featured) || newsroomArticles[0],
@@ -45,7 +60,7 @@ export default function Newsroom() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" ref={root}>
       <SEOHead
         title="Dernières actualités | Newsroom MFINANCES"
         description="Les actualités, interventions et temps forts qui font vivre MFINANCES : Finance Connectée, intervention de Mika Musungayi à Marrakech."
@@ -56,29 +71,44 @@ export default function Newsroom() {
       <Header />
 
       <main>
-        {/* Hero sobre */}
-        <section className="pt-14 pb-8 md:pt-20 md:pb-12">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-4">Newsroom</p>
-            <h1 className="font-display text-[34px] md:text-[56px] leading-[1.05] tracking-tight">
-              Dernières actualités
-            </h1>
-            <p className="mt-4 text-[16px] md:text-[18px] text-muted-foreground max-w-[560px]">
-              Les actualités, interventions et temps forts qui font vivre MFINANCES.
-            </p>
-            <div className="mt-8 h-px bg-border" />
+        {/* ── HERO ── */}
+        <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
+          <div className="mx-auto max-w-[820px] px-6 lg:px-12 text-center">
+            <Breadcrumb>
+              <BreadcrumbList className="justify-center">
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[13px]">Accueil</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-primary-foreground/40" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground text-[13px]">Newsroom</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+
+            <div className="mt-8">
+              <h1 className="font-display text-[26px] md:text-[48px] leading-[1.12] text-primary-foreground">
+                Dernières <span className="text-accent">actualités</span>
+              </h1>
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-5 font-body max-w-[620px] mx-auto">
+                Les actualités, interventions et temps forts qui font vivre MFINANCES.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* À la une */}
+        {/* ── À LA UNE ── */}
         {featured && (
-          <section className="pb-14 md:pb-20">
+          <section className="bg-secondary py-8 md:py-10">
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
               <Link
                 to={`/newsroom/${featured.slug}/`}
-                className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center"
+                data-anim="fade-up"
+                className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300"
               >
-                <div className="lg:col-span-7 overflow-hidden rounded-3xl bg-muted">
+                <div className="lg:col-span-7 overflow-hidden">
                   <img
                     src={featured.coverImage}
                     alt={featured.coverImageAlt}
@@ -87,22 +117,26 @@ export default function Newsroom() {
                     fetchPriority="high"
                   />
                 </div>
-                <div className="lg:col-span-5">
-                  <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-primary border border-primary/20 rounded-full px-3 py-1 mb-5">
+                <div className="lg:col-span-5 p-6 lg:p-0 lg:pr-8">
+                  <span className="inline-block text-[11px] font-bold uppercase tracking-[0.1em] text-accent bg-accent/10 rounded-full px-3 py-1 mb-5">
                     À la une
                   </span>
-                  <h2 className="font-display text-[26px] md:text-[36px] leading-[1.15]">
+                  <h2 className="font-display text-[22px] md:text-[32px] leading-[1.15] text-foreground group-hover:text-accent transition-colors">
                     {FEATURED_COPY.title}
                   </h2>
-                  <p className="mt-4 text-[13px] uppercase tracking-[0.15em] text-muted-foreground">
-                    {FEATURED_COPY.meta}
-                  </p>
-                  <p className="mt-5 text-[16px] leading-relaxed text-foreground/80">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-4 text-[13px] text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Calendar size={13} /> 7 septembre 2026
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <MapPin size={13} /> Marrakech, Maroc
+                    </span>
+                  </div>
+                  <p className="mt-5 text-[15px] leading-relaxed text-foreground/80 font-body">
                     {FEATURED_COPY.summary}
                   </p>
-                  <span className="mt-7 inline-flex items-center gap-2 text-[15px] font-semibold text-primary">
-                    <span className="link-underline">Lire l'article</span>
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  <span className="mt-6 inline-flex items-center gap-1 text-accent text-[14px] font-semibold group-hover:gap-2 transition-all">
+                    Lire l'article <ArrowRight size={15} />
                   </span>
                 </div>
               </Link>
@@ -110,23 +144,40 @@ export default function Newsroom() {
           </section>
         )}
 
-        {/* Actualités suivantes — invisible tant qu'il n'y a pas d'autre contenu */}
+        {/* ── ACTUALITÉS SUIVANTES — invisible tant qu'il n'y a pas d'autre contenu ── */}
         {others.length > 0 && (
-          <section className="pb-14 md:pb-20">
+          <section className="bg-card py-8 md:py-10">
             <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-              <div className="h-px bg-border mb-10" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {others.map((a) => (
-                  <Link key={a.slug} to={`/newsroom/${a.slug}/`} className="group block">
-                    <div className="overflow-hidden rounded-2xl bg-muted mb-4">
-                      <img src={a.coverImage} alt={a.coverImageAlt} loading="lazy" className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+              <div data-anim="fade-up" className="text-center mb-10">
+                <h2 className="font-display text-[24px] md:text-[36px] text-foreground leading-[1.15]">
+                  Toutes les <span className="text-accent">publications</span>
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {others.map((a, i) => (
+                  <Link
+                    key={a.slug}
+                    to={`/newsroom/${a.slug}/`}
+                    data-anim="fade-up"
+                    data-delay={`${0.05 + i * 0.04}`}
+                    className="group block bg-secondary/60 rounded-2xl overflow-hidden border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300"
+                  >
+                    <div className="overflow-hidden">
+                      <img
+                        src={a.coverImage}
+                        alt={a.coverImageAlt}
+                        loading="lazy"
+                        className="w-full aspect-[3/2] object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">{a.category}</p>
-                    <h3 className="font-display text-[20px] leading-snug mt-2">{a.h1}</h3>
-                    <p className="text-[14px] text-foreground/70 mt-2 line-clamp-3">{a.lead}</p>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary">
-                      Lire <ArrowRight size={14} />
-                    </span>
+                    <div className="p-6">
+                      <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{a.category}</span>
+                      <h3 className="font-display text-[18px] leading-snug mt-2 text-foreground group-hover:text-accent transition-colors">{a.h1}</h3>
+                      <p className="text-[14px] text-foreground/70 mt-3 line-clamp-3 font-body leading-[1.7]">{a.lead}</p>
+                      <span className="mt-4 inline-flex items-center gap-1 text-accent text-[13px] font-semibold group-hover:gap-2 transition-all">
+                        Lire <ArrowRight size={14} />
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -134,21 +185,24 @@ export default function Newsroom() {
           </section>
         )}
 
-        {/* CTA discret */}
-        <section className="pb-16 md:pb-24">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <div className="border-t border-border pt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-              <p className="font-display text-[22px] md:text-[26px] text-primary">
-                Vous souhaitez échanger sur vos enjeux financiers ?
+        {/* ── CTA ── */}
+        <section className="bg-primary py-8 md:py-10">
+          <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
+            <div data-anim="fade-up">
+              <h2 className="font-display text-[24px] md:text-[36px] text-primary-foreground leading-[1.15]">
+                Vous souhaitez échanger sur vos <span className="text-accent">enjeux financiers</span> ?
+              </h2>
+              <p className="text-primary-foreground/75 text-[16px] leading-relaxed mt-4 font-body">
+                Premier échange gratuit et confidentiel avec un expert MFINANCES.
               </p>
-              <a
-                href={buildUtmQuery(BOOKING_URL)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-6 h-12 text-[15px] font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors self-start md:self-auto"
-              >
-                Prendre rendez-vous <ArrowRight size={16} />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+                <Button variant="accent" size="lg" className="rounded-full" asChild>
+                  <Link to="/contact/#form">Prendre rendez-vous <ArrowRight size={16} className="ml-1" /></Link>
+                </Button>
+                <Button variant="outline-white" size="lg" className="rounded-full" asChild>
+                  <Link to="/diagnostic/">Faire le diagnostic gratuit <ArrowRight size={16} className="ml-1" /></Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

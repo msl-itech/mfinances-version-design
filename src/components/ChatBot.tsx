@@ -73,7 +73,7 @@ const VALID_INTERNAL_ROUTES = new Set([
   "/qui-nous-accompagnons/professions-de-sante/", "/qui-nous-accompagnons/entreprises-en-croissance/",
   "/qui-nous-accompagnons/promoteurs-immobiliers/", "/qui-nous-accompagnons/asbl/",
   "/qui-nous-accompagnons/societe-exploitation/", "/qui-nous-accompagnons/societe-de-management/",
-  "/qui-nous-accompagnons/societe-de-moyens/", "/diagnostic/", "/checklist-tresorerie/",
+  "/qui-nous-accompagnons/societe-de-moyens/", "/newsroom/", "/diagnostic/", "/checklist-tresorerie/",
   "/ressources/calculateur-bureau/", "/ressources/generateur-bail/",
   "/ressources/checklist-controle-bureau/", "/frais-defendables/", "/blog/", "/a-propos/",
   "/contact/", "/support/",
@@ -138,6 +138,11 @@ const PAGE_SUGGESTIONS: Record<string, string[]> = {
     "J'ai un commerce, quel forfait ?",
     "Je suis en croissance, par où commencer ?",
   ],
+  "/newsroom/": [
+    "Qu'est-ce que Finance Connectée ?",
+    "Qui est Mika Musungayi ?",
+    "MFINANCES fait du pilotage financier ?",
+  ],
   "/blog/": [
     "Un article sur le BFR ?",
     "Comment gérer ma trésorerie ?",
@@ -169,6 +174,7 @@ const PROACTIVE_MESSAGES: Record<string, string> = {
   "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
   "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
   "/societe-en-veille/": "Votre société est en veille ? Même sans activité, vos obligations légales continuent. Je peux vous expliquer ce qui est inclus dans notre forfait à 175€ HTVA/mois.",
+  "/newsroom/": "Vous consultez notre actualité ! Mika Musungayi est intervenu à Finance Connectée à Marrakech. Une question sur notre approche du pilotage financier ?",
   "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
   "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
   "/diagnostic/": "",
