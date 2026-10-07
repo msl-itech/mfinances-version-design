@@ -244,7 +244,8 @@ export default function NewsroomArticlePage() {
               {/* ── TOC SIDEBAR (desktop) ── */}
               {tocItems.length > 0 && (
                 <aside className="hidden lg:block w-[220px] flex-shrink-0">
-                  <div className="sticky top-[88px] max-h-[calc(100vh-100px)] overflow-y-auto">
+                  {/* Sticky: sommaire + partage uniquement */}
+                  <div className="sticky top-[88px]">
                     <div className="flex items-center gap-2 mb-4">
                       <List size={16} className="text-accent" />
                       <span className="font-display text-[15px] text-foreground">Sommaire</span>
@@ -303,21 +304,8 @@ export default function NewsroomArticlePage() {
                       </div>
                     </div>
 
-                    {/* Press contact */}
-                    <div className="mt-6 pt-4 border-t border-border/40 space-y-3">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-accent">Presse & Médias</span>
-                      <p className="text-[12px] text-foreground/70 leading-relaxed font-body">
-                        Mika Musungayi répond aux journalistes et organisateurs d'événements économiques.
-                      </p>
-                      <Button asChild size="sm" className="w-full rounded-full bg-primary hover:bg-primary-dark text-white text-[12px]">
-                        <a href="mailto:info@mfinances.be">
-                          <Mail size={12} className="mr-1.5" /> Contacter la presse
-                        </a>
-                      </Button>
-                    </div>
-
                     {/* CTA sidebar */}
-                    <div className="mt-4 p-4 bg-primary rounded-xl space-y-2">
+                    <div className="mt-6 p-4 bg-primary rounded-xl space-y-2">
                       <p className="text-[12px] font-bold text-white leading-snug">Faire auditer vos processus financiers</p>
                       <Button asChild size="sm" className="w-full rounded-full bg-accent hover:bg-accent/90 text-white text-[12px] font-semibold">
                         <Link to="/contact/">

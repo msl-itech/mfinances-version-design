@@ -45,7 +45,7 @@ const services = [
   {
     icon: Percent,
     title: "Optimisation de la TVA",
-    desc: "Vente sur place à 12%, vente à emporter à 6%, hébergement à 6%. Chaque flux correctement traité.",
+    desc: "Vente sur place à 12%, vente à emporter à 6%, hébergement à 12%. Chaque flux correctement traité.",
   },
   {
     icon: BarChart3,
