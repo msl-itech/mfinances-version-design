@@ -227,6 +227,10 @@ export default function Header() {
               Blog
             </Link>
 
+            <Link to="/newsroom/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
+              Newsroom
+            </Link>
+
             <Link to="/contact/" className="text-[14px] font-medium text-foreground/70 hover:text-foreground transition-colors">
               Contact
             </Link>
@@ -365,6 +369,9 @@ export default function Header() {
               )}
               <Link to="/blog/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Blog
+              </Link>
+              <Link to="/newsroom/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
+                Newsroom
               </Link>
               <Link to="/contact/" className="block px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>
                 Contact
