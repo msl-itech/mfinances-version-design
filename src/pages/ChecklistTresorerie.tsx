@@ -212,7 +212,7 @@ export default function ChecklistTresorerie() {
                         placeholder="Prénom"
                         required
                         value={form.prenom}
-                        onChange={(e) => setForm({ ...form, prenom: e.target.value })}
+                        onChange={(e) => setForm((prev) => ({ ...prev, prenom: e.target.value }))}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         disabled={isLoading}
                       />
@@ -221,7 +221,7 @@ export default function ChecklistTresorerie() {
                         placeholder="Email professionnel"
                         required
                         value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         disabled={isLoading}
                       />
@@ -229,7 +229,7 @@ export default function ChecklistTresorerie() {
                         <input
                           type="checkbox"
                           checked={form.consent}
-                          onChange={(e) => setForm({ ...form, consent: e.target.checked })}
+                          onChange={(e) => { e.stopPropagation(); setForm((prev) => ({ ...prev, consent: e.target.checked })); }}
                           className="mt-0.5 w-4 h-4 rounded border-border/50 accent-accent"
                           disabled={isLoading}
                         />
