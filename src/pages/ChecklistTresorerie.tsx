@@ -110,9 +110,13 @@ export default function ChecklistTresorerie() {
           `<p><strong>Consentement emails:</strong> ${form.consent ? "Oui" : "Non"}</p>`,
           `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
         ].join(""),
-        ...(form.consent
-        ? { tag_names: [utm.utm_source === "linkedin" ? "tunnel_linkedin_tresorerie" : "seq_checklist_tresorerie"] }
-        : {}),
+        tag_names: [
+          "checklist_demandee",
+          ...(form.consent
+            ? [utm.utm_source === "linkedin" ? "tunnel_linkedin_tresorerie" : "seq_checklist_tresorerie"]
+            : []),
+        ],
+        deduplicate_by_email: true,
         x_studio_consentement: form.consent,
         ...(form.consent ? { x_studio_consentement_date: new Date().toISOString() } : {}),
       });
