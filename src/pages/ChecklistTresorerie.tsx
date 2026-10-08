@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
 import { submitLead, updateLeadQualification } from "@/lib/odoo-submit";
-import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
+import { withUtm, trackLeadSource, resolveUtm } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -98,6 +98,7 @@ export default function ChecklistTresorerie() {
         return;
       }
       // Envoi vers Odoo — tag posé UNIQUEMENT si consentement emails
+      const utm = resolveUtm();
       const leadData = withUtm({
         name: form.prenom,
         first_name: form.prenom,
@@ -109,7 +110,9 @@ export default function ChecklistTresorerie() {
           `<p><strong>Consentement emails:</strong> ${form.consent ? "Oui" : "Non"}</p>`,
           `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
         ].join(""),
-        ...(form.consent ? { tag_names: ["seq_checklist_tresorerie", "tunnel_linkedin_tresorerie"] } : {}),
+        ...(form.consent
+        ? { tag_names: [utm.utm_source === "linkedin" ? "tunnel_linkedin_tresorerie" : "seq_checklist_tresorerie"] }
+        : {}),
         x_studio_consentement: form.consent,
         ...(form.consent ? { x_studio_consentement_date: new Date().toISOString() } : {}),
       });
