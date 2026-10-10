@@ -1,7 +1,7 @@
 import { OdooLeadData } from "./odoo";
 
 const ODOO_API_URL = "https://api-connect-odoo.vercel.app/api";
-const TIMEOUT_MS = 8000;
+const TIMEOUT_MS = 15000;
 
 const ODOO_HEADERS: Record<string, string> = {
   "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function saveLeadLocally(data: OdooLeadData): void {
   }
 }
 
-async function sendWithTimeout(data: OdooLeadData, timeout: number): Promise<void> {
+async function sendWithTimeout(data: OdooLeadData, timeout: number): Promise<{ lead_id?: number }> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
@@ -43,6 +43,12 @@ async function sendWithTimeout(data: OdooLeadData, timeout: number): Promise<voi
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
+    try {
+      const json = await response.json();
+      return { lead_id: json.lead_id };
+    } catch {
+      return {};
+    }
   } catch (error) {
     clearTimeout(timeoutId);
     throw error;
@@ -52,6 +58,7 @@ async function sendWithTimeout(data: OdooLeadData, timeout: number): Promise<voi
 export interface SubmitResult {
   success: true;
   message: "ok" | "fallback";
+  lead_id?: number;
 }
 
 /**
@@ -60,8 +67,8 @@ export interface SubmitResult {
  */
 export async function submitLead(data: OdooLeadData): Promise<SubmitResult> {
   try {
-    await sendWithTimeout(data, TIMEOUT_MS);
-    return { success: true, message: "ok" };
+    const result = await sendWithTimeout(data, TIMEOUT_MS);
+    return { success: true, message: "ok", lead_id: result.lead_id };
   } catch (error) {
     console.error("[Odoo] Échec envoi, fallback localStorage:", error);
     saveLeadLocally(data);
@@ -103,4 +110,25 @@ export async function retryPendingLeads(): Promise<number> {
   }
 
   return sent;
+}
+
+/**
+ * Met à jour un lead existant (qualification post-soumission).
+ * Fire-and-forget côté UX — un échec ne bloque pas la navigation.
+ */
+export async function updateLeadQualification(
+  leadId: number,
+  data: Record<string, unknown>,
+): Promise<boolean> {
+  try {
+    const response = await fetch(`${ODOO_API_URL}/leads/${leadId}`, {
+      method: "PUT",
+      headers: ODOO_HEADERS,
+      body: JSON.stringify(data),
+    });
+    return response.ok;
+  } catch {
+    console.error("[Odoo] Échec mise à jour qualification lead", leadId);
+    return false;
+  }
 }
