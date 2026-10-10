@@ -23,6 +23,7 @@ export interface NewsroomArticle {
   };
   location?: string;
   validated: boolean;
+  videoUrl?: string;
   lead: string;
   intro?: string[];
   summary: string[];
@@ -66,6 +67,7 @@ export const newsroomArticles: NewsroomArticle[] = [
     },
     location: "Marrakech, Maroc",
     validated: true,
+    videoUrl: "https://www.youtube.com/embed/PyyGpO9WEUM",
     lead:
       "Comment passer d'une comptabilité qui constate les résultats à une fonction financière qui aide les dirigeants à mieux anticiper et décider ? C'est autour de cette question que Mika Musungayi, expert-comptable et dirigeant de MFINANCES, est intervenu lors de Finance Connectée, organisé le 7 septembre 2026 à Marrakech, au Maroc.",
     intro: [
