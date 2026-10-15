@@ -1,33 +1,23 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { corsFor, issueHumanPass } from "../_shared/site-guard.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+const ALLOWED_RECAPTCHA_HOSTS = [/^(www\.)?mfinances\.be$/, /\.lovable\.app$/, /\.lovableproject\.com$/, /^localhost$/];
 
-serve(async (req) => {
+Deno.serve(async (req) => {
+  const corsHeaders = corsFor(req);
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
+  const json = (p: unknown, s: number) =>
+    new Response(JSON.stringify(p), { status: s, headers: { ...corsHeaders, "Content-Type": "application/json" } });
 
   try {
     const { token } = await req.json();
-
-    if (!token || typeof token !== "string") {
-      return new Response(
-        JSON.stringify({ success: false, error: "Token manquant" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    if (!token || typeof token !== "string") return json({ success: false, error: "Token manquant" }, 400);
 
     const secretKey = Deno.env.get("RECAPTCHA_SECRET_KEY");
     if (!secretKey) {
       console.error("RECAPTCHA_SECRET_KEY not configured");
-      return new Response(
-        JSON.stringify({ success: false, error: "Configuration serveur manquante" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      return json({ success: false, error: "Configuration serveur manquante" }, 500);
     }
 
     const verifyResponse = await fetch("https://www.google.com/recaptcha/api/siteverify", {
@@ -35,18 +25,13 @@ serve(async (req) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(token)}`,
     });
-
     const result = await verifyResponse.json();
+    const hostOk = typeof result.hostname === "string" && ALLOWED_RECAPTCHA_HOSTS.some((re) => re.test(result.hostname));
+    const success = result.success === true && hostOk;
 
-    return new Response(
-      JSON.stringify({ success: result.success === true }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    return json({ success, humanPass: success ? await issueHumanPass() : undefined }, 200);
   } catch (error) {
     console.error("Erreur verify-recaptcha:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: "Erreur serveur" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    return json({ success: false, error: "Erreur serveur" }, 500);
   }
 });

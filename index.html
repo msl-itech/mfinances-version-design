@@ -11,12 +11,38 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://uggglydamhtipbhxgkfm.supabase.co" crossorigin />
+    <link rel="preconnect" href="https://dzyiutcbelljuddzduom.supabase.co" crossorigin />
     <link rel="preload" as="image" href="/src/assets/mfinances-equipe-travail.webp" type="image/webp" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
 
     <!-- Plausible Analytics (RGPD-friendly, sans cookie) -->
     <script defer data-domain="mfinances.be" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Protections : jeton de désabonnement retiré de l'adresse avant Clarity, et anti-affichage dans un site tiers -->
+    <script>
+      (function () {
+        try {
+          var u = new URL(window.location.href);
+          var t = u.searchParams.get("token");
+          if (t && u.pathname.indexOf("/unsubscribe") === 0) {
+            sessionStorage.setItem("unsubscribe_token", t);
+            u.searchParams.delete("token");
+            history.replaceState(null, "", u.pathname + u.search + u.hash);
+          }
+        } catch (e) {}
+        if (window.top !== window.self) {
+          var ok = /(^|\.)(lovable\.dev|lovable\.app|lovableproject\.com|mfinances\.be)$/;
+          var anc = window.location.ancestorOrigins;
+          var parent = anc && anc.length ? anc[anc.length - 1] : document.referrer;
+          var host = "";
+          try { host = new URL(parent).hostname; } catch (e) {}
+          if (!ok.test(host)) {
+            document.documentElement.style.display = "none";
+            try { window.top.location = window.self.location; } catch (e) {}
+          }
+        }
+      })();
+    </script>
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">

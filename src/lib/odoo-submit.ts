@@ -1,14 +1,6 @@
-import { OdooLeadData } from "./odoo";
+import { OdooLeadData, callOdooProxy } from "./odoo";
 
-const ODOO_API_URL = "https://api-connect-odoo.vercel.app/api";
 const TIMEOUT_MS = 15000;
-
-const ODOO_HEADERS: Record<string, string> = {
-  "Content-Type": "application/json",
-  "x-signature": "746b22e105d43521fc87e9ebc40fa1f88524855a7b54a311c4c3a37bcfec886a",
-  "x-client-id": "client_mfinances",
-  "x-company-id": "3",
-};
 
 interface PendingLead {
   data: OdooLeadData;
@@ -29,30 +21,10 @@ function saveLeadLocally(data: OdooLeadData): void {
 }
 
 async function sendWithTimeout(data: OdooLeadData, timeout: number): Promise<{ lead_id?: number }> {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-  try {
-    const response = await fetch(`${ODOO_API_URL}/leads`, {
-      method: "POST",
-      headers: ODOO_HEADERS,
-      body: JSON.stringify(data),
-      signal: controller.signal,
-    });
-    clearTimeout(timeoutId);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-    try {
-      const json = await response.json();
-      return { lead_id: json.lead_id };
-    } catch {
-      return {};
-    }
-  } catch (error) {
-    clearTimeout(timeoutId);
-    throw error;
-  }
+  return await Promise.race([
+    callOdooProxy({ data }),
+    new Promise<never>((_, reject) => setTimeout(() => reject(new Error("timeout")), timeout)),
+  ]);
 }
 
 export interface SubmitResult {
@@ -121,12 +93,8 @@ export async function updateLeadQualification(
   data: Record<string, unknown>,
 ): Promise<boolean> {
   try {
-    const response = await fetch(`${ODOO_API_URL}/leads/${leadId}`, {
-      method: "PUT",
-      headers: ODOO_HEADERS,
-      body: JSON.stringify(data),
-    });
-    return response.ok;
+    await callOdooProxy({ action: "update", leadId, data });
+    return true;
   } catch {
     console.error("[Odoo] Échec mise à jour qualification lead", leadId);
     return false;
