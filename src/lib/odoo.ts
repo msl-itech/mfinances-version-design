@@ -20,7 +20,7 @@ export interface OdooLeadData {
   utm_campaign?: string;
   x_studio_consentement?: boolean;
   x_studio_consentement_date?: string;
-  [key: `x_studio_${string}`]: unknown;
+  [key: string]: unknown;
 }
 
 export async function sendLeadToOdoo(leadData: OdooLeadData): Promise<boolean> {
