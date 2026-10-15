@@ -13,6 +13,7 @@ export type FunnelEvent =
   | "diagnostic_result"
   | "checklist_submit"
   | "checklist_download"
+  | "checklist_qualification"
   | "pricing_cta_click"
   | "contact_click"
   | "contact_form_submit"
