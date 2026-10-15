@@ -698,7 +698,7 @@ Une fois les 4 campagnes configurées et testées :
 3. Ajouter les secrets d'authentification API :
    ```
    ODOO_API_URL        = https://api-connect-odoo.vercel.app/api
-   ODOO_API_SIGNATURE  = 746b22e105d43521fc87e9ebc40fa1f88524855a7b54a311c4c3a37bcfec886a
+   ODOO_API_SIGNATURE  = <valeur fournie par le connecteur Odoo — ne jamais l’écrire ici>
    ODOO_API_CLIENT_ID  = client_mfinances
    ODOO_API_COMPANY_ID = 3
    ```
