@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ShieldCheck, FileText, BarChart3, Download, Loader2 } from "lucide-react";
-import { submitLead } from "@/lib/odoo-submit";
-import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
+import { submitLead, updateLeadQualification } from "@/lib/odoo-submit";
+import { withUtm, trackLeadSource, resolveUtm } from "@/lib/utm-enrich";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_SITE_KEY, verifyRecaptchaToken } from "@/lib/recaptcha";
 import Stamp from "@/components/ui/Stamp";
@@ -68,8 +68,10 @@ export default function ChecklistTresorerie() {
   useGsapReveal(root, [mounted]);
   useTilt(root, [mounted]);
 
-  const [form, setForm] = useState({ prenom: "", email: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ prenom: "", email: "", consent: false });
+  const [step, setStep] = useState<"form" | "qualification" | "done">("form");
+  const [leadId, setLeadId] = useState<number | null>(null);
+  const [qualification, setQualification] = useState({ effectif: "", utilise_odoo: "", fonction: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -79,8 +81,7 @@ export default function ChecklistTresorerie() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     if (!form.prenom.trim() || !form.email.trim() || !recaptchaToken) return;
 
     setIsLoading(true);
@@ -95,7 +96,8 @@ export default function ChecklistTresorerie() {
         setIsLoading(false);
         return;
       }
-      // Envoi vers Odoo avec tag (déclenche Marketing Automation séquence F)
+      // Envoi vers Odoo — tag posé UNIQUEMENT si consentement emails
+      const utm = resolveUtm();
       const leadData = withUtm({
         name: form.prenom,
         first_name: form.prenom,
@@ -104,22 +106,37 @@ export default function ChecklistTresorerie() {
           `<h3>Checklist Trésorerie</h3>`,
           `<p><strong>Prénom:</strong> ${form.prenom}</p>`,
           `<p><strong>Email:</strong> ${form.email}</p>`,
+          `<p><strong>Consentement emails:</strong> ${form.consent ? "Oui" : "Non"}</p>`,
           `<p><strong>Source:</strong> Checklist trésorerie - Site MFinances</p>`,
         ].join(""),
-        tag_names: ["seq_checklist_tresorerie"],
+        tag_names: [
+          "checklist_demandee",
+          ...(form.consent
+            ? [utm.utm_source === "linkedin" ? "tunnel_linkedin_tresorerie" : "seq_checklist_tresorerie"]
+            : []),
+        ],
+        deduplicate_by_email: true,
+        x_studio_consentement: form.consent,
+        ...(form.consent ? { x_studio_consentement_date: new Date().toISOString() } : {}),
       });
       // Téléchargement du PDF garanti, même si Odoo ne répond pas
       trackEvent("checklist_submit");
       triggerPdfDownload();
       trackEvent("checklist_download");
-      setSubmitted(true);
 
       // Enregistrement du lead dans Odoo (une panne Odoo ne bloque plus le PDF)
       try {
-        await submitLead(leadData);
+        const result = await submitLead(leadData);
         trackLeadSource({ ...leadData, form_name: "checklist_tresorerie" });
+        if (result.lead_id) {
+          setLeadId(result.lead_id);
+          setStep("qualification");
+        } else {
+          setStep("done");
+        }
       } catch (odooErr) {
         console.error("Lead checklist non transmis à Odoo :", odooErr);
+        setStep("done");
       }
     } catch (err) {
       console.error("Erreur:", err);
@@ -174,7 +191,8 @@ export default function ChecklistTresorerie() {
 
               {/* Right — form */}
               <div className="bg-card rounded-2xl p-7 border border-border/50 shadow-lg">
-                {!submitted ? (
+                {/* ── ÉTAPE 1 : Formulaire ── */}
+                {step === "form" && (
                   <>
                     <div className="text-center mb-6">
                       <div className="flex items-center justify-center gap-2 mb-3">
@@ -191,25 +209,35 @@ export default function ChecklistTresorerie() {
                         Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat.
                       </p>
                     </div>
-                    <form onSubmit={handleSubmit} className="space-y-3">
+                    <div className="space-y-3">
                       <input
                         type="text"
                         placeholder="Prénom"
-                        required
                         value={form.prenom}
-                        onChange={(e) => setForm({ ...form, prenom: e.target.value })}
+                        onChange={(e) => setForm((prev) => ({ ...prev, prenom: e.target.value }))}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         disabled={isLoading}
                       />
                       <input
                         type="email"
                         placeholder="Email professionnel"
-                        required
                         value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                         className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white text-[14px] font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         disabled={isLoading}
                       />
+                      <label className="flex items-start gap-2.5 cursor-pointer pt-1">
+                        <input
+                          type="checkbox"
+                          checked={form.consent}
+                          onChange={(e) => setForm((prev) => ({ ...prev, consent: e.target.checked }))}
+                          className="mt-0.5 w-4 h-4 rounded border-border/50 accent-accent"
+                          disabled={isLoading}
+                        />
+                        <span className="text-[12px] text-foreground/60 font-body leading-snug">
+                          J'accepte de recevoir des emails de MFINANCES pour m'accompagner dans mon pilotage financier.
+                        </span>
+                      </label>
                       {error && (
                         <p className="text-[13px] text-accent font-body">{error}</p>
                       )}
@@ -221,7 +249,7 @@ export default function ChecklistTresorerie() {
                           onExpired={() => setRecaptchaToken(null)}
                         />
                       </div>
-                      <Button variant="accent" className="w-full rounded-full" type="submit" disabled={isLoading || !recaptchaToken}>
+                      <Button variant="accent" className="w-full rounded-full" type="button" onClick={handleSubmit} disabled={isLoading || !recaptchaToken || !form.prenom.trim() || !form.email.trim()}>
                         {isLoading ? (
                           <>
                             <Loader2 size={16} className="mr-1 animate-spin" />
@@ -233,12 +261,170 @@ export default function ChecklistTresorerie() {
                           </>
                         )}
                       </Button>
-                    </form>
+                    </div>
                     <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
                       Votre email ne sera jamais partagé. Désinscription en un clic.
                     </p>
                   </>
-                ) : (
+                )}
+
+                {/* ── ÉTAPE 2 : Qualification (facultative) ── */}
+                {step === "qualification" && (
+                  <div className="py-2 space-y-4">
+                    <div className="text-center mb-2">
+                      <CheckCircle2 size={28} className="text-[hsl(145,63%,42%)] mx-auto mb-2" />
+                      <h3 className="font-display text-[18px] text-foreground mb-1">Merci {form.prenom} !</h3>
+                      <p className="text-[13px] text-muted-foreground font-body">
+                        Votre checklist est en cours de téléchargement.
+                      </p>
+                    </div>
+
+                    <p className="text-[13px] text-foreground/80 font-body font-medium">
+                      Pour mieux vous orienter, 3 questions rapides (facultatives) :
+                    </p>
+
+                    {/* Q1 — Effectif */}
+                    <div className="space-y-1.5">
+                      <p className="text-[12px] font-medium text-foreground font-body">
+                        1. Combien de personnes dans votre entreprise ?
+                      </p>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {([
+                          { value: "<5", label: "Moins de 5" },
+                          { value: "5-10", label: "5 à 10" },
+                          { value: "11-50", label: "11 à 50" },
+                          { value: "50+", label: "Plus de 50" },
+                        ] as const).map((opt) => (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => setQualification((q) => ({ ...q, effectif: opt.value }))}
+                            className={`px-3 py-2 rounded-lg border text-[12px] font-body transition-colors ${
+                              qualification.effectif === opt.value
+                                ? "border-accent bg-accent/10 text-accent font-semibold"
+                                : "border-border/50 text-foreground/70 hover:border-accent/40"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Q2 — Odoo */}
+                    <div className="space-y-1.5">
+                      <p className="text-[12px] font-medium text-foreground font-body">
+                        2. Utilisez-vous le logiciel Odoo ?
+                      </p>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {([
+                          { value: "oui", label: "Oui" },
+                          { value: "en_projet", label: "En projet" },
+                          { value: "non", label: "Non" },
+                        ] as const).map((opt) => (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => setQualification((q) => ({ ...q, utilise_odoo: opt.value }))}
+                            className={`px-3 py-2 rounded-lg border text-[12px] font-body transition-colors ${
+                              qualification.utilise_odoo === opt.value
+                                ? "border-accent bg-accent/10 text-accent font-semibold"
+                                : "border-border/50 text-foreground/70 hover:border-accent/40"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Q3 — Fonction */}
+                    <div className="space-y-1.5">
+                      <p className="text-[12px] font-medium text-foreground font-body">
+                        3. Quelle est votre fonction ?
+                      </p>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {([
+                          { value: "dirigeant", label: "Dirigeant / Gérant" },
+                          { value: "daf", label: "Directeur financier" },
+                          { value: "comptable", label: "Comptable" },
+                          { value: "autre", label: "Autre" },
+                        ] as const).map((opt) => (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => setQualification((q) => ({ ...q, fonction: opt.value }))}
+                            className={`px-3 py-2 rounded-lg border text-[12px] font-body transition-colors ${
+                              qualification.fonction === opt.value
+                                ? "border-accent bg-accent/10 text-accent font-semibold"
+                                : "border-border/50 text-foreground/70 hover:border-accent/40"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2 pt-1">
+                      <Button
+                        variant="accent"
+                        className="flex-1 rounded-full text-[13px]"
+                        disabled={isLoading}
+                        onClick={async () => {
+                          if (!leadId) { setStep("done"); return; }
+                          setIsLoading(true);
+                          try {
+                            const data: Record<string, unknown> = {};
+                            if (qualification.effectif) data.x_studio_effectif = qualification.effectif;
+                            if (qualification.utilise_odoo) data.x_studio_utilise_odoo = qualification.utilise_odoo;
+                            if (qualification.fonction) data.x_studio_fonction = qualification.fonction;
+
+                            // Classification ICP (Phase 2.1)
+                            const { effectif, fonction, utilise_odoo } = qualification;
+                            const effectifGte5 = effectif === "5-10" || effectif === "11-50" || effectif === "50+";
+                            const isDecideur = fonction === "dirigeant" || fonction === "daf";
+                            const usesOdoo = utilise_odoo === "oui" || utilise_odoo === "en_projet";
+
+                            let icpTag = "À vérifier";
+                            if (effectif === "<5") {
+                              icpTag = "Hors cible";
+                            } else if (effectifGte5 && isDecideur && usesOdoo) {
+                              icpTag = "ICP + Odoo";
+                            } else if (effectifGte5 && isDecideur) {
+                              icpTag = "ICP Prioritaire";
+                            }
+                            // "À vérifier" = infos incomplètes, comptable, autre
+
+                            data.tag_names = [icpTag];
+
+                            if (Object.keys(data).length > 0) {
+                              await updateLeadQualification(leadId, data);
+                              trackEvent("checklist_qualification");
+                            }
+                          } catch (err) {
+                            console.error("Erreur qualification:", err);
+                          } finally {
+                            setIsLoading(false);
+                            setStep("done");
+                          }
+                        }}
+                      >
+                        {isLoading ? <Loader2 size={14} className="animate-spin" /> : "Envoyer"}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="rounded-full text-[13px]"
+                        onClick={() => setStep("done")}
+                      >
+                        Passer →
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* ── ÉTAPE 3 : Confirmation ── */}
+                {step === "done" && (
                   <div className="text-center py-6">
                     <CheckCircle2 size={36} className="text-[hsl(145,63%,42%)] mx-auto mb-3" />
                     <h3 className="font-display text-[20px] text-foreground mb-1">Merci {form.prenom} !</h3>

@@ -387,6 +387,23 @@ export default function NewsroomArticlePage() {
                   </div>
                 )}
 
+                {/* Video embed */}
+                {article.videoUrl && (
+                  <div data-anim="fade-up" data-delay="0.035" className="mb-8">
+                    <div className="relative w-full overflow-hidden rounded-2xl border border-border/50" style={{ paddingBottom: "56.25%" }}>
+                      <iframe
+                        src={article.videoUrl}
+                        title="Finances connectée Marrakech Event"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Quote */}
                 {article.keyQuote && (
                   <div data-anim="fade-up" data-delay="0.04" className="mb-8 p-5 rounded-xl bg-secondary/50 border-l-4 border-accent relative">
