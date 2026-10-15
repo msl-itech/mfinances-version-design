@@ -170,7 +170,7 @@ export default function CalculateurQuotite() {
         precompte: typeof precompte === "number" ? precompte : 0,
       });
 
-      const fileName = `quotite-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.pdf`;
+      const fileName = `quotite-${crypto.randomUUID()}.pdf`;
       const { error: uploadError } = await supabase.storage
         .from("bail-pdfs")
         .upload(fileName, pdfBlob, { contentType: "application/pdf" });
