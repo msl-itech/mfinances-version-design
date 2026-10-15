@@ -1,14 +1,12 @@
 // Edge function: chatbot-stats
 // Returns aggregated chatbot analytics. Protected by ADMIN_DASHBOARD_PASSWORD.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { clientIp, corsFor, rateLimited, timingSafeEqual } from "../_shared/site-guard.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-admin-password",
-};
+
 
 Deno.serve(async (req) => {
+  const corsHeaders = corsFor(req);
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -16,7 +14,14 @@ Deno.serve(async (req) => {
   // Password gate
   const providedPassword = req.headers.get("x-admin-password") || "";
   const expectedPassword = Deno.env.get("ADMIN_DASHBOARD_PASSWORD") || "";
-  if (!expectedPassword || providedPassword !== expectedPassword) {
+  const ip = clientIp(req);
+  if (rateLimited(`stats:${ip}`, 20, 15 * 60 * 1000)) {
+    return new Response(JSON.stringify({ error: "Trop de tentatives" }), {
+      status: 429,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+  if (!expectedPassword || !timingSafeEqual(providedPassword, expectedPassword)) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), {
       status: 401,
       headers: { ...corsHeaders, "Content-Type": "application/json" },

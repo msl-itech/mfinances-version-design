@@ -271,7 +271,7 @@ ${BLOG_CATALOG_MARKDOWN}`;
         model: "google/gemini-3-flash-preview",
         messages: [
           { role: "system", content: systemPrompt },
-          ...messages.slice(-10),
+          ...messages.slice(-10).map((m: { role: string; content: string }) => ({ role: m.role === "assistant" ? "assistant" : "user", content: String(m.content ?? "").slice(0, 2000) })),
         ],
         stream: true,
       }),
@@ -304,7 +304,7 @@ ${BLOG_CATALOG_MARKDOWN}`;
   } catch (e) {
     console.error("chatbot error:", e);
     return new Response(
-      JSON.stringify({ error: e instanceof Error ? e.message : "Erreur inconnue" }),
+      JSON.stringify({ error: "Le service est momentanément indisponible." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
