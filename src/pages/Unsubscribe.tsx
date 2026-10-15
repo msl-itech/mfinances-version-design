@@ -21,14 +21,14 @@ export default function Unsubscribe() {
   useTilt(root, [mounted]);
 
   const [searchParams] = useSearchParams();
-  const token = searchParams.get("token");
+  const token = searchParams.get("token") || (typeof window !== "undefined" ? sessionStorage.getItem("unsubscribe_token") : null);
   const [status, setStatus] = useState<"loading" | "valid" | "already" | "invalid" | "success" | "error">("loading");
 
   useEffect(() => {
     if (!token) { setStatus("invalid"); return; }
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
     const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-    fetch(`${supabaseUrl}/functions/v1/handle-email-unsubscribe?token=${token}`, {
+    fetch(`${supabaseUrl}/functions/v1/handle-email-unsubscribe?token=${encodeURIComponent(token)}`, {
       headers: { apikey: anonKey },
     })
       .then((r) => r.json())
