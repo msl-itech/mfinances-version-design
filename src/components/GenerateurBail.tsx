@@ -321,7 +321,7 @@ export default function GenerateurBail() {
       });
 
       // 2. Upload to storage
-      const fileName = `bail-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.pdf`;
+      const fileName = `bail-${crypto.randomUUID()}.pdf`;
       const { error: uploadError } = await supabase.storage
         .from("bail-pdfs")
         .upload(fileName, pdfBlob, { contentType: "application/pdf" });
