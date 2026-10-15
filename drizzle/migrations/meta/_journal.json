@@ -15,6 +15,13 @@
       "when": 1790592055680,
       "tag": "0001_v32_avis_google",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792075050077,
+      "tag": "0002_secure_bail_pdfs",
+      "breakpoints": true
     }
   ]
 }
