@@ -1,11 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { BLOG_CATALOG_MARKDOWN } from "../_shared/blog-catalog.ts";
+import { clientIp, corsFor, isAllowedOrigin, rateLimited } from "../_shared/site-guard.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+let corsHeaders: Record<string, string> = {};
 
 // ── Valid internal routes (whitelist) ──
 const VALID_ROUTES = new Set([
@@ -205,8 +202,16 @@ Tu ne peux mentionner QUE ces montants. Tout autre prix est INTERDIT :
 Si le visiteur demande un prix personnalisé ou un devis → redirige vers [Réserver un diagnostic →](/diagnostic/) sans inventer de montant.`;
 
 serve(async (req) => {
+  corsHeaders = corsFor(req);
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
+  }
+  if (!isAllowedOrigin(req.headers.get("origin"))) {
+    return new Response(JSON.stringify({ error: "Origine non autorisée" }), { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+  }
+  const ip = clientIp(req);
+  if (rateLimited(`chat-min:${ip}`, 8, 60 * 1000) || rateLimited(`chat-day:${ip}`, 80, 24 * 60 * 60 * 1000)) {
+    return new Response(JSON.stringify({ error: "Vous avez envoyé beaucoup de messages. Merci de réessayer un peu plus tard ou de réserver un appel avec Mika." }), { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
   }
 
   try {
