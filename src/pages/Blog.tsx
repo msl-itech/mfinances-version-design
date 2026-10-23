@@ -251,6 +251,17 @@ export default function Blog() {
               </div>
 
               {/* Search */}
+              <nav aria-label="Guides pratiques pour dirigeants" className="mb-8 border-y border-border py-5">
+                <ul className="grid gap-3 md:grid-cols-2">
+                  {blogArticles.filter((article) => article.dateModified === "2026-10-23").map((article) => (
+                    <li key={article.slug}>
+                      <Link to={`/blog/${article.categorySlug}/${article.slug}/`} className="text-[14px] font-body text-foreground hover:underline">
+                        {article.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
               <div className="relative max-w-[480px] mx-auto mb-10">
                 <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                 <Input

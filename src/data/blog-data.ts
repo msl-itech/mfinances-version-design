@@ -7,6 +7,8 @@ export interface BlogArticle {
   categorySlug: string;
   published: boolean;
   date: string;
+  dateModified?: string;
+  canonical?: string;
   seoTitle?: string;
   metaDescription?: string;
   pillarPage?: string;
@@ -91,28 +93,32 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "anticiper-flux-tresorerie",
-    title: "Comment anticiper vos flux de trésorerie — et arrêter de subir vos finances",
+    title: "Prévisionnel de trésorerie : méthode sur 13 semaines",
     hook: "📅 Je découvre toujours mes problèmes de trésorerie lorsqu'il est déjà trop tard.",
-    excerpt: "Apprenez à anticiper vos besoins de trésorerie avant que les difficultés n'apparaissent.",
+    excerpt: "Construisez un prévisionnel de trésorerie sur 13 semaines : dates de paiement, TVA belge, scénarios et exemple chiffré pour repérer le point bas.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2025-08-18",
-    seoTitle: "Anticiper ses Flux de Trésorerie — Guide TPE",
-    metaDescription: "Tableau prévisionnel, scénarios financiers et outils pour anticiper vos besoins de trésorerie avant que les problèmes n'arrivent.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/tresorerie/anticiper-flux-tresorerie/",
+    seoTitle: "Prévisionnel de trésorerie : méthode sur 13 semaines",
+    metaDescription: "Construisez un prévisionnel de trésorerie sur 13 semaines : dates de paiement, TVA belge, scénarios et exemple chiffré pour repérer le point bas.",
   },
   // ── DAF EXTERNALISÉ (à venir) ──
   {
     slug: "daf-externalise-definition",
-    title: "C'est quoi un DAF externalisé — définition et rôle pour une TPE",
+    title: "DAF externalisé : rôle et missions pour une PME belge",
     hook: "🤯 J'ai l'impression de diriger mon entreprise au feeling.",
-    excerpt: "Comprenez comment un DAF externalisé vous apporte des chiffres fiables pour décider avec confiance.",
+    excerpt: "Comprenez le mandat d’un DAF externalisé en Belgique : livrables, décisions, exemple de recrutement et complémentarité avec l’expert-comptable.",
     category: "DAF externalisé",
     categorySlug: "daf-externalise",
     published: true,
     date: "2026-03-20",
-    seoTitle: "DAF Externalisé — Définition et Rôle pour TPE",
-    metaDescription: "DAF externalisé : définition, rôle, différence avec l'expert-comptable. Pourquoi les TPE en croissance en ont besoin et comment ça fonctionne concrètement.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/daf-externalise/daf-externalise-definition/",
+    seoTitle: "DAF externalisé : rôle et missions pour une PME belge",
+    metaDescription: "Comprenez le mandat d’un DAF externalisé en Belgique : livrables, décisions, exemple de recrutement et complémentarité avec l’expert-comptable.",
   },
   {
     slug: "quand-faire-appel-daf",
@@ -275,15 +281,17 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "creer-srl-belgique-2026",
-    title: "Créer une SRL en Belgique en 2026 — toutes les étapes",
+    title: "Créer une SRL en Belgique en 2026 : étapes et budget",
     hook: "🚀 Je veux créer ma société… mais je ne sais pas par où commencer.",
-    excerpt: "Découvrez toutes les étapes pour créer votre société en Belgique, de l'idée au lancement de votre activité.",
+    excerpt: "Préparez votre SRL en 2026 : financement initial, plan financier, notaire, BCE, TVA et facturation électronique. Exemple de budget belge.",
     category: "Création d'entreprise",
     categorySlug: "creation-societe",
     published: true,
     date: "2026-01-10",
-    seoTitle: "Créer une SRL en Belgique en 2026 — Toutes les Étapes",
-    metaDescription: "Guide complet pour créer une SRL en Belgique en 2026. Étapes, délais, coûts, documents requis. De l'acte notarié à la première déclaration TVA.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/creation-societe/creer-srl-belgique-2026/",
+    seoTitle: "Créer une SRL en Belgique en 2026 : étapes et budget",
+    metaDescription: "Préparez votre SRL en 2026 : financement initial, plan financier, notaire, BCE, TVA et facturation électronique. Exemple de budget belge.",
   },
   {
     slug: "cout-creation-societe-belgique",
@@ -413,15 +421,17 @@ export const blogArticles: BlogArticle[] = [
 
   {
     slug: "suis-je-rentable-tpe",
-    title: "Suis-je vraiment rentable ? Comment le savoir simplement pour une TPE",
+    title: "Rentabilité TPE belge : calcul et seuil de rentabilité",
     hook: "😟 Je travaille énormément… mais je ne sais pas si mon entreprise est vraiment rentable.",
-    excerpt: "Découvrez comment mesurer simplement la rentabilité réelle de votre entreprise.",
+    excerpt: "Calculez marge, charges fixes et seuil de rentabilité de votre TPE. Un exemple belge distingue résultat, rémunération du dirigeant et trésorerie.",
     category: "Contrôle de gestion",
     categorySlug: "controle-de-gestion",
     published: true,
     date: "2026-01-16",
-    seoTitle: "Suis-je Rentable ? 3 Questions Simples pour TPE",
-    metaDescription: "Vous travaillez beaucoup mais vous ne savez pas si votre entreprise est vraiment rentable ? 3 questions simples pour le savoir — sans jargon comptable.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/controle-de-gestion/suis-je-rentable-tpe/",
+    seoTitle: "Rentabilité TPE belge : calcul et seuil de rentabilité",
+    metaDescription: "Calculez marge, charges fixes et seuil de rentabilité de votre TPE. Un exemple belge distingue résultat, rémunération du dirigeant et trésorerie.",
     pillarPage: "/services/controle-de-gestion/",
   },
 
@@ -452,15 +462,17 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "bfr-recrutement-impact-tresorerie",
-    title: "Recruter en période de croissance — l'impact caché sur votre BFR et votre trésorerie",
+    title: "Recrutement en Belgique : prévoir le BFR et la trésorerie",
     hook: "👥 J'aimerais recruter… mais j'ai peur que ma trésorerie ne tienne pas.",
-    excerpt: "Découvrez l'impact financier d'un recrutement avant de prendre votre décision.",
+    excerpt: "Simulez le financement d’une embauche : coût employeur belge, montée en charge, délais clients et exemple sur quatre mois, sans double comptage.",
     category: "Trésorerie",
     categorySlug: "tresorerie",
     published: true,
     date: "2026-04-01",
-    seoTitle: "Recruter en TPE : l'impact caché sur votre BFR et votre trésorerie",
-    metaDescription: "Recruter augmente mécaniquement votre BFR. Le calcul que personne ne fait avant d'embaucher — et comment l'anticiper. MFinances, Bruxelles.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/tresorerie/bfr-recrutement-impact-tresorerie/",
+    seoTitle: "Recrutement en Belgique : prévoir le BFR et la trésorerie",
+    metaDescription: "Simulez le financement d’une embauche : coût employeur belge, montée en charge, délais clients et exemple sur quatre mois, sans double comptage.",
   },
   {
     slug: "seuil-de-rentabilite-multi-services",
@@ -518,15 +530,17 @@ export const blogArticles: BlogArticle[] = [
   // ── BUREAU À DOMICILE (articles) ──
   {
     slug: "calcul-bureau-a-domicile",
-    title: "Comment calculer la déduction bureau à domicile en Belgique (2026)",
+    title: "Bureau à domicile en Belgique : calcul de la part pro",
     hook: "📐 Je ne sais pas comment calculer la part déductible de mon bureau.",
-    excerpt: "Apprenez à calculer correctement votre déduction en respectant les règles fiscales belges.",
+    excerpt: "Calculez et documentez la part professionnelle de votre logement : surfaces, usage mixte et exemple de 90 m². Distinguez allocation et déduction.",
     category: "Fiscalité belge",
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-04-11",
-    seoTitle: "Calcul bureau à domicile Belgique 2026 — Méthode et exemples chiffrés",
-    metaDescription: "Comment calculer la déduction bureau à domicile en Belgique ? Méthode surfaces pondérées, exemple chiffré et rapport PDF gratuit. Cabinet MFinances Uccle.",
+    dateModified: "2026-10-23",
+    canonical: "https://mfinances-version-design.lovable.app/blog/fiscalite-belgique/calcul-bureau-a-domicile/",
+    seoTitle: "Bureau à domicile en Belgique : calcul de la part pro",
+    metaDescription: "Calculez et documentez la part professionnelle de votre logement : surfaces, usage mixte et exemple de 90 m². Distinguez allocation et déduction.",
   },
   {
     slug: "piece-usage-mixte-bureau",

@@ -1,0 +1,2 @@
+- Keep blog revisions in the existing article data files; opt-in rendering flags isolate editorial changes to selected articles.
+- Use page-specific editorial revision dates for Article dateModified and sitemap lastmod; never derive them from build time.
