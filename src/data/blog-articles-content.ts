@@ -15,6 +15,8 @@ export interface ArticleFaq {
 
 export interface ArticleBody {
   sections: ArticleSection[];
+  hideGeoFaqs?: boolean;
+  singleToc?: boolean;
   faq?: ArticleFaq[];
   ctaText?: string;
   ctaDescription?: string;

@@ -104,7 +104,8 @@ export default function BlogArticle() {
     );
   }
 
-  const relatedArticles = getPublishedArticlesByCategory(categorySlug!).filter((a) => a.slug !== articleSlug).slice(0, 3);
+  const relatedArticles = getPublishedArticlesByCategory(category.slug).filter((a) => a.slug !== articleSlug).slice(0, 3);
+  const canonical = article.canonical || `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`;
 
   // JSON-LD Article
   const articleLd = {
@@ -112,8 +113,9 @@ export default function BlogArticle() {
     "@type": "Article",
     "headline": article.seoTitle || article.title,
     "description": article.metaDescription || article.excerpt,
-    "url": `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`,
+    "url": canonical,
     "datePublished": article.date,
+    ...(article.dateModified ? { dateModified: article.dateModified } : {}),
     "author": { "@type": "Person", "name": "Mika Musungayi", "jobTitle": "Expert-comptable ITAA" },
     "publisher": { "@type": "Organization", "name": "MFinances", "url": "https://mfinances.be" },
   };
@@ -131,7 +133,7 @@ export default function BlogArticle() {
   };
 
   // Bloc GEO-citable (haut d'article) — pour LLMs (ChatGPT, Claude, Perplexity)
-  const geoFaqs = getArticleGeoFaqs(articleSlug);
+  const geoFaqs = content.hideGeoFaqs ? undefined : getArticleGeoFaqs(articleSlug);
 
   // JSON-LD FAQPage : on fusionne les Q/R GEO + FAQ de fin d'article
   const allFaqs = [
@@ -175,7 +177,7 @@ export default function BlogArticle() {
     return items;
   });
 
-  const shareUrl = `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`;
+  const shareUrl = canonical;
   const shareTitle = article.seoTitle || article.title;
 
   return (
@@ -183,8 +185,8 @@ export default function BlogArticle() {
       <SEOHead
         title={article.seoTitle || `${article.title} — MFinances Bruxelles`}
         description={article.metaDescription || article.excerpt}
-        canonical={`https://mfinances.be/blog/${categorySlug}/${articleSlug}/`}
-        ogImage={categoryHeroImages[categorySlug!]}
+        canonical={canonical}
+        ogImage={categoryHeroImages[category.slug]}
         schemaJson={schemas}
       />
       <Header />
@@ -275,7 +277,7 @@ export default function BlogArticle() {
             <div className="lg:flex lg:gap-10">
 
               {/* ── TOC SIDEBAR (desktop) ── */}
-              {tocItems.length > 2 && (
+              {tocItems.length > 2 && !content.singleToc && (
                 <aside className="hidden lg:block w-[220px] flex-shrink-0">
                   <div className="sticky top-[88px] max-h-[calc(100vh-100px)] overflow-y-auto">
                     <div className="flex items-center gap-2 mb-4">
@@ -359,15 +361,16 @@ export default function BlogArticle() {
 
                 {/* ── TOC COLLAPSIBLE (mobile) ── */}
                 {tocItems.length > 2 && (
-                  <div data-anim="fade-up" className="lg:hidden mb-8">
-                    <button
+                  <div data-anim="fade-up" className={content.singleToc ? "mb-8" : "lg:hidden mb-8"}>
+                    <Button variant="ghost"
                       onClick={() => setTocOpen(!tocOpen)}
+                      aria-expanded={tocOpen}
                       className="flex items-center gap-2 w-full text-left py-3 px-4 bg-secondary/50 border border-border/60 rounded-xl hover:bg-secondary/70 transition-colors"
                     >
                       <List size={16} className="text-accent flex-shrink-0" />
                       <span className="font-display text-[15px] text-foreground flex-1">Sommaire</span>
                       <ChevronUp size={16} className={`text-muted-foreground transition-transform duration-200 ${tocOpen ? "" : "rotate-180"}`} />
-                    </button>
+                    </Button>
                     {tocOpen && (
                       <nav className="mt-2 py-3 px-4 bg-secondary/30 border border-border/40 rounded-xl">
                         <ul className="space-y-1.5">
