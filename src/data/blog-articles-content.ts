@@ -33,7 +33,7 @@ export const articleContent: Record<string, ArticleBody> = {
       {
         heading: "Le paradoxe que personne ne vous explique",
         paragraphs: [
-          "Vous avez clôturé le mois avec un bénéfice positif. Et pourtant, en fin de semaine, votre compte bancaire est dans le rouge.",
+          "Vous avez clôturé le mois avec un bénéfice positif. Et pourtant, en fin de semaine, votre compte bancaire est dans le rouge. Pour dater les risques, construisez un [prévisionnel de trésorerie sur treize semaines](/blog/tresorerie/anticiper-flux-tresorerie/).",
           "C'est le paradoxe le plus courant chez les dirigeants de TPE en croissance — et l'un des plus mal compris. Pas parce que vous êtes mauvais gestionnaire. Parce que bénéfice et trésorerie sont deux choses fondamentalement différentes, et qu'on ne vous l'a jamais expliqué clairement.",
         ],
       },
@@ -241,139 +241,109 @@ export const articleContent: Record<string, ArticleBody> = {
     ],
   },
   "anticiper-flux-tresorerie": {
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        heading: "Réactif ou proactif — deux façons de gérer sa trésorerie",
-        paragraphs: [
-          "Le dirigeant réactif découvre ses problèmes de trésorerie quand ils arrivent. Il jongle, il négocie des délais, il cherche des solutions en urgence. Le dirigeant proactif voit ses problèmes 3 mois à l'avance. Il a le temps de négocier, d'ajuster, de planifier. La différence tient à un seul outil : le [prévisionnel de trésorerie](/services/tresorerie/).",
-        ],
+        "heading": "Un prévisionnel de treize semaines pour décider à temps",
+        "paragraphs": [
+          "Anticiper les flux de trésorerie consiste à placer les encaissements et les décaissements à leurs dates probables, puis à calculer le solde bancaire après chaque période. Une vue glissante sur treize semaines permet à une TPE belge de repérer une tension avant qu'elle n'arrive. Ce n'est ni un budget de bénéfice ni une promesse de précision absolue. Le but est de préparer des décisions concrètes : relance client, date d'investissement, acompte à négocier ou besoin de financement à discuter avec la banque.",
+          "Commencez par le solde réellement disponible à une date donnée. Séparez les comptes qui appartiennent à l'entreprise des fonds privés et identifiez les montants indisponibles ou réservés à un engagement connu. Une ligne de crédit autorisée peut figurer à part, avec ses conditions ; elle ne doit pas être présentée comme un encaissement commercial. Les virements entre deux comptes de l'entreprise ne sont pas une nouvelle recette. Cette préparation évite de produire un tableau positif fondé sur des ressources comptées deux fois.",
+          "Les premières données sont simples : factures clients ouvertes, factures fournisseurs à payer, paie, échéancier bancaire et calendrier fiscal réel. Le [suivi de trésorerie prévisionnelle](/services/tresorerie/) organise ensuite leur actualisation. Treize semaines constituent un horizon de travail, pas un seuil réglementaire belge. Une activité saisonnière ou un investissement long exige aussi une vue annuelle. La projection courte aide à protéger les échéances prochaines ; la projection longue explique si le modèle peut durablement financer son fonctionnement et ses projets."
+        ]
       },
       {
-        heading: "Qu'est-ce qu'un prévisionnel de trésorerie ?",
-        paragraphs: [
-          "Un prévisionnel de trésorerie est un tableau qui projette, semaine par semaine ou mois par mois, l'ensemble de vos encaissements attendus et de vos décaissements prévus — sur 3 à 12 mois. Il part de vos données réelles : contrats signés, factures émises, charges fixes connues, échéances fiscales planifiées. Il est mis à jour régulièrement — idéalement chaque mois.",
-        ],
+        "heading": "Construire le tableau avec des dates et des hypothèses visibles",
+        "paragraphs": [
+          "Pour chaque semaine, utilisez : solde d'ouverture + encaissements − décaissements = solde de clôture. Ce solde devient l'ouverture de la semaine suivante. Ajoutez une colonne de date prévue, une source et un degré de certitude aux lignes importantes. Une facture client acceptée avec un historique de règlement fiable ne présente pas le même risque qu'une proposition commerciale non signée. Ne multipliez pas systématiquement chaque contrat possible par une probabilité pour financer des dépenses certaines : un encaissement bancaire arrive entier ou n'arrive pas.",
+          "Construisez plutôt un scénario de base avec les recettes plausibles et un scénario dégradé qui décale ou retire les recettes incertaines. Les charges contractuelles restent positionnées à leur échéance, sauf accord effectif pour les modifier. Un report fournisseur imaginé n'est pas un financement acquis. Les dépenses discrétionnaires, comme une formation ou un nouvel équipement non commandé, peuvent être présentées à part. Vous saurez alors quelle décision protège le solde et quel engagement reste incontournable malgré une baisse des ventes.",
+          "Pour les clients, examinez date de facture, conditions de paiement, réception et comportement habituel. Pour les fournisseurs, partez des factures et des commandes déjà engagées. Le [BFR, sa formule et ses composantes](/blog/tresorerie/bfr-definition-formule-tpe/) explique pourquoi stocks et créances immobilisent de l'argent. Mais le prévisionnel va plus loin : il traduit les postes du bilan en dates bancaires. Une réduction de créances annoncée ne soulage la trésorerie que lorsque les clients ont effectivement payé ou qu'un financement apporte les fonds."
+        ]
       },
       {
-        heading: "Les trois erreurs qui rendent le prévisionnel inutile",
-        paragraphs: [
-          "Erreur 1 — Le construire une fois et ne jamais le mettre à jour. Un prévisionnel statique est inutile après 6 semaines. La réalité diverge toujours des prévisions — l'intérêt est de mettre à jour régulièrement pour garder une vision précise des semaines à venir.",
-          "Erreur 2 — N'inclure que les éléments certains. Un bon prévisionnel inclut aussi les éléments probables avec leur probabilité estimée. Un contrat à 80 % de chance d'être signé mérite d'apparaître — avec une note de probabilité.",
-          "Erreur 3 — Ne pas modéliser les scénarios. Le prévisionnel de base montre le scénario central. Mais un bon prévisionnel inclut aussi un scénario pessimiste — que se passe-t-il si mon plus gros client paie avec 30 jours de retard ?",
-        ],
+        "heading": "Exemple chiffré : un atelier à Charleroi",
+        "paragraphs": [
+          "Prenons un atelier fictif avec 18 000 € disponibles au début de la première semaine. Les encaissements prévus des quatre premières semaines sont respectivement 6 000 €, 4 000 €, 10 000 € et 7 000 €. Les décaissements sont 8 000 €, 9 000 €, 6 000 € et 8 000 €. Les soldes de clôture sont donc 16 000 €, 11 000 €, 15 000 € et 14 000 €. Ce scénario semble supportable, mais il ne dit pas encore ce qui se passe si une recette majeure arrive plus tard que prévu.",
+          "Dans le scénario dégradé, les 10 000 € de la troisième semaine sont reportés à la cinquième. Le solde de clôture de la semaine trois tombe à 5 000 €, puis à 4 000 € en semaine quatre. Si une facture fiscale de 6 000 € déjà due doit également être payée en semaine quatre et n'avait pas été intégrée au tableau initial, le solde descend à moins 2 000 €. Le problème est autant l'oubli d'une échéance que le retard client. Le scénario corrigé doit conserver cette dépense dans toutes les hypothèses applicables.",
+          "Le dirigeant dispose alors de plusieurs pistes à examiner avant l'échéance : demander un règlement partiel de la créance, décaler un achat encore non engagé ou solliciter une solution de financement. Une relance peut échouer ; la banque peut refuser. Il faut donc dater les actions et conserver une alternative. Dans cet exemple, retarder un achat facultatif de 3 000 € ramènerait le solde minimal à 1 000 €, ce qui reste étroit. Le niveau de réserve souhaité dépend des risques de l'atelier, pas d'une règle universelle."
+        ]
       },
       {
-        heading: "Les périodes critiques à anticiper en Belgique",
-        paragraphs: ["Voici les moments de l'année où la trésorerie est sous pression :"],
-        list: [
-          "Janvier-mars : cotisations sociales des indépendants, acomptes d'impôt",
-          "Avril-juin : TVA du premier trimestre, charges sociales, premières échéances fiscales",
-          "Septembre-octobre : rentrée avec recrutements et investissements",
-          "Décembre : treizième mois, primes, clôture comptable, pré-paiement TVA",
-        ],
+        "heading": "Intégrer correctement TVA, paie et investissements en Belgique",
+        "paragraphs": [
+          "Le taux normal de TVA belge est de 21 %, avec des taux réduits ou exemptions selon les opérations. Pour une facture de 5 000 € HTVA au taux normal, le client paie 6 050 € ; c'est ce montant qui entre en banque. Le tableau doit également intégrer la TVA nette à payer ou à récupérer selon la déclaration et son échéance réelle. Le [SPF Finances décrit les déclarations périodiques](https://finances.belgium.be/fr/entreprises/tva/declaration/declaration_periodique). Ne copiez pas automatiquement un ancien calendrier fiscal : le régime mensuel ou trimestriel et les règles applicables modifient les dates.",
+          "Pour la paie, distinguez les paiements nets, le précompte professionnel, les cotisations et les autres éléments du coût employeur, en accord avec les échéances communiquées par le secrétariat social. Les primes sectorielles, pécules et assurances éventuelles doivent être planifiés sans appliquer un coefficient unique à tous les salariés. Un budget annuel moyen peut sembler exact tout en masquant un mois particulièrement chargé. Si vous envisagez une embauche, la [simulation de trésorerie avant recrutement](/blog/tresorerie/bfr-recrutement-impact-tresorerie/) aide à ajouter montée en charge, équipement et délais clients.",
+          "Les investissements et emprunts suivent aussi leurs dates bancaires. Un amortissement comptable n'est pas un paiement de la semaine ; un remboursement du principal consomme du cash sans être une charge du résultat de la même façon. L'article sur la [différence entre bénéfice et trésorerie](/blog/tresorerie/tresorerie-vs-benefices/) évite ces confusions. Lorsque la TVA sur un investissement est récupérable, son remboursement ne doit pas être placé arbitrairement le jour de l'achat : il faut retenir une hypothèse de délai explicitée et tester ce qui arrive si les fonds tardent."
+        ]
       },
       {
-        heading: "Odoo comme outil d'anticipation",
-        paragraphs: [
-          "Intégré correctement, Odoo permet de synchroniser votre prévisionnel avec vos données réelles en temps quasi-réel. C'est l'approche que MFinances met en place pour ses clients Excellence — un prévisionnel actualisé chaque mois, discuté lors de la réunion de pilotage mensuelle.",
-        ],
-        relatedLinks: [
-          { text: "Notre accompagnement en trésorerie prévisionnelle", link: "/services/tresorerie/" },
-          { text: "À lire aussi : bénéfice n'est pas trésorerie", link: "/blog/tresorerie/tresorerie-vs-benefices/" },
-          { text: "Diagnostic financier gratuit", link: "/diagnostic/" },
-        ],
-      },
+        "heading": "Mettre à jour et piloter les écarts chaque semaine",
+        "paragraphs": [
+          "À la fin de chaque semaine, remplacez les prévisions écoulées par les mouvements réels, rapprochez le solde de la banque et ajoutez une nouvelle semaine à l'horizon. Expliquez les écarts importants : paiement reporté, facture oubliée, montant différent ou dépense nouvelle. Un retard ne disparaît pas du tableau ; il est repositionné avec une nouvelle hypothèse. Les recettes définitivement perdues doivent être retirées. Cette discipline évite que le prévisionnel reste artificiellement favorable alors que les mouvements observés racontent autre chose.",
+          "Fixez un seuil d'alerte propre à votre activité, par exemple une réserve permettant de couvrir les prochaines dépenses incontournables, et indiquez les semaines qui le franchissent. Analysez le point bas, pas uniquement le solde final du trimestre. Une entreprise peut terminer la période avec de l'argent et néanmoins manquer une échéance intermédiaire. Pour préparer la discussion avec votre prêteur, le [guide du BFR dans un dossier bancaire](/blog/tresorerie/bfr-dossier-bancaire-credit-tpe/) aide à présenter les causes du besoin, sa durée et les mesures envisagées.",
+          "Enfin, un logiciel ne rend pas les hypothèses fiables par lui-même. La synchronisation bancaire facilite le rapprochement ; les dates de paiement futures nécessitent encore du jugement et des échanges commerciaux. Désignez un responsable des données et un responsable des décisions, même si c'est la même personne dans une petite structure. Un tableau court revu régulièrement, avec des actions datées, a davantage de valeur qu'une prévision annuelle très détaillée qui n'est plus confrontée au réel après sa création."
+        ]
+      }
     ],
-    faq: [
-      {
-        question: "Comment créer un tableau de trésorerie prévisionnel ?",
-        answer: "Listez toutes vos charges fixes mensuelles. Ajoutez les charges variables prévisibles. Projetez vos encaissements attendus en vous basant sur vos contrats en cours et votre historique. La différence entre encaissements et décaissements chaque mois donne votre solde prévisionnel. Mettez à jour chaque mois avec les données réelles.",
-      },
-      {
-        question: "À quelle fréquence mettre à jour son prévisionnel ?",
-        answer: "Idéalement chaque mois, avec les données réelles du mois écoulé. Pour les entreprises avec des flux importants, un suivi hebdomadaire est recommandé pour les 4 à 6 semaines à venir.",
-      },
-      {
-        question: "Quels outils utiliser pour gérer sa trésorerie en Belgique ?",
-        answer: "Pour une TPE débutante : un tableau Excel bien structuré suffit. Pour une TPE en croissance : un ERP comme Odoo permet une synchronisation automatique des données et une vision en temps réel.",
-      },
-    ],
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
   "daf-externalise-definition": {
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        heading: "Définition simple en 3 phrases",
-        paragraphs: [
-          "Un [DAF externalisé](/services/daf-externalise/) est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise — analyse des performances, aide à la décision, modélisation financière — sans les coûts d'un recrutement en interne. Il se situe à mi-chemin entre la finance et les opérations.",
-        ],
+        "heading": "DAF externalisé : une mission de pilotage, pas un titre magique",
+        "paragraphs": [
+          "Un directeur administratif et financier externalisé intervient dans une entreprise sans être son salarié à temps plein. Son mandat consiste à organiser l'information financière, analyser les résultats et préparer les décisions du dirigeant. Pour une TPE belge, la question n'est donc pas simplement « faut-il un DAF ? », mais « quelles décisions devons-nous mieux préparer ? ». Une embauche, une nouvelle activité ou une demande de crédit peut justifier une intervention ciblée, même sans grande équipe financière.",
+          "La mission n'a pas de seuil légal de chiffre d'affaires ni de durée standard. Elle doit préciser les données accessibles, les livrables attendus, la fréquence des échanges et les responsabilités de chacun. Le dirigeant conserve ses décisions et la responsabilité de gestion. Le prestataire apporte une méthode et une lecture critique ; il ne garantit ni financement bancaire ni croissance. Notre [accompagnement en DAF externalisé](/services/daf-externalise/) permet de cadrer ce travail en fonction du besoin réel, plutôt que de commencer par une liste d'indicateurs.",
+          "L'expert-comptable et le DAF ne s'opposent pas. Un expert-comptable peut aussi conseiller et construire des prévisions, selon sa lettre de mission. La différence se situe dans le travail explicitement confié : produire une comptabilité fiable, préparer les obligations et animer le pilotage sont des tâches complémentaires. Le dirigeant doit savoir qui réalise chacune d'elles. Le [comparatif entre DAF externalisé et expert-comptable](/blog/daf-externalise/daf-externalise-vs-expert-comptable/) aide à éviter de payer deux fois une prestation ou de laisser une responsabilité sans interlocuteur."
+        ]
       },
       {
-        heading: "Ce que fait un DAF — et ce que ne fait pas un expert-comptable",
-        paragraphs: [
-          "L'expert-comptable produit, certifie et optimise vos chiffres. Le DAF les utilise pour vous aider à décider. L'un regarde le passé et le présent, l'autre regarde le présent et l'avenir.",
-          "Concrètement, votre expert-comptable vous dit combien vous avez gagné le trimestre dernier. Votre DAF externalisé vous dit si vous pouvez recruter au trimestre prochain, si votre marge par client est suffisante, ou si votre mode de financement est le bon.",
-          "Les deux sont complémentaires. Mais l'un ne remplace pas l'autre — et beaucoup de dirigeants de TPE font l'erreur de demander à leur comptable un rôle de DAF qu'il n'a ni le temps ni le mandat d'assumer.",
-        ],
+        "heading": "Les livrables à demander dès le premier mois",
+        "paragraphs": [
+          "Un premier livrable utile est une situation mensuelle rapprochée de la banque. Le chiffre d'affaires doit être distingué des encaissements ; les factures fournisseurs manquantes, les avoirs et les charges à rattacher doivent être identifiés. Une marge séduisante calculée sur des dépenses incomplètes ne constitue pas une base de décision. Le DAF demande donc comment les données sont produites et avec quel délai, avant de proposer un tableau de bord. Cette phase de fiabilisation peut être plus importante que le choix d'un logiciel.",
+          "Le deuxième livrable est une analyse par activité ou par client. Dans une entreprise de services, les heures réellement consommées, la sous-traitance et les frais de déplacement éclairent la rentabilité d'un contrat. Dans un commerce, achats, pertes et remises changent la contribution de chaque gamme. Le [pilotage de votre rentabilité](/services/controle-de-gestion/) doit rendre visibles ces différences sans confondre chiffre d'affaires et valeur créée. Une activité très vendue peut absorber le temps de l'équipe et laisser peu de moyens pour payer la structure.",
+          "Le troisième livrable est un prévisionnel de trésorerie avec des dates de paiement crédibles. Les salaires, les échéances fiscales, les remboursements de crédit et les investissements y figurent au moment où l'argent sort. Les clients y apparaissent à leur date probable de règlement, pas seulement à la date de facturation. Un tableau mensuel explique la trajectoire ; une vue hebdomadaire permet de détecter une difficulté entre deux fins de mois. Il faut également une personne responsable de la mise à jour, faute de quoi le document vieillit rapidement."
+        ]
       },
       {
-        heading: "Les 5 situations où un DAF externalisé fait la différence",
-        paragraphs: [
-          "1. Vous préparez un investissement important — Le DAF modélise l'impact sur votre trésorerie, compare les modes de financement et vous aide à prendre une décision éclairée. Sans lui, vous décidez au feeling.",
-          "2. Vous négociez avec votre banque — Le DAF prépare le dossier, construit le prévisionnel, et vous accompagne dans la négociation. Il parle le même langage que votre banquier.",
-          "3. Votre croissance accélère — Plus vous grandissez, plus la complexité financière augmente. Le DAF structure votre pilotage pour que la croissance ne devienne pas un piège de trésorerie.",
-          "4. Vous devez restructurer vos coûts — Le DAF analyse vos marges par produit, par client, par canal. Il identifie ce qui est rentable et ce qui ne l'est pas — avec des données, pas des intuitions.",
-          "5. Vous préparez une cession ou une levée de fonds — Le DAF structure vos chiffres pour les rendre lisibles par un investisseur ou un acquéreur. Il valorise votre entreprise et prépare la data room.",
-        ],
+        "heading": "Exemple : une PME bruxelloise hésite à recruter",
+        "paragraphs": [
+          "Prenons un cas pédagogique, et non un résultat client : une société de services à Bruxelles facture 50 000 € HTVA par mois. Ses coûts directement liés aux prestations atteignent 20 000 € ; sa contribution est donc de 30 000 €, soit 60 % du chiffre d'affaires. Ses charges de structure s'élèvent à 26 000 €, rémunération de direction comprise dans cette hypothèse. Son résultat opérationnel simplifié est de 4 000 €. Cela ne signifie pas qu'elle possède 4 000 € supplémentaires en banque à la fin du mois.",
+          "Un nouveau collaborateur représenterait un budget employeur complet estimé à 4 500 € mensuels, à confirmer par le secrétariat social. Sans nouvelle activité, le résultat simplifié passerait à moins 500 €. À marge constante de 60 %, il faut 7 500 € de chiffre d'affaires supplémentaire pour couvrir ce coût : 4 500 ÷ 0,60. Ce calcul suppose que les frais de structure restants ne changent pas et que l'entreprise peut effectivement livrer les prestations supplémentaires. Il n'inclut pas encore équipement, formation ni délai de paiement.",
+          "Si cette personne permet de facturer 9 000 € supplémentaires chaque mois à pleine capacité, la contribution attendue est de 5 400 €, laissant 900 € après son coût mensuel. Mais une montée en charge progressive et des clients payant deux mois plus tard peuvent créer un creux bancaire. Le DAF compare alors plusieurs dates d'embauche et modalités de facturation. L'article consacré à [l'impact d'un recrutement sur le BFR et la trésorerie](/blog/tresorerie/bfr-recrutement-impact-tresorerie/) détaille cette différence entre rentabilité future et financement immédiat."
+        ]
       },
       {
-        heading: "DAF externalisé vs DAF en interne — comparatif coût / bénéfice",
-        paragraphs: [
-          "Un DAF salarié en Belgique coûte entre 80 000 € et 120 000 € par an (charges comprises). Pour une TPE de 5 à 30 personnes, c'est rarement justifiable à temps plein.",
-          "Un DAF externalisé intervient 1 à 4 jours par mois, pour un budget de 1 500 € à 4 000 € mensuels selon l'intensité de la mission. Vous accédez à la même expertise stratégique, sans le coût fixe d'un recrutement.",
-          "L'autre avantage : le DAF externalisé a une vision multi-entreprises. Il a vu des dizaines de situations similaires à la vôtre. Cette expérience transversale est un atout que même un DAF salarié expérimenté n'a pas toujours.",
-        ],
+        "heading": "Ce qui doit être adapté au contexte belge",
+        "paragraphs": [
+          "En Belgique, la TVA ne doit pas être assimilée à une marge. Le taux normal est de 21 %, avec d'autres taux ou exonérations selon l'opération. Une facture de 10 000 € HTVA au taux normal comporte 2 100 € de TVA ; le montant de 12 100 € encaissé n'est donc pas entièrement un revenu disponible pour rémunérer l'activité. Le [SPF Finances présente les taux de TVA applicables](https://finances.belgium.be/fr/entreprises/tva/taux). Le pilotage distingue résultat hors TVA et flux bancaires toutes taxes comprises lorsque cela s'applique.",
+          "Le coût d'un salarié belge ne se réduit pas au salaire brut multiplié par un coefficient universel. Le statut, la commission paritaire, les cotisations, les avantages, les vacances et les éventuelles réductions changent le budget. Le DAF doit travailler avec une simulation du secrétariat social et séparer dépenses certaines, provisions et hypothèses. Il en va de même pour les délais fiscaux : on utilise les échéances réellement applicables au dossier et on actualise le calendrier, plutôt que de recopier une liste générique d'une année précédente.",
+          "Une PME qui prépare un investissement gagne aussi à distinguer amortissement et remboursement. Dans un exemple simplifié, une machine de 30 000 € amortie sur cinq ans représente 6 000 € de charge annuelle, mais un achat comptant consomme immédiatement 30 000 € de trésorerie. Le financement modifie le calendrier bancaire et ajoute des intérêts ; il ne rend pas l'investissement gratuit. Une [prévision des flux de trésorerie sur treize semaines](/blog/tresorerie/anticiper-flux-tresorerie/) permet de tester la capacité à absorber cet achat avant de signer."
+        ]
       },
       {
-        heading: "Pour qui c'est pertinent — et pour qui ça ne l'est pas encore",
-        paragraphs: [
-          "Le DAF externalisé est pertinent si votre chiffre d'affaires dépasse 500 000 €, si vous avez des décisions d'investissement ou de financement à prendre, ou si votre croissance génère une complexité financière que vous ne maîtrisez plus seul.",
-          "Il n'est pas encore nécessaire si vous êtes en phase de lancement, si votre structure de coûts est simple, ou si votre expert-comptable couvre déjà vos besoins de pilotage. Dans ce cas, un bon suivi de trésorerie mensuel suffit — et c'est exactement ce que MFinances propose dans ses forfaits.",
-        ],
-        relatedLinks: [
-          { text: "En savoir plus sur le DAF externalisé", link: "/services/daf-externalise/" },
-          { text: "À lire aussi : quand faire appel à un DAF ?", link: "/blog/daf-externalise/quand-faire-appel-daf/" },
-          { text: "Diagnostic financier gratuit", link: "/diagnostic/" },
-        ],
-      },
+        "heading": "Choisir une mission mesurable plutôt qu'une promesse",
+        "paragraphs": [
+          "Avant de demander un devis, réunissez balance comptable récente, factures ouvertes, échéancier des emprunts, contrats majeurs et budget de rémunération. Notez trois décisions à préparer dans les prochains mois. Demandez ensuite quels documents seront remis, à quelle fréquence et quelles données vous devrez fournir. Un tableau de bord court, discuté et suivi d'actions datées apporte généralement davantage qu'un rapport volumineux sans responsable. Le prix dépend du périmètre ; les exemples ci-dessus ne constituent ni un tarif de mission ni une estimation salariale officielle.",
+          "Après quelques cycles, évaluez la mission sur des critères observables : délai de clôture réduit, écarts expliqués, impayés identifiés, décisions documentées et projection de trésorerie tenue à jour. Ne lui attribuez pas automatiquement toutes les variations du résultat : marché, saisonnalité et décisions commerciales influencent aussi les chiffres. Le bon mandat rend ces facteurs compréhensibles. Cette démarche permet de conserver un niveau d'accompagnement proportionné, de renforcer la mission pendant un projet sensible et de l'alléger lorsque l'organisation devient autonome."
+        ]
+      }
     ],
-    faq: [
-      {
-        question: "C'est quoi un DAF externalisé ?",
-        answer: "Un DAF externalisé est un Directeur Administratif et Financier qui intervient à temps partiel dans votre entreprise. Il assure le pilotage financier stratégique — analyse de rentabilité, prévisionnel de trésorerie, aide à la décision d'investissement — sans les coûts d'un salarié à temps plein.",
-      },
-      {
-        question: "Combien coûte un DAF externalisé en Belgique ?",
-        answer: "Entre 1 500 € et 4 000 € par mois selon l'intensité de la mission (1 à 4 jours par mois). C'est 3 à 5 fois moins cher qu'un DAF salarié, pour une expertise équivalente adaptée à la taille de votre entreprise.",
-      },
-      {
-        question: "Quelle différence entre DAF externalisé et expert-comptable ?",
-        answer: "L'expert-comptable produit et certifie vos comptes — il regarde le passé. Le DAF externalisé utilise vos chiffres pour vous aider à décider — il regarde l'avenir. Les deux sont complémentaires, mais leurs missions sont fondamentalement différentes.",
-      },
-      {
-        question: "Mon entreprise est-elle assez grande pour un DAF ?",
-        answer: "Le DAF externalisé est pertinent dès que votre chiffre d'affaires dépasse 500 000 € ou que vous faites face à des décisions financières complexes (investissement, financement, restructuration). En dessous, un bon suivi de trésorerie mensuel avec votre expert-comptable suffit généralement.",
-      },
-    ],
-    ctaText: "Besoin d'un DAF à temps partiel ?",
-    ctaDescription: "Premier échange gratuit — nous évaluons vos besoins de pilotage financier.",
-    ctaLink: "/services/daf-externalise/",
-    ctaLabel: "Découvrir notre service DAF externalisé",
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
   "quand-faire-appel-daf": {
     sections: [
       {
         paragraphs: [
-          "Beaucoup de dirigeants de TPE sentent qu'ils ont besoin d'un regard financier plus stratégique — mais ne savent pas si c'est le bon moment. Voici les 6 signaux qui indiquent que votre entreprise est prête pour un [DAF externalisé](/services/daf-externalise/).",
+          "Beaucoup de dirigeants de TPE sentent qu'ils ont besoin d'un regard financier plus stratégique — mais ne savent pas si c'est le bon moment. Voici les 6 signaux qui indiquent que votre entreprise est prête pour un [DAF externalisé](/services/daf-externalise/). Pour préciser le mandat, consultez la [définition du DAF externalisé pour une PME belge](/blog/daf-externalise/daf-externalise-definition/).",
         ],
       },
       {
@@ -599,7 +569,7 @@ export const articleContent: Record<string, ArticleBody> = {
     sections: [
       {
         paragraphs: [
-          "Vous n'avez pas besoin de 50 indicateurs. Vous avez besoin de 5 KPIs bien choisis, suivis chaque mois dans un vrai [contrôle de gestion pour TPE](/services/controle-de-gestion/), qui vous disent l'essentiel sur la santé financière de votre entreprise.",
+          "Vous n'avez pas besoin de 50 indicateurs. Vous avez besoin de 5 KPIs bien choisis, suivis chaque mois dans un vrai [contrôle de gestion pour TPE](/services/controle-de-gestion/), qui vous disent l'essentiel sur la santé financière de votre entreprise. Pour interpréter vos chiffres ensemble, utilisez la [méthode de calcul de rentabilité d’une TPE belge](/blog/controle-de-gestion/suis-je-rentable-tpe/).",
         ],
       },
       {
@@ -963,7 +933,7 @@ export const articleContent: Record<string, ArticleBody> = {
     sections: [
       {
         paragraphs: [
-          "SRL ou indépendant en personne physique ? C'est la première question que se pose tout entrepreneur belge au moment de la [création d'entreprise](/services/creation-entreprise/) — et la réponse a des conséquences fiscales et juridiques pendant des années.",
+          "SRL ou indépendant en personne physique ? C'est la première question que se pose tout entrepreneur belge au moment de la [création d'entreprise](/services/creation-entreprise/) — et la réponse a des conséquences fiscales et juridiques pendant des années. Une fois le statut choisi, suivez les [étapes de création d’une SRL en Belgique en 2026](/blog/creation-societe/creer-srl-belgique-2026/).",
         ],
       },
       {
@@ -1005,64 +975,53 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLabel: "Découvrir notre service création d'entreprise",
   },
   "creer-srl-belgique-2026": {
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        paragraphs: [
-          "Créer une SRL en Belgique en 2026 suit un processus structuré en 6 étapes. Avec un bon accompagnement, vous pouvez aller de la première réunion à la première facture en 2 à 4 semaines.",
-        ],
+        "heading": "Avant le notaire : valider le projet et les moyens de départ",
+        "paragraphs": [
+          "Créer une SRL en Belgique en 2026 demande plus qu'un numéro d'entreprise. Il faut vérifier la viabilité économique du projet, choisir les associés et organiser les obligations qui suivent la constitution. Ce guide suit l'ordre pratique du dossier : financement, acte, inscriptions puis préparation de l'exploitation. Il ne promet pas un délai identique pour tous. La disponibilité du notaire, le traitement bancaire, la nature des apports et les autorisations propres au secteur peuvent modifier le calendrier. Les exemples budgétaires sont pédagogiques et ne remplacent pas des devis.",
+          "La SRL n'a pas de capital minimum légal, mais les fondateurs doivent prévoir des capitaux propres de départ suffisants pour l'activité envisagée. « Sans capital minimum » ne signifie donc pas « sans financement ». Un indépendant qui passe en société doit aussi vérifier quels contrats, actifs et engagements seront transférés. Un projet comportant des stocks ou des paiements clients différés consomme davantage de liquidités qu'une activité payée à la commande. Le [choix entre SRL et activité en personne physique](/blog/creation-societe/srl-vs-independant-belgique/) doit précéder les formalités, pas être décidé uniquement sur une simulation d'impôt.",
+          "Le plan financier est remis au notaire avant la constitution et porte sur les deux premiers exercices. Il décrit notamment l'activité, les sources de financement, les bilans et comptes de résultats projetés ainsi que les hypothèses retenues. En cas de faillite dans les trois ans, la responsabilité des fondateurs peut être engagée si les moyens initiaux étaient manifestement insuffisants pour l'exercice normal de l'activité pendant au moins deux ans. Ce n'est pas une responsabilité automatique pour toute faillite. Le [guide notarial de la SRL](https://www.notaire.be/entreprendre/les-differentes-formes-juridiques-de-societe/la-srl-societe-responsabilite-limitee) explique cette distinction."
+        ]
       },
       {
-        heading: "Étape 1 — Le plan financier obligatoire",
-        paragraphs: [
-          "Document légalement requis, remis au notaire, il démontre la viabilité de votre projet sur 2 ans. Il engage votre responsabilité en cas de faillite dans les 3 ans. Honoraires MFinances : inclus dans le forfait 800 € HTVA.",
-        ],
+        "heading": "Construire un plan financier qui résiste aux hypothèses",
+        "paragraphs": [
+          "Le premier travail consiste à documenter le chiffre d'affaires : nombre de clients, prix hors TVA, fréquence des ventes et capacité de production. Une prévision de 120 000 € annuels doit pouvoir être traduite en commandes ou en journées facturables. Il faut ensuite distinguer dépenses variables, charges fixes, investissements et rémunération. Le [plan financier obligatoire en Belgique](/blog/creation-societe/plan-financier-obligatoire-belgique/) sert à justifier ces moyens, et non à produire une courbe optimiste destinée uniquement au rendez-vous chez le notaire.",
+          "Exemple fictif d'une SRL de conseil à Namur : frais de lancement et équipement estimés à 6 000 €, dépenses mensuelles de 5 000 € et premières recettes seulement après deux mois. Une enveloppe initiale de 10 000 € serait déjà consommée avant ces premières recettes, sans compter les 6 000 € de départ. Dans ce scénario volontairement simplifié, 16 000 € couvrent uniquement lancement et deux mois d'exploitation. Une marge de sécurité et les échéances fiscales doivent encore être examinées. Ce montant n'est pas une exigence légale ni une recommandation applicable à toutes les SRL.",
+          "Un scénario prudent teste les ventes plus lentes et les règlements tardifs. Si les premières recettes sont décalées d'un mois, les mêmes hypothèses ajoutent 5 000 € de besoin de financement. Une réduction de dépenses peut compenser une partie du décalage, mais il faut identifier laquelle et quand elle devient possible. Les apports des associés, un crédit et un compte courant n'ont pas les mêmes conditions ni les mêmes conséquences. Notre [accompagnement à la création d'entreprise](/services/creation-entreprise/) permet d'articuler ces choix avec le fonctionnement futur de la société."
+        ]
       },
       {
-        heading: "Étape 2 — L'acte constitutif chez le notaire",
-        paragraphs: [
-          "Rédaction et signature de l'acte de constitution. Le notaire vérifie le [plan financier](/services/creation-entreprise/), les statuts et les apports. Frais notariaux : 1 000 à 1 500 € selon la complexité.",
-        ],
+        "heading": "Constituer la société et organiser les inscriptions",
+        "paragraphs": [
+          "La SRL est constituée par acte authentique. Le notaire prépare les statuts, vérifie les informations du dossier et organise les démarches liées à l'acte et à sa publication. Les statuts définissent notamment gouvernance, droits des associés et règles de cession. Avant la signature, clarifiez ce qui se passe en cas de désaccord, de départ d'un associé ou de besoin d'apport supplémentaire. Pour un apport en numéraire, organisez avec la banque et le notaire le compte et l'attestation nécessaires. Les apports en nature nécessitent des vérifications particulières.",
+          "La Banque-Carrefour des Entreprises identifie ensuite la société et ses activités. Il faut distinguer l'inscription de la personne morale et l'enregistrement des activités ou unités d'établissement par le guichet compétent. Ne demandez pas un second numéro parce que plusieurs interlocuteurs interviennent. Le numéro d'entreprise devient aussi le numéro de TVA lorsqu'il est activé comme tel. Les [étapes officielles de création d'entreprise du SPF Économie](https://economie.fgov.be/fr/themes/entreprises/creer-une-entreprise) permettent de vérifier les formalités correspondant à la forme juridique et au secteur choisi.",
+          "Le régime TVA doit être examiné avant la première facturation. Selon l'activité, l'entreprise peut relever du régime normal, d'une exemption ou d'un régime particulier. Le régime de franchise des petites entreprises repose, sous ses conditions et exclusions, sur un seuil annuel de 25 000 € hors TVA ; ce n'est pas une dispense générale de toutes les obligations. Le [SPF Finances détaille le régime de franchise](https://finances.belgium.be/fr/entreprises/tva/assujettissement_tva/regime_franchise_de_la_taxe). Il faut également examiner l'affiliation sociale du dirigeant indépendant et les obligations de la société avec la caisse d'assurances sociales."
+        ]
       },
       {
-        heading: "Étape 3 — L'inscription à la BCE",
-        paragraphs: [
-          "Attribution du numéro d'entreprise via un guichet d'entreprises agréé. Délai : 1 à 3 jours ouvrables. Frais : environ 90 €.",
-        ],
+        "heading": "Prévoir le budget et les obligations de 2026",
+        "paragraphs": [
+          "Le budget de création distingue frais définitivement consommés et argent restant dans la société. Les honoraires du notaire, la publication, les prestations du guichet, le conseil et certains frais bancaires doivent être chiffrés par devis actualisés. Les moyens de départ servent, eux, à financer l'exploitation. Pour comparer deux budgets, vérifiez que les mêmes postes sont inclus et que les montants sont exprimés avec ou sans TVA. La [décomposition des frais de création d'une société](/blog/creation-societe/cout-creation-societe-belgique/) aide à poser ces questions ; ses estimations doivent être confirmées par les prestataires.",
+          "Depuis le 1er janvier 2026, la facturation électronique structurée est obligatoire pour les opérations entrant dans le champ belge B2B entre entreprises assujetties concernées, avec exceptions. Un simple PDF envoyé par e-mail n'est pas une facture structurée. Une jeune SRL doit vérifier dès le départ si elle est concernée, comment elle émet et reçoit ces factures et comment les pièces rejoignent la comptabilité. Le [portail officiel de la facturation électronique](https://efacture.belgium.be/fr) présente le champ d'application. Le choix du logiciel doit suivre les besoins et obligations, pas seulement la présentation des factures.",
+          "Il faut aussi organiser le registre UBO lorsque la société y est soumise : identification des bénéficiaires effectifs, documents justificatifs, suivi des changements et confirmation annuelle. Le [SPF Finances explique les obligations UBO](https://finances.belgium.be/fr/E-services/ubo-register). Dès qu'une personne est engagée, des formalités d'employeur s'ajoutent ; elles ne sont pas couvertes par la seule constitution. Assurances, permis ou accès réglementés doivent être vérifiés selon l'activité. Cette liste de points à examiner ne signifie pas que chaque SRL est soumise à toutes les mêmes autorisations."
+        ]
       },
       {
-        heading: "Étape 4 — L'activation du numéro de TVA",
-        paragraphs: [
-          "Demande auprès du SPF Finances. Délai : 1 à 3 semaines. Obligatoire pour facturer avec TVA. Le régime TVA (normal, franchise, mixte) doit être choisi avec soin.",
-        ],
-      },
-      {
-        heading: "Étape 5 — L'affiliation à une caisse d'assurances sociales",
-        paragraphs: [
-          "Obligatoire pour le dirigeant indépendant. Premier trimestre de cotisations à provisionner (environ 700 à 900 €).",
-        ],
-      },
-      {
-        heading: "Étape 6 — L'ouverture du compte bancaire professionnel",
-        paragraphs: [
-          "Obligatoire pour libérer les apports en numéraire et encaisser les paiements clients. Comparez les offres bancaires — les frais varient significativement.",
-        ],
-      },
-      {
-        heading: "Délai total",
-        paragraphs: [
-          "Avec un dossier complet, la création d'une SRL prend généralement 2 à 4 semaines de la première réunion à la première facture émise.",
-        ],
-        relatedLinks: [
-          { text: "Notre accompagnement à la création d'entreprise", link: "/services/creation-entreprise/" },
-          { text: "À lire aussi : le plan financier obligatoire", link: "/blog/creation-societe/plan-financier-obligatoire-belgique/" },
-          { text: "Diagnostic financier gratuit", link: "/diagnostic/" },
-        ],
-      },
+        "heading": "Préparer les trois premiers mois d'exploitation",
+        "paragraphs": [
+          "Avant la première vente, testez un cycle complet : devis, commande, facture, encaissement et classement de la pièce. Définissez qui suit les retards de paiement et comment les dépenses privées sont séparées des dépenses de société. Programmez un premier examen de la situation après un mois réel d'activité, puis comparez les résultats aux hypothèses du plan financier. Un écart commercial ne devient utile que s'il entraîne une décision : ajustement de prix, réduction d'une dépense, nouvelle date d'investissement ou financement complémentaire documenté.",
+          "La dernière vérification porte sur les liquidités. Une entreprise peut avoir des contrats signés et manquer d'argent avant leur règlement. Construisez donc une [prévision des encaissements et décaissements](/blog/tresorerie/anticiper-flux-tresorerie/) avec les échéances effectives, y compris celles de TVA lorsque vous y êtes soumis. Le dossier de constitution est une étape ; le pilotage après démarrage lui donne sa valeur. Conservez les hypothèses initiales afin de comprendre les écarts plutôt que de remplacer silencieusement le budget dès que la réalité devient différente."
+        ]
+      }
     ],
-    ctaText: "Prêt à créer votre SRL ?",
-    ctaDescription: "Plan financier + accompagnement complet à partir de 800 € HTVA.",
-    ctaLink: "/services/creation-entreprise/",
-    ctaLabel: "Découvrir notre service création d'entreprise",
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
   "cout-creation-societe-belgique": {
     sections: [
@@ -1692,71 +1651,54 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "suis-je-rentable-tpe": {
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        heading: "La question qu'on n'ose pas poser",
-        paragraphs: [
-          "Vous travaillez beaucoup. Vous avez des clients. Vous encaissez. Et pourtant, vous n'êtes pas vraiment sûr que votre entreprise gagne de l'argent. Pas clairement. Pas avec certitude. C'est plus courant qu'on ne le croit. Et ce n'est pas une question de compétence — c'est une question d'outils.",
-        ],
+        "heading": "Mesurer la rentabilité sans confondre ventes et revenu personnel",
+        "paragraphs": [
+          "Pour savoir si votre TPE est rentable, partez d'une période définie et comparez les revenus de l'activité à toutes les charges correspondantes. Le solde du compte bancaire et le montant des factures émises ne répondent pas seuls à la question. Ce guide propose un diagnostic de gestion mensuel : calculer la contribution des ventes, couvrir les charges fixes, puis vérifier ce qui reste. Les montants sont des exemples fictifs en euros, hors TVA sauf indication contraire ; ils ne constituent pas des moyennes du marché belge.",
+          "La rentabilité comptable et la rentabilité économique du travail du dirigeant doivent être distinguées. Dans une société, sa rémunération est une charge selon les règles applicables. En personne physique, les prélèvements personnels ne sont pas un salaire déductible de la même manière. Pour apprécier le modèle économique, vous pouvez néanmoins fixer une rémunération cible de gestion et tester si l'activité la finance. Ce retraitement doit rester identifié : il ne faut pas le confondre avec le bénéfice fiscal ni l'envoyer comme une écriture comptable fictive.",
+          "Le travail commence par des données cohérentes. Choisissez un mois ou un trimestre, identifiez les prestations réalisées et rattachez les coûts à cette même période. Ajoutez les dépenses encore non facturées lorsque vous les connaissez et traitez les éléments exceptionnels séparément. Une rentabilité de décembre calculée avant les derniers frais de l'année peut être trompeuse. Le [pilotage de votre rentabilité](/services/controle-de-gestion/) rend cette lecture régulière et permet de comparer des périodes préparées selon la même méthode."
+        ]
       },
       {
-        heading: "Ce que 'rentable' veut vraiment dire",
-        paragraphs: [
-          "Votre entreprise est rentable si elle génère plus de revenus qu'elle ne dépense — charges comprises, y compris votre propre rémunération. C'est là que beaucoup de dirigeants se trompent : ils calculent la rentabilité sans inclure leur propre salaire dans les charges. Si vous ne vous payiez pas, vous seriez rentable. Mais puisque vous vous payez — êtes-vous toujours rentable ?",
-        ],
+        "heading": "Premier calcul : la marge qui finance la structure",
+        "paragraphs": [
+          "La contribution sur coûts variables correspond au chiffre d'affaires moins les coûts qui évoluent avec les ventes. Elle ne se confond pas toujours avec la marge brute : les conventions de calcul diffèrent selon l'activité et le tableau utilisé. Dans une société de services, sous-traitance et déplacements facturables peuvent être variables ; un salaire mensuel peut rester fixe à court terme. Dans un commerce, coût d'achat, commissions et certaines pertes suivent davantage les volumes. Notez votre convention pour conserver une comparaison valable d'un mois à l'autre.",
+          "Exemple d'un atelier fictif à Liège : 30 000 € de ventes mensuelles, 9 000 € de matières et 3 000 € de sous-traitance variable. La contribution est de 18 000 €, soit 60 % des ventes. Si les charges fixes atteignent 16 000 €, le résultat opérationnel simplifié vaut 2 000 €, avant les éléments financiers et fiscaux qui ne figurent pas dans l'exemple. Une baisse des ventes de 5 000 € à structure identique enlève 3 000 € de contribution et fait passer ce résultat à moins 1 000 €.",
+          "Le diagnostic doit également regarder les heures nécessaires. Si un contrat de 5 000 € exige 2 000 € de sous-traitance et mobilise longtemps votre équipe fixe, sa contribution directe de 3 000 € paraît attractive mais peut saturer la capacité. Comparez contribution et heures réellement consommées pour arbitrer les prochains contrats. Les [indicateurs de gestion utiles au dirigeant de TPE](/blog/controle-de-gestion/kpis-tpe-dirigeant/) complètent cette lecture. Aucun taux de marge universel ne permet de conclure qu'une entreprise belge est saine sans tenir compte de son secteur et de sa structure."
+        ]
       },
       {
-        heading: "3 questions pour savoir si vous êtes rentable",
-        paragraphs: [],
+        "heading": "Deuxième calcul : le seuil de rentabilité et sa sensibilité",
+        "paragraphs": [
+          "Dans un modèle simple, le seuil de rentabilité en chiffre d'affaires égale les charges fixes divisées par le taux de contribution sur coûts variables. Avec 16 000 € de charges fixes et un taux de 60 %, l'atelier doit vendre environ 26 667 € pour atteindre un résultat opérationnel nul : 16 000 ÷ 0,60. Ce seuil ne représente pas encore la trésorerie nécessaire, le remboursement du principal des emprunts ou le revenu net personnel après impôts. Il répond à une question précise, avec les hypothèses du modèle.",
+          "Si le prix des matières augmente et que le taux tombe à 55 %, le seuil passe à environ 29 091 €, sans augmentation de charges fixes. Les ventes de 30 000 € ne laissent alors que 500 € dans le résultat simplifié. Cet exemple montre pourquoi surveiller uniquement le chiffre d'affaires peut masquer une fragilité. Avant de choisir une hausse de prix, vérifiez également les remises, les pertes, les heures non prévues et les prestations non facturées. Une correction opérationnelle peut protéger la marge sans modifier tous les tarifs.",
+          "Si plusieurs activités coexistent, utilisez une contribution pondérée par leur poids dans les ventes. Une croissance concentrée sur l'activité la moins contributive peut faire monter le seuil global. L'article sur le [seuil de rentabilité d'une entreprise multiservices](/blog/controle-de-gestion/seuil-de-rentabilite-multi-services/) explique ce phénomène et propose un outil de simulation. Répartissez les coûts communs avec prudence : une allocation arbitraire peut faire paraître un service déficitaire alors qu'il apporte une contribution utile à une structure déjà financée."
+        ]
       },
       {
-        heading: "Question 1 — Connaissez-vous votre marge brute ?",
-        paragraphs: [
-          "Marge brute = (CA - coût direct des ventes) / CA × 100. Si vous ne connaissez pas ce chiffre, vous pilotez à l'aveugle.",
-        ],
+        "heading": "Troisième calcul : bénéfice, TVA et argent disponible en Belgique",
+        "paragraphs": [
+          "Le taux normal de TVA belge est de 21 %, mais d'autres taux et exemptions existent. Dans une hypothèse d'activité soumise au taux normal, une vente de 1 000 € HTVA est facturée 1 210 € TVAC. Les 210 € supplémentaires ne constituent pas une marge. Le [SPF Finances présente les taux de TVA](https://finances.belgium.be/fr/entreprises/tva/taux). Travaillez hors TVA pour le résultat lorsque la taxe est récupérable, puis toutes taxes comprises pour les flux bancaires, en ajoutant le paiement ou remboursement de TVA effectivement attendu.",
+          "Une TVA non récupérable peut au contraire devenir un coût selon la situation. Les opérations exemptées, les usages mixtes et les limitations particulières demandent donc un traitement adapté. La même prudence s'applique aux frais de voiture et aux dépenses du dirigeant : un coût économique n'est pas nécessairement déductible intégralement pour l'impôt. Le [guide de la déclaration à l'impôt des sociétés](/blog/fiscalite-belgique/declaration-isoc-belgique/) permet de comprendre pourquoi résultat de gestion et base imposable ne sont pas identiques. Ne calculez pas votre revenu net personnel à partir d'un taux unique d'impôt appliqué au chiffre d'affaires.",
+          "Reprenons l'atelier : il réalise 2 000 € de résultat opérationnel simplifié, mais 8 000 € de factures restent impayées et un équipement de 6 000 € a été acheté comptant. Le compte bancaire peut diminuer malgré le bénéfice. L'amortissement comptable étale le coût de l'équipement ; le paiement, lui, est immédiat. La différence entre [trésorerie et bénéfice](/blog/tresorerie/tresorerie-vs-benefices/) doit donc être examinée séparément. Retarder des fournisseurs améliore temporairement la banque sans réparer une activité structurellement déficitaire."
+        ]
       },
       {
-        heading: "Question 2 — Votre CA couvre-t-il toutes vos charges fixes + votre rémunération ?",
-        paragraphs: [
-          "Listez toutes vos charges mensuelles — y compris ce que vous vous payez. Si votre CA moyen mensuel couvre ces charges avec un surplus, vous êtes rentable.",
-        ],
-      },
-      {
-        heading: "Question 3 — Avez-vous gagné plus cette année que l'année précédente — en travaillant autant ou moins ?",
-        paragraphs: [
-          "La rentabilité, c'est aussi l'amélioration dans le temps. Si vous travaillez autant mais gagnez moins — quelque chose ne fonctionne pas dans votre modèle.",
-        ],
-      },
-      {
-        heading: "Par où commencer si vous ne savez pas",
-        paragraphs: [
-          "Même si vous ne comprenez pas encore tous vos chiffres, un expert-comptable peut vous donner une vision claire de votre rentabilité en une séance. Pas avec des tableaux compliqués — avec des réponses à vos vraies questions. Chez MFinances, on commence toujours par là.",
-        ],
-        relatedLinks: [
-          { text: "Découvrir notre contrôle de gestion pour TPE", link: "/services/controle-de-gestion/" },
-          { text: "À lire aussi : le contrôle de gestion, c'est quoi ?", link: "/blog/controle-de-gestion/controle-gestion-tpe-definition/" },
-          { text: "Diagnostic financier gratuit", link: "/diagnostic/" },
-        ],
-      },
+        "heading": "Passer du diagnostic à une décision chiffrée",
+        "paragraphs": [
+          "Préparez un tableau mensuel avec ventes, coûts variables, contribution, charges fixes, résultat simplifié et éléments exclus. Ajoutez une colonne budget et une colonne écart. Pour chaque variation importante, indiquez volume, prix, coût unitaire ou changement de composition des ventes. La phrase « les frais ont augmenté » ne suffit pas : identifier la cause permet de choisir une action. Vérifiez aussi si la variation est récurrente. Une réparation exceptionnelle et un abonnement durable ne doivent pas conduire à la même décision.",
+          "Si votre entreprise ne couvre pas sa rémunération économique cible, calculez l'écart plutôt que de travailler davantage sans mesure. Un manque de 1 500 € de contribution, avec un taux de 60 %, représente 2 500 € de ventes supplémentaires dans le modèle simple. Mais ces ventes supposent une capacité disponible et des clients prêts à acheter. Le [rôle d'un DAF externalisé dans ces arbitrages](/blog/daf-externalise/daf-externalise-definition/) consiste à tester les options et leurs limites, pas à promettre qu'une hausse de chiffre d'affaires résoudra tout.",
+          "Enfin, fixez une date de revue et un responsable pour chaque action. Mesurez les heures consommées, les remises et les retards de règlement sur la période suivante. Une TPE rentable doit pouvoir expliquer d'où vient son résultat et ce qui le fragilise. Cette lecture devient plus fiable quand vous disposez de plusieurs mois comparables, sans transformer un mois exceptionnel en nouvelle norme. Vous obtenez alors une réponse exploitable : le modèle couvre-t-il ses charges, finance-t-il votre travail et laisse-t-il suffisamment de ressources pour la suite ?"
+        ]
+      }
     ],
-    faq: [
-      {
-        question: "Comment savoir si mon entreprise est rentable ?",
-        answer: "Comparez vos revenus totaux à l'ensemble de vos charges — y compris votre propre rémunération et les charges sociales associées. Si le solde est positif de façon régulière, votre entreprise est rentable.",
-      },
-      {
-        question: "Mon entreprise peut-elle survivre si elle n'est pas encore rentable ?",
-        answer: "Oui — à condition d'avoir suffisamment de trésorerie pour financer les pertes en attendant le point mort. Le risque est de manquer de cash avant d'atteindre la rentabilité. C'est pourquoi le suivi de trésorerie est aussi important que le suivi de rentabilité.",
-      },
-      {
-        question: "Quelle est la différence entre rentabilité et trésorerie ?",
-        answer: "La rentabilité mesure si votre activité génère de la valeur sur le long terme. La trésorerie mesure si vous avez de l'argent disponible maintenant pour payer vos charges. Les deux indicateurs sont indispensables.",
-      },
-    ],
-    ctaText: "Voir si mon entreprise est en danger",
-    ctaDescription: "Le diagnostic gratuit vous dit exactement où vous en êtes.",
-    ctaLink: "/diagnostic/",
-    ctaLabel: "Prendre rendez-vous — premier échange gratuit",
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
   "bfr-dossier-bancaire-credit-tpe": {
     sections: [
@@ -1872,7 +1814,7 @@ export const articleContent: Record<string, ArticleBody> = {
     sections: [
       {
         paragraphs: [
-          "Vous avez peut-être entendu ce mot chez votre comptable, dans un article financier, ou lors d'un rendez-vous bancaire. Le BFR — [besoin en fonds de roulement](/services/tresorerie/) — est l'un des indicateurs les plus importants pour la santé de votre entreprise. Et pourtant, il reste mystérieux pour la plupart des dirigeants de TPE.",
+          "Vous avez peut-être entendu ce mot chez votre comptable, dans un article financier, ou lors d'un rendez-vous bancaire. Le BFR — [besoin en fonds de roulement](/services/tresorerie/) — est l'un des indicateurs les plus importants pour la santé de votre entreprise. Et pourtant, il reste mystérieux pour la plupart des dirigeants de TPE. Avant une embauche, distinguez [coût du recrutement, BFR et besoin de trésorerie](/blog/tresorerie/bfr-recrutement-impact-tresorerie/).",
           "Cet article vous donne une définition claire, la formule exacte, et un exemple chiffré tiré de la réalité d'une TPE belge. À la fin, vous pourrez calculer votre propre BFR en deux minutes.",
         ],
       },
@@ -1998,117 +1940,54 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLabel: "Parler à un expert",
   },
   "bfr-recrutement-impact-tresorerie": {
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        paragraphs: [
-          "Vous avez décidé de recruter. C'est une bonne nouvelle — cela signifie que votre activité croît. Mais avant de signer ce contrat, il y a un calcul que la plupart des dirigeants de TPE ne font pas. Et son absence peut transformer votre plus belle décision de croissance en une tension de trésorerie sévère.",
-          "Ce calcul, c'est l'impact du recrutement sur votre BFR — et par ricochet, sur votre trésorerie disponible dans les 3 à 6 mois qui suivent l'embauche.",
-        ],
+        "heading": "Recrutement : distinguer coût, BFR et besoin de trésorerie",
+        "paragraphs": [
+          "Avant d'engager un salarié dans une TPE belge, il faut tester deux questions différentes : la contribution attendue couvre-t-elle son coût et l'entreprise peut-elle financer le délai avant les premiers encaissements ? Un salaire supplémentaire augmente les sorties de trésorerie, mais ne fait pas automatiquement augmenter le BFR comptable du même montant. Le BFR simplifié correspond aux stocks plus créances clients moins dettes fournisseurs. Une embauche peut accroître ces postes si elle accompagne davantage d'activité ; équipement et pertes de démarrage relèvent aussi d'autres besoins de financement.",
+          "Cette distinction évite d'additionner un budget salarial et des créances déjà prises en compte sans expliquer le modèle. Un poste administratif peut améliorer la facturation et réduire les retards clients ; son effet sur le BFR peut alors être favorable tout en ajoutant un coût fixe. Un commercial peut générer des ventes nouvelles mais des recettes différées. Un technicien peut débloquer la production avec un besoin supplémentaire de stocks. L'article sur [la définition et la formule du BFR](/blog/tresorerie/bfr-definition-formule-tpe/) donne les repères comptables nécessaires.",
+          "L'objectif n'est pas de rendre le recrutement impossible, mais de choisir une date et un financement cohérents. La décision doit préciser salaire, calendrier de montée en charge, capacité disponible et hypothèses de règlement clients. Les exemples ci-dessous sont fictifs ; ce ne sont ni des cas MFinances vérifiés ni des barèmes belges. Le [DAF externalisé et ses missions de décision](/blog/daf-externalise/daf-externalise-definition/) peut aider à comparer les scénarios et à documenter les raisons d'une embauche immédiate, progressive ou différée."
+        ]
       },
       {
-        heading: "Pourquoi recruter augmente mécaniquement votre BFR",
-        paragraphs: [
-          "Un recrutement ne se limite pas à un salaire mensuel. Il génère une série de charges immédiates et différées qui alourdissent votre BFR avant que le nouveau collaborateur ne contribue à vos revenus :",
-        ],
-        list: [
-          "Les charges sociales patronales : en Belgique, le coût employeur total représente environ 1,33 fois le salaire brut. Pour un salaire brut de 3 000 €, le coût réel mensuel est de 3 990 €.",
-          "Le délai de montée en compétences : selon le poste, un nouveau collaborateur atteint sa pleine productivité entre 1 et 6 mois après son arrivée. Pendant cette période, vous payez sans percevoir la contrepartie.",
-          "L'augmentation du cycle d'activité : un collaborateur supplémentaire génère souvent plus de projets, plus de stocks, plus de créances — donc un BFR plus élevé avant que les encaissements suivent.",
-          "Les coûts de recrutement et d'équipement : matériel, formation, cabinet éventuel — ces dépenses ponctuelles s'ajoutent à la charge de trésorerie de la période de lancement.",
-        ],
+        "heading": "Évaluer le coût employeur belge sans coefficient universel",
+        "paragraphs": [
+          "Demandez au secrétariat social une estimation propre au poste : salaire brut, statut, commission paritaire, temps de travail, cotisations, avantages, assurances et obligations sectorielles. Le net versé au salarié n'est pas le coût total de l'employeur. À l'inverse, un multiplicateur unique de 1,33 ne décrit pas tous les dossiers. Les réductions éventuelles de cotisations ne doivent être intégrées que si leurs conditions sont vérifiées. Les [instructions administratives de l'ONSS](https://www.socialsecurity.be/employer/instructions/dmfa/fr/latest/instructions.html) permettent de retrouver les règles applicables, à compléter avec une simulation professionnelle.",
+          "Le pécule de vacances, une éventuelle prime de fin d'année et certains avantages peuvent créer des échéances concentrées. Il faut distinguer budget annualisé et dates effectives de paiement, pour ne pas compter deux fois une provision et sa sortie bancaire. Ajoutez équipement, recrutement, formation et temps de supervision. Une partie de ces coûts se présente une seule fois ; une autre revient mensuellement. Le coût du temps du dirigeant peut être important économiquement sans produire une nouvelle facture bancaire : conservez cette différence dans l'analyse.",
+          "Dans notre cas pédagogique, le salaire brut proposé est de 3 000 € et le budget employeur mensuel complet retenu est de 4 500 €, sur hypothèse à valider. Ce montant n'est pas obtenu en appliquant un taux officiel uniforme. On retient aussi 3 000 € d'équipement initial. Si certaines charges annuelles sont incluses dans les 4 500 € moyens, on les redistribue à leur calendrier réel pour le prévisionnel. Cette vérification transforme une estimation salariale en plan de paiement utilisable, plutôt qu'en approximation rassurante."
+        ]
       },
       {
-        paragraphs: [
-          "La question qu'on nous pose le plus souvent : « J'ai les bénéfices, mais est-ce que j'ai la trésorerie ? » C'est exactement la bonne question — et la réponse passe par le calcul de l'impact BFR du recrutement, pas par le solde bancaire du jour.",
-        ],
+        "heading": "Exemple : quatre mois entre embauche et recettes stabilisées",
+        "paragraphs": [
+          "Imaginons une société de services à Namur qui emploie un technicien supplémentaire. Sa contribution attendue, après coûts variables mais avant coût du nouveau poste, est de 1 500 € au premier mois, 3 000 € au deuxième, puis 6 000 € aux troisième et quatrième mois. Le coût du poste reste 4 500 € par mois. Les résultats additionnels simplifiés sont donc moins 3 000 €, moins 1 500 €, plus 1 500 € et plus 1 500 €. Leur cumul à quatre mois est moins 1 500 €, avant amortissement éventuel de l'équipement et autres éléments exclus.",
+          "Pour illustrer le financement, supposons que les flux nets liés aux prestations arrivent deux mois après les dépenses variables correspondantes. C'est une hypothèse simplifiée de calendrier, pas une assimilation automatique entre marge et encaissement. Les contributions nettes encaissées des quatre premiers mois sont alors 0 €, 0 €, 1 500 € et 3 000 €. En déduisant chaque mois les 4 500 € du poste et les 3 000 € d'équipement au premier mois, les flux additionnels valent moins 7 500 €, moins 4 500 €, moins 3 000 € et moins 1 500 €.",
+          "Le besoin cumulé atteint ainsi 16 500 € à la fin du quatrième mois dans ce modèle. Au cinquième mois, 6 000 € de flux contributifs encaissés face à 4 500 € de coût laissent 1 500 € ; le déficit cumulé commence à diminuer. Pour prendre une décision réelle, remplacez cette simplification par les factures, paiements variables, flux de paie et taxes datés. Notre [accompagnement en trésorerie prévisionnelle](/services/tresorerie/) aide à intégrer le recrutement à l'ensemble de l'entreprise, plutôt qu'à une simulation isolée du seul poste."
+        ]
       },
       {
-        heading: "Le calcul que personne ne fait avant d'embaucher",
-        paragraphs: [
-          "Mini-cas — David — entreprise de sécurité, Namur, 9 salariés. Contexte : carnet de commandes plein, décision de recruter un technicien supplémentaire.",
-        ],
-        table: {
-          headers: ["Élément", "Montant"],
-          rows: [
-            ["Salaire brut mensuel", "2 800 €"],
-            ["Coût employeur réel (×1,33)", "3 724 € / mois"],
-            ["Délai de montée en charge", "4 mois"],
-            ["Coût total montée en charge", "14 896 €"],
-            ["Équipement + tenue + formation", "3 200 €"],
-            ["Impact BFR immédiat total", "18 096 €"],
-          ],
-        },
+        "heading": "Tester retard client, activité plus lente et financement",
+        "paragraphs": [
+          "Le scénario de base n'est pas suffisant. Si la montée en charge prend un mois supplémentaire, les sorties salariales restent présentes tandis que les recettes attendues sont plus faibles ou plus tardives. Si un client important retarde son paiement, l'entreprise supporte aussi ce décalage. Construisez une [prévision de trésorerie glissante sur treize semaines](/blog/tresorerie/anticiper-flux-tresorerie/) avec le point bas bancaire, puis prolongez l'analyse si le délai de récupération dépasse l'horizon. Les nouveaux encaissements ne doivent pas faire oublier les fournisseurs, échéances fiscales et salaires de l'équipe existante.",
+          "Avec 20 000 € disponibles et un besoin additionnel simplifié de 16 500 €, il reste seulement 3 500 € avant les autres variations de trésorerie. Cela ne constitue pas automatiquement un feu vert. Si une échéance existante de 8 000 € arrive au même moment, la réserve est insuffisante. À l'inverse, des acomptes clients réellement acceptés peuvent réduire le besoin. La décision dépend donc d'engagements datés et de marges de sécurité explicites. Un ratio « deux fois le coût de recrutement » n'offre aucune garantie universelle de sécurité.",
+          "Les pistes de financement peuvent inclure un apport, une ligne de crédit confirmée ou un décalage de l'achat d'équipement. Elles comportent conditions, coûts et contraintes. Les aides ou réductions liées au recrutement doivent être vérifiées pour la région, le profil et la période concernés ; ne les traitez pas comme acquises avant confirmation. Le [BFR présenté dans un dossier de crédit bancaire](/blog/tresorerie/bfr-dossier-bancaire-credit-tpe/) permet d'expliquer le besoin, sa durée et sa résorption sans masquer les hypothèses défavorables."
+        ]
       },
       {
-        paragraphs: [
-          "Trésorerie disponible de David au moment de la décision : 21 000 €. Verdict MFinances : recrutement possible, mais à monitorer mensuellement. Un second recrutement simultané aurait été déconseillé.",
-          "Ce n'est pas un argument contre le recrutement. C'est un argument pour ne pas recruter sans avoir modélisé cet impact sur votre trésorerie disponible.",
-        ],
-      },
-      {
-        heading: "3 scénarios selon votre situation de trésorerie actuelle",
-        paragraphs: [],
-        table: {
-          headers: ["Scénario", "Ce que ça implique"],
-          rows: [
-            ["Tréso disponible > 2× le coût de montée en charge", "✅ Feu vert. Vous absorbez l'impact BFR sans risque. Recrutez et suivez mensuellement."],
-            ["Tréso disponible entre 1× et 2× le coût", "⚠️ Feu orange. Recrutement possible avec suivi renforcé. Mettez en place le prévisionnel avant de signer."],
-            ["Tréso disponible < 1× le coût de montée en charge", "🚨 Feu rouge. Recrutez en finançant l'impact BFR (ligne crédit, timing décalé) ou attendez 1 à 2 mois."],
-          ],
-        },
-      },
-      {
-        heading: "Le délai de rentabilisation — comment le calculer",
-        paragraphs: [
-          "Délai (mois) = Coût total montée en charge ÷ Contribution mensuelle nette attendue",
-          "Exemple : coût de montée en charge de 18 096 € ÷ contribution mensuelle nette attendue de 5 500 € = 3,3 mois. Votre recrutement est rentabilisé au bout de 3,3 mois — à condition que la contribution soit au rendez-vous.",
-          "C'est ce calcul que réalise un DAF à temps partiel avant chaque décision de recrutement structurant. Pas pour bloquer la décision — pour la prendre avec les yeux ouverts.",
-        ],
-      },
-      {
-        heading: "3 erreurs fréquentes avant de recruter",
-        paragraphs: [
-          "Erreur 1 — Se baser sur le solde bancaire du jour. Votre compte peut sembler bien approvisionné aujourd'hui. Mais votre trésorerie dans 3 mois, après les charges de début de trimestre, la TVA et le premier mois de salaire — c'est une autre histoire.",
-          "Erreur 2 — Sous-estimer le délai de montée en productivité. Pour un poste commercial ou technique, 2 à 3 mois est souvent optimiste. Modélisez le scénario à 5 mois, et vérifiez que vous tenez.",
-          "Erreur 3 — Recruter deux postes en simultané sans simulation. L'impact BFR se cumule. Deux recrutements simultanés peuvent représenter 35 000 à 40 000 € d'impact trésorerie en quelques semaines — sur une TPE de 600K€ de CA, c'est critique.",
-        ],
-      },
-      {
-        heading: "Vu chez nos clients MFinances",
-        paragraphs: [
-          "Un client services informatiques (Gand, 11 salariés) a simulé 3 scénarios de recrutement avec MFinances avant de décider. Il a choisi de décaler le second poste de 2 mois — évitant une tension de trésorerie qui aurait mis en danger le versement du 13e mois.",
-          "Un client conseil (Bruxelles, 6 collaborateurs) a découvert lors de notre simulation que son recrutement commercial prévu serait rentabilisé en 4,8 mois — pas 2 comme il l'estimait. Il a ajusté sa projection de CA en conséquence.",
-          "« Le meilleur recrutement est celui que vous avez modélisé avant de signer. Pas après avoir découvert la tension. » — Mika Musungayi, fondateur MFinances",
-        ],
-        relatedLinks: [
-          { text: "Notre accompagnement en trésorerie prévisionnelle", link: "/services/tresorerie/" },
-          { text: "À lire aussi : anticiper vos flux de trésorerie", link: "/blog/tresorerie/anticiper-flux-tresorerie/" },
-          { text: "Diagnostic financier gratuit", link: "/diagnostic/" },
-        ],
-      },
+        "heading": "Mesurer le retour et décider après l'embauche",
+        "paragraphs": [
+          "Le point mort du poste correspond à la contribution mensuelle nécessaire pour couvrir son coût récurrent. Ici, 4 500 € de contribution couvrent 4 500 € de coût. Avec un taux de contribution de 60 %, il faut 7 500 € de chiffre d'affaires additionnel dans un modèle constant : 4 500 ÷ 0,60. Le montant ne constitue pas un objectif commercial valable pour tous les secteurs. Il suppose notamment que les capacités, tarifs et coûts variables utilisés dans le calcul correspondent bien aux prestations réellement vendues.",
+          "Le délai de récupération ne se calcule pas en divisant les dépenses de démarrage par le chiffre d'affaires futur. Il faut une contribution nette après le coût du poste et tenir compte de la montée en charge. Si le déficit bancaire additionnel atteint 16 500 € puis se réduit de 1 500 € mensuels constants, il faudrait onze mois supplémentaires pour le résorber dans cette hypothèse très simple. Une variation des recettes, un impayé ou un coût additionnel modifie immédiatement ce délai. Il ne s'agit donc pas d'une promesse de rentabilisation à une date fixe.",
+          "Après l'embauche, comparez chaque mois contribution prévue, contribution réelle, heures facturables et encaissements. Repérez les causes des écarts : formation, absence de commandes, tarifs insuffisants ou délais clients. Le [pilotage de votre rentabilité](/services/controle-de-gestion/) complète le suivi bancaire pour comprendre si le poste crée la valeur espérée. Une simulation utile reste un document vivant : elle permet d'ajuster la facturation, l'organisation et les décisions suivantes avec des éléments mesurables, sans attribuer au salarié seul un problème provenant du modèle commercial."
+        ]
+      }
     ],
-    faq: [
-      {
-        question: "Comment un recrutement affecte-t-il la trésorerie d'une TPE ?",
-        answer: "Un recrutement augmente immédiatement le BFR : charges patronales dès le premier mois (≈ +33 % du salaire brut), délai de montée en productivité de 1 à 6 mois selon le poste, coûts d'équipement et de formation. En Belgique, l'impact trésorerie total avant retour sur investissement dépasse régulièrement 15 000 à 20 000 € pour un poste à 3 000 € de salaire brut.",
-      },
-      {
-        question: "Quel est le coût réel d'un recrutement pour une TPE belge ?",
-        answer: "Le coût employeur mensuel réel est d'environ 1,33 fois le salaire brut en Belgique (charges patronales incluses). Pour un salaire brut de 3 000 €, le coût mensuel réel est de 3 990 €. En ajoutant le délai de montée en charge (2 à 5 mois selon le poste) et les frais annexes, l'impact total sur la trésorerie avant retour sur investissement dépasse souvent 15 000 à 20 000 €.",
-      },
-      {
-        question: "Comment savoir si ma trésorerie peut supporter un recrutement ?",
-        answer: "Calculez votre coût total de montée en charge (coût mensuel × délai de productivité + équipement). Comparez-le à votre trésorerie projetée dans 3 mois (pas aujourd'hui). Si elle couvre 2 fois ce montant : feu vert. Entre 1 et 2 fois : suivi renforcé nécessaire. En dessous : financez ou décalez le recrutement.",
-      },
-      {
-        question: "À quel moment faut-il recruter dans une TPE en croissance ?",
-        answer: "Le bon moment est celui où votre trésorerie prévisionnelle (sur 3 à 6 mois) peut absorber l'impact BFR sans tension. Recruter 2 mois trop tôt, au mauvais moment du cycle de trésorerie, peut fragiliser une entreprise par ailleurs solide. Un prévisionnel actualisé est l'outil indispensable pour prendre cette décision avec clarté.",
-      },
-    ],
-    ctaText: "Modélisez votre recrutement avec un DAF MFinances",
-    ctaDescription: "Premier échange offert — sans engagement.",
-    ctaLink: "/contact/#form",
-    ctaLabel: "Parler à un expert",
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
   "seuil-de-rentabilite-multi-services": {
     showCockpit: true,
@@ -2380,98 +2259,60 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "calcul-bureau-a-domicile": {
-    heroCta: { text: "Calculer la partie professionnelle de votre habitation (gratuit)", link: "/ressources/calculateur-bureau/" },
-    sections: [
+    "hideGeoFaqs": true,
+    "singleToc": true,
+    "sections": [
       {
-        paragraphs: [
-          "Ce matin, vous avez répondu à douze emails depuis votre bureau avant 9h. Votre loyer : 1 200 € par mois. Votre énergie : 200 € par mois. Et à la fin de l'exercice, vous déduisez zéro euro de frais de bureau — parce que vous n'avez jamais calculé votre part professionnelle.",
-          "La part professionnelle est le pourcentage de votre logement utilisé à des fins professionnelles. Elle détermine quelle fraction de vos charges vous pouvez déduire fiscalement. Une part professionnelle de 20 % sur 20 000 € de charges annuelles représente 4 000 € de charges déductibles, soit environ 1 000 € d'économie d'impôt pour une société à l'ISOC de 25 % (4 000 € × 25 %).",
-          "Voici la méthode utilisée en cabinet — vérifiable et défendable lors d'un contrôle.",
-        ],
-        relatedLinks: [
-          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
-        ],
+        "heading": "Part professionnelle : calcul de gestion et déduction fiscale",
+        "paragraphs": [
+          "Calculer la part professionnelle d'un bureau à domicile en Belgique consiste à mesurer l'usage réellement lié à l'activité, puis à déterminer quelles dépenses peuvent recevoir cette clé de répartition. Le pourcentage de surface n'est pas une autorisation fiscale automatique. Il doit rester cohérent avec la configuration du logement, l'utilisation des pièces et la nature de chaque facture. Ce guide traite le calcul et sa documentation ; il ne présente pas la location à votre société comme équivalente à une simple déduction de frais personnels.",
+          "Le principe des frais professionnels est posé notamment par l'article 49 du CIR 92 : lien avec l'acquisition ou la conservation des revenus imposables et justification de la réalité et du montant des dépenses, selon les conditions légales. Le texte peut être consulté dans le [Code des impôts sur les revenus sur Justel](https://www.ejustice.just.fgov.be/eli/loi/1992/04/10/1992003045/justel). Une pièce clairement dédiée facilite l'explication, mais ne dispense pas des factures. À l'inverse, travailler occasionnellement dans tout le logement ne justifie pas d'en traiter automatiquement toute la surface comme professionnelle.",
+          "La bonne démarche sépare trois questions : quelle surface contribue à l'activité, à quelle intensité et quelles dépenses sont concernées ? Le [guide du bureau à domicile pour dirigeants belges](/blog/fiscalite-belgique/bureau-a-domicile/) replace ces questions dans leur contexte. Les exemples suivants sont fictifs et n'ont pas valeur de position administrative. Ils montrent un raisonnement reproductible, pas un pourcentage accepté d'avance par le fisc. Si votre activité, votre bail ou votre situation immobilière présente une particularité, faites valider la méthode avant d'appliquer les montants."
+        ]
       },
       {
-        heading: "La méthode des surfaces pondérées",
-        paragraphs: [
-          "L'administration fiscale belge ne fixe pas de barème officiel. En pratique, la méthode des surfaces pondérées est la plus reconnue et la plus défendable. Elle repose sur trois paramètres par pièce : la surface en m², le coefficient de pondération selon le type de pièce, et le pourcentage d'usage professionnel réel.",
-        ],
+        "heading": "Mesurer les surfaces et justifier les pondérations",
+        "paragraphs": [
+          "Commencez par un plan daté et des mesures cohérentes. Notez la surface de chaque pièce et son affectation : bureau dédié, chambre privée, séjour mixte, rangement ou circulation. Ne changez pas le dénominateur uniquement pour obtenir un résultat plus favorable. Si vous excluez certaines surfaces ou appliquez une pondération, expliquez pourquoi et employez la même convention pour la partie professionnelle et l'ensemble du logement. Les photos doivent montrer l'utilisation réelle sans exposer inutilement les informations personnelles des habitants ou des clients.",
+          "Le calculateur MFinances utilise des pondérations de 100 % pour les pièces de vie ou de bureau, 80 % pour les pièces mansardées et 20 % pour les caves ou greniers non aménagés. Ce sont des paramètres de la méthode du calculateur, pas des coefficients fiscaux officiels ni une garantie d'acceptation. Les appliquer mécaniquement à une cave aménagée en véritable atelier serait discutable. Il faut d'abord qualifier l'espace réel. Les pièces de circulation, les surfaces difficilement mesurables et les usages partagés exigent également une justification propre au dossier.",
+          "La formule est : somme des surfaces multipliées par leur pondération et leur usage professionnel, divisée par la somme des surfaces pondérées. Un bureau de 12 m² utilisé exclusivement pour l'activité contribue pour 12 m² si sa pondération est de 100 %. Un séjour de 25 m² retenu à 10 % professionnel contribue pour 2,5 m². Le [calculateur de part professionnelle du logement](/ressources/calculateur-bureau/) facilite cette opération ; le rapport constitue une pièce de méthode à conserver, sans remplacer les justificatifs ni une appréciation fiscale."
+        ]
       },
       {
-        subheading: "Les coefficients de pondération",
-        paragraphs: [],
-        list: [
-          "Pièces de vie (salon, chambre, bureau, cuisine) : coefficient 100 %",
-          "Pièces mansardées (sous les combles, hauteur réduite) : coefficient 80 %",
-          "Caves et greniers non aménagés : coefficient 20 %",
-        ],
+        "heading": "Exemple complet : appartement de 90 m² à Bruxelles",
+        "paragraphs": [
+          "Prenons un appartement fictif de 90 m² dont toutes les surfaces sont pondérées à 100 %. Le bureau dédié mesure 12 m² ; le séjour mesure 25 m² et son usage professionnel documenté est estimé à 10 % ; les 53 m² restants sont privés. La surface professionnelle retenue vaut 12 + 25 × 0,10 = 14,5 m². Le pourcentage exact est 14,5 ÷ 90 × 100 = 16,111… %. Arrondissez à la fin du calcul, et conservez les valeurs détaillées pour rendre le résultat contrôlable.",
+          "Supposons ensuite 1 200 € de dépenses annuelles d'assurance habitation et 2 400 € d'énergie, auxquelles la même clé serait pertinente après examen. Leur total de 3 600 € donne une allocation de 580 € : 3 600 × 14,5 ÷ 90. Ce calcul est une estimation de répartition, pas encore une déduction validée. Une activité très énergivore ou une pièce presque jamais chauffée peut nécessiter une autre méthode pour l'énergie. Les factures concernées, leur période et l'identité de la personne qui les supporte doivent être vérifiées.",
+          "Internet illustre la limite de la surface. Un abonnement de 600 € annuels peut être utilisé professionnellement bien davantage que 16,111 % tout en servant aussi à la famille. Il faut apprécier un usage distinct et défendable ; le rapport des mètres carrés n'est pas nécessairement la clé adaptée. De même, une dépense dédiée exclusivement au bureau peut relever d'une analyse différente d'une charge générale du logement. Ne cumulez pas une prise en charge intégrale et une quote-part de la même facture : cela créerait un double compte."
+        ]
       },
       {
-        subheading: "La formule de calcul",
-        paragraphs: [
-          "Part professionnelle = Σ (surface × pondération × % usage pro) ÷ Σ (surface × pondération)",
-        ],
+        "heading": "Pièce mixte, locataire et dirigeant de société",
+        "paragraphs": [
+          "Dans une pièce mixte, documentez l'organisation réelle : horaires de travail, espace dédié, équipements, rendez-vous et usage privé. Un rapport « heures professionnelles divisées par heures totales » peut éclairer le dossier, mais il ne suffit pas toujours à établir la part de la pièce effectivement réservée à l'activité. Une table utilisée pour une tâche ponctuelle ne transforme pas le séjour entier en bureau. L'article sur [la part professionnelle d'une pièce à usage mixte](/blog/fiscalite-belgique/piece-usage-mixte-bureau/) aide à formuler les hypothèses et à éviter les pourcentages présentés comme automatiques.",
+          "Pour un locataire, le bail et l'accord du propriétaire sont essentiels avant d'envisager un usage professionnel ou une sous-location. Les conséquences pour le bailleur et les restrictions contractuelles ne disparaissent pas parce qu'un calcul de surface est correct. Pour un dirigeant de société, distinguez ses dépenses personnelles, une éventuelle prise en charge justifiée et un véritable loyer. La société et la personne physique sont deux contribuables différents. Le [guide de la sous-location professionnelle à une société](/blog/fiscalite-belgique/locataire-societe-sous-location-loyer/) traite ce montage séparément du simple calcul de quote-part.",
+          "Un propriétaire dirigeant qui loue un espace à sa société doit aussi examiner les règles applicables aux revenus immobiliers et la requalification éventuelle d'une partie du loyer. Ce mécanisme ne se résume pas à « surface multipliée par loyer de marché ». Les taxes et charges ne reçoivent pas toutes nécessairement le même traitement. Notre [accompagnement en fiscalité](/services/fiscalite/) permet de vérifier la qualification avant de chiffrer une économie. Le présent exemple ne recommande ni une indemnité forfaitaire ni un bail sans examen des conditions du dossier."
+        ]
       },
       {
-        subheading: "Exemple chiffré complet",
-        paragraphs: [
-          "Appartement de 90 m² : bureau de 12 m² à 100 % pro, salon de 25 m² à 10 % pro, reste à 0 %.",
-        ],
-        list: [
-          "Bureau : 12 × 1,0 × 100 % = 12,0 m² pondérés pro",
-          "Salon : 25 × 1,0 × 10 % = 2,5 m² pondérés pro",
-          "Autres pièces : 0 m² pondérés pro",
-          "Part professionnelle = 14,5 ÷ 90 = 16,1 %",
-        ],
-        ctaInline: { text: "Calculer ma part professionnelle", link: "/ressources/calculateur-bureau/" },
-      },
-      {
-        heading: "Quelles charges sont déductibles ?",
-        paragraphs: [
-          "Avec une part professionnelle de 16,1 % sur des charges annuelles de 18 000 € : déduction estimée de 2 898 €. Économie fiscale nette à l'ISOC 25 % : environ 724 €/an.",
-        ],
-        list: [
-          "Loyer mensuel (si locataire) — multiplié par 12",
-          "Factures d'énergie : électricité, gaz, mazout (annuel)",
-          "Connexion internet (annuelle)",
-          "Assurance habitation (part proportionnelle)",
-          "Précompte immobilier (si propriétaire)",
-        ],
-      },
-      {
-        heading: "Ce qui change selon votre statut",
-        paragraphs: [],
-      },
-      {
-        subheading: "Indépendant (IPP)",
-        paragraphs: [
-          "Vous déduisez directement la part professionnelle dans votre déclaration à l'impôt des personnes physiques. Elle réduit votre bénéfice net imposable. Condition : usage professionnel réel et régulier, documentable.",
-        ],
-      },
-      {
-        subheading: "Dirigeant de société (ISOC)",
-        paragraphs: [
-          "Votre société peut rembourser vos frais de bureau sur note de frais justifiée (option simple), ou vous verser un loyer via un bail de sous-location (option plus avantageuse fiscalement). La seconde option est détaillée dans notre article sur la sous-location professionnelle.",
-        ],
-      },
+        "heading": "Constituer un dossier et actualiser le calcul",
+        "paragraphs": [
+          "Conservez le plan, les mesures, les pondérations expliquées, les photographies utiles et les factures. Ajoutez une note qui décrit votre activité, l'utilisation de chaque espace et la raison des clés appliquées. Les paiements prouvent que la dépense a été supportée ; ils ne prouvent pas, à eux seuls, son lien professionnel. Si le logement est partagé, vérifiez qui paie réellement les charges et évitez de déduire une facture déjà remboursée. Une méthode lisible et proportionnée est plus utile qu'un résultat maximal impossible à expliquer.",
+          "Actualisez le calcul après un déménagement, un changement de pièce ou une modification importante de l'activité. Pour un changement en cours d'année, examinez les périodes concernées au lieu d'appliquer le nouveau pourcentage à douze mois complets. Exemple : une dépense annuelle de 1 200 € répartie à 10 % pendant six mois et 20 % pendant six mois donne 180 € dans un prorata temporel simple, sous réserve que la dépense se répartisse effectivement de cette façon. Des relevés réels sont préférables lorsqu'ils permettent une allocation plus précise.",
+          "Enfin, ne présentez pas la quote-part comme une économie d'impôt certaine. Une dépense professionnellement allouée de 580 € n'est pas un remboursement de 580 €. L'effet fiscal dépend de la déductibilité, du contribuable, de sa base imposable et de son taux applicable. Une simulation théorique à 25 % donnerait 145 €, mais ce n'est pas une promesse et elle ne tient pas compte des particularités individuelles. Le résultat utile du calcul est d'abord une allocation expliquée, documentée et susceptible d'être revue avec votre conseiller."
+        ]
+      }
     ],
-    faq: [
-      { question: "Dois-je conserver des justificatifs pour chaque charge déductible ?", answer: "Oui. L'administration peut les demander lors d'un contrôle (délai de 3 à 7 ans). Conservez baux, factures d'énergie, relevés bancaires et quittances de loyer. Notre rapport PDF inclut le calcul détaillé avec toutes les surfaces — conservez-le comme pièce de documentation." },
-      { question: "L'usage professionnel de mon habitation peut-il dépasser 30 % ?", answer: "Oui, si votre bureau occupe réellement cette proportion pondérée de votre logement. En pratique, au-delà de 30-35 %, la documentation doit être très solide. La prudence s'impose : une déduction modeste et défendable vaut plus qu'une déduction agressive et fragile." },
-      { question: "Puis-je recalculer ma part professionnelle chaque année ?", answer: "Oui, et c'est recommandé. Si votre situation change (déménagement, réaménagement, changement d'usage d'une pièce), recalculez-la pour chaque exercice fiscal. Notre calculateur vous génère un nouveau rapport PDF en 2 minutes — conservez-le dans vos archives par exercice." },
-    ],
-    ctaText: "Calculer ma part professionnelle gratuitement",
-    ctaDescription: "Résultat en 2 minutes. Rapport PDF documenté. Zéro engagement.",
-    ctaLink: "/ressources/calculateur-bureau/",
-    ctaLabel: "Calculer ma part professionnelle gratuitement",
+    "ctaText": "Faites le point sur votre situation",
+    "ctaDescription": "Un premier échange pour identifier vos priorités financières.",
+    "ctaLink": "/contact/#form",
+    "ctaLabel": "Parler à un expert"
   },
-
   "piece-usage-mixte-bureau": {
     sections: [
       {
         paragraphs: [
-          "Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux.",
+          "Votre table de cuisine devient bureau le matin. Votre salon se transforme en salle de réunion le jeudi. Vous n'avez pas de pièce dédiée exclusivement à votre activité — et vous pensez que vous ne pouvez rien déduire. C'est faux. Le [calcul détaillé de la part professionnelle du bureau à domicile](/blog/fiscalite-belgique/calcul-bureau-a-domicile/) complète cette analyse des usages mixtes.",
           "L'administration fiscale belge accepte les déductions basées sur un usage mixte, à condition que cet usage soit réel, habituel et documentable. Une pièce utilisée 4 heures sur 8 à des fins professionnelles contribue à hauteur de 50 % de sa surface pondérée à votre part professionnelle.",
         ],
         relatedLinks: [
