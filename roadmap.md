@@ -1,0 +1,3 @@
+- [ ] Réécrire les six articles demandés : intention unique, contenu belge documenté, liens contextuels.
+- [ ] Retirer les répétitions uniquement sur ces articles ; renforcer les liens entrants depuis les hubs et articles proches.
+- [ ] Vérifier métadonnées, indexabilité et dates spécifiques ; tester les six pages.
