@@ -6,7 +6,7 @@ import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { installClickTracking, tagSession } from "@/lib/clarity-events";
 import { recordLandingPage } from "@/lib/utm-enrich";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lazy, Suspense, useEffect, useLayoutEffect } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { lazyPage, type LazyPage } from "@/lib/lazy-page";
 import {
   BrowserRouter,
