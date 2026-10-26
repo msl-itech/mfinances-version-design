@@ -264,17 +264,12 @@ export default function AccueilV2() {
             <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]">
               {/* --- Colonne gauche : texte --- */}
               <div className="relative z-10 flex flex-col justify-center pl-6 sm:pl-10 md:pl-14 lg:pl-16 xl:pl-24 pr-3 sm:pr-4 md:pr-5 lg:pr-6 xl:pr-8 py-8 lg:py-10">
-                <div
-                  className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                    }`}
-                >
+                <div>
                   <div className="inline-flex items-center gap-3 mb-6">
                     <Stamp className="text-accent drop-shadow-lg w-14 h-14" />
                   </div>
                   <h2
                     className="font-display font-bold text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-primary-foreground"
-                    data-anim="fade-up"
-                    data-delay="0.25"
                   >
                     Vous travaillez <em className="italic font-normal text-primary-foreground/75">dur.</em>
                     <br />
@@ -303,12 +298,10 @@ export default function AccueilV2() {
                   </h2>
                   <p
                     className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[640px]"
-                    data-anim="fade-up"
-                    data-delay="0.4"
                   >
                     La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça&nbsp;: un vrai pilotage financier, à un prix de PME.
                   </p>
-                  <div className="mt-8 flex flex-wrap items-center gap-3" data-anim="fade-up" data-delay="0.55">
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
                     <Button
                       variant="accent"
                       size="lg"
