@@ -15,7 +15,8 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [ ] (Équipe) Mesure PageSpeed après publication (objectif LCP mobile < 2,5 s)
 
 ## Étape 3 — URL en double (J2.2)
-- [ ] (Site) Tester 10 URL sans slash final ; limite : l'hébergement Lovable ne permet pas de 301 serveur, à vérifier et documenter
+- [x] (Site) URL testées : /tarifs et /tarifs/ répondent toutes deux 200 (www et http déjà redirigés). Canonicals OK.
+- [ ] (Équipe) Règle de redirection 301 dans Cloudflare (mfinances.be passe par Cloudflare + LovableHTML, pas par le code)
 - [ ] (Équipe) Réindexation Search Console
 
 ## Étape 4 — Extraits Google des 7 pages (J2.3)
