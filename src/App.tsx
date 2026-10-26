@@ -6,7 +6,7 @@ import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { installClickTracking, tagSession } from "@/lib/clarity-events";
 import { recordLandingPage } from "@/lib/utm-enrich";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lazy, Suspense, useEffect, useLayoutEffect } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { lazyPage, type LazyPage } from "@/lib/lazy-page";
 import {
   BrowserRouter,
@@ -63,6 +63,29 @@ const Newsroom = lazyPage(() => import("./pages/Newsroom.tsx"));
 const NewsroomArticle = lazyPage(() => import("./pages/NewsroomArticle.tsx"));
 const NotreOrganisation = lazyPage(() => import("./pages/NotreOrganisation.tsx"));
 const ChatBot = lazy(() => import("./components/ChatBot"));
+
+// Load the chatbot only after the page has fully loaded, so it never delays first paint.
+function DeferredChatBot() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const start = () => {
+      const idle = (window as any).requestIdleCallback as ((cb: () => void) => number) | undefined;
+      if (idle) idle(() => setReady(true));
+      else setTimeout(() => setReady(true), 1500);
+    };
+    if (document.readyState === "complete") start();
+    else {
+      window.addEventListener("load", start, { once: true });
+      return () => window.removeEventListener("load", start);
+    }
+  }, []);
+  if (!ready) return null;
+  return (
+    <Suspense fallback={null}>
+      <ChatBot />
+    </Suspense>
+  );
+}
 
 
 // Table utilisée pour précharger la page demandée avant le premier affichage.
@@ -349,9 +372,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
-          <Suspense fallback={null}>
-            <ChatBot />
-          </Suspense>
+          <DeferredChatBot />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

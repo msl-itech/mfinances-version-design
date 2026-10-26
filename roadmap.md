@@ -8,11 +8,11 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [ ] (Site) J1.5 Charger Clarity seulement après consentement cookies — attend la décision écrite de Mika
 
 ## Étape 2 — Vitesse de l'accueil (J2.1)
-- [ ] (Site) Mesure PageSpeed avant
-- [ ] (Site) Titre, sous-titre et boutons du haut de l'accueil visibles sans animation
-- [ ] (Site) Vérifier/corriger le préchargement de l'image principale
-- [ ] (Site) Charger chatbot et animations après l'affichage
-- [ ] (Site) Mesure après (objectif LCP mobile < 2,5 s)
+- [ ] (Équipe) Mesure PageSpeed avant (sur le site en ligne, avant publication)
+- [x] (Site) Titre, sous-titre et boutons du haut de l'accueil visibles sans animation
+- [x] (Site) Vérifier/corriger le préchargement de l'image principale
+- [x] (Site) Charger chatbot et animations après l'affichage
+- [ ] (Équipe) Mesure PageSpeed après publication (objectif LCP mobile < 2,5 s)
 
 ## Étape 3 — URL en double (J2.2)
 - [ ] (Site) Tester 10 URL sans slash final ; limite : l'hébergement Lovable ne permet pas de 301 serveur, à vérifier et documenter
