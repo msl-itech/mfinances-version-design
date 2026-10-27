@@ -138,7 +138,7 @@ function ServiceCard({
         className="group relative flex flex-col h-full bg-card rounded-3xl p-7 md:p-8 border border-border/60 hover:border-accent/40 hover:shadow-[0_24px_60px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
       >
         {/* corner index watermark */}
-        <span className="absolute top-5 right-6 font-display text-[12px] text-foreground/30 tracking-[0.25em] font-bold">
+        <span className="absolute top-5 right-6 font-display text-[12px] text-foreground/60 tracking-[0.25em] font-bold">
           0{index + 1}
         </span>
 

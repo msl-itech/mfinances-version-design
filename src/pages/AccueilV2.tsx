@@ -735,7 +735,7 @@ export default function AccueilV2() {
                   </button>
                   <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
                     {String(reviewIndex + 1).padStart(2, "0")}
-                    <span className="text-foreground/30"> / {String(reviews.length).padStart(2, "0")}</span>
+                    <span className="text-foreground/60"> / {String(reviews.length).padStart(2, "0")}</span>
                   </span>
                 </div>
               </div>

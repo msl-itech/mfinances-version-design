@@ -78,25 +78,25 @@ export default function Footer() {
             </p>
             <div className="space-y-2.5 text-sm text-white/70">
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-white/50" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-white/75" />
                 <span>Rue de la Magnanerie 20,<br />1180 Uccle, Bruxelles</span>
               </div>
               <a href="tel:+3228860550" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone size={15} className="shrink-0 text-white/50" />
+                <Phone size={15} className="shrink-0 text-white/75" />
                 +32 2 886 05 50
               </a>
               <a href="mailto:info@mfinances.be" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail size={15} className="shrink-0 text-white/50" />
+                <Mail size={15} className="shrink-0 text-white/75" />
                 info@mfinances.be
               </a>
             </div>
             <div className="flex flex-wrap gap-2 pt-1">
-              <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">ITAA 50.624.805</span>
-              <span className="text-[11px] text-white/50 bg-white/10 rounded px-2.5 py-1">BCE 0827.635.870</span>
+              <span className="text-[11px] text-white/75 bg-white/10 rounded px-2.5 py-1">ITAA 50.624.805</span>
+              <span className="text-[11px] text-white/75 bg-white/10 rounded px-2.5 py-1">BCE 0827.635.870</span>
             </div>
 
             <div className="pt-2">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-white/40 font-semibold mb-2.5">Suivez-nous</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-white/70 font-semibold mb-2.5">Suivez-nous</p>
               <div className="flex items-center gap-4">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
@@ -181,7 +181,7 @@ export default function Footer() {
 
       {/* Copyright bar */}
       <div className="border-t-2 border-accent">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px] text-white/40">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px] text-white/70">
           <span>© 2026 MFinances S.R.L. — Tous droits réservés | mfinances.be | info@mfinances.be</span>
           <span>TVA BE 0827.635.870 | ITAA 50.624.805 | Design by <a href="https://msl-itech.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-accent transition-colors">msl-itech.com</a></span>
         </div>

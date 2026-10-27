@@ -386,7 +386,7 @@ export default function AccueilV3() {
                       <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
                         <Icon size={20} className="text-accent transition-colors duration-500 group-hover:text-accent-foreground" strokeWidth={1.75} />
                       </div>
-                      <span className="text-[11px] font-bold tracking-[0.22em] text-foreground/30">
+                      <span className="text-[11px] font-bold tracking-[0.22em] text-foreground/60">
                         0{idx + 1}
                       </span>
                     </div>
@@ -725,7 +725,7 @@ export default function AccueilV3() {
                   </button>
                   <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
                     {String(reviewIndex + 1).padStart(2, "0")}
-                    <span className="text-foreground/30"> / {String(reviews.length).padStart(2, "0")}</span>
+                    <span className="text-foreground/60"> / {String(reviews.length).padStart(2, "0")}</span>
                   </span>
                 </div>
               </div>

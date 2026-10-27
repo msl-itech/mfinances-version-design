@@ -35,7 +35,8 @@
     --muted: 228 33% 97%;
     --muted-foreground: 224 16% 45%;
 
-    --accent: 0 79% 53%;
+    --accent: 0 72% 46%;
+    --accent-on-dark: 0 100% 75%;
     --accent-foreground: 0 0% 100%;
     --accent-hover: 0 100% 67%;
 
@@ -377,4 +378,10 @@ html.lenis-active.lenis-smooth {
     calc(100% - 28px) 100%,
     0 100%
   );
+}
+
+/* Contraste AA : le rouge sur fond marine utilise une teinte claire lisible */
+.bg-primary .text-accent,
+footer .text-accent {
+  color: hsl(var(--accent-on-dark));
 }

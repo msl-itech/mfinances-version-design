@@ -148,7 +148,7 @@ export default function BlogCategory() {
                   <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
                     <div className="bg-card rounded-2xl p-6 border border-border/50 opacity-75">
                       <div className="flex items-start gap-3">
-                        <Clock size={16} className="text-foreground/30 mt-1 flex-shrink-0" />
+                        <Clock size={16} className="text-foreground/60 mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
                             {article.hook || article.title}
