@@ -4,7 +4,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 
 ## Étape 1 — Mesure et RGPD (J1)
 - [ ] (Équipe) Rappeler les 11 demandes « Nouveau », motif de perte obligatoire, revenu attendu, fusion doublons Odoo
-- [ ] (Équipe) Export Plausible 20/09 → 19/10 + tableau de référence
+- [x] (Équipe) Plausible retiré le 27/10/2026 (ajouté le 18/04/2026 par une session antérieure, aucun compte derrière) ; tableau de référence à établir depuis l'export Clarity 20/09 → 19/10
 - [ ] (Site) J1.5 Charger Clarity seulement après consentement cookies — attend la décision écrite de Mika
 
 ## Étape 2 — Vitesse de l'accueil (J2.1)
@@ -30,7 +30,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 
 ## Étape 6 — Bouton « Réserver un appel » partout (J4.1)
 - [x] (Site) Validation du 27/10 appliquée : appel rouge et diagnostic contour marine sur accueil, tarifs, services et ServicePageHero ; ouverture du rendez-vous Odoo vérifiée
-- [x] (Site) Plausible vérifié en ligne : script chargé en HTTP 200 ; appointment_click et contact_form_submit envoyés actuellement à Clarity uniquement, pas à Plausible
+- [x] (Site) Plausible retiré de `index.html` le 27/10/2026 ; Clarity conservé ; appointment_click et contact_form_submit envoyés à Clarity
 - [ ] (Site) Bouton principal « Réserver un appel de 20 minutes » dès le premier écran : accueil, tarifs, services, secteurs
 - [ ] (Site) Bandeau fixe mobile à partir de 30 % de défilement
 - [ ] (Site) Formulaire court (nom, e-mail, téléphone, besoin) en bas des pages services et secteurs
