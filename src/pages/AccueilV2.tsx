@@ -44,7 +44,8 @@ import Stamp from "@/components/ui/Stamp";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useGoogleReviews, formatReviewSummary } from "@/hooks/use-google-reviews";
 import equipePhoto from "@/assets/mfinances-equipe-travail.webp";
-import equipePhoto400 from "@/assets/mfinances-equipe-travail-400.webp";
+import equipePhotoAvifSet from "@/assets/mfinances-equipe-travail.webp?w=400;800&format=avif&quality=55&as=srcset";
+import equipePhotoWebpSet from "@/assets/mfinances-equipe-travail.webp?w=400;800&format=webp&quality=70&as=srcset";
 import mikaPhoto from "@/assets/mika-musungayi.webp";
 import mikaPhoto720 from "@/assets/mika-musungayi-720.webp";
 import imgControle from "@/assets/service-controle-gestion.webp";
@@ -333,16 +334,24 @@ export default function AccueilV2() {
 
               {/* --- Colonne droite : image avec fondu --- */}
               <div className="relative min-h-[320px] lg:min-h-0 [contain:layout_paint]">
-                <ResponsiveImage
-                  src={equipePhoto}
-                  srcSmall={equipePhoto400}
-                  srcLarge={equipePhoto}
-                  displayWidth={600}
-                  alt="Équipe MFinances en réunion"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet={equipePhotoAvifSet}
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                  />
+                  <img
+                    src={equipePhoto}
+                    srcSet={equipePhotoWebpSet}
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    width={800}
+                    height={436}
+                    alt="Équipe MFinances en réunion"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                </picture>
                 {/* Fondu artistique gauche — transition très douce sur 60% */}
                 <div
                   className="absolute inset-0"

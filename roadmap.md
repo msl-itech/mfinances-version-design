@@ -8,6 +8,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [ ] (Site) J1.5 Charger Clarity seulement après consentement cookies — attend la décision écrite de Mika
 
 ## Étape 2 — Vitesse de l'accueil (J2.1)
+- [ ] (Site) Optimiser le téléchargement de la photo LCP signalé à 2 360 ms : AVIF avec repli WebP et tailles adaptées ; vérifier l'affichage.
 - [ ] (Équipe) Mesure PageSpeed avant (sur le site en ligne, avant publication)
 - [x] (Site) Titre, sous-titre et boutons du haut de l'accueil visibles sans animation
 - [x] (Site) Vérifier/corriger le préchargement de l'image principale
