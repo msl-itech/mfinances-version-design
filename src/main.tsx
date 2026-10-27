@@ -1,6 +1,9 @@
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App, { preloadRoute } from "./App.tsx";
+import "@fontsource/playfair-display/latin-400.css";
+import "@fontsource/playfair-display/latin-600.css";
+import "@fontsource/playfair-display/latin-700.css";
 import "./index.css";
 
 function render() {
