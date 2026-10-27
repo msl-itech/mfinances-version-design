@@ -98,8 +98,8 @@ export default function CommerceHoreca() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Commerce Horeca Bruxelles — MFinances"
-        description="Comptabilité, TVA multi-taux, marges et trésorerie pour commerçants et secteur Horeca en Belgique. Suivi minimum trimestriel. MFinances, Bruxelles."
+        title="Expert-comptable commerce et horeca Bruxelles — MFinances"
+        description="Commerçants et restaurateurs à Bruxelles : suivez votre TVA, vos marges et votre trésorerie. Accompagnement MFinances à partir de 450 € HTVA/mois."
         canonical="https://mfinances.be/qui-nous-accompagnons/commerce-et-horeca/"
         schemaJson={breadcrumbJsonLd}
       />

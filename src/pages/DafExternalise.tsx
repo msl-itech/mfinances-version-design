@@ -130,8 +130,8 @@ export default function DafExternalise() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="DAF Externalisé pour TPE à Bruxelles — MFinances"
-        description="Un copilote financier à temps partiel pour vos décisions stratégiques. Réservé aux clients Excellence. 150€ HTVA/heure. Cabinet MFinances, Bruxelles."
+        title="DAF externalisé pour TPE à Bruxelles — MFinances"
+        description="Pilotez vos décisions avec un DAF à temps partiel : budgets, trésorerie et rentabilité. Service réservé aux clients Excellence, à 150 € HTVA/h."
         canonical="https://mfinances.be/services/daf-externalise/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "DAF externalisé (direction financière à temps partiel)", serviceType: "Direction financière externalisée", url: "https://mfinances.be/services/daf-externalise/", description: "Un copilote financier à temps partiel pour vos décisions stratégiques." })]}
       />

@@ -628,8 +628,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-04-11",
-    seoTitle: "Requalification loyer en rémunération de dirigeant Belgique — Comment l'éviter",
-    metaDescription: "L'administration fiscale belge peut requalifier votre loyer en rémunération de dirigeant. Plafond légal, causes et prévention. Cabinet MFinances Uccle.",
+    seoTitle: "Loyer au dirigeant : plafond de requalification en Belgique",
+    metaDescription: "Vous louez un bureau à votre société ? Comprenez le plafond lié au revenu cadastral, le calcul de l’excédent et les précautions à prendre en Belgique.",
   },
   {
     slug: "fin-deduction-interets-immobilier-2026",
@@ -640,8 +640,8 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-05-20",
-    seoTitle: "Fin de la déduction des intérêts immobiliers — Réforme 2026",
-    metaDescription: "Dès 2026, fin de la déduction des intérêts d'emprunt sur l'immobilier secondaire en Belgique. Impact, autres mesures et stratégies pour dirigeants.",
+    seoTitle: "Intérêts immobiliers : fin de déduction en Belgique",
+    metaDescription: "Comprenez la suppression de la déduction ordinaire des intérêts immobiliers à l’exercice 2026 (revenus 2025), y compris pour les anciens emprunts.",
   },
 ];
 
