@@ -29,6 +29,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [ ] (Site) Événement contact_form_submit déclenché sur chaque formulaire qui crée une piste (chatbot inclus) + note de diagnostic
 
 ## Étape 6 — Bouton « Réserver un appel » partout (J4.1)
+- [ ] (Site) Validation du 27/10 : appel principal rouge vers https://odoo.mfinances.be/appointment/11, diagnostic secondaire contour marine ; vérifier Plausible avant de promettre les mesures
 - [ ] (Site) Bouton principal « Réserver un appel de 20 minutes » dès le premier écran : accueil, tarifs, services, secteurs
 - [ ] (Site) Bandeau fixe mobile à partir de 30 % de défilement
 - [ ] (Site) Formulaire court (nom, e-mail, téléphone, besoin) en bas des pages services et secteurs
@@ -41,7 +42,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 ## Étape 8 — Guides → rendez-vous (J4.3, J4.4)
 - [ ] (Site) Page de confirmation des guides : proposer un créneau
 - [ ] (Site) E-mails 2 et 4 des séquences : lien de rendez-vous signé Mika
-- [ ] (Site) Mention « réponse sous 4 h ouvrées » sous les formulaires
+- [ ] (Site) Conserver la promesse de rappel personnel sous 72 h sous les formulaires (validée par Mika)
 - [ ] (Équipe) Activité automatique « Appel de qualification » 48 h + vue « Demandes sans activité » dans Odoo
 
 ## Étape 9 — Preuve sociale près des boutons (J4.5)
