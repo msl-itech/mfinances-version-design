@@ -773,10 +773,14 @@ export default function AccueilV2() {
                     <button
                       key={i}
                       onClick={() => setReviewIndex(i)}
-                      className={`h-1.5 rounded-full transition-all ${i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 hover:bg-muted-foreground"
-                        }`}
+                      className="group flex h-6 min-w-6 items-center justify-center"
                       aria-label={`Témoignage ${i + 1}`}
-                    />
+                      aria-current={i === reviewIndex ? "true" : undefined}
+                    >
+                      <span
+                        className={`block h-1.5 rounded-full transition-all ${i === reviewIndex ? "bg-accent w-8" : "bg-border w-3 group-hover:bg-muted-foreground"}`}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
