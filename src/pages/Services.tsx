@@ -7,6 +7,8 @@ import imgMeeting from "@/assets/daf-meeting-team.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -274,22 +276,22 @@ export default function Services() {
                     className="rounded-full pl-7 pr-3 group btn-liquid h-14 text-[15px] whitespace-nowrap"
                     asChild
                   >
-                    <Link to="/contact/" data-magnetic>
+                    <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer" data-magnetic>
                       <span className="flex items-center gap-3">
-                        Consultation gratuite
+                        Réserver un appel
                         <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
                           <ArrowUpRight size={14} />
                         </span>
                       </span>
-                    </Link>
+                    </a>
                   </Button>
                   <Button
-                    variant="outline-white"
+                    variant="outline"
                     size="lg"
-                    className="rounded-full px-7 h-14 text-[15px] whitespace-nowrap"
+                    className="rounded-full px-7 h-14 text-[15px] bg-background"
                     asChild
                   >
-                    <Link to="/tarifs/">Voir les tarifs</Link>
+                    <Link to="/diagnostic/">Diagnostic gratuit</Link>
                   </Button>
                 </div>
               </div>

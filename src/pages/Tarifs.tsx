@@ -8,6 +8,8 @@ import imgMeeting from "@/assets/daf-meeting-team.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
 import {
   Accordion,
   AccordionContent,
@@ -415,17 +417,17 @@ export default function Tarifs() {
 
                   <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start" data-anim="fade-up" data-delay="0.55">
                     <Button variant="accent" size="lg" className="rounded-full pl-6 pr-3 group h-12 text-[14px]" asChild>
-                      <a href="#progression">
+                      <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer">
                         <span className="flex items-center gap-3">
-                          Comprendre la progression
+                          Réserver un appel
                           <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                             <ArrowUpRight size={14} />
                           </span>
                         </span>
                       </a>
                     </Button>
-                    <Button variant="outline" size="lg" className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                      <a href="#diagnostic">Trouver mon forfait</a>
+                    <Button variant="outline" size="lg" className="rounded-full px-6 h-12 text-[14px] bg-background" asChild>
+                      <Link to="/diagnostic/">Diagnostic gratuit</Link>
                     </Button>
                   </div>
                 </div>

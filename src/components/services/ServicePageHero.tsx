@@ -11,6 +11,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Stamp from "@/components/ui/Stamp";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
 
 export interface ServicePageHeroProps {
   /** Slug or label shown above title, e.g. "DAF à temps partiel" */
@@ -70,8 +72,6 @@ export default function ServicePageHero({
   cardTitlePrefix,
   cardTitleAccent,
   cardSubtitle,
-  ctaPrimary,
-  ctaSecondary,
   watermark,
 }: ServicePageHeroProps) {
   return (
@@ -195,25 +195,23 @@ export default function ServicePageHero({
                 className="rounded-full pl-7 pr-3 group h-14 text-[15px] whitespace-nowrap"
                 asChild
               >
-                <Link to={ctaPrimary.href}>
+                <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer">
                   <span className="flex items-center gap-3">
-                    {ctaPrimary.label}
+                    Réserver un appel
                     <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
                       <ArrowUpRight size={14} />
                     </span>
                   </span>
-                </Link>
+                </a>
               </Button>
-              {ctaSecondary && (
                 <Button
-                  variant="outline-white"
+                  variant="outline"
                   size="lg"
-                  className="rounded-full px-7 h-14 text-[15px] whitespace-nowrap"
+                  className="rounded-full px-7 h-14 text-[15px] bg-background"
                   asChild
                 >
-                  <Link to={ctaSecondary.href}>{ctaSecondary.label}</Link>
+                  <Link to="/diagnostic/">Diagnostic gratuit</Link>
                 </Button>
-              )}
             </div>
           </div>
 

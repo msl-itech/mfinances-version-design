@@ -9,6 +9,8 @@ import DiagnosticSection from "@/components/sections/DiagnosticSection";
 import DisqualificationSection from "@/components/sections/DisqualificationSection";
 import LeadMagnetSection from "@/components/sections/LeadMagnetSection";
 import { Button } from "@/components/ui/button";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
 import {
   Accordion,
   AccordionContent,
@@ -308,22 +310,22 @@ export default function AccueilV2() {
                       className="rounded-full pl-6 pr-3 group h-12 text-[14px]"
                       asChild
                     >
-                      <Link to="/diagnostic/">
+                      <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer">
                         <span className="flex items-center gap-3">
-                          Diagnostic gratuit
+                          Réserver un appel
                           <span className="w-8 h-8 rounded-full bg-accent-foreground/15 flex items-center justify-center group-hover:rotate-45 transition-transform">
                             <ArrowUpRight size={14} />
                           </span>
                         </span>
-                      </Link>
+                      </a>
                     </Button>
                     <Button
                       variant="outline"
                       size="lg"
-                      className="rounded-full px-6 h-12 text-[14px] border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                      className="rounded-full px-6 h-12 text-[14px] bg-background"
                       asChild
                     >
-                      <Link to="/services/">Découvrir nos services</Link>
+                      <Link to="/diagnostic/">Diagnostic gratuit</Link>
                     </Button>
                   </div>
                 </div>

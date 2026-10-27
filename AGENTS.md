@@ -1,2 +1,4 @@
 - Keep blog revisions in the existing article data files; opt-in rendering flags isolate editorial changes to selected articles.
 - Use page-specific editorial revision dates for Article dateModified and sitemap lastmod; never derive them from build time.
+- Keep the appointment destination in a shared module and use it for booking CTAs so attribution preserves the selected appointment.
+- ServicePageHero owns the booking/diagnostic CTA pair; keep legacy CTA props compatible for existing callers.
