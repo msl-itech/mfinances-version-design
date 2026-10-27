@@ -5,7 +5,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 ## Étape 1 — Mesure et RGPD (J1)
 - [ ] (Équipe) Rappeler les 11 demandes « Nouveau », motif de perte obligatoire, revenu attendu, fusion doublons Odoo
 - [x] (Équipe) Plausible retiré le 27/10/2026 (ajouté le 18/04/2026 par une session antérieure, aucun compte derrière) ; tableau de référence à établir depuis l'export Clarity 20/09 → 19/10
-- [ ] (Site) J1.5 Charger Clarity seulement après consentement cookies — attend la décision écrite de Mika
+- [ ] (Site) J1.5 Charger Clarity seulement après consentement cookies — attend la décision écrite de Mika. Constat du 27/10/2026 : aucune bannière de consentement sur le site (ni en aperçu ni en ligne) ; seule une page « Politique de cookies » est liée en pied de page ; Clarity se charge dès l'ouverture de la page (2 requêtes, scripts.clarity.ms) ; le seul cookie du domaine est `__dpl` (technique, servi par l'hébergeur).
 
 ## Étape 2 — Vitesse de l'accueil (J2.1)
 - [x] (Site) Photo LCP optimisée en AVIF avec repli WebP et tailles adaptées : 24 388 octets contre 45 278 (−46 %), affichage vérifié à 390, 973 et 1280 px ; temps PageSpeed à mesurer après publication.
