@@ -88,7 +88,7 @@ export default function APropos() {
     <div ref={root} className="min-h-screen">
       <SEOHead
         title="À propos de MFINANCES | Expert-comptable & pilotage à Bruxelles"
-        description="MFinances, cabinet d'expertise comptable à Uccle (Bruxelles) fondé par Mika Musungayi, expert-comptable ITAA. Pilotage financier et contrôle de gestion pour TPE."
+        description="Découvrez Mika Musungayi, expert-comptable ITAA, et l’équipe MFinances à Uccle : expertise comptable, proximité et pilotage financier pour les TPE."
         canonical="https://mfinances.be/a-propos/"
         schemaJson={[
           aboutPageSchema,

@@ -339,8 +339,8 @@ export default function Tarifs() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Tarifs Expert-Comptable Bruxelles | À partir de 275€/mois | MFinances"
-        description="4 forfaits transparents pour TPE à Bruxelles, à partir de 275 € (Basic), 350 € (Essentiel), 450 € (Premium) et 650 € HTVA/mois (Excellence). DAF à temps partiel en option."
+        title="Tarifs expert-comptable Bruxelles — Dès 275 € — MFinances"
+        description="Comparez nos 4 forfaits comptables pour TPE à Bruxelles, à partir de 275 € HTVA/mois. Découvrez les services inclus et le niveau de pilotage adapté."
         canonical="https://mfinances.be/tarifs/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, tarifsOfferCatalogSchema]}
       />

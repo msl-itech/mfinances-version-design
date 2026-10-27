@@ -197,8 +197,8 @@ export default function Services() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Services Comptables & Pilotage Financier TPE Bruxelles | MFinances"
-        description="Comptabilité, contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour dirigeants de TPE à Bruxelles. Forfaits à partir de 275 € HTVA/mois."
+        title="Comptabilité et pilotage à Bruxelles — MFinances"
+        description="Explorez nos services pour TPE à Bruxelles : comptabilité, fiscalité, contrôle de gestion, trésorerie et DAF externalisé. Choisissez selon vos besoins."
         canonical="https://mfinances.be/services/"
         schemaJson={breadcrumbJsonLd}
       />
