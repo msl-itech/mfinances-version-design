@@ -16,12 +16,12 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 
 ## Étape 3 — URL en double (J2.2)
 - [x] (Site) URL testées : /tarifs et /tarifs/ répondent toutes deux 200 (www et http déjà redirigés). Canonicals OK.
-- [ ] (Équipe) Règle de redirection 301 dans Cloudflare (mfinances.be passe par Cloudflare + LovableHTML, pas par le code)
-- [ ] (Équipe) Réindexation Search Console
+- [x] (Équipe) Redirections 301 importées dans Encited ; cinq pages et le sitemap vérifiés en ligne lors de l’étape précédente
+- [x] (Équipe) Réindexation demandée le 27/10/2026 pour accueil, tarifs, services, DAF, diagnostic, contact et à propos (déjà indexées, selon Search Console rapportée par l’utilisateur)
 
 ## Étape 4 — Extraits Google des 7 pages (J2.3)
-- [ ] (Site) Tableau avant/après titres + descriptions (DAF, intérêts immobilier, tarifs, à propos, requalification loyer, services, horeca)
-- [ ] (Équipe) Validation Mika
+- [x] (Site) Tableau avant/après titres + descriptions préparé le 27/10/2026 (DAF, intérêts immobilier, tarifs, à propos, requalification loyer, services, horeca) — étape 3 dans le suivi de conversation
+- [ ] (Équipe) Validation Mika des propositions avant application ; aucune métadonnée du site modifiée
 - [ ] (Site) Mise à jour
 
 ## Étape 5 — Doublons Odoo et suivi des envois (J2.4, J2.5)
