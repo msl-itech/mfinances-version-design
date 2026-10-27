@@ -332,7 +332,7 @@ export default function AccueilV2() {
               </div>
 
               {/* --- Colonne droite : image avec fondu --- */}
-              <div className="relative min-h-[320px] lg:min-h-0">
+              <div className="relative min-h-[320px] lg:min-h-0 [contain:layout_paint]">
                 <ResponsiveImage
                   src={equipePhoto}
                   srcSmall={equipePhoto400}

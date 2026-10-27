@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Police de secours aux métriques de Playfair Display : évite le décalage (CLS) au chargement */
+@font-face {
+  font-family: "Playfair Fallback";
+  src: local("Times New Roman"), local("Times"), local("Liberation Serif"), local("Georgia");
+  size-adjust: 111.73%;
+  ascent-override: 96.94%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   :root {
     --background: 36 33% 97%;
@@ -62,13 +72,13 @@
 
   h1,
   h2 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", "Playfair Fallback", Georgia, serif;
     line-height: 1.15;
     color: hsl(var(--primary));
   }
 
   h3 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", "Playfair Fallback", Georgia, serif;
     line-height: 1.25;
     color: hsl(var(--primary));
   }
