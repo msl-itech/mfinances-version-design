@@ -300,7 +300,7 @@ export default function SocieteEnVeille() {
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[14px]">
                       <div className="w-5 h-5 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Minus size={11} className="text-foreground/30" strokeWidth={3} />
+                        <Minus size={11} className="text-foreground/60" strokeWidth={3} />
                       </div>
                       <span className="text-muted-foreground font-body">{item}</span>
                     </li>
