@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { imagetools } from "vite-imagetools";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import prerender from "@prerenderer/rollup-plugin";
@@ -123,6 +124,7 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       checkPublicPdfs(),
+      imagetools(),
       react(),
       mode === "development" && componentTagger(),
       mode === "production" &&
