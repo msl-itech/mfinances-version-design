@@ -63,7 +63,10 @@ const Unsubscribe = lazyPage(() => import("./pages/Unsubscribe.tsx"));
 const Newsroom = lazyPage(() => import("./pages/Newsroom.tsx"));
 const NewsroomArticle = lazyPage(() => import("./pages/NewsroomArticle.tsx"));
 const NotreOrganisation = lazyPage(() => import("./pages/NotreOrganisation.tsx"));
-const ChatBot = lazy(() => import("./components/ChatBot"));
+// If the chunk fails to load (stale cache after an update), render nothing instead of crashing the page.
+const ChatBot = lazy(() =>
+  import("./components/ChatBot").catch(() => ({ default: () => null }))
+);
 
 // Load the chatbot only after the page has fully loaded, so it never delays first paint.
 function DeferredChatBot() {
