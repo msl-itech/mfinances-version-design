@@ -289,17 +289,23 @@ export function useGsapReveal(scope: React.RefObject<HTMLElement>, deps: unknown
         const distance = Number(el.dataset.scrubDistance ?? 200);
         const dir = el.dataset.scrubDir === "right" ? 1 : -1;
         gsap.set(el, { xPercent: -dir * (distance / 4) });
-        gsap.to(el, {
-          xPercent: dir * (distance / 4),
-          ease: "none",
-          scrollTrigger: {
-            trigger,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        });
+        try {
+          gsap.to(el, {
+            xPercent: dir * (distance / 4),
+            ease: "none",
+            scrollTrigger: {
+              trigger,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+        } catch (err) {
+          // A decorative animation must never blank the page.
+          console.warn("[gsap-reveal] text-scrub skipped:", err);
+          gsap.set(el, { xPercent: 0 });
+        }
       });
 
       ScrollTrigger.refresh();
