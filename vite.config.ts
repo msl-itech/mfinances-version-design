@@ -109,6 +109,69 @@ function checkPublicPdfs() {
   };
 }
 
+// Sitemap généré automatiquement depuis les pages fixes, blog-data.ts et newsroom-data.ts
+async function loadSitemapXml(): Promise<string> {
+  const { createServer } = await import("vite");
+  const server = await createServer({
+    configFile: false,
+    logLevel: "silent",
+    appType: "custom",
+    server: { middlewareMode: true, hmr: false, watch: null },
+    resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  });
+  try {
+    const [{ renderSitemapXml }, blog, news, pages] = await Promise.all([
+      server.ssrLoadModule("/src/lib/sitemap.ts"),
+      server.ssrLoadModule("/src/data/blog-data.ts"),
+      server.ssrLoadModule("/src/data/newsroom-data.ts"),
+      server.ssrLoadModule("/src/data/sitemap-pages.ts"),
+    ]);
+    return renderSitemapXml({
+      origin: pages.SITE_ORIGIN,
+      pages: pages.sitemapPages,
+      blogArticles: blog.blogArticles,
+      blogCategories: blog.blogCategories,
+      newsroomArticles: news.newsroomArticles,
+    });
+  } finally {
+    await server.close();
+  }
+}
+
+function generateSitemap() {
+  let xml = "";
+  return {
+    name: "generate-sitemap",
+    apply: "build" as const,
+    async buildStart() {
+      xml = await loadSitemapXml();
+    },
+    generateBundle(this: { emitFile: (f: { type: "asset"; fileName: string; source: string }) => void }) {
+      this.emitFile({ type: "asset", fileName: "sitemap.xml", source: xml });
+    },
+  };
+}
+
+function serveSitemapInDev() {
+  return {
+    name: "serve-sitemap-dev",
+    apply: "serve" as const,
+    configureServer(server: { middlewares: { use: (fn: (req: { url?: string }, res: { setHeader: (k: string, v: string) => void; end: (b: string) => void }, next: () => void) => void) => void }; ssrLoadModule: (id: string) => Promise<Record<string, any>> }) {
+      server.middlewares.use(async (req, res, next) => {
+        if (req.url !== "/sitemap.xml") return next();
+        const [{ renderSitemapXml }, blog, news, pages] = await Promise.all([
+          server.ssrLoadModule("/src/lib/sitemap.ts"),
+          server.ssrLoadModule("/src/data/blog-data.ts"),
+          server.ssrLoadModule("/src/data/newsroom-data.ts"),
+          server.ssrLoadModule("/src/data/sitemap-pages.ts"),
+        ]);
+        res.setHeader("Content-Type", "application/xml; charset=utf-8");
+        res.end(renderSitemapXml({ origin: pages.SITE_ORIGIN, pages: pages.sitemapPages, blogArticles: blog.blogArticles, blogCategories: blog.blogCategories, newsroomArticles: news.newsroomArticles }));
+      });
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
   const blogRoutes = mode === "production" ? await loadBlogRoutes() : [];
@@ -124,6 +187,8 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       checkPublicPdfs(),
+      generateSitemap(),
+      serveSitemapInDev(),
       imagetools(),
       react(),
       mode === "development" && componentTagger(),
