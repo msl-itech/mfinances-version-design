@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { retryPendingLeads } from "@/lib/odoo-submit";
 import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
 import { installClickTracking, tagSession } from "@/lib/clarity-events";
+import CookieConsent from "@/components/CookieConsent";
 import { recordLandingPage } from "@/lib/utm-enrich";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, Suspense, useEffect, useLayoutEffect, useState } from "react";
@@ -373,6 +374,7 @@ const App = () => {
           </Routes>
           </Suspense>
           <DeferredChatBot />
+          <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

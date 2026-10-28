@@ -60,7 +60,7 @@ export default function PolitiqueCookies() {
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Cookies analytiques (avec consentement)</h3>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                Mesure de l'audience du site. Données anonymisées. Durée : 13 mois maximum.
+                Microsoft Clarity (cookies MUID, CLID, MR, _clck, _clsk) : mesure de l'audience et de l'utilisation des pages. Déposés uniquement si vous cliquez sur « Accepter ». Durée : 13 mois maximum.
               </p>
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Cookies de fonctionnalité (avec consentement)</h3>
@@ -72,7 +72,7 @@ export default function PolitiqueCookies() {
             <div>
               <h2 className="font-display text-[22px] text-foreground mb-4">Gérer vos préférences</h2>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                Un bandeau de consentement s'affiche lors de votre première visite. Vous pouvez modifier vos préférences via « Gérer mes cookies » en bas de chaque page.
+                Un bandeau « Accepter / Refuser » s'affiche lors de votre première visite. Tant que vous n'avez pas accepté, aucun cookie de mesure n'est déposé. Vous pouvez changer d'avis à tout moment via « Gérer mes cookies » en bas de chaque page ; votre choix est mémorisé dans votre navigateur.
               </p>
             </div>
 
