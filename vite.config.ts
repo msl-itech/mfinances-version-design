@@ -147,6 +147,10 @@ export default defineConfig(async ({ mode }) => {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+      dedupe: ["react", "react-dom", "gsap"],
+    },
+    optimizeDeps: {
+      include: ["gsap", "gsap/ScrollTrigger"],
     },
   };
 });
