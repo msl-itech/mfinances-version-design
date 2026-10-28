@@ -99,6 +99,10 @@ export default {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(360deg)" },
         },
+        "cookie-float": {
+          "0%, 100%": { transform: "rotate(-8deg) translateY(0)" },
+          "50%": { transform: "rotate(-3deg) translateY(-4px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -107,6 +111,7 @@ export default {
         "slide-in-right": "slide-in-right 0.3s ease-out",
         "slide-out-right": "slide-out-right 0.3s ease-out",
         "spin-slow": "spin-slow 15s linear infinite",
+        "cookie-float": "cookie-float 5s ease-in-out infinite",
       },
     },
   },
