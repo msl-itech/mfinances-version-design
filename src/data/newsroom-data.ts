@@ -12,6 +12,7 @@ export interface NewsroomArticle {
   companies: string[];
   readingTime: string;
   eventDate: string; // ISO
+  dateModified?: string; // ISO, dernière révision éditoriale (sitemap lastmod)
   displayDate: string;
   featured?: boolean;
   coverImage: string;
@@ -56,6 +57,7 @@ export const newsroomArticles: NewsroomArticle[] = [
     companies: ["MFINANCES", "MSL-iTECH"],
     readingTime: "5 min",
     eventDate: "2026-09-07",
+    dateModified: "2026-10-23",
     displayDate: "7 septembre 2026",
     featured: true,
     coverImage: financeConnectee530,
