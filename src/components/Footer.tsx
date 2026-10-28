@@ -1,3 +1,4 @@
+import { openConsentBanner } from "@/lib/consent";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram, Youtube } from "lucide-react";
 import logoSquare from "@/assets/logo-square.webp";
@@ -183,7 +184,7 @@ export default function Footer() {
       <div className="border-t-2 border-accent">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px] text-white/70">
           <span>© 2026 MFinances S.R.L. — Tous droits réservés | mfinances.be | info@mfinances.be</span>
-          <span>TVA BE 0827.635.870 | ITAA 50.624.805 | Design by <a href="https://msl-itech.com" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-accent transition-colors">msl-itech.com</a></span>
+          <span>TVA BE 0827.635.870 | ITAA 50.624.805 | <button type="button" onClick={openConsentBanner} className="text-white underline underline-offset-2 hover:text-accent transition-colors">Gérer mes cookies</button> | Design by <a href="https://msl-itech.com" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-accent transition-colors">msl-itech.com</a></span>
         </div>
       </div>
     </footer>
