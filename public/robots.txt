@@ -16,7 +16,7 @@ Crawl-delay: 1
 User-agent: Googlebot-Image
 Allow: /
 
-# ─── GOOGLE GEO (Gemini / Google SGE) ───────────────
+# ─── GOOGLE-EXTENDED (entraînement Gemini, pas la recherche) ─
 User-agent: Google-Extended
 Allow: /
 
@@ -32,10 +32,13 @@ User-agent: OAI-SearchBot
 Allow: /
 
 # ─── ANTHROPIC (Claude) ─────────────────────────────
-User-agent: anthropic-ai
+User-agent: ClaudeBot
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 # ─── PERPLEXITY ─────────────────────────────────────
@@ -43,7 +46,7 @@ User-agent: PerplexityBot
 Allow: /
 
 # ─── META (Llama) ────────────────────────────────────
-User-agent: FacebookBot
+User-agent: meta-externalagent
 Allow: /
 
 # ─── MICROSOFT (Bing / Copilot) ─────────────────────
