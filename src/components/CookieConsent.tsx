@@ -69,7 +69,7 @@ export default function CookieConsent() {
             <p className="mt-3 font-body text-[12px] leading-[1.5] text-muted-foreground">
               Votre choix est mémorisé et modifiable à tout moment via «&nbsp;Gérer mes cookies&nbsp;» en bas
               de page.{" "}
-              <Link to="/politique-cookies/" className="underline underline-offset-2">
+              <Link to="/politique-de-cookies/" className="underline underline-offset-2">
                 Politique de cookies
               </Link>
             </p>
