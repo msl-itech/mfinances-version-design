@@ -11,7 +11,7 @@ const targets = [
   ["tresorerie", "anticiper-flux-tresorerie"],
   ["tresorerie", "bfr-recrutement-impact-tresorerie"],
 ] as const;
-const base = "https://mfinances-version-design.lovable.app";
+const base = "https://mfinances.be";
 
 describe("Six requested editorial revisions", () => {
   for (const [category, slug] of targets) {
