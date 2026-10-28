@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { articleContent } from "../data/blog-articles-content";
-import { blogArticles } from "../data/blog-data";
+import { blogArticles, blogCategories } from "../data/blog-data";
+import { newsroomArticles } from "../data/newsroom-data";
+import { sitemapPages, SITE_ORIGIN } from "../data/sitemap-pages";
+import { renderSitemapXml } from "../lib/sitemap";
 
 const targets = [
   ["daf-externalise", "daf-externalise-definition"],
@@ -34,7 +37,7 @@ describe("Six requested editorial revisions", () => {
       expect(article?.canonical).toBe(`${base}/blog/${category}/${slug}/`);
       expect(article?.dateModified).toBe("2026-10-23");
       expect(article?.published).toBe(true);
-      const sitemap = readFileSync("public/sitemap.xml", "utf8");
+      const sitemap = renderSitemapXml({ origin: SITE_ORIGIN, pages: sitemapPages, blogArticles, blogCategories, newsroomArticles });
       expect(sitemap).toContain(`<loc>${base}/blog/${category}/${slug}/</loc><lastmod>2026-10-23</lastmod>`);
     });
   }
