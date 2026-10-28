@@ -3,3 +3,4 @@
 - Keep the appointment destination in a shared module and use it for booking CTAs so attribution preserves the selected appointment.
 - ServicePageHero owns the booking/diagnostic CTA pair; keep legacy CTA props compatible for existing callers.
 - Generate bundled homepage photo variants with vite-imagetools and use a picture with width-based sources; this reduces transfer size without replacing the approved photo or changing its framing.- Playfair Display is self-hosted via @fontsource (latin subsets imported in main.tsx); never load it from Google Fonts, which blocks first render.
+- The sitemap is generated at build from src/data/sitemap-pages.ts, blog-data.ts and newsroom-data.ts (never hand-edit a public/sitemap.xml); locs always use SITE_ORIGIN so test-site URLs can't leak.
