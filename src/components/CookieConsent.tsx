@@ -28,7 +28,7 @@ export default function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Choix des cookies"
-      className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-[660px] animate-fade-up sm:inset-x-6 sm:bottom-6"
+      className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-[660px] animate-fade-up motion-reduce:animate-none sm:inset-x-6 sm:bottom-6"
     >
       <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 shadow-[0_18px_50px_-18px_hsl(var(--primary)/0.35)] sm:p-6">
         <div aria-hidden className="pointer-events-none absolute -left-10 -top-12 h-32 w-32 rounded-full bg-primary/5 blur-2xl" />
