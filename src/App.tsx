@@ -350,6 +350,11 @@ const App = () => {
               element={<PolitiqueCookies />}
             />
             <Route
+              path="/politique-cookies/"
+              element={<Navigate to="/politique-de-cookies/" replace />}
+            />
+
+            <Route
               path="/checklist-tresorerie/"
               element={<ChecklistTresorerie />}
             />
