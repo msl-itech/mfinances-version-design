@@ -108,6 +108,19 @@ export default function Contact() {
 
   const [searchParams] = useSearchParams();
   const [forfait] = useState(() => searchParams.get("forfait") || "");
+  const serviceParam = searchParams.get("service") || "";
+  const serviceLabels: Record<string, string> = {
+    comptabilite: "Comptabilité",
+    "controle-de-gestion": "Contrôle de gestion",
+    "creation-entreprise": "Création d'entreprise",
+    "daf-externalise": "DAF externalisé",
+    fiscalite: "Fiscalité",
+    tresorerie: "Trésorerie",
+  };
+  const contactContext = serviceLabels[serviceParam] || forfait || "";
+  const pageTitle = contactContext
+    ? `Contact — ${contactContext} | MFinances Bruxelles`
+    : "Contact | Expert-Comptable Bruxelles — MFinances";
 
   const [step, setStep] = useState(1);
   const [situation, setSituation] = useState("");
