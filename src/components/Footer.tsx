@@ -56,6 +56,7 @@ const structuresLinks = [
   { label: "Société de management", href: "/qui-nous-accompagnons/societe-de-management/" },
   { label: "Société de moyens", href: "/qui-nous-accompagnons/societe-de-moyens/" },
   { label: "ASBL", href: "/qui-nous-accompagnons/asbl/" },
+  { label: "Société en veille", href: "/societe-en-veille/" },
 ];
 
 const legalLinks = [
