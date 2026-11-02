@@ -392,7 +392,7 @@ export default function PromoteursImmobiliers() {
 
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-14 md:py-12 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
+          <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
             <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>

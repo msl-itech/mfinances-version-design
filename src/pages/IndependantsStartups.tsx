@@ -400,7 +400,7 @@ export default function IndependantsStartups() {
 
         {/* ── CTA FINAL ── */}
         <section className="bg-primary py-8 md:py-14 relative overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
+          <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
           <div className="pointer-events-none absolute -bottom-12 right-0 select-none hidden md:block">
             <span data-anim="text-scrub" className="font-display italic text-[160px] lg:text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">

@@ -19,14 +19,15 @@ export interface BlogCategory {
   label: string;
   description: string;
   href: string;
+  imageAlt: string;
 }
 
 export const blogCategories: BlogCategory[] = [
-  { slug: "tresorerie", label: "Trésorerie", description: "Maîtrisez vos flux de trésorerie et anticipez les tensions financières.", href: "/blog/tresorerie/" },
-  { slug: "daf-externalise", label: "DAF externalisé", description: "Tout comprendre sur le rôle du directeur administratif et financier à temps partiel.", href: "/blog/daf-externalise/" },
-  { slug: "controle-de-gestion", label: "Contrôle de gestion", description: "KPIs, budgets, analyse des écarts — pilotez votre entreprise avec méthode.", href: "/blog/controle-de-gestion/" },
-  { slug: "fiscalite-belgique", label: "Fiscalité belge", description: "Optimisation fiscale, ISOC, dividendes, voiture de société — tout ce qu'un dirigeant belge doit savoir.", href: "/blog/fiscalite-belgique/" },
-  { slug: "creation-societe", label: "Création d'entreprise", description: "SRL, plan financier, formalités — les clés pour créer votre société en Belgique.", href: "/blog/creation-societe/" },
+  { slug: "tresorerie", label: "Trésorerie", description: "Maîtrisez vos flux de trésorerie et anticipez les tensions financières.", href: "/blog/tresorerie/", imageAlt: "Dirigeant examinant une feuille de graphiques de trésorerie à son bureau, ordinateur portable ouvert" },
+  { slug: "daf-externalise", label: "DAF externalisé", description: "Tout comprendre sur le rôle du directeur administratif et financier à temps partiel.", href: "/blog/daf-externalise/", imageAlt: "Deux dirigeants en salle de réunion analysant des graphiques financiers sur un paperboard" },
+  { slug: "controle-de-gestion", label: "Contrôle de gestion", description: "KPIs, budgets, analyse des écarts — pilotez votre entreprise avec méthode.", href: "/blog/controle-de-gestion/", imageAlt: "Ordinateur portable affichant un tableau de bord de contrôle de gestion avec indicateurs et graphiques" },
+  { slug: "fiscalite-belgique", label: "Fiscalité belge", description: "Optimisation fiscale, ISOC, dividendes, voiture de société — tout ce qu'un dirigeant belge doit savoir.", href: "/blog/fiscalite-belgique/", imageAlt: "Dirigeant en costume remplissant des documents fiscaux, calculatrice posée sur le bureau" },
+  { slug: "creation-societe", label: "Création d'entreprise", description: "SRL, plan financier, formalités — les clés pour créer votre société en Belgique.", href: "/blog/creation-societe/", imageAlt: "Entrepreneur en costume signant les documents officiels de création de sa société" },
 ];
 
 export const blogArticles: BlogArticle[] = [

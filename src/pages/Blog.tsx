@@ -15,7 +15,7 @@ import {
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
-import { blogArticles } from "@/data/blog-data";
+import { blogArticles, blogCategories } from "@/data/blog-data";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import heroTresorerie from "@/assets/blog/hero-tresorerie.webp";
@@ -200,7 +200,7 @@ export default function Blog() {
                   <div className="h-[140px] overflow-hidden">
                     <img
                       src={card.image}
-                      alt={`${card.badge} — MFinances blog`}
+                      alt={blogCategories.find((c) => c.slug === card.categorySlugs[0])?.imageAlt ?? ""}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
