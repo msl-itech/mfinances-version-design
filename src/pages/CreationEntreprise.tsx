@@ -409,7 +409,7 @@ export default function CreationEntreprise() {
           watermark="Lançons"
           ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
           ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}
-          bgImageAlt="Accompagnement création d'entreprise — MFinances"
+          bgImageAlt=""
         />
       </main>
 

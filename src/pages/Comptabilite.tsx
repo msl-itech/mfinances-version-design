@@ -601,7 +601,7 @@ export default function Comptabilite() {
           watermark="Comptons"
           ctaPrimary={{ label: "Demander un devis gratuit", href: "/contact/" }}
           ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}
-          bgImageAlt="Partenariat comptable — MFinances"
+          bgImageAlt=""
         />
       </main>
 

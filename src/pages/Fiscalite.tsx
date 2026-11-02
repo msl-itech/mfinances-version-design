@@ -383,7 +383,7 @@ export default function Fiscalite() {
           watermark="Optimisons"
           ctaPrimary={{ label: "Consultation gratuite", href: "/contact/" }}
           ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}
-          bgImageAlt="Consultation fiscale — MFinances"
+          bgImageAlt=""
         />
       </main>
 
