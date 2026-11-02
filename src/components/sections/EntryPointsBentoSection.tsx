@@ -152,7 +152,7 @@ export default function EntryPointsBentoSection() {
                 srcSmall={rdvImg400}
                 srcLarge={rdvImg}
                 displayWidth={400}
-                alt="Mika MFinances"
+                alt="Mika Musungayi, fondateur de MFinances"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={{ objectPosition: "center 22%" }}
                 loading="lazy"

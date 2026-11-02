@@ -264,7 +264,7 @@ export default function BlogArticle() {
           <div className="w-full max-h-[360px] overflow-hidden">
             <img
               src={categoryHeroImages[categorySlug]}
-              alt={`${category.label} — MFinances`}
+              alt={category.imageAlt}
               className="w-full h-[360px] object-cover"
               loading="eager"
             />
