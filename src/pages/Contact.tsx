@@ -122,7 +122,7 @@ export default function Contact() {
     ? `Contact — ${contactContext} | MFinances Bruxelles`
     : "Contact | Expert-Comptable Bruxelles — MFinances";
   const pageDescription = serviceLabels[serviceParam]
-    ? `Contactez MFinances, expert-comptable à Bruxelles, pour votre ${serviceLabels[serviceParam].toLowerCase()} : premier échange gratuit, réponse sous 72h.`
+    ? `Contactez MFinances, expert-comptable à Bruxelles, pour votre ${serviceParam === "daf-externalise" ? "DAF externalisé" : serviceLabels[serviceParam].toLowerCase()} : premier échange gratuit, réponse sous 72h.`
     : forfait
       ? `Contactez MFinances à Bruxelles pour le forfait ${forfait.charAt(0)}${forfait.slice(1).toLowerCase()} : comptabilité, déclarations et conseils. Premier échange gratuit sous 72h.`
       : "Prenez rendez-vous avec MFinances, cabinet d'expertise comptable à Uccle, Bruxelles. Consultation gratuite sous 72h.";
