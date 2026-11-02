@@ -53,7 +53,7 @@ export default function EntryPointsBentoSection() {
                 srcSmall={checklistImg400}
                 srcLarge={checklistImg}
                 displayWidth={400}
-                alt="Checklist trésorerie"
+                alt="Prévision de trésorerie affichée sur une tablette"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
@@ -96,7 +96,7 @@ export default function EntryPointsBentoSection() {
                 srcSmall={diagnosticImg400}
                 srcLarge={diagnosticImg}
                 displayWidth={400}
-                alt="Diagnostic trésorerie"
+                alt="Tableau de bord de gestion affiché sur un ordinateur portable"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />

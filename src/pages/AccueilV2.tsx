@@ -109,6 +109,7 @@ const services = [
     image: imgControle,
     imageSmall: imgControle400,
     tag: "Pilotage",
+    alt: "Tableau de bord financier avec courbes et graphiques affiché sur un ordinateur portable",
   },
   {
     icon: Briefcase,
@@ -119,6 +120,7 @@ const services = [
     image: imgDaf,
     imageSmall: imgDaf400,
     tag: "Stratégie",
+    alt: "Directeur financier présentant des documents à deux dirigeants autour d'une table de réunion",
   },
   {
     icon: TrendingUp,
@@ -129,6 +131,7 @@ const services = [
     image: imgTresorerie,
     imageSmall: imgTresorerie400,
     tag: "Anticipation",
+    alt: "Prévision de trésorerie affichée sur une tablette posée sur un bureau",
   },
 ];
 
@@ -141,11 +144,11 @@ const steps = [
 
 // V1 — AudienceSection
 const audiences = [
-  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, imageSmall: audIndependants400, tag: "Démarrage" },
-  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, imageSmall: audHoreca400, tag: "Terrain" },
-  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, imageSmall: audSante400, tag: "Libéral" },
-  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, imageSmall: audCroissance400, tag: "Scale-up" },
-  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, imageSmall: audPromoteurs400, tag: "Immobilier" },
+  { label: "Indépendants & Startups", href: "/qui-nous-accompagnons/independants-et-startups/", image: audIndependants, imageSmall: audIndependants400, tag: "Démarrage", alt: "Indépendant travaillant sur son ordinateur portable dans un espace de coworking" },
+  { label: "Commerce & Horeca", href: "/qui-nous-accompagnons/commerce-et-horeca/", image: audHoreca, imageSmall: audHoreca400, tag: "Terrain", alt: "Gérant de restaurant consultant des documents dans son établissement" },
+  { label: "Professions de santé", href: "/qui-nous-accompagnons/professions-de-sante/", image: audSante, imageSmall: audSante400, tag: "Libéral", alt: "Professionnel de santé souriant avec un stéthoscope autour du cou" },
+  { label: "Entreprises en croissance", href: "/qui-nous-accompagnons/entreprises-en-croissance/", image: audCroissance, imageSmall: audCroissance400, tag: "Scale-up", alt: "Réunion de pilotage autour d'une table avec un graphique de croissance projeté à l'écran" },
+  { label: "Promoteurs immobiliers", href: "/qui-nous-accompagnons/promoteurs-immobiliers/", image: audPromoteurs, imageSmall: audPromoteurs400, tag: "Immobilier", alt: "Promoteur immobilier en casque lisant des plans sur un chantier" },
 ];
 
 // V1 — PricingSection
@@ -540,7 +543,7 @@ export default function AccueilV2() {
                         srcSmall={s.imageSmall}
                         srcLarge={s.image}
                         displayWidth={600}
-                        alt={s.title}
+                        alt={s.alt}
                         className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
                         loading="lazy"
                       />
@@ -652,7 +655,7 @@ export default function AccueilV2() {
                     srcSmall={a.imageSmall}
                     srcLarge={a.image}
                     displayWidth={240}
-                    alt={a.label}
+                    alt={a.alt}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.12]"
                   />
