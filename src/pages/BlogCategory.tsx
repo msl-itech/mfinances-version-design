@@ -62,6 +62,36 @@ export default function BlogCategory() {
         title={`${category.label} — Blog MFinances Bruxelles`}
         description={category.description}
         canonical={`https://mfinances.be/blog/${categorySlug}/`}
+        schemaJson={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: `${category.label} — Blog MFinances`,
+            description: category.description,
+            url: `https://mfinances.be/blog/${categorySlug}/`,
+            inLanguage: "fr-BE",
+            isPartOf: { "@type": "WebSite", name: "MFinances", url: "https://mfinances.be/" },
+            publisher: { "@type": "Organization", name: "MFinances", url: "https://mfinances.be/" },
+            mainEntity: {
+              "@type": "ItemList",
+              itemListElement: published.map((a, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `https://mfinances.be/blog/${categorySlug}/${a.slug}/`,
+                name: a.title,
+              })),
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://mfinances.be/blog/" },
+              { "@type": "ListItem", position: 3, name: category.label, item: `https://mfinances.be/blog/${categorySlug}/` },
+            ],
+          },
+        ]}
       />
       <Header />
 

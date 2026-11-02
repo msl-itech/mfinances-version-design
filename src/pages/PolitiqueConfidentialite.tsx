@@ -32,6 +32,10 @@ export default function PolitiqueConfidentialite() {
         title="Politique de confidentialité — MFinances Bruxelles"
         description="Politique de confidentialité de MFinances S.R.L. concernant la collecte et le traitement de vos données personnelles."
         canonical="https://mfinances.be/politique-de-confidentialite/"
+        schemaJson={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: "Politique de confidentialité", url: "https://mfinances.be/politique-de-confidentialite/", inLanguage: "fr-BE", isPartOf: { "@type": "WebSite", name: "MFinances", url: "https://mfinances.be/" }, publisher: { "@type": "Organization", name: "MFinances S.R.L.", url: "https://mfinances.be/" } },
+          { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Accueil", item: "https://mfinances.be/" }, { "@type": "ListItem", position: 2, name: "Politique de confidentialité", item: "https://mfinances.be/politique-de-confidentialite/" }] },
+        ]}
       />
       <Header />
       <main>
