@@ -435,6 +435,15 @@ export default function DafExternalise() {
           </div>
         </section>
 
+        {/* Lecture conseillée — maillage interne vers l'article pilier */}
+        <section className="bg-card py-10 md:py-14">
+          <div className="container-mf max-w-[900px] text-center">
+            <p className="font-body text-[15px] md:text-[17px] text-foreground/80">
+              À lire : <Link to="/blog/daf-externalise/decisions-daf-fait-difference/" className="font-semibold text-primary underline underline-offset-4 hover:text-accent transition-colors">les 5 décisions où un DAF externalisé change tout pour une TPE</Link> — recrutement, investissement, crédit, levée de fonds, restructuration.
+            </p>
+          </div>
+        </section>
+
         {/* SECTION 4 — FAQ (hairlines éditoriaux) */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div className="container-mf relative">
