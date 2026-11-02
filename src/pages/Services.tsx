@@ -460,7 +460,7 @@ export default function Services() {
         {/* ── CTA FINAL ── */}
 
         <section className="relative bg-primary py-10 md:py-32 overflow-hidden">
-          <img src={imgMeeting} alt="Consultation MFinances" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
+          <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/85 to-primary" />
 
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">

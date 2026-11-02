@@ -450,7 +450,7 @@ export default function SocieteEnVeille() {
         {/* ── CTA FINAL ── */}
         <section className="py-10 md:py-14 bg-primary relative overflow-hidden bg-precision-grid-light">
           <div className="absolute inset-0 opacity-15">
-            <img src={imgMeeting} alt="Consultation MFinances" className="w-full h-full object-cover" />
+            <img src={imgMeeting} alt="Mika Musungayi et l'équipe MFinances en réunion de travail autour de la table" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
 
