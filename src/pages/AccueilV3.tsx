@@ -93,7 +93,7 @@ const plans = [
   { label: "BASIC", price: "275", subtitle: "Pour être en règle", features: ["Comptabilité & bilan", "Déclarations fiscales", "Conseil à la demande (150 €/h)"], popular: false },
   { label: "ESSENTIEL", price: "350", subtitle: "Pour sécuriser vos bases", features: ["Comptabilité complète", "Déclarations fiscales", "Expert dédié"], popular: false },
   { label: "PREMIUM", price: "450", subtitle: "Pour structurer votre croissance", features: ["Tout Essentiel +", "Contrôle de gestion trimestriel", "Analyse des écarts & conseils"], popular: true },
-  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle mensuelle", "DAF à temps partiel en option — 150 € HTVA/h"], popular: false },
+  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle mensuelle", "DAF à temps partiel en option, 150 € HTVA/h"], popular: false },
 ];
 
 const reviews = [

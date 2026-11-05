@@ -123,7 +123,7 @@ export default function ChecklistControleBureau() {
     <div ref={root} className="min-h-screen">
       <SEOHead
         title="Checklist Contrôle Fiscal Bureau à Domicile | MFinances"
-        description="Votre bureau à domicile est-il défendable en cas de contrôle fiscal ? Checklist MFinances — 10 points à vérifier."
+        description="Votre bureau à domicile est-il défendable en cas de contrôle fiscal ? Checklist MFinances : 10 points à vérifier."
         canonical="https://mfinances.be/ressources/checklist-controle-bureau/"
         schemaJson={breadcrumbJsonLd}
       />

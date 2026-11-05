@@ -81,7 +81,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qui peut constituer une réserve de liquidation ?",
       answer:
-        "Seules les PME au sens fiscal (article 1:24 CSA : moins de 50 employés, CA < 11,25 M€, total bilan < 6 M€ — 2 critères sur 3) peuvent constituer une réserve de liquidation. Les grandes entreprises et les sociétés non-PME en sont exclues. La constitution se fait à la clôture annuelle, sur le bénéfice net après impôt des sociétés (ISOC).",
+        "Seules les PME au sens fiscal (article 1:24 CSA : moins de 50 employés, CA < 11,25 M€, total bilan < 6 M€, 2 critères sur 3) peuvent constituer une réserve de liquidation. Les grandes entreprises et les sociétés non-PME en sont exclues. La constitution se fait à la clôture annuelle, sur le bénéfice net après impôt des sociétés (ISOC).",
     },
   ],
 

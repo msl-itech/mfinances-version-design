@@ -29,9 +29,9 @@ interface Piece {
 }
 
 const PIECE_TYPES: Record<string, { label: string; coeff: number }> = {
-  vie: { label: "Pièce de vie — 100 %", coeff: 1 },
-  mansardee: { label: "Mansardée — 80 %", coeff: 0.8 },
-  cave: { label: "Cave / grenier — 20 %", coeff: 0.2 },
+  vie: { label: "Pièce de vie : 100 %", coeff: 1 },
+  mansardee: { label: "Mansardée : 80 %", coeff: 0.8 },
+  cave: { label: "Cave / grenier : 20 %", coeff: 0.2 },
 };
 
 const DEFAULT_PIECES: Piece[] = [
