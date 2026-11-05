@@ -61,7 +61,7 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [ ] (Site) Si décidé : CTA adaptés sur pages ASBL et articles particuliers
 
 ## Typographie et relecture
-- [x] (Site) Tirets cadratins retirés du texte visible le 28/10/2026 : 343 remplacements contextualisés (virgule, deux-points, « | », « à », « Article N. ») sur pages, interface, métadonnées, FAQ et outils ; corps des longs articles de blog conservés ; libellés décoratifs de section conservés. 27 tests réussis, 31 pages vérifiées sans tiret dans le texte lu.
+- [x] (Site) Tirets cadratins retirés du texte visible le 28/10/2026 : 339 remplacements contextualisés (virgule, deux-points, « | », « à », « Article N. ») sur pages, interface, métadonnées, FAQ et outils ; corps des longs articles de blog conservés ; libellés décoratifs de section conservés. 27 tests réussis, 31 pages vérifiées sans tiret dans le texte lu.
 
 ## Bilan J+28
 - [ ] (Équipe) Comparaison avant/après par source
