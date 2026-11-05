@@ -109,11 +109,11 @@ export default function CreationEntreprise() {
           titleItalic="solides"
           titleEnd="dès le premier jour"
           description="Créer une entreprise en Belgique, c'est excitant. C'est aussi une série de décisions structurantes qui engagent votre avenir financier, fiscal et juridique pour des années."
-          disclaimer="Les erreurs de départ sont les plus coûteuses : et les plus évitables."
+          disclaimer="Les erreurs de départ sont les plus coûteuses, et les plus évitables."
           pills={["Plan financier", "Forme juridique", "Acte authentique"]}
           image={imgHero}
           imageSmall={imgHero400}
-          imageAlt="Création d'entreprise à Bruxelles — MFinances"
+          imageAlt="Création d'entreprise à Bruxelles, MFinances"
           plaque="N°06 / Création"
           cardTitlePrefix="Démarrage"
           cardTitleAccent="propre"
@@ -318,7 +318,7 @@ export default function CreationEntreprise() {
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
                     src={imgSteps}
-                    alt="Étapes de création d'entreprise — MFinances"
+                    alt="Étapes de création d'entreprise, MFinances"
                     className="w-full h-auto"
                     loading="lazy"
                   />

@@ -41,7 +41,7 @@ const pilotageServices = [
   {
     icon: BarChart3,
     title: "Contrôle de gestion",
-    desc: "Vous savez chaque mois si vous gagnez ou perdez : et pourquoi. Inclus dans les forfaits Premium et Excellence.",
+    desc: "Vous savez chaque mois si vous gagnez ou perdez, et pourquoi. Inclus dans les forfaits Premium et Excellence.",
     href: "/services/controle-de-gestion/",
     badge: "Premium+",
   },
@@ -197,7 +197,7 @@ export default function Services() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Comptabilité et pilotage à Bruxelles — MFinances"
+        title="Comptabilité et pilotage à Bruxelles | MFinances"
         description="Explorez nos services pour TPE à Bruxelles : comptabilité, fiscalité, contrôle de gestion, trésorerie et DAF externalisé. Choisissez selon vos besoins."
         canonical="https://mfinances.be/services/"
         schemaJson={breadcrumbJsonLd}

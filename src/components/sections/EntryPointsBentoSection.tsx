@@ -35,7 +35,7 @@ export default function EntryPointsBentoSection() {
             Par où <span className="text-accent italic">commencer</span> ?
           </h2>
           <p className="text-muted-foreground text-[15px] mt-4 max-w-[480px] mx-auto leading-relaxed">
-            Choisissez votre premier pas — chaque option est gratuite et sans engagement.
+            Choisissez votre premier pas, chaque option est gratuite et sans engagement.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function EntryPointsBentoSection() {
                 Checklist gratuite
               </h3>
               <p className="text-[13px] text-muted-foreground mt-2 leading-[1.6] flex-1">
-                Les 5 erreurs silencieuses qui vident la trésorerie — identifiez-les en 2 minutes.
+                Les 5 erreurs silencieuses qui vident la trésorerie, identifiez-les en 2 minutes.
               </p>
               <div className="mt-3 flex items-center justify-between gap-2">
                 <span className="text-[12px] font-semibold text-primary">

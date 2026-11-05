@@ -29,8 +29,8 @@ export default function PolitiqueCookies() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Politique de cookies — MFinances Bruxelles"
-        description="Politique de cookies de MFinances S.R.L. — types de cookies utilisés et gestion de vos préférences."
+        title="Politique de cookies | MFinances Bruxelles"
+        description="Politique de cookies de MFinances S.R.L., types de cookies utilisés et gestion de vos préférences."
         canonical="https://mfinances.be/politique-de-cookies/"
         schemaJson={[
           { "@context": "https://schema.org", "@type": "WebPage", name: "Politique de cookies", url: "https://mfinances.be/politique-de-cookies/", inLanguage: "fr-BE", isPartOf: { "@type": "WebSite", name: "MFinances", url: "https://mfinances.be/" }, publisher: { "@type": "Organization", name: "MFinances S.R.L.", url: "https://mfinances.be/" } },

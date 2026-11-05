@@ -1,5 +1,5 @@
 /**
- * JSON-LD — schémas Service (pages /services/*) et OfferCatalog (/tarifs/).
+ * JSON-LD, schémas Service (pages /services/*) et OfferCatalog (/tarifs/).
  * Service.provider référence l'entité #organization (AccountingService).
  * OfferCatalog : pas de `provider` (non valide sur ce type). Chaque Offer porte
  * `seller` (l'organisation) ET `itemOffered` (le Service concret vendu).
@@ -103,7 +103,7 @@ function hourlyOffer(name: string, price: string, description: string, serviceNa
 export const tarifsOfferCatalogSchema = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  name: "Forfaits d'expertise comptable — MFinances",
+  name: "Forfaits d'expertise comptable, MFinances",
   url: "https://mfinances.be/tarifs/",
   itemListElement: [
     monthlyOffer("Basic", "275", "Comptabilité + conformité", "Comptabilité et conformité pour TPE"),

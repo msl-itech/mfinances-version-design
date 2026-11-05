@@ -35,7 +35,7 @@ const tvaRegimes = [
   "Immeuble neuf destiné à la location : TVA 21% généralement non déductible, selon l'affectation",
   "Immeuble ancien destiné à l'habitation : TVA réduite à 6% possible, sous conditions strictes",
   "Régime d'autoliquidation : applicable dans certains cas, suivi rigoureux requis",
-  "Calcul du prorata de déductibilité sur frais généraux : selon activité mixte",
+  "Calcul du prorata de déductibilité sur frais généraux, selon activité mixte",
 ];
 
 const breadcrumbJsonLd = {
@@ -69,7 +69,7 @@ export default function PromoteursImmobiliers() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Promoteur Immobilier Bruxelles — MFinances"
+        title="Expert-Comptable Promoteur Immobilier Bruxelles | MFinances"
         description="Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/promoteurs-immobiliers/"
         schemaJson={breadcrumbJsonLd}

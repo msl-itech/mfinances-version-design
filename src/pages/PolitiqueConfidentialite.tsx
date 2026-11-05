@@ -29,7 +29,7 @@ export default function PolitiqueConfidentialite() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Politique de confidentialité — MFinances Bruxelles"
+        title="Politique de confidentialité | MFinances Bruxelles"
         description="Politique de confidentialité de MFinances S.R.L. concernant la collecte et le traitement de vos données personnelles."
         canonical="https://mfinances.be/politique-de-confidentialite/"
         schemaJson={[
@@ -57,7 +57,7 @@ export default function PolitiqueConfidentialite() {
             <div>
               <h2 className="font-display text-[22px] text-foreground mb-4">Responsable du traitement</h2>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                MFinances S.R.L. — Rue de la Magnanerie 20, 1180 Uccle — <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a> — <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a>
+                MFinances S.R.L., Rue de la Magnanerie 20, 1180 Uccle, <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a>, <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a>
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export default function PolitiqueConfidentialite() {
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans : obligations légales belges</span>
+                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans, obligations légales belges</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />

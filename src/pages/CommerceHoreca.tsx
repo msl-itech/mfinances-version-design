@@ -98,7 +98,7 @@ export default function CommerceHoreca() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-comptable commerce et horeca Bruxelles — MFinances"
+        title="Expert-comptable commerce et horeca Bruxelles | MFinances"
         description="Commerçants et restaurateurs à Bruxelles : suivez votre TVA, vos marges et votre trésorerie. Accompagnement MFinances à partir de 450 € HTVA/mois."
         canonical="https://mfinances.be/qui-nous-accompagnons/commerce-et-horeca/"
         schemaJson={breadcrumbJsonLd}
@@ -168,7 +168,7 @@ export default function CommerceHoreca() {
                   <Stamp className="text-accent drop-shadow-lg" />
                 </div>
                 <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/5] group cut-corner">
-                  <img src={imgHero} alt="Restaurant élégant à Bruxelles — secteur Horeca" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={imgHero} alt="Restaurant élégant à Bruxelles, secteur Horeca" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
                   <div className="absolute top-5 left-5 bg-primary-foreground/95 backdrop-blur-sm rounded-full px-4 py-2">
                     <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary">Multi-taux TVA</span>

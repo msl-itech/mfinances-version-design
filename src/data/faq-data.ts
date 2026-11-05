@@ -48,7 +48,7 @@ export const faqFiscalite: FAQItem[] = [
   },
   {
     question: "Comment optimiser mon ISOC en Belgique ?",
-    answer: "L'optimisation de l'ISOC passe par la déduction des frais professionnels, la rémunération optimale du dirigeant (relèvement à 50 000 € voté pour l'exercice d'imposition 2027 — revenus 2026 —, à confirmer à la publication, pour le taux réduit), le VVPRbis, la réserve de liquidation et le plan d'investissement. Chaque situation est unique — notre diagnostic gratuit de 30 min permet d'identifier vos leviers.",
+    answer: "L'optimisation de l'ISOC passe par la déduction des frais professionnels, la rémunération optimale du dirigeant (relèvement à 50 000 € voté pour l'exercice d'imposition 2027, revenus 2026, à confirmer à la publication, pour le taux réduit), le VVPRbis, la réserve de liquidation et le plan d'investissement. Chaque situation est unique, notre diagnostic gratuit de 30 min permet d'identifier vos leviers.",
   },
 ];
 
@@ -100,7 +100,7 @@ export const faqTarifs: FAQItem[] = [
   },
   {
     question: "Combien coûte un expert-comptable pour une PME en Belgique ?",
-    answer: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic — comptabilité + conformité). Le prix final dépend du volume d'opérations et du niveau de service souhaité. Notre diagnostic gratuit de 30 min permet d'établir un devis précis.",
+    answer: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic : comptabilité + conformité). Le prix final dépend du volume d'opérations et du niveau de service souhaité. Notre diagnostic gratuit de 30 min permet d'établir un devis précis.",
   },
 ];
 
@@ -116,6 +116,6 @@ export const faqControleDeGestion: FAQItem[] = [
   },
   {
     question: "Quelle est la différence entre comptabilité et contrôle de gestion ?",
-    answer: "La comptabilité enregistre le passé (conformité légale). Le contrôle de gestion analyse le présent et prépare l'avenir (pilotage stratégique). Les deux sont complémentaires — chez MFinances, le contrôle de gestion est inclus dès le forfait Premium.",
+    answer: "La comptabilité enregistre le passé (conformité légale). Le contrôle de gestion analyse le présent et prépare l'avenir (pilotage stratégique). Les deux sont complémentaires, chez MFinances, le contrôle de gestion est inclus dès le forfait Premium.",
   },
 ];

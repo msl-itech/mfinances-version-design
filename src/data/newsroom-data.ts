@@ -61,7 +61,7 @@ export const newsroomArticles: NewsroomArticle[] = [
     displayDate: "7 septembre 2026",
     featured: true,
     coverImage: financeConnectee530,
-    coverImageAlt: "Mika Musungayi lors de son intervention à Finance Connectée, Marrakech 2026 — bannière MSL-iTECH visible en arrière-plan",
+    coverImageAlt: "Mika Musungayi lors de son intervention à Finance Connectée, Marrakech 2026, bannière MSL-iTECH visible en arrière-plan",
     author: {
       name: "Mika Musungayi",
       role: "Fondateur & Dirigeant de MFINANCES · Expert-Comptable certifié ITAA",

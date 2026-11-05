@@ -29,9 +29,9 @@ interface Piece {
 }
 
 const PIECE_TYPES: Record<string, { label: string; coeff: number }> = {
-  vie: { label: "Pièce de vie — 100 %", coeff: 1 },
-  mansardee: { label: "Mansardée — 80 %", coeff: 0.8 },
-  cave: { label: "Cave / grenier — 20 %", coeff: 0.2 },
+  vie: { label: "Pièce de vie : 100 %", coeff: 1 },
+  mansardee: { label: "Mansardée : 80 %", coeff: 0.8 },
+  cave: { label: "Cave / grenier : 20 %", coeff: 0.2 },
 };
 
 const DEFAULT_PIECES: Piece[] = [
@@ -97,11 +97,11 @@ export default function CalculateurQuotite() {
 
   const chargesDetails = useMemo(() => {
     const items: { label: string; montant: number; deduit: number }[] = [];
-    if (loyerAnnuel > 0) items.push({ label: `Loyer annuel (×12) — ${fmt(loyerAnnuel)} €`, montant: loyerAnnuel, deduit: loyerAnnuel * (quotite / 100) });
-    if (typeof energie === "number" && energie > 0) items.push({ label: `Énergie — ${fmt(energie)} €`, montant: energie, deduit: energie * (quotite / 100) });
-    if (typeof internet === "number" && internet > 0) items.push({ label: `Internet — ${fmt(internet)} €`, montant: internet, deduit: internet * (quotite / 100) });
-    if (typeof assurance === "number" && assurance > 0) items.push({ label: `Assurance habitation — ${fmt(assurance)} €`, montant: assurance, deduit: assurance * (quotite / 100) });
-    if (typeof precompte === "number" && precompte > 0) items.push({ label: `Précompte immobilier — ${fmt(precompte)} €`, montant: precompte, deduit: precompte * (quotite / 100) });
+    if (loyerAnnuel > 0) items.push({ label: `Loyer annuel (×12) : ${fmt(loyerAnnuel)} €`, montant: loyerAnnuel, deduit: loyerAnnuel * (quotite / 100) });
+    if (typeof energie === "number" && energie > 0) items.push({ label: `Énergie : ${fmt(energie)} €`, montant: energie, deduit: energie * (quotite / 100) });
+    if (typeof internet === "number" && internet > 0) items.push({ label: `Internet : ${fmt(internet)} €`, montant: internet, deduit: internet * (quotite / 100) });
+    if (typeof assurance === "number" && assurance > 0) items.push({ label: `Assurance habitation : ${fmt(assurance)} €`, montant: assurance, deduit: assurance * (quotite / 100) });
+    if (typeof precompte === "number" && precompte > 0) items.push({ label: `Précompte immobilier : ${fmt(precompte)} €`, montant: precompte, deduit: precompte * (quotite / 100) });
     return items;
   }, [loyerAnnuel, energie, internet, assurance, precompte, quotite]);
 
@@ -375,7 +375,7 @@ export default function CalculateurQuotite() {
 
           <div className="flex justify-end mt-5">
             <Button onClick={() => setStep(2)} className="rounded-lg bg-primary text-primary-foreground">
-              Suivant — Mes charges <ArrowRight size={16} className="ml-1" />
+              Suivant : mes charges <ArrowRight size={16} className="ml-1" />
             </Button>
           </div>
         </div>
@@ -405,7 +405,7 @@ export default function CalculateurQuotite() {
           </div>
 
           <div className="mb-4">
-            <Label className="text-[11px] text-muted-foreground font-medium">Adresse du bien (optionnel — pour votre rapport PDF)</Label>
+            <Label className="text-[11px] text-muted-foreground font-medium">Adresse du bien (optionnel, pour votre rapport PDF)</Label>
             <Input value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Rue de la Loi 12, 1040 Bruxelles" className="mt-1 h-9 text-[13px]" />
           </div>
 
@@ -545,7 +545,7 @@ export default function CalculateurQuotite() {
               <ArrowLeft size={14} /> Retour
             </button>
             <Button onClick={() => setStep(4)} className="rounded-lg bg-primary text-primary-foreground">
-              Suivant — Mon rapport <ArrowRight size={16} className="ml-1" />
+              Suivant : mon rapport <ArrowRight size={16} className="ml-1" />
             </Button>
           </div>
         </div>
@@ -571,7 +571,7 @@ export default function CalculateurQuotite() {
 
           {!showForm ? (
             <div>
-              <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 4 sur 5 — Votre rapport</div>
+              <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 4 sur 5 : votre rapport</div>
               <div className="relative">
                 {/* Aperçu flouté du résultat */}
                 <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
@@ -614,7 +614,7 @@ export default function CalculateurQuotite() {
                     >
                       Débloquer mon rapport →
                     </button>
-                    <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
+                    <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit, pas de spam.</p>
                   </div>
                 </div>
               </div>

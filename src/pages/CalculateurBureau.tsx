@@ -27,7 +27,7 @@ export default function CalculateurBureau() {
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Calculateur de part professionnelle — MFinances",
+    name: "Calculateur de part professionnelle | MFinances",
     url: "https://mfinances.be/ressources/calculateur-bureau/",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
@@ -39,7 +39,7 @@ export default function CalculateurBureau() {
     <div ref={root} className="min-h-screen">
       <SEOHead
         title="Calculateur part professionnelle bureau à domicile Belgique | MFinances"
-        description="Calculez la partie professionnelle de votre habitation en 2 minutes. Méthode des surfaces pondérées, rapport PDF par email. Outil gratuit — Cabinet MFinances Uccle."
+        description="Calculez la partie professionnelle de votre habitation en 2 minutes. Méthode des surfaces pondérées, rapport PDF par email. Outil gratuit, cabinet MFinances Uccle."
         canonical="https://mfinances.be/ressources/calculateur-bureau/"
         schemaJson={schemaJson}
       />
@@ -96,7 +96,7 @@ export default function CalculateurBureau() {
               La part professionnelle détermine quelle fraction de vos charges : loyer, énergie, internet, assurance : vous pouvez déduire fiscalement. Une erreur de calcul, même involontaire, peut représenter plus de 1 000 € de déduction manquée par an.
             </p>
             <p className="text-[14px] sm:text-[15px] text-foreground/70 leading-[1.75] font-body mb-5 hidden sm:block">
-              Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce : y compris les pièces à usage mixte.
+              Ce calculateur applique la méthode des surfaces pondérées utilisée en cabinet : pièces de vie 100 %, pièces mansardées 80 %, caves et greniers 20 %. Il prend en compte l'usage professionnel de chaque pièce, y compris les pièces à usage mixte.
             </p>
             <Link to="/blog/fiscalite-belgique/bureau-a-domicile/" className="inline-flex items-center gap-1.5 text-primary font-semibold text-[14px] hover:underline">
               Guide complet : bureau à domicile en Belgique 2026 <ArrowRight size={14} />

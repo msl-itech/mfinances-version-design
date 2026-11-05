@@ -251,7 +251,7 @@ export default function Diagnostic() {
     }
     const result = getResultConfig();
     const descParts = [
-      `<h3>Diagnostic Trésorerie — ${result.title}</h3>`,
+      `<h3>Diagnostic Trésorerie, ${result.title}</h3>`,
       `<p>${result.zone} <strong>${result.title}</strong></p>`,
       `<p>${result.desc}</p>`,
       `<hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">`,
@@ -286,7 +286,7 @@ export default function Diagnostic() {
           bgColor: "hsl(0, 79%, 97%)",
           borderColor: "hsl(0, 79%, 90%)",
           title: "Trésorerie fragile",
-          desc: "Votre trésorerie présente des signaux d'alerte. Sans correction rapide, un imprévu — retard client, charge imprévue — peut bloquer votre activité.",
+          desc: "Votre trésorerie présente des signaux d'alerte. Sans correction rapide, un imprévu (retard client, charge imprévue) peut bloquer votre activité.",
           ctaLabel: "Comprendre d'où vient le problème",
           ctaHref: "/contact/",
           ctaVariant: "accent" as const,
@@ -301,7 +301,7 @@ export default function Diagnostic() {
           bgColor: "hsl(0, 79%, 97%)",
           borderColor: "hsl(0, 79%, 90%)",
           title: "Risques sérieux détectés",
-          desc: "À votre stade, ces fragilités ne se corrigent pas toutes seules. Plus vous attendez, plus elles se cumulent — et plus les solutions deviennent coûteuses.",
+          desc: "À votre stade, ces fragilités ne se corrigent pas toutes seules. Plus vous attendez, plus elles se cumulent, et plus les solutions deviennent coûteuses.",
           ctaLabel: "Identifier les urgences",
           ctaHref: "/contact/",
           ctaVariant: "accent" as const,
@@ -388,7 +388,7 @@ export default function Diagnostic() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Diagnostic Trésorerie Gratuit pour TPE — MFinances"
+        title="Diagnostic Trésorerie Gratuit pour TPE | MFinances"
         description="Évaluez la santé de votre trésorerie en 8 questions. Score instantané et recommandations concrètes. Gratuit et confidentiel. MFinances, Bruxelles."
         canonical="https://mfinances.be/diagnostic/"
         schemaJson={breadcrumbJsonLd}
@@ -406,7 +406,7 @@ export default function Diagnostic() {
               Votre trésorerie vous cache quelque chose. <span className="text-accent">Depuis combien de temps ?</span>
             </h1>
             <p className="text-primary-foreground/75 text-[14px] sm:text-[15px] leading-relaxed mt-4 md:mt-5 font-body max-w-[600px] mx-auto">
-              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier : ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
+              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier, ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
             </p>
           </div>
         </section>
@@ -490,7 +490,7 @@ export default function Diagnostic() {
                   Vous êtes à mi-chemin !
                 </h2>
                 <p className="text-[14px] sm:text-[15px] text-muted-foreground font-body mb-5 sm:mb-6 max-w-[480px] mx-auto">
-                  Parfait ! Maintenant 5 questions sur votre trésorerie — elles définissent votre score de risque.
+                  Parfait ! Maintenant 5 questions sur votre trésorerie, elles définissent votre score de risque.
                 </p>
                 <Button variant="accent" size="lg" className="rounded-full" onClick={advanceFromMid}>
                   Continuer <ArrowRight size={16} className="ml-1" />
@@ -509,7 +509,7 @@ export default function Diagnostic() {
                         <div className="flex items-center justify-between mb-4">
                           <div>
                             <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-1">Votre diagnostic</div>
-                            <div className="font-display text-[22px] text-primary">Trésorerie — analyse complète</div>
+                            <div className="font-display text-[22px] text-primary">Trésorerie, analyse complète</div>
                           </div>
                           <div className="text-right">
                             <div className="text-[10px] text-muted-foreground">Score</div>
@@ -580,7 +580,7 @@ export default function Diagnostic() {
                         >
                           Recevoir mon diagnostic →
                         </button>
-                        <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
+                        <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit, pas de spam.</p>
                       </div>
                     </div>
 
@@ -764,8 +764,8 @@ export default function Diagnostic() {
                       {score <= 8
                         ? "Les entreprises qui rencontrent des difficultés de trésorerie ne s'en rendent compte qu'une fois le compte en banque à sec. À ce stade, les options se réduisent."
                         : score <= 16
-                        ? "Votre trésorerie tient aujourd'hui, mais les fissures sont là. Un client qui paie en retard, une charge qui augmente — et l'équilibre bascule."
-                        : "Un retard de paiement client, une charge imprévue, un investissement mal calibré — sans visibilité à 90 jours, même une trésorerie saine peut se retourner."}
+                        ? "Votre trésorerie tient aujourd'hui, mais les fissures sont là. Un client qui paie en retard, une charge qui augmente, et l'équilibre bascule."
+                        : "Un retard de paiement client, une charge imprévue, un investissement mal calibré, sans visibilité à 90 jours, même une trésorerie saine peut se retourner."}
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <Button
@@ -798,7 +798,7 @@ export default function Diagnostic() {
                         ? "Sécurisez vos angles morts avec Mika en 30 minutes"
                         : "Validez votre stratégie avec Mika en 30 minutes"
                     }
-                    description="Un échange direct avec l'expert-comptable de MFinances pour analyser votre score, identifier les priorités et repartir avec un plan clair — sans engagement."
+                    description="Un échange direct avec l'expert-comptable de MFinances pour analyser votre score, identifier les priorités et repartir avec un plan clair, sans engagement."
                   />
 
 

@@ -149,7 +149,7 @@ export default function ChecklistTresorerie() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Checklist Trésorerie TPE — 5 erreurs qui vident votre compte | MFinances"
+        title="Checklist Trésorerie TPE : 5 erreurs qui vident votre compte | MFinances"
         description="Téléchargez notre checklist gratuite : les 5 erreurs de trésorerie qui menacent votre TPE et comment les corriger. Guide PDF offert par MFinances."
         canonical="https://mfinances.be/checklist-tresorerie/"
         schemaJson={breadcrumbJsonLd}
@@ -206,7 +206,7 @@ export default function ChecklistTresorerie() {
                         Recevez la <span className="italic text-destructive">checklist trésorerie</span> qui protège votre TPE
                       </h2>
                       <p className="text-[14px] text-primary/65 font-body">
-                        Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat.
+                        Les 5 erreurs qui vident les comptes des dirigeants, avec les questions à vous poser pour chacune. Téléchargement immédiat.
                       </p>
                     </div>
                     <div className="space-y-3">
@@ -461,7 +461,7 @@ export default function ChecklistTresorerie() {
               Ce que contient <span className="text-accent">le guide</span>
             </h2>
             <p className="text-[15px] text-muted-foreground font-body text-center max-w-[520px] mx-auto mb-10">
-              5 erreurs concrètes que commettent 80% des dirigeants de TPE : avec les questions à vous poser pour chacune.
+              5 erreurs concrètes que commettent 80% des dirigeants de TPE, avec les questions à vous poser pour chacune.
             </p>
 
             <div className="space-y-4">

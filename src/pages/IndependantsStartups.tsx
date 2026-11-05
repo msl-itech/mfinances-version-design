@@ -102,7 +102,7 @@ export default function IndependantsStartups() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Indépendants Bruxelles — MFinances"
+        title="Expert-Comptable Indépendants Bruxelles | MFinances"
         description="Accompagnement comptable, fiscal et financier pour indépendants et startups en Belgique. Plan financier, optimisation fiscale. Cabinet MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/independants-et-startups/"
         schemaJson={breadcrumbJsonLd}

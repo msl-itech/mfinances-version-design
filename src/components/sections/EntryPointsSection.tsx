@@ -7,8 +7,8 @@ const cards = [
   {
     icon: FileText,
     title: "Checklist gratuite",
-    desc: "Les 5 erreurs silencieuses qui vident la trésorerie des dirigeants — identifiez-les en 2 minutes.",
-    cta: "Télécharger — PDF gratuit, immédiat",
+    desc: "Les 5 erreurs silencieuses qui vident la trésorerie des dirigeants, identifiez-les en 2 minutes.",
+    cta: "Télécharger : PDF gratuit, immédiat",
     ctaHref: "/checklist-tresorerie/",
     badge: "PDF gratuit",
     accent: false,
@@ -131,7 +131,7 @@ export default function EntryPointsSection() {
             Par où <span className="text-accent italic">commencer</span> ?
           </h2>
           <p className="text-muted-foreground text-[15px] mt-4 max-w-[480px] mx-auto leading-relaxed">
-            Choisissez votre premier pas — chaque option est gratuite et sans engagement.
+            Choisissez votre premier pas, chaque option est gratuite et sans engagement.
           </p>
         </div>
 

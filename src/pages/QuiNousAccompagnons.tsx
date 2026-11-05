@@ -190,7 +190,7 @@ export default function QuiNousAccompagnons() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Qui nous accompagnons — MFinances Bruxelles"
+        title="Qui nous accompagnons | MFinances Bruxelles"
         description="MFinances accompagne indépendants, Horeca, professions de santé, entreprises en croissance et promoteurs immobiliers à Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/"
         schemaJson={breadcrumbJsonLd}

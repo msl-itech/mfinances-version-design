@@ -91,7 +91,7 @@ export default function SocieteDeMoyens() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Société de Moyens Bruxelles — MFinances"
+        title="Expert-Comptable Société de Moyens Bruxelles | MFinances"
         description="Comptabilité, répartition des charges et cash collecting pour sociétés de moyens en Belgique. MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/societe-de-moyens/"
         schemaJson={breadcrumbJsonLd}

@@ -32,7 +32,7 @@ const services = [
   {
     icon: Percent,
     title: "Gestion de la TVA en assujettissement mixte",
-    desc: "Vos prestations médicales sont exonérées de TVA : mais certaines activités annexes ne le sont pas. Nous calculons votre prorata de déduction.",
+    desc: "Vos prestations médicales sont exonérées de TVA, mais certaines activités annexes ne le sont pas. Nous calculons votre prorata de déduction.",
   },
   {
     icon: TrendingUp,

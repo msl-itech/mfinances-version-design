@@ -86,7 +86,7 @@ export async function retryPendingLeads(): Promise<number> {
 
 /**
  * Met à jour un lead existant (qualification post-soumission).
- * Fire-and-forget côté UX — un échec ne bloque pas la navigation.
+ * Fire-and-forget côté UX, un échec ne bloque pas la navigation.
  */
 export async function updateLeadQualification(
   leadId: number,

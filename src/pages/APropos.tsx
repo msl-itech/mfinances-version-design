@@ -156,7 +156,7 @@ export default function APropos() {
             <div className="lg:col-span-3 relative">
               <div className="absolute -inset-2 bg-accent/15 blur-2xl rounded-3xl" aria-hidden="true" />
               <div className="relative rounded-2xl shadow-2xl overflow-hidden ring-1 ring-primary-foreground/10">
-                <img src={equipePhoto} alt="Équipe MFinances — Cabinet comptable à Uccle, Bruxelles" className="w-full h-auto object-contain rounded-2xl" />
+                <img src={equipePhoto} alt="Équipe MFinances, cabinet comptable à Uccle, Bruxelles" className="w-full h-auto object-contain rounded-2xl" />
               </div>
             </div>
           </div>
@@ -447,7 +447,7 @@ export default function APropos() {
                 <div className="absolute -inset-3 bg-accent/15 blur-2xl rounded-3xl" aria-hidden="true" />
                 <img
                   src={mikaPortrait}
-                  alt="Mika MUSUNGAYI — Fondateur de MFinances"
+                  alt="Mika MUSUNGAYI, fondateur de MFinances"
                   className="relative rounded-3xl w-full aspect-[4/5] min-[480px]:aspect-[3/4] md:aspect-auto md:h-[440px] object-cover object-top shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-border/40"
                 />
                 <span className="absolute -bottom-4 left-4 bg-primary text-primary-foreground rounded-2xl px-5 py-3 shadow-lg flex items-center gap-2">
@@ -502,7 +502,7 @@ export default function APropos() {
 
               <div className="flex items-center gap-2 mt-7 text-muted-foreground text-[13px] font-body border-t border-border/40 pt-5">
                 <MapPin size={14} strokeWidth={1.5} className="text-accent" />
-                Rue de la Magnanerie 20, 1180 Uccle — Bruxelles
+                Rue de la Magnanerie 20, 1180 Uccle, Bruxelles
               </div>
             </div>
           </div>

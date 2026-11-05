@@ -10,8 +10,8 @@ import type { FAQItem } from "@/components/SchemaFAQ";
  * - Réponse en 2-4 phrases maximum (50-80 mots)
  * - Première phrase = définition/réponse directe à la question
  * - Citer un chiffre, un seuil ou une règle vérifiable quand pertinent
- * - Pas de "nous" / "MFinances" — ton neutre, factuel
- * - Pas de promesse commerciale — info pure
+ * - Pas de "nous" / "MFinances", ton neutre, factuel
+ * - Pas de promesse commerciale, info pure
  *
  * ⚠️ FISCALITÉ BELGE : les chiffres (taux, seuils, plafonds) doivent être
  * validés par Mika avant publication. Dernière mise à jour : avril 2026.
@@ -25,7 +25,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qu'est-ce que le BFR pour une TPE belge ?",
       answer:
-        "Le besoin en fonds de roulement (BFR) est la différence entre les actifs circulants d'exploitation (stocks + créances clients) et les dettes à court terme d'exploitation (dettes fournisseurs + TVA à payer). Pour une TPE belge, un BFR positif signifie que l'entreprise doit financer son cycle d'exploitation sur sa trésorerie. Un BFR négatif signifie au contraire que les clients paient avant que les fournisseurs soient réglés — situation idéale, fréquente dans le retail et la restauration.",
+        "Le besoin en fonds de roulement (BFR) est la différence entre les actifs circulants d'exploitation (stocks + créances clients) et les dettes à court terme d'exploitation (dettes fournisseurs + TVA à payer). Pour une TPE belge, un BFR positif signifie que l'entreprise doit financer son cycle d'exploitation sur sa trésorerie. Un BFR négatif signifie au contraire que les clients paient avant que les fournisseurs soient réglés, situation idéale, fréquente dans le retail et la restauration.",
     },
     {
       question: "Comment calculer le BFR d'une TPE ?",
@@ -81,7 +81,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qui peut constituer une réserve de liquidation ?",
       answer:
-        "Seules les PME au sens fiscal (article 1:24 CSA : moins de 50 employés, CA < 11,25 M€, total bilan < 6 M€ — 2 critères sur 3) peuvent constituer une réserve de liquidation. Les grandes entreprises et les sociétés non-PME en sont exclues. La constitution se fait à la clôture annuelle, sur le bénéfice net après impôt des sociétés (ISOC).",
+        "Seules les PME au sens fiscal (article 1:24 CSA : moins de 50 employés, CA < 11,25 M€, total bilan < 6 M€, 2 critères sur 3) peuvent constituer une réserve de liquidation. Les grandes entreprises et les sociétés non-PME en sont exclues. La constitution se fait à la clôture annuelle, sur le bénéfice net après impôt des sociétés (ISOC).",
     },
   ],
 
@@ -94,7 +94,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle est la différence entre un DAF externalisé et un expert-comptable ?",
       answer:
-        "L'expert-comptable assure la conformité comptable et fiscale (bilans, déclarations TVA, ISOC) — il regarde le passé. Le DAF externalisé pilote l'avenir : il construit le budget, modélise la trésorerie, analyse les marges par activité, prépare les décisions d'investissement et le dialogue bancaire. Les deux fonctions sont complémentaires : l'un sécurise le légal, l'autre éclaire la stratégie.",
+        "L'expert-comptable assure la conformité comptable et fiscale (bilans, déclarations TVA, ISOC), il regarde le passé. Le DAF externalisé pilote l'avenir : il construit le budget, modélise la trésorerie, analyse les marges par activité, prépare les décisions d'investissement et le dialogue bancaire. Les deux fonctions sont complémentaires : l'un sécurise le légal, l'autre éclaire la stratégie.",
     },
     {
       question: "À partir de quelle taille un DAF externalisé est-il pertinent ?",
@@ -122,7 +122,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Faut-il déclarer le loyer du bureau à domicile à l'IPP ?",
       answer:
-        "Oui. Le loyer perçu par le dirigeant de sa propre société pour la mise à disposition d'un bureau est imposable à l'impôt des personnes physiques (IPP) comme revenu immobilier. Toutefois, depuis 2019, une partie de ce loyer peut être requalifiée en revenu professionnel si elle dépasse 5/3 du revenu cadastral revalorisé — règle anti-abus à analyser au cas par cas.",
+        "Oui. Le loyer perçu par le dirigeant de sa propre société pour la mise à disposition d'un bureau est imposable à l'impôt des personnes physiques (IPP) comme revenu immobilier. Toutefois, depuis 2019, une partie de ce loyer peut être requalifiée en revenu professionnel si elle dépasse 5/3 du revenu cadastral revalorisé, règle anti-abus à analyser au cas par cas.",
     },
     {
       question: "Quels sont les risques fiscaux d'un bureau à domicile mal documenté ?",
@@ -139,17 +139,17 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle est la différence entre trésorerie et bénéfices ?",
       answer:
-        "Le bénéfice est un résultat comptable : il mesure ce que l'entreprise a gagné sur une période donnée. La trésorerie, elle, mesure le cash réellement disponible sur le compte bancaire à un instant T. Une entreprise peut être bénéficiaire et afficher un compte bancaire vide — notamment si ses clients paient à 60 jours ou si elle a investi massivement.",
+        "Le bénéfice est un résultat comptable : il mesure ce que l'entreprise a gagné sur une période donnée. La trésorerie, elle, mesure le cash réellement disponible sur le compte bancaire à un instant T. Une entreprise peut être bénéficiaire et afficher un compte bancaire vide, notamment si ses clients paient à 60 jours ou si elle a investi massivement.",
     },
     {
       question: "Pourquoi mon entreprise est-elle bénéficiaire mais sans cash ?",
       answer:
-        "Trois causes principales : (1) des délais de paiement clients longs qui décalent les encaissements, (2) des stocks importants qui immobilisent du cash, (3) des investissements récents financés sur fonds propres. Ce décalage s'appelle le besoin en fonds de roulement (BFR) — il augmente mécaniquement avec la croissance.",
+        "Trois causes principales : (1) des délais de paiement clients longs qui décalent les encaissements, (2) des stocks importants qui immobilisent du cash, (3) des investissements récents financés sur fonds propres. Ce décalage s'appelle le besoin en fonds de roulement (BFR), il augmente mécaniquement avec la croissance.",
     },
     {
       question: "Comment réconcilier trésorerie et bénéfices dans une TPE ?",
       answer:
-        "La méthode consiste à établir un tableau de flux de trésorerie qui distingue les flux d'exploitation, d'investissement et de financement. En identifiant les postes qui « mangent » du cash malgré les bénéfices — créances clients, stocks, remboursements d'emprunts — le dirigeant peut agir ciblé plutôt qu'à l'aveugle.",
+        "La méthode consiste à établir un tableau de flux de trésorerie qui distingue les flux d'exploitation, d'investissement et de financement. En identifiant les postes qui « mangent » du cash malgré les bénéfices, créances clients, stocks, remboursements d'emprunts, le dirigeant peut agir ciblé plutôt qu'à l'aveugle.",
     },
   ],
 
@@ -162,7 +162,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Comment financer un investissement en TPE sans épuiser son cash ?",
       answer:
-        "Trois leviers à combiner : (1) le crédit bancaire ou le leasing, qui étale la sortie de cash sur la durée de vie du bien, (2) les aides régionales belges (primes à l'investissement, Impulse.brussels), (3) la négociation de délais de paiement fournisseurs. L'emprunt n'est pas une faiblesse — c'est un outil de gestion du cash.",
+        "Trois leviers à combiner : (1) le crédit bancaire ou le leasing, qui étale la sortie de cash sur la durée de vie du bien, (2) les aides régionales belges (primes à l'investissement, Impulse.brussels), (3) la négociation de délais de paiement fournisseurs. L'emprunt n'est pas une faiblesse, c'est un outil de gestion du cash.",
     },
     {
       question: "Quelle réserve minimale conserver avant d'investir dans une TPE ?",
@@ -198,7 +198,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quel niveau de trésorerie minimum maintenir en période de pression concurrentielle ?",
       answer:
-        "En période de forte concurrence, le coussin de sécurité recommandé passe de 3 à 6 mois de charges fixes. Cette réserve permet d'absorber une baisse de chiffre d'affaires sans rupture de paiement. Les entreprises qui survivent aux guerres de prix sont celles qui avaient anticipé — pas celles qui réagissent dans l'urgence.",
+        "En période de forte concurrence, le coussin de sécurité recommandé passe de 3 à 6 mois de charges fixes. Cette réserve permet d'absorber une baisse de chiffre d'affaires sans rupture de paiement. Les entreprises qui survivent aux guerres de prix sont celles qui avaient anticipé, pas celles qui réagissent dans l'urgence.",
     },
   ],
 
@@ -211,7 +211,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Coût d'acquisition vs rétention : quel ratio pour une TPE belge ?",
       answer:
-        "Le coût d'acquisition client (CAC) inclut publicité, prospection et temps commercial. Le coût de rétention se limite aux actions de suivi, de service et de valeur ajoutée. Pour la plupart des TPE de services, investir 1 € en fidélisation rapporte davantage que 1 € en acquisition — surtout si le taux de churn dépasse 20 % par an.",
+        "Le coût d'acquisition client (CAC) inclut publicité, prospection et temps commercial. Le coût de rétention se limite aux actions de suivi, de service et de valeur ajoutée. Pour la plupart des TPE de services, investir 1 € en fidélisation rapporte davantage que 1 € en acquisition, surtout si le taux de churn dépasse 20 % par an.",
     },
   ],
 
@@ -219,7 +219,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qu'est-ce qu'un prévisionnel de trésorerie et à quoi ça sert ?",
       answer:
-        "Un prévisionnel de trésorerie est un tableau qui projette les encaissements et décaissements futurs semaine par semaine ou mois par mois, généralement sur 3 à 6 mois. Il permet d'identifier à l'avance les périodes où le solde bancaire risque de passer en négatif — et d'agir avant la crise plutôt qu'en réaction.",
+        "Un prévisionnel de trésorerie est un tableau qui projette les encaissements et décaissements futurs semaine par semaine ou mois par mois, généralement sur 3 à 6 mois. Il permet d'identifier à l'avance les périodes où le solde bancaire risque de passer en négatif, et d'agir avant la crise plutôt qu'en réaction.",
     },
     {
       question: "À quelle fréquence faut-il actualiser son prévisionnel de trésorerie ?",
@@ -229,7 +229,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quels outils utiliser pour faire un prévisionnel de trésorerie en TPE ?",
       answer:
-        "Un tableau Excel bien structuré suffit pour démarrer. Pour une approche plus robuste, des outils comme Odoo (module Trésorerie) ou des logiciels dédiés permettent de connecter les données comptables réelles au prévisionnel. L'essentiel est la discipline de mise à jour mensuelle — l'outil importe moins que la régularité.",
+        "Un tableau Excel bien structuré suffit pour démarrer. Pour une approche plus robuste, des outils comme Odoo (module Trésorerie) ou des logiciels dédiés permettent de connecter les données comptables réelles au prévisionnel. L'essentiel est la discipline de mise à jour mensuelle, l'outil importe moins que la régularité.",
     },
   ],
 
@@ -255,7 +255,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelles sont les charges cachées qui pèsent sur la trésorerie d'une TPE belge ?",
       answer:
-        "Les charges les plus sous-estimées sont : les cotisations sociales INASTI (trimestrielles, souvent plus élevées que prévu), les acomptes ISOC ou IPP, la TVA à payer nette, et les provisions pour congés ou arrêts maladie. Ces sorties ne correspondent pas à des achats visibles — elles surprennent les dirigeants qui ne gèrent que leurs factures courantes.",
+        "Les charges les plus sous-estimées sont : les cotisations sociales INASTI (trimestrielles, souvent plus élevées que prévu), les acomptes ISOC ou IPP, la TVA à payer nette, et les provisions pour congés ou arrêts maladie. Ces sorties ne correspondent pas à des achats visibles, elles surprennent les dirigeants qui ne gèrent que leurs factures courantes.",
     },
   ],
 
@@ -263,7 +263,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Comment réduire le stress financier en fin de mois pour un dirigeant de TPE ?",
       answer:
-        "Trois actions structurantes : (1) mettre en place un prévisionnel de trésorerie mensuel pour ne plus être surpris, (2) constituer une réserve de sécurité équivalant à 3 mois de charges fixes, (3) négocier des acomptes clients ou des paiements à l'avance pour décaler les encaissements avant les décaissements. La sérénité financière se construit — elle ne s'improvise pas.",
+        "Trois actions structurantes : (1) mettre en place un prévisionnel de trésorerie mensuel pour ne plus être surpris, (2) constituer une réserve de sécurité équivalant à 3 mois de charges fixes, (3) négocier des acomptes clients ou des paiements à l'avance pour décaler les encaissements avant les décaissements. La sérénité financière se construit, elle ne s'improvise pas.",
     },
     {
       question: "Quelles solutions concrètes existent pour les dirigeants de TPE en tension de trésorerie ?",
@@ -281,7 +281,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Comment calculer sa réserve de sécurité en tant que TPE ?",
       answer:
-        "Étape 1 : lister toutes les charges fixes mensuelles incompressibles (hors charges variables liées au CA). Étape 2 : multiplier ce montant par 3. Ce chiffre est votre réserve cible. Exemple : 15 000 € de charges fixes/mois → réserve cible de 45 000 €. Cette somme ne sert pas à investir — elle reste sur un compte séparé.",
+        "Étape 1 : lister toutes les charges fixes mensuelles incompressibles (hors charges variables liées au CA). Étape 2 : multiplier ce montant par 3. Ce chiffre est votre réserve cible. Exemple : 15 000 € de charges fixes/mois → réserve cible de 45 000 €. Cette somme ne sert pas à investir, elle reste sur un compte séparé.",
     },
     {
       question: "Où placer la réserve de sécurité de son entreprise en Belgique ?",
@@ -294,7 +294,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Comment présenter le BFR dans un dossier bancaire pour une TPE ?",
       answer:
-        "La banque veut comprendre comment l'entreprise finance son cycle d'exploitation. Il faut présenter le BFR de manière dynamique : montant actuel, évolution sur 2 à 3 ans, et mode de financement (fonds propres, crédit de caisse, crédit fournisseur). Un BFR maîtrisé et bien expliqué rassure le banquier — un BFR non documenté l'inquiète.",
+        "La banque veut comprendre comment l'entreprise finance son cycle d'exploitation. Il faut présenter le BFR de manière dynamique : montant actuel, évolution sur 2 à 3 ans, et mode de financement (fonds propres, crédit de caisse, crédit fournisseur). Un BFR maîtrisé et bien expliqué rassure le banquier, un BFR non documenté l'inquiète.",
     },
     {
       question: "Quel lien entre le BFR et l'obtention d'un crédit professionnel en Belgique ?",
@@ -307,7 +307,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quel est l'impact d'un recrutement sur le BFR et la trésorerie ?",
       answer:
-        "Un recrutement augmente immédiatement les charges fixes mensuelles — salaire brut, cotisations patronales ONSS, frais d'équipement — avant même que le collaborateur ne génère du chiffre d'affaires. En Belgique, le coût total employeur d'un salaire brut de 3 000 € avoisine 4 500 € par mois. Ce décalage peut durer 3 à 6 mois selon le temps de montée en compétence.",
+        "Un recrutement augmente immédiatement les charges fixes mensuelles, salaire brut, cotisations patronales ONSS, frais d'équipement, avant même que le collaborateur ne génère du chiffre d'affaires. En Belgique, le coût total employeur d'un salaire brut de 3 000 € avoisine 4 500 € par mois. Ce décalage peut durer 3 à 6 mois selon le temps de montée en compétence.",
     },
     {
       question: "Comment anticiper l'impact d'un recrutement sur sa trésorerie ?",
@@ -329,7 +329,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "À partir de quel chiffre d'affaires faut-il envisager un DAF externalisé ?",
       answer:
-        "Il n'existe pas de seuil universel, mais plusieurs signaux indiquent le bon moment : un CA supérieur à 500 000 €, une équipe de plus de 5 collaborateurs, une croissance annuelle supérieure à 20 %, ou des décisions d'investissement et de financement de plus en plus fréquentes. Ce n'est pas une question de taille — c'est une question de complexité décisionnelle.",
+        "Il n'existe pas de seuil universel, mais plusieurs signaux indiquent le bon moment : un CA supérieur à 500 000 €, une équipe de plus de 5 collaborateurs, une croissance annuelle supérieure à 20 %, ou des décisions d'investissement et de financement de plus en plus fréquentes. Ce n'est pas une question de taille, c'est une question de complexité décisionnelle.",
     },
     {
       question: "Quels signaux indiquent qu'une TPE a besoin d'un DAF ?",
@@ -342,12 +342,12 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle est la différence entre un DAF externalisé et un expert-comptable ?",
       answer:
-        "L'expert-comptable produit, certifie et optimise vos chiffres passés : il regarde dans le rétroviseur. Le DAF externalisé utilise ces chiffres pour vous aider à décider vers l'avenir : il regarde par le pare-brise. L'un est garant de la conformité — l'autre est un copilote stratégique. Les deux rôles sont complémentaires, pas substituables.",
+        "L'expert-comptable produit, certifie et optimise vos chiffres passés : il regarde dans le rétroviseur. Le DAF externalisé utilise ces chiffres pour vous aider à décider vers l'avenir : il regarde par le pare-brise. L'un est garant de la conformité, l'autre est un copilote stratégique. Les deux rôles sont complémentaires, pas substituables.",
     },
     {
       question: "DAF externalisé et expert-comptable peuvent-ils travailler ensemble ?",
       answer:
-        "Oui — c'est même le modèle optimal pour une TPE en croissance. L'expert-comptable assure la comptabilité, les déclarations et la conformité fiscale. Le DAF exploite ces données pour piloter la performance, préparer les décisions et anticiper la trésorerie. Certains cabinets d'expertise comptable proposent les deux services de manière intégrée.",
+        "Oui, c'est même le modèle optimal pour une TPE en croissance. L'expert-comptable assure la comptabilité, les déclarations et la conformité fiscale. Le DAF exploite ces données pour piloter la performance, préparer les décisions et anticiper la trésorerie. Certains cabinets d'expertise comptable proposent les deux services de manière intégrée.",
     },
     {
       question: "Quel est le coût comparé d'un DAF interne et d'un DAF externalisé en Belgique ?",
@@ -360,7 +360,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelles décisions un DAF externalisé prend-il concrètement ?",
       answer:
-        "Le DAF n'est pas décideur — il est copilote. Il intervient sur : la modélisation financière avant un investissement ou un recrutement, la préparation d'un dossier de crédit bancaire, la définition de la stratégie de rémunération du dirigeant, l'analyse des écarts budget/réalisé et la mise en place des indicateurs de pilotage adaptés au modèle économique.",
+        "Le DAF n'est pas décideur, il est copilote. Il intervient sur : la modélisation financière avant un investissement ou un recrutement, la préparation d'un dossier de crédit bancaire, la définition de la stratégie de rémunération du dirigeant, l'analyse des écarts budget/réalisé et la mise en place des indicateurs de pilotage adaptés au modèle économique.",
     },
     {
       question: "Quels résultats concrets peut-on attendre d'un DAF externalisé pour une TPE ?",
@@ -382,7 +382,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle différence entre comptabilité et contrôle de gestion ?",
       answer:
-        "La comptabilité enregistre et certifie les opérations financières passées — c'est une obligation légale. Le contrôle de gestion analyse ces données pour mesurer les performances, les comparer aux objectifs et anticiper les décisions futures. La comptabilité regarde en arrière ; le contrôle de gestion regarde devant.",
+        "La comptabilité enregistre et certifie les opérations financières passées, c'est une obligation légale. Le contrôle de gestion analyse ces données pour mesurer les performances, les comparer aux objectifs et anticiper les décisions futures. La comptabilité regarde en arrière ; le contrôle de gestion regarde devant.",
     },
     {
       question: "Quels outils de base faut-il pour faire du contrôle de gestion en TPE ?",
@@ -400,7 +400,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "À quelle fréquence un dirigeant de TPE doit-il suivre ses indicateurs financiers ?",
       answer:
-        "La trésorerie doit être suivie hebdomadairement — c'est le seul indicateur vital en temps réel. Les autres KPI (marge, résultat, BFR) peuvent être suivis mensuellement. L'analyse approfondie des écarts se fait trimestriellement au minimum. La règle : plus l'entreprise est en croissance, plus la fréquence de suivi doit être élevée.",
+        "La trésorerie doit être suivie hebdomadairement, c'est le seul indicateur vital en temps réel. Les autres KPI (marge, résultat, BFR) peuvent être suivis mensuellement. L'analyse approfondie des écarts se fait trimestriellement au minimum. La règle : plus l'entreprise est en croissance, plus la fréquence de suivi doit être élevée.",
     },
   ],
 
@@ -418,7 +418,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "À quel moment faut-il réviser son budget annuel en cours d'exercice ?",
       answer:
-        "Un budget doit être révisé au minimum une fois par trimestre — et immédiatement en cas de changement majeur (perte d'un client important, recrutement non prévu, hausse significative des coûts). Un budget figé sur 12 mois sans révision perd sa valeur prédictive dès le deuxième trimestre. La révision ne traduit pas un échec — elle témoigne d'un pilotage actif.",
+        "Un budget doit être révisé au minimum une fois par trimestre, et immédiatement en cas de changement majeur (perte d'un client important, recrutement non prévu, hausse significative des coûts). Un budget figé sur 12 mois sans révision perd sa valeur prédictive dès le deuxième trimestre. La révision ne traduit pas un échec, elle témoigne d'un pilotage actif.",
     },
   ],
 
@@ -426,7 +426,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qu'est-ce que l'analyse des écarts budgétaires ?",
       answer:
-        "L'analyse des écarts consiste à comparer, poste par poste, les chiffres réalisés avec les chiffres budgétés, puis à expliquer les différences. Un écart positif (résultat supérieur au budget) ou négatif (inférieur) n'est pas bon ou mauvais en soi — c'est la cause qui importe. Cette analyse permet de distinguer les effets structurels des effets conjoncturels.",
+        "L'analyse des écarts consiste à comparer, poste par poste, les chiffres réalisés avec les chiffres budgétés, puis à expliquer les différences. Un écart positif (résultat supérieur au budget) ou négatif (inférieur) n'est pas bon ou mauvais en soi, c'est la cause qui importe. Cette analyse permet de distinguer les effets structurels des effets conjoncturels.",
     },
     {
       question: "Comment interpréter un écart budgétaire dans une TPE ?",
@@ -449,7 +449,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle marge nette minimum est acceptable pour une TPE belge ?",
       answer:
-        "Un résultat net supérieur à 10 % du chiffre d'affaires est généralement considéré comme sain pour une TPE de services. En dessous de 5 %, l'entreprise est fragile face aux aléas. En négatif, elle consomme ses fonds propres. Ces seuils varient selon le secteur — le commerce alimentaire peut être rentable à 2 %, les professions libérales à 25 % ou plus.",
+        "Un résultat net supérieur à 10 % du chiffre d'affaires est généralement considéré comme sain pour une TPE de services. En dessous de 5 %, l'entreprise est fragile face aux aléas. En négatif, elle consomme ses fonds propres. Ces seuils varient selon le secteur, le commerce alimentaire peut être rentable à 2 %, les professions libérales à 25 % ou plus.",
     },
   ],
 
@@ -457,7 +457,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Comment calculer le seuil de rentabilité d'une entreprise multi-activités ?",
       answer:
-        "Pour une entreprise avec plusieurs activités, le seuil de rentabilité global se calcule en deux étapes : (1) identifier les charges fixes communes à ventiler entre les activités (au prorata du CA ou du temps passé), (2) calculer le seuil de rentabilité de chaque activité séparément. Cette approche révèle les activités subventionnées par d'autres — information stratégique pour décider où investir.",
+        "Pour une entreprise avec plusieurs activités, le seuil de rentabilité global se calcule en deux étapes : (1) identifier les charges fixes communes à ventiler entre les activités (au prorata du CA ou du temps passé), (2) calculer le seuil de rentabilité de chaque activité séparément. Cette approche révèle les activités subventionnées par d'autres, information stratégique pour décider où investir.",
     },
     {
       question: "Comment ventiler les charges fixes entre plusieurs services dans une TPE ?",
@@ -474,7 +474,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quel est le montant minimum de rémunération pour un dirigeant de SRL belge ?",
       answer:
-        "Pour bénéficier du taux d'ISOC réduit de 20 % sur la première tranche de 100 000 € de bénéfices, la société doit verser une rémunération minimale à son dirigeant. Une réforme adoptée par la Chambre le 9 juillet 2026 relève ce minimum de 45 000 € à 50 000 € brut par an à partir de l'exercice d'imposition 2027 (revenus 2026) — son entrée en vigueur définitive sera confirmée à la publication au Moniteur belge. Les avantages de toute nature ne pourront alors représenter plus de 20 % de cette rémunération brute annuelle — ou un montant au moins égal au résultat imposable de la société si ce dernier est inférieur. Ce seuil est une condition d'accès au taux réduit.",
+        "Pour bénéficier du taux d'ISOC réduit de 20 % sur la première tranche de 100 000 € de bénéfices, la société doit verser une rémunération minimale à son dirigeant. Une réforme adoptée par la Chambre le 9 juillet 2026 relève ce minimum de 45 000 € à 50 000 € brut par an à partir de l'exercice d'imposition 2027 (revenus 2026), son entrée en vigueur définitive sera confirmée à la publication au Moniteur belge. Les avantages de toute nature ne pourront alors représenter plus de 20 % de cette rémunération brute annuelle, ou un montant au moins égal au résultat imposable de la société si ce dernier est inférieur. Ce seuil est une condition d'accès au taux réduit.",
     },
     {
       question: "Comment optimiser la répartition entre salaire et dividendes pour un dirigeant belge ?",
@@ -523,7 +523,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Combien un indépendant belge doit-il se payer pour optimiser sa situation ?",
       answer:
-        "La réponse dépend du statut. En personne physique, le revenu net imposable est soumis à l'IPP (taux marginal de 50 % au-delà de 49 840 € pour les revenus 2025 — exercice d'imposition 2026). En société, le dirigeant peut combiner salaire et dividendes. Le niveau de rémunération optimal intègre les cotisations sociales INASTI, les frais déductibles et l'objectif patrimonial à long terme.",
+        "La réponse dépend du statut. En personne physique, le revenu net imposable est soumis à l'IPP (taux marginal de 50 % au-delà de 49 840 € pour les revenus 2025, exercice d'imposition 2026). En société, le dirigeant peut combiner salaire et dividendes. Le niveau de rémunération optimal intègre les cotisations sociales INASTI, les frais déductibles et l'objectif patrimonial à long terme.",
       ctaInline: {
         text: "Vérifiez lesquels de vos frais sont vraiment défendables avec notre outil gratuit",
         link: "/frais-defendables/",
@@ -553,12 +553,12 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Pourquoi mon comptable ne m'aide pas à réduire mes impôts ?",
       answer:
-        "La mission classique d'un comptable est de produire des chiffres conformes et de déposer les déclarations dans les délais — pas d'optimiser proactivement votre fiscalité. Cette mission de conseil fiscal approfondi requiert du temps, une connaissance fine de votre situation personnelle et patrimoniale, et une démarche proactive que tous les cabinets n'ont pas les ressources d'offrir dans un forfait standard.",
+        "La mission classique d'un comptable est de produire des chiffres conformes et de déposer les déclarations dans les délais, pas d'optimiser proactivement votre fiscalité. Cette mission de conseil fiscal approfondi requiert du temps, une connaissance fine de votre situation personnelle et patrimoniale, et une démarche proactive que tous les cabinets n'ont pas les ressources d'offrir dans un forfait standard.",
     },
     {
       question: "Quelle est la différence entre un comptable et un conseiller fiscal ?",
       answer:
-        "Le comptable est garant de la conformité : il enregistre, déclare et certifie. Le conseiller fiscal — rôle que peuvent tenir certains experts-comptables ou conseillers spécialisés — analyse votre situation globale (revenus, patrimoine, structure juridique) pour identifier les leviers d'optimisation légaux. Les deux profils sont complémentaires dans un accompagnement de qualité.",
+        "Le comptable est garant de la conformité : il enregistre, déclare et certifie. Le conseiller fiscal, rôle que peuvent tenir certains experts-comptables ou conseillers spécialisés, analyse votre situation globale (revenus, patrimoine, structure juridique) pour identifier les leviers d'optimisation légaux. Les deux profils sont complémentaires dans un accompagnement de qualité.",
     },
   ],
 
@@ -602,7 +602,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quelle surface peut-on inclure dans le calcul du bureau à domicile ?",
       answer:
-        "Seule la surface effectivement utilisée à des fins professionnelles est prise en compte — pas les couloirs, salles de bains ou espaces de vie partagés. Le bureau doit être un espace dédié et réservé à l'activité professionnelle, même s'il peut aussi servir à autre chose occasionnellement. Un espace double usage est défendable mais doit être justifié.",
+        "Seule la surface effectivement utilisée à des fins professionnelles est prise en compte, pas les couloirs, salles de bains ou espaces de vie partagés. Le bureau doit être un espace dédié et réservé à l'activité professionnelle, même s'il peut aussi servir à autre chose occasionnellement. Un espace double usage est défendable mais doit être justifié.",
     },
     {
       question: "Existe-t-il un plafond pour la déduction du bureau à domicile en Belgique ?",
@@ -633,7 +633,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Un locataire peut-il sous-louer une partie de son logement à sa société en Belgique ?",
       answer:
-        "Oui, sous conditions. Le bail principal doit expressément autoriser la sous-location — à défaut, le propriétaire peut résilier le bail. La sous-location doit correspondre à une réalité économique (surface réellement utilisée à titre professionnel) et le loyer convenu doit être conforme aux prix du marché pour éviter la requalification fiscale.",
+        "Oui, sous conditions. Le bail principal doit expressément autoriser la sous-location, à défaut, le propriétaire peut résilier le bail. La sous-location doit correspondre à une réalité économique (surface réellement utilisée à titre professionnel) et le loyer convenu doit être conforme aux prix du marché pour éviter la requalification fiscale.",
     },
     {
       question: "Quels risques fiscaux en cas de sous-location de logement à sa propre société en Belgique ?",
@@ -646,7 +646,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Peut-on louer ses meubles et équipements à sa propre société en Belgique ?",
       answer:
-        "Oui — un dirigeant peut mettre ses biens mobiliers (bureau, ordinateur, mobilier) à disposition de sa société contre un loyer. Ce loyer constitue un revenu mobilier imposable pour le dirigeant, mais il est déductible pour la société. L'opération est intéressante si elle permet de transférer des revenus depuis la société à un taux d'imposition inférieur.",
+        "Oui, un dirigeant peut mettre ses biens mobiliers (bureau, ordinateur, mobilier) à disposition de sa société contre un loyer. Ce loyer constitue un revenu mobilier imposable pour le dirigeant, mais il est déductible pour la société. L'opération est intéressante si elle permet de transférer des revenus depuis la société à un taux d'imposition inférieur.",
     },
     {
       question: "Quel est le loyer maximum admissible pour la location de meubles à sa société en Belgique ?",
@@ -685,7 +685,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Peut-on cumuler la déduction du loyer et des charges pour le bureau à domicile en Belgique ?",
       answer:
-        "Oui — le calcul du bureau à domicile inclut à la fois la quote-part du loyer (ou valeur locative si propriétaire), les charges récurrentes (électricité, chauffage, eau), les assurances et les intérêts hypothécaires. Tous ces postes entrent dans la base de calcul proportionnelle. Il n'y a pas de double déduction : c'est un seul calcul global, pas deux déductions cumulées.",
+        "Oui, le calcul du bureau à domicile inclut à la fois la quote-part du loyer (ou valeur locative si propriétaire), les charges récurrentes (électricité, chauffage, eau), les assurances et les intérêts hypothécaires. Tous ces postes entrent dans la base de calcul proportionnelle. Il n'y a pas de double déduction : c'est un seul calcul global, pas deux déductions cumulées.",
     },
     {
       question: "Quelle stratégie adopter pour optimiser la déduction du bureau à domicile en Belgique ?",
@@ -698,7 +698,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Dans quel cas un loyer payé par une société à son dirigeant est-il requalifié en rémunération ?",
       answer:
-        "La requalification s'applique lorsque le loyer annuel payé par la société à son dirigeant dépasse 5/3 du revenu cadastral revalorisé du bien. Seul l'excédent est requalifié en rémunération de dirigeant — la partie en dessous du seuil reste imposée comme revenu immobilier. Cette règle s'applique aussi bien à la location d'immeubles qu'à la mise à disposition de biens mobiliers.",
+        "La requalification s'applique lorsque le loyer annuel payé par la société à son dirigeant dépasse 5/3 du revenu cadastral revalorisé du bien. Seul l'excédent est requalifié en rémunération de dirigeant, la partie en dessous du seuil reste imposée comme revenu immobilier. Cette règle s'applique aussi bien à la location d'immeubles qu'à la mise à disposition de biens mobiliers.",
     },
     {
       question: "Qu'est-ce que la règle des 5/3 du revenu cadastral en Belgique ?",
@@ -756,7 +756,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quels sont les frais de notaire pour créer une société en Belgique ?",
       answer:
-        "Les honoraires du notaire pour la création d'une SRL varient entre 700 € et 1 500 € HTVA selon la complexité des statuts et la valeur de l'apport. À cela s'ajoutent les frais de publication au Moniteur belge (environ 160 €) et les frais d'inscription à la BCE (environ 90 €). Ces montants sont des estimations — demandez un devis au notaire avant l'acte.",
+        "Les honoraires du notaire pour la création d'une SRL varient entre 700 € et 1 500 € HTVA selon la complexité des statuts et la valeur de l'apport. À cela s'ajoutent les frais de publication au Moniteur belge (environ 160 €) et les frais d'inscription à la BCE (environ 90 €). Ces montants sont des estimations, demandez un devis au notaire avant l'acte.",
     },
   ],
 
@@ -769,7 +769,7 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Que doit contenir un plan financier pour une SRL belge ?",
       answer:
-        "Le plan financier doit inclure : une description de l'activité et du modèle économique, les projections de revenus et charges sur 2 ans minimum, le plan de trésorerie prévisionnel, le bilan d'ouverture, les hypothèses retenues et leur justification, et les sources de financement. Il est signé par les fondateurs et remis au notaire instrumentant. La loi ne fixe pas de format précis — la qualité du raisonnement prime.",
+        "Le plan financier doit inclure : une description de l'activité et du modèle économique, les projections de revenus et charges sur 2 ans minimum, le plan de trésorerie prévisionnel, le bilan d'ouverture, les hypothèses retenues et leur justification, et les sources de financement. Il est signé par les fondateurs et remis au notaire instrumentant. La loi ne fixe pas de format précis, la qualité du raisonnement prime.",
     },
     {
       question: "Sur combien d'années le plan financier doit-il être établi en Belgique ?",
@@ -787,12 +787,12 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Quel est le coût d'une erreur à la création d'une société en Belgique ?",
       answer:
-        "Une mauvaise structure juridique peut coûter des milliers d'euros en surcharge fiscale chaque année — l'erreur se paye sur toute la durée de vie de la société. Un plan financier insuffisant peut engager la responsabilité personnelle des fondateurs en cas de faillite dans les 3 ans. Une TVA non activée à temps entraîne des amendes. Les erreurs de démarrage sont les plus difficiles et les plus coûteuses à corriger.",
+        "Une mauvaise structure juridique peut coûter des milliers d'euros en surcharge fiscale chaque année, l'erreur se paye sur toute la durée de vie de la société. Un plan financier insuffisant peut engager la responsabilité personnelle des fondateurs en cas de faillite dans les 3 ans. Une TVA non activée à temps entraîne des amendes. Les erreurs de démarrage sont les plus difficiles et les plus coûteuses à corriger.",
     },
     {
       question: "Comment éviter les erreurs classiques lors de la création d'une société en Belgique ?",
       answer:
-        "Trois précautions essentielles : (1) consulter un expert-comptable ou conseiller fiscal avant de choisir la forme juridique — pas seulement un notaire, (2) faire établir le plan financier par un professionnel qui connaît votre secteur, (3) mettre en place la comptabilité et le numéro TVA avant la première facture. Le coût de ces conseils en amont est très inférieur au coût des erreurs à corriger plus tard.",
+        "Trois précautions essentielles : (1) consulter un expert-comptable ou conseiller fiscal avant de choisir la forme juridique, pas seulement un notaire, (2) faire établir le plan financier par un professionnel qui connaît votre secteur, (3) mettre en place la comptabilité et le numéro TVA avant la première facture. Le coût de ces conseils en amont est très inférieur au coût des erreurs à corriger plus tard.",
     },
   ],
 };

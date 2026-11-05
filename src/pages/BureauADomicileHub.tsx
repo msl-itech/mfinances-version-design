@@ -54,7 +54,7 @@ export default function BureauADomicileHub() {
   return (
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
-        title="Bureau à domicile Belgique 2026 — Guide dirigeant"
+        title="Bureau à domicile Belgique 2026 | Guide dirigeant"
         description="Part professionnelle, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque."
         canonical="https://mfinances.be/blog/fiscalite-belgique/bureau-a-domicile/"
         schemaJson={[breadcrumbSchema, createFaqSchema(faqData)]}
@@ -137,7 +137,7 @@ export default function BureauADomicileHub() {
                   {
                     num: "1",
                     title: "La part professionnelle directe",
-                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une part professionnelle de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions : soit environ 1 000 € d'économie fiscale nette à l'ISOC 25 % (4 000 € × 25 %).",
+                    desc: "Vous calculez le pourcentage de votre logement utilisé à titre professionnel et vous l'appliquez à vos charges annuelles. Simple, documentable, utilisable par tout indépendant ou dirigeant. Une part professionnelle de 20 % sur 20 000 € de charges annuelles représente 4 000 € de déductions, soit environ 1 000 € d'économie fiscale nette à l'ISOC 25 % (4 000 € × 25 %).",
                     icon: Calculator,
                     color: "bg-[hsl(135,40%,94%)] border-[hsl(148,35%,82%)]",
                     iconBg: "bg-[hsl(148,55%,30%)]",

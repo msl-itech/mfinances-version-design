@@ -93,7 +93,7 @@ export default function BlogArticle() {
   if (!article || !category || !content) {
     return (
       <div className="min-h-screen">
-        <SEOHead title="Article introuvable — MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
+        <SEOHead title="Article introuvable | MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
         <Header />
         <div className="py-10 text-center">
           <h1 className="font-display text-[32px]">Article introuvable</h1>
@@ -183,7 +183,7 @@ export default function BlogArticle() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title={article.seoTitle || `${article.title} — MFinances Bruxelles`}
+        title={article.seoTitle || `${article.title}, MFinances Bruxelles`}
         description={article.metaDescription || article.excerpt}
         canonical={canonical}
         ogImage={categoryHeroImages[category.slug]}

@@ -65,8 +65,8 @@ const heroFeatures = [
 
 const painPoints = [
   { icon: TrendingDown, title: "Trésorerie floue", desc: "Vous facturez, mais votre compte est souvent plus vide que prévu. Vous ne savez pas ce que sera votre trésorerie dans 60 jours." },
-  { icon: Eye, title: "Fiscalité subie", desc: "Vous découvrez votre charge fiscale en fin d'année : quand il est trop tard pour agir. Chaque surprise coûte cher." },
-  { icon: HelpCircle, title: "Décisions à l'aveugle", desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?" },
+  { icon: Eye, title: "Fiscalité subie", desc: "Vous découvrez votre charge fiscale en fin d'année, quand il est trop tard pour agir. Chaque surprise coûte cher." },
+  { icon: HelpCircle, title: "Décisions à l'aveugle", desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF, pourquoi pas vous ?" },
 ];
 
 const services = [
@@ -76,7 +76,7 @@ const services = [
 ];
 
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon.", image: imgControle, imageSmall: imgControle400 },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes, sans jargon.", image: imgControle, imageSmall: imgControle400 },
   { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier.", image: imgDaf, imageSmall: imgDaf400 },
   { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance.", image: imgTresorerie, imageSmall: imgTresorerie400 },
 ];
@@ -93,7 +93,7 @@ const plans = [
   { label: "BASIC", price: "275", subtitle: "Pour être en règle", features: ["Comptabilité & bilan", "Déclarations fiscales", "Conseil à la demande (150 €/h)"], popular: false },
   { label: "ESSENTIEL", price: "350", subtitle: "Pour sécuriser vos bases", features: ["Comptabilité complète", "Déclarations fiscales", "Expert dédié"], popular: false },
   { label: "PREMIUM", price: "450", subtitle: "Pour structurer votre croissance", features: ["Tout Essentiel +", "Contrôle de gestion trimestriel", "Analyse des écarts & conseils"], popular: true },
-  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle mensuelle", "DAF à temps partiel en option — 150 € HTVA/h"], popular: false },
+  { label: "EXCELLENCE", price: "650", subtitle: "Pour piloter avec un temps d'avance", features: ["Tout Premium +", "Contrôle de gestion mensuel", "Trésorerie prévisionnelle mensuelle", "DAF à temps partiel en option, 150 € HTVA/h"], popular: false },
 ];
 
 const reviews = [
@@ -120,8 +120,8 @@ function getInitials(name: string) {
 }
 
 const faqs = [
-  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275€ HTVA/mois (Basic — comptabilité + conformité), à partir de 350€ HTVA/mois (Essentiel), à partir de 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière, sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275€ HTVA/mois (Basic, comptabilité + conformité), à partir de 350€ HTVA/mois (Essentiel), à partir de 450€ HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650€ HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion et trésorerie prévisionnelle intégrés dans les forfaits selon le niveau ; DAF à temps partiel en option (150 € HTVA/h, clients Excellence)." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
 ];
@@ -167,7 +167,7 @@ export default function AccueilV3() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="MFinances v3 — Pilotage TPE Bruxelles"
+        title="MFinances v3 | Pilotage TPE Bruxelles"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour TPE en croissance."
         canonical="https://mfinances.be/"
         noIndex
@@ -344,7 +344,7 @@ export default function AccueilV3() {
                 <div className="absolute inset-0" data-anim="clip-reveal" data-clip-direction="up">
                   <img
                     src={financialDesk}
-                    alt="Bureau financier — pilotage et analyse des chiffres"
+                    alt="Bureau financier, pilotage et analyse des chiffres"
                     loading="lazy"
                     className="w-full h-full object-cover opacity-35 transition-transform duration-[1200ms] group-hover:scale-105"
                   />
@@ -366,7 +366,7 @@ export default function AccueilV3() {
                       <span className="italic font-normal text-accent">votre pilotage manque de cap.</span>
                     </h3>
                     <p className="text-[14px] md:text-[15px] text-primary-foreground/75 leading-[1.7] mt-5 max-w-md" data-anim="fade-up" data-delay="0.2">
-                      Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul : et ça se règle avec les bons outils.
+                      Vous reconnaissez l'un de ces symptômes ? Vous n'êtes pas seul, et ça se règle avec les bons outils.
                     </p>
                   </div>
                 </div>
@@ -793,7 +793,7 @@ export default function AccueilV3() {
                       src={mikaPhoto720}
                       srcLarge={mikaPhoto}
                       displayWidth={460}
-                      alt="Mika Musungayi — fondateur de MFinances"
+                      alt="Mika Musungayi, fondateur de MFinances"
                       fetchPriority="high"
                       className="w-full h-full object-cover object-top"
                     />

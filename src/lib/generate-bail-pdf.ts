@@ -164,7 +164,7 @@ export function generateBailPdf(data: BailData): Blob {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
     setColor(GRAY);
-    doc.text("À usage professionnel — Bureau à domicile — Belgique", PW / 2, y + 16, { align: "center" });
+    doc.text("À usage professionnel, bureau à domicile, Belgique", PW / 2, y + 16, { align: "center" });
 
     // Generation date
     doc.setFontSize(7);
@@ -188,7 +188,7 @@ export function generateBailPdf(data: BailData): Blob {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     setColor(GRAY);
-    const headerInfo = ` — Bail professionnel · ${data.prenomBailleur} ${data.nomBailleur} / ${data.denomination} ${data.formeJuridique}`;
+    const headerInfo = `Bail professionnel · ${data.prenomBailleur} ${data.nomBailleur} / ${data.denomination} ${data.formeJuridique}`;
     doc.text(headerInfo, M + doc.getTextWidth("MFinances"), 9);
 
     y = 20;
@@ -317,7 +317,7 @@ export function generateBailPdf(data: BailData): Blob {
 
   // ── MISE EN GARDE SOUS-LOCATION (conditionnel) ──
   if (data.qualite === "locataire") {
-    writeArticle("Mise en garde — Sous-location", () => {
+    writeArticle("Mise en garde : sous-location", () => {
       writeWarningBox(
         "Le Bailleur déclare être lui-même locataire du bien décrit ci-après et disposer de l'autorisation expresse de son propriétaire pour procéder à la présente sous-location à usage professionnel. À défaut d'une telle autorisation, la présente convention serait nulle et non avenue."
       );
@@ -326,7 +326,7 @@ export function generateBailPdf(data: BailData): Blob {
 
   // ── ARTICLE 1 — OBJET ──
   const espaceType = data.bailType === "meuble" ? "espace meublé à usage exclusivement professionnel" : "espace à usage exclusivement professionnel";
-  writeArticle("Article 1 — Objet du contrat", () => {
+  writeArticle("Article 1. Objet du contrat", () => {
     const surfaceText = data.surfaceBien ? `, surface approximative de ${data.surfaceBien} m²` : "";
     writeParagraph(
       `Le Bailleur donne en location au Preneur un ${espaceType} situé à ${data.adresseBien}${surfaceText}, tel que décrit au présent contrat. Cet espace est destiné à l'usage exclusif de bureau professionnel pour la société ${data.denomination}.`
@@ -339,7 +339,7 @@ export function generateBailPdf(data: BailData): Blob {
   // ── ARTICLE 2 — DURÉE ──
   const dateDebutFr = formatDateFr(data.dateDebut);
   const dateFinFr = computeEndDate(data.dateDebut, data.duree);
-  writeArticle("Article 2 — Durée", () => {
+  writeArticle("Article 2. Durée", () => {
     writeParagraph(
       `Le présent contrat est conclu pour une durée de ${data.duree} ans, prenant effet le ${dateDebutFr} et venant à échéance le ${dateFinFr}. Sauf dénonciation par lettre recommandée adressée 3 mois avant l'échéance, le contrat sera renouvelé tacitement par périodes successives d'une année.`
     );
@@ -347,7 +347,7 @@ export function generateBailPdf(data: BailData): Blob {
 
   // ── ARTICLE 3 — LOYER ──
   if (data.bailType === "meuble" && data.loyerMensuel > 0) {
-    writeArticle("Article 3 — Loyer et répartition", () => {
+    writeArticle("Article 3. Loyer et répartition", () => {
       writeParagraph(
         `Le loyer mensuel total est fixé à ${fmt(data.loyerMensuel)} €, réparti comme suit :`
       );
@@ -422,7 +422,7 @@ export function generateBailPdf(data: BailData): Blob {
       );
     });
   } else {
-    writeArticle("Article 3 — Loyer", () => {
+    writeArticle("Article 3. Loyer", () => {
       writeParagraph(
         `Le loyer mensuel est fixé à ${fmt(data.loyerMensuel)} €, payable le premier de chaque mois par virement bancaire sur le compte du Bailleur. Ce montant couvre l'usage exclusif de l'espace professionnel décrit à l'article 1.`
       );
@@ -430,7 +430,7 @@ export function generateBailPdf(data: BailData): Blob {
   }
 
   // ── ARTICLE 4 — INDEXATION ──
-  writeArticle("Article 4 — Indexation", () => {
+  writeArticle("Article 4. Indexation", () => {
     if (data.indexation) {
       writeParagraph(
         "Le loyer est indexé annuellement à la date anniversaire du contrat sur la base de l'indice santé belge (art. 1728bis du Code civil). Formule : loyer de base × (indice du mois précédant l'indexation / indice du mois précédant l'entrée en vigueur)."
@@ -443,7 +443,7 @@ export function generateBailPdf(data: BailData): Blob {
   });
 
   // ── ARTICLE 5 — GARANTIE ──
-  writeArticle("Article 5 — Garantie locative", () => {
+  writeArticle("Article 5. Garantie locative", () => {
     const nbMois = parseInt(data.garantie);
     if (nbMois > 0) {
       writeParagraph(
@@ -455,49 +455,49 @@ export function generateBailPdf(data: BailData): Blob {
   });
 
   // ── ARTICLE 6 — CHARGES ──
-  writeArticle("Article 6 — Charges et impôts", () => {
+  writeArticle("Article 6. Charges et impôts", () => {
     writeParagraph(
       "Les impôts, taxes et charges afférents à la propriété du bien (précompte immobilier, assurance propriétaire, entretien structurel) restent à charge du Bailleur. Les charges liées à l'usage professionnel (électricité, internet, entretien courant) sont prises en charge par le Preneur proportionnellement à son usage, selon la part professionnelle convenue entre parties."
     );
   });
 
   // ── ARTICLE 7 — ÉTAT DES LIEUX ──
-  writeArticle("Article 7 — État des lieux", () => {
+  writeArticle("Article 7. État des lieux", () => {
     writeParagraph(
       "Un état des lieux contradictoire est établi à l'entrée en vigueur du présent contrat. Il sera signé par les deux parties et annexé au présent acte. À l'expiration du bail, un état des lieux de sortie contradictoire sera établi dans les mêmes conditions."
     );
   });
 
   // ── ARTICLE 8 — ENTRETIEN ──
-  writeArticle("Article 8 — Entretien et réparations", () => {
+  writeArticle("Article 8. Entretien et réparations", () => {
     writeParagraph(
       "Le Preneur s'engage à utiliser l'espace loué en bon père de famille et à le restituer dans l'état où il l'a reçu. Les petites réparations d'entretien courant sont à charge du Preneur. Les grosses réparations et travaux de structure restent à charge du Bailleur."
     );
   });
 
   // ── ARTICLE 9 — CESSION ──
-  writeArticle("Article 9 — Cession et sous-location", () => {
+  writeArticle("Article 9. Cession et sous-location", () => {
     writeParagraph(
       "Le Preneur ne peut ni céder le présent contrat ni sous-louer tout ou partie de l'espace loué sans l'accord écrit préalable du Bailleur."
     );
   });
 
   // ── ARTICLE 10 — USAGE ──
-  writeArticle("Article 10 — Usage professionnel exclusif", () => {
+  writeArticle("Article 10. Usage professionnel exclusif", () => {
     writeParagraph(
       `L'espace loué est destiné à l'usage exclusivement professionnel de la société ${data.denomination}. Tout autre usage est formellement interdit sauf accord écrit des deux parties.`
     );
   });
 
   // ── ARTICLE 11 — ENREGISTREMENT ──
-  writeArticle("Article 11 — Enregistrement", () => {
+  writeArticle("Article 11. Enregistrement", () => {
     writeParagraph(
       "Le présent contrat peut être soumis à la formalité de l'enregistrement dans un délai de deux mois à compter de sa signature. Les frais d'enregistrement sont à charge du Preneur, conformément à l'article 17 du Code des droits d'enregistrement. L'enregistrement est recommandé pour lui conférer date certaine."
     );
   });
 
   // ── ARTICLE 12 — DÉCLARATIONS FISCALES ──
-  writeArticle("Article 12 — Déclarations fiscales", () => {
+  writeArticle("Article 12. Déclarations fiscales", () => {
     writeParagraph(
       `Le Bailleur ${data.civilite} ${data.prenomBailleur} ${data.nomBailleur} déclare être informé de ses obligations fiscales : les loyers perçus constituent des revenus immobiliers soumis à l'IPP belge. Le Preneur ${data.denomination} ${data.formeJuridique} déduira les loyers versés comme charges professionnelles dans le respect des art. 49 et suiv. du CIR 1992.`
     );
@@ -509,7 +509,7 @@ export function generateBailPdf(data: BailData): Blob {
   });
 
   // ── ARTICLE 13 — LITIGES ──
-  writeArticle("Article 13 — Résolution des litiges", () => {
+  writeArticle("Article 13. Résolution des litiges", () => {
     const ville = data.villeBailleur || "Bruxelles";
     writeParagraph(
       `En cas de litige, les tribunaux de l'arrondissement du lieu de situation du bien loué (${ville}) seront seuls compétents. Le présent contrat est soumis au droit belge.`
@@ -518,7 +518,7 @@ export function generateBailPdf(data: BailData): Blob {
 
   // ── ANNEXE INVENTAIRE (conditionnel) ──
   if (data.bailType === "meuble" && data.meubles.length > 0) {
-    writeArticle("Annexe — Inventaire des meubles", () => {
+    writeArticle("Annexe : inventaire des meubles", () => {
       const tableX = M;
       const colWidths = [12, 100, 44];
       const tableW = colWidths.reduce((a, b) => a + b, 0);
@@ -619,7 +619,7 @@ export function generateBailPdf(data: BailData): Blob {
 
   // ── DISCLAIMER BOX ──
   needsPage(25);
-  const disclaimerText = "Avis important : Ce bail est basé sur un modèle utilisé en cabinet, adapté au contexte belge. Il constitue un acte sous seing privé. Il n'est pas notarié — ce n'est pas nécessaire pour ce type de contrat. À valider avant signature par un expert-comptable ou un conseiller juridique selon votre situation spécifique. L'enregistrement est recommandé pour lui conférer date certaine. MFinances SPRL · ITAA n°50.624.805 · mfinances.be";
+  const disclaimerText = "Avis important : Ce bail est basé sur un modèle utilisé en cabinet, adapté au contexte belge. Il constitue un acte sous seing privé. Il n'est pas notarié, ce n'est pas nécessaire pour ce type de contrat. À valider avant signature par un expert-comptable ou un conseiller juridique selon votre situation spécifique. L'enregistrement est recommandé pour lui conférer date certaine. MFinances SPRL · ITAA n°50.624.805 · mfinances.be";
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7.5);

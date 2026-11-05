@@ -148,7 +148,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen" ref={root}>
       <SEOHead
-        title="Blog — Pilotage financier TPE | MFinances Bruxelles"
+        title="Blog | Pilotage financier TPE | MFinances Bruxelles"
         description="Articles sur la trésorerie, fiscalité belge, contrôle de gestion et création d'entreprise. Pour dirigeants de TPE qui veulent piloter mieux."
         canonical="https://mfinances.be/blog/"
         schemaJson={breadcrumbJsonLd}

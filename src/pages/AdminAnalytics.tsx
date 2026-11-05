@@ -40,7 +40,7 @@ export default function AdminAnalytics() {
   return (
     <>
       <SEOHead
-        title="Espace interne — MFinances"
+        title="Espace interne | MFinances"
         description="Espace interne MFinances."
         canonical="https://mfinances.be/admin/analytics/"
         noIndex

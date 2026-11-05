@@ -182,7 +182,7 @@ export default function ControleDeGestion() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Contrôle de Gestion TPE à Bruxelles — MFinances"
+        title="Contrôle de Gestion TPE à Bruxelles | MFinances"
         description="Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE. Inclus dans les forfaits Premium et Excellence."
         canonical="https://mfinances.be/services/controle-de-gestion/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "Contrôle de gestion pour TPE", serviceType: "Contrôle de gestion", url: "https://mfinances.be/services/controle-de-gestion/", description: "Budget annuel, situations régulières et analyse des écarts pour piloter votre TPE." })]}
@@ -198,7 +198,7 @@ export default function ControleDeGestion() {
           titleStart="Des chiffres fiables,"
           titleItalic="analysés pour mieux"
           titleEnd="décider."
-          description="Budget annuel, situations intermédiaires et analyse des écarts — un cycle de pilotage complet pour décider sur des bases factuelles, pas sur des intuitions."
+          description="Budget annuel, situations intermédiaires et analyse des écarts : un cycle de pilotage complet pour décider sur des bases factuelles, pas sur des intuitions."
           pills={["Forfaits Premium & Excellence", "Budget annuel", "5 KPIs surveillés"]}
           image={imgHero}
           imageSmall={imgHero400}
@@ -440,7 +440,7 @@ export default function ControleDeGestion() {
                   <br />surveillés chaque mois
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[440px]">
-                  Cinq chiffres qui résument la santé financière réelle de votre entreprise : pas vingt indicateurs, juste ceux qui comptent.
+                  Cinq chiffres qui résument la santé financière réelle de votre entreprise, pas vingt indicateurs, juste ceux qui comptent.
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
                   <img
@@ -539,7 +539,7 @@ export default function ControleDeGestion() {
           titleStart="Prêt à piloter avec les"
           titleItalic="bons chiffres"
           titleEnd="?"
-          description="Discutons de vos enjeux — sans engagement, sans jargon. Premier échange gratuit pour identifier les KPIs qui comptent vraiment pour votre activité."
+          description="Discutons de vos enjeux, sans engagement, sans jargon. Premier échange gratuit pour identifier les KPIs qui comptent vraiment pour votre activité."
           watermark="Décidons"
           ctaPrimary={{ label: "Parler à un expert", href: "/contact/" }}
           ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}

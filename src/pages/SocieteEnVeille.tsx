@@ -118,7 +118,7 @@ export default function SocieteEnVeille() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Société en Veille — Alternative à la Liquidation | 175€/mois | MFinances"
+        title="Société en Veille | Alternative à la Liquidation | 175€/mois | MFinances"
         description="Votre société est en veille ? Plutôt que de la liquider, maintenez-la en conformité avec notre forfait Veille à 175 € HTVA/mois : comptabilité, déclarations fiscales et conformité à Bruxelles."
         canonical="https://mfinances.be/societe-en-veille/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd]}

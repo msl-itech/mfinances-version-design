@@ -121,7 +121,7 @@ export default function DisqualificationSection() {
             <span className="text-accent italic">pas</span> le bon cabinet pour vous
           </h2>
           <p className="text-muted-foreground text-[14px] mt-5 max-w-[520px] mx-auto leading-[1.7]">
-            Nous préférons être honnêtes dès le départ — c'est le meilleur moyen de construire une relation de confiance.
+            Nous préférons être honnêtes dès le départ, c'est le meilleur moyen de construire une relation de confiance.
           </p>
         </div>
 

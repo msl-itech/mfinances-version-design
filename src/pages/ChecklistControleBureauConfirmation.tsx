@@ -40,7 +40,7 @@ export default function ChecklistControleBureauConfirmation() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Checklist reçue — MFinances"
+        title="Checklist reçue | MFinances"
         description="Votre checklist de contrôle fiscal bureau à domicile est prête."
         canonical="https://mfinances.be/ressources/checklist-controle-bureau/confirmation/"
         noIndex

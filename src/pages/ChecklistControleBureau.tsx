@@ -38,7 +38,7 @@ const checklistItems = [
 
 const pdfContents = [
   "Pour chaque point : la règle légale applicable en Belgique (CIR)",
-  "Les documents exacts à réunir : pas de formulation vague",
+  "Les documents exacts à réunir, pas de formulation vague",
   "Un indicateur visuel : ✓ Couvert / ⚠ À sécuriser / ✗ Risque identifié",
   "Un renvoi vers les ressources MFinances pour sécuriser chaque point faible",
 ];
@@ -122,8 +122,8 @@ export default function ChecklistControleBureau() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Checklist Contrôle Fiscal Bureau à Domicile — MFinances"
-        description="Votre bureau à domicile est-il défendable en cas de contrôle fiscal ? Checklist MFinances — 10 points à vérifier."
+        title="Checklist Contrôle Fiscal Bureau à Domicile | MFinances"
+        description="Votre bureau à domicile est-il défendable en cas de contrôle fiscal ? Checklist MFinances : 10 points à vérifier."
         canonical="https://mfinances.be/ressources/checklist-controle-bureau/"
         schemaJson={breadcrumbJsonLd}
       />
@@ -166,7 +166,7 @@ export default function ChecklistControleBureau() {
               Quand l'administration fiscale contrôle votre déduction bureau à domicile, elle ne s'intéresse pas d'abord à vos factures. Elle regarde d'abord si votre situation est cohérente : la superficie déclarée, la méthode de calcul utilisée, et la logique entre votre statut et votre mode de déduction.
             </p>
             <p className="text-[15px] text-muted-foreground font-body leading-relaxed">
-              Un dossier mal structuré — même pour un bureau tout à fait légitime — peut se transformer en redressement partiel ou total. Non pas parce que vous avez triché, mais parce que vous n'avez pas les bons éléments à présenter. Découvrez{" "}
+              Un dossier mal structuré, même pour un bureau tout à fait légitime, peut se transformer en redressement partiel ou total. Non pas parce que vous avez triché, mais parce que vous n'avez pas les bons éléments à présenter. Découvrez{" "}
               <Link to="/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/" className="text-primary underline underline-offset-2 hover:text-accent transition-colors">
                 les 5 erreurs qui déclenchent un contrôle
               </Link>.
@@ -249,7 +249,7 @@ export default function ChecklistControleBureau() {
                   Savez-vous ce que le fisc regarde en premier ?
                 </h2>
                 <p className="text-[14px] text-muted-foreground font-body">
-                  Cette checklist vous montre les 10 points exacts qu'un contrôleur vérifie — et les preuves à avoir sous la main.
+                  Cette checklist vous montre les 10 points exacts qu'un contrôleur vérifie, et les preuves à avoir sous la main.
                 </p>
               </div>
 

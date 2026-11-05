@@ -45,10 +45,10 @@ const cards = [
 ];
 
 const timeline = [
-  { period: "Janv — Mars", label: "Cotisations sociales", desc: "Régularisation annuelle des cotisations sociales provisoires." },
-  { period: "Avr — Juin", label: "TVA Q1", desc: "Déclaration et paiement de la TVA du premier trimestre." },
-  { period: "Sept — Oct", label: "Rentrée", desc: "Recrutements, stocks, investissements de rentrée." },
-  { period: "Décembre", label: "Pré-paiement TVA", desc: "Acompte TVA de décembre — souvent sous-estimé." },
+  { period: "Janv à Mars", label: "Cotisations sociales", desc: "Régularisation annuelle des cotisations sociales provisoires." },
+  { period: "Avr à Juin", label: "TVA Q1", desc: "Déclaration et paiement de la TVA du premier trimestre." },
+  { period: "Sept à Oct", label: "Rentrée", desc: "Recrutements, stocks, investissements de rentrée." },
+  { period: "Décembre", label: "Pré-paiement TVA", desc: "Acompte TVA de décembre, souvent sous-estimé." },
 ];
 
 const faqs = [
@@ -115,7 +115,7 @@ export default function Tresorerie() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Gestion de Trésorerie TPE à Bruxelles — MFinances"
+        title="Gestion de Trésorerie TPE à Bruxelles | MFinances"
         description="Trésorerie prévisionnelle mensuelle pour anticiper les tensions et sécuriser votre croissance. Inclus dans le forfait Excellence. MFinances, Bruxelles."
         canonical="https://mfinances.be/services/tresorerie/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "Trésorerie prévisionnelle", serviceType: "Gestion de trésorerie", url: "https://mfinances.be/services/tresorerie/", description: "Trésorerie prévisionnelle mensuelle pour anticiper les tensions et sécuriser votre croissance." })]}
@@ -135,7 +135,7 @@ export default function Tresorerie() {
           pills={["Forfait Excellence", "Mise à jour mensuelle", "Synchro Odoo"]}
           image={imgHero}
           imageSmall={imgHero400}
-          imageAlt="Prévisionnel de trésorerie sur écran — MFinances"
+          imageAlt="Prévisionnel de trésorerie sur écran, MFinances"
           plaque="N°03 / Trésorerie"
           cardTitlePrefix="Le cash,"
           cardTitleAccent="anticipé"
@@ -501,7 +501,7 @@ export default function Tresorerie() {
           titleStart="Votre trésorerie est-elle"
           titleItalic="vraiment"
           titleEnd="sous contrôle ?"
-          description="8 questions pour identifier vos points de fragilité — résultat immédiat, gratuit. Premier échange confidentiel pour voir comment sécuriser votre cash."
+          description="8 questions pour identifier vos points de fragilité : résultat immédiat, gratuit. Premier échange confidentiel pour voir comment sécuriser votre cash."
           watermark="Anticipons"
           ctaPrimary={{ label: "Faire le diagnostic", href: "/diagnostic/" }}
           ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}
