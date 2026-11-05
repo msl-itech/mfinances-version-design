@@ -106,7 +106,7 @@ export default function Asbl() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable ASBL à Bruxelles — MFinances"
+        title="Expert-Comptable ASBL à Bruxelles | MFinances"
         description="Comptabilité, subsides, obligations légales et accompagnement pour ASBL en Belgique. Cabinet MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/asbl/"
         schemaJson={breadcrumbJsonLd}

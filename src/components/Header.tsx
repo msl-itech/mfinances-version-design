@@ -111,7 +111,7 @@ export default function Header() {
           <Link to="/" className="flex-shrink-0">
             <img
               src={logoSquare}
-              alt="MFinances — Cabinet d'expertise comptable Bruxelles"
+              alt="MFinances, cabinet d'expertise comptable Bruxelles"
               className="h-9 md:h-10"
             />
           </Link>

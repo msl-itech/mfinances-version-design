@@ -130,7 +130,7 @@ export default function DafExternalise() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="DAF externalisé pour TPE à Bruxelles — MFinances"
+        title="DAF externalisé pour TPE à Bruxelles | MFinances"
         description="Pilotez vos décisions avec un DAF à temps partiel : budgets, trésorerie et rentabilité. Service réservé aux clients Excellence, à 150 € HTVA/h."
         canonical="https://mfinances.be/services/daf-externalise/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "DAF externalisé (direction financière à temps partiel)", serviceType: "Direction financière externalisée", url: "https://mfinances.be/services/daf-externalise/", description: "Un copilote financier à temps partiel pour vos décisions stratégiques." })]}
@@ -146,7 +146,7 @@ export default function DafExternalise() {
           sectionLabel="Direction financière externalisée"
           titleStart="Vous prenez des décisions à 6 chiffres."
           titleItalic="Seul ?"
-          description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier — sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
+          description="Le DAF externalisé MFinances, c'est l'expertise d'un Directeur Financier, sans le coût d'un recrutement. Un partenaire stratégique à vos côtés, chaque mois."
           pills={["150 € HTVA / heure", "Réservé aux clients Excellence", "Réunion mensuelle"]}
           image={imgHero}
           imageSmall={imgHero400}
@@ -439,7 +439,7 @@ export default function DafExternalise() {
         <section className="bg-card py-10 md:py-14">
           <div className="container-mf max-w-[900px] text-center">
             <p className="font-body text-[15px] md:text-[17px] text-foreground/80">
-              À lire : <Link to="/blog/daf-externalise/decisions-daf-fait-difference/" className="font-semibold text-primary underline underline-offset-4 hover:text-accent transition-colors">les 5 décisions où un DAF externalisé change tout pour une TPE</Link> — recrutement, investissement, crédit, levée de fonds, restructuration.
+              À lire : <Link to="/blog/daf-externalise/decisions-daf-fait-difference/" className="font-semibold text-primary underline underline-offset-4 hover:text-accent transition-colors">les 5 décisions où un DAF externalisé change tout pour une TPE</Link>, recrutement, investissement, crédit, levée de fonds, restructuration.
             </p>
           </div>
         </section>
@@ -497,7 +497,7 @@ export default function DafExternalise() {
           titleStart="Prêt à avoir un"
           titleItalic="copilote financier"
           titleEnd="?"
-          description="Discutons de vos enjeux — sans engagement, sans jargon. Premier échange gratuit et confidentiel pour identifier ensemble les leviers de votre pilotage financier."
+          description="Discutons de vos enjeux, sans engagement, sans jargon. Premier échange gratuit et confidentiel pour identifier ensemble les leviers de votre pilotage financier."
           watermark="Pilotons"
           ctaPrimary={{ label: "Parler à un expert", href: "/contact/" }}
           ctaSecondary={{ label: "Voir nos tarifs", href: "/tarifs/" }}

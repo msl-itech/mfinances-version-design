@@ -69,7 +69,7 @@ export default function PromoteursImmobiliers() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Expert-Comptable Promoteur Immobilier Bruxelles — MFinances"
+        title="Expert-Comptable Promoteur Immobilier Bruxelles | MFinances"
         description="Comptabilité analytique par projet, TVA immobilière et trésorerie prévisionnelle pour promoteurs immobiliers en Belgique. MFinances, Bruxelles."
         canonical="https://mfinances.be/qui-nous-accompagnons/promoteurs-immobiliers/"
         schemaJson={breadcrumbJsonLd}

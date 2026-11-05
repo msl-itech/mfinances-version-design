@@ -184,11 +184,11 @@ const DEFAULT_PROACTIVE = "Bonjour ! Je vois que vous explorez le site. Une ques
 
 // ── Exit-intent messages ──
 const EXIT_MESSAGES: Record<string, string> = {
-  "/tarifs/": "Avant de partir — si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
-  "/services/daf-externalise/": "Avant de partir — saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
-  "/services/creation-entreprise/": "Avant de partir — une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
-  "/societe-en-veille/": "Avant de partir — une société en veille reste soumise à des obligations. Notre forfait à 175€ HTVA/mois vous permet de rester en règle sans surprise. Prenons 5 min pour en parler ?",
-  default: "Avant de partir — vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
+  "/tarifs/": "Avant de partir, si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
+  "/services/daf-externalise/": "Avant de partir, saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
+  "/services/creation-entreprise/": "Avant de partir, une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
+  "/societe-en-veille/": "Avant de partir, une société en veille reste soumise à des obligations. Notre forfait à 175€ HTVA/mois vous permet de rester en règle sans surprise. Prenons 5 min pour en parler ?",
+  default: "Avant de partir, vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
 };
 
 export default function ChatBot() {
@@ -489,7 +489,7 @@ export default function ChatBot() {
       name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
       description: [
-        `<h3>Lead Chatbot — Priorité ${priorite}</h3>`,
+        `<h3>Lead Chatbot : priorité ${priorite}</h3>`,
         `<table style="border-collapse:collapse;width:100%">`,
         `<tr><td><strong>Palier</strong></td><td>${palier.toUpperCase()}</td></tr>`,
         `<tr><td><strong>Score total</strong></td><td>${visitorCtx.behaviorScore + leadScore} (comportemental: ${visitorCtx.behaviorScore} | conversationnel: ${leadScore})</td></tr>`,

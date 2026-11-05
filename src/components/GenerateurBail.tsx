@@ -294,12 +294,12 @@ export default function GenerateurBail() {
       `<p><strong>Qualité :</strong> ${qualiteLabel}</p>`,
       `<p><strong>Bailleur :</strong> ${civilite} ${prenomBailleur} ${nomBailleur}</p>`,
       `<p><strong>Adresse bailleur :</strong> ${adresseBailleur}, ${cpBailleur} ${villeBailleur}, ${paysBailleur}</p>`,
-      `<p><strong>Preneur :</strong> ${denomination} ${formeJuridique} — BCE ${numeroBce}</p>`,
+      `<p><strong>Preneur :</strong> ${denomination} ${formeJuridique}, BCE ${numeroBce}</p>`,
       `<p><strong>Siège :</strong> ${siegeSocial}</p>`,
       `<p><strong>Représentant :</strong> ${representant}</p>`,
-      `<p><strong>Bien :</strong> ${adresseBien} — ${surfaceBien} m²</p>`,
+      `<p><strong>Bien :</strong> ${adresseBien}, ${surfaceBien} m²</p>`,
       descriptionBien ? `<p><strong>Description :</strong> ${descriptionBien}</p>` : "",
-      `<p><strong>Loyer :</strong> ${loyerNum} €/mois — durée ${duree} ans</p>`,
+      `<p><strong>Loyer :</strong> ${loyerNum} €/mois, durée ${duree} ans</p>`,
       bailType === "meuble" ? `<p><strong>Répartition :</strong> ${partImmeuble}% immeuble / ${partMeubles}% meubles</p>` : "",
       bailType === "meuble" ? `<p><strong>Meubles :</strong> ${meubles.map((m) => `${m.designation} (${m.valeur}€)`).join(", ")}</p>` : "",
       `<p><strong>Date début :</strong> ${dateDebut}</p>`,
@@ -392,7 +392,7 @@ export default function GenerateurBail() {
             <TypeCard selected={qualite === "proprietaire"} onClick={() => setQualite("proprietaire")} title="Propriétaire" desc="Vous êtes propriétaire du logement. Bail direct entre vous et votre société." />
             <TypeCard selected={qualite === "locataire"} onClick={() => setQualite("locataire")} title="Locataire (sous-location)" desc="Vous êtes locataire. La clause légale de sous-location est insérée automatiquement." />
           </div>
-          <NavRow next={2} nextLabel="Suivant — Le bailleur" onNavigate={goNext} />
+          <NavRow next={2} nextLabel="Suivant : le bailleur" onNavigate={goNext} />
         </Card>
       )}
 
@@ -443,7 +443,7 @@ export default function GenerateurBail() {
             <input type="checkbox" checked={coBailleur} onChange={(e) => setCoBailleur(e.target.checked)} className="w-4 h-4 rounded border-border accent-primary" />
             Ajouter un co-bailleur (conjoint / co-propriétaire)
           </label>
-          <NavRow prev={1} next={3} nextLabel="Suivant — Le preneur" onNavigate={goNext} />
+          <NavRow prev={1} next={3} nextLabel="Suivant : le preneur" onNavigate={goNext} />
         </Card>
       )}
 
@@ -489,7 +489,7 @@ export default function GenerateurBail() {
               <Input value={representant} onChange={(e) => setRepresentant(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean Dupont (gérant)" />
             </div>
           </div>
-          <NavRow prev={2} next={4} nextLabel="Suivant — Le bien" onNavigate={goNext} />
+          <NavRow prev={2} next={4} nextLabel="Suivant : le bien" onNavigate={goNext} />
         </Card>
       )}
 
@@ -543,7 +543,7 @@ export default function GenerateurBail() {
               )}
             </>
           )}
-          <NavRow prev={3} next={5} nextLabel="Suivant — Conditions" onNavigate={goNext} />
+          <NavRow prev={3} next={5} nextLabel="Suivant : conditions" onNavigate={goNext} />
         </Card>
       )}
 
@@ -639,7 +639,7 @@ export default function GenerateurBail() {
                     <span className="font-semibold text-foreground">{fmt(loyerImmeuble)} €/mois</span>
                   </div>
                   <div className="flex justify-between py-1.5 text-[12px] border-b border-border/50">
-                    <span className="text-muted-foreground">Meubles ({partMeubles} %) — taxé à ~15 %</span>
+                    <span className="text-muted-foreground">Meubles ({partMeubles} %), taxé à ~15 %</span>
                     <span className="font-semibold text-foreground">{fmt(loyerMeubles)} €/mois</span>
                   </div>
                   <div className="flex justify-between pt-2 text-[13px] font-bold text-accent">
@@ -654,7 +654,7 @@ export default function GenerateurBail() {
             <input type="checkbox" checked={indexation} onChange={(e) => setIndexation(e.target.checked)} className="w-4 h-4 rounded border-border accent-primary" />
             Indexation annuelle sur l'indice santé belge (art. 1728bis Code civil)
           </label>
-          <NavRow prev={4} next={6} nextLabel="Suivant — Finaliser" nextAccent onNavigate={goNext} />
+          <NavRow prev={4} next={6} nextLabel="Suivant : finaliser" nextAccent onNavigate={goNext} />
         </Card>
       )}
 
@@ -669,10 +669,10 @@ export default function GenerateurBail() {
               ["Type de bail", bailLabel6],
               ["Votre qualité", qualiteLabel6],
               ["Bailleur", `${civilite} ${prenomBailleur} ${nomBailleur}`],
-              ["Preneur", `${denomination} ${formeJuridique} — BCE ${numeroBce}`],
-              ["Bien", `${adresseBien}${surfaceBien ? ` — ${surfaceBien} m²` : ""}`],
-              ["Loyer", `${loyerNum} €/mois — durée ${duree} ans${dateDebut ? ` — à partir du ${dateDebut}` : ""}`],
-              ...(bailType === "meuble" ? [["Meubles", `${meubles.length} articles — valeur ${fmt(totalMeubles)} €`]] : []),
+              ["Preneur", `${denomination} ${formeJuridique}, BCE ${numeroBce}`],
+              ["Bien", `${adresseBien}${surfaceBien ? `, ${surfaceBien} m²` : ""}`],
+              ["Loyer", `${loyerNum} €/mois, durée ${duree} ans${dateDebut ? `, à partir du ${dateDebut}` : ""}`],
+              ...(bailType === "meuble" ? [["Meubles", `${meubles.length} articles, valeur ${fmt(totalMeubles)} €`]] : []),
             ].map(([key, val], i) => (
               <div key={i} className="flex justify-between items-start py-1.5 text-[12px] border-b border-border/50 last:border-0">
                 <span className="text-muted-foreground min-w-[140px]">{key}</span>
@@ -698,13 +698,13 @@ export default function GenerateurBail() {
                 <br />
                 Et d'autre part, la société {denomination || "___"} {formeJuridique}, dont le siège social est établi à {siegeSocial || "___"}, numéro BCE {numeroBce || "___"}, représentée par {representant || "___"}, ci-après dénommée « Le Preneur ».
               </div>
-              <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 1 — OBJET DU CONTRAT</div>
+              <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 1. OBJET DU CONTRAT</div>
               <div>
                 Le Bailleur donne en location au Preneur un espace {bailType === "meuble" ? "meublé " : ""}à usage exclusivement professionnel situé à {adresseBien || "___"}{surfaceBien ? `, surface approximative de ${surfaceBien} m²` : ""}, tel que décrit au présent contrat…
               </div>
               {bailType === "meuble" && loyerNum > 0 && (
                 <>
-                  <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 3 — LOYER ET RÉPARTITION</div>
+                  <div className="text-[10px] font-bold text-primary uppercase tracking-wider mt-3 mb-1">ARTICLE 3. LOYER ET RÉPARTITION</div>
                   <div>
                     Le loyer mensuel total est fixé à {fmt(loyerNum)} €, réparti comme suit :<br />
                     — Location de l'immeuble ({partImmeuble} %) : {fmt(loyerImmeuble)} €/mois<br />
@@ -737,7 +737,7 @@ export default function GenerateurBail() {
           </div>
 
           <div className="bg-amber-50 border-l-[3px] border-amber-500 rounded-r-lg p-3.5 text-[12px] text-amber-900 leading-relaxed mb-5">
-            <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros — charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
+            <strong>Avant de signer :</strong> un bail mal rédigé peut vous coûter des milliers d'euros, charges cachées, indexation non plafonnée, clause de résiliation défavorable. Ce document est un point de départ, pas un avis juridique.
           </div>
 
           {!sent && showForm && (

@@ -14,7 +14,7 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <SEOHead
-        title="Page introuvable — MFinances"
+        title="Page introuvable | MFinances"
         description="Cette page n'existe pas sur le site MFinances."
         canonical="https://mfinances.be/"
         noIndex

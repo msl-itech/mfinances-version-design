@@ -54,7 +54,7 @@ export default function BureauADomicileHub() {
   return (
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
-        title="Bureau à domicile Belgique 2026 — Guide dirigeant"
+        title="Bureau à domicile Belgique 2026 | Guide dirigeant"
         description="Part professionnelle, sous-location, bail meublé : tout ce qu'un dirigeant belge doit savoir pour déduire son bureau à domicile légalement et sans risque."
         canonical="https://mfinances.be/blog/fiscalite-belgique/bureau-a-domicile/"
         schemaJson={[breadcrumbSchema, createFaqSchema(faqData)]}

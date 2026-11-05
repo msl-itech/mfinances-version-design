@@ -87,7 +87,7 @@ export default function Support() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Support Clients — Assistance AnyDesk | MFinances"
+        title="Support Clients | Assistance AnyDesk | MFinances"
         description="Assistance à distance pour clients MFinances. Téléchargez AnyDesk et laissez votre expert-comptable vous accompagner directement dans Odoo."
         canonical="https://mfinances.be/support/"
         schemaJson={breadcrumbJsonLd}

@@ -1,5 +1,5 @@
 /**
- * Visitor Tracker — collecte les signaux de navigation pour le chatbot.
+ * Visitor Tracker, collecte les signaux de navigation pour le chatbot.
  * localStorage (persistant) : visitCount, source, utm_campaign, diagnosticDone, checklistDownloaded, sector, prenom
  * sessionStorage (session)  : pages[], startTime, behaviorScore
  */

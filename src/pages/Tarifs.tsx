@@ -167,10 +167,10 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         <p>Chez MFinances, les forfaits pour une TPE :</p>
         <ul className="list-none space-y-2 my-3">
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span><span className="whitespace-nowrap">À partir de 275&nbsp;€ HTVA/mois</span> — comptabilité + conformité</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span><span className="whitespace-nowrap">À partir de 350&nbsp;€ HTVA/mois</span> — + conseil fiscal + situations intermédiaires</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span><span className="whitespace-nowrap">À partir de 450&nbsp;€ HTVA/mois</span> — + contrôle de gestion trimestriel</span></li>
-          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span><span className="whitespace-nowrap">À partir de 650&nbsp;€ HTVA/mois</span> — + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : <span className="whitespace-nowrap">150&nbsp;€ HTVA/h</span>)</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Basic</strong><span><span className="whitespace-nowrap">À partir de 275&nbsp;€ HTVA/mois</span>, comptabilité + conformité</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Essentiel</strong><span><span className="whitespace-nowrap">À partir de 350&nbsp;€ HTVA/mois</span>, + conseil fiscal + situations intermédiaires</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Premium</strong><span><span className="whitespace-nowrap">À partir de 450&nbsp;€ HTVA/mois</span>, + contrôle de gestion trimestriel</span></li>
+          <li className="flex gap-2"><strong className="text-primary flex-shrink-0">Excellence</strong><span><span className="whitespace-nowrap">À partir de 650&nbsp;€ HTVA/mois</span>, + trésorerie prévisionnelle mensuelle (DAF à temps partiel en option : <span className="whitespace-nowrap">150&nbsp;€ HTVA/h</span>)</span></li>
         </ul>
         <p>Ces tarifs sont transparents et sans surprise. Le premier échange gratuit permet d'affiner selon votre situation : le forfait proposé ne change jamais de catégorie sans votre accord.</p>
       </>
@@ -339,7 +339,7 @@ export default function Tarifs() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Tarifs expert-comptable Bruxelles — Dès 275 € — MFinances"
+        title="Tarifs expert-comptable Bruxelles | Dès 275 € | MFinances"
         description="Comparez nos 4 forfaits comptables pour TPE à Bruxelles, à partir de 275 € HTVA/mois. Découvrez les services inclus et le niveau de pilotage adapté."
         canonical="https://mfinances.be/tarifs/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, tarifsOfferCatalogSchema]}
@@ -1299,7 +1299,7 @@ export default function Tarifs() {
               <div className="bg-card rounded-2xl p-6 sm:p-8 mt-6 border border-border/50 flex flex-col md:flex-row gap-5 items-start relative overflow-hidden">
                 <Quote size={32} className="text-accent/30 flex-shrink-0" strokeWidth={1.5} />
                 <p className="text-[14.5px] text-muted-foreground font-body leading-relaxed">
-                  Nos partenariats s'inscrivent dans la durée — et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte, c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
+                  Nos partenariats s'inscrivent dans la durée, et c'est ce qui les rend efficaces. Un an ensemble, c'est le temps nécessaire pour vraiment vous connaître&nbsp;: votre saisonnalité, vos tensions récurrentes, vos objectifs. Le préavis de 3 mois n'est pas une contrainte, c'est le délai qui nous permet de vous passer la main dans les meilleures conditions si vous le souhaitez.
                 </p>
               </div>
             </div>

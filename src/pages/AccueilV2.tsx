@@ -186,7 +186,7 @@ function getInitials(name: string) {
 // V1 — homepage FAQ (Index.tsx)
 const faqs = [
   { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
-  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic — comptabilité + conformité), à partir de 350 € HTVA/mois (Essentiel, avec situation intermédiaire semestrielle), à partir de 450 € HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650 € HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
+  { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic, comptabilité + conformité), à partir de 350 € HTVA/mois (Essentiel, avec situation intermédiaire semestrielle), à partir de 450 € HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650 € HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion et trésorerie prévisionnelle intégrés dans les forfaits selon le niveau ; DAF à temps partiel en option (150 € HTVA/h, clients Excellence)." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },
 ];
@@ -252,7 +252,7 @@ export default function AccueilV2() {
   return (
     <div className="min-h-screen bg-background" ref={root}>
       <SEOHead
-        title="Cabinet d'Expert-Comptable Bruxelles — MFinances"
+        title="Cabinet d'Expert-Comptable Bruxelles, MFinances"
         description="Cabinet d'expertise comptable à Bruxelles. Contrôle de gestion, DAF externalisé et trésorerie prévisionnelle pour TPE en croissance."
         canonical="https://mfinances.be/"
         schemaJson={[accountingServiceSchema, createFaqSchema(faqs)]}
@@ -305,7 +305,7 @@ export default function AccueilV2() {
                   <p
                     className="mt-6 text-primary-foreground/65 text-[15px] sm:text-[16px] leading-[1.65] max-w-[640px]"
                   >
-                    La plupart des dirigeants de TPE pilotent à l'aveugle — trésorerie floue, résultats découverts trop tard. MFinances change ça&nbsp;: un vrai pilotage financier, à un prix de PME.
+                    La plupart des dirigeants de TPE pilotent à l'aveugle, trésorerie floue, résultats découverts trop tard. MFinances change ça&nbsp;: un vrai pilotage financier, à un prix de PME.
                   </p>
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <Button

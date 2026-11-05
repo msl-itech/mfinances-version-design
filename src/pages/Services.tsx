@@ -197,7 +197,7 @@ export default function Services() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Comptabilité et pilotage à Bruxelles — MFinances"
+        title="Comptabilité et pilotage à Bruxelles | MFinances"
         description="Explorez nos services pour TPE à Bruxelles : comptabilité, fiscalité, contrôle de gestion, trésorerie et DAF externalisé. Choisissez selon vos besoins."
         canonical="https://mfinances.be/services/"
         schemaJson={breadcrumbJsonLd}

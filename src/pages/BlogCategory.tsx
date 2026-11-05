@@ -45,7 +45,7 @@ export default function BlogCategory() {
   if (!category) {
     return (
       <div className="min-h-screen">
-        <SEOHead title="Catégorie introuvable — MFinances" description="Cette catégorie n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
+        <SEOHead title="Catégorie introuvable | MFinances" description="Cette catégorie n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
         <Header />
         <div className="py-10 text-center">
           <h1 className="font-display text-[32px]">Catégorie introuvable</h1>
@@ -59,14 +59,14 @@ export default function BlogCategory() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title={`${category.label} — Blog MFinances Bruxelles`}
+        title={`${category.label} | Blog MFinances Bruxelles`}
         description={category.description}
         canonical={`https://mfinances.be/blog/${categorySlug}/`}
         schemaJson={[
           {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: `${category.label} — Blog MFinances`,
+            name: `${category.label} | Blog MFinances`,
             description: category.description,
             url: `https://mfinances.be/blog/${categorySlug}/`,
             inLanguage: "fr-BE",

@@ -56,8 +56,8 @@ export default function FraisDefendablesPage() {
   return (
     <div ref={root} className="min-h-screen bg-background">
       <SEOHead
-        title="Frais Défendables — Analyseur fiscal belge | MFinances"
-        description="Vérifiez en 3 questions si un frais pro est défendable en cas de contrôle fiscal belge. 30 catégories — outil gratuit MFinances."
+        title="Frais Défendables | Analyseur fiscal belge | MFinances"
+        description="Vérifiez en 3 questions si un frais pro est défendable en cas de contrôle fiscal belge. 30 catégories : outil gratuit MFinances."
         canonical="https://mfinances.be/frais-defendables/"
         schemaJson={[webAppSchema, breadcrumbSchema, createFaqSchema(faqData)]}
       />
@@ -171,7 +171,7 @@ export default function FraisDefendablesPage() {
           <div className="max-w-[900px] mx-auto px-4 sm:px-6">
             <div className="bg-muted border border-border rounded-2xl px-4 sm:px-6 py-4 sm:py-5 text-[13px] sm:text-sm text-muted-foreground leading-relaxed flex items-start gap-3">
               <Scale className="flex-shrink-0 mt-0.5" size={18} />
-              <span>Repère général — pas un avis fiscal définitif. Les verdicts sont fondés sur le Code des impôts sur les revenus (CIR) et la pratique administrative belge. Ils ne remplacent pas une analyse personnalisée. <strong className="text-primary">MFinances</strong>, cabinet d'expertise comptable à Uccle — Membre ITAA n°50.624.805.</span>
+              <span>Repère général, pas un avis fiscal définitif. Les verdicts sont fondés sur le Code des impôts sur les revenus (CIR) et la pratique administrative belge. Ils ne remplacent pas une analyse personnalisée. <strong className="text-primary">MFinances</strong>, cabinet d'expertise comptable à Uccle, membre ITAA n°50.624.805.</span>
             </div>
           </div>
         </section>

@@ -53,7 +53,7 @@ const DATA: Record<string, FraisItem[]> = {
   ],
   divers: [
     { id:"frais_bancaires", n:"Frais bancaires professionnels", hint:"Compte pro", s:"D", score:1, tag:"banque", priority:"faible", note:"Déductibles si liés au compte professionnel. Séparer impérativement les comptes privé et professionnel." },
-    { id:"amendes", n:"Amendes et pénalités", hint:"Jamais", s:"S", score:1, tag:"amendes", priority:"haute", note:"Art. 53 2° CIR — exclusion absolue et sans exception. Toute amende ou pénalité fiscale est non déductible, sans dérogation possible." },
+    { id:"amendes", n:"Amendes et pénalités", hint:"Jamais", s:"S", score:1, tag:"amendes", priority:"haute", note:"Art. 53 2° CIR, exclusion absolue et sans exception. Toute amende ou pénalité fiscale est non déductible, sans dérogation possible." },
     { id:"assurance_pro", n:"Assurance professionnelle", hint:"Lien activité", s:"D", score:1, tag:"assurance_pro", priority:"faible", note:"100% déductible si le lien direct avec l'activité est établi. La police doit être au bon nom." },
     { id:"publicite_marketing", n:"Publicité et marketing", hint:"But commercial", s:"D", score:1, tag:"marketing", priority:"faible", note:"Le lien avec l'objectif commercial doit être documenté (brief, facture, preuves de diffusion)." },
     { id:"sous_traitants", n:"Sous-traitants / honoraires", hint:"Fiche 281.50", s:"E", score:3, tag:"sous_traitance", priority:"haute", note:"La fiche 281.50 est obligatoire (>250 EUR/an/bénéficiaire). Absence = cotisation spéciale de 100% sur le montant. Risque de requalification en salariat." },
@@ -72,14 +72,14 @@ const CATEGORIES = [
 ];
 
 const QUESTIONS = [
-  { t: "Quel est votre statut fiscal ?", o: ["Indépendant — personne physique (IPP)", "Dirigeant de société (SRL, SA…)", "Les deux statuts s'appliquent"] },
-  { t: "Quel est l'usage réel de cette dépense ?", o: ["Usage professionnel à 100 %", "Usage mixte — pro et privé", "Difficile à isoler clairement du privé"] },
+  { t: "Quel est votre statut fiscal ?", o: ["Indépendant, personne physique (IPP)", "Dirigeant de société (SRL, SA…)", "Les deux statuts s'appliquent"] },
+  { t: "Quel est l'usage réel de cette dépense ?", o: ["Usage professionnel à 100 %", "Usage mixte, pro et privé", "Difficile à isoler clairement du privé"] },
   { t: "Quel justificatif avez-vous disponible ?", o: ["Justificatif complet (facture + note)", "Justificatif partiel (souche, relevé seul)", "Aucun justificatif formalisé à ce jour"] },
 ];
 
 const VERDICTS = {
   D: { label: "Défendable", icon: "✓", title: "Ce frais paraît cohérent et relativement solide.", regime: "Déductible selon les conditions légales applicables.", justif: "Facture au bon nom, contexte clair, cohérence avec l'activité.", fisc: "Usage réel, document correct, montant proportionné.", defend: "Conservez la facture et notez le contexte professionnel si utile.", cta: "Audit complet" },
-  E: { label: "À encadrer", icon: "!", title: "Ce frais peut être admis, mais il demande un meilleur cadrage.", regime: "Déductible sous conditions — ventilation ou documentation à sécuriser.", justif: "Méthode de ventilation à formaliser, pièces complémentaires à prévoir.", fisc: "Part privée, constance de la méthode, cohérence globale du dossier.", defend: "Formalisez votre méthode de ventilation et conservez tous les justificatifs.", cta: "Recevoir la checklist des frais sensibles" },
+  E: { label: "À encadrer", icon: "!", title: "Ce frais peut être admis, mais il demande un meilleur cadrage.", regime: "Déductible sous conditions, ventilation ou documentation à sécuriser.", justif: "Méthode de ventilation à formaliser, pièces complémentaires à prévoir.", fisc: "Part privée, constance de la méthode, cohérence globale du dossier.", defend: "Formalisez votre méthode de ventilation et conservez tous les justificatifs.", cta: "Recevoir la checklist des frais sensibles" },
   S: { label: "Zone sensible", icon: "✕", title: "Ce frais mérite une vérification avant toute déduction.", regime: "Risque de rejet ou de requalification fiscale.", justif: "Analyse personnalisée recommandée avant toute déduction.", fisc: "Lien professionnel fragile, usage privé dominant ou justification absente.", defend: "Ne pas prendre cette déduction sans avis expert préalable.", cta: "Faire vérifier ce cas par MFinances" },
 };
 
@@ -246,7 +246,7 @@ export default function FraisDefendables() {
             </div>
             <div>
               <div className="font-display text-xl font-bold leading-tight">Frais Défendables</div>
-              <div className="text-xs text-white/60 mt-0.5">Analyseur fiscal — MFinances.be</div>
+              <div className="text-xs text-white/60 mt-0.5">Analyseur fiscal, MFinances.be</div>
             </div>
           </div>
           <div className="text-right leading-relaxed hidden sm:block">
@@ -417,7 +417,7 @@ export default function FraisDefendables() {
 
             return (
               <section className="animate-in fade-in slide-in-from-bottom-3 duration-500">
-                <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 3 sur 3 — Votre verdict</div>
+                <div className="text-[11px] font-bold tracking-widest uppercase text-accent mb-3">Étape 3 sur 3 : votre verdict</div>
 
                 {(() => {
                   const locked = captureNeeded && !submitted;
@@ -431,7 +431,7 @@ export default function FraisDefendables() {
                           </div>
                           <div>
                             <div className={`text-[11px] uppercase tracking-widest font-bold mb-1.5 ${labelColor(verdictKey)}`}>
-                              {v.label} — {selectedItem.n}
+                              {v.label}, {selectedItem.n}
                             </div>
                             <div className="font-display text-xl leading-snug text-primary">{v.title}</div>
                           </div>
@@ -487,7 +487,7 @@ export default function FraisDefendables() {
                           >
                             Débloquer mon analyse →
                           </button>
-                          <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit — pas de spam.</p>
+                          <p className="text-[11px] text-muted-foreground mt-3">🔒 Un email pro suffit, pas de spam.</p>
                         </div>
                       </div>
                     </div>
@@ -501,7 +501,7 @@ export default function FraisDefendables() {
                   submitted ? (
                     <div className="bg-gradient-to-br from-primary-dark to-primary text-primary-foreground rounded-2xl p-6 text-center">
                       <Mail className="mx-auto mb-3" size={32} />
-                      <h3 className="font-display text-xl text-white mb-2">Reçu — merci.</h3>
+                      <h3 className="font-display text-xl text-white mb-2">Reçu, merci.</h3>
                       <p className="text-white/80 text-sm">Votre demande a bien été notée. Nos experts vous répondent rapidement.</p>
                     </div>
                   ) : showForm ? (
@@ -509,7 +509,7 @@ export default function FraisDefendables() {
                       {isHighValue && (
                         <div className="bg-accent/15 border border-accent/30 rounded-xl px-4 py-3 mb-4 text-[13px] text-accent-foreground flex items-center gap-2.5">
                           <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse flex-shrink-0" />
-                          <span className="text-white/90">Ce poste figure parmi les plus contrôlés — analyse prioritaire recommandée.</span>
+                          <span className="text-white/90">Ce poste figure parmi les plus contrôlés, analyse prioritaire recommandée.</span>
                         </div>
                       )}
                       <h3 className="font-display text-[22px] text-white mb-2">

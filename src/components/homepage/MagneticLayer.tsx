@@ -3,7 +3,7 @@ import { useEffect } from "react";
 /**
  * Adds magnetic-pull hover effect to all elements with [data-magnetic],
  * and to all anchors/buttons inside the homepage scope by default.
- * Pure DOM — no React rerenders. Respects prefers-reduced-motion.
+ * Pure DOM, no React rerenders. Respects prefers-reduced-motion.
  */
 export default function MagneticLayer({ scope = "main" }: { scope?: string }) {
   useEffect(() => {

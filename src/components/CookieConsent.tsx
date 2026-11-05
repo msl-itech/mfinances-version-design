@@ -47,7 +47,7 @@ export default function CookieConsent() {
             </p>
             <p className="mt-2 font-body text-[14px] leading-[1.6] text-foreground">
               Rien de sucré, mais une trace discrète de votre passage. Avec votre accord, Microsoft Clarity
-              nous aide à comprendre ce qui vous est utile ici — et à l'améliorer. Rien ne se lance tant que
+              nous aide à comprendre ce qui vous est utile ici, et à l'améliorer. Rien ne se lance tant que
               vous n'avez pas dit oui.
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">

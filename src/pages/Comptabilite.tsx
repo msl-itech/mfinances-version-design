@@ -36,7 +36,7 @@ import { useGoogleReviews, type SiteReview } from "@/hooks/use-google-reviews";
 const services = [
   { icon: BookOpen, title: "Comptabilité générale et analytique", desc: "Tenue complète de votre comptabilité avec analyse détaillée par activité, projet ou centre de coût." },
   { icon: Zap, title: "Encodage automatisé", desc: "Simplification et automatisation de l'encodage de vos documents : factures, notes de frais, relevés bancaires." },
-  { icon: FileCheck, title: "Déclarations fiscales complètes", desc: "TVA, ISOC, IPP, bilans, comptes annuels — toutes vos obligations fiscales gérées dans les délais, sans stress." },
+  { icon: FileCheck, title: "Déclarations fiscales complètes", desc: "TVA, ISOC, IPP, bilans, comptes annuels, toutes vos obligations fiscales gérées dans les délais, sans stress." },
   { icon: BarChart3, title: "Tableaux de bord personnalisés", desc: "Suivi régulier avec reporting financier adapté à votre activité. Vos chiffres clés accessibles en temps réel sur Odoo." },
   { icon: Settings, title: "Intégration et configuration Odoo", desc: "Plan comptable belge, paramétrage TVA, relances clients personnalisées, connexion à vos flux existants." },
   { icon: Lightbulb, title: "Conseil fiscal continu", desc: "Nous vous accompagnons tout au long de l'exercice pour anticiper et réduire votre charge fiscale." },
@@ -160,7 +160,7 @@ export default function Comptabilite() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Comptabilité sur Odoo pour TPE à Bruxelles — MFinances"
+        title="Comptabilité sur Odoo pour TPE à Bruxelles | MFinances"
         description="Comptabilité claire et proactive intégrée dans Odoo : encodage automatisé, déclarations fiscales et tableaux de bord. MFinances, Bruxelles."
         canonical="https://mfinances.be/services/comptabilite/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "Comptabilité pour TPE (sur Odoo)", serviceType: "Comptabilité", url: "https://mfinances.be/services/comptabilite/", description: "Comptabilité claire et proactive intégrée dans Odoo : encodage automatisé, déclarations fiscales et tableaux de bord." })]}
@@ -176,11 +176,11 @@ export default function Comptabilite() {
           titleStart="Votre comptabilité, claire et"
           titleItalic="sans stress"
           titleEnd="— intégrée dans Odoo"
-          description="Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité — pas vous faire perdre du temps."
+          description="Vous dirigez une entreprise en croissance. Votre comptabilité doit vous donner de la visibilité, pas vous faire perdre du temps."
           pills={["Inclus dès le forfait Essentiel", "Intégration Odoo", "Encodage automatisé"]}
           image={imgHero}
           imageSmall={imgHero400}
-          imageAlt="Tableau de bord comptable Odoo — MFinances"
+          imageAlt="Tableau de bord comptable Odoo, MFinances"
           plaque="N°04 / Comptabilité"
           cardTitlePrefix="Compta"
           cardTitleAccent="centralisée"
@@ -385,7 +385,7 @@ export default function Comptabilite() {
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
                     src={imgOdoo}
-                    alt="Centralisation comptable dans Odoo — MFinances"
+                    alt="Centralisation comptable dans Odoo, MFinances"
                     className="w-full h-auto"
                     loading="lazy"
                   />
@@ -597,7 +597,7 @@ export default function Comptabilite() {
           titleStart="Prêt à simplifier"
           titleItalic="votre comptabilité"
           titleEnd="?"
-          description="Demandez un devis gratuit — nous vous rappelons sous 72h pour en discuter."
+          description="Demandez un devis gratuit : nous vous rappelons sous 72h pour en discuter."
           watermark="Comptons"
           ctaPrimary={{ label: "Demander un devis gratuit", href: "/contact/" }}
           ctaSecondary={{ label: "Découvrir nos services", href: "/#services" }}

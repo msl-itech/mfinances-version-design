@@ -29,7 +29,7 @@ export default function PolitiqueConfidentialite() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Politique de confidentialité — MFinances Bruxelles"
+        title="Politique de confidentialité | MFinances Bruxelles"
         description="Politique de confidentialité de MFinances S.R.L. concernant la collecte et le traitement de vos données personnelles."
         canonical="https://mfinances.be/politique-de-confidentialite/"
         schemaJson={[
@@ -57,7 +57,7 @@ export default function PolitiqueConfidentialite() {
             <div>
               <h2 className="font-display text-[22px] text-foreground mb-4">Responsable du traitement</h2>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                MFinances S.R.L. — Rue de la Magnanerie 20, 1180 Uccle — <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a> — <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a>
+                MFinances S.R.L., Rue de la Magnanerie 20, 1180 Uccle, <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a>, <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a>
               </p>
             </div>
 

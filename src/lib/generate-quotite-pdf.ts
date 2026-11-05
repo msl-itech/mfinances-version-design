@@ -239,7 +239,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   };
 
   // ── Tableau pièces ──
-  sectionTitle("Détail des pièces — surfaces et pondérations");
+  sectionTitle("Détail des pièces, surfaces et pondérations");
 
   // Table header
   const cols = [M, M + 50, M + 72, M + 95, M + 118, M + 140];
@@ -400,7 +400,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "normal");
   setTextC(GRAY);
   doc.setFontSize(7);
-  doc.text(`— Rapport part professionnelle · ${data.prenom} · ${dateStr}`, M + 25, 9);
+  doc.text(`Rapport part professionnelle · ${data.prenom} · ${dateStr}`, M + 25, 9);
   doc.text("Page 2 / 2", W - M, 9, { align: "right" });
 
   y = 22;
@@ -440,7 +440,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
     drawStatusBox(
       "🏢",
       "Vous êtes dirigeant de société et locataire",
-      "Vous pouvez potentiellement aller plus loin que la simple part professionnelle. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC — et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.",
+      "Vous pouvez potentiellement aller plus loin que la simple part professionnelle. Le mécanisme de sous-location professionnelle vous permet de louer formellement une partie de votre logement à votre société. Le loyer versé par votre société est déductible à l'ISOC, et vous le percevez dans votre IPP comme revenu immobilier, moins lourdement imposé qu'une rémunération.\n\nProchaine étape recommandée : générer un bail de sous-location conforme avec notre outil gratuit.",
     );
   } else if (data.statut === "dirigeant" && data.logement === "proprietaire") {
     drawStatusBox(
@@ -496,7 +496,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
       WARN_BG,
       [245, 158, 11],
       WARN,
-      `Attention — part professionnelle élevée (${fmtDec(quotite)} %). Une part professionnelle supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`,
+      `Attention, part professionnelle élevée (${fmtDec(quotite)} %). Une part professionnelle supérieure à 30 % peut attirer l'attention lors d'un contrôle fiscal. Assurez-vous que les surfaces et les pourcentages d'usage pro sont rigoureusement justifiables. Consultez votre expert-comptable pour valider ce niveau.`,
     );
   }
 
@@ -586,7 +586,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   if (data.statut === "dirigeant" || data.statut === "les-deux") {
     if (data.logement === "locataire") {
       ctaText =
-        "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel — gratuit et conforme.";
+        "Vous êtes dirigeant de société et locataire. Pour maximiser vos avantages fiscaux, générez votre bail de sous-location professionnel, gratuit et conforme.";
       ctaBtn = "Générer mon bail !";
       ctaUrl = "https://mfinances.be/ressources/generateur-bail/";
     } else {
@@ -629,7 +629,7 @@ export function generateQuotitePdf(data: QuotitePdfData): Blob {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6);
   const discLines = doc.splitTextToSize(
-    "Ce rapport est un outil d'estimation basé exclusivement sur les données saisies par l'utilisateur. La part professionnelle et les déductions calculées constituent une base de documentation, mais ne remplacent pas une analyse personnalisée par un expert-comptable agréé qui connaît l'ensemble de votre situation fiscale. MFinances SPRL décline toute responsabilité quant à l'utilisation de ce rapport sans validation professionnelle préalable.\n\nLes montants indiqués sont des estimations. Les déductions effectives peuvent varier selon votre situation fiscale complète, le régime d'imposition applicable et les éventuelles limitations légales. Conservez ce document comme pièce justificative — délai légal : 7 ans.",
+    "Ce rapport est un outil d'estimation basé exclusivement sur les données saisies par l'utilisateur. La part professionnelle et les déductions calculées constituent une base de documentation, mais ne remplacent pas une analyse personnalisée par un expert-comptable agréé qui connaît l'ensemble de votre situation fiscale. MFinances SPRL décline toute responsabilité quant à l'utilisation de ce rapport sans validation professionnelle préalable.\n\nLes montants indiqués sont des estimations. Les déductions effectives peuvent varier selon votre situation fiscale complète, le régime d'imposition applicable et les éventuelles limitations légales. Conservez ce document comme pièce justificative, délai légal : 7 ans.",
     CW - 8,
   );
   doc.text(discLines, M + 4, y + 9);

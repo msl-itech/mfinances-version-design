@@ -8,8 +8,8 @@ import { useEffect } from "react";
  *   <div data-tilt> ... </div>
  *
  * Optional attributes:
- *   data-tilt-max="10"   — max rotation in degrees (default 8)
- *   data-tilt-glow="1"   — enable cursor glow overlay (default on)
+ *   data-tilt-max="10", max rotation in degrees (default 8)
+ *   data-tilt-glow="1", enable cursor glow overlay (default on)
  */
 export function useTilt(scope: React.RefObject<HTMLElement>, deps: unknown[] = []) {
   useEffect(() => {

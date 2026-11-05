@@ -27,7 +27,7 @@ export default function GenerateurBailPage() {
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Générateur de bail professionnel — MFinances",
+    name: "Générateur de bail professionnel | MFinances",
     url: "https://mfinances.be/ressources/generateur-bail/",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",

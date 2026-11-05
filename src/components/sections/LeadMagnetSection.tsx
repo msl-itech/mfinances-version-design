@@ -39,7 +39,7 @@ export default function LeadMagnetSection() {
             </h2>
             <div className="h-px w-16 bg-accent/60 mt-7 mb-5" />
             <p className="text-primary-foreground/65 text-[15px] leading-[1.75] max-w-[480px]">
-              Un guide concret pour identifier les fuites financières les plus courantes — et les stopper avant qu'il ne soit trop tard.
+              Un guide concret pour identifier les fuites financières les plus courantes, et les stopper avant qu'il ne soit trop tard.
             </p>
             <ul className="mt-7 space-y-3.5">
               {[

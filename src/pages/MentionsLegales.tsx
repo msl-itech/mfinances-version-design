@@ -30,7 +30,7 @@ export default function MentionsLegales() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Mentions légales — MFinances Bruxelles"
+        title="Mentions légales | MFinances Bruxelles"
         description="Mentions légales du site MFinances S.R.L., cabinet d'expertise comptable à Uccle, Bruxelles."
         canonical="https://mfinances.be/mentions-legales/"
         schemaJson={createBreadcrumbSchema([

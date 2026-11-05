@@ -33,7 +33,7 @@ import { useTilt } from "@/hooks/use-tilt";
 const services = [
   { icon: Search, title: "Analyse approfondie de votre situation", desc: "Nous évaluons votre situation actuelle, identifions les opportunités d'optimisation et construisons une stratégie alignée avec vos objectifs." },
   { icon: Calculator, title: "Optimisation ISOC et IPP", desc: "Rémunération du dirigeant, dividendes, VVPRbis, réserve de liquidation, déductions professionnelles : nous calibrons votre situation pour minimiser la charge globale." },
-  { icon: Receipt, title: "Gestion et déclarations TVA", desc: "Déclarations périodiques, régime de TVA adapté, récupération de TVA sur investissements — sans retard, sans erreur, sans pénalité." },
+  { icon: Receipt, title: "Gestion et déclarations TVA", desc: "Déclarations périodiques, régime de TVA adapté, récupération de TVA sur investissements, sans retard, sans erreur, sans pénalité." },
   { icon: Landmark, title: "Planification fiscale patrimoniale", desc: "Nous anticipons les implications fiscales pour protéger ce que vous avez construit." },
   { icon: ShieldCheck, title: "Accompagnement en cas de contrôle fiscal", desc: "Nous vous préparons en amont, constituons vos dossiers justificatifs et vous représentons face à l'administration." },
   { icon: Handshake, title: "Protection juridique : partenariat assurance", desc: "Nous avons établi un partenariat avec une compagnie d'assurance de renom pour vous offrir une couverture de protection juridique fiscale à tarif préférentiel." },
@@ -98,7 +98,7 @@ export default function Fiscalite() {
   return (
     <div ref={root} className="min-h-screen">
       <SEOHead
-        title="Optimisation Fiscale pour TPE à Bruxelles — MFinances"
+        title="Optimisation Fiscale pour TPE à Bruxelles | MFinances"
         description="Optimisation fiscale ISOC, IPP, TVA et planification patrimoniale pour dirigeants de TPE en Belgique. Cabinet MFinances, Bruxelles. Consultation gratuite."
         canonical="https://mfinances.be/services/fiscalite/"
         schemaJson={[breadcrumbJsonLd, faqJsonLd, createServiceSchema({ name: "Conseil fiscal & optimisation", serviceType: "Conseil fiscal", url: "https://mfinances.be/services/fiscalite/", description: "Optimisation fiscale ISOC, IPP, TVA et planification patrimoniale pour dirigeants de TPE." })]}
@@ -114,12 +114,12 @@ export default function Fiscalite() {
           titleStart="Payez ce que vous devez —"
           titleItalic="pas un euro"
           titleEnd="de plus"
-          description="La fiscalité belge est complexe et en constante évolution. Bien comprise, elle contient des leviers puissants pour optimiser votre situation — ISOC, IPP, TVA, patrimoine."
+          description="La fiscalité belge est complexe et en constante évolution. Bien comprise, elle contient des leviers puissants pour optimiser votre situation : ISOC, IPP, TVA, patrimoine."
           disclaimer="Toute optimisation est réalisée dans le strict respect du cadre légal après analyse personnalisée. Les résultats varient selon les situations."
           pills={["ISOC · IPP · TVA", "Planification patrimoniale", "Préparation contrôle"]}
           image={imgHero}
           imageSmall={imgHero400}
-          imageAlt="Optimisation fiscale pour dirigeants de TPE — MFinances"
+          imageAlt="Optimisation fiscale pour dirigeants de TPE, MFinances"
           plaque="N°05 / Fiscalité"
           cardTitlePrefix="Leviers"
           cardTitleAccent="légaux"
@@ -291,7 +291,7 @@ export default function Fiscalite() {
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.25)]">
                   <img
                     src={imgLeviers}
-                    alt="Leviers d'optimisation fiscale belge — MFinances"
+                    alt="Leviers d'optimisation fiscale belge, MFinances"
                     className="w-full h-auto"
                     loading="lazy"
                   />
@@ -362,7 +362,7 @@ export default function Fiscalite() {
               {[
                 { title: "Combien me payer en indépendant en Belgique ?", href: "/blog/fiscalite-belgique/combien-me-payer-independant-belgique/" },
                 { title: "Je paye trop d'impôts en Belgique : vrai ou faux ?", href: "/blog/fiscalite-belgique/je-paye-trop-impots-belgique/" },
-                { title: "Déclaration ISOC — guide sans surprise", href: "/blog/fiscalite-belgique/declaration-isoc-belgique/" },
+                { title: "Déclaration ISOC : guide sans surprise", href: "/blog/fiscalite-belgique/declaration-isoc-belgique/" },
                 { title: "Pourquoi mon comptable ne m'aide pas ?", href: "/blog/daf-externalise/pourquoi-comptable-aide-pas/" },
                 { title: "Rémunération du dirigeant : salaire ou dividendes", href: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
                 { title: "Voiture de société Belgique 2026", href: "/blog/fiscalite-belgique/voiture-societe-belgique/" },

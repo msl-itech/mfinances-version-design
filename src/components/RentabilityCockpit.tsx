@@ -133,7 +133,7 @@ export default function RentabilityCockpit() {
           </button>
         </div>
         <p className="text-[14px] text-muted-foreground font-body mb-6 max-w-xl">
-          Découvrez en 60 secondes quelle ligne de service porte votre business — et laquelle le pèse.
+          Découvrez en 60 secondes quelle ligne de service porte votre business, et laquelle le pèse.
         </p>
 
         {/* Service inputs */}
@@ -316,7 +316,7 @@ export default function RentabilityCockpit() {
                         />
                       </div>
                       <p className={`font-display text-[18px] ${textColor}`}>
-                        ⚠ {worst.name} — {label}
+                        ⚠ {worst.name}, {label}
                       </p>
                       <p className="text-[11px] text-muted-foreground font-body">
                         Écart CA/marge : {pct(worst.gap)}
@@ -384,7 +384,7 @@ export default function RentabilityCockpit() {
                 </p>
                 <p className="text-[14px] text-foreground/80 font-body mb-5 leading-relaxed">
                   Votre service <strong>{results.angleMort.name}</strong> représente{" "}
-                  {pct(results.angleMort.weightCA)} de votre chiffre d'affaires — mais seulement{" "}
+                  {pct(results.angleMort.weightCA)} de votre chiffre d'affaires, mais seulement{" "}
                   {pct(results.angleMort.contribPct)} de votre marge totale. En clair : vous y
                   consacrez de l'énergie et des ressources pour un retour disproportionné. C'est
                   précisément ce type d'angle mort que nous identifions avec nos clients lors d'un
@@ -410,8 +410,8 @@ export default function RentabilityCockpit() {
                   D'après vos chiffres, votre mix actuel génère une marge de{" "}
                   <strong>{fmt(results.totalMarge)}</strong>/mois pour des charges fixes de{" "}
                   <strong>{fmt(results.cf)}</strong>. L'écart est de{" "}
-                  <strong>{fmt(results.cf - results.totalMarge)}</strong>. Ce n'est pas une fatalité
-                  — c'est un levier. Augmenter la contribution de votre service{" "}
+                  <strong>{fmt(results.cf - results.totalMarge)}</strong>. Ce n'est pas une fatalité,
+                  c'est un levier. Augmenter la contribution de votre service{" "}
                   <strong>{results.worstContributor.name}</strong> de 10 points déplacerait
                   significativement votre point mort. Ce travail de repricing et de restructuration
                   d'offre, c'est exactement ce que nous faisons en contrôle de gestion.
@@ -431,10 +431,10 @@ export default function RentabilityCockpit() {
                 </p>
                 <p className="text-[14px] text-foreground/80 font-body mb-5 leading-relaxed">
                   Votre mix de services est équilibré et votre seuil de rentabilité est atteint. La
-                  prochaine étape n'est pas de maintenir — c'est de piloter cette performance dans le
+                  prochaine étape n'est pas de maintenir, c'est de piloter cette performance dans le
                   temps. Construire un tableau de bord mensuel qui rend cette lecture automatique, vous
                   permet d'anticiper les dérives et de prendre des décisions sur la base de données
-                  réelles — c'est ce que nos forfaits contrôle de gestion apportent chaque mois.
+                  réelles, c'est ce que nos forfaits contrôle de gestion apportent chaque mois.
                 </p>
                 <Button className="rounded-full w-full bg-primary hover:bg-primary-light text-primary-foreground" asChild>
                   <Link to="/services/controle-de-gestion/">

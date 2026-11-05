@@ -55,7 +55,7 @@ export default function MikaSection() {
                 src={mikaPhoto720}
                 srcLarge={mikaPhoto}
                 displayWidth={480}
-                alt="Mika MUSUNGAYI — Expert-comptable, fondateur MFinances"
+                alt="Mika MUSUNGAYI, expert-comptable, fondateur MFinances"
                 className="absolute inset-0 w-full h-full object-cover object-top"
                 loading="lazy"
               />

@@ -206,7 +206,7 @@ export default function ChecklistTresorerie() {
                         Recevez la <span className="italic text-destructive">checklist trésorerie</span> qui protège votre TPE
                       </h2>
                       <p className="text-[14px] text-primary/65 font-body">
-                        Les 5 erreurs qui vident les comptes des dirigeants — avec les questions à vous poser pour chacune. Téléchargement immédiat.
+                        Les 5 erreurs qui vident les comptes des dirigeants, avec les questions à vous poser pour chacune. Téléchargement immédiat.
                       </p>
                     </div>
                     <div className="space-y-3">

@@ -13,13 +13,13 @@ const painPoints = [
   {
     icon: Eye,
     title: "Fiscalité subie",
-    desc: "Vous découvrez votre charge fiscale en fin d'année — quand il est trop tard pour agir. Chaque surprise coûte cher.",
+    desc: "Vous découvrez votre charge fiscale en fin d'année, quand il est trop tard pour agir. Chaque surprise coûte cher.",
     label: "Symptôme #2",
   },
   {
     icon: HelpCircle,
     title: "Décisions à l'aveugle",
-    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF — pourquoi pas vous ?",
+    desc: "Ce n'est pas une question de talent. C'est un problème d'outils. Les grandes entreprises ont un DAF, pourquoi pas vous ?",
     label: "Symptôme #3",
   },
 ];
@@ -117,7 +117,7 @@ export default function PainSection() {
             className="group inline-flex items-center gap-3 text-accent text-[13px] font-bold uppercase tracking-[0.12em] hover:gap-4 transition-all"
           >
             <span className="w-10 h-px bg-accent transition-all duration-300 group-hover:w-14" />
-            Plus maintenant — faites le diagnostic
+            Plus maintenant, faites le diagnostic
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

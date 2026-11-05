@@ -1,5 +1,5 @@
 /**
- * Chatbot Analytics — tracking anonyme et léger des interactions chatbot.
+ * Chatbot Analytics, tracking anonyme et léger des interactions chatbot.
  * Insertion directe dans la table chatbot_events (RLS autorise INSERT anon).
  */
 import { supabase } from "@/integrations/supabase/client";

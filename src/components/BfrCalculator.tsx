@@ -25,7 +25,7 @@ export default function BfrCalculator() {
         Calculez votre BFR en 2 minutes
       </h2>
       <p className="text-[14px] text-muted-foreground font-body mb-6">
-        Entrez vos montants — le résultat s'affiche instantanément.
+        Entrez vos montants, le résultat s'affiche instantanément.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
@@ -64,14 +64,14 @@ export default function BfrCalculator() {
             {result > 0
               ? "Votre entreprise doit mobiliser ce montant en permanence pour financer son cycle d'exploitation."
               : result < 0
-                ? "BFR négatif — vous encaissez avant de payer. Un avantage de trésorerie."
-                : "BFR nul — votre cycle d'exploitation s'autofinance exactement."}
+                ? "BFR négatif, vous encaissez avant de payer. Un avantage de trésorerie."
+                : "BFR nul, votre cycle d'exploitation s'autofinance exactement."}
           </p>
           <Link
             to="/contact/"
             className="inline-flex items-center gap-1.5 text-accent font-semibold text-[14px] mt-4 hover:underline font-body"
           >
-            Un expert MFinances analyse votre BFR avec vous — gratuitement <ArrowRight size={14} />
+            Un expert MFinances analyse votre BFR avec vous, gratuitement <ArrowRight size={14} />
           </Link>
         </div>
       )}

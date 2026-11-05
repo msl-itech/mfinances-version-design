@@ -119,8 +119,8 @@ export default function Contact() {
   };
   const contactContext = serviceLabels[serviceParam] || forfait || "";
   const pageTitle = contactContext
-    ? `Contact — ${contactContext} | MFinances Bruxelles`
-    : "Contact | Expert-Comptable Bruxelles — MFinances";
+    ? `Contact | ${contactContext} | MFinances Bruxelles`
+    : "Contact | Expert-Comptable Bruxelles | MFinances";
   const pageDescription = serviceLabels[serviceParam]
     ? `Contactez MFinances, expert-comptable à Bruxelles, pour votre ${serviceParam === "daf-externalise" ? "DAF externalisé" : serviceLabels[serviceParam].toLowerCase()} : premier échange gratuit, réponse sous 72h.`
     : forfait
@@ -216,7 +216,7 @@ export default function Contact() {
                 Parlons de votre <span className="italic font-light text-accent">entreprise</span>
               </h1>
               <p className="text-primary-foreground/75 font-body text-[15px] md:text-[17px] mt-5 md:mt-7 max-w-[620px] mx-auto leading-[1.75]">
-                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous <strong className="text-primary-foreground">72h</strong> — gratuit, confidentiel, sans engagement.
+                Décrivez-nous votre situation en 2 minutes. Mika vous rappelle personnellement sous <strong className="text-primary-foreground">72h</strong>, gratuit, confidentiel, sans engagement.
               </p>
               <div className="flex items-center justify-center gap-4 md:gap-6 mt-7 text-[12px] md:text-[13px] text-primary-foreground/70 font-body">
                 <span className="inline-flex items-center gap-1.5"><Shield size={13} className="text-accent" strokeWidth={1.8} /> Confidentiel</span>
