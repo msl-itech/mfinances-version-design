@@ -406,7 +406,7 @@ export default function Diagnostic() {
               Votre trésorerie vous cache quelque chose. <span className="text-accent">Depuis combien de temps ?</span>
             </h1>
             <p className="text-primary-foreground/75 text-[14px] sm:text-[15px] leading-relaxed mt-4 md:mt-5 font-body max-w-[600px] mx-auto">
-              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier : ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
+              8 questions. 3 minutes. Vous saurez exactement si votre entreprise est en danger financier, ou si vous pilotez dans la bonne direction. Résultat immédiat, gratuit, sans engagement.
             </p>
           </div>
         </section>

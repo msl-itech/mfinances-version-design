@@ -109,7 +109,7 @@ export default function CreationEntreprise() {
           titleItalic="solides"
           titleEnd="dès le premier jour"
           description="Créer une entreprise en Belgique, c'est excitant. C'est aussi une série de décisions structurantes qui engagent votre avenir financier, fiscal et juridique pour des années."
-          disclaimer="Les erreurs de départ sont les plus coûteuses : et les plus évitables."
+          disclaimer="Les erreurs de départ sont les plus coûteuses, et les plus évitables."
           pills={["Plan financier", "Forme juridique", "Acte authentique"]}
           image={imgHero}
           imageSmall={imgHero400}

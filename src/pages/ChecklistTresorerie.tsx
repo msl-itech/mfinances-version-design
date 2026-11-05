@@ -461,7 +461,7 @@ export default function ChecklistTresorerie() {
               Ce que contient <span className="text-accent">le guide</span>
             </h2>
             <p className="text-[15px] text-muted-foreground font-body text-center max-w-[520px] mx-auto mb-10">
-              5 erreurs concrètes que commettent 80% des dirigeants de TPE : avec les questions à vous poser pour chacune.
+              5 erreurs concrètes que commettent 80% des dirigeants de TPE, avec les questions à vous poser pour chacune.
             </p>
 
             <div className="space-y-4">

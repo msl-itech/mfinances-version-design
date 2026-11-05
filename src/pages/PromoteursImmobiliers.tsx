@@ -35,7 +35,7 @@ const tvaRegimes = [
   "Immeuble neuf destiné à la location : TVA 21% généralement non déductible, selon l'affectation",
   "Immeuble ancien destiné à l'habitation : TVA réduite à 6% possible, sous conditions strictes",
   "Régime d'autoliquidation : applicable dans certains cas, suivi rigoureux requis",
-  "Calcul du prorata de déductibilité sur frais généraux : selon activité mixte",
+  "Calcul du prorata de déductibilité sur frais généraux, selon activité mixte",
 ];
 
 const breadcrumbJsonLd = {

@@ -38,7 +38,7 @@ const checklistItems = [
 
 const pdfContents = [
   "Pour chaque point : la règle légale applicable en Belgique (CIR)",
-  "Les documents exacts à réunir : pas de formulation vague",
+  "Les documents exacts à réunir, pas de formulation vague",
   "Un indicateur visuel : ✓ Couvert / ⚠ À sécuriser / ✗ Risque identifié",
   "Un renvoi vers les ressources MFinances pour sécuriser chaque point faible",
 ];

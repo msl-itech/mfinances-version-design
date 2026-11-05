@@ -440,7 +440,7 @@ export default function ControleDeGestion() {
                   <br />surveillés chaque mois
                 </h2>
                 <p className="text-muted-foreground text-[15px] leading-[1.75] mt-6 font-body max-w-[440px]">
-                  Cinq chiffres qui résument la santé financière réelle de votre entreprise : pas vingt indicateurs, juste ceux qui comptent.
+                  Cinq chiffres qui résument la santé financière réelle de votre entreprise, pas vingt indicateurs, juste ceux qui comptent.
                 </p>
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
                   <img

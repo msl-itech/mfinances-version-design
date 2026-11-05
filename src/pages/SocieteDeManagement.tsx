@@ -45,7 +45,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "Réinvestissement patrimonial",
-    desc: "Les revenus de la société de management sont réinvestis dans des actifs durables : immobilier, placements financiers : avec un pilotage fiscal intégré.",
+    desc: "Les revenus de la société de management sont réinvestis dans des actifs durables : immobilier, placements financiers, avec un pilotage fiscal intégré.",
   },
   {
     icon: ShieldCheck,

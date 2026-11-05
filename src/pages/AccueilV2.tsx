@@ -89,7 +89,7 @@ const painPoints = [
   {
     icon: Eye,
     title: "Fiscalité subie",
-    desc: "Vous découvrez votre charge fiscale en fin d'année : quand il est trop tard pour agir. Chaque surprise coûte cher.",
+    desc: "Vous découvrez votre charge fiscale en fin d'année, quand il est trop tard pour agir. Chaque surprise coûte cher.",
   },
   {
     icon: HelpCircle,
@@ -137,7 +137,7 @@ const services = [
 
 // V1 — MethodSection
 const steps = [
-  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes : sans jargon." },
+  { num: "01", icon: Search, title: "Comprendre", desc: "Nous analysons votre situation réelle. Vous savez enfin où vous en êtes, sans jargon." },
   { num: "02", icon: Settings, title: "Structurer", desc: "Budget, tableaux de bord, prévisionnel. Votre entreprise a enfin un vrai cockpit financier." },
   { num: "03", icon: Zap, title: "Anticiper", desc: "Chaque mois, on challenge vos décisions. Vous pilotez avec un temps d'avance." },
 ];
@@ -185,7 +185,7 @@ function getInitials(name: string) {
 
 // V1 — homepage FAQ (Index.tsx)
 const faqs = [
-  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière : sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
+  { q: "C'est quoi un DAF externalisé ?", a: "Un DAF externalisé est un Directeur Administratif et Financier mis à disposition à temps partiel. Il assure le pilotage financier de votre entreprise : analyse des performances, aide à la décision, modélisation financière, sans les coûts d'un recrutement en interne. Chez MFinances, 150€ HTVA/heure, réservé aux clients Excellence." },
   { q: "Combien coûte un expert-comptable pour une TPE en Belgique ?", a: "Chez MFinances, les forfaits sont proposés à partir de 275 € HTVA/mois (Basic, comptabilité + conformité), à partir de 350 € HTVA/mois (Essentiel, avec situation intermédiaire semestrielle), à partir de 450 € HTVA/mois (Premium avec contrôle de gestion trimestriel) et à partir de 650 € HTVA/mois (Excellence avec trésorerie prévisionnelle mensuelle ; DAF à temps partiel en option). Engagement annuel avec tacite reconduction." },
   { q: "Quel expert-comptable pour une TPE en croissance à Bruxelles ?", a: "MFinances est un cabinet d'expertise comptable premium à Bruxelles, spécialisé dans le pilotage financier des TPE en croissance. Contrôle de gestion et trésorerie prévisionnelle intégrés dans les forfaits selon le niveau ; DAF à temps partiel en option (150 € HTVA/h, clients Excellence)." },
   { q: "Comment gérer la trésorerie d'une TPE en croissance ?", a: "Via un prévisionnel mensuel actualisé sur données réelles, une réserve de 3 mois de charges fixes, et un suivi des délais clients. MFinances intègre ce suivi dans le forfait Excellence." },

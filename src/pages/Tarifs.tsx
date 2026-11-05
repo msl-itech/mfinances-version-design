@@ -178,7 +178,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Y a-t-il une réduction pour les structures non assujetties à la TVA ?",
-    a: "Oui. Les structures non assujetties à la TVA : notamment les ASBL et certaines professions médicales (médecins, kinésithérapeutes, infirmiers) : bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
+    a: "Oui. Les structures non assujetties à la TVA, notamment les ASBL et certaines professions médicales (médecins, kinésithérapeutes, infirmiers) : bénéficient d'une réduction de 21 % sur l'ensemble de nos forfaits. Cette réduction s'applique automatiquement dès lors que votre structure répond à ces critères.",
   },
   {
     q: "Faut-il s'engager sur une durée minimum ?",
@@ -1342,7 +1342,7 @@ export default function Tarifs() {
                 Comment ça se passe concrètement ?
               </h2>
               <p className="mt-4 text-[15px] text-muted-foreground font-body leading-relaxed max-w-[680px] mx-auto" data-anim="fade-up" data-delay="0.2">
-                Trois étapes simples : et 48 heures pour démarrer notre collaboration.
+                Trois étapes simples, et 48 heures pour démarrer notre collaboration.
               </p>
             </div>
 

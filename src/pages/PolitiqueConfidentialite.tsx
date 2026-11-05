@@ -89,7 +89,7 @@ export default function PolitiqueConfidentialite() {
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans : obligations légales belges</span>
+                  <span><strong>Données clients (dossiers comptables) :</strong> 10 ans, obligations légales belges</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />

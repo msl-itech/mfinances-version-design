@@ -41,7 +41,7 @@ const pilotageServices = [
   {
     icon: BarChart3,
     title: "Contrôle de gestion",
-    desc: "Vous savez chaque mois si vous gagnez ou perdez : et pourquoi. Inclus dans les forfaits Premium et Excellence.",
+    desc: "Vous savez chaque mois si vous gagnez ou perdez, et pourquoi. Inclus dans les forfaits Premium et Excellence.",
     href: "/services/controle-de-gestion/",
     badge: "Premium+",
   },
