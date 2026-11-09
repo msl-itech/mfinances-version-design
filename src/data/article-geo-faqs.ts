@@ -66,22 +66,22 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     {
       question: "Qu'est-ce que la réserve de liquidation en Belgique ?",
       answer:
-        "La réserve de liquidation est un mécanisme fiscal belge réservé aux PME qui permet de mettre en réserve une partie du bénéfice taxé en payant immédiatement une cotisation distincte de 10 %. En contrepartie, cette réserve peut être distribuée plus tard avec un précompte mobilier réduit (au lieu de 30 %) : pour les réserves constituées jusqu'au 30 décembre 2025, 5 % après un délai de 5 ans ; pour les réserves constituées à partir de l'exercice 2026, 9,8 % après un délai de 3 ans.",
+        "La réserve de liquidation est un régime fiscal belge réservé aux PME (art. 184quater CIR 1992) qui permet de mettre en réserve tout ou partie du bénéfice après ISOC en payant immédiatement une cotisation distincte de 10 %. La réserve peut ensuite être distribuée avec un précompte mobilier réduit : 9,8 % après 3 ans pour les réserves constituées à partir de l'exercice 2026 (loi-programme du 30 mai 2026), ou 5 % après 5 ans / 6,5 % après 3 ans pour les réserves antérieures au 31 décembre 2025.",
     },
     {
       question: "Quel est le coût fiscal total de la réserve de liquidation ?",
       answer:
-        "Le coût total dépend du régime applicable. Pour les réserves constituées jusqu'au 30 décembre 2025 : 10 % de cotisation immédiate + 5 % de précompte mobilier à la distribution après 5 ans, soit environ 13,6 % au total. Pour les réserves constituées à partir de l'exercice 2026 : 10 % de cotisation + 9,8 % de précompte après 3 ans, soit environ 18 % au total. À titre de comparaison, une distribution classique soumise au précompte de 30 % coûte 30 %.",
+        "Le coût total dépend du régime applicable. Pour les réserves constituées à partir de l'exercice 2026 : 10 % de cotisation + 9,8 % de précompte après 3 ans, soit environ 19 % au total. Pour les réserves antérieures au 31 décembre 2025 : 10 % de cotisation + 5 % après 5 ans (~14 %) ou 6,5 % après 3 ans (~16 %). À titre de comparaison, un dividende classique soumis au précompte de 30 % coûte 30 %.",
     },
     {
-      question: "Que se passe-t-il si on distribue la réserve avant 5 ans ?",
+      question: "Que se passe-t-il si on distribue la réserve avant le délai ?",
       answer:
-        "Une distribution anticipée (avant le délai d'attente applicable) est coûteuse : le précompte mobilier passe à 20 %, voire au taux ordinaire de 30 %. Le coût total rejoint alors celui d'une distribution classique et la réserve de liquidation perd son intérêt fiscal. Le délai d'attente est de 5 ans pour les réserves constituées jusqu'au 30 décembre 2025 et de 3 ans pour celles constituées à partir de l'exercice 2026.",
+        "Une distribution anticipée (avant le délai d'attente de 3 ans) entraîne un précompte mobilier de 30 % pour les réserves post-2025, ou de 20 % pour les réserves antérieures. La cotisation de 10 % déjà payée n'est pas remboursée. Le coût total dépasse alors celui d'un dividende ordinaire et l'avantage fiscal disparaît.",
     },
     {
       question: "Qui peut constituer une réserve de liquidation ?",
       answer:
-        "Seules les PME au sens fiscal (article 1:24 CSA : moins de 50 employés, CA < 11,25 M€, total bilan < 6 M€, 2 critères sur 3) peuvent constituer une réserve de liquidation. Les grandes entreprises et les sociétés non-PME en sont exclues. La constitution se fait à la clôture annuelle, sur le bénéfice net après impôt des sociétés (ISOC).",
+        "Seules les petites sociétés au sens de l'art. 1:24 CSA (ne dépassant pas plus d'un des trois seuils : 50 travailleurs, 11 250 000 € de CA HTVA, 6 000 000 € de total du bilan) peuvent constituer une réserve de liquidation. Le statut PME doit être vérifié à la date de distribution, pas uniquement à la constitution. La réserve se constitue à la clôture annuelle, sur le bénéfice net après ISOC.",
     },
   ],
 

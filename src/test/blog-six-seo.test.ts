@@ -42,6 +42,26 @@ describe("Six requested editorial revisions", () => {
     });
   }
   it("does not give unrelated articles the revision date", () => {
-    expect(blogArticles.filter((a) => a.dateModified).map((a) => a.slug).sort()).toEqual(targets.map(([, slug]) => slug).sort());
+    const expectedWithDateModified = [
+      ...targets.map(([, slug]) => slug),
+      "vvprbis-belgique",
+      "reserve-liquidation-belgique",
+      "requalification-loyer-remuneration",
+      "changer-expert-comptable-belgique-pme",
+      "expert-comptable-odoo-belgique-pme",
+      "cloture-2026-decisions-dirigeant-pme",
+      "rapports-odoo-dirigeant-pme",
+      "comptabilite-retard-reprise-pme",
+      "daf-externalise-ou-salarie-pme",
+      "budget-tresorerie-2027-pme",
+      "peppol-2027-controles-pme-odoo",
+      "marge-chantier-odoo-construction",
+      "reporting-mensuel-pme-expert-comptable",
+      "inventaire-fin-annee-pme-belgique-2026",
+      "inventaire-physique-odoo-18-pme",
+      "stocks-dormants-reduction-valeur-fin-annee",
+      "travaux-en-cours-inventaire-chantiers-fin-annee",
+    ];
+    expect(blogArticles.filter((a) => a.dateModified).map((a) => a.slug).sort()).toEqual(expectedWithDateModified.sort());
   });
 });

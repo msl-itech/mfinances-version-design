@@ -16,6 +16,10 @@ import { articleContent } from "@/data/blog-articles-content";
 import { getArticleGeoFaqs } from "@/data/article-geo-faqs";
 import BfrCalculator from "@/components/BfrCalculator";
 import RentabilityCockpit from "@/components/RentabilityCockpit";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
+import ArticleInline2026, { articlePlainText2026 } from "@/components/ArticleInline2026";
+import { articleSlugs2026 } from "@/lib/article-origin-2026";
 
 import heroTresorerie from "@/assets/blog/hero-tresorerie.webp";
 import heroDaf from "@/assets/blog/hero-daf-externalise.webp";
@@ -32,6 +36,7 @@ const categoryHeroImages: Record<string, string> = {
   "controle-de-gestion": heroControle,
   "fiscalite-belgique": heroFiscalite,
   "creation-societe": heroCreation,
+  "comptabilite-odoo": heroControle,
 };
 
 function slugify(text: string): string {
@@ -43,6 +48,25 @@ function formatDateFr(dateStr: string): string {
 }
 
 
+
+/** Encadré de conversion inséré après le 2e intertitre d'un article. */
+function ArticleInlineCta({ title, text, label }: { title: string; text: string; label: string }) {
+  return (
+    <div data-anim="fade-up" className="my-10 bg-accent/5 border-l-4 border-accent rounded-r-2xl p-6 md:p-7">
+      <p className="font-display text-[18px] md:text-[20px] text-foreground leading-tight mb-2">
+        {title}
+      </p>
+      <p className="text-[14px] text-foreground/70 font-body leading-relaxed mb-5">
+        {text}
+      </p>
+      <Button variant="accent" className="rounded-full" asChild>
+        <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer" data-cta-location="article_inline">
+          {label} <ArrowRight size={16} className="ml-1" />
+        </a>
+      </Button>
+    </div>
+  );
+}
 
 export default function BlogArticle() {
   const [mounted, setMounted] = useState(false);
@@ -60,6 +84,7 @@ export default function BlogArticle() {
   const article = categorySlug && articleSlug ? getArticleBySlug(categorySlug, articleSlug) : undefined;
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const content = articleSlug ? articleContent[articleSlug] : undefined;
+  const isArticle2026 = !!article && articleSlugs2026.has(article.slug);
 
   const [showStickyMobile, setShowStickyMobile] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
@@ -81,16 +106,17 @@ export default function BlogArticle() {
         setReadProgress(progress);
       }
       setShowScrollTop(window.scrollY > 500);
-      if (content?.showCockpit) {
-        const hero = document.querySelector("[data-hero-section]");
-        if (hero) setShowStickyMobile(window.scrollY > (hero as HTMLElement).offsetHeight);
+      // Sticky mobile : opt-in via showStickyCta, déclenché à 30 % du scroll total
+      if (content?.showStickyCta) {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        setShowStickyMobile(scrollable > 0 && window.scrollY / scrollable >= 0.3);
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [content?.showCockpit]);
+  }, []);
 
-  if (!article || !category || !content) {
+  if (!article || !article.published || !category || !content) {
     return (
       <div className="min-h-screen">
         <SEOHead title="Article introuvable | MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
@@ -147,8 +173,8 @@ export default function BlogArticle() {
         "@type": "FAQPage",
         mainEntity: allFaqs.map((f) => ({
           "@type": "Question",
-          name: f.question,
-          acceptedAnswer: { "@type": "Answer", text: f.answer },
+          name: isArticle2026 ? articlePlainText2026(f.question) : f.question,
+          acceptedAnswer: { "@type": "Answer", text: isArticle2026 ? articlePlainText2026(f.answer) : f.answer },
         })),
       }
     : null;
@@ -254,6 +280,32 @@ export default function BlogArticle() {
                     <a href="#cockpit">Découvrir mon angle mort <ArrowRight size={16} className="ml-1" /></a>
                   </Button>
                 </div>
+              )}
+
+              {/* Hero CTA dédié au sujet (articles fiscaux cités par les IA) */}
+              {!isArticle2026 && content.heroCta && !content.showCockpit && (
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <Button variant="accent" className="rounded-full" asChild>
+                    {content.heroCta.link.startsWith("http") ? (
+                      <a href={buildUtmQuery(content.heroCta.link)} target="_blank" rel="noopener noreferrer" data-cta-location="article_hero">
+                        {content.heroCta.text} <ArrowRight size={16} className="ml-1" />
+                      </a>
+                    ) : (
+                      <Link to={content.heroCta.link} data-cta-location="article_hero">
+                        {content.heroCta.text} <ArrowRight size={16} className="ml-1" />
+                      </Link>
+                    )}
+                  </Button>
+                </div>
+              )}
+
+              {/* Hero CTA pour les articles 2026 (lien interne) */}
+              {isArticle2026 && content.heroCta && !content.showCockpit && (
+                <Button variant="accent" className="rounded-full mt-5 w-full sm:w-auto" asChild>
+                  <Link to={content.heroCta.link} data-cta-location="article_hero">
+                    {content.heroCta.text} <ArrowRight size={16} className="ml-1" />
+                  </Link>
+                </Button>
               )}
             </div>
           </div>
@@ -476,7 +528,17 @@ export default function BlogArticle() {
             )}
 
             <article className="prose-mf">
-              {content.sections.map((section, i) => (
+              {(() => {
+                // Index de la section contenant le 2e heading (h2) — pour y insérer l'encadré de conversion
+                let calloutAfterIndex = -1;
+                if (content.inlineCta) {
+                  let h2Count = 0;
+                  for (let j = 0; j < content.sections.length; j++) {
+                    if (content.sections[j].heading) h2Count++;
+                    if (h2Count === 2) { calloutAfterIndex = j; break; }
+                  }
+                }
+                return content.sections.map((section, i) => (
                 <div data-anim="fade-up" data-delay="0.06 + i * 0.04" key={i} >
                   {section.heading && (
                     <h2 id={slugify(section.heading)} className="font-display text-[22px] md:text-[26px] text-foreground mt-10 mb-4 leading-[1.2] scroll-mt-6">
@@ -490,7 +552,7 @@ export default function BlogArticle() {
                   )}
                   {section.paragraphs.map((p, pi) => (
                     <p key={pi} className="text-[15px] text-foreground/80 leading-[1.8] font-body mb-4">
-                      {renderInlineLinks(p)}
+                      {isArticle2026 ? <ArticleInline2026 text={p} /> : renderInlineLinks(p)}
                     </p>
                   ))}
                   {section.list && (
@@ -498,7 +560,7 @@ export default function BlogArticle() {
                       {section.list.map((item, li) => (
                         <li key={li} className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                          {item}
+                          {isArticle2026 ? <ArticleInline2026 text={item} /> : item}
                         </li>
                       ))}
                     </ul>
@@ -517,6 +579,12 @@ export default function BlogArticle() {
                       {section.ctaInline.text} <ArrowRight size={14} />
                     </Link>
                   )}
+
+                  {/* Encadré de conversion après le 2e intertitre */}
+                  {i === calloutAfterIndex && content.inlineCta && (
+                    <ArticleInlineCta title={content.inlineCta.title} text={content.inlineCta.text} label={content.inlineCta.label} />
+                  )}
+
                   {section.table && (
                     <div className="overflow-x-auto mb-6">
                       <table className="w-full text-[13px] font-body border-collapse">
@@ -524,7 +592,7 @@ export default function BlogArticle() {
                           <tr>
                             {section.table.headers.map((h, hi) => (
                               <th key={hi} className="text-left py-3 px-4 bg-secondary text-foreground font-semibold border-b border-border/50 first:rounded-tl-lg last:rounded-tr-lg">
-                                {h}
+                                {isArticle2026 ? <ArticleInline2026 text={h} /> : h}
                               </th>
                             ))}
                           </tr>
@@ -534,7 +602,7 @@ export default function BlogArticle() {
                             <tr key={ri} className="border-b border-border/30 last:border-0">
                               {row.map((cell, ci) => (
                                 <td key={ci} className={`py-3 px-4 text-foreground/80 ${ci === 0 ? "font-semibold text-foreground" : ""}`}>
-                                  {cell}
+                                  {isArticle2026 ? <ArticleInline2026 text={cell} /> : cell}
                                 </td>
                               ))}
                             </tr>
@@ -544,7 +612,8 @@ export default function BlogArticle() {
                     </div>
                   )}
                 </div>
-              ))}
+              ));
+              })()}
             </article>
 
             {/* Interactive tools */}
@@ -567,7 +636,7 @@ export default function BlogArticle() {
                         {item.question}
                       </AccordionTrigger>
                       <AccordionContent className="text-[14px] text-foreground/80 font-body leading-[1.8]">
-                        {item.answer}
+                        {isArticle2026 ? <ArticleInline2026 text={item.answer} /> : item.answer}
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -585,10 +654,16 @@ export default function BlogArticle() {
                   {content.ctaDescription || "Premier échange gratuit : nous analysons votre situation."}
                 </p>
                 <Button variant="accent" className="rounded-full" asChild>
-                  <Link to={ctaLink}>
-                    {ctaLabel}
-                    {!ctaLabel.endsWith("→") && <ArrowRight size={16} className="ml-1" />}
-                  </Link>
+                  {ctaLink.startsWith("http") ? (
+                    <a href={buildUtmQuery(ctaLink)} target="_blank" rel="noopener noreferrer" data-cta-location="article_fin">
+                      {ctaLabel} <ArrowRight size={16} className="ml-1" />
+                    </a>
+                  ) : (
+                    <Link to={ctaLink} data-cta-location="article_fin">
+                      {ctaLabel}
+                      {!ctaLabel.endsWith("→") && <ArrowRight size={16} className="ml-1" />}
+                    </Link>
+                  )}
                 </Button>
               </div>
             </div>
@@ -649,19 +724,19 @@ export default function BlogArticle() {
         </button>
       )}
 
-      {/* Sticky mobile CTA — cockpit articles only */}
-      {content.showCockpit && showStickyMobile && (
+      {/* Sticky mobile CTA — articles opt-in (showStickyCta) */}
+      {showStickyMobile && content?.showStickyCta && (
         <div className="fixed bottom-0 left-0 right-0 z-[80] bg-card border-t border-border p-2.5 px-4 sm:!hidden">
           <Button variant="accent" className="rounded-full w-full" asChild>
-            <Link to="/contact/">
-              Prendre RDV gratuit <ArrowRight size={16} className="ml-1" />
-            </Link>
+            <a href={buildUtmQuery(BOOKING_URL)} target="_blank" rel="noopener noreferrer" data-cta-location="mobile_sticky">
+              Réserver 20 min gratuites <ArrowRight size={16} className="ml-1" />
+            </a>
           </Button>
         </div>
       )}
 
       {/* Body padding for sticky mobile */}
-      {content.showCockpit && <div className="h-[70px] sm:hidden" />}
+      <div className="h-[70px] sm:hidden" />
     </div>
   );
 }

@@ -27,19 +27,19 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 
 ## Étape 5 — Doublons Odoo et suivi des envois (J2.4, J2.5)
 - [ ] (Site) Chercher une piste ouverte avec le même e-mail avant d'en créer une (fonction serveur submit-lead) + test 3 envois
-- [ ] (Site) Événement contact_form_submit déclenché sur chaque formulaire qui crée une piste (chatbot inclus) + note de diagnostic
+- [x] (Site) Événement contact_form_submit déclenché sur chaque formulaire qui crée une piste (Contact, Diagnostic, ChatBot, ChecklistTresorerie, ChecklistControleBureau, FraisDefendables, CalculateurQuotite, GenerateurBail) avec tagCtaContext avant chaque événement. Implémenté le 09/11/2026.
 
 ## Étape 6 — Bouton « Réserver un appel » partout (J4.1)
 - [x] (Site) Validation du 27/10 appliquée : appel rouge et diagnostic contour marine sur accueil, tarifs, services et ServicePageHero ; ouverture du rendez-vous Odoo vérifiée
 - [x] (Site) Plausible retiré de `index.html` le 27/10/2026 ; Clarity conservé ; appointment_click et contact_form_submit envoyés à Clarity
 - [ ] (Site) Bouton principal « Réserver un appel de 20 minutes » dès le premier écran : accueil, tarifs, services, secteurs
-- [ ] (Site) Bandeau fixe mobile à partir de 30 % de défilement
+- [x] (Site) Bandeau fixe mobile opt-in (showStickyCta) activé sur les 3 articles fiscaux, déclenché à 30 % du scroll (et non plus au dépassement du hero), lien direct vers le rendez-vous Odoo avec UTM. Implémenté le 09/11/2026
 - [ ] (Site) Formulaire court (nom, e-mail, téléphone, besoin) en bas des pages services et secteurs
-- [ ] (Site) Mesure appointment_click / contact_form_submit par page
+- [x] (Site) Mesure appointment_click / contact_form_submit par page : tagPage(pathname) envoie page_path + page_type à Clarity à chaque route ; installClickTracking envoie cta_page + cta_location (via data-cta-location) avant chaque appointment_click et contact_click ; contact_form_submit déclenché sur les 8 formulaires (contact, diagnostic, chatbot, checklists, calculateurs, générateur bail) avec tagCtaContext. Implémenté le 09/11/2026.
 
 ## Étape 7 — Encadrés dans le blog (J4.2)
-- [ ] (Site) Un encadré par catégorie (fiscalité, trésorerie, création, DAF, contrôle de gestion)
-- [ ] (Site) Après le 2e intertitre et en fin d'article, en commençant par les 10 articles les plus vus
+- [x] (Site) Encadré de conversion (inlineCta, composant ArticleInlineCta) après le 2e intertitre : implémenté le 09/11/2026 sur les 3 articles cités par les IA (VVPRbis, réserve de liquidation, requalification du loyer) avec CTA spécifique au sujet et lien booking Odoo (BOOKING_URL). Bouton dédié au sujet ajouté aussi en hero et en fin d'article. CTA fin gère les liens externes (target=_blank + UTM). Liens croisés (relatedLinks) entre les 3 articles + /services/fiscalite/. dateModified ajouté aux 3 articles. data-cta-location="article_inline" sur l'encadré.
+- [ ] (Site) Étendre les encadrés aux autres catégories (trésorerie, création, DAF, contrôle de gestion) et aux 10 articles les plus vus
 
 ## Étape 8 — Guides → rendez-vous (J4.3, J4.4)
 - [ ] (Site) Page de confirmation des guides : proposer un créneau

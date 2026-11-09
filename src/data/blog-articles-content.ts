@@ -1,3 +1,6 @@
+import { BOOKING_URL } from "@/lib/appointment";
+import { contenusAjoutes2026 } from "@/data/blog-additions-2026";
+
 export interface ArticleSection {
   heading?: string;
   subheading?: string;
@@ -25,6 +28,14 @@ export interface ArticleBody {
   showCalculator?: boolean;
   showCockpit?: boolean;
   heroCta?: { text: string; link: string };
+  /** Encadré de conversion inséré après le 2e intertitre (h2) de l'article. */
+  inlineCta?: {
+    title: string;
+    text: string;
+    label: string;
+  };
+  /** Bandeau fixe mobile avec lien rendez-vous, activé à 30 % de défilement. */
+  showStickyCta?: boolean;
 }
 
 export const articleContent: Record<string, ArticleBody> = {
@@ -714,11 +725,23 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLabel: "Découvrir notre service contrôle de gestion",
   },
   "vvprbis-belgique": {
+    heroCta: { text: "Vérifier mon éligibilité", link: BOOKING_URL },
+    inlineCta: {
+      title: "Chaque société est différente",
+      text: "Un échange de 30 minutes suffit pour savoir si le VVPRbis s'applique à vos actions.",
+      label: "Réserver un appel",
+    },
+    showStickyCta: true,
     sections: [
       {
         heading: "Définition en bref",
         paragraphs: [
           "Le VVPRbis (Verlaagde Voorheffing / Précompte Réduit bis) est un régime fiscal belge qui permet aux PME de distribuer des dividendes à un taux de précompte mobilier réduit — 18 % au lieu de 30 % standard (taux relevé de 15 % à 18 % par la réforme fiscale de 2026) — sous certaines conditions. Régime transitoire selon la date de l'apport : pour les apports antérieurs à 2026, un taux intermédiaire de 20 % s'applique au 2ᵉ exercice, puis 18 % ; pour les apports réalisés à partir de 2026, ce taux intermédiaire de 20 % disparaît (30 % au 2ᵉ exercice) et le taux réduit de 18 % s'applique dès le 3ᵉ exercice suivant l'apport. C'est l'un des leviers d'[optimisation fiscale](/services/fiscalite/) les plus efficaces pour les dirigeants de PME belges qui souhaitent se rémunérer via dividendes.",
+        ],
+        relatedLinks: [
+          { text: "Réserve de liquidation : le mécanisme fiscal à connaître", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
+          { text: "Requalification du loyer : comment l'éviter", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
+          { text: "Nos services fiscalité", link: "/services/fiscalite/" },
         ],
       },
       {
@@ -758,31 +781,123 @@ export const articleContent: Record<string, ArticleBody> = {
         answer: "Le VVPRbis s'applique aux dividendes courants et dépend de l'ancienneté des actions. La réserve de liquidation est constituée à partir des bénéfices mis en réserve, avec une taxe de 10 % payée immédiatement, en vue d'une distribution future à taux réduit. Les deux mécanismes sont complémentaires selon votre situation.",
       },
     ],
-    ctaText: "Envie d'optimiser vos dividendes ?",
-    ctaDescription: "Nous analysons votre situation et identifions les mécanismes applicables.",
-    ctaLink: "/services/fiscalite/",
-    ctaLabel: "Découvrir notre service fiscalité",
+    ctaText: "Vos prochains dividendes peuvent-ils profiter du VVPRbis ?",
+    ctaDescription: "En 30 minutes, nous vérifions avec vous si votre société remplit les conditions et ce qu'il faut préparer.",
+    ctaLink: BOOKING_URL,
+    ctaLabel: "Réserver un appel",
   },
   "reserve-liquidation-belgique": {
+    heroCta: { text: "Faire le point sur ma situation", link: BOOKING_URL },
+    inlineCta: {
+      title: "Chaque société est différente",
+      text: "Un échange de 30 minutes suffit pour savoir comment la réserve de liquidation s'applique à la vôtre.",
+      label: "Réserver un appel",
+    },
+    showStickyCta: true,
     sections: [
       {
-        heading: "Définition en bref",
         paragraphs: [
-          "La réserve de liquidation est un mécanisme fiscal belge qui permet à une PME de mettre en réserve une partie de ses bénéfices en payant immédiatement une cotisation distincte de 10 %, en vue de les distribuer ultérieurement à un précompte mobilier réduit après un délai d'attente. Depuis la réforme 2026, les réserves constituées à partir de l'exercice 2026 supportent un précompte de 9,8 % à la distribution après 3 ans (l'ancien taux de 5 % après 5 ans est supprimé) ; les réserves constituées jusqu'au 30 décembre 2025 conservent l'ancien régime (5 % de précompte après un délai de 5 ans ; 20 % en cas de distribution anticipée avant ce délai).",
+          "La réserve de liquidation est un régime fiscal belge qui permet à une PME de distribuer ses bénéfices à un coût d'environ 19 %, contre 30 % pour un dividende classique. La société met en réserve tout ou partie de son bénéfice après ISOC, paie une cotisation distincte de 10 %, puis distribue après un délai de 3 ans avec un précompte mobilier réduit de 9,8 % (art. 184quater CIR 1992, modifié par la loi-programme du 30 mai 2026).",
+          "Ce mécanisme s'adresse aux dirigeants de SRL, SC ou SA dont la société remplit les critères PME et qui peuvent attendre avant de distribuer. Il se combine souvent avec le [VVPRbis](/blog/fiscalite-belgique/vvprbis-belgique/) pour [optimiser la sortie de bénéfices](/services/fiscalite/) sur plusieurs exercices.",
+        ],
+        relatedLinks: [
+          { text: "VVPRbis : dividendes à taux réduit pour les PME", link: "/blog/fiscalite-belgique/vvprbis-belgique/" },
+          { text: "Requalification du loyer : comment l'éviter", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
+          { text: "Nos services fiscalité", link: "/services/fiscalite/" },
         ],
       },
       {
-        heading: "La mécanique en 3 étapes",
+        heading: "Comment ça marche, étape par étape",
         paragraphs: [
-          "Étape 1 — La PME décide de constituer une réserve de liquidation et paie immédiatement 10 % de taxe sur le montant mis en réserve.",
-          "Étape 2 — Si la réserve est distribuée avant le délai d'attente (3 ans pour les réserves constituées depuis l'exercice 2026, 5 ans pour les réserves antérieures) : précompte mobilier ordinaire de 20 % à 30 %.",
-          "Étape 3 — Si la réserve est distribuée après le délai d'attente : précompte mobilier réduit — 9,8 % pour les réserves constituées depuis l'exercice 2026 (charge totale ~18 %), 5 % pour les réserves constituées jusqu'au 30 décembre 2025 (charge totale ~13,6 %), contre 30 % pour un dividende classique.",
+          "Étape 1 : l'assemblée générale affecte tout ou partie du bénéfice comptable après ISOC à un compte de passif distinct intitulé « réserve de liquidation ». La société paie une cotisation distincte de 10 % sur le montant réservé (art. 219quater CIR 1992). Cette cotisation n'est pas déductible à l'ISOC.",
+          "Étape 2 : un relevé 275A est annexé à la déclaration fiscale de l'exercice de constitution. La réserve reste bloquée sur son compte séparé. Les réserves les plus anciennes sont réputées distribuées en premier (règle FIFO).",
+          "Étape 3 : après le délai de 3 ans, la société distribue la réserve. Le précompte mobilier retenu est de 9,8 %. En cas de liquidation de la société, le précompte tombe à 0 %. Une distribution avant le délai entraîne un précompte de 30 %, et l'avantage fiscal disparaît.",
         ],
       },
       {
-        heading: "Quand utiliser la réserve de liquidation ?",
+        heading: "Exemple chiffré : 50 000 € de bénéfice net",
         paragraphs: [
-          "La réserve de liquidation est un outil d'[optimisation fiscale](/services/fiscalite/) particulièrement intéressant pour les sociétés matures qui dégagent des bénéfices réguliers et qui n'ont pas besoin de distribuer immédiatement. Elle permet de capitaliser avec un coût fiscal réduit à long terme.",
+          "Votre SRL dégage un bénéfice net de 50 000 € après ISOC.",
+        ],
+        table: {
+          headers: ["", "Réserve de liquidation", "Dividende classique"],
+          rows: [
+            ["Cotisation distincte (10 %)", "5 000 €", "0 €"],
+            ["PM retenu à la distribution", "9,8 % = 4 900 €", "30 % = 15 000 €"],
+            ["Vous recevez", "45 100 €", "35 000 €"],
+            ["Coût fiscal total", "9 900 €", "15 000 €"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "En choisissant la réserve de liquidation, vous recevez 10 100 € de plus qu'avec un dividende classique. Le coût fiscal total (cotisation + précompte) est de 9 900 €, contre 15 000 €. La contrepartie : un délai d'attente de 3 ans et 5 000 € de cotisation payée par la société.",
+        ],
+      },
+      {
+        heading: "Dividende ordinaire, VVPRbis ou réserve de liquidation ?",
+        paragraphs: [
+          "Trois régimes coexistent pour sortir des bénéfices de votre société. Le tableau ci-dessous les compare sur les critères essentiels.",
+        ],
+        table: {
+          headers: ["Critère", "Dividende ordinaire", "VVPRbis", "Réserve de liquidation"],
+          rows: [
+            ["Précompte mobilier", "30 %", "18 %", "9,8 % (+ cotisation 10 %)"],
+            ["Charge totale nette", "30 %", "18 %", "~19 %"],
+            ["Délai", "Aucun", "3e exercice après l'apport", "3 ans après constitution"],
+            ["Condition PME", "Non", "Non", "Oui (art. 1:24 CSA)"],
+            ["Condition sur les actions", "Non", "Actions nouvelles requises", "Non"],
+          ],
+        },
+      },
+      {
+        paragraphs: [
+          "Le [VVPRbis](/blog/fiscalite-belgique/vvprbis-belgique/) permet une distribution plus rapide, sans cotisation préalable, mais exige des actions nouvelles émises dans certaines conditions. La réserve de liquidation est accessible à toute PME, sans condition sur le capital, mais demande patience et rigueur comptable. Les deux mécanismes ne s'excluent pas : beaucoup de PME les combinent.",
+        ],
+      },
+      {
+        heading: "Ce qui change en 2026",
+        paragraphs: [
+          "Deux lois successives ont modifié le régime en moins de douze mois. Les deux sont publiées au Moniteur belge et en vigueur.",
+        ],
+        list: [
+          "Loi du 18 juillet 2025 (MB 29/07/2025) : le délai d'attente passe de 5 à 3 ans. Le précompte mobilier pour les nouvelles réserves est fixé à 6,5 % après 3 ans.",
+          "Loi-programme du 30 mai 2026 (MB 01/06/2026) : le précompte passe de 6,5 % à 9,8 % pour les réserves constituées à partir d'exercices clôturés au 31 décembre 2025 ou après. Ce taux s'applique aux distributions depuis le 11 juin 2026. Une clause anti-abus est entrée en vigueur le 1er juillet 2026.",
+        ],
+      },
+      {
+        paragraphs: [
+          "Les réserves constituées avant le 31 décembre 2025 conservent le choix entre deux options : 5 % de précompte après 5 ans (régime d'origine) ou 6,5 % de précompte après 3 ans (option introduite par la loi de juillet 2025). Toute modification de date de clôture d'exercice postérieure au 24 novembre 2025 est ignorée pour la détermination du régime applicable.",
+          "Au 9 novembre 2026, aucune nouvelle modification du régime n'est officiellement annoncée.",
+        ],
+      },
+      {
+        heading: "Les 4 erreurs les plus fréquentes",
+        paragraphs: [
+          "Quatre points de vigilance lors de la constitution ou de la distribution d'une réserve de liquidation.",
+        ],
+        list: [
+          "Distribuer avant le délai de 3 ans. Le précompte mobilier passe à 30 %. L'économie fiscale disparaît, et la cotisation de 10 % déjà payée n'est pas remboursée.",
+          "Oublier le relevé 275A. Sans ce formulaire annexé à la déclaration ISOC de l'exercice de constitution, l'administration peut contester le régime préférentiel.",
+          "Ne pas vérifier le statut PME au moment de la distribution. Les critères de l'art. 1:24 CSA doivent être remplis à la date de distribution, pas uniquement à la date de constitution de la réserve.",
+          "Confondre réserve de liquidation et réserve légale. La réserve de liquidation est un compte de passif distinct. Elle ne remplace pas l'obligation de constituer une réserve légale (5 % du bénéfice net annuel jusqu'à 10 % du capital).",
+        ],
+      },
+      {
+        heading: "Quand la réserve de liquidation n'est pas la bonne solution",
+        paragraphs: [
+          "La réserve de liquidation est un outil puissant d'[optimisation fiscale](/services/fiscalite/), mais pas universel.",
+        ],
+        list: [
+          "Besoin immédiat de liquidités : si vous devez sortir l'argent maintenant, le VVPRbis (18 % de PM) reste plus rapide.",
+          "Grande entreprise : seules les petites sociétés au sens de l'art. 1:24 CSA y ont accès.",
+          "Bénéfices irréguliers : la réserve se constitue exercice par exercice, sur le bénéfice de l'année. Pas de bénéfice, pas de réserve.",
+          "Liquidation imminente : si vous prévoyez de fermer la société dans les 3 ans, la distribution en liquidation est exonérée de précompte. La réserve n'apporte alors aucun avantage supplémentaire.",
+        ],
+      },
+      {
+        paragraphs: [
+          "Votre situation est unique. Pour savoir quel mécanisme convient le mieux à votre SRL, un premier échange avec un expert-comptable permet d'y voir clair.",
         ],
         relatedLinks: [
           { text: "Notre accompagnement en optimisation fiscale", link: "/services/fiscalite/" },
@@ -794,17 +909,29 @@ export const articleContent: Record<string, ArticleBody> = {
     faq: [
       {
         question: "C'est quoi la réserve de liquidation pour une PME belge ?",
-        answer: "La réserve de liquidation permet à une PME belge de mettre en réserve une partie de ses bénéfices en payant une taxe de 10 % immédiatement, pour les distribuer plus tard à un précompte mobilier réduit selon le délai d'attente et la date de constitution (régime réformé en 2026). C'est un outil puissant de planification fiscale à long terme.",
+        answer: "La réserve de liquidation permet à une PME belge de mettre en réserve ses bénéfices après ISOC, moyennant une cotisation de 10 %, pour les distribuer plus tard avec un précompte mobilier réduit de 9,8 % (après 3 ans) au lieu de 30 %. C'est un outil de planification fiscale à moyen terme pour les dirigeants qui n'ont pas besoin de distribuer immédiatement.",
       },
       {
-        question: "Réserve de liquidation ou VVPRbis — lequel choisir ?",
-        answer: "Les deux mécanismes sont complémentaires. Le VVPRbis convient mieux aux sociétés récentes qui distribuent régulièrement. La réserve de liquidation convient mieux aux sociétés plus matures qui veulent capitaliser et distribuer à terme. Une analyse personnalisée de votre situation est nécessaire.",
+        question: "Réserve de liquidation ou VVPRbis : lequel choisir ?",
+        answer: "Les deux mécanismes sont complémentaires. Le VVPRbis convient aux sociétés qui distribuent régulièrement et disposent d'actions éligibles. La réserve de liquidation convient aux sociétés qui veulent capitaliser et distribuer plus tard. La charge totale est comparable (environ 19 % pour la réserve, 18 % pour le VVPRbis), mais les conditions et les délais diffèrent. Beaucoup de PME combinent les deux.",
+      },
+      {
+        question: "Que se passe-t-il si je distribue la réserve avant 3 ans ?",
+        answer: "Le précompte mobilier passe à 30 %, comme pour un dividende classique. La cotisation distincte de 10 % déjà payée n'est pas remboursée. Le coût total dépasse alors celui d'un simple dividende ordinaire.",
+      },
+      {
+        question: "Ma société est-elle éligible à la reserve de liquidation ?",
+        answer: "La réserve de liquidation est réservée aux petites sociétés au sens de l'art. 1:24 du Code des sociétés et des associations (CSA). Votre société ne doit pas dépasser plus d'un des trois seuils suivants : 50 travailleurs en moyenne annuelle, 11 250 000 € de chiffre d'affaires annuel HTVA, 6 000 000 € de total du bilan (seuils relevés par la directive européenne 2023/2775). Ce statut doit être vérifié à la date de distribution, pas uniquement à la constitution.",
+      },
+      {
+        question: "La réserve de liquidation existe-t-elle encore après la réforme 2026 ?",
+        answer: "Oui. Le mécanisme a été modifié, pas supprimé. Depuis la loi-programme du 30 mai 2026, le précompte mobilier après le délai de 3 ans est passé de 6,5 % à 9,8 %. La cotisation distincte de 10 % reste inchangée. Le coût total est plus élevé qu'avant (environ 19 % au lieu de 14 %), mais reste nettement inférieur aux 30 % d'un dividende classique.",
       },
     ],
-    ctaText: "Envie d'optimiser votre fiscalité ?",
-    ctaDescription: "Nous analysons votre situation et construisons la stratégie adaptée.",
-    ctaLink: "/services/fiscalite/",
-    ctaLabel: "Découvrir notre service fiscalité",
+    ctaText: "Votre réserve de liquidation est-elle bien utilisée ?",
+    ctaDescription: "En 30 minutes, Mika fait le point avec vous sur ce que votre société peut distribuer, et quand.",
+    ctaLink: BOOKING_URL,
+    ctaLabel: "Réserver un appel",
   },
   "remuneration-dirigeant-belgique": {
     sections: [
@@ -2739,13 +2866,24 @@ export const articleContent: Record<string, ArticleBody> = {
   },
 
   "requalification-loyer-remuneration": {
-    heroCta: { text: "Faire le diagnostic de ma situation", link: "/contact/#form" },
+    heroCta: { text: "Faire le diagnostic de ma situation", link: BOOKING_URL },
+    inlineCta: {
+      title: "Chaque situation est différente",
+      text: "Un échange de 30 minutes suffit pour vérifier votre bail et votre loyer.",
+      label: "Réserver un appel",
+    },
+    showStickyCta: true,
     sections: [
       {
         paragraphs: [
           "Votre expert-comptable vous en a peut-être déjà parlé. La requalification du loyer en rémunération de dirigeant : un risque réel, mais entièrement maîtrisable si vous connaissez les règles exactes. Voici comment ce mécanisme fonctionne, quand il s'applique — et comment l'éviter définitivement.",
         ],
-        relatedLinks: [{ text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" }],
+        relatedLinks: [
+          { text: "Guide complet bureau à domicile", link: "/blog/fiscalite-belgique/bureau-a-domicile/" },
+          { text: "VVPRbis : dividendes à taux réduit pour les PME", link: "/blog/fiscalite-belgique/vvprbis-belgique/" },
+          { text: "Réserve de liquidation : le mécanisme fiscal à connaître", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
+          { text: "Nos services fiscalité", link: "/services/fiscalite/" },
+        ],
       },
       {
         heading: "Le principe de la requalification",
@@ -2833,10 +2971,10 @@ export const articleContent: Record<string, ArticleBody> = {
       { question: "Le bail meublé modifie-t-il le calcul du plafond de requalification ?", answer: "Oui, avantageusement. Le plafond s'applique à la part immeuble du loyer. La part meubles est traitée séparément comme revenu mobilier divers — elle n'entre pas dans le calcul de la requalification. C'est l'un des avantages structurels du bail meublé : il permet d'allouer une partie du loyer total hors du plafond RC." },
       { question: "Mon loyer actuel dépasse le plafond légal. Que faire ?", answer: "Si aucun contrôle n'est en cours, une régularisation volontaire est possible : réduisez le loyer au niveau du plafond pour les exercices futurs et discutez avec votre expert-comptable des options pour les exercices passés. MFinances réalise ce type d'audit de mise en conformité dans le cadre d'un diagnostic financier — sans jugement, avec un plan d'action concret." },
     ],
-    ctaText: "Envie de mettre en place cette stratégie sans risque ?",
-    ctaDescription: "Votre situation, vérifiée par un expert avant de vous lancer.",
-    ctaLink: "/contact/#form",
-    ctaLabel: "Calculer ma part professionnelle",
+    ctaText: "Votre loyer risque-t-il d'être requalifié ?",
+    ctaDescription: "En 30 minutes, nous comparons votre loyer au plafond applicable et vous disons quoi ajuster.",
+    ctaLink: BOOKING_URL,
+    ctaLabel: "Réserver un appel",
   },
   "fin-deduction-interets-immobilier-2026": {
     sections: [
@@ -2956,4 +3094,5 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: "/contact/#form",
     ctaLabel: "Analyser ma situation",
   },
+  ...contenusAjoutes2026,
 };

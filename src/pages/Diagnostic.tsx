@@ -14,7 +14,7 @@ import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import ReportUnlockBanner from "@/components/ui/ReportUnlockBanner";
 import BookingCta from "@/components/BookingCta";
-import { trackEvent } from "@/lib/clarity-events";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 
 /* ───── DATA ───── */
 
@@ -271,6 +271,8 @@ export default function Diagnostic() {
     await submitLead(leadData);
     trackLeadSource({ ...leadData, form_name: "diagnostic" });
 
+    tagCtaContext("form_diagnostic");
+    trackEvent("contact_form_submit");
     trackEvent("diagnostic_result");
     setEmailSubmitted(true);
     setStep(9);

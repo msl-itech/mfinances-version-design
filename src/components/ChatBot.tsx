@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
 import { getMFContext, type MFContext } from "@/lib/visitor-tracker";
 import { trackChatbotEvent } from "@/lib/chatbot-analytics";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 
 // ── Palier helper (mirrors Edge Function logic) ──
 function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
@@ -485,6 +486,8 @@ export default function ChatBot() {
       visitorCtx.checklistDownloaded ? "checklist" : null,
     ].filter(Boolean).join(", ");
 
+    tagCtaContext("chatbot");
+    trackEvent("contact_form_submit");
     submitLead({
       name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,

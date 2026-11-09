@@ -13,6 +13,7 @@ import {
 import { ArrowRight, ArrowLeft, Plus, X, Check, Info, AlertTriangle, Lock as LockIcon } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
 import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 import { Link } from "react-router-dom";
 import { generateBailPdf } from "@/lib/generate-bail-pdf";
 import { supabase } from "@/integrations/supabase/client";
@@ -362,6 +363,8 @@ export default function GenerateurBail() {
       });
       await submitLead(leadData);
       trackLeadSource({ ...leadData, form_name: "generateur_bail" });
+      tagCtaContext("form_generateur_bail");
+      trackEvent("contact_form_submit");
     } catch (err) {
       console.error("Erreur lors de la génération du bail:", err);
     }
