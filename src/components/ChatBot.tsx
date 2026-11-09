@@ -259,6 +259,16 @@ export default function ChatBot() {
     return () => clearTimeout(timer);
   }, [open, proactiveDismissed, currentPath, getProactiveForPage]);
 
+  // Auto-dismiss proactive bubble after 10s
+  useEffect(() => {
+    if (!showProactive) return;
+    const timer = setTimeout(() => {
+      setShowProactive(false);
+      setProactiveDismissed(true);
+    }, 10_000);
+    return () => clearTimeout(timer);
+  }, [showProactive]);
+
   // Hide proactive when chat opens
   useEffect(() => {
     if (open) setShowProactive(false);
@@ -552,7 +562,8 @@ export default function ChatBot() {
                 setShowProactive(false);
                 setProactiveDismissed(true);
               }}
-              className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-muted border border-border flex items-center justify-center text-muted-foreground hover:text-foreground text-[10px]"
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-muted border border-border flex items-center justify-center text-muted-foreground hover:text-foreground text-[13px]"
+              aria-label="Fermer"
             >
               ✕
             </button>

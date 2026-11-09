@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -81,10 +81,13 @@ export default function BlogArticle() {
   useTilt(root, [mounted]);
 
   const { categorySlug, articleSlug } = useParams<{ categorySlug: string; articleSlug: string }>();
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get("preview") === "1";
   const article = categorySlug && articleSlug ? getArticleBySlug(categorySlug, articleSlug) : undefined;
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const content = articleSlug ? articleContent[articleSlug] : undefined;
   const isArticle2026 = !!article && articleSlugs2026.has(article.slug);
+  const isDraft = !!article && !article.published;
 
   const [showStickyMobile, setShowStickyMobile] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
@@ -116,7 +119,7 @@ export default function BlogArticle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!article || !article.published || !category || !content) {
+  if (!article || (!article.published && !isPreview) || !category || !content) {
     return (
       <div className="min-h-screen">
         <SEOHead title="Article introuvable | MFinances" description="Cet article n'existe pas." canonical="https://mfinances.be/blog/" noIndex />
@@ -213,9 +216,17 @@ export default function BlogArticle() {
         description={article.metaDescription || article.excerpt}
         canonical={canonical}
         ogImage={categoryHeroImages[category.slug]}
-        schemaJson={schemas}
+        schemaJson={isDraft ? undefined : schemas}
+        noIndex={isDraft}
       />
       <Header />
+
+      {/* Bandeau brouillon visible uniquement en preview */}
+      {isDraft && (
+        <div className="bg-yellow-400 text-yellow-900 text-center py-2 px-4 text-[13px] font-bold font-body sticky top-0 z-[110]">
+          BROUILLON — Cet article n'est pas publie. Ajoutez ?preview=1 à l'URL pour le consulter.
+        </div>
+      )}
 
       {/* Reading progress bar */}
       <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-transparent pointer-events-none">
