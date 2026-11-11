@@ -13,7 +13,7 @@ import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import BookingCta from "@/components/BookingCta";
-import { trackEvent } from "@/lib/clarity-events";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -128,6 +128,8 @@ export default function ChecklistTresorerie() {
       try {
         const result = await submitLead(leadData);
         trackLeadSource({ ...leadData, form_name: "checklist_tresorerie" });
+        tagCtaContext("form_checklist_tresorerie");
+        trackEvent("contact_form_submit");
         if (result.lead_id) {
           setLeadId(result.lead_id);
           setStep("qualification");

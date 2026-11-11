@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,8 @@ export default function BlogCategory() {
   useTilt(root, [mounted]);
 
   const { categorySlug } = useParams<{ categorySlug: string }>();
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get("preview") === "1";
   const category = blogCategories.find((c) => c.slug === categorySlug);
   const articles = categorySlug ? getArticlesByCategory(categorySlug) : [];
   const published = articles.filter((a) => a.published);
@@ -163,33 +165,55 @@ export default function BlogCategory() {
           </section>
         )}
 
-        {/* ── ARTICLES À VENIR ── */}
+        {/* ── ARTICLES À VENIR / PREVIEW BROUILLONS ── */}
         {upcoming.length > 0 && (
           <section className="bg-secondary py-8 md:py-10">
             <div className="mx-auto max-w-[900px] px-6 lg:px-12">
+              {isPreview && (
+                <div className="bg-yellow-400 text-yellow-900 text-center py-2 px-4 text-[13px] font-bold font-body rounded-lg mb-6">
+                  MODE PREVIEW — Les brouillons ci-dessous sont cliquables.
+                </div>
+              )}
               <div data-anim="fade-up" className="text-center mb-10">
                 <h2 className="font-display text-[24px] md:text-[30px] text-foreground leading-[1.15]">
-                  Articles <span className="text-accent">à venir</span>
+                  Articles <span className="text-accent">{isPreview ? "en brouillon" : "à venir"}</span>
                 </h2>
               </div>
 
               <div className="space-y-4">
                 {upcoming.map((article, i) => (
-                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug} >
-                    <div className="bg-card rounded-2xl p-6 border border-border/50 opacity-75">
-                      <div className="flex items-start gap-3">
-                        <Clock size={16} className="text-foreground/60 mt-1 flex-shrink-0" />
-                        <div>
-                          <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
-                            {article.hook || article.title}
-                          </h3>
-                          <p className="text-[13px] text-muted-foreground font-body mt-1">{article.excerpt}</p>
-                          <p className="text-[11px] italic text-foreground/45 font-body mt-1 leading-snug">
-                            {article.hook ? article.title : ""}
-                          </p>
+                  <div data-anim="fade-up" data-delay="0.08 + i * 0.05" key={article.slug}>
+                    {isPreview ? (
+                      <Link
+                        to={`/blog/${article.categorySlug}/${article.slug}/?preview=1`}
+                        className="group block bg-card rounded-2xl p-6 border border-yellow-400/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-3">
+                          <Clock size={16} className="text-accent mt-1 flex-shrink-0" />
+                          <div>
+                            <h3 className="text-[15px] font-bold font-body text-foreground leading-snug group-hover:text-accent transition-colors">
+                              {article.hook || article.title}
+                            </h3>
+                            <p className="text-[13px] text-foreground/70 font-body mt-1">{article.excerpt}</p>
+                            <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-3 group-hover:gap-2 transition-all">
+                              Previsualiser <ArrowRight size={14} />
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className="bg-card rounded-2xl p-6 border border-border/50 opacity-75">
+                        <div className="flex items-start gap-3">
+                          <Clock size={16} className="text-foreground/60 mt-1 flex-shrink-0" />
+                          <div>
+                            <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
+                              {article.hook || article.title}
+                            </h3>
+                            <p className="text-[13px] text-muted-foreground font-body mt-1">{article.excerpt}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 ))}
               </div>

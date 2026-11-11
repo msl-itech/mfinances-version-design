@@ -49,31 +49,26 @@ const staticRoutes = [
   "/ressources/checklist-controle-bureau/",
 ];
 
-// Charge dynamiquement la liste des articles publiés depuis blog-data.ts
+// Charge dynamiquement la liste des articles publiés depuis blog-data.ts via SSR
 async function loadBlogRoutes(): Promise<string[]> {
+  const { createServer } = await import("vite");
+  const server = await createServer({
+    root: __dirname,
+    configFile: false,
+    logLevel: "silent",
+    appType: "custom",
+    server: { middlewareMode: true, hmr: false, watch: null },
+    resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  });
   try {
-    // Import dynamique TS via tsx-like fallback : on parse le fichier
-    const fs = await import("fs/promises");
-    const content = await fs.readFile(
-      path.resolve(__dirname, "src/data/blog-data.ts"),
-      "utf-8"
-    );
-
-    // Extraction simple des couples (slug, categorySlug, published) via regex
-    const articleBlocks = content.match(/\{[^{}]*slug:\s*"[^"]+",[^{}]*\}/g) || [];
-    const routes: string[] = [];
-    for (const block of articleBlocks) {
-      const slugMatch = block.match(/\bslug:\s*"([^"]+)"/);
-      const catMatch = block.match(/categorySlug:\s*"([^"]+)"/);
-      const publishedMatch = block.match(/published:\s*(true|false)/);
-      if (slugMatch && catMatch && publishedMatch?.[1] === "true") {
-        routes.push(`/blog/${catMatch[1]}/${slugMatch[1]}/`);
-      }
-    }
-    return routes;
-  } catch (err) {
-    console.warn("[prerender] Impossible de charger les routes blog:", err);
-    return [];
+    const module = await server.ssrLoadModule("/src/data/blog-data.ts");
+    if (!Array.isArray(module.blogArticles)) throw new Error("blogArticles absent");
+    const articles = module.blogArticles.filter((a: { published?: boolean }) => a.published === true);
+    const routes = articles.map((a: { categorySlug: string; slug: string }) => `/blog/${a.categorySlug}/${a.slug}/`);
+    const categories = articles.map((a: { categorySlug: string }) => `/blog/${a.categorySlug}/`);
+    return [...new Set<string>([...routes, ...categories])];
+  } finally {
+    await server.close();
   }
 }
 
@@ -175,7 +170,7 @@ function serveSitemapInDev() {
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
   const blogRoutes = mode === "production" ? await loadBlogRoutes() : [];
-  const allRoutes = [...staticRoutes, ...blogRoutes];
+  const allRoutes = Array.from(new Set([...staticRoutes, ...blogRoutes]));
 
   return {
     server: {
