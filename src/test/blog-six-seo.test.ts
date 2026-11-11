@@ -61,6 +61,7 @@ describe("Six requested editorial revisions", () => {
       "inventaire-physique-odoo-18-pme",
       "stocks-dormants-reduction-valeur-fin-annee",
       "travaux-en-cours-inventaire-chantiers-fin-annee",
+      "vvprbis-guide-complet-2026",
     ];
     expect(blogArticles.filter((a) => a.dateModified).map((a) => a.slug).sort()).toEqual(expectedWithDateModified.sort());
   });

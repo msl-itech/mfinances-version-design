@@ -739,6 +739,7 @@ export const articleContent: Record<string, ArticleBody> = {
           "Le VVPRbis (Verlaagde Voorheffing / Précompte Réduit bis) est un régime fiscal belge qui permet aux PME de distribuer des dividendes à un taux de précompte mobilier réduit — 18 % au lieu de 30 % standard (taux relevé de 15 % à 18 % par la réforme fiscale de 2026) — sous certaines conditions. Régime transitoire selon la date de l'apport : pour les apports antérieurs à 2026, un taux intermédiaire de 20 % s'applique au 2ᵉ exercice, puis 18 % ; pour les apports réalisés à partir de 2026, ce taux intermédiaire de 20 % disparaît (30 % au 2ᵉ exercice) et le taux réduit de 18 % s'applique dès le 3ᵉ exercice suivant l'apport. C'est l'un des leviers d'[optimisation fiscale](/services/fiscalite/) les plus efficaces pour les dirigeants de PME belges qui souhaitent se rémunérer via dividendes.",
         ],
         relatedLinks: [
+          { text: "VVPRbis 2026 : guide complet avec regime transitoire et exemple chiffre", link: "/blog/fiscalite-belgique/vvprbis-guide-complet-2026/" },
           { text: "Réserve de liquidation : le mécanisme fiscal à connaître", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
           { text: "Requalification du loyer : comment l'éviter", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
           { text: "Nos services fiscalité", link: "/services/fiscalite/" },
@@ -786,6 +787,135 @@ export const articleContent: Record<string, ArticleBody> = {
     ctaLink: BOOKING_URL,
     ctaLabel: "Réserver un appel",
   },
+  "vvprbis-guide-complet-2026": {
+    heroCta: { text: "Verifier mon eligibilite VVPRbis", link: BOOKING_URL },
+    inlineCta: {
+      title: "Votre societe est-elle eligible ?",
+      text: "En 30 minutes, nous verifions vos statuts, la date de vos apports et le calendrier optimal de distribution.",
+      label: "Reserver un appel gratuit",
+    },
+    showStickyCta: true,
+    sections: [
+      {
+        heading: "VVPRbis : de quoi parle-t-on ?",
+        paragraphs: [
+          "Le VVPRbis (Verlaagde Voorheffing / Precompte Reduit bis) est un regime fiscal belge qui permet aux petites societes de distribuer des dividendes a un taux de precompte mobilier de 18 %, contre 30 % en regime ordinaire (art. 269, par. 2, CIR 1992, modifie par la loi-programme du 30 mai 2026).",
+          "Ce regime existe depuis 2013, mais la reforme fiscale de 2026 a releve le taux de 15 % a 18 %, applicable a toute distribution effectuee a partir du 1er juillet 2026, quelle que soit la date de l'apport. Pour un dirigeant de PME qui distribue 50 000 euros de dividendes, la difference entre 30 % et 18 % represente 6 000 euros d'economie nette.",
+        ],
+        relatedLinks: [
+          { text: "Reserve de liquidation : l'autre levier fiscal pour les PME", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
+          { text: "Remuneration du dirigeant : salaire ou dividendes ?", link: "/blog/fiscalite-belgique/remuneration-dirigeant-belgique/" },
+        ],
+      },
+      {
+        heading: "Les 6 conditions a remplir",
+        paragraphs: [
+          "Toutes ces conditions doivent etre reunies simultanement au moment de la distribution :",
+        ],
+        list: [
+          "La societe est une petite societe au sens de l'article 1:24 du Code des societes et des associations (CSA) : moins de 50 ETP en moyenne annuelle, chiffre d'affaires annuel hors TVA inferieur a 9 000 000 euros, total du bilan inferieur a 4 500 000 euros (deux criteres sur trois suffisent)",
+          "Les actions ont ete emises a partir du 1er juillet 2013, lors de la constitution ou d'une augmentation de capital en numeraire",
+          "L'apport a ete realise en numeraire, pas en nature ni par incorporation de reserves",
+          "Les actions sont nominatives et inscrites dans le registre des actionnaires",
+          "Le capital souscrit est entierement libere au moment de la distribution du dividende",
+          "Le dividende est distribue a partir du 3e exercice comptable suivant celui de l'apport (condition de delai)",
+        ],
+      },
+      {
+        heading: "Regime transitoire : apport avant ou apres 2026",
+        paragraphs: [
+          "La reforme de 2026 a modifie la grille de taux. Le regime transitoire depend de la date a laquelle l'apport en numeraire a ete realise :",
+        ],
+        table: {
+          headers: ["", "Apport avant le 1er janvier 2026", "Apport a partir du 1er janvier 2026"],
+          rows: [
+            ["1er et 2e exercice", "30 % (precompte standard)", "30 % (precompte standard)"],
+            ["2e exercice (intermediaire)", "20 %", "Supprime (reste a 30 %)"],
+            ["3e exercice et suivants", "18 %", "18 %"],
+            ["En cas de liquidation", "18 %", "18 %"],
+          ],
+        },
+      },
+      {
+        heading: "Exemple chiffre : 80 000 euros de benefice distribue",
+        paragraphs: [
+          "Votre SRL degage un benefice net apres ISOC de 80 000 euros. Vous decidez de distribuer l'integralite en dividendes. Comparons trois scenarios :",
+        ],
+        table: {
+          headers: ["", "Dividende classique", "VVPRbis (18 %)", "Reserve de liquidation"],
+          rows: [
+            ["Cotisation distincte (10 %)", "0 euros", "0 euros", "8 000 euros"],
+            ["Base imposable dividende", "80 000 euros", "80 000 euros", "72 000 euros"],
+            ["Precompte mobilier retenu", "24 000 euros (30 %)", "14 400 euros (18 %)", "7 056 euros (9,8 %)"],
+            ["Net en poche", "56 000 euros", "65 600 euros", "64 944 euros"],
+            ["Gain par rapport au classique", "-", "+ 9 600 euros", "+ 8 944 euros"],
+          ],
+        },
+      },
+      {
+        heading: "VVPRbis ou reserve de liquidation ?",
+        paragraphs: [
+          "Les deux mecanismes ne s'excluent pas. En pratique, beaucoup de PME belges les combinent pour optimiser la sortie de benefices sur plusieurs exercices.",
+          "Le VVPRbis est plus simple : pas de cotisation prealable, pas de compte de passif separe. Il convient aux dirigeants qui veulent distribuer rapidement apres le delai de 3 exercices. La reserve de liquidation offre un taux final plus bas (environ 19 % tout compris contre 18 % pour le VVPRbis), mais exige de la patience et une cotisation de 10 % payee d'avance.",
+          "Si vous envisagez de liquider votre societe a moyen terme, la reserve de liquidation est fiscalement plus avantageuse : le precompte tombe a 0 % lors de la liquidation. Le VVPRbis reste a 18 % meme en cas de liquidation.",
+        ],
+        relatedLinks: [
+          { text: "Reserve de liquidation : mecanisme detaille et exemple chiffre", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
+          { text: "Nos services d'optimisation fiscale", link: "/services/fiscalite/" },
+        ],
+      },
+      {
+        heading: "5 erreurs qui font perdre le benefice du VVPRbis",
+        paragraphs: [],
+        list: [
+          "Distribuer trop tot : le dividende doit etre attribue a partir du 3e exercice suivant l'apport. Une distribution au 2e exercice est taxee a 30 % (ou 20 % pour les apports anterieurs a 2026)",
+          "Capital non entierement libere : si le capital souscrit n'est pas integralement verse au moment de la distribution, le taux reduit est refuse. Verifiez votre situation avant l'assemblee generale",
+          "Actions issues d'un apport en nature : le VVPRbis exige un apport en numeraire. Les actions emises par incorporation de reserves ou apport en nature sont exclues, meme si elles sont nominatives",
+          "Ne pas verifier le critere PME chaque annee : la societe doit rester petite au sens de l'article 1:24 CSA au moment de la distribution, pas seulement lors de l'emission des actions",
+          "Confondre avec la reserve de liquidation : les deux mecanismes ont des regles differentes. Mixer les calculs ou croire qu'ils se substituent l'un a l'autre peut mener a une mauvaise surprise fiscale",
+        ],
+      },
+      {
+        heading: "Comment mettre en place le VVPRbis dans votre societe",
+        paragraphs: [
+          "Etape 1 : verifiez que votre societe repond aux criteres PME (article 1:24 CSA). Consultez votre dernier bilan depose a la BNB.",
+          "Etape 2 : identifiez dans le registre des actionnaires quelles actions sont eligibles (emises en numeraire, a partir du 1er juillet 2013, nominatives).",
+          "Etape 3 : assurez-vous que le capital souscrit est entierement libere. Si ce n'est pas le cas, procedez a la liberation avant toute distribution.",
+          "Etape 4 : comptez les exercices depuis l'apport. Le dividende VVPRbis est distribue au plus tot lors de l'assemblee generale approuvant les comptes du 3e exercice suivant l'apport.",
+          "Etape 5 : lors de la distribution, le precompte mobilier de 18 % est retenu a la source par la societe et verse au SPF Finances via la declaration 273A.",
+        ],
+        relatedLinks: [
+          { text: "Prendre rendez-vous pour verifier votre eligibilite", link: "/contact/?besoin=Optimisation+fiscale&service=fiscalite#form" },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Quel est le taux VVPRbis en 2026 ?",
+        answer: "Depuis le 1er juillet 2026, le taux de precompte mobilier VVPRbis est de 18 %, contre 15 % auparavant. Ce nouveau taux s'applique a toute distribution effectuee apres cette date, quelle que soit la date de l'apport (loi-programme du 30 mai 2026, art. 269, par. 2, CIR 1992).",
+      },
+      {
+        question: "Quelles sont les conditions pour beneficier du VVPRbis ?",
+        answer: "Six conditions cumulatives : la societe doit etre une petite societe (art. 1:24 CSA), les actions doivent avoir ete emises en numeraire a partir du 1er juillet 2013, elles doivent etre nominatives, le capital souscrit doit etre entierement libere, et le dividende doit etre distribue a partir du 3e exercice suivant l'apport.",
+      },
+      {
+        question: "Peut-on combiner le VVPRbis et la reserve de liquidation ?",
+        answer: "Oui. Les deux mecanismes portent sur des benefices differents et sont complementaires. Le VVPRbis s'applique aux dividendes distribues sur des actions eligibles. La reserve de liquidation porte sur les benefices mis en reserve avec paiement d'une cotisation de 10 %. Un expert-comptable peut vous aider a definir la repartition optimale.",
+      },
+      {
+        question: "Le VVPRbis s'applique-t-il en cas de liquidation de la societe ?",
+        answer: "Oui, mais le taux reste a 18 %. C'est une difference importante avec la reserve de liquidation, ou le precompte tombe a 0 % lors de la liquidation. Si vous prevoyez de liquider a moyen terme, la reserve de liquidation est generalement plus avantageuse.",
+      },
+      {
+        question: "Que se passe-t-il si je distribue avant le delai de 3 exercices ?",
+        answer: "Le dividende est taxe au taux standard de 30 % (ou 20 % au 2e exercice pour les apports anterieurs a 2026). Le benefice du taux reduit est perdu pour cette distribution. Le delai se calcule en exercices comptables, pas en annees calendrier.",
+      },
+    ],
+    ctaText: "Vos dividendes pourraient etre taxes a 18 % au lieu de 30 %",
+    ctaDescription: "En 30 minutes, nous verifions si votre societe remplit les conditions VVPRbis et quel est le calendrier optimal.",
+    ctaLink: BOOKING_URL,
+    ctaLabel: "Reserver un appel gratuit",
+  },
   "reserve-liquidation-belgique": {
     heroCta: { text: "Faire le point sur ma situation", link: BOOKING_URL },
     inlineCta: {
@@ -802,6 +932,7 @@ export const articleContent: Record<string, ArticleBody> = {
         ],
         relatedLinks: [
           { text: "VVPRbis : dividendes à taux réduit pour les PME", link: "/blog/fiscalite-belgique/vvprbis-belgique/" },
+          { text: "VVPRbis 2026 : guide complet avec exemple chiffre", link: "/blog/fiscalite-belgique/vvprbis-guide-complet-2026/" },
           { text: "Requalification du loyer : comment l'éviter", link: "/blog/fiscalite-belgique/requalification-loyer-remuneration/" },
           { text: "Nos services fiscalité", link: "/services/fiscalite/" },
         ],

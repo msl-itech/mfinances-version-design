@@ -62,6 +62,36 @@ export const articleGeoFaqs: Record<string, FAQItem[]> = {
     },
   ],
 
+  "vvprbis-guide-complet-2026": [
+    {
+      question: "Quel est le taux VVPRbis depuis la reforme 2026 ?",
+      answer:
+        "Le taux de precompte mobilier VVPRbis est de 18 % depuis le 1er juillet 2026, contre 15 % auparavant (loi-programme du 30 mai 2026, art. 269, par. 2, CIR 1992). Le taux standard de precompte mobilier sur dividendes reste a 30 %. L'economie pour une distribution de 50 000 euros est donc de 6 000 euros.",
+      ctaInline: { text: "Verifier mon eligibilite VVPRbis", link: "/contact/?besoin=Optimisation+fiscale&service=fiscalite#form" },
+    },
+    {
+      question: "Quelles sont les 6 conditions du VVPRbis ?",
+      answer:
+        "Six conditions cumulatives : (1) petite societe au sens de l'art. 1:24 CSA (moins de 50 ETP, CA < 9 M euros, bilan < 4,5 M euros, deux sur trois) ; (2) actions emises en numeraire a partir du 1er juillet 2013 ; (3) apport en numeraire (pas en nature ni incorporation de reserves) ; (4) actions nominatives inscrites au registre ; (5) capital souscrit entierement libere au moment de la distribution ; (6) distribution a partir du 3e exercice suivant l'apport.",
+    },
+    {
+      question: "Peut-on combiner VVPRbis et reserve de liquidation ?",
+      answer:
+        "Oui, les deux mecanismes portent sur des benefices differents et sont complementaires. Le VVPRbis taxe les dividendes a 18 % sans cotisation prealable. La reserve de liquidation coute environ 19 % au total (10 % de cotisation + 9,8 % de precompte apres 3 ans) mais tombe a 0 % de precompte en cas de liquidation. Beaucoup de PME belges utilisent les deux en parallele.",
+      ctaInline: { text: "Reserve de liquidation : guide complet", link: "/blog/fiscalite-belgique/reserve-liquidation-belgique/" },
+    },
+    {
+      question: "Quel est le regime transitoire pour les apports anterieurs a 2026 ?",
+      answer:
+        "Pour les apports en numeraire realises avant le 1er janvier 2026, un taux intermediaire de 20 % s'applique au 2e exercice suivant l'apport, puis 18 % a partir du 3e exercice. Pour les apports a partir de 2026, ce palier de 20 % est supprime : le taux reste a 30 % pendant les deux premiers exercices, puis passe directement a 18 % au 3e exercice.",
+    },
+    {
+      question: "Que se passe-t-il si je distribue avant le delai de 3 exercices ?",
+      answer:
+        "Le dividende est taxe au taux standard de 30 %, ou a 20 % au 2e exercice pour les apports anterieurs a 2026. Le benefice du taux reduit est perdu pour cette distribution. Le delai se compte en exercices comptables, pas en annees calendrier.",
+    },
+  ],
+
   "reserve-liquidation-belgique": [
     {
       question: "Qu'est-ce que la réserve de liquidation en Belgique ?",
