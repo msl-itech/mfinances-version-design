@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { toAbsoluteUrl } from "@/lib/absolute-url";
 
 interface SEOHeadProps {
   title: string;
@@ -7,6 +8,7 @@ interface SEOHeadProps {
   ogImage?: string;
   noIndex?: boolean;
   schemaJson?: object | object[];
+  ogType?: "website" | "article";
 }
 
 const DEFAULT_OG_IMAGE = "https://mfinances.be/og-default.webp";
@@ -18,8 +20,9 @@ export default function SEOHead({
   ogImage,
   noIndex = false,
   schemaJson,
+  ogType = "website",
 }: SEOHeadProps) {
-  const image = ogImage || DEFAULT_OG_IMAGE;
+  const image = toAbsoluteUrl(ogImage || DEFAULT_OG_IMAGE);
   const schemas = schemaJson
     ? Array.isArray(schemaJson)
       ? schemaJson
@@ -48,7 +51,7 @@ export default function SEOHead({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="MFinances" />
       <meta property="og:locale" content="fr_BE" />
