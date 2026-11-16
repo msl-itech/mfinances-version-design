@@ -65,3 +65,11 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 
 ## Bilan J+28
 - [ ] (Équipe) Comparaison avant/après par source
+
+## Étape 12 — Assistant du site : SEO/GEO et conversion (16/11/2026)
+- [ ] (Site) Liens vers les articles conservés dans les réponses (ils étaient remplacés par /contact/)
+- [ ] (Site) Questions des visiteurs gardées anonymement (courriels/téléphones masqués, 13 mois) + questions sans article dans le tableau de bord
+- [ ] (Site) Bouton rouge « Réserver un appel » dans la conversation + rappel sous 72 h (au lieu de 24 h)
+- [ ] (Site) Accroches et guide gratuit adaptés à chaque catégorie du blog
+- [ ] (Site) Mesure du parcours : ouverture → message → article / rendez-vous / diagnostic → courriel laissé
+- [ ] (Site) Phrase dans la politique de confidentialité
