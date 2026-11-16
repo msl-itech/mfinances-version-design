@@ -38,6 +38,36 @@ export type Database = {
         }
         Relationships: []
       }
+      chatbot_questions: {
+        Row: {
+          article_paths: string[]
+          created_at: string
+          has_article: boolean
+          id: string
+          page_path: string | null
+          question: string
+          session_id: string
+        }
+        Insert: {
+          article_paths?: string[]
+          created_at?: string
+          has_article?: boolean
+          id?: string
+          page_path?: string | null
+          question: string
+          session_id: string
+        }
+        Update: {
+          article_paths?: string[]
+          created_at?: string
+          has_article?: boolean
+          id?: string
+          page_path?: string | null
+          question?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
