@@ -1,11 +1,40 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageCircle, X, Send, Loader2, Mail } from "lucide-react";
+import { MessageCircle, X, Send, Loader2, Mail, CalendarCheck, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom";
 import { submitLead } from "@/lib/odoo-submit";
 import { getMFContext, type MFContext } from "@/lib/visitor-tracker";
-import { trackChatbotEvent } from "@/lib/chatbot-analytics";
+import { trackChatbotEvent, getSessionId, type ChatbotEventType } from "@/lib/chatbot-analytics";
+import { BOOKING_URL } from "@/lib/appointment";
+import { buildUtmQuery } from "@/lib/utm-enrich";
+import {
+  ALLOWED_BLOG_PATHS,
+  BLOG_CATEGORY_CHAT,
+  classifyChatLink,
+  getBlogCategorySlug,
+  getPageGuide,
+  type ChatLinkKind,
+} from "@/lib/chatbot-page-context";
+
+// Lien de rendez-vous avec la provenance « chatbot » pour la retrouver dans Odoo.
+function chatBookingUrl(): string {
+  try {
+    const url = new URL(buildUtmQuery(BOOKING_URL));
+    url.searchParams.set("utm_content", "chatbot");
+    return url.toString();
+  } catch {
+    return BOOKING_URL;
+  }
+}
+
+const LINK_EVENTS: Partial<Record<ChatLinkKind, ChatbotEventType>> = {
+  booking: "booking_click",
+  article: "article_click",
+  diagnostic: "diagnostic_click",
+  guide: "guide_click",
+  contact: "contact_click",
+};
 import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 
 // ── Palier helper (mirrors Edge Function logic) ──
@@ -85,8 +114,9 @@ const isProfane = (text: string) => PROFANITY_PATTERNS.some((p) => p.test(text))
 // Sanitize AI response: replace any internal links not in whitelist
 const sanitizeLinks = (text: string): string => {
   return text.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, (match, label, url) => {
-    const normalized = url.endsWith("/") ? url : url + "/";
-    if (VALID_INTERNAL_ROUTES.has(normalized)) return match;
+    const path = url.split(/[?#]/)[0];
+    const normalized = path.endsWith("/") ? path : path + "/";
+    if (VALID_INTERNAL_ROUTES.has(normalized) || ALLOWED_BLOG_PATHS.has(normalized)) return match;
     // Replace invalid link with contact page
     return `[${label}](/contact/)`;
   });
@@ -218,7 +248,6 @@ export default function ChatBot() {
     currentPalier === "tiede" ? MAX_MESSAGES_TIEDE :
     MAX_MESSAGES_FROID;
   const limitReached = userMsgCount >= sessionLimit;
-  const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
 
   // Score a message against keyword patterns (each pattern scores only once per session)
   const scoredPatternsRef = useRef<Set<number>>(new Set());
@@ -235,13 +264,18 @@ export default function ChatBot() {
 
   // Get suggestions for current page
   const currentPath = location.pathname;
+  const blogCategory = getBlogCategorySlug(currentPath);
+  const pageGuide = getPageGuide(currentPath);
   const suggestions =
+    (blogCategory ? BLOG_CATEGORY_CHAT[blogCategory].suggestions : null) ||
     PAGE_SUGGESTIONS[currentPath] ||
     Object.entries(PAGE_SUGGESTIONS).find(([key]) => currentPath.startsWith(key) && key !== "/")?.[1] ||
     DEFAULT_SUGGESTIONS;
 
   // Proactive message after 30s
   const getProactiveForPage = useCallback((path: string) => {
+    const cat = getBlogCategorySlug(path);
+    if (cat) return BLOG_CATEGORY_CHAT[cat].proactive;
     return PROACTIVE_MESSAGES[path] ||
       Object.entries(PROACTIVE_MESSAGES).find(([key]) => path.startsWith(key) && key !== "/")?.[1] ||
       DEFAULT_PROACTIVE;
@@ -387,6 +421,9 @@ export default function ChatBot() {
           body: JSON.stringify({
             messages: newMessages.filter((m) => m !== WELCOME_MESSAGE),
             context: visitorContext,
+            pagePath: window.location.pathname,
+            sessionId: getSessionId(),
+            pageGuide: getPageGuide(window.location.pathname),
           }),
         });
 
@@ -478,14 +515,13 @@ export default function ChatBot() {
 
     // Send lead to Odoo CRM
     const visitorCtx = getMFContext();
-    const diagURL = buildDiagnosticURL(visitorCtx, email);
 
     // Add as a system-like message
     setMessages((prev) => [
       ...prev,
       {
         role: "assistant",
-        content: `Merci ! 📩 Nous vous recontacterons à **${email}** dans les plus brefs délais. En attendant, n'hésitez pas à [prendre rendez-vous directement](${diagURL}).`,
+        content: `Merci ! Mika vous rappelle personnellement sous 72 h à partir de **${email}**. Vous préférez choisir votre créneau tout de suite ? [Réservez un appel](${BOOKING_URL}).`,
       },
     ]);
 
@@ -498,6 +534,7 @@ export default function ChatBot() {
 
     tagCtaContext("chatbot");
     trackEvent("contact_form_submit");
+    trackChatbotEvent("lead_submitted");
     submitLead({
       name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
@@ -519,23 +556,6 @@ export default function ChatBot() {
       ].join(""),
     }).catch(() => {});
 
-    // Send lead email to chatbot edge function for logging
-    fetch(CHAT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-      },
-      body: JSON.stringify({
-        messages: [
-          ...messages.filter((m) => m !== WELCOME_MESSAGE),
-          {
-            role: "user",
-            content: `[LEAD CAPTURE] L'utilisateur souhaite être recontacté à : ${email}. Page visitée : ${currentPath}`,
-          },
-        ],
-      }),
-    }).catch(() => {});
   };
 
   // Don't show on diagnostic page (form page)
@@ -634,16 +654,25 @@ export default function ChatBot() {
                 {msg.role === "assistant" ? (
                   <ReactMarkdown
                     components={{
-                      a: ({ href, children }) => (
-                        <a
-                          href={href}
-                          className="text-accent underline underline-offset-2 hover:no-underline font-medium"
-                          target={href?.startsWith("http") ? "_blank" : undefined}
-                          rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-                        >
-                          {children}
-                        </a>
-                      ),
+                      a: ({ href, children }) => {
+                        const kind = classifyChatLink(href ?? "");
+                        const finalHref = kind === "booking" ? chatBookingUrl() : href;
+                        const external = finalHref?.startsWith("http");
+                        return (
+                          <a
+                            href={finalHref}
+                            onClick={() => {
+                              const ev = LINK_EVENTS[kind];
+                              if (ev) trackChatbotEvent(ev);
+                            }}
+                            className="text-accent underline underline-offset-2 hover:no-underline font-medium"
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noopener noreferrer" : undefined}
+                          >
+                            {children}
+                          </a>
+                        );
+                      },
                       p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
                     }}
                   >
@@ -667,6 +696,16 @@ export default function ChatBot() {
                     {s}
                   </button>
                 ))}
+                {pageGuide && (
+                  <a
+                    href={pageGuide.href}
+                    onClick={() => trackChatbotEvent("guide_click")}
+                    className="w-full flex items-center gap-2 text-[12px] px-3 py-2 rounded-2xl bg-primary/5 border border-primary/15 text-primary font-medium hover:bg-primary/10 transition-colors"
+                  >
+                    <BookOpen size={14} aria-hidden="true" className="flex-shrink-0" />
+                    <span>Gratuit : {pageGuide.label}</span>
+                  </a>
+                )}
               </div>
             )}
 
@@ -686,7 +725,7 @@ export default function ChatBot() {
                   </p>
                 </div>
                 <p className="text-[12px] text-muted-foreground mb-3">
-                  Laissez votre email et notre équipe vous rappelle sous 24h.
+                  Laissez votre e-mail : Mika vous rappelle personnellement sous 72 h.
                 </p>
                 <form onSubmit={handleLeadSubmit} className="flex gap-2">
                   <input
@@ -714,14 +753,25 @@ export default function ChatBot() {
             )}
           </div>
 
-          {/* Hot lead CTA banner */}
-          {isHotLead && !limitReached && (
-            <div className="border-t border-accent/20 bg-accent/5 px-4 py-2.5 animate-fade-in">
+          {/* Rendez-vous : visible dès la première réponse */}
+          {userMsgCount >= 1 && !limitReached && (
+            <div className="border-t border-border px-3 py-2.5 flex items-center gap-2 animate-fade-in" data-cta-location="chatbot">
+              <a
+                href={chatBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackChatbotEvent("booking_click")}
+                className="flex-1 min-h-[40px] inline-flex items-center justify-center gap-1.5 rounded-full bg-accent text-accent-foreground text-[12.5px] font-bold px-3 hover:brightness-105 transition-all"
+              >
+                <CalendarCheck size={15} aria-hidden="true" />
+                Réserver un appel
+              </a>
               <a
                 href={buildDiagnosticURL(getMFContext())}
-                className="flex items-center justify-center gap-2 text-[13px] font-bold text-accent hover:underline"
+                onClick={() => trackChatbotEvent("diagnostic_click")}
+                className="min-h-[40px] inline-flex items-center justify-center rounded-full border border-primary text-primary text-[12px] font-medium px-3 hover:bg-primary/5 transition-colors"
               >
-                🔥 Réservez votre diagnostic gratuit (30 min) →
+                Diagnostic gratuit
               </a>
             </div>
           )}
@@ -734,12 +784,14 @@ export default function ChatBot() {
                   Vous avez atteint la limite de {sessionLimit} messages.
                 </p>
                 <a
-                  href={isHotLead ? buildDiagnosticURL(getMFContext()) : "/contact/"}
+                  href={chatBookingUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackChatbotEvent("booking_click")}
+                  data-cta-location="chatbot"
                   className="text-[13px] text-accent font-medium underline underline-offset-2"
                 >
-                  {isHotLead
-                    ? "Réservez votre diagnostic gratuit →"
-                    : "Contactez-nous directement →"}
+                  Réservez un appel avec Mika →
                 </a>
               </div>
             ) : (

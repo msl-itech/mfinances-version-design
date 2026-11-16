@@ -52,4 +52,6 @@ export const BLOG_CATALOG_MARKDOWN = `- [Trésorerie vs bénéfices — pourquoi
 - [Expert-comptable Odoo en Belgique : choisir le bon partenaire](/blog/comptabilite-odoo/expert-comptable-odoo-belgique-pme/) — 7 critères pour une PME sur Odoo.
 - [Comptabilité en retard en PME : reprendre le dossier](/blog/comptabilite-odoo/comptabilite-retard-reprise-pme/) — Sécuriser les déclarations, remettre les comptes à jour.
 - [Peppol en 2027 : sept contrôles dans Odoo](/blog/comptabilite-odoo/peppol-2027-controles-pme-odoo/) — Facturation électronique, doublons, statuts, rapprochement.
-- [Inventaire physique dans Odoo 18 : huit étapes](/blog/comptabilite-odoo/inventaire-physique-odoo-18-pme/) — Comptage, écarts, ajustements, clôture des stocks.`;
+- [Inventaire physique dans Odoo 18 : huit étapes](/blog/comptabilite-odoo/inventaire-physique-odoo-18-pme/) — Comptage, écarts, ajustements, clôture des stocks.
+- [VVPRbis 2026 : guide complet pour distribuer vos dividendes à taux réduit](/blog/fiscalite-belgique/vvprbis-guide-complet-2026/) — Conditions, régime transitoire, exemple chiffré, réserve de liquidation.
+- [Pourquoi mon comptable ne m'aide pas à piloter mon entreprise ?](/blog/daf-externalise/pourquoi-comptable-aide-pas/) — Comptabilité vs pilotage : quel accompagnement fait la différence.`;

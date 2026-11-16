@@ -49,6 +49,37 @@ Deno.serve(async (req) => {
 
     const events = data || [];
 
+    // Purge : questions conservées 13 mois maximum (politique de confidentialité).
+    const purgeBefore = new Date();
+    purgeBefore.setMonth(purgeBefore.getMonth() - 13);
+    await supabase.from("chatbot_questions").delete().lt("created_at", purgeBefore.toISOString());
+
+    const { data: qData } = await supabase
+      .from("chatbot_questions")
+      .select("question, page_path, article_paths, has_article, created_at")
+      .gte("created_at", since.toISOString())
+      .order("created_at", { ascending: false })
+      .limit(2000);
+    const questions = qData || [];
+
+    // Parcours : nombre de sessions ayant atteint chaque étape.
+    const funnelSteps = ["opened", "message_sent", "article_click", "guide_click", "diagnostic_click", "booking_click", "lead_submitted"];
+    const funnelSessions: Record<string, Set<string>> = Object.fromEntries(funnelSteps.map((k) => [k, new Set<string>()]));
+    for (const e of events) {
+      if (funnelSessions[e.event_type]) funnelSessions[e.event_type].add(e.session_id);
+    }
+    const funnel = Object.fromEntries(funnelSteps.map((k) => [k, funnelSessions[k].size]));
+
+    const articleCounts: Record<string, number> = {};
+    for (const q of questions) {
+      for (const a of q.article_paths || []) articleCounts[a] = (articleCounts[a] || 0) + 1;
+    }
+    const topArticles = Object.entries(articleCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([path, count]) => ({ path, count }));
+    const withArticle = questions.filter((q) => q.has_article).length;
+
     // Aggregate metrics
     const sessions = new Set<string>();
     const sessionsToday = new Set<string>();
@@ -121,6 +152,23 @@ Deno.serve(async (req) => {
         },
         topPages,
         series,
+        funnel,
+        questionsSummary: {
+          total: questions.length,
+          withArticle,
+          withoutArticle: questions.length - withArticle,
+        },
+        topArticles,
+        recentQuestions: questions.slice(0, 50).map((q) => ({
+          question: q.question,
+          page: q.page_path,
+          date: q.created_at,
+          articles: q.article_paths || [],
+        })),
+        unansweredQuestions: questions
+          .filter((q) => !q.has_article)
+          .slice(0, 50)
+          .map((q) => ({ question: q.question, page: q.page_path, date: q.created_at })),
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
