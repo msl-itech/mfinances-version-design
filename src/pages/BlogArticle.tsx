@@ -27,6 +27,7 @@ import heroControle from "@/assets/blog/hero-controle-gestion.webp";
 import heroFiscalite from "@/assets/blog/hero-fiscalite.webp";
 import heroCreation from "@/assets/blog/hero-creation-societe.webp";
 import { articleHeroImages } from "@/data/article-hero-images";
+import { toAbsoluteUrl } from "@/lib/absolute-url";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -137,6 +138,10 @@ export default function BlogArticle() {
   const relatedArticles = getPublishedArticlesByCategory(category.slug).filter((a) => a.slug !== articleSlug).slice(0, 3);
   const canonical = article.canonical || `https://mfinances.be/blog/${categorySlug}/${articleSlug}/`;
 
+  const articleHero = articleHeroImages[article.slug];
+  const heroSrc = articleHero?.src ?? categoryHeroImages[category.slug];
+  const heroAlt = articleHero?.alt ?? category.imageAlt;
+
   // JSON-LD Article
   const articleLd = {
     "@context": "https://schema.org",
@@ -144,6 +149,9 @@ export default function BlogArticle() {
     "headline": article.seoTitle || article.title,
     "description": article.metaDescription || article.excerpt,
     "url": canonical,
+    ...(heroSrc ? { image: toAbsoluteUrl(heroSrc) } : {}),
+    "mainEntityOfPage": canonical,
+    "inLanguage": "fr-BE",
     "datePublished": article.date,
     ...(article.dateModified ? { dateModified: article.dateModified } : {}),
     "author": { "@type": "Person", "name": "Mika Musungayi", "jobTitle": "Expert-comptable ITAA" },
@@ -207,10 +215,6 @@ export default function BlogArticle() {
     return items;
   });
 
-  const articleHero = articleHeroImages[article.slug];
-  const heroSrc = articleHero?.src ?? categoryHeroImages[category.slug];
-  const heroAlt = articleHero?.alt ?? category.imageAlt;
-
   const shareUrl = canonical;
   const shareTitle = article.seoTitle || article.title;
 
@@ -221,6 +225,7 @@ export default function BlogArticle() {
         description={article.metaDescription || article.excerpt}
         canonical={canonical}
         ogImage={heroSrc}
+        ogType="article"
         schemaJson={isDraft ? undefined : schemas}
         noIndex={isDraft}
       />
