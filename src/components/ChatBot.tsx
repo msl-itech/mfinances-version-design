@@ -237,7 +237,6 @@ export default function ChatBot() {
     currentPalier === "tiede" ? MAX_MESSAGES_TIEDE :
     MAX_MESSAGES_FROID;
   const limitReached = userMsgCount >= sessionLimit;
-  const isHotLead = leadScore >= SCORE_THRESHOLD_HOT;
 
   // Score a message against keyword patterns (each pattern scores only once per session)
   const scoredPatternsRef = useRef<Set<number>>(new Set());
