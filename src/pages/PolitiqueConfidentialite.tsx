@@ -74,6 +74,11 @@ export default function PolitiqueConfidentialite() {
                 Réponses aux questions du diagnostic : coordonnées collectées uniquement si vous souhaitez être contacté.
               </p>
 
+              <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via l'assistant du site</h3>
+              <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
+                Les questions posées à l'assistant sont conservées de façon anonyme (sans nom ni adresse IP ; adresses e-mail et numéros de téléphone masqués automatiquement), avec la page consultée, pour améliorer nos réponses et nos contenus. Elles sont supprimées après 13 mois. Votre e-mail n'est transmis à notre équipe que si vous le laissez pour être rappelé.
+              </p>
+
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via la navigation</h3>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
                 Données de connexion, adresse IP, type de navigateur, pages visitées : collectées via cookies analytiques avec consentement.
@@ -93,7 +98,7 @@ export default function PolitiqueConfidentialite() {
                 </li>
                 <li className="flex items-start gap-2.5 text-[14px] text-foreground/80 font-body leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span><strong>Données de navigation :</strong> 13 mois maximum</span>
+                  <span><strong>Données de navigation et questions anonymes posées à l'assistant :</strong> 13 mois maximum</span>
                 </li>
               </ul>
             </div>

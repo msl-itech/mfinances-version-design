@@ -31,7 +31,25 @@ interface Stats {
   };
   topPages: { path: string; count: number }[];
   series: { date: string; opens: number; messages: number }[];
+  funnel?: Record<string, number>;
+  questionsSummary?: { total: number; withArticle: number; withoutArticle: number };
+  topArticles?: { path: string; count: number }[];
+  recentQuestions?: { question: string; page: string | null; date: string; articles: string[] }[];
+  unansweredQuestions?: { question: string; page: string | null; date: string }[];
 }
+
+const FUNNEL_LABELS: [string, string][] = [
+  ["opened", "Assistant ouvert"],
+  ["message_sent", "Question posée"],
+  ["article_click", "Article ouvert"],
+  ["guide_click", "Guide gratuit ouvert"],
+  ["diagnostic_click", "Diagnostic ouvert"],
+  ["booking_click", "Clic « Réserver un appel »"],
+  ["lead_submitted", "E-mail laissé"],
+];
+
+const formatDate = (d: string) =>
+  new Date(d).toLocaleDateString("fr-BE", { day: "2-digit", month: "2-digit" });
 
 const PASSWORD_KEY = "mf_admin_pwd";
 
@@ -241,6 +259,68 @@ function AdminAnalyticsContent() {
           </div>
         </Card>
 
+        {/* Parcours */}
+        {stats.funnel && (
+          <Card className="p-6 mb-8">
+            <h2 className="font-display text-xl mb-1">Parcours des visiteurs (90 j)</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Nombre de visites ayant atteint chaque étape. Le rendez-vous final se confirme dans Odoo (source « chatbot »).
+            </p>
+            <div className="space-y-2">
+              {FUNNEL_LABELS.map(([key, label]) => {
+                const value = stats.funnel?.[key] ?? 0;
+                const base = stats.funnel?.opened || 0;
+                const pct = base > 0 ? Math.round((value / base) * 100) : 0;
+                return (
+                  <div key={key} className="flex items-center gap-3">
+                    <span className="w-56 text-sm">{label}</span>
+                    <div className="flex-1 h-3 rounded-full bg-muted overflow-hidden">
+                      <div className="h-full bg-primary" style={{ width: `${pct}%` }} />
+                    </div>
+                    <span className="w-24 text-right text-sm font-bold">
+                      {value.toLocaleString("fr-BE")} <span className="text-muted-foreground font-normal">({pct} %)</span>
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        )}
+
+        {/* Questions */}
+        {stats.questionsSummary && (
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <Card className="p-6">
+              <h2 className="font-display text-xl mb-1">Questions sans article</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                {stats.questionsSummary.withoutArticle} sur {stats.questionsSummary.total} questions n'ont trouvé aucun article : idées de FAQ ou d'articles.
+              </p>
+              <QuestionList items={stats.unansweredQuestions ?? []} />
+            </Card>
+            <Card className="p-6">
+              <h2 className="font-display text-xl mb-1">Dernières questions</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Courriels et téléphones masqués automatiquement. Conservation 13 mois.
+              </p>
+              <QuestionList items={stats.recentQuestions ?? []} />
+            </Card>
+          </div>
+        )}
+
+        {stats.topArticles && stats.topArticles.length > 0 && (
+          <Card className="p-6 mb-8">
+            <h2 className="font-display text-xl mb-4">Articles les plus recommandés</h2>
+            <div className="space-y-2">
+              {stats.topArticles.map((a) => (
+                <div key={a.path} className="flex items-center justify-between py-2 border-b border-border/50 last:border-0">
+                  <span className="font-mono text-sm">{a.path}</span>
+                  <span className="font-bold text-accent">{a.count}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+
         {/* Top pages */}
         <Card className="p-6">
           <h2 className="font-display text-xl mb-4">Top pages d'ouverture</h2>
@@ -280,5 +360,23 @@ function KpiCard({
       <p className="text-xs text-muted-foreground uppercase tracking-wide font-bold">{label}</p>
       <p className="font-display text-3xl mt-1">{value.toLocaleString("fr-BE")}</p>
     </Card>
+  );
+}
+
+function QuestionList({ items }: { items: { question: string; page: string | null; date: string }[] }) {
+  if (items.length === 0) {
+    return <p className="text-muted-foreground text-sm">Aucune question pour l'instant.</p>;
+  }
+  return (
+    <ul className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+      {items.map((q, i) => (
+        <li key={i} className="py-2 border-b border-border/50 last:border-0">
+          <p className="text-sm">{q.question}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {formatDate(q.date)} · <span className="font-mono">{q.page ?? "?"}</span>
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
