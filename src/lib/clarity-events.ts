@@ -36,6 +36,40 @@ export function trackEvent(name: FunnelEvent): void {
   }
 }
 
+// ── Classification des pages ────────────────────────────────────────────
+
+function classifyPage(pathname: string): string {
+  if (/^\/blog\/[^/]+\/[^/]+\/?$/.test(pathname)) return "blog_article";
+  if (pathname.startsWith("/services/")) return "service";
+  if (/^\/tarifs\/?$/.test(pathname)) return "tarifs";
+  if (pathname === "/" || pathname === "") return "accueil";
+  return "autre";
+}
+
+/** Étiquette la page courante pour pouvoir filtrer par page et par type dans Clarity. */
+export function tagPage(pathname: string): void {
+  try {
+    const clarity = getClarity();
+    if (!clarity) return;
+    clarity("set", "page_path", pathname);
+    clarity("set", "page_type", classifyPage(pathname));
+  } catch {
+    /* la mesure ne doit jamais perturber le site */
+  }
+}
+
+/** Étiquette la page et l'emplacement du CTA avant un événement de conversion. */
+export function tagCtaContext(ctaLocation: string): void {
+  try {
+    const clarity = getClarity();
+    if (!clarity) return;
+    clarity("set", "cta_page", window.location.pathname);
+    clarity("set", "cta_location", ctaLocation);
+  } catch {
+    /* la mesure ne doit jamais perturber le site */
+  }
+}
+
 /** Environnement de la session : production (mfinances.be), developpement (localhost) ou preview. */
 export function currentEnvironment(hostname: string = window.location.hostname): string {
   if (/^(www\.)?mfinances\.be$/.test(hostname)) return "production";
@@ -81,6 +115,11 @@ export function installClickTracking(): () => void {
       href.startsWith("tel:") ||
       href.startsWith("mailto:");
     const isDiagnostic = /^\/diagnostic\/?([?#].*)?$/.test(href);
+
+    if (isAppointment || isContact) {
+      const ctaLocation = link.closest("[data-cta-location]")?.getAttribute("data-cta-location") ?? "non_renseigne";
+      tagCtaContext(ctaLocation);
+    }
 
     if (isAppointment) trackEvent("appointment_click");
     else if (isContact) trackEvent("contact_click");

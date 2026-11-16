@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useRef } from "react";
 import { Car, UtensilsCrossed, Home, Laptop, BookOpen, ClipboardList, Target, Eye, BarChart3, AlertTriangle, FileText, Search, Shield, Mail, Scale } from "lucide-react";
 import { submitLead } from "@/lib/odoo-submit";
 import { withUtm, trackLeadSource } from "@/lib/utm-enrich";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 import { toast } from "@/hooks/use-toast";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -198,6 +199,8 @@ export default function FraisDefendables() {
     });
     await submitLead(leadData);
     trackLeadSource({ ...leadData, form_name: "frais_defendables" });
+    tagCtaContext("form_frais_defendables");
+    trackEvent("contact_form_submit");
 
     setSubmitted(true);
     setIsSubmitting(false);

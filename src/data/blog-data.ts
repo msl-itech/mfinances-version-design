@@ -1,3 +1,5 @@
+import { articlesAjoutes2026 } from "@/data/blog-additions-2026";
+
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -28,6 +30,7 @@ export const blogCategories: BlogCategory[] = [
   { slug: "controle-de-gestion", label: "Contrôle de gestion", description: "KPIs, budgets, analyse des écarts : pilotez votre entreprise avec méthode.", href: "/blog/controle-de-gestion/", imageAlt: "Ordinateur portable affichant un tableau de bord de contrôle de gestion avec indicateurs et graphiques" },
   { slug: "fiscalite-belgique", label: "Fiscalité belge", description: "Optimisation fiscale, ISOC, dividendes, voiture de société : tout ce qu'un dirigeant belge doit savoir.", href: "/blog/fiscalite-belgique/", imageAlt: "Dirigeant en costume remplissant des documents fiscaux, calculatrice posée sur le bureau" },
   { slug: "creation-societe", label: "Création d'entreprise", description: "SRL, plan financier, formalités : les clés pour créer votre société en Belgique.", href: "/blog/creation-societe/", imageAlt: "Entrepreneur en costume signant les documents officiels de création de sa société" },
+  { slug: "comptabilite-odoo", label: "Comptabilité Odoo", description: "Comptabilité, inventaire et pilotage d'une PME belge dans Odoo.", href: "/blog/comptabilite-odoo/", imageAlt: "Ordinateur portable affichant un tableau de bord de contrôle de gestion avec indicateurs et graphiques" },
 ];
 
 export const blogArticles: BlogArticle[] = [
@@ -216,8 +219,22 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-02-10",
+    dateModified: "2026-11-09",
     seoTitle: "VVPRbis Belgique | Dividendes à Taux Réduit PME",
     metaDescription: "Le régime VVPRbis permet aux PME belges de distribuer des dividendes à 18% au lieu de 30% (depuis la réforme 2026). Conditions, avantages et pièges à éviter. Guide complet.",
+  },
+  {
+    slug: "vvprbis-guide-complet-2026",
+    title: "VVPRbis 2026 : guide complet pour distribuer vos dividendes a taux reduit",
+    hook: "Vos dividendes sont taxes a 30 %. Le VVPRbis peut ramener ce taux a 18 %.",
+    excerpt: "Conditions, regime transitoire, exemple chiffre, erreurs courantes et strategie avec la reserve de liquidation. Tout ce qu'un dirigeant de PME belge doit savoir sur le VVPRbis apres la reforme 2026.",
+    category: "Fiscalite belge",
+    categorySlug: "fiscalite-belgique",
+    published: true,
+    date: "2026-11-10",
+    dateModified: "2026-11-10",
+    seoTitle: "VVPRbis 2026 : Guide Complet Dividendes PME Belge",
+    metaDescription: "VVPRbis apres la reforme 2026 : taux a 18 %, regime transitoire, conditions PME, exemple chiffre et erreurs a eviter. Guide pour dirigeants.",
   },
   {
     slug: "reserve-liquidation-belgique",
@@ -228,6 +245,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-02-05",
+    dateModified: "2026-11-09",
     seoTitle: "Réserve de Liquidation Belgique | Guide Fiscal",
     metaDescription: "La réserve de liquidation permet aux PME belges de distribuer des dividendes avec une fiscalité réduite. Mécanisme, conditions et stratégie d'utilisation.",
   },
@@ -629,6 +647,7 @@ export const blogArticles: BlogArticle[] = [
     categorySlug: "fiscalite-belgique",
     published: true,
     date: "2026-04-11",
+    dateModified: "2026-11-09",
     seoTitle: "Loyer au dirigeant : plafond de requalification en Belgique",
     metaDescription: "Vous louez un bureau à votre société ? Comprenez le plafond lié au revenu cadastral, le calcul de l’excédent et les précautions à prendre en Belgique.",
   },
@@ -644,6 +663,7 @@ export const blogArticles: BlogArticle[] = [
     seoTitle: "Intérêts immobiliers : fin de déduction en Belgique",
     metaDescription: "Comprenez la suppression de la déduction ordinaire des intérêts immobiliers à l’exercice 2026 (revenus 2025), y compris pour les anciens emprunts.",
   },
+  ...articlesAjoutes2026,
 ];
 
 

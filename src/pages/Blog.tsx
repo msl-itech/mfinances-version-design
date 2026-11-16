@@ -90,6 +90,15 @@ const problemCards: ProblemCard[] = [
     href: "/blog/creation-societe/",
     image: heroCreation,
   },
+  {
+    emoji: "💻",
+    title: "Ma comptabilité n'est pas à jour",
+    quote: "Je cherche un expert-comptable qui maîtrise Odoo.",
+    badge: "Comptabilité Odoo",
+    categorySlugs: ["comptabilite-odoo"],
+    href: "/blog/comptabilite-odoo/",
+    image: heroControle,
+  },
 ];
 
 
@@ -217,8 +226,8 @@ export default function Blog() {
                       Trouver la solution <ArrowRight size={14} />
                     </span>
                     <div className="mt-5 pt-4 border-t border-border/40">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.08em] uppercase text-foreground/50">
-                        <span aria-hidden="true">🏷️</span> {card.badge}
+                      <span className="inline-flex items-center gap-1 text-[12px] font-bold tracking-[0.08em] uppercase text-foreground/70">
+                        {card.badge}
                       </span>
                     </div>
                   </div>
@@ -250,22 +259,12 @@ export default function Blog() {
                 </h2>
               </div>
 
-              {/* Search */}
-              <nav aria-label="Guides pratiques pour dirigeants" className="mb-8 border-y border-border py-5">
-                <ul className="grid gap-3 md:grid-cols-2">
-                  {blogArticles.filter((article) => article.dateModified === "2026-10-23").map((article) => (
-                    <li key={article.slug}>
-                      <Link to={`/blog/${article.categorySlug}/${article.slug}/`} className="text-[14px] font-body text-foreground hover:underline">
-                        {article.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
               <div className="relative max-w-[480px] mx-auto mb-10">
-                <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <label htmlFor="blog-search" className="sr-only">Rechercher un article par titre, extrait ou categorie</label>
+                <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
                 <Input
-                  type="text"
+                  id="blog-search"
+                  type="search"
                   placeholder="Rechercher un article…"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -280,24 +279,19 @@ export default function Blog() {
                       <Link
                         to={`/blog/${article.categorySlug}/${article.slug}/`}
                         className="group block bg-secondary/60 rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(27,43,94,0.08)] transition-all duration-300 h-full"
+                        aria-label={`Lire : ${article.hook || article.title}`}
                       >
-                        <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
+                        <span className="text-[12px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
 
-                        {article.hook && (
-                          <p className="text-[17px] md:text-[18px] font-bold text-foreground mt-3 leading-snug group-hover:text-accent transition-colors">
-                            {article.hook}
-                          </p>
-                        )}
+                        <p className="text-[17px] md:text-[18px] font-bold text-foreground mt-3 leading-snug group-hover:text-accent transition-colors">
+                          {article.hook || article.title}
+                        </p>
 
-                        <p className={`text-[14px] text-muted-foreground leading-[1.7] font-body ${article.hook ? "mt-3" : "mt-3"}`}>
+                        <p className="text-[14px] text-foreground/70 leading-[1.7] font-body mt-3">
                           {article.excerpt}
                         </p>
 
-                        <p className="text-[12px] italic text-foreground/45 font-body mt-4 leading-snug">
-                          {article.title}
-                        </p>
-
-                        <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
+                        <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all" aria-hidden="true">
                           Lire <ArrowRight size={14} />
                         </span>
                       </Link>
@@ -313,35 +307,39 @@ export default function Blog() {
               {/* Pagination */}
               {totalPages > 1 && (
                 <nav className="flex items-center justify-center gap-2 mt-12" aria-label="Pagination des articles">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                    disabled={currentPage === 1}
-                    className="rounded-full font-body"
-                  >
-                    ← Précédent
-                  </Button>
+                  {currentPage > 1 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      className="rounded-full font-body min-h-[44px]"
+                    >
+                      ← Precedent
+                    </Button>
+                  )}
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                     <Button
                       key={page}
                       variant={page === currentPage ? "accent" : "ghost"}
                       size="icon"
                       onClick={() => setCurrentPage(page)}
-                      className="rounded-full w-9 h-9 text-[14px] font-body"
+                      className="rounded-full w-11 h-11 text-[14px] font-body"
+                      aria-label={`Page ${page}`}
+                      aria-current={page === currentPage ? "page" : undefined}
                     >
                       {page}
                     </Button>
                   ))}
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                    disabled={currentPage === totalPages}
-                    className="rounded-full font-body"
-                  >
-                    Suivant →
-                  </Button>
+                  {currentPage < totalPages && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      className="rounded-full font-body min-h-[44px]"
+                    >
+                      Suivant →
+                    </Button>
+                  )}
                 </nav>
               )}
             </div>

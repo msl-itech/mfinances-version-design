@@ -30,7 +30,8 @@ import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
 import { useGoogleReviews, formatReviewSummary } from "@/hooks/use-google-reviews";
-import { trackEvent } from "@/lib/clarity-events";
+import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
+import { readArticleOrigin2026, originDescription2026, escapeContactHtml2026, confirmedOdooLead2026 } from "@/lib/article-origin-2026";
 
 const situations = [
   { emoji: "🌱", label: "Je souhaite devenir indépendant" },
@@ -46,6 +47,8 @@ const besoins = [
   { emoji: "💸", label: "Trésorerie et pilotage financier" },
   { emoji: "🚀", label: "Création d'entreprise" },
   { emoji: "🎯", label: "DAF à temps partiel" },
+  { emoji: "⇄", label: "Changer d'expert-comptable" },
+  { emoji: "▣", label: "Comptabilité Odoo" },
 ];
 
 function ProgressBar({ current }: { current: number }) {
@@ -107,6 +110,7 @@ export default function Contact() {
   useTilt(root, [mounted]);
 
   const [searchParams] = useSearchParams();
+  const articleOrigin = readArticleOrigin2026(searchParams);
   const [forfait] = useState(() => searchParams.get("forfait") || "");
   const serviceParam = searchParams.get("service") || "";
   const serviceLabels: Record<string, string> = {
@@ -129,7 +133,7 @@ export default function Contact() {
 
   const [step, setStep] = useState(1);
   const [situation, setSituation] = useState("");
-  const [besoin, setBesoin] = useState("");
+  const [besoin, setBesoin] = useState(() => readArticleOrigin2026(searchParams).need);
   const [prenom, setPrenom] = useState("");
   const [nom, setNom] = useState("");
   const [email, setEmail] = useState("");
@@ -139,6 +143,12 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState("");
+
+  useEffect(() => {
+    const next = readArticleOrigin2026(searchParams);
+    if (next.need) setBesoin(next.need);
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -155,11 +165,12 @@ export default function Contact() {
 
     const descParts = [
       `<h3>Informations du contact</h3>`,
-      forfait ? `<p><strong>Forfait sélectionné:</strong> ${forfait}</p>` : "",
-      `<p><strong>Situation actuelle:</strong> ${situation}</p>`,
-      `<p><strong>Besoin principal:</strong> ${besoin}</p>`,
-      `<p><strong>Téléphone:</strong> ${telephone}</p>`,
-      message ? `<p><strong>Message:</strong> ${message}</p>` : "",
+      forfait ? `<p><strong>Forfait sélectionné:</strong> ${escapeContactHtml2026(forfait)}</p>` : "",
+      `<p><strong>Situation actuelle:</strong> ${escapeContactHtml2026(situation)}</p>`,
+      `<p><strong>Besoin principal:</strong> ${escapeContactHtml2026(besoin)}</p>`,
+      `<p><strong>Téléphone:</strong> ${escapeContactHtml2026(telephone)}</p>`,
+      message ? `<p><strong>Message:</strong> ${escapeContactHtml2026(message)}</p>` : "",
+      originDescription2026(articleOrigin),
       `<p><strong>Source:</strong> Formulaire Contact - Site MFinances</p>`,
     ].filter(Boolean);
 
@@ -170,12 +181,27 @@ export default function Contact() {
       description: descParts.join(""),
       tag_names: ["contact_formulaire"],
     });
-    await submitLead(leadData);
-    trackLeadSource({ ...leadData, form_name: "contact" });
-    trackEvent("contact_form_submit");
-
-    setIsLoading(false);
-    setSubmitted(true);
+    setSubmitError("");
+    try {
+      const result = await submitLead(leadData);
+      if (!confirmedOdooLead2026(result)) {
+        setSubmitError("La transmission n'est pas confirmée. Contactez le cabinet au +32 2 886 05 50 avant de réessayer.");
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
+        setIsLoading(false);
+        return;
+      }
+      trackLeadSource({ ...leadData, form_name: "contact" });
+      tagCtaContext("form_contact");
+      trackEvent("contact_form_submit");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Un incident empêche de confirmer l'envoi. Contactez le cabinet avant de réessayer.");
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -489,6 +515,8 @@ export default function Contact() {
                               onExpired={() => setRecaptchaToken(null)}
                             />
                           </div>
+
+                          {submitError && <p role="alert" className="text-red-700 text-[13px] font-body mt-3">{submitError}</p>}
 
                           <Button
                             variant="accent"

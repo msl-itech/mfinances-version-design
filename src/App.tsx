@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { retryPendingLeads } from "@/lib/odoo-submit";
 import { initTracker, trackPageVisit } from "@/lib/visitor-tracker";
-import { installClickTracking, tagSession } from "@/lib/clarity-events";
+import { installClickTracking, tagPage, tagSession } from "@/lib/clarity-events";
 import CookieConsent from "@/components/CookieConsent";
 import { recordLandingPage } from "@/lib/utm-enrich";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -162,6 +162,7 @@ function RouteTracker() {
   const location = useLocation();
   useEffect(() => {
     trackPageVisit(location.pathname);
+    tagPage(location.pathname);
   }, [location.pathname]);
   return null;
 }
