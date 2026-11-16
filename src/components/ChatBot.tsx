@@ -17,6 +17,17 @@ import {
   type ChatLinkKind,
 } from "@/lib/chatbot-page-context";
 
+// Lien de rendez-vous avec la provenance « chatbot » pour la retrouver dans Odoo.
+function chatBookingUrl(): string {
+  try {
+    const url = new URL(buildUtmQuery(BOOKING_URL));
+    url.searchParams.set("utm_content", "chatbot");
+    return url.toString();
+  } catch {
+    return BOOKING_URL;
+  }
+}
+
 const LINK_EVENTS: Partial<Record<ChatLinkKind, ChatbotEventType>> = {
   booking: "booking_click",
   article: "article_click",
@@ -645,7 +656,7 @@ export default function ChatBot() {
                     components={{
                       a: ({ href, children }) => {
                         const kind = classifyChatLink(href ?? "");
-                        const finalHref = kind === "booking" ? buildUtmQuery(BOOKING_URL) : href;
+                        const finalHref = kind === "booking" ? chatBookingUrl() : href;
                         const external = finalHref?.startsWith("http");
                         return (
                           <a
@@ -746,7 +757,7 @@ export default function ChatBot() {
           {userMsgCount >= 1 && !limitReached && (
             <div className="border-t border-border px-3 py-2.5 flex items-center gap-2 animate-fade-in" data-cta-location="chatbot">
               <a
-                href={buildUtmQuery(BOOKING_URL)}
+                href={chatBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackChatbotEvent("booking_click")}
@@ -773,7 +784,7 @@ export default function ChatBot() {
                   Vous avez atteint la limite de {sessionLimit} messages.
                 </p>
                 <a
-                  href={buildUtmQuery(BOOKING_URL)}
+                  href={chatBookingUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackChatbotEvent("booking_click")}
