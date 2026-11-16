@@ -13,11 +13,11 @@ export const articlesAjoutes2026: BlogArticle[] = [
     "category": "Comptabilité Odoo",
     "categorySlug": "comptabilite-odoo",
     "published": true,
-    "date": "2026-11-09",
+    "date": "2026-11-16",
     "canonical": "https://mfinances.be/blog/comptabilite-odoo/changer-expert-comptable-belgique-pme/",
     "seoTitle": "Changer d'expert-comptable en Belgique : guide PME",
     "metaDescription": "Votre PME veut changer d'expert-comptable ? Délais, transfert du dossier, mandats et continuité : la méthode pour changer sans perdre le fil.",
-    "dateModified": "2026-11-09",
+    "dateModified": "2026-11-16",
     "pillarPage": "/services/comptabilite/"
   },
   {
@@ -27,11 +27,11 @@ export const articlesAjoutes2026: BlogArticle[] = [
     "category": "Comptabilité Odoo",
     "categorySlug": "comptabilite-odoo",
     "published": true,
-    "date": "2026-11-09",
+    "date": "2026-11-16",
     "canonical": "https://mfinances.be/blog/comptabilite-odoo/expert-comptable-odoo-belgique-pme/",
     "seoTitle": "Expert-comptable Odoo en Belgique : 7 critères PME",
     "metaDescription": "Votre PME utilise Odoo ? Voici 7 critères pour choisir un expert-comptable qui maîtrise la comptabilité belge et vous aide à piloter vos finances.",
-    "dateModified": "2026-11-09",
+    "dateModified": "2026-11-16",
     "pillarPage": "/services/comptabilite/"
   },
   {
@@ -69,11 +69,11 @@ export const articlesAjoutes2026: BlogArticle[] = [
     "category": "Comptabilité Odoo",
     "categorySlug": "comptabilite-odoo",
     "published": true,
-    "date": "2026-11-09",
+    "date": "2026-11-16",
     "canonical": "https://mfinances.be/blog/comptabilite-odoo/comptabilite-retard-reprise-pme/",
     "seoTitle": "Comptabilité en retard en PME : réussir la reprise",
     "metaDescription": "Votre comptabilité a pris du retard ? Découvrez comment sécuriser les déclarations, remettre les comptes à jour et reprendre le pilotage de votre PME.",
-    "dateModified": "2026-11-09",
+    "dateModified": "2026-11-16",
     "pillarPage": "/services/comptabilite/"
   },
   {
@@ -111,11 +111,11 @@ export const articlesAjoutes2026: BlogArticle[] = [
     "category": "Comptabilité Odoo",
     "categorySlug": "comptabilite-odoo",
     "published": true,
-    "date": "2026-11-09",
+    "date": "2026-11-16",
     "canonical": "https://mfinances.be/blog/comptabilite-odoo/peppol-2027-controles-pme-odoo/",
     "seoTitle": "Peppol en 2027 : contrôles utiles pour PME Odoo",
     "metaDescription": "Votre PME utilise Peppol depuis 2026 ? Vérifiez en 2027 la qualité des factures, les doublons, les statuts et le rapprochement comptable dans Odoo.",
-    "dateModified": "2026-11-09",
+    "dateModified": "2026-11-16",
     "pillarPage": "/services/comptabilite/"
   },
   {
@@ -167,11 +167,11 @@ export const articlesAjoutes2026: BlogArticle[] = [
     "category": "Comptabilité Odoo",
     "categorySlug": "comptabilite-odoo",
     "published": true,
-    "date": "2026-11-09",
+    "date": "2026-11-16",
     "canonical": "https://mfinances.be/blog/comptabilite-odoo/inventaire-physique-odoo-18-pme/",
     "seoTitle": "Inventaire physique Odoo 18 : 8 étapes pour PME",
     "metaDescription": "Préparer et vérifier l'inventaire physique dans Odoo 18 : emplacements, comptage, écarts, ajustements et rapprochement avec la comptabilité.",
-    "dateModified": "2026-11-09",
+    "dateModified": "2026-11-16",
     "pillarPage": "/services/comptabilite/"
   },
   {
