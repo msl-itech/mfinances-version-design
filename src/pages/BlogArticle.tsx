@@ -335,6 +335,7 @@ export default function BlogArticle() {
               alt={heroAlt}
               width={1200}
               height={600}
+              style={articleHero?.position ? { objectPosition: articleHero.position } : undefined}
               className="w-full h-[360px] object-cover"
               loading="eager"
             />

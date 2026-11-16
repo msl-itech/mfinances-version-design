@@ -7,6 +7,8 @@ import inventaireOdoo from "@/assets/blog/articles/inventaire-physique-odoo-18-p
 export interface ArticleHeroImage {
   src: string;
   alt: string;
+  /** Cadrage CSS object-position pour garder les visages dans le bandeau. */
+  position?: string;
 }
 
 /** Photos propres à un article. Les articles absents gardent la photo de leur catégorie. */
@@ -14,10 +16,12 @@ export const articleHeroImages: Record<string, ArticleHeroImage> = {
   "changer-expert-comptable-belgique-pme": {
     src: changerExpertComptable,
     alt: "Deux professionnels se transmettant des classeurs comptables et un ordinateur portable dans un bureau à Bruxelles",
+    position: "center 25%",
   },
   "expert-comptable-odoo-belgique-pme": {
     src: expertComptableOdoo,
     alt: "Experte-comptable montrant à un dirigeant de PME un tableau de bord financier sur grand écran",
+    position: "center 20%",
   },
   "comptabilite-retard-reprise-pme": {
     src: comptabiliteRetard,
@@ -30,5 +34,6 @@ export const articleHeroImages: Record<string, ArticleHeroImage> = {
   "inventaire-physique-odoo-18-pme": {
     src: inventaireOdoo,
     alt: "Employée comptant le stock d'un entrepôt avec une tablette devant des étagères étiquetées",
+    position: "center 15%",
   },
 };
