@@ -47,4 +47,9 @@ export const BLOG_CATALOG_MARKDOWN = `- [Trésorerie vs bénéfices — pourquoi
 - [Erreurs bureau à domicile lors d'un contrôle fiscal](/blog/fiscalite-belgique/erreurs-bureau-a-domicile-controle-fiscal/) — Points de vigilance.
 - [Combinaison bureau à domicile — cumul déductions](/blog/fiscalite-belgique/combinaison-bureau-a-domicile/) — Cumuls autorisés.
 - [Requalification loyer en rémunération](/blog/fiscalite-belgique/requalification-loyer-remuneration/) — Risque et parade.
-- [Fin déduction intérêts immobiliers 2026](/blog/fiscalite-belgique/fin-deduction-interets-immobilier-2026/) — Impact et alternatives.`;
+- [Fin déduction intérêts immobiliers 2026](/blog/fiscalite-belgique/fin-deduction-interets-immobilier-2026/) — Impact et alternatives.
+- [Changer d'expert-comptable en Belgique : réussir la transition dans une PME](/blog/comptabilite-odoo/changer-expert-comptable-belgique-pme/) — Délais, transfert du dossier, mandats, continuité.
+- [Expert-comptable Odoo en Belgique : choisir le bon partenaire](/blog/comptabilite-odoo/expert-comptable-odoo-belgique-pme/) — 7 critères pour une PME sur Odoo.
+- [Comptabilité en retard en PME : reprendre le dossier](/blog/comptabilite-odoo/comptabilite-retard-reprise-pme/) — Sécuriser les déclarations, remettre les comptes à jour.
+- [Peppol en 2027 : sept contrôles dans Odoo](/blog/comptabilite-odoo/peppol-2027-controles-pme-odoo/) — Facturation électronique, doublons, statuts, rapprochement.
+- [Inventaire physique dans Odoo 18 : huit étapes](/blog/comptabilite-odoo/inventaire-physique-odoo-18-pme/) — Comptage, écarts, ajustements, clôture des stocks.`;
