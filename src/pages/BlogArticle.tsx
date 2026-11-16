@@ -26,6 +26,7 @@ import heroDaf from "@/assets/blog/hero-daf-externalise.webp";
 import heroControle from "@/assets/blog/hero-controle-gestion.webp";
 import heroFiscalite from "@/assets/blog/hero-fiscalite.webp";
 import heroCreation from "@/assets/blog/hero-creation-societe.webp";
+import { articleHeroImages } from "@/data/article-hero-images";
 import Stamp from "@/components/ui/Stamp";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 import { useTilt } from "@/hooks/use-tilt";
@@ -206,6 +207,10 @@ export default function BlogArticle() {
     return items;
   });
 
+  const articleHero = articleHeroImages[article.slug];
+  const heroSrc = articleHero?.src ?? categoryHeroImages[category.slug];
+  const heroAlt = articleHero?.alt ?? category.imageAlt;
+
   const shareUrl = canonical;
   const shareTitle = article.seoTitle || article.title;
 
@@ -215,7 +220,7 @@ export default function BlogArticle() {
         title={article.seoTitle || `${article.title}, MFinances Bruxelles`}
         description={article.metaDescription || article.excerpt}
         canonical={canonical}
-        ogImage={categoryHeroImages[category.slug]}
+        ogImage={heroSrc}
         schemaJson={isDraft ? undefined : schemas}
         noIndex={isDraft}
       />
@@ -323,11 +328,14 @@ export default function BlogArticle() {
         </section>
 
         {/* ── HERO IMAGE ── */}
-        {categorySlug && categoryHeroImages[categorySlug] && (
+        {heroSrc && (
           <div className="w-full max-h-[360px] overflow-hidden">
             <img
-              src={categoryHeroImages[categorySlug]}
-              alt={category.imageAlt}
+              src={heroSrc}
+              alt={heroAlt}
+              width={1200}
+              height={600}
+              style={articleHero?.position ? { objectPosition: articleHero.position } : undefined}
               className="w-full h-[360px] object-cover"
               loading="eager"
             />
