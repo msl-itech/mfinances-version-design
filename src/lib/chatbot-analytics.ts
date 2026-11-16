@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const SESSION_KEY = "mf_chatbot_session";
 
-function getSessionId(): string {
+export function getSessionId(): string {
   try {
     let id = sessionStorage.getItem(SESSION_KEY);
     if (!id) {
@@ -19,7 +19,16 @@ function getSessionId(): string {
   }
 }
 
-export type ChatbotEventType = "opened" | "message_sent" | "closed";
+export type ChatbotEventType =
+  | "opened"
+  | "message_sent"
+  | "closed"
+  | "article_click"
+  | "booking_click"
+  | "diagnostic_click"
+  | "guide_click"
+  | "contact_click"
+  | "lead_submitted";
 
 export async function trackChatbotEvent(eventType: ChatbotEventType): Promise<void> {
   try {
