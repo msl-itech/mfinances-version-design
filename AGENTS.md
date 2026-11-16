@@ -5,3 +5,5 @@
 - Generate bundled homepage photo variants with vite-imagetools and use a picture with width-based sources; this reduces transfer size without replacing the approved photo or changing its framing.- Playfair Display is self-hosted via @fontsource (latin subsets imported in main.tsx); never load it from Google Fonts, which blocks first render.
 - The sitemap is generated at build from src/data/sitemap-pages.ts, blog-data.ts and newsroom-data.ts (never hand-edit a public/sitemap.xml); locs always use SITE_ORIGIN so test-site URLs can't leak.
 - Per-article hero photos live in src/data/article-hero-images.ts keyed by slug; articles without an entry fall back to their category photo.
+- Chatbot blog recommendations come from supabase/functions/_shared/blog-catalog.ts; a test fails when a published article is missing, so update it when publishing.
+- Chatbot questions are stored server-side only (chatbot_questions, PII redacted, 13-month purge in chatbot-stats); never store e-mails or names with them.
