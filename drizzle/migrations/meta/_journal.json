@@ -29,6 +29,13 @@
       "when": 1794832935033,
       "tag": "0003_chatbot_questions",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794833233756,
+      "tag": "0004_chatbot_events_funnel_types",
+      "breakpoints": true
     }
   ]
 }
