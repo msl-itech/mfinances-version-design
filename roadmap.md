@@ -73,3 +73,14 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [x] (Site) Accroches et guide gratuit adaptés à chaque catégorie du blog
 - [x] (Site) Mesure du parcours : ouverture → message → article / rendez-vous / diagnostic → courriel laissé
 - [x] (Site) Phrase dans la politique de confidentialité
+
+## Étape 13 — Assistant : contrôle et conformité (18/11/2026)
+- [x] (Site) Contrôle automatique de chaque réponse avant affichage : montants de la liste seulement, rappel 72 h seulement, termes interdits (SCI, garanti, promesse chiffrée, se dire humain) ; une réécriture puis réponse de repli
+- [x] (Site) Série de tests du contrôle (24 cas)
+- [x] (Site) Mention « Assistant IA » + « informations générales, pas un conseil personnalisé » ; consignes : ne jamais nier être une IA
+- [x] (Site) Témoignages chiffrés non vérifiés retirés des consignes (remplacés par la note Google)
+- [x] (Site) Version des consignes et résultat du contrôle enregistrés avec chaque question
+- [x] (Site) Message de sortie sur téléphone (remontée rapide ou 60 % de lecture d'un article)
+- [x] (Site) Détection des mots avec accents (« ça » ≠ SA, « contrôle » ≠ insulte)
+- [ ] (Équipe) Mika : valider la règle « salaires/paie hors formules » et fournir 3 cas clients réels
+- [ ] (Site) Ensuite : réponses validées par Mika, transfert urgent (contrôle fiscal), base de connaissances

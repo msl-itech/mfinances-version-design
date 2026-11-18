@@ -42,27 +42,33 @@ export type Database = {
         Row: {
           article_paths: string[]
           created_at: string
+          guard_status: string | null
           has_article: boolean
           id: string
           page_path: string | null
+          prompt_version: string | null
           question: string
           session_id: string
         }
         Insert: {
           article_paths?: string[]
           created_at?: string
+          guard_status?: string | null
           has_article?: boolean
           id?: string
           page_path?: string | null
+          prompt_version?: string | null
           question: string
           session_id: string
         }
         Update: {
           article_paths?: string[]
           created_at?: string
+          guard_status?: string | null
           has_article?: boolean
           id?: string
           page_path?: string | null
+          prompt_version?: string | null
           question?: string
           session_id?: string
         }

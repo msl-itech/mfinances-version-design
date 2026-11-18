@@ -7,3 +7,4 @@
 - Per-article hero photos live in src/data/article-hero-images.ts keyed by slug; articles without an entry fall back to their category photo.
 - Chatbot blog recommendations come from supabase/functions/_shared/blog-catalog.ts; a test fails when a published article is missing, so update it when publishing.
 - Chatbot questions are stored server-side only (chatbot_questions, PII redacted, 13-month purge in chatbot-stats); never store e-mails or names with them.
+- Chatbot answers pass a deterministic guard (supabase/functions/_shared/chatbot-guard.ts: allowed € amounts, 72 h callback, forbidden terms) before display; one rewrite then a fallback. Bump PROMPT_VERSION in chatbot/index.ts whenever the prompt or guard changes, so versions can be compared.

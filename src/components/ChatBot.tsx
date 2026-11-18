@@ -36,6 +36,7 @@ const LINK_EVENTS: Partial<Record<ChatLinkKind, ChatbotEventType>> = {
   contact: "contact_click",
 };
 import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
+import { INTEREST_KEYWORDS, anyTermMatches } from "../../supabase/functions/_shared/chatbot-guard";
 
 // ── Palier helper (mirrors Edge Function logic) ──
 function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
@@ -63,7 +64,7 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chatbot`;
 const WELCOME_MESSAGE: Msg = {
   role: "assistant",
   content:
-    "Bonjour ! 👋 Je suis l'assistant MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
+    "Bonjour ! 👋 Je suis l'assistant IA de MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
 };
 
 const MAX_MESSAGES_FROID = 15;
@@ -74,25 +75,11 @@ const PROACTIVE_DELAY_MS = 30_000;
 
 // ── Invisible Lead Scoring ──
 const SCORE_THRESHOLD_HOT = 7; // Switch CTA to diagnostic
-const SCORE_KEYWORDS: { regex: RegExp; points: number }[] = [
-  // Urgence (+4)
-  { regex: /\b(urgent|rapidement|vite|pressé|deadline|dès que possible|asap|au plus vite|tout de suite)\b/i, points: 4 },
-  // Budget / prix mentionné (+3)
-  { regex: /\b(budget|prix|coût|tarif|combien|devis|factur|investir|investissement|€|euros?)\b/i, points: 3 },
-  // Taille entreprise / CA (+2)
-  { regex: /\b(salarié|employé|équipe|chiffre d'affaires|CA|revenus?|bénéfice|croissance|clients?|personnel)\b/i, points: 2 },
-  // Recherche active de comptable (+3)
-  { regex: /\b(cherch|besoin d'un comptable|changer de comptable|nouveau comptable|accompagnement|mission)\b/i, points: 3 },
-  // Structure juridique (+2)
-  { regex: /\b(SRL|SA|SPRL|ASBL|société|indépendant|complémentaire|personne physique|management)\b/i, points: 2 },
-  // Problème fiscal / contrôle (+3)
-  { regex: /\b(contrôle fiscal|redressement|amende|TVA|ISOC|IPP|déclaration|retard|problème)\b/i, points: 3 },
-];
-
 // ── Profanity / abuse filter (client-side, saves tokens) ──
-const PROFANITY_PATTERNS = [
-  /\b(putain|merde|connard|connasse|enculé|fdp|ntm|nique|salaud|salope|bordel|batard|bâtard|pd|pute|cul|bite|chier|foutre|enfoiré|abruti|crétin|débile|imbécile|con\b)/i,
-  /\b(fuck|shit|bitch|asshole|dick|bastard|damn|crap|idiot|stupid|dumb)\b/i,
+const PROFANITY_TERMS = [
+  "putain", "merde", "connard", "connasse", "enculé", "fdp", "ntm", "nique", "salaud", "salope", "bordel", "batard", "bâtard",
+  "pd", "pute", "cul", "bite", "chier", "foutre", "enfoiré", "abruti", "crétin", "débile", "imbécile", "con",
+  "fuck", "shit", "bitch", "asshole", "dick", "bastard", "damn", "crap", "idiot", "stupid", "dumb",
 ];
 
 const VALID_INTERNAL_ROUTES = new Set([
@@ -109,7 +96,7 @@ const VALID_INTERNAL_ROUTES = new Set([
   "/contact/", "/support/",
 ]);
 
-const isProfane = (text: string) => PROFANITY_PATTERNS.some((p) => p.test(text));
+const isProfane = (text: string) => anyTermMatches(text, PROFANITY_TERMS);
 
 // Sanitize AI response: replace any internal links not in whitelist
 const sanitizeLinks = (text: string): string => {
@@ -253,8 +240,8 @@ export default function ChatBot() {
   const scoredPatternsRef = useRef<Set<number>>(new Set());
   const scoreMessage = useCallback((text: string) => {
     let added = 0;
-    SCORE_KEYWORDS.forEach((kw, idx) => {
-      if (!scoredPatternsRef.current.has(idx) && kw.regex.test(text)) {
+    INTEREST_KEYWORDS.forEach((kw, idx) => {
+      if (!scoredPatternsRef.current.has(idx) && anyTermMatches(text, kw.terms)) {
         scoredPatternsRef.current.add(idx);
         added += kw.points;
       }
@@ -314,25 +301,55 @@ export default function ChatBot() {
     setProactiveDismissed(false);
   }, [currentPath]);
 
-  // Exit-intent: show targeted message when cursor leaves window
+  // Message de sortie : souris qui quitte la page (ordinateur) ;
+  // sur écran tactile, remontée rapide de la page ou 60 % de lecture d'un article.
   useEffect(() => {
     if (open) return;
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY > 50) return; // only trigger when leaving from top
-      if (sessionStorage.getItem("mf_exit_shown")) return;
+    const exitMsgFor = (path: string) =>
+      EXIT_MESSAGES[path] ||
+      Object.entries(EXIT_MESSAGES).find(([key]) => path.startsWith(key) && key !== "default")?.[1] ||
+      EXIT_MESSAGES.default;
+    const show = (msg: string) => {
+      if (!msg || sessionStorage.getItem("mf_exit_shown")) return;
       sessionStorage.setItem("mf_exit_shown", "1");
-
-      const exitMsg =
-        EXIT_MESSAGES[currentPath] ||
-        Object.entries(EXIT_MESSAGES).find(([key]) => currentPath.startsWith(key) && key !== "default")?.[1] ||
-        EXIT_MESSAGES.default;
-
-      setProactiveText(exitMsg);
+      setProactiveText(msg);
       setShowProactive(true);
       setProactiveDismissed(false);
     };
-    document.addEventListener("mouseleave", handleMouseLeave);
-    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+
+    const isTouch = window.matchMedia?.("(hover: none)").matches;
+    if (!isTouch) {
+      const handleMouseLeave = (e: MouseEvent) => {
+        if (e.clientY > 50) return; // only trigger when leaving from top
+        show(exitMsgFor(currentPath));
+      };
+      document.addEventListener("mouseleave", handleMouseLeave);
+      return () => document.removeEventListener("mouseleave", handleMouseLeave);
+    }
+
+    const isArticle = /^\/blog\/[^/]+\/[^/]+\/?$/.test(currentPath);
+    const cat = getBlogCategorySlug(currentPath);
+    let maxDepth = 0;
+    let lastY = window.scrollY;
+    let lastT = performance.now();
+    const handleScroll = () => {
+      const y = window.scrollY;
+      const t = performance.now();
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const depth = scrollable > 0 ? y / scrollable : 0;
+      maxDepth = Math.max(maxDepth, depth);
+      if (isArticle && cat && depth >= 0.6) {
+        show(BLOG_CATEGORY_CHAT[cat].proactive);
+      } else if (maxDepth >= 0.4 && lastY - y > 250 && t - lastT < 350) {
+        show(exitMsgFor(currentPath));
+      }
+      if (t - lastT > 350 || y > lastY) {
+        lastY = y;
+        lastT = t;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [open, currentPath]);
 
   useEffect(() => {
@@ -631,10 +648,10 @@ export default function ChatBot() {
             </div>
             <div>
               <h3 className="text-primary-foreground text-sm font-bold font-body">
-                Assistant MFinances
+                Assistant IA MFinances
               </h3>
-              <p className="text-primary-foreground/50 text-[11px]">
-                Répond en quelques secondes
+              <p className="text-primary-foreground/70 text-[11px]">
+                Informations générales, pas un conseil personnalisé
               </p>
             </div>
           </div>
