@@ -1,9 +1,9 @@
 // Edge function: chatbot-stats
-// Returns aggregated chatbot analytics. Protected by ADMIN_DASHBOARD_PASSWORD.
+// Statistiques de l'assistant pour l'espace interne. Protégé par ADMIN_DASHBOARD_PASSWORD.
+// ?days=7|30|90 (30 par défaut) ; la période précédente de même durée sert de comparaison. Essais exclus.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { clientIp, corsFor, rateLimited, timingSafeEqual } from "../_shared/site-guard.ts";
-
-
+import { buildStats, parsePeriod } from "../_shared/chatbot-stats-core.ts";
 
 Deno.serve(async (req) => {
   const corsHeaders = corsFor(req);
@@ -11,11 +11,10 @@ Deno.serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Password gate
   const providedPassword = req.headers.get("x-admin-password") || "";
   const expectedPassword = Deno.env.get("ADMIN_DASHBOARD_PASSWORD") || "";
   const ip = clientIp(req);
-  if (rateLimited(`stats:${ip}`, 20, 15 * 60 * 1000)) {
+  if (rateLimited(`stats:${ip}`, 30, 15 * 60 * 1000)) {
     return new Response(JSON.stringify({ error: "Trop de tentatives" }), {
       status: 429,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -29,174 +28,43 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    );
+    const days = parsePeriod(new URL(req.url).searchParams.get("days"));
+    const supabase = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
 
-    // Pull last 90 days of events
-    const since = new Date();
-    since.setDate(since.getDate() - 90);
+    // Période actuelle + période précédente de même durée.
+    const since = new Date(Date.now() - 2 * days * 24 * 60 * 60 * 1000).toISOString();
 
-    const { data, error } = await supabase
+    const { data: events, error } = await supabase
       .from("chatbot_events")
       .select("event_type, session_id, page_path, created_at")
-      .gte("created_at", since.toISOString())
+      .eq("is_test", false)
+      .gte("created_at", since)
       .order("created_at", { ascending: false })
-      .limit(10000);
-
+      .limit(20000);
     if (error) throw error;
 
-    const events = data || [];
-
-    // Purge : questions conservées 13 mois maximum (politique de confidentialité).
+    // Purge de secours (la suppression planifiée chaque nuit reste la règle).
     const purgeBefore = new Date();
     purgeBefore.setMonth(purgeBefore.getMonth() - 13);
     await supabase.from("chatbot_questions").delete().lt("created_at", purgeBefore.toISOString());
 
-    const { data: qData } = await supabase
+    const { data: questions, error: qError } = await supabase
       .from("chatbot_questions")
       .select("question, page_path, article_paths, has_article, created_at, guard_status, prompt_version")
-      .gte("created_at", since.toISOString())
+      .eq("is_test", false)
+      .gte("created_at", since)
       .order("created_at", { ascending: false })
-      .limit(2000);
-    const questions = qData || [];
+      .limit(5000);
+    if (qError) throw qError;
 
-    // Parcours : nombre de sessions ayant atteint chaque étape.
-    const funnelSteps = ["opened", "message_sent", "article_click", "guide_click", "diagnostic_click", "booking_click", "lead_submitted"];
-    const funnelSessions: Record<string, Set<string>> = Object.fromEntries(funnelSteps.map((k) => [k, new Set<string>()]));
-    for (const e of events) {
-      if (funnelSessions[e.event_type]) funnelSessions[e.event_type].add(e.session_id);
-    }
-    const funnel = Object.fromEntries(funnelSteps.map((k) => [k, funnelSessions[k].size]));
-
-    const articleCounts: Record<string, number> = {};
-    for (const q of questions) {
-      for (const a of q.article_paths || []) articleCounts[a] = (articleCounts[a] || 0) + 1;
-    }
-    const topArticles = Object.entries(articleCounts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .map(([path, count]) => ({ path, count }));
-    const withArticle = questions.filter((q) => q.has_article).length;
-
-    // Aggregate metrics
-    const sessions = new Set<string>();
-    const sessionsToday = new Set<string>();
-    const sessionsWeek = new Set<string>();
-    const sessionsMonth = new Set<string>();
-    let totalOpened = 0;
-    let totalMessages = 0;
-    const pageCounts: Record<string, number> = {};
-    const dailyOpens: Record<string, number> = {};
-    const dailyMessages: Record<string, number> = {};
-
-    const now = Date.now();
-    const dayMs = 24 * 60 * 60 * 1000;
-
-    for (const e of events) {
-      sessions.add(e.session_id);
-      const t = new Date(e.created_at).getTime();
-      if (now - t < dayMs) sessionsToday.add(e.session_id);
-      if (now - t < 7 * dayMs) sessionsWeek.add(e.session_id);
-      if (now - t < 30 * dayMs) sessionsMonth.add(e.session_id);
-
-      const dayKey = e.created_at.slice(0, 10);
-
-      if (e.event_type === "opened") {
-        totalOpened++;
-        dailyOpens[dayKey] = (dailyOpens[dayKey] || 0) + 1;
-        if (e.page_path) {
-          pageCounts[e.page_path] = (pageCounts[e.page_path] || 0) + 1;
-        }
-      } else if (e.event_type === "message_sent") {
-        totalMessages++;
-        dailyMessages[dayKey] = (dailyMessages[dayKey] || 0) + 1;
-      }
-    }
-
-    // Top pages
-    const topPages = Object.entries(pageCounts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .map(([path, count]) => ({ path, count }));
-
-    // Build last-30-days timeseries
-    const series: { date: string; opens: number; messages: number }[] = [];
-    for (let i = 29; i >= 0; i--) {
-      const d = new Date();
-      d.setDate(d.getDate() - i);
-      const key = d.toISOString().slice(0, 10);
-      series.push({
-        date: key,
-        opens: dailyOpens[key] || 0,
-        messages: dailyMessages[key] || 0,
-      });
-    }
-
-    const avgMessagesPerSession =
-      sessions.size > 0 ? Number((totalMessages / sessions.size).toFixed(2)) : 0;
-
-    return new Response(
-      JSON.stringify({
-        totals: {
-          uniqueSessions: sessions.size,
-          totalOpens: totalOpened,
-          totalMessages,
-          avgMessagesPerSession,
-        },
-        windows: {
-          today: sessionsToday.size,
-          last7days: sessionsWeek.size,
-          last30days: sessionsMonth.size,
-        },
-        topPages,
-        series,
-        funnel,
-        questionsSummary: {
-          total: questions.length,
-          withArticle,
-          withoutArticle: questions.length - withArticle,
-        },
-        topArticles,
-        guardSummary: (() => {
-          // Résultat du contrôle des réponses, par version des consignes (90 j).
-          const byVersion: Record<string, { ok: number; regenerated: number; fallback: number }> = {};
-          for (const q of questions) {
-            const v = q.prompt_version || "avant contrôle";
-            const s = q.guard_status as "ok" | "regenerated" | "fallback" | null;
-            byVersion[v] ??= { ok: 0, regenerated: 0, fallback: 0 };
-            if (s && s in byVersion[v]) byVersion[v][s]++;
-          }
-          return Object.entries(byVersion)
-            .map(([version, counts]) => ({ version, ...counts }))
-            .sort((a, b) => b.version.localeCompare(a.version));
-        })(),
-        recentFallbacks: questions
-          .filter((q) => q.guard_status === "fallback")
-          .slice(0, 20)
-          .map((q) => ({ question: q.question, page: q.page_path, date: q.created_at, version: q.prompt_version })),
-        recentQuestions: questions.slice(0, 50).map((q) => ({
-          question: q.question,
-          page: q.page_path,
-          date: q.created_at,
-          articles: q.article_paths || [],
-        })),
-        unansweredQuestions: questions
-          .filter((q) => !q.has_article)
-          .slice(0, 50)
-          .map((q) => ({ question: q.question, page: q.page_path, date: q.created_at })),
-      }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } },
-    );
+    return new Response(JSON.stringify(buildStats(days, events || [], questions || [])), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error("chatbot-stats error:", err);
-    return new Response(
-      JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      },
-    );
+    return new Response(JSON.stringify({ error: "Statistiques indisponibles" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 });

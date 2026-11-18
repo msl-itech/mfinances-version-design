@@ -50,6 +50,13 @@
       "when": 1795019435583,
       "tag": "0006_chatbot_questions_scheduled_purge",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1795019996347,
+      "tag": "0007_chatbot_is_test_flag",
+      "breakpoints": true
     }
   ]
 }

@@ -95,3 +95,9 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [x] (Site) Contexte visiteur filtré avant les consignes (prénom, source, campagne, pages)
 - [x] (Site) Règle salaires : ni confirmer ni exclure ; « avis vérifiés » retiré ; doublon du catalogue retiré ; résultat du contrôle dans le tableau de bord
 - [ ] (Équipe) Mika : FAQ validée (horaires, délais, fréquence des rendez-vous, contenu Essentiel) ; nombre d'avis Google
+
+## Étape 15 — Statistiques de l'assistant (18/11/2026)
+- [x] (Site) Choix de la période (7, 30, 90 jours) avec comparaison à la période précédente
+- [x] (Site) Constats automatiques « À retenir » (replis, thèmes sans article, pages muettes, rendez-vous)
+- [x] (Site) Export Excel des questions et des chiffres
+- [x] (Site) Essais exclus : aperçu, adresse de test, poste local et sessions « test- »

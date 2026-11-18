@@ -3,6 +3,7 @@
  * Insertion directe dans la table chatbot_events (RLS autorise INSERT anon).
  */
 import { supabase } from "@/integrations/supabase/client";
+import { isProductionHost } from "../../supabase/functions/_shared/production-host";
 
 const SESSION_KEY = "mf_chatbot_session";
 
@@ -39,6 +40,8 @@ export async function trackChatbotEvent(eventType: ChatbotEventType): Promise<vo
       event_type: eventType,
       session_id: sessionId,
       page_path: pagePath,
+      // Aperçu, adresse de test, poste local : marqués comme essais et exclus des statistiques.
+      is_test: typeof window === "undefined" || !isProductionHost(window.location.hostname),
     });
   } catch {
     // Silent fail — analytics ne doit jamais casser l'UX

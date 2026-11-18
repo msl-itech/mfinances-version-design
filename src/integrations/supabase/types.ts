@@ -19,6 +19,7 @@ export type Database = {
           created_at: string
           event_type: string
           id: string
+          is_test: boolean
           page_path: string | null
           session_id: string
         }
@@ -26,6 +27,7 @@ export type Database = {
           created_at?: string
           event_type: string
           id?: string
+          is_test?: boolean
           page_path?: string | null
           session_id: string
         }
@@ -33,6 +35,7 @@ export type Database = {
           created_at?: string
           event_type?: string
           id?: string
+          is_test?: boolean
           page_path?: string | null
           session_id?: string
         }
@@ -45,6 +48,7 @@ export type Database = {
           guard_status: string | null
           has_article: boolean
           id: string
+          is_test: boolean
           page_path: string | null
           prompt_version: string | null
           question: string
@@ -56,6 +60,7 @@ export type Database = {
           guard_status?: string | null
           has_article?: boolean
           id?: string
+          is_test?: boolean
           page_path?: string | null
           prompt_version?: string | null
           question: string
@@ -67,6 +72,7 @@ export type Database = {
           guard_status?: string | null
           has_article?: boolean
           id?: string
+          is_test?: boolean
           page_path?: string | null
           prompt_version?: string | null
           question?: string

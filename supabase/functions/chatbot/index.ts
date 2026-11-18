@@ -4,6 +4,7 @@ import { clientIp, corsFor, isAllowedOrigin, rateLimited } from "../_shared/site
 import { extractBlogArticlePaths, redactPii } from "../_shared/chatbot-insights.ts";
 import { computeInterestScore, fallbackAnswer, validateAnswer } from "../_shared/chatbot-guard.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { isTestTraffic } from "../_shared/production-host.ts";
 
 const BOOKING_URL = "https://odoo.mfinances.be/appointment/11";
 
@@ -15,7 +16,7 @@ const MODEL_TIMEOUT_MS = 20_000;
 type GuardStatus = "ok" | "regenerated" | "fallback";
 
 // Enregistre la dernière question (anonymisée), les articles recommandés et le résultat du contrôle. Ne bloque jamais la réponse.
-async function saveQuestion(answer: string, question: string, pagePath: string | null, sessionId: string, guardStatus: GuardStatus) {
+async function saveQuestion(answer: string, question: string, pagePath: string | null, sessionId: string, guardStatus: GuardStatus, isTest: boolean) {
   try {
     const articles = extractBlogArticlePaths(answer);
     const url = Deno.env.get("SUPABASE_URL");
@@ -30,6 +31,7 @@ async function saveQuestion(answer: string, question: string, pagePath: string |
       has_article: articles.length > 0,
       prompt_version: PROMPT_VERSION,
       guard_status: guardStatus,
+      is_test: isTest,
     });
   } catch (e) {
     console.error("saveQuestion error:", e);
@@ -407,7 +409,7 @@ Réponds de nouveau à la dernière question du visiteur, de façon utile et com
     const lastUser = [...messages].reverse().find((m: { role: string }) => m.role === "user");
     const question = redactPii(String(lastUser?.content ?? ""));
     if (question && !question.startsWith("[LEAD CAPTURE]")) {
-      const task = saveQuestion(answer, question, safePagePath, safeSessionId, guardStatus);
+      const task = saveQuestion(answer, question, safePagePath, safeSessionId, guardStatus, isTestTraffic(req.headers.get("origin"), safeSessionId));
       // deno-lint-ignore no-explicit-any
       const runtime = (globalThis as any).EdgeRuntime;
       if (runtime?.waitUntil) runtime.waitUntil(task);
