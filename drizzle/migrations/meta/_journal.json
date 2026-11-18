@@ -43,6 +43,13 @@
       "when": 1795017993180,
       "tag": "0005_chatbot_questions_guard_columns",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1795019435583,
+      "tag": "0006_chatbot_questions_scheduled_purge",
+      "breakpoints": true
     }
   ]
 }

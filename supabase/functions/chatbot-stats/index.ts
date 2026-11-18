@@ -56,7 +56,7 @@ Deno.serve(async (req) => {
 
     const { data: qData } = await supabase
       .from("chatbot_questions")
-      .select("question, page_path, article_paths, has_article, created_at")
+      .select("question, page_path, article_paths, has_article, created_at, guard_status, prompt_version")
       .gte("created_at", since.toISOString())
       .order("created_at", { ascending: false })
       .limit(2000);
@@ -159,6 +159,23 @@ Deno.serve(async (req) => {
           withoutArticle: questions.length - withArticle,
         },
         topArticles,
+        guardSummary: (() => {
+          // Résultat du contrôle des réponses, par version des consignes (90 j).
+          const byVersion: Record<string, { ok: number; regenerated: number; fallback: number }> = {};
+          for (const q of questions) {
+            const v = q.prompt_version || "avant contrôle";
+            const s = q.guard_status as "ok" | "regenerated" | "fallback" | null;
+            byVersion[v] ??= { ok: 0, regenerated: 0, fallback: 0 };
+            if (s && s in byVersion[v]) byVersion[v][s]++;
+          }
+          return Object.entries(byVersion)
+            .map(([version, counts]) => ({ version, ...counts }))
+            .sort((a, b) => b.version.localeCompare(a.version));
+        })(),
+        recentFallbacks: questions
+          .filter((q) => q.guard_status === "fallback")
+          .slice(0, 20)
+          .map((q) => ({ question: q.question, page: q.page_path, date: q.created_at, version: q.prompt_version })),
         recentQuestions: questions.slice(0, 50).map((q) => ({
           question: q.question,
           page: q.page_path,

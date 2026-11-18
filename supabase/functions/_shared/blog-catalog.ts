@@ -30,7 +30,6 @@ export const BLOG_CATALOG_MARKDOWN = `- [Trésorerie vs bénéfices — pourquoi
 - [Combien mettre en réserve de sécurité quand on est indépendant ?](/blog/tresorerie/combien-reserve-securite-tpe/) — Règle des 3 mois expliquée.
 - [Combien puis-je me payer en tant qu'indépendant en Belgique ?](/blog/fiscalite-belgique/combien-me-payer-independant-belgique/) — Salaire, dividendes, cotisations.
 - [J'ai l'impression de payer trop d'impôts en Belgique](/blog/fiscalite-belgique/je-paye-trop-impots-belgique/) — Charge fiscale >50% : est-ce vrai ?
-- [Pourquoi mon comptable ne m'aide pas à piloter mon entreprise ?](/blog/fiscalite-belgique/pourquoi-comptable-aide-pas/) — Ce qu'un vrai partenaire fait différemment.
 - [Suis-je vraiment rentable ? Comment le savoir pour une TPE](/blog/controle-de-gestion/suis-je-rentable-tpe/) — 3 questions simples.
 - [Votre banquier demande votre BFR — comment répondre](/blog/tresorerie/bfr-dossier-bancaire-credit-tpe/) — Lecture, amélioration, négociation.
 - [BFR — définition simple, formule, exemples pour TPE belge](/blog/tresorerie/bfr-definition-formule-tpe/) — Calcul en 2 minutes.

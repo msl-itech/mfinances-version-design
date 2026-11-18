@@ -37,6 +37,17 @@ const LINK_EVENTS: Partial<Record<ChatLinkKind, ChatbotEventType>> = {
 };
 import { trackEvent, tagCtaContext } from "@/lib/clarity-events";
 import { INTEREST_KEYWORDS, anyTermMatches } from "../../supabase/functions/_shared/chatbot-guard";
+import {
+  DEFAULT_PROACTIVE,
+  EXIT_MESSAGES,
+  LEAD_CARD_TEXT,
+  PRIVACY_NOTICE,
+  PROACTIVE_MESSAGES,
+  WELCOME_TEXT,
+  escapeHtml,
+  leadFailureText,
+  leadSuccessText,
+} from "@/lib/chatbot-copy";
 
 // ── Palier helper (mirrors Edge Function logic) ──
 function getPalierFromScore(totalScore: number): "froid" | "tiede" | "chaud" {
@@ -63,13 +74,12 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chatbot`;
 
 const WELCOME_MESSAGE: Msg = {
   role: "assistant",
-  content:
-    "Bonjour ! 👋 Je suis l'assistant IA de MFinances. Comment puis-je vous aider ? Posez-moi une question sur nos services, tarifs ou ressources.",
+  content: WELCOME_TEXT,
 };
 
-const MAX_MESSAGES_FROID = 15;
-const MAX_MESSAGES_TIEDE = 10;
-const MAX_MESSAGES_CHAUD = 6;
+// Même limite pour tous : un visiteur engagé ne doit pas être coupé avant un visiteur froid.
+// Le serveur garde ses propres limites (8 messages/minute, 80/jour par adresse).
+const MAX_MESSAGES = 15;
 const LEAD_CAPTURE_AFTER = 3;
 const PROACTIVE_DELAY_MS = 30_000;
 
@@ -179,36 +189,6 @@ const DEFAULT_SUGGESTIONS = [
   "Combien ça coûte ?",
 ];
 
-// ── Proactive messages — targeted micro-hooks per page ──
-const PROACTIVE_MESSAGES: Record<string, string> = {
-  "/": "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.",
-  "/tarifs/": "Vous comparez nos tarifs ? Je peux vous expliquer ce qui est inclus dans chaque formule selon votre situation. Qu'est-ce qui vous intéresse le plus ?",
-  "/services/": "Nos services vont au-delà de la comptabilité classique. Quel est votre besoin principal : optimiser vos charges, piloter votre trésorerie, ou structurer votre croissance ?",
-  "/services/daf-externalise/": "Le DAF externalisé, c'est souvent la question du bon moment. Vous pilotez votre trésorerie vous-même actuellement ?",
-  "/services/controle-de-gestion/": "Le contrôle de gestion permet d'anticiper plutôt que de subir. Vous avez une visibilité claire sur vos marges aujourd'hui ?",
-  "/services/tresorerie/": "La trésorerie, c'est le nerf de la guerre. Vous avez un prévisionnel actualisé ou vous naviguez à vue ?",
-  "/services/comptabilite/": "Votre comptabilité vous donne une vision claire de votre activité, ou c'est juste une obligation ?",
-  "/services/fiscalite/": "L'optimisation fiscale peut représenter plusieurs milliers d'euros par an. Vous connaissez votre taux effectif d'imposition ?",
-  "/services/creation-entreprise/": "Vous créez votre entreprise ? La structure juridique que vous choisissez aujourd'hui impacte votre fiscalité pour les 10 prochaines années.",
-  "/qui-nous-accompagnons/": "Chaque secteur a ses spécificités fiscales. Dans quel domaine exercez-vous ?",
-  "/societe-en-veille/": "Votre société est en veille ? Même sans activité, vos obligations légales continuent. Je peux vous expliquer ce qui est inclus dans notre forfait à 175€ HTVA/mois.",
-  "/newsroom/": "Vous consultez notre actualité ! Mika Musungayi est intervenu à Finance Connectée à Marrakech. Une question sur notre approche du pilotage financier ?",
-  "/blog/": "Bonne lecture ! Si un article soulève des questions sur votre situation, je suis là pour personnaliser la réponse.",
-  "/contact/": "Avant de nous écrire, je peux peut-être répondre à votre question en quelques secondes. Essayez !",
-  "/diagnostic/": "",
-};
-
-const DEFAULT_PROACTIVE = "Bonjour ! Je vois que vous explorez le site. Une question sur votre situation comptable ou fiscale ? Je peux vous orienter en 2 minutes.";
-
-// ── Exit-intent messages ──
-const EXIT_MESSAGES: Record<string, string> = {
-  "/tarifs/": "Avant de partir, si le tarif vous freine, on propose un diagnostic gratuit 30 min sans engagement pour voir si on correspond à votre besoin.",
-  "/services/daf-externalise/": "Avant de partir, saviez-vous que le DAF externalisé est souvent moins cher qu'un recrutement ? 30 min pour en discuter, c'est gratuit.",
-  "/services/creation-entreprise/": "Avant de partir, une erreur de structure juridique peut coûter des milliers d'euros. Notre diagnostic création est gratuit.",
-  "/societe-en-veille/": "Avant de partir, une société en veille reste soumise à des obligations. Notre forfait à 175€ HTVA/mois vous permet de rester en règle sans surprise. Prenons 5 min pour en parler ?",
-  default: "Avant de partir, vous avez une question sur votre comptabilité ? Je peux vous donner une réponse rapide maintenant.",
-};
-
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([WELCOME_MESSAGE]);
@@ -221,19 +201,13 @@ export default function ChatBot() {
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadSending, setLeadSending] = useState(false);
   const [leadScore, setLeadScore] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
-  // Dynamic session limit based on palier
-  const currentPalier = getPalierFromScore(
-    (getMFContext().behaviorScore || 0) + leadScore
-  );
-  const sessionLimit =
-    currentPalier === "chaud" ? MAX_MESSAGES_CHAUD :
-    currentPalier === "tiede" ? MAX_MESSAGES_TIEDE :
-    MAX_MESSAGES_FROID;
+  const sessionLimit = MAX_MESSAGES;
   const limitReached = userMsgCount >= sessionLimit;
 
   // Score a message against keyword patterns (each pattern scores only once per session)
@@ -246,7 +220,7 @@ export default function ChatBot() {
         added += kw.points;
       }
     });
-    if (added > 0) setLeadScore((prev) => prev + added);
+    if (added !== 0) setLeadScore((prev) => Math.max(0, prev + added));
   }, []);
 
   // Get suggestions for current page
@@ -514,45 +488,30 @@ export default function ChatBot() {
     sendMessageWithText(input);
   }, [input, sendMessageWithText]);
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const email = leadEmail.trim();
-    if (!email) return;
+    if (!email || leadSending) return;
+    setLeadSending(true);
 
-    // Send to chatbot as context + close lead capture
-    setLeadSubmitted(true);
-    setShowLeadCapture(false);
-
-    // Build conversation summary for Odoo description
+    // Build conversation summary for Odoo description (texte libre : échappé)
     const conversationSummary = messages
       .filter((m) => m !== WELCOME_MESSAGE)
       .map((m) => `${m.role === "user" ? "Visiteur" : "Bot"}: ${m.content}`)
       .slice(-6)
       .join("\n");
 
-    // Send lead to Odoo CRM
     const visitorCtx = getMFContext();
-
-    // Add as a system-like message
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: `Merci ! Mika vous rappelle personnellement sous 72 h à partir de **${email}**. Vous préférez choisir votre créneau tout de suite ? [Réservez un appel](${BOOKING_URL}).`,
-      },
-    ]);
-
     const palier = getPalierFromScore(visitorCtx.behaviorScore + leadScore);
     const priorite = palier === "chaud" ? "HAUTE" : palier === "tiede" ? "MOYENNE" : "BASSE";
     const outils = [
       visitorCtx.diagnosticDone ? "diagnostic" : null,
       visitorCtx.checklistDownloaded ? "checklist" : null,
     ].filter(Boolean).join(", ");
+    const e2 = escapeHtml;
 
     tagCtaContext("chatbot");
-    trackEvent("contact_form_submit");
-    trackChatbotEvent("lead_submitted");
-    submitLead({
+    const result = await submitLead({
       name: visitorCtx.prenom || email.split("@")[0],
       email_from: email,
       description: [
@@ -560,19 +519,32 @@ export default function ChatBot() {
         `<table style="border-collapse:collapse;width:100%">`,
         `<tr><td><strong>Palier</strong></td><td>${palier.toUpperCase()}</td></tr>`,
         `<tr><td><strong>Score total</strong></td><td>${visitorCtx.behaviorScore + leadScore} (comportemental: ${visitorCtx.behaviorScore} | conversationnel: ${leadScore})</td></tr>`,
-        `<tr><td><strong>Secteur</strong></td><td>${visitorCtx.sector || "non identifié"}</td></tr>`,
-        `<tr><td><strong>Pages vues</strong></td><td>${visitorCtx.pages.join(", ")}</td></tr>`,
-        `<tr><td><strong>Visite n°</strong></td><td>${visitorCtx.visitCount} | Temps : ${Math.floor(visitorCtx.timeSeconds / 60)} min</td></tr>`,
-        `<tr><td><strong>Source</strong></td><td>${visitorCtx.source}${visitorCtx.utmCampaign ? ` (${visitorCtx.utmCampaign})` : ""}</td></tr>`,
+        `<tr><td><strong>E-mail</strong></td><td>${e2(email)}</td></tr>`,
+        `<tr><td><strong>Secteur</strong></td><td>${e2(visitorCtx.sector || "non identifié")}</td></tr>`,
+        `<tr><td><strong>Pages vues</strong></td><td>${e2(visitorCtx.pages.join(", "))}</td></tr>`,
+        `<tr><td><strong>Visite n°</strong></td><td>${Number(visitorCtx.visitCount) || 1} | Temps : ${Math.floor((Number(visitorCtx.timeSeconds) || 0) / 60)} min</td></tr>`,
+        `<tr><td><strong>Source</strong></td><td>${e2(visitorCtx.source)}${visitorCtx.utmCampaign ? ` (${e2(visitorCtx.utmCampaign)})` : ""}</td></tr>`,
         `<tr><td><strong>Outils</strong></td><td>${outils || "aucun"}</td></tr>`,
         `<tr><td><strong>Messages</strong></td><td>${userMsgCount}</td></tr>`,
         `</table>`,
         `<hr/>`,
         `<p><strong>Résumé conversation :</strong></p>`,
-        `<pre>${conversationSummary}</pre>`,
+        `<pre>${e2(conversationSummary)}</pre>`,
       ].join(""),
-    }).catch(() => {});
+    }).catch(() => ({ success: true as const, message: "fallback" as const }));
 
+    setLeadSending(false);
+    setShowLeadCapture(false);
+    setLeadSubmitted(true);
+
+    if (result.message === "ok") {
+      trackEvent("contact_form_submit");
+      trackChatbotEvent("lead_submitted");
+      setMessages((prev) => [...prev, { role: "assistant", content: leadSuccessText(email, chatBookingUrl()) }]);
+    } else {
+      // Envoi impossible : on ne promet pas de rappel, on donne le téléphone et le rendez-vous.
+      setMessages((prev) => [...prev, { role: "assistant", content: leadFailureText(chatBookingUrl()) }]);
+    }
   };
 
   // Don't show on diagnostic page (form page)
@@ -742,7 +714,7 @@ export default function ChatBot() {
                   </p>
                 </div>
                 <p className="text-[12px] text-muted-foreground mb-3">
-                  Laissez votre e-mail : Mika vous rappelle personnellement sous 72 h.
+                  {LEAD_CARD_TEXT}
                 </p>
                 <form onSubmit={handleLeadSubmit} className="flex gap-2">
                   <input
@@ -755,9 +727,10 @@ export default function ChatBot() {
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-full bg-accent text-accent-foreground text-[12px] font-medium hover:brightness-105 transition-all"
+                    disabled={leadSending}
+                    className="px-4 py-2 rounded-full bg-accent text-accent-foreground text-[12px] font-medium hover:brightness-105 transition-all disabled:opacity-60"
                   >
-                    Envoyer
+                    {leadSending ? "Envoi…" : "Envoyer"}
                   </button>
                 </form>
                 <button
@@ -839,6 +812,9 @@ export default function ChatBot() {
                   <span className="sr-only">Envoyer</span>
                 </button>
               </form>
+            )}
+            {!limitReached && (
+              <p className="mt-1.5 text-center text-[11px] text-muted-foreground">{PRIVACY_NOTICE}</p>
             )}
           </div>
         </div>

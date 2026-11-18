@@ -36,6 +36,8 @@ interface Stats {
   topArticles?: { path: string; count: number }[];
   recentQuestions?: { question: string; page: string | null; date: string; articles: string[] }[];
   unansweredQuestions?: { question: string; page: string | null; date: string }[];
+  guardSummary?: { version: string; ok: number; regenerated: number; fallback: number }[];
+  recentFallbacks?: { question: string; page: string | null; date: string }[];
 }
 
 const FUNNEL_LABELS: [string, string][] = [
@@ -303,6 +305,38 @@ function AdminAnalyticsContent() {
                 Courriels et téléphones masqués automatiquement. Conservation 13 mois.
               </p>
               <QuestionList items={stats.recentQuestions ?? []} />
+            </Card>
+          </div>
+        )}
+
+        {stats.guardSummary && stats.guardSummary.length > 0 && (
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <Card className="p-6">
+              <h2 className="font-display text-xl mb-1">Contrôle des réponses (90 j)</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Par version des consignes : réponses acceptées, réécrites une fois, ou remplacées par la réponse de repli.
+              </p>
+              <div className="space-y-2">
+                {stats.guardSummary.map((g) => {
+                  const total = g.ok + g.regenerated + g.fallback;
+                  return (
+                    <div key={g.version} className="flex flex-wrap items-center justify-between gap-2 py-2 border-b border-border/50 last:border-0 text-sm">
+                      <span className="font-mono">{g.version}</span>
+                      <span className="text-muted-foreground">
+                        {g.ok} acceptées · {g.regenerated} réécrites · <strong className="text-foreground">{g.fallback} replis</strong>
+                        {total > 0 ? ` (${Math.round((g.fallback / total) * 100)} %)` : ""}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+            <Card className="p-6">
+              <h2 className="font-display text-xl mb-1">Questions qui ont fini en repli</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                À relire : contrôle trop strict, ou information manquante dans les consignes.
+              </p>
+              <QuestionList items={stats.recentFallbacks ?? []} />
             </Card>
           </div>
         )}

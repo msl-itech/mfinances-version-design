@@ -2,13 +2,15 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { BLOG_CATALOG_MARKDOWN } from "../_shared/blog-catalog.ts";
 import { clientIp, corsFor, isAllowedOrigin, rateLimited } from "../_shared/site-guard.ts";
 import { extractBlogArticlePaths, redactPii } from "../_shared/chatbot-insights.ts";
-import { anyTermMatches, fallbackAnswer, validateAnswer } from "../_shared/chatbot-guard.ts";
+import { computeInterestScore, fallbackAnswer, validateAnswer } from "../_shared/chatbot-guard.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const BOOKING_URL = "https://odoo.mfinances.be/appointment/11";
 
 // Version des consignes : à changer à chaque modification du prompt ou des garde-fous.
-const PROMPT_VERSION = "2026-11-18.v3";
+const PROMPT_VERSION = "2026-11-18.v4";
+// Délai maximal par appel au modèle (deux appels possibles : réponse puis réécriture).
+const MODEL_TIMEOUT_MS = 20_000;
 
 type GuardStatus = "ok" | "regenerated" | "fallback";
 
@@ -73,24 +75,50 @@ const VALID_ROUTES = new Set([
   "/contact/", "/support/",
 ]);
 
-// ── Conversational keyword scoring (server-side, mots entiers, accents gérés) ──
-const KEYWORDS: Record<string, { words: string[]; score: number }> = {
-  urgence:   { words: ["urgent", "urgence", "contrôle", "redressement", "dette*", "pénalité*", "amende*", "retard", "mise en demeure"], score: 4 },
-  fiscal:    { words: ["tva", "impôt*", "isoc", "ipp", "déclaration*", "fiscal*", "vvprbis", "liasse"], score: 3 },
-  budget:    { words: ["budget", "investir", "trésorerie", "financer", "cash", "prix", "coût", "coûte", "tarif*", "combien", "devis"], score: 3 },
-  taille:    { words: ["salarié*", "employé*", "équipe", "collaborateurs", "chiffre d'affaires", "croissance"], score: 2 },
-  juridique: { words: ["srl", "=SA", "sprl", "asbl", "société", "indépendant*", "management", "holding", "exploitation"], score: 2 },
-  recherche: { words: ["cherch*", "besoin d'un comptable", "changer de comptable", "nouveau comptable", "accompagnement", "mission"], score: 3 },
-  negatif:   { words: ["juste regarder", "curieux", "curieuse", "étudiant*", "stagiaire", "gratuit seulement"], score: -3 },
-};
-
+// ── Score conversationnel : même liste que le site (chatbot-guard.ts) ──
 function computeConversationalScore(messages: Array<{ role: string; content: string }>): number {
-  let score = 0;
   const userText = messages.filter((m) => m.role === "user").map((m) => String(m.content ?? "")).join(" ");
-  for (const cfg of Object.values(KEYWORDS)) {
-    if (anyTermMatches(userText, cfg.words)) score += cfg.score;
-  }
-  return Math.max(0, score);
+  return computeInterestScore(userText);
+}
+
+// ── Liens internes acceptés par le contrôle : pages de la liste + articles du catalogue ──
+const CATALOG_PATHS = new Set(extractBlogArticlePaths(BLOG_CATALOG_MARKDOWN));
+const isAllowedPath = (p: string) => VALID_ROUTES.has(p) || CATALOG_PATHS.has(p.toLowerCase());
+
+// ── Contexte visiteur : filtré avant d'entrer dans les consignes (aucun texte libre brut) ──
+const KNOWN_SOURCES: Array<[RegExp, string]> = [
+  [/google/i, "google"], [/bing/i, "bing"], [/linkedin|lnkd/i, "linkedin"], [/facebook|fb\.|meta/i, "facebook"],
+  [/instagram/i, "instagram"], [/chatgpt|openai/i, "chatgpt"], [/perplexity/i, "perplexity"], [/claude|anthropic/i, "claude"],
+  [/newsletter|e-?mail|mailchimp|brevo/i, "e-mail"], [/mfinances/i, "site"],
+];
+function safeSource(v: unknown): string {
+  const raw = String(v ?? "").trim();
+  if (!raw || raw === "direct") return "direct";
+  for (const [re, label] of KNOWN_SOURCES) if (re.test(raw)) return label;
+  return "autre";
+}
+const clean = (v: unknown, re: RegExp, max: number) => {
+  const t = String(v ?? "").trim().slice(0, max);
+  return t && re.test(t) ? t : "";
+};
+const num = (v: unknown, max: number) => Math.min(max, Math.max(0, Math.floor(Number(v) || 0)));
+function sanitizeContext(raw: unknown): Record<string, unknown> | null {
+  if (!raw || typeof raw !== "object") return null;
+  const c = raw as Record<string, unknown>;
+  return {
+    prenom: clean(c.prenom, /^[\p{L}][\p{L}' -]{0,29}$/u, 30) || null,
+    sector: clean(c.sector, /^[\p{L}][\p{L}' &-]{0,39}$/u, 40) || null,
+    source: safeSource(c.source),
+    utmCampaign: clean(c.utmCampaign, /^[a-z0-9_-]{1,40}$/i, 40) || null,
+    pages: Array.isArray(c.pages)
+      ? c.pages.map((p) => String(p ?? "")).filter((p) => /^\/[a-z0-9\-/]{0,80}$/i.test(p)).slice(-15)
+      : [],
+    visitCount: num(c.visitCount, 999) || 1,
+    timeSeconds: num(c.timeSeconds, 86400),
+    behaviorScore: num(c.behaviorScore, 30),
+    diagnosticDone: c.diagnosticDone === true,
+    checklistDownloaded: c.checklistDownloaded === true,
+  };
 }
 
 // ── Palier thresholds ──
@@ -113,12 +141,11 @@ function getPalierInstructions(palier: string, ctx: Record<string, unknown> | nu
 - Ton éducatif et bienveillant. Tu donnes de la valeur avant de demander quoi que ce soit.
 - Termine chaque réponse par UNE seule question de découverte ouverte.
 - Exemples de questions : "Vous êtes à quelle étape de votre activité ?" / "Vous cherchez plutôt à optimiser vos charges ou à mieux piloter votre trésorerie ?"
-- Au message 3 : propose le lead magnet correspondant à la page visitée :
-  * Page trésorerie → "Je peux vous envoyer notre checklist trésorerie gratuite"
+- Au message 3 : propose la ressource gratuite correspondant à la page visitée, avec son lien :
+  * Page trésorerie → [checklist trésorerie gratuite](/checklist-tresorerie/)
   * Page DAF → "Souhaitez-vous en savoir plus sur le DAF externalisé pour TPE ?"
   * Page création → "Je peux vous orienter sur les étapes de création d'entreprise"
-- Capture email : "Quel email pour vous l'envoyer ?"
-- Ne demande PAS d'email avant le 3e message`;
+- Tu ne peux rien envoyer par e-mail toi-même : ne demande jamais l'e-mail dans la conversation (voir règle 13)`;
 
     case "TIÈDE":
       return `[INSTRUCTIONS PALIER TIÈDE — score 5 à 11]
@@ -129,7 +156,7 @@ function getPalierInstructions(palier: string, ctx: Record<string, unknown> | nu
   * "Votre CA se situe à quel niveau approximativement ?"
 - Une fois le secteur connu, rassure avec cette preuve (sans inventer de cas client ni de chiffre) : "${socialProof}"
 - CTA : [Réserver un appel](${BOOKING_URL}) en priorité, ou /diagnostic/ si le visiteur veut d'abord évaluer sa situation
-- Capture email dès le 2e message (pas le 3e comme en mode froid)`;
+- Dès le 2e message, rappelle que le formulaire « Souhaitez-vous être recontacté ? » permet d'être rappelé par Mika sous 72 h`;
 
     case "CHAUD":
       return `[INSTRUCTIONS PALIER CHAUD — score 12+]
@@ -137,8 +164,8 @@ function getPalierInstructions(palier: string, ctx: Record<string, unknown> | nu
 - Structure de chaque réponse : 1) Réponse courte et directe. 2) Bénéfice concret, sans montant ni résultat chiffré inventé. 3) Preuve sociale. 4) CTA unique et clair.
 - Preuve sociale à utiliser : "${socialProof}"
 - Propose directement le rendez-vous : "Je vous propose de réserver un appel avec Mika → [Réserver un appel](${BOOKING_URL})"
-- Si urgence détectée : "Mika peut vous rappeler personnellement sous 72 h, laissez-moi votre e-mail"
-- Capture email dès le 1er message
+- Si urgence détectée : "Mika peut vous rappeler personnellement sous 72 h : laissez votre e-mail dans le formulaire « Souhaitez-vous être recontacté ? »"
+- Rappelle ce formulaire dès le 1er message
 - Exemple de closing : "On peut régler ça rapidement. [Réserver un appel →](${BOOKING_URL})"`;
 
     default:
@@ -177,7 +204,7 @@ Tes réponses sont des informations générales, pas un conseil personnalisé : 
 - Cabinet MFINANCES SRL (agréé ITAA n°50.624.805), fondé par Mika Musungayi, expert-comptable certifié (ITAA n°10.923.614)
 - Adresse : Rue de la Magnanerie 20, 1180 Uccle, Bruxelles
 - Téléphone : +32 2 886 05 50 | Email : info@mfinances.be
-- Note Google : 5/5 — avis vérifiés
+- Note Google : 5/5
 
 ===== RÈGLES ABSOLUES =====
 1. Termine CHAQUE réponse par une question ouverte OU un CTA — jamais de réponse fermée
@@ -195,7 +222,7 @@ Tes réponses sont des informations générales, pas un conseil personnalisé : 
 13. Si le visiteur écrit son e-mail ou son téléphone dans la conversation, ne dis JAMAIS qu'il est enregistré ni qu'on va le rappeler : tu ne transmets rien. Invite-le à utiliser le formulaire « Souhaitez-vous être recontacté ? » qui s'affiche dans la conversation, ou à [réserver un appel](${BOOKING_URL}).
 14. N'écris AUCUN montant en euros absent de la liste « PRIX AUTORISÉS » (pas de seuil, plafond, amende ni économie chiffrée). Si un chiffre fiscal est nécessaire, dis que Mika confirmera le montant à jour.
 15. N'utilise jamais les mots « garanti » ni « SCI » (forme française, inexistante en Belgique ; en Belgique on parle de SRL ou de société immobilière).
-16. Les salaires et la paie ne font pas partie des formules MFinances : ne les promets pas, oriente vers Mika.
+16. Salaires et paie : ne confirme pas et n'exclus pas qu'ils fassent partie des formules. Dis que Mika précisera ce point lors de l'appel.
 
 ===== WHITELIST LIENS AUTORISÉS =====
 /tarifs/ | /services/ | /services/daf-externalise/ | /services/controle-de-gestion/
@@ -262,7 +289,7 @@ serve(async (req) => {
   }
 
   try {
-    const { messages, context, pagePath, sessionId, pageGuide } = await req.json();
+    const { messages, context: rawContext, pagePath, sessionId, pageGuide } = await req.json();
     const safePagePath = typeof pagePath === "string" && /^\/[a-z0-9\-/]*$/i.test(pagePath) ? pagePath.slice(0, 200) : null;
     const safeSessionId = typeof sessionId === "string" && /^[a-z0-9-]{4,64}$/i.test(sessionId) ? sessionId : "inconnu";
     const guideHref = typeof pageGuide?.href === "string" ? pageGuide.href : "";
@@ -283,7 +310,8 @@ serve(async (req) => {
 
     // Compute conversational score from messages
     const conversationalScore = computeConversationalScore(messages);
-    const behaviorScore = context?.behaviorScore || 0;
+    const context = sanitizeContext(rawContext);
+    const behaviorScore = Number(context?.behaviorScore) || 0;
     const totalScore = conversationalScore + behaviorScore;
     const palier = getPalier(totalScore);
     const contextBlock = buildContextBlock(context, conversationalScore);
@@ -317,6 +345,7 @@ Si le visiteur lit un article, relie ta réponse à ce sujet avant de proposer l
       const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
         method: "POST",
         headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+        signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
         body: JSON.stringify({
           model: "google/gemini-3-flash-preview",
           messages: [{ role: "system", content: correction ? `${systemPrompt}\n\n${correction}` : systemPrompt }, ...chatHistory],
@@ -332,6 +361,7 @@ Si le visiteur lit un article, relie ta réponse à ce sujet avant de proposer l
     };
 
     let answer: string;
+    let timedOut = false;
     try {
       answer = await callModel();
     } catch (e) {
@@ -341,20 +371,29 @@ Si le visiteur lit un article, relie ta réponse à ce sujet avant de proposer l
       if (e instanceof GatewayError && e.status === 402) {
         return new Response(JSON.stringify({ error: "Crédit AI épuisé." }), { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
-      return new Response(JSON.stringify({ error: "Erreur du service IA" }), { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+      if (e instanceof DOMException && (e.name === "TimeoutError" || e.name === "AbortError")) {
+        console.warn("chatbot: délai dépassé, réponse de repli");
+        answer = "";
+        timedOut = true;
+      } else {
+        return new Response(JSON.stringify({ error: "Erreur du service IA" }), { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+      }
     }
 
     // Contrôle déterministe : une seule réécriture, puis réponse de repli.
     let guardStatus: GuardStatus = "ok";
-    let check = validateAnswer(answer, visitorText);
-    if (!answer || !check.ok) {
+    let check = answer ? validateAnswer(answer, visitorText, { isAllowedPath }) : { ok: false, issues: ["réponse vide ou délai dépassé"] };
+    if (timedOut) {
+      guardStatus = "fallback";
+      answer = fallbackAnswer(BOOKING_URL);
+    } else if (!answer || !check.ok) {
       console.warn("chatbot guard rejected:", check.issues.join(" | ") || "réponse vide");
       guardStatus = "regenerated";
       try {
         answer = await callModel(`===== CORRECTION OBLIGATOIRE =====
 Une première version de ta réponse a été refusée pour : ${check.issues.join(" ; ") || "réponse vide"}.
 Réponds de nouveau à la dernière question du visiteur, de façon utile et complète, en évitant précisément ces erreurs. Si la question porte sur un chiffre fiscal, explique le principe sans donner le montant et dis que Mika confirmera le chiffre à jour. Ne mentionne pas ce contrôle.`);
-        check = validateAnswer(answer, visitorText);
+        check = validateAnswer(answer, visitorText, { isAllowedPath });
       } catch {
         check = { ok: false, issues: ["réécriture impossible"] };
       }

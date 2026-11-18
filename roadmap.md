@@ -84,3 +84,14 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [x] (Site) Détection des mots avec accents (« ça » ≠ SA, « contrôle » ≠ insulte)
 - [ ] (Équipe) Mika : valider la règle « salaires/paie hors formules » et fournir 3 cas clients réels
 - [ ] (Site) Ensuite : réponses validées par Mika, transfert urgent (contrôle fiscal), base de connaissances
+
+## Étape 14 — Assistant : contrôle durci et corrections hors contrôle (18/11/2026)
+- [x] (Site) Contrôle durci : prix imposé par le visiteur, « garanti » avec fausse négation, délais en jours/« demain », réductions ≠ 21 %, liens externes et internes hors liste, décimales, année collée
+- [x] (Site) Liens internes contrôlés avec la liste des pages + articles du catalogue ; délai maximal sur l'appel au modèle
+- [x] (Site) Coordonnées laissées : afficher téléphone + rendez-vous si l'envoi échoue ; fiche Odoo échappée
+- [x] (Site) Textes en dur reformulés et passés au contrôle par un test (« milliers d'euros », « moins cher », « diagnostic gratuit 30 min »)
+- [x] (Site) Un seul score d'intérêt client/serveur ; limite de messages qui ne coupe plus les visiteurs chauds en premier
+- [x] (Site) Purge 13 mois planifiée ; avertissement « n'écrivez pas de nom » + politique nuancée
+- [x] (Site) Contexte visiteur filtré avant les consignes (prénom, source, campagne, pages)
+- [x] (Site) Règle salaires : ni confirmer ni exclure ; « avis vérifiés » retiré ; doublon du catalogue retiré ; résultat du contrôle dans le tableau de bord
+- [ ] (Équipe) Mika : FAQ validée (horaires, délais, fréquence des rendez-vous, contenu Essentiel) ; nombre d'avis Google

@@ -76,7 +76,7 @@ export default function PolitiqueConfidentialite() {
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via l'assistant du site</h3>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                Les questions posées à l'assistant sont conservées de façon anonyme (sans nom ni adresse IP ; adresses e-mail et numéros de téléphone masqués automatiquement), avec la page consultée, pour améliorer nos réponses et nos contenus. Elles sont supprimées après 13 mois. Votre e-mail n'est transmis à notre équipe que si vous le laissez pour être rappelé.
+                Les questions posées à l'assistant sont conservées avec la page consultée, pour améliorer nos réponses et nos contenus. Nous n'y associons ni votre adresse IP ni votre identité ; les adresses e-mail, numéros de téléphone et numéros de compte sont masqués automatiquement. Un nom ou un nom de société écrit librement dans une question n'est pas masqué : la fenêtre de l'assistant vous invite à ne pas en indiquer. Les questions sont supprimées automatiquement après 13 mois. Votre e-mail n'est transmis à notre équipe que si vous le laissez pour être rappelé.
               </p>
 
               <h3 className="text-[16px] font-bold font-body text-foreground mt-4 mb-2">Via la navigation</h3>
