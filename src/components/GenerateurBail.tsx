@@ -406,9 +406,9 @@ export default function GenerateurBail() {
           <ProgressBar step={step} />
           <div className="grid grid-cols-[80px_1fr_1fr] gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Civilité</Label>
+              <Label htmlFor="bail-champ-1" className="text-[11px] text-muted-foreground font-medium">Civilité</Label>
               <Select value={civilite} onValueChange={setCivilite}>
-                <SelectTrigger className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
+                <SelectTrigger id="bail-champ-1" className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="M.">M.</SelectItem>
                   <SelectItem value="Mme">Mme</SelectItem>
@@ -416,30 +416,30 @@ export default function GenerateurBail() {
               </Select>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-              <Input value={prenomBailleur} onChange={(e) => setPrenomBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean" />
+              <Label htmlFor="bail-champ-2" className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+              <Input id="bail-champ-2" value={prenomBailleur} onChange={(e) => setPrenomBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Nom *</Label>
-              <Input value={nomBailleur} onChange={(e) => setNomBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Dupont" />
+              <Label htmlFor="bail-champ-3" className="text-[11px] text-muted-foreground font-medium">Nom *</Label>
+              <Input id="bail-champ-3" value={nomBailleur} onChange={(e) => setNomBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Dupont" />
             </div>
           </div>
           <div className="mb-3">
-            <Label className="text-[11px] text-muted-foreground font-medium">Adresse *</Label>
-            <Input value={adresseBailleur} onChange={(e) => setAdresseBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Rue de la Loi 12" />
+            <Label htmlFor="bail-champ-4" className="text-[11px] text-muted-foreground font-medium">Adresse *</Label>
+            <Input id="bail-champ-4" value={adresseBailleur} onChange={(e) => setAdresseBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Rue de la Loi 12" />
           </div>
           <div className="grid grid-cols-[100px_1fr_110px] gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Code postal</Label>
-              <Input value={cpBailleur} onChange={(e) => setCpBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="1040" />
+              <Label htmlFor="bail-champ-5" className="text-[11px] text-muted-foreground font-medium">Code postal</Label>
+              <Input id="bail-champ-5" value={cpBailleur} onChange={(e) => setCpBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="1040" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Ville</Label>
-              <Input value={villeBailleur} onChange={(e) => setVilleBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Bruxelles" />
+              <Label htmlFor="bail-champ-6" className="text-[11px] text-muted-foreground font-medium">Ville</Label>
+              <Input id="bail-champ-6" value={villeBailleur} onChange={(e) => setVilleBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Bruxelles" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Pays</Label>
-              <Input value={paysBailleur} onChange={(e) => setPaysBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Belgique" />
+              <Label htmlFor="bail-champ-7" className="text-[11px] text-muted-foreground font-medium">Pays</Label>
+              <Input id="bail-champ-7" value={paysBailleur} onChange={(e) => setPaysBailleur(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Belgique" />
             </div>
           </div>
           <label className="flex items-center gap-2.5 py-2 text-[12px] text-muted-foreground cursor-pointer">
@@ -461,13 +461,13 @@ export default function GenerateurBail() {
           </div>
           <div className="grid grid-cols-[1fr_150px] gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Dénomination sociale *</Label>
-              <Input value={denomination} onChange={(e) => setDenomination(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="MaSociété SRL" />
+              <Label htmlFor="bail-champ-8" className="text-[11px] text-muted-foreground font-medium">Dénomination sociale *</Label>
+              <Input id="bail-champ-8" value={denomination} onChange={(e) => setDenomination(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="MaSociété SRL" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Forme juridique</Label>
+              <Label htmlFor="bail-champ-9" className="text-[11px] text-muted-foreground font-medium">Forme juridique</Label>
               <Select value={formeJuridique} onValueChange={setFormeJuridique}>
-                <SelectTrigger className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
+                <SelectTrigger id="bail-champ-9" className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="SRL">SRL</SelectItem>
                   <SelectItem value="SA">SA</SelectItem>
@@ -479,17 +479,17 @@ export default function GenerateurBail() {
             </div>
           </div>
           <div className="mb-3">
-            <Label className="text-[11px] text-muted-foreground font-medium">Siège social *</Label>
-            <Input value={siegeSocial} onChange={(e) => setSiegeSocial(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Avenue Louise 123, 1050 Bruxelles" />
+            <Label htmlFor="bail-champ-10" className="text-[11px] text-muted-foreground font-medium">Siège social *</Label>
+            <Input id="bail-champ-10" value={siegeSocial} onChange={(e) => setSiegeSocial(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Avenue Louise 123, 1050 Bruxelles" />
           </div>
           <div className="grid grid-cols-2 gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Numéro BCE *</Label>
-              <Input value={numeroBce} onChange={(e) => setNumeroBce(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="0123.456.789" />
+              <Label htmlFor="bail-champ-11" className="text-[11px] text-muted-foreground font-medium">Numéro BCE *</Label>
+              <Input id="bail-champ-11" value={numeroBce} onChange={(e) => setNumeroBce(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="0123.456.789" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Représentant légal *</Label>
-              <Input value={representant} onChange={(e) => setRepresentant(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean Dupont (gérant)" />
+              <Label htmlFor="bail-champ-12" className="text-[11px] text-muted-foreground font-medium">Représentant légal *</Label>
+              <Input id="bail-champ-12" value={representant} onChange={(e) => setRepresentant(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Jean Dupont (gérant)" />
             </div>
           </div>
           <NavRow prev={2} next={4} nextLabel="Suivant : le bien" onNavigate={goNext} />
@@ -503,17 +503,17 @@ export default function GenerateurBail() {
           <ProgressBar step={step} />
           <div className="grid grid-cols-[1fr_110px] gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Adresse du bien *</Label>
-              <Input value={adresseBien} onChange={(e) => setAdresseBien(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Rue de la Loi 12, 1040 Bruxelles" />
+              <Label htmlFor="bail-champ-13" className="text-[11px] text-muted-foreground font-medium">Adresse du bien *</Label>
+              <Input id="bail-champ-13" value={adresseBien} onChange={(e) => setAdresseBien(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Rue de la Loi 12, 1040 Bruxelles" />
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Surface (m²)</Label>
-              <Input type="number" value={surfaceBien} onChange={(e) => setSurfaceBien(numVal(e.target.value))} className="mt-1 h-9 text-[13px]" placeholder="18" />
+              <Label htmlFor="bail-champ-14" className="text-[11px] text-muted-foreground font-medium">Surface (m²)</Label>
+              <Input id="bail-champ-14" type="number" value={surfaceBien} onChange={(e) => setSurfaceBien(numVal(e.target.value))} className="mt-1 h-9 text-[13px]" placeholder="18" />
             </div>
           </div>
           <div className="mb-4">
-            <Label className="text-[11px] text-muted-foreground font-medium">Description de l'espace (optionnel)</Label>
-            <Input value={descriptionBien} onChange={(e) => setDescriptionBien(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Pièce au rez-de-chaussée, donnant sur le jardin" />
+            <Label htmlFor="bail-champ-15" className="text-[11px] text-muted-foreground font-medium">Description de l'espace (optionnel)</Label>
+            <Input id="bail-champ-15" value={descriptionBien} onChange={(e) => setDescriptionBien(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Pièce au rez-de-chaussée, donnant sur le jardin" />
           </div>
           {bailType === "meuble" && (
             <>
@@ -531,7 +531,7 @@ export default function GenerateurBail() {
                 <div key={m.id} className="grid grid-cols-[1fr_120px_28px] gap-2 items-center py-2 border-b border-border/30">
                   <Input value={m.designation} onChange={(e) => updateMeuble(m.id, "designation", e.target.value)} className="h-[30px] text-[12px]" placeholder="Bureau en bois chêne" />
                   <Input type="number" value={m.valeur} onChange={(e) => updateMeuble(m.id, "valeur", numVal(e.target.value))} className="h-[30px] text-[12px] text-center" placeholder="450" />
-                  <button type="button" aria-label="Supprimer ce meuble" onClick={() => removeMeuble(m.id)} className="text-muted-foreground/50 hover:text-destructive transition-colors"><X size={14} aria-hidden="true" /></button>
+                  <button type="button" aria-label="Supprimer ce meuble" onClick={() => removeMeuble(m.id)} className="text-muted-foreground hover:text-destructive transition-colors"><X size={14} aria-hidden="true" /></button>
                 </div>
               ))}
               <button type="button" onClick={addMeuble} className="flex items-center gap-2 text-primary text-[12px] font-medium py-3 hover:underline">
@@ -557,16 +557,16 @@ export default function GenerateurBail() {
           <ProgressBar step={step} />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Loyer mensuel *</Label>
+              <Label htmlFor="bail-champ-16" className="text-[11px] text-muted-foreground font-medium">Loyer mensuel *</Label>
               <div className="relative mt-1">
-                <Input type="number" value={loyerMensuel} onChange={(e) => setLoyerMensuel(numVal(e.target.value))} className="h-9 text-[13px] pr-16" placeholder="300" />
+                <Input id="bail-champ-16" type="number" value={loyerMensuel} onChange={(e) => setLoyerMensuel(numVal(e.target.value))} className="h-9 text-[13px] pr-16" placeholder="300" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€/mois</span>
               </div>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Garantie locative</Label>
+              <Label htmlFor="bail-champ-17" className="text-[11px] text-muted-foreground font-medium">Garantie locative</Label>
               <Select value={garantie} onValueChange={setGarantie}>
-                <SelectTrigger className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
+                <SelectTrigger id="bail-champ-17" className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="0">Aucune</SelectItem>
                   <SelectItem value="1">1 mois</SelectItem>
@@ -576,9 +576,9 @@ export default function GenerateurBail() {
               </Select>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Durée du bail</Label>
+              <Label htmlFor="bail-champ-18" className="text-[11px] text-muted-foreground font-medium">Durée du bail</Label>
               <Select value={duree} onValueChange={setDuree}>
-                <SelectTrigger className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
+                <SelectTrigger id="bail-champ-18" className="h-9 text-[12px] mt-1"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="1">1 an</SelectItem>
                   <SelectItem value="3">3 ans</SelectItem>
@@ -589,8 +589,8 @@ export default function GenerateurBail() {
             </div>
           </div>
           <div className="mb-4" style={{ maxWidth: 200 }}>
-            <Label className="text-[11px] text-muted-foreground font-medium">Date de début du bail *</Label>
-            <Input type="date" value={dateDebut} onChange={(e) => setDateDebut(e.target.value)} className="mt-1 h-9 text-[13px]" />
+            <Label htmlFor="bail-champ-19" className="text-[11px] text-muted-foreground font-medium">Date de début du bail *</Label>
+            <Input id="bail-champ-19" type="date" value={dateDebut} onChange={(e) => setDateDebut(e.target.value)} className="mt-1 h-9 text-[13px]" />
           </div>
           {bailType === "meuble" && (
             <>
@@ -605,8 +605,8 @@ export default function GenerateurBail() {
                     <span>Immeuble</span>
                   </div>
                   <div className="w-[92px]">
-                    <Label className="text-[11px] text-muted-foreground font-medium">%</Label>
-                    <Input
+                    <Label htmlFor="bail-champ-20" className="text-[11px] text-muted-foreground font-medium"><span aria-hidden="true">%</span><span className="sr-only">Part immeuble, en %</span></Label>
+                    <Input id="bail-champ-20"
                       type="number"
                       min={40}
                       max={80}
@@ -617,7 +617,7 @@ export default function GenerateurBail() {
                     />
                   </div>
                 </div>
-                <Slider value={repartition} onValueChange={(value) => setRepartitionValue(value[0] ?? 60)} min={40} max={80} step={5} />
+                <Slider aria-label="Part immeuble, en %" value={repartition} onValueChange={(value) => setRepartitionValue(value[0] ?? 60)} min={40} max={80} step={5} />
                 <div className="flex flex-wrap gap-2 mt-2">
                   {[40, 50, 60, 70, 80].map((value) => (
                     <button
@@ -715,11 +715,11 @@ export default function GenerateurBail() {
                   </div>
                 </>
               )}
-              <div className="text-muted-foreground/50 text-[10px] mt-3 text-center">… 13 articles complets · Clause indexation · Garantie · Signatures</div>
+              <div className="text-muted-foreground text-[10px] mt-3 text-center">… 13 articles complets · Clause indexation · Garantie · Signatures</div>
             </div>
             {!sent && !showForm && (
               <div className="absolute inset-0 flex flex-col items-center justify-end pb-5 bg-gradient-to-b from-transparent via-background/40 to-background rounded-xl">
-                <div className="flex items-center gap-2 mb-3 text-[11px] font-bold tracking-[0.15em] uppercase text-primary/70">
+                <div className="flex items-center gap-2 mb-3 text-[11px] font-bold tracking-[0.15em] uppercase text-primary/80">
                   <LockIcon size={12} /> Aperçu verrouillé
                 </div>
                 <Button
@@ -756,23 +756,23 @@ export default function GenerateurBail() {
                 <h2 className="font-display text-[22px] sm:text-[26px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
                   Recevez votre <span className="italic text-destructive">bail professionnel</span> prêt à signer
                 </h2>
-                <p className="text-[13px] text-primary/65 font-body">
+                <p className="text-[13px] text-primary/80 font-body">
                   PDF complet en 13 articles, personnalisé avec vos données et adapté au contexte belge. Envoyé immédiatement dans votre boîte mail.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-2.5 mb-3">
                 <div>
-                  <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-                  <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
+                  <Label htmlFor="bail-champ-21" className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                  <Input id="bail-champ-21" value={prenom} onChange={(e) => setPrenom(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="Votre prénom" />
                 </div>
                 <div>
-                  <Label className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
-                  <Input value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
+                  <Label htmlFor="bail-champ-22" className="text-[11px] text-muted-foreground font-medium">Téléphone (optionnel)</Label>
+                  <Input id="bail-champ-22" value={telephone} onChange={(e) => setTelephone(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="+32 …" />
                 </div>
               </div>
               <div className="mb-4">
-                <Label className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
-                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
+                <Label htmlFor="bail-champ-23" className="text-[11px] text-muted-foreground font-medium">E-mail *</Label>
+                <Input id="bail-champ-23" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-9 text-[13px]" placeholder="vous@exemple.be" />
               </div>
               <Button onClick={handleSubmit} disabled={sending || !prenom.trim() || !email.trim()} variant="accent" className="w-full rounded-lg">
                 {sending ? "Envoi en cours…" : "Générer et recevoir mon bail par email"}

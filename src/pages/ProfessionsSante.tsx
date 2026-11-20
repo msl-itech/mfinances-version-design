@@ -91,12 +91,12 @@ export default function ProfessionsSante() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           {/* Watermark géant */}
           <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Soigner</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Soigner</span>
           </div>
           {/* Halo accent */}
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
@@ -124,7 +124,7 @@ export default function ProfessionsSante() {
               <div className="mt-8 text-center lg:text-left">
                 <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°02 / Santé</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°02 / Santé</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
                   Concentrez-vous sur vos <span className="text-accent italic">patients</span>,<br className="hidden md:block" /> nous gérons vos chiffres.
@@ -156,13 +156,13 @@ export default function ProfessionsSante() {
         {/* ── SERVICES ── */}
         <section className="bg-card py-6 md:py-12 relative overflow-hidden">
           <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 select-none hidden md:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.025] tracking-tight whitespace-nowrap">Expertise</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.025] tracking-tight whitespace-nowrap">Expertise</span>
           </div>
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10">
             <div data-anim="fade-up" className="mb-10 md:mb-16">
               <div className="flex items-center gap-3 mb-4">
                 <span className="h-px w-12 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre méthode</span>
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.1] max-w-[800px]">
                 Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -212,7 +212,7 @@ export default function ProfessionsSante() {
                 <p className="text-[14px] text-muted-foreground leading-[1.7] font-body">
                   Un médecin généraliste avec un revenu annuel de 120 000 € a bénéficié d'une restructuration complète de sa situation fiscale et patrimoniale. Dans ce cas spécifique : passage en société, stratégie immobilière intégrée, optimisation de la rémunération : la charge fiscale annuelle a pu être réduite de façon significative, et un patrimoine immobilier substantiel a été constitué sur 10 ans.
                 </p>
-                <p className="text-[13px] text-foreground/50 italic font-body mt-3">
+                <p className="text-[13px] text-foreground/70 italic font-body mt-3">
                   Les résultats varient selon la situation personnelle et professionnelle de chaque client.
                 </p>
               </div>
@@ -236,7 +236,7 @@ export default function ProfessionsSante() {
                   <table className="w-full text-[14px]">
                     <thead>
                       <tr className="border-b border-border/30 bg-secondary/40">
-                        <th className="text-left p-5 font-body font-normal text-muted-foreground w-[35%]" />
+                        <th className="text-left p-5 font-body font-normal text-muted-foreground w-[35%]"><span className="sr-only">Comparaison</span></th>
                         <th className="p-5 text-center"><span className="font-display font-bold text-[16px] text-primary">Essentiel</span></th>
                         <th className="p-5 text-center"><span className="font-display font-bold text-[16px] text-primary">Premium</span></th>
                         <th className="p-5 text-center"><span className="font-display font-bold text-[16px] text-accent">Excellence</span></th>
@@ -310,13 +310,13 @@ export default function ProfessionsSante() {
           <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

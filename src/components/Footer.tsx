@@ -122,7 +122,7 @@ export default function Footer() {
           {/* Col 2 — Services */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Services</h3>
-            <nav className="space-y-0.5">
+            <nav aria-label="Services (pied de page)" className="space-y-0.5">
               {servicesLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
               ))}
@@ -132,7 +132,7 @@ export default function Footer() {
           {/* Col 3 — Profils */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Profils</h3>
-            <nav className="space-y-0.5">
+            <nav aria-label="Profils (pied de page)" className="space-y-0.5">
               {profilsLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
               ))}
@@ -142,7 +142,7 @@ export default function Footer() {
           {/* Col 4 — Ressources */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Ressources</h3>
-            <nav className="space-y-0.5">
+            <nav aria-label="Ressources (pied de page)" className="space-y-0.5">
               {ressourcesLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
               ))}
@@ -152,7 +152,7 @@ export default function Footer() {
           {/* Col 4 — Structures */}
           <div>
             <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Structures</h3>
-            <nav className="space-y-0.5">
+            <nav aria-label="Structures (pied de page)" className="space-y-0.5">
               {structuresLinks.map((l) => (
                 <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
               ))}
@@ -163,7 +163,7 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Le cabinet</h3>
-              <nav className="space-y-0.5">
+              <nav aria-label="Le cabinet (pied de page)" className="space-y-0.5">
                 {cabinetLinks.map((l) => (
                   <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
                 ))}
@@ -171,7 +171,7 @@ export default function Footer() {
             </div>
             <div>
               <h3 className="font-semibold text-[15px] mb-4 tracking-wide text-accent">Légal</h3>
-              <nav className="space-y-0.5">
+              <nav aria-label="Légal (pied de page)" className="space-y-0.5">
                 {legalLinks.map((l) => (
                   <Link key={l.label} to={l.href} className={linkClass}>{l.label}</Link>
                 ))}

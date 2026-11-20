@@ -300,11 +300,12 @@ export default function CalculateurQuotite() {
               {/* Nom de la pièce */}
               <div className="flex items-center gap-2">
                 <Input
+                  aria-label="Nom de la pièce"
                   value={piece.name}
                   onChange={(e) => updatePiece(piece.id, "name", e.target.value)}
                   className="h-9 text-[13px] font-medium bg-transparent border-0 px-0 focus-visible:ring-0 shadow-none flex-1"
                 />
-                <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground/50 hover:text-destructive transition-colors md:hidden p-1 min-w-[36px] min-h-[36px] flex items-center justify-center">
+                <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground hover:text-destructive transition-colors md:hidden p-1 min-w-[36px] min-h-[36px] flex items-center justify-center">
                   <X size={14} aria-hidden="true" />
                 </button>
               </div>
@@ -315,6 +316,7 @@ export default function CalculateurQuotite() {
                   <span className="text-[10px] text-muted-foreground md:hidden mb-0.5 block">Surface (m²)</span>
                   <Input
                     type="number"
+                    aria-label={`Surface en m² : ${piece.name}`}
                     value={piece.surface || ""}
                     onChange={(e) => updatePiece(piece.id, "surface", numVal(e.target.value) || 0)}
                     className="h-[36px] text-[13px] font-semibold text-primary text-center bg-secondary border-border rounded-md w-full"
@@ -323,7 +325,7 @@ export default function CalculateurQuotite() {
                 <div>
                   <span className="text-[10px] text-muted-foreground md:hidden mb-0.5 block">Type de pièce</span>
                   <Select value={piece.type} onValueChange={(v) => updatePiece(piece.id, "type", v)}>
-                    <SelectTrigger className="h-[36px] text-[11px] bg-secondary border-border">
+                    <SelectTrigger aria-label={`Type de pièce : ${piece.name}`} className="h-[36px] text-[11px] bg-secondary border-border">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -339,6 +341,7 @@ export default function CalculateurQuotite() {
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-muted-foreground md:hidden mr-1">Usage pro</span>
                 <Slider
+                  aria-label={`Part d'usage professionnel : ${piece.name}`}
                   value={[piece.usagePro]}
                   onValueChange={([v]) => updatePiece(piece.id, "usagePro", v)}
                   max={100}
@@ -349,7 +352,7 @@ export default function CalculateurQuotite() {
               </div>
 
               {/* Bouton supprimer (desktop) */}
-              <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground/30 hover:text-destructive transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <button onClick={() => removePiece(piece.id)} aria-label="Supprimer cette pièce" className="text-muted-foreground hover:text-destructive transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <X size={14} aria-hidden="true" />
               </button>
             </div>
@@ -408,8 +411,8 @@ export default function CalculateurQuotite() {
           </div>
 
           <div className="mb-4">
-            <Label className="text-[11px] text-muted-foreground font-medium">Adresse du bien (optionnel, pour votre rapport PDF)</Label>
-            <Input value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Rue de la Loi 12, 1040 Bruxelles" className="mt-1 h-9 text-[13px]" />
+            <Label htmlFor="quotite-champ-1" className="text-[11px] text-muted-foreground font-medium">Adresse du bien (optionnel, pour votre rapport PDF)</Label>
+            <Input id="quotite-champ-1" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Rue de la Loi 12, 1040 Bruxelles" className="mt-1 h-9 text-[13px]" />
           </div>
 
           <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-2.5 pb-1 border-b border-border">
@@ -418,37 +421,37 @@ export default function CalculateurQuotite() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Loyer mensuel (×12)</Label>
+              <Label htmlFor="quotite-champ-2" className="text-[11px] text-muted-foreground font-medium">Loyer mensuel (×12)</Label>
               <div className="relative mt-1">
-                <Input type="number" value={loyerMensuel} onChange={(e) => setLoyerMensuel(numVal(e.target.value))} placeholder="1 200" className="h-9 text-[13px] pr-16" />
+                <Input id="quotite-champ-2" type="number" value={loyerMensuel} onChange={(e) => setLoyerMensuel(numVal(e.target.value))} placeholder="1 200" className="h-9 text-[13px] pr-16" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€/mois</span>
               </div>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Énergie / an</Label>
+              <Label htmlFor="quotite-champ-3" className="text-[11px] text-muted-foreground font-medium">Énergie / an</Label>
               <div className="relative mt-1">
-                <Input type="number" value={energie} onChange={(e) => setEnergie(numVal(e.target.value))} placeholder="2 400" className="h-9 text-[13px] pr-8" />
+                <Input id="quotite-champ-3" type="number" value={energie} onChange={(e) => setEnergie(numVal(e.target.value))} placeholder="2 400" className="h-9 text-[13px] pr-8" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€</span>
               </div>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Internet / an</Label>
+              <Label htmlFor="quotite-champ-4" className="text-[11px] text-muted-foreground font-medium">Internet / an</Label>
               <div className="relative mt-1">
-                <Input type="number" value={internet} onChange={(e) => setInternet(numVal(e.target.value))} placeholder="600" className="h-9 text-[13px] pr-8" />
+                <Input id="quotite-champ-4" type="number" value={internet} onChange={(e) => setInternet(numVal(e.target.value))} placeholder="600" className="h-9 text-[13px] pr-8" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€</span>
               </div>
             </div>
             <div>
-              <Label className="text-[11px] text-muted-foreground font-medium">Assurance habitation / an</Label>
+              <Label htmlFor="quotite-champ-5" className="text-[11px] text-muted-foreground font-medium">Assurance habitation / an</Label>
               <div className="relative mt-1">
-                <Input type="number" value={assurance} onChange={(e) => setAssurance(numVal(e.target.value))} placeholder="350" className="h-9 text-[13px] pr-8" />
+                <Input id="quotite-champ-5" type="number" value={assurance} onChange={(e) => setAssurance(numVal(e.target.value))} placeholder="350" className="h-9 text-[13px] pr-8" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€</span>
               </div>
             </div>
             <div className="md:col-span-2">
-              <Label className="text-[11px] text-muted-foreground font-medium">Précompte immobilier / an (si propriétaire)</Label>
+              <Label htmlFor="quotite-champ-6" className="text-[11px] text-muted-foreground font-medium">Précompte immobilier / an (si propriétaire)</Label>
               <div className="relative mt-1">
-                <Input type="number" value={precompte} onChange={(e) => setPrecompte(numVal(e.target.value))} placeholder="0" className="h-9 text-[13px] pr-8" />
+                <Input id="quotite-champ-6" type="number" value={precompte} onChange={(e) => setPrecompte(numVal(e.target.value))} placeholder="0" className="h-9 text-[13px] pr-8" />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-muted-foreground">€</span>
               </div>
             </div>
@@ -499,8 +502,8 @@ export default function CalculateurQuotite() {
             Ces informations personnalisent votre rapport : la logique de déduction diffère selon votre statut et votre situation de logement.
           </div>
 
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
-          <div className="grid grid-cols-2 gap-2 mb-5">
+          <Label id="quotite-statut" className="text-[11px] text-muted-foreground font-medium mb-2 block">Vous êtes</Label>
+          <div role="group" aria-labelledby="quotite-statut" className="grid grid-cols-2 gap-2 mb-5">
             {[
               { value: "dirigeant", label: "Dirigeant(e) de société" },
               { value: "independant", label: "Indépendant(e)" },
@@ -511,6 +514,7 @@ export default function CalculateurQuotite() {
                 key={opt.value}
                 type="button"
                 onClick={() => setStatut(opt.value)}
+                aria-pressed={statut === opt.value}
                 className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
                   statut === opt.value
                     ? "border-primary bg-primary/10 text-foreground"
@@ -522,8 +526,8 @@ export default function CalculateurQuotite() {
             ))}
           </div>
 
-          <Label className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
-          <div className="grid grid-cols-2 gap-2 mb-4">
+          <Label id="quotite-logement" className="text-[11px] text-muted-foreground font-medium mb-2 block">Votre logement</Label>
+          <div role="group" aria-labelledby="quotite-logement" className="grid grid-cols-2 gap-2 mb-4">
             {[
               { value: "locataire", label: "Locataire" },
               { value: "proprietaire", label: "Propriétaire" },
@@ -532,6 +536,7 @@ export default function CalculateurQuotite() {
                 key={opt.value}
                 type="button"
                 onClick={() => setLogement(opt.value)}
+                aria-pressed={logement === opt.value}
                 className={`border rounded-lg px-3 py-2.5 text-[12px] font-semibold text-left transition-colors ${
                   logement === opt.value
                     ? "border-primary bg-primary/10 text-foreground"
@@ -579,7 +584,7 @@ export default function CalculateurQuotite() {
                 {/* Aperçu flouté du résultat */}
                 <div aria-hidden className="pointer-events-none select-none blur-md opacity-70 space-y-3">
                   <div className="bg-primary rounded-xl p-5 text-center">
-                    <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
+                    <div className="text-[12px] text-muted-foreground mb-2">Part professionnelle calculée</div>
                     <div className="font-display text-[48px] font-light text-primary-foreground leading-none">
                       {fmtDec(quotite)}<sup className="text-[22px] align-super">%</sup>
                     </div>
@@ -636,19 +641,19 @@ export default function CalculateurQuotite() {
                 <h2 className="font-display text-[22px] sm:text-[26px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
                   Où envoyons-nous votre <span className="italic text-destructive">rapport</span> ?
                 </h2>
-                <p className="text-[13px] text-primary/65 font-body">
+                <p className="text-[13px] text-primary/80 font-body">
                   Rapport PDF détaillé livré dans votre boîte mail sous 2 minutes.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                 <div>
-                  <Label className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
-                  <Input value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
+                  <Label htmlFor="quotite-champ-7" className="text-[11px] text-muted-foreground font-medium">Prénom *</Label>
+                  <Input id="quotite-champ-7" value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" className="mt-1 h-9 text-[13px]" required />
                 </div>
                 <div>
-                  <Label className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
-                  <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
+                  <Label htmlFor="quotite-champ-8" className="text-[11px] text-muted-foreground font-medium">E-mail professionnel *</Label>
+                  <Input id="quotite-champ-8" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.be" className="mt-1 h-9 text-[13px]" required />
                 </div>
               </div>
 
@@ -708,11 +713,11 @@ export default function CalculateurQuotite() {
 
             {/* Grand résultat */}
             <div className="bg-primary rounded-xl p-5 sm:p-7 text-center mb-5">
-              <div className="text-[12px] text-muted-foreground/70 mb-2">Part professionnelle calculée</div>
+              <div className="text-[12px] text-muted-foreground mb-2">Part professionnelle calculée</div>
               <div className="font-display text-[48px] sm:text-[64px] font-light text-primary-foreground leading-none">
                 {fmtDec(quotite)}<sup className="text-[22px] sm:text-[28px] align-super">%</sup>
               </div>
-              <div className="text-[12px] sm:text-[13px] text-muted-foreground/70 mt-2">
+              <div className="text-[12px] sm:text-[13px] text-muted-foreground mt-2">
                 {fmtDec(surfacePro)} m² pro / {fmtDec(surfaceTotal)} m² totaux
               </div>
             </div>

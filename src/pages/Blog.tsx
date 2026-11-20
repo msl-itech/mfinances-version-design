@@ -164,7 +164,7 @@ export default function Blog() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[820px] px-6 lg:px-12 text-center">

@@ -132,7 +132,7 @@ export default function ChecklistControleBureau() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── SECTION 1 — HERO ── */}
         <section className="bg-secondary py-14 md:py-10">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
@@ -303,7 +303,7 @@ export default function ChecklistControleBureau() {
                 </Button>
               </form>
 
-              <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
+              <p className="text-[11px] text-foreground/70 font-body mt-4 italic text-center">
                 Vos données sont confidentielles. Aucune revente.
               </p>
             </div>

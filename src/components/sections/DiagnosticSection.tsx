@@ -65,7 +65,7 @@ export default function DiagnosticSection() {
               {features.map((f) => {
                 const Icon = f.icon;
                 return (
-                  <span key={f.text} className="inline-flex items-center gap-2 text-[13px] text-foreground/60">
+                  <span key={f.text} className="inline-flex items-center gap-2 text-[13px] text-foreground/70">
                     <Icon size={15} className="text-accent" strokeWidth={1.5} />
                     {f.text}
                   </span>

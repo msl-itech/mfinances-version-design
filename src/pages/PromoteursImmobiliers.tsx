@@ -76,11 +76,11 @@ export default function PromoteursImmobiliers() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-10 -right-16 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Bâtir</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[260px] leading-none text-primary-foreground/[0.04] tracking-tight">Bâtir</span>
           </div>
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl" />
 
@@ -107,7 +107,7 @@ export default function PromoteursImmobiliers() {
               <div className="mt-8 text-center lg:text-left">
                 <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°03 / Immobilier</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">N°03 / Immobilier</span>
                 </div>
                 <h1 className="font-display text-[28px] md:text-[56px] leading-[1.05] text-primary-foreground">
                   Promotion immobilière —<br className="hidden md:block" /> <span className="text-accent italic">pilotez chaque projet</span> avec rigueur.
@@ -139,14 +139,14 @@ export default function PromoteursImmobiliers() {
         {/* ── SERVICES ── */}
         <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -left-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.035] tracking-tight">Méthode</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.035] tracking-tight">Méthode</span>
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="mb-12 md:mb-20 max-w-[760px]">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -161,7 +161,7 @@ export default function PromoteursImmobiliers() {
               <div data-anim="fade-up" data-delay="0.08"  className="lg:col-span-5">
                 <div className="group relative bg-secondary/40 rounded-3xl p-8 md:p-10 border border-border/60 h-full overflow-hidden transition-all duration-500 hover:border-accent/40 hover:shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]">
                   <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-3xl transition-all duration-700" />
-                  <div className="absolute top-7 right-7 font-display text-[60px] leading-none text-accent/[0.15] select-none">01</div>
+                  <div aria-hidden="true" className="absolute top-7 right-7 font-display text-[60px] leading-none text-accent/[0.15] select-none">01</div>
 
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center mb-7 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
@@ -175,7 +175,7 @@ export default function PromoteursImmobiliers() {
                     </p>
 
                     <div className="mt-8 pt-6 border-t border-border/50 flex items-center justify-between">
-                      <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/50 font-body">Pilotage opérationnel</span>
+                      <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/70 font-body">Pilotage opérationnel</span>
                       <ArrowUpRight size={18} className="text-accent transition-transform duration-500 group-hover:rotate-45" />
                     </div>
                   </div>
@@ -223,14 +223,14 @@ export default function PromoteursImmobiliers() {
         {/* ── RÉSULTAT CONCRET ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Impact</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Impact</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -259,7 +259,7 @@ export default function PromoteursImmobiliers() {
                       <Building size={22} className="text-accent" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/50 font-body mb-1">Promoteur résidentiel</p>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/70 font-body mb-1">Promoteur résidentiel</p>
                       <h3 className="font-display text-[20px] md:text-[24px] text-foreground leading-[1.2]">
                         Comptabilité analytique <span className="italic text-accent">+ optimisation des ventes</span>
                       </h3>
@@ -274,20 +274,20 @@ export default function PromoteursImmobiliers() {
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <TrendingUp size={14} className="text-accent" strokeWidth={2} />
-                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Rentabilité</p>
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/70 font-body">Rentabilité</p>
                       </div>
                       <p className="font-display text-[20px] text-foreground">Améliorée</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <Rocket size={14} className="text-accent" strokeWidth={2} />
-                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Nouveau projet</p>
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/70 font-body">Nouveau projet</p>
                       </div>
                       <p className="font-display text-[20px] text-foreground">Autofinancé</p>
                     </div>
                   </div>
 
-                  <p className="text-[12.5px] text-foreground/45 italic font-body mt-5">
+                  <p className="text-[12.5px] text-foreground/70 italic font-body mt-5">
                     Les gains obtenus varient selon la nature et la taille des projets.
                   </p>
                 </div>
@@ -299,14 +299,14 @@ export default function PromoteursImmobiliers() {
         {/* ── OFFRE EXCELLENCE ── */}
         <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none hidden md:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[280px] leading-none text-foreground/[0.03] tracking-tight whitespace-nowrap">Excellence</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[280px] leading-none text-foreground/[0.03] tracking-tight whitespace-nowrap">Excellence</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="text-center mb-12 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre offre</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -328,7 +328,7 @@ export default function PromoteursImmobiliers() {
                   <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 border-b lg:border-b-0 lg:border-r border-primary-foreground/10">
                     <div className="flex items-center gap-3 mb-6">
                       <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold tracking-[0.2em] uppercase font-body">Excellence</span>
-                      <span className="text-primary-foreground/50 text-[11px] tracking-[0.2em] uppercase font-body">Offre unique</span>
+                      <span className="text-primary-foreground/60 text-[11px] tracking-[0.2em] uppercase font-body">Offre unique</span>
                     </div>
                     <h3 className="font-display text-[28px] md:text-[36px] text-primary-foreground leading-[1.1] mb-8">
                       Le pilotage <span className="italic text-accent">complet</span> pour promoteurs.
@@ -395,13 +395,13 @@ export default function PromoteursImmobiliers() {
           <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

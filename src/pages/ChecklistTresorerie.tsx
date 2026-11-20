@@ -158,7 +158,7 @@ export default function ChecklistTresorerie() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[900px] px-6 lg:px-12">
@@ -207,7 +207,7 @@ export default function ChecklistTresorerie() {
                       <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
                         Recevez la <span className="italic text-destructive">checklist trésorerie</span> qui protège votre TPE
                       </h2>
-                      <p className="text-[14px] text-primary/65 font-body">
+                      <p className="text-[14px] text-primary/80 font-body">
                         Les 5 erreurs qui vident les comptes des dirigeants, avec les questions à vous poser pour chacune. Téléchargement immédiat.
                       </p>
                     </div>
@@ -236,7 +236,7 @@ export default function ChecklistTresorerie() {
                           className="mt-0.5 w-4 h-4 rounded border-border/50 accent-accent"
                           disabled={isLoading}
                         />
-                        <span className="text-[12px] text-foreground/60 font-body leading-snug">
+                        <span className="text-[12px] text-foreground/70 font-body leading-snug">
                           J'accepte de recevoir des emails de MFINANCES pour m'accompagner dans mon pilotage financier.
                         </span>
                       </label>
@@ -264,7 +264,7 @@ export default function ChecklistTresorerie() {
                         )}
                       </Button>
                     </div>
-                    <p className="text-[11px] text-foreground/40 font-body mt-3 italic">
+                    <p className="text-[11px] text-foreground/70 font-body mt-3 italic">
                       Votre email ne sera jamais partagé. Désinscription en un clic.
                     </p>
                   </>

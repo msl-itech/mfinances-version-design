@@ -131,7 +131,7 @@ function CellValue({ v, isPrice }: { v: string; isPrice?: boolean }) {
     return <Check size={18} className="mx-auto text-accent" strokeWidth={2.5} />;
   }
   if (v === "À la demande") {
-    return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{v}</span>;
+    return <span className="inline-block font-body text-[12px] italic text-primary/80 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{v}</span>;
   }
   if (/^(Trimestrielles|Trimestrielle|Trimestriel|Mensuelles|Mensuelle|Mensuel)$/i.test(v)) {
     return <span className="font-body font-semibold text-accent text-[13px]">{v}</span>;
@@ -167,7 +167,7 @@ export default function Comptabilite() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="Comptabilité"
           eyebrow="Inclus dès le forfait Essentiel"
@@ -194,7 +194,7 @@ export default function Comptabilite() {
         {/* ── SECTION 1 — Pourquoi Odoo (manifesto éditorial) ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
             >
@@ -229,7 +229,7 @@ export default function Comptabilite() {
         {/* ── SECTION 2 — Services (6 cards éditoriales) ── */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -260,7 +260,7 @@ export default function Comptabilite() {
                     
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
-                    <span
+                    <span aria-hidden="true"
                       className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "110px" }}
                     >
@@ -287,7 +287,7 @@ export default function Comptabilite() {
         {/* ── SECTION 3 — Témoignages éditoriaux ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -326,7 +326,7 @@ export default function Comptabilite() {
                       <p className="font-display font-bold text-[14px] text-foreground">{t.author}</p>
                       <p className="text-[12px] text-muted-foreground font-body mt-0.5">{t.role}</p>
                     </div>
-                    <span className="font-display italic text-muted-foreground/30 text-[14px]">
+                    <span className="font-display italic text-muted-foreground text-[14px]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -339,7 +339,7 @@ export default function Comptabilite() {
         {/* ── SECTION 4 — Odoo split éditorial ── */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >
@@ -402,7 +402,7 @@ export default function Comptabilite() {
         {/* ── SECTION 5 — Tableau forfaits éditorial ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
             >
@@ -472,7 +472,7 @@ export default function Comptabilite() {
                                   <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
                                   <span className="relative z-10 flex flex-col items-start gap-1">
                                     {cat.num !== "V" && (
-                                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                      <span className="font-display italic text-muted-foreground text-[12px]">{cat.num}</span>
                                     )}
                                     <span className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-left leading-[1.3] whitespace-pre-line">
                                       {cat.title}
@@ -502,7 +502,7 @@ export default function Comptabilite() {
                   <div key={cat.num}>
                     <div className="flex items-center gap-3 mb-3 px-1">
                       <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
-                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                      <span className="font-display italic text-muted-foreground text-[12px]">{cat.num}</span>
                       <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
                         {cat.title}
                       </span>

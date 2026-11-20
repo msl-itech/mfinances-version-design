@@ -101,7 +101,7 @@ export default function APropos() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <span
@@ -170,7 +170,7 @@ export default function APropos() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((s, i) => (
                 <div data-anim="fade-up" data-delay="i * 0.06" key={s.label}  className="text-center group">
-                  <div className="font-display italic text-accent/40 text-[10px] tracking-[0.3em] uppercase mb-2 not-italic">0{i + 1}</div>
+                  <div className="font-display italic text-accent text-[10px] tracking-[0.3em] uppercase mb-2 not-italic">0{i + 1}</div>
                   <div className="font-display text-[32px] md:text-[44px] text-primary leading-none tracking-tight transition-colors duration-300 group-hover:text-accent">
                     {s.value}
                   </div>

@@ -108,7 +108,7 @@ export default function LeadMagnetSection() {
                 </Link>
               </Button>
 
-              <p className="text-[10px] text-muted-foreground/70 italic mt-5 text-center uppercase tracking-[0.12em]">
+              <p className="text-[10px] text-muted-foreground italic mt-5 text-center uppercase tracking-[0.12em]">
                 Gratuit · Sans spam · Téléchargement immédiat
               </p>
             </div>

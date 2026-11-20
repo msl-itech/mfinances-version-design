@@ -604,11 +604,14 @@ export default function ChatBot() {
 
       {/* Chat window */}
       <div
+        role="dialog"
+        aria-label="Assistant IA MFinances"
+        aria-hidden={!open}
         className={cn(
           "fixed z-50 transition-all duration-300 origin-bottom-right",
           open
-            ? "opacity-100 scale-100 pointer-events-auto"
-            : "opacity-0 scale-90 pointer-events-none",
+            ? "visible opacity-100 scale-100 pointer-events-auto"
+            : "invisible opacity-0 scale-90 pointer-events-none",
           "bottom-36 md:bottom-24 right-4 w-[calc(100vw-2rem)] sm:w-[380px]"
         )}
       >
@@ -629,7 +632,7 @@ export default function ChatBot() {
           </div>
 
           {/* Messages */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[200px]">
+          <div ref={scrollRef} role="log" aria-live="polite" aria-label="Conversation avec l'assistant" className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[200px]">
             {messages.map((msg, i) => (
               <div
                 key={i}
@@ -735,7 +738,7 @@ export default function ChatBot() {
                 </form>
                 <button
                   onClick={() => setShowLeadCapture(false)}
-                  className="text-[11px] text-muted-foreground/60 mt-2 hover:text-muted-foreground"
+                  className="text-[11px] text-muted-foreground mt-2 hover:text-muted-foreground"
                 >
                   Non merci, continuer le chat
                 </button>

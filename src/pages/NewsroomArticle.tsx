@@ -165,7 +165,7 @@ export default function NewsroomArticlePage() {
 
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section data-hero-section className="bg-primary py-6 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
@@ -194,7 +194,7 @@ export default function NewsroomArticlePage() {
                 <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-accent">{article.category}</span>
                 {article.location && (
                   <>
-                    <span className="text-primary-foreground/40">·</span>
+                    <span className="text-primary-foreground/60">·</span>
                     <span className="text-[11px] text-primary-foreground/60 flex items-center gap-1">
                       <MapPin size={11} /> {article.location}
                     </span>
@@ -263,7 +263,7 @@ export default function NewsroomArticlePage() {
                               className={`block text-[13px] transition-colors font-body leading-relaxed py-0.5 ${
                                 activeSectionId === item.id
                                   ? "text-accent font-semibold"
-                                  : "text-foreground/60 hover:text-accent"
+                                  : "text-foreground/70 hover:text-accent"
                               }`}
                             >
                               {item.text}
@@ -279,21 +279,21 @@ export default function NewsroomArticlePage() {
                       <div className="flex flex-wrap items-center gap-2">
                         <button
                           onClick={handleShareLinkedIn}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors"
                           aria-label="Partager sur LinkedIn"
                         >
                           <Linkedin size={14} />
                         </button>
                         <button
                           onClick={handleShareEmail}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors"
                           aria-label="Envoyer par email"
                         >
                           <Mail size={14} />
                         </button>
                         <button
                           onClick={handleCopyLink}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors"
                           aria-label="Copier le lien"
                           title={copiedLink ? "Lien copié !" : "Copier le lien"}
                         >
@@ -356,13 +356,13 @@ export default function NewsroomArticlePage() {
                         </ul>
                         <div className="mt-4 pt-3 border-t border-border/40 flex flex-wrap items-center gap-2">
                           <span className="text-[12px] text-muted-foreground font-body">Partager :</span>
-                          <button onClick={handleShareLinkedIn} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors" aria-label="LinkedIn">
+                          <button onClick={handleShareLinkedIn} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors" aria-label="LinkedIn">
                             <Linkedin size={14} />
                           </button>
-                          <button onClick={handleShareEmail} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors" aria-label="Email">
+                          <button onClick={handleShareEmail} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors" aria-label="Email">
                             <Mail size={14} />
                           </button>
-                          <button onClick={handleCopyLink} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/60 hover:text-accent transition-colors" aria-label="Copier">
+                          <button onClick={handleCopyLink} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary hover:bg-accent/10 border border-border/50 text-foreground/70 hover:text-accent transition-colors" aria-label="Copier">
                             {copiedLink ? <Check size={14} className="text-emerald-600" /> : <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>}
                           </button>
                         </div>
@@ -564,7 +564,7 @@ export default function NewsroomArticlePage() {
                 {article.tags && article.tags.length > 0 && (
                   <div className="mt-6 flex flex-wrap gap-1.5">
                     {article.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 rounded-full bg-secondary text-[11px] font-medium text-foreground/60">
+                      <span key={tag} className="px-2.5 py-1 rounded-full bg-secondary text-[11px] font-medium text-foreground/70">
                         #{tag}
                       </span>
                     ))}

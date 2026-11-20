@@ -124,11 +124,11 @@ export default function SocieteDeManagement() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Capital</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Capital</span>
           </div>
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-accent/20 blur-[120px]" />
 
@@ -137,13 +137,13 @@ export default function SocieteDeManagement() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
@@ -157,7 +157,7 @@ export default function SocieteDeManagement() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°03</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°03</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
                   Transformez vos revenus<br />
@@ -213,7 +213,7 @@ export default function SocieteDeManagement() {
         {/* ── SERVICES ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -right-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Patrimoine</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Patrimoine</span>
           </div>
 
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative">
@@ -221,7 +221,7 @@ export default function SocieteDeManagement() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
                 </div>
                 <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                   Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -267,7 +267,7 @@ export default function SocieteDeManagement() {
                         </p>
 
                         <div className={`mt-6 pt-5 border-t ${isDark ? "border-primary-foreground/15" : "border-border/50"}`}>
-                          <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-body ${isDark ? "text-primary-foreground/50" : "text-foreground/50"}`}>
+                          <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-body ${isDark ? "text-primary-foreground/60" : "text-foreground/70"}`}>
                             Pilier {num}
                           </span>
                         </div>
@@ -345,7 +345,7 @@ export default function SocieteDeManagement() {
                 <table className="w-full text-[14px]">
                   <thead>
                     <tr className="border-b border-border/30 bg-secondary/40">
-                      <th className="text-left p-5 font-body font-normal text-muted-foreground w-[30%]" />
+                      <th className="text-left p-5 font-body font-normal text-muted-foreground w-[30%]"><span className="sr-only">Comparaison</span></th>
                       <th className="p-5 text-center"><span className="font-display font-bold text-[16px] text-destructive">Sans société de management</span></th>
                       <th className="p-5 text-center"><span className="font-display font-bold text-[16px] text-accent">Avec société de management</span></th>
                     </tr>
@@ -354,7 +354,7 @@ export default function SocieteDeManagement() {
                     {beforeAfterRows.map((row, ri) => (
                       <tr key={row.label} className="border-b border-border/20 last:border-0">
                         <td className="p-4 pl-5 font-medium text-foreground/80 font-body">{row.label}</td>
-                        <td className="p-4 text-center text-foreground/60 font-body text-[13px]">{row.before}</td>
+                        <td className="p-4 text-center text-foreground/70 font-body text-[13px]">{row.before}</td>
                         <td className="p-4 text-center text-accent font-body font-semibold text-[13px]">{row.after}</td>
                       </tr>
                     ))}
@@ -370,7 +370,7 @@ export default function SocieteDeManagement() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <span className="text-[10px] font-semibold uppercase tracking-wider font-body block mb-1 text-destructive">Avant</span>
-                        <span className="font-body text-[12px] text-foreground/60">{row.before}</span>
+                        <span className="font-body text-[12px] text-foreground/70">{row.before}</span>
                       </div>
                       <div>
                         <span className="text-[10px] font-semibold uppercase tracking-wider font-body block mb-1 text-accent">Après</span>
@@ -381,7 +381,7 @@ export default function SocieteDeManagement() {
                 ))}
               </div>
 
-              <p className="text-[13px] text-foreground/50 italic font-body mt-5 text-center max-w-[700px] mx-auto">
+              <p className="text-[13px] text-foreground/70 italic font-body mt-5 text-center max-w-[700px] mx-auto">
                 Exemple illustratif basé sur un dirigeant avec 200 000 € de revenus annuels. Les résultats dépendent de la situation personnelle, fiscale et patrimoniale de chaque client. Une analyse personnalisée est indispensable.
               </p>
             </div>
@@ -392,14 +392,14 @@ export default function SocieteDeManagement() {
         <section className="bg-primary py-8 md:py-12 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" className="font-display italic text-[200px] leading-none text-primary-foreground/[0.05] tracking-tight">Karim</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[200px] leading-none text-primary-foreground/[0.05] tracking-tight">Karim</span>
           </div>
 
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 justify-center mb-6">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
 
@@ -423,14 +423,14 @@ export default function SocieteDeManagement() {
         {/* ── CAS CLIENT ── */}
         <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -right-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Impact</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Impact</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="text-center mb-12 md:mb-16 max-w-[640px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Cas client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -457,7 +457,7 @@ export default function SocieteDeManagement() {
                       <Building2 size={22} className="text-accent" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/50 font-body mb-1">PME technologique</p>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/70 font-body mb-1">PME technologique</p>
                       <h3 className="font-display text-[20px] md:text-[24px] text-foreground leading-[1.2]">
                         Structuration <span className="italic text-accent">patrimoniale</span>
                       </h3>
@@ -472,20 +472,20 @@ export default function SocieteDeManagement() {
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <TrendingUp size={14} className="text-accent" strokeWidth={2} />
-                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Charge fiscale</p>
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/70 font-body">Charge fiscale</p>
                       </div>
                       <p className="font-display text-[20px] text-foreground">Réduite</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <Sparkles size={14} className="text-accent" strokeWidth={2} />
-                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/50 font-body">Patrimoine</p>
+                        <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-foreground/70 font-body">Patrimoine</p>
                       </div>
                       <p className="font-display text-[20px] text-foreground">Constitué</p>
                     </div>
                   </div>
 
-                  <p className="text-[12.5px] text-foreground/45 italic font-body mt-5">
+                  <p className="text-[12.5px] text-foreground/70 italic font-body mt-5">
                     Les résultats varient selon la situation de chaque dirigeant.
                   </p>
                 </div>
@@ -497,14 +497,14 @@ export default function SocieteDeManagement() {
         {/* ── FORFAITS ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
@@ -654,13 +654,13 @@ export default function SocieteDeManagement() {
           <img src={imgMeeting} alt="Consultation société de management MFinances" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

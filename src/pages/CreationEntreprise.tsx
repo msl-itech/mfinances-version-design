@@ -99,7 +99,7 @@ export default function CreationEntreprise() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="Création d'entreprise"
           eyebrow="800 € HTVA : Forfait tout compris"
@@ -127,7 +127,7 @@ export default function CreationEntreprise() {
         {/* ── SECTION 1 — Le problème (manifesto rouge) ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 320px)", letterSpacing: "-0.04em" }}
             >
@@ -183,7 +183,7 @@ export default function CreationEntreprise() {
         {/* ── SECTION 2 — Accompagnement (4 cards éditoriales) ── */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -214,7 +214,7 @@ export default function CreationEntreprise() {
                     
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
-                    <span
+                    <span aria-hidden="true"
                       className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
@@ -241,7 +241,7 @@ export default function CreationEntreprise() {
         {/* ── SECTION 3 — Ce que vous obtenez (split éditorial + table) ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -281,7 +281,7 @@ export default function CreationEntreprise() {
                         <tr key={i} className={`border-b border-border/40 last:border-b-0 hover:bg-card/50 transition-colors ${row.highlight ? "bg-accent/[0.05]" : ""}`}>
                           <td className={`p-5 font-medium font-body ${row.highlight ? "text-accent font-bold" : row.muted ? "text-muted-foreground italic" : "text-foreground/85"}`}>
                             <span className="flex items-center gap-3">
-                              <span className="font-display italic text-muted-foreground/40 text-[12px]">
+                              <span className="font-display italic text-muted-foreground text-[12px]">
                                 {String(i + 1).padStart(2, "0")}
                               </span>
                               {row.step}
@@ -300,7 +300,7 @@ export default function CreationEntreprise() {
                   {tableRows.map((row, i) => (
                     <div key={i} className={`rounded-2xl border p-5 ${row.highlight ? "bg-accent/[0.05] border-accent/30" : "bg-secondary/40 border-border/50"}`}>
                       <p className={`text-[14px] font-display font-bold mb-1.5 ${row.highlight ? "text-accent" : row.muted ? "text-muted-foreground" : "text-foreground"}`}>
-                        <span className="font-display italic text-muted-foreground/40 text-[12px] mr-2">
+                        <span className="font-display italic text-muted-foreground text-[12px] mr-2">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         {row.step}

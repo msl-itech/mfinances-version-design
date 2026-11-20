@@ -113,11 +113,11 @@ export default function Asbl() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Mission</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">Mission</span>
           </div>
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-accent/20 blur-[120px]" />
 
@@ -126,13 +126,13 @@ export default function Asbl() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
@@ -146,7 +146,7 @@ export default function Asbl() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°01</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Structure : N°01</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[56px] leading-[1.1] text-primary-foreground tracking-tight">
                   Vous avez une <span className="italic text-accent">mission</span> qui change des vies.<br />
@@ -186,7 +186,7 @@ export default function Asbl() {
         {/* ── SERVICES ── */}
         <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-12 -right-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Engagement</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[220px] leading-none text-foreground/[0.035] tracking-tight">Engagement</span>
           </div>
 
           <div className="mx-auto max-w-[1240px] px-6 lg:px-12 relative">
@@ -194,7 +194,7 @@ export default function Asbl() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="h-px w-10 bg-accent/60" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Notre intervention</span>
                 </div>
                 <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                   Ce que MFinances fait <span className="text-accent italic">pour vous</span>
@@ -240,7 +240,7 @@ export default function Asbl() {
                         </p>
 
                         <div className={`mt-6 pt-5 border-t flex items-center justify-between ${isDark ? "border-primary-foreground/15" : "border-border/50"}`}>
-                          <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-body ${isDark ? "text-primary-foreground/50" : "text-foreground/50"}`}>
+                          <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-body ${isDark ? "text-primary-foreground/60" : "text-foreground/70"}`}>
                             Service {num}
                           </span>
                           <ArrowUpRight size={16} className="text-accent transition-transform duration-500 group-hover:rotate-45" />
@@ -257,20 +257,20 @@ export default function Asbl() {
         {/* ── FORFAITS ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-foreground/[0.04] tracking-tight">Forfaits</span>
           </div>
 
           <div className="mx-auto max-w-[1100px] px-6 lg:px-12 relative">
             <div data-anim="fade-up" className="text-center mb-12 max-w-[680px] mx-auto">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Tarification</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[44px] text-foreground leading-[1.08]">
                 Forfaits <span className="italic text-accent">disponibles</span>
               </h2>
-              <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+              <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full bg-accent/5 border border-accent/20">
                 <Sparkles size={14} className="text-accent" strokeWidth={2} />
                 <p className="text-[13px] text-foreground/80 font-body">
                   <strong className="text-accent">−21 %</strong> appliqués pour les ASBL non assujetties à la TVA
@@ -284,10 +284,10 @@ export default function Asbl() {
                   { name: "Excellence", price: "514" },
                 ].map((p) => (
                   <div key={p.name} className="bg-card border border-border/50 rounded-xl px-4 py-3 text-center">
-                    <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-foreground/60 font-body mb-1">{p.name}</p>
+                    <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-foreground/70 font-body mb-1">{p.name}</p>
                     <p className="font-body text-[14px] text-foreground">
                       à partir de <span className="font-bold text-accent">{p.price} €</span>
-                      <span className="text-foreground/60">/mois</span>
+                      <span className="text-foreground/70">/mois</span>
                     </p>
                   </div>
                 ))}
@@ -407,14 +407,14 @@ export default function Asbl() {
         <section className="bg-card py-8 md:py-12 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden lg:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.04] tracking-tight">Confiance</span>
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[200px] leading-none text-foreground/[0.04] tracking-tight">Confiance</span>
           </div>
 
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 relative">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 justify-center mb-6">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Témoignage client</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
 
@@ -440,13 +440,13 @@ export default function Asbl() {
           <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40" />
           <div className="pointer-events-none absolute -bottom-16 right-0 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">Discutons</span>
           </div>
           <div className="mx-auto max-w-[900px] px-6 lg:px-12 text-center relative z-10">
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-5 justify-center">
                 <span className="h-px w-10 bg-accent/60" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase font-body">Premier contact</span>
                 <span className="h-px w-10 bg-accent/60" />
               </div>
               <h2 className="font-display text-[28px] md:text-[48px] text-primary-foreground leading-[1.1]">

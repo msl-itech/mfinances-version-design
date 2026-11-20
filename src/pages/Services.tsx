@@ -138,7 +138,7 @@ function ServiceCard({
         className="group relative flex flex-col h-full bg-card rounded-3xl p-7 md:p-8 border border-border/60 hover:border-accent/40 hover:shadow-[0_24px_60px_-20px_hsl(var(--primary)/0.18)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
       >
         {/* corner index watermark */}
-        <span className="absolute top-5 right-6 font-display text-[12px] text-foreground/60 tracking-[0.25em] font-bold">
+        <span className="absolute top-5 right-6 font-display text-[12px] text-foreground/70 tracking-[0.25em] font-bold">
           0{index + 1}
         </span>
 
@@ -166,7 +166,7 @@ function ServiceCard({
         <p className="text-[14px] text-muted-foreground leading-[1.7] font-body flex-1">{desc}</p>
 
         <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between">
-          <span className="text-[11px] uppercase tracking-[0.18em] text-foreground/50 font-semibold">
+          <span className="text-[11px] uppercase tracking-[0.18em] text-foreground/70 font-semibold">
             En savoir plus
           </span>
           <span className="w-10 h-10 rounded-full bg-secondary group-hover:bg-accent flex items-center justify-center transition-all duration-500 group-hover:rotate-45">
@@ -204,7 +204,7 @@ export default function Services() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ÉDITORIAL ── */}
         <section className="relative bg-primary overflow-hidden bg-precision-grid-light">
           {/* decorative orbs */}
@@ -343,7 +343,7 @@ export default function Services() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 01</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/70 font-medium">
                     Direction financière
                   </span>
                 </div>
@@ -387,7 +387,7 @@ export default function Services() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display text-[13px] text-accent font-bold tracking-wider">— 02</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/70 font-medium">
                     Le socle
                   </span>
                 </div>
@@ -421,7 +421,7 @@ export default function Services() {
             <div data-anim="fade-up" className="max-w-[760px] mx-auto text-center mb-10 md:mb-14">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/50 font-medium">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/70 font-medium">
                   Questions fréquentes
                 </span>
                 <span className="h-px w-10 bg-accent" />

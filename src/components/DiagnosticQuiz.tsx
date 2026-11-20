@@ -293,7 +293,7 @@ export default function DiagnosticQuiz() {
               Recommencer le diagnostic
             </button>
           ) : (
-            <span className="text-[10px] text-muted-foreground/60 ml-auto font-body">
+            <span className="text-[10px] text-muted-foreground ml-auto font-body">
               Aucune donnée personnelle demandée
             </span>
           )}

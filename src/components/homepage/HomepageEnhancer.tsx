@@ -10,7 +10,7 @@ import SmoothScroll from "./SmoothScroll";
  *
  * - Custom cursor with magnetic interactive feedback
  * - Magnetic pull on CTAs / [data-magnetic] elements
- * - 3D tilt on cards (auto-applied to .rounded-2xl/3xl anchors in <main>)
+ * - 3D tilt on cards (auto-applied to .rounded-2xl/3xl anchors in the main element)
  * - Top scroll progress bar
  * - Section reveal: applies .visible to existing .reveal nodes via IO
  *   (fallback in case the per-section observer misses anything)
@@ -37,7 +37,7 @@ export default function HomepageEnhancer() {
     );
     revealEls.forEach((el) => io.observe(el));
 
-    // Auto-emerge: tag eligible blocks inside <main> with .emerge so they
+    // Auto-emerge: tag eligible blocks inside the main element with .emerge so they
     // softly rise + fade in as they enter the viewport (Awwwards-style).
     const emergeSelectors = [
       "main h2",

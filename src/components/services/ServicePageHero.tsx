@@ -88,7 +88,7 @@ export default function ServicePageHero({
 
       {/* Giant editorial watermark */}
       <div aria-hidden="true" className="pointer-events-none absolute top-12 left-0 right-0 text-center select-none">
-        <span
+        <span aria-hidden="true"
           data-anim="text-scrub" className="font-display italic font-bold leading-none text-primary-foreground/[0.04]"
           style={{ fontSize: "clamp(110px, 22vw, 320px)", letterSpacing: "-0.04em" }}
         >

@@ -235,9 +235,9 @@ function CellValue({ v, isPrice }: { v: boolean | string | null | { span: number
   }
   if (v === true) return <Check size={18} className="text-accent mx-auto" strokeWidth={2.5} />;
   if (v === "—") return <Minus size={16} className="text-foreground/20 mx-auto" />;
-  if (v === "Hors forfait") return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">Hors forfait</span>;
-  if (v === "À la demande") return <span className="inline-block font-body text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 rounded-full px-2.5 py-1 leading-snug">À la demande<br />150 €/h</span>;
-  if (v === "Non incluse") return <span className="inline-block font-body text-[10px] font-bold bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2.5 py-1">Non incluse</span>;
+  if (v === "Hors forfait") return <span className="inline-block font-body text-[12px] italic text-primary/80 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">Hors forfait</span>;
+  if (v === "À la demande") return <span className="inline-block font-body text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 rounded-full px-2.5 py-1 leading-snug">À la demande<br />150 €/h</span>;
+  if (v === "Non incluse") return <span className="inline-block font-body text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200 rounded-full px-2.5 py-1">Non incluse</span>;
   if (v === "Inclus") return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">Inclus</span>;
   if (typeof v === "string" && /^(Régulier|Proactif)$/.test(v)) {
     return <span className="inline-block font-body text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-1">{v}</span>;
@@ -346,7 +346,7 @@ export default function Tarifs() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="relative">
           <div
@@ -588,7 +588,7 @@ export default function Tarifs() {
               <div className="hidden md:flex items-center justify-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-4 max-w-[870px] mx-auto">
                 {["À la demande", "Inclus", "Régulier", "Proactif"].map((label, i) => (
                   <span key={label} className="contents">
-                    {i > 0 && <span className="text-primary-foreground/40 text-[14px]">→</span>}
+                    {i > 0 && <span className="text-primary-foreground/60 text-[14px]">→</span>}
                     <span className="font-bold text-[13px] font-body">{label}</span>
                   </span>
                 ))}
@@ -851,7 +851,9 @@ export default function Tarifs() {
                     </colgroup>
                     <thead>
                       <tr className="border-b border-border/40 bg-gradient-to-b from-secondary/60 to-secondary/20">
-                        <th colSpan={2} className="text-left p-6 font-body font-normal text-muted-foreground" />
+                        <th colSpan={2} className="text-left p-6 font-body font-normal text-muted-foreground">
+                          <span className="sr-only">Prestations</span>
+                        </th>
                         {[
                           { name: "Basic", videoUrl: null, accent: false },
                           { name: "Essentiel", videoUrl: null, accent: false },
@@ -864,7 +866,7 @@ export default function Tarifs() {
                                 POPULAIRE
                               </span>
                             )}
-                            <span className="block font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 mb-1.5">
+                            <span className="block font-body text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-1.5">
                               0{i + 1}
                             </span>
                             <span className={`font-display font-bold text-[18px] ${plan.accent ? "text-accent" : "text-primary"} inline-flex items-center gap-1.5`}>
@@ -1153,7 +1155,7 @@ export default function Tarifs() {
                       ))}
                       {/* Légende */}
                       <p className="text-center text-[12px] text-muted-foreground font-body pt-2">
-                        <strong className="text-amber-700">À la demande</strong> = 150 € HTVA / heure
+                        <strong className="text-amber-800">À la demande</strong> = 150 € HTVA / heure
                       </p>
                     </div>
                   </div>
@@ -1163,7 +1165,7 @@ export default function Tarifs() {
 
             <div data-anim="fade-up" data-delay="0.4">
               <p className="text-center mt-3 text-[13px] text-muted-foreground font-body">
-                <strong className="text-amber-700 not-italic">À la demande</strong> = prestations facturées à <strong className="text-foreground not-italic">150 € HTVA / heure</strong>, disponibles sur demande pour aller plus loin.
+                <strong className="text-amber-800 not-italic">À la demande</strong> = prestations facturées à <strong className="text-foreground not-italic">150 € HTVA / heure</strong>, disponibles sur demande pour aller plus loin.
               </p>
               <p className="text-center mt-3 text-[13px] text-muted-foreground italic font-body">
                 Les structures non assujetties à la TVA (ASBL, certaines professions médicales) bénéficient d'une <strong className="text-foreground not-italic">réduction de 21 %</strong>.
@@ -1272,7 +1274,7 @@ export default function Tarifs() {
                       <tr key={i} className="border-b border-border/20 last:border-0 transition-colors hover:bg-secondary/40 group">
                         <td className="p-5 pl-7 font-medium text-foreground/85 font-body">
                           <span className="inline-flex items-center gap-3">
-                            <span className="font-display italic text-accent/50 text-[13px] w-5">0{i + 1}</span>
+                            <span className="font-display italic text-accent text-[13px] w-5">0{i + 1}</span>
                             {m.label}
                           </span>
                         </td>

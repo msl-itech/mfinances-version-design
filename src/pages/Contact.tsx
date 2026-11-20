@@ -217,7 +217,7 @@ export default function Contact() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* Hero banner — éditorial premium */}
         <section className="bg-primary text-primary-foreground py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           <span
@@ -279,7 +279,7 @@ export default function Contact() {
                         <Icon size={22} className="text-accent hidden md:block" strokeWidth={1.5} />
                       </div>
 
-                      <h3 className="relative font-display text-[14px] md:text-[18px] text-foreground tracking-tight">{title}</h3>
+                      <h2 className="relative font-display text-[14px] md:text-[18px] text-foreground tracking-tight">{title}</h2>
                       <p className="relative text-[12px] md:text-[15px] font-semibold text-foreground mt-1 md:mt-1.5 font-body">{value}</p>
                       <p className="relative text-[10px] md:text-[12px] text-muted-foreground font-body mt-0.5 md:mt-1.5">{sub}</p>
                     </Tag>
@@ -456,7 +456,7 @@ export default function Contact() {
                                 value={prenom}
                                 onChange={(e) => setPrenom(e.target.value)}
                                 placeholder="Votre prénom"
-                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors"
                               />
                             </div>
                             <div>
@@ -467,7 +467,7 @@ export default function Contact() {
                                 value={nom}
                                 onChange={(e) => setNom(e.target.value)}
                                 placeholder="Votre nom"
-                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors"
                               />
                             </div>
                           </div>
@@ -480,7 +480,7 @@ export default function Contact() {
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="votre@email.com"
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors"
                             />
                           </div>
 
@@ -492,7 +492,7 @@ export default function Contact() {
                               value={telephone}
                               onChange={(e) => setTelephone(e.target.value)}
                               placeholder="+32 4XX XX XX XX"
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors"
                             />
                           </div>
 
@@ -503,7 +503,7 @@ export default function Contact() {
                               onChange={(e) => setMessage(e.target.value)}
                               rows={3}
                               placeholder="Décrivez votre situation en 2 lignes..."
-                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors resize-none"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-border/50 bg-card text-foreground text-[14px] font-body placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors resize-none"
                             />
                           </div>
 

@@ -105,7 +105,7 @@ export default function Fiscalite() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="Fiscalité"
           eyebrow="Optimisation fiscale"
@@ -133,7 +133,7 @@ export default function Fiscalite() {
         {/* ── SECTION 1 — Le problème (manifesto) ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 22vw, 340px)", letterSpacing: "-0.04em" }}
             >
@@ -179,7 +179,7 @@ export default function Fiscalite() {
         {/* ── SECTION 2 — Accompagnement (6 cards éditoriales) ── */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -210,7 +210,7 @@ export default function Fiscalite() {
                     
                     className="group relative bg-card rounded-3xl p-7 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
-                    <span
+                    <span aria-hidden="true"
                       className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "110px" }}
                     >
@@ -237,7 +237,7 @@ export default function Fiscalite() {
         {/* ── SECTION 3 — Leviers fiscaux (split éditorial) ── */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >

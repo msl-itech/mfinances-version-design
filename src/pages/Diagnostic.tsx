@@ -397,7 +397,7 @@ export default function Diagnostic() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-10 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-5 sm:px-6 lg:px-12 text-center">
@@ -423,10 +423,10 @@ export default function Diagnostic() {
                 {/* Progress bar */}
                 <div className="mb-6 sm:mb-8">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-[12px] sm:text-[13px] font-semibold text-foreground/60 font-body">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-foreground/70 font-body">
                       Question {step + 1} sur 8
                     </span>
-                    <span className="text-[12px] sm:text-[13px] text-foreground/40 font-body">
+                    <span className="text-[12px] sm:text-[13px] text-foreground/70 font-body">
                       {step < 3 ? "Phase 1 : Profil" : "Phase 2 : Trésorerie"}
                     </span>
                   </div>
@@ -602,7 +602,7 @@ export default function Diagnostic() {
                         <h2 className="font-display text-[24px] sm:text-[28px] text-primary leading-[1.2] tracking-[-0.015em] mb-2">
                           Où envoyons-nous votre <span className="italic text-destructive">diagnostic</span> ?
                         </h2>
-                        <p className="text-[14px] text-primary/65 font-body">
+                        <p className="text-[14px] text-primary/80 font-body">
                           Rapport PDF livré dans votre boîte mail sous 2 minutes.
                         </p>
                       </div>
@@ -642,7 +642,7 @@ export default function Diagnostic() {
                         >
                           <ArrowLeft size={14} /> Retour
                         </button>
-                        <p className="text-[11px] text-foreground/40 font-body mt-4 italic text-center">
+                        <p className="text-[11px] text-foreground/70 font-body mt-4 italic text-center">
                           En laissant votre email, vous recevrez également notre guide « 5 erreurs qui détruisent la trésorerie des TPE ».
                         </p>
                       </form>

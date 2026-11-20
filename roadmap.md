@@ -101,3 +101,11 @@ Légende : [ ] à faire · [x] fait · (Site) = je peux le faire ici · (Équipe
 - [x] (Site) Constats automatiques « À retenir » (replis, thèmes sans article, pages muettes, rendez-vous)
 - [x] (Site) Export Excel des questions et des chiffres
 - [x] (Site) Essais exclus : aperçu, adresse de test, poste local et sessions « test- »
+
+## Étape 16 — Accessibilité malvoyants (20/11/2026)
+- [x] (Site) Petits textes pâles foncés (gris, rose, rouge clair) sur tout le site, contraste AA
+- [x] (Site) Lien « Aller au contenu principal » au premier appui sur Tab
+- [x] (Site) Grands mots décoratifs ignorés par les lecteurs d'écran
+- [x] (Site) Assistant fermé invisible au clavier ; réponses annoncées aux lecteurs d'écran
+- [x] (Site) Champs du calculateur bureau et du générateur de bail reliés à leur étiquette
+- [x] (Site) Noms des menus, ordre des titres sur Contact, en-têtes de tableaux, liens soulignés

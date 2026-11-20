@@ -45,7 +45,7 @@ export default function CalculateurBureau() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-10 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[760px] px-4 sm:px-6 lg:px-12 text-center sm:text-left">

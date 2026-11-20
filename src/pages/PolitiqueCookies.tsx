@@ -38,7 +38,7 @@ export default function PolitiqueCookies() {
         ]}
       />
       <Header />
-      <main>
+      <main id="contenu-principal">
         <section className="bg-primary py-6 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
@@ -102,7 +102,7 @@ export default function PolitiqueCookies() {
               </ul>
             </div>
 
-            <p className="text-[12px] text-foreground/40 italic font-body">Dernière mise à jour : mars 2026</p>
+            <p className="text-[12px] text-foreground/70 italic font-body">Dernière mise à jour : mars 2026</p>
           </div>
         </section>
       </main>

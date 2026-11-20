@@ -153,12 +153,12 @@ const faqJsonLd = {
 
 function CellValue({ value }: { value: boolean | string }) {
   if (value === true) return <Check size={18} className="text-accent mx-auto" />;
-  if (value === false) return <Minus size={18} className="text-muted-foreground/40 mx-auto" />;
+  if (value === false) return <Minus size={18} className="text-muted-foreground mx-auto" />;
   if (typeof value === "string" && /^(Trimestrielles|Trimestrielle|Trimestriel|Mensuelles|Mensuelle|Mensuel)$/i.test(value)) {
     return <span className="font-body font-semibold text-accent text-[13px]">{value}</span>;
   }
   if (typeof value === "string" && /^(Hors forfait|À la demande)$/i.test(value)) {
-    return <span className="inline-block font-body text-[12px] italic text-primary/70 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{value}</span>;
+    return <span className="inline-block font-body text-[12px] italic text-primary/80 bg-primary/[0.06] border border-primary/15 rounded-lg px-2.5 py-1">{value}</span>;
   }
   return <span className="text-[13px] font-medium text-foreground">{value}</span>;
 }
@@ -189,7 +189,7 @@ export default function ControleDeGestion() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="Contrôle de gestion"
           eyebrow="Premium & Excellence"
@@ -216,7 +216,7 @@ export default function ControleDeGestion() {
         {/* SECTION 1 — Cycle de pilotage (3 étapes éditoriales) */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
             >
@@ -248,7 +248,7 @@ export default function ControleDeGestion() {
                     
                     className="group relative bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
-                    <span
+                    <span aria-hidden="true"
                       className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
@@ -277,7 +277,7 @@ export default function ControleDeGestion() {
         {/* SECTION 2 — Tableau comparatif (éditorial) */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 320px)", letterSpacing: "-0.04em" }}
             >
@@ -342,7 +342,7 @@ export default function ControleDeGestion() {
                               >
                                 <span className="absolute left-0 inset-y-0 w-[3px]" style={{ backgroundColor: cat.barColor }} />
                                 <span className="relative z-10 flex flex-col items-start gap-1">
-                                  <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                                  <span className="font-display italic text-muted-foreground text-[12px]">{cat.num}</span>
                                   <span className="font-display text-[12px] font-bold tracking-[0.08em] text-primary text-left leading-[1.3] whitespace-pre-line">
                                     {cat.title}
                                   </span>
@@ -367,7 +367,7 @@ export default function ControleDeGestion() {
                   <div key={cat.num}>
                     <div className="flex items-center gap-3 mb-3 px-1">
                       <span className="h-4 w-[3px] rounded-full" style={{ background: cat.barColor }} />
-                      <span className="font-display italic text-muted-foreground/60 text-[12px]">{cat.num}</span>
+                      <span className="font-display italic text-muted-foreground text-[12px]">{cat.num}</span>
                       <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-foreground/70 font-body">
                         {cat.title}
                       </span>
@@ -417,7 +417,7 @@ export default function ControleDeGestion() {
         {/* SECTION 3 — 5 KPIs (split sticky) */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >
@@ -468,7 +468,7 @@ export default function ControleDeGestion() {
                       
                       className="group relative flex items-start gap-5 p-6 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
                     >
-                      <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
+                      <span className="font-display italic text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:-rotate-6 transition-all duration-500">

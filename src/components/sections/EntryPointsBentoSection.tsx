@@ -26,7 +26,7 @@ export default function EntryPointsBentoSection() {
         <div className="text-center mb-12 md:mb-16" data-anim="fade-up">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="w-8 h-px bg-accent" />
-            <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
               3 façons de commencer
             </span>
             <span className="w-8 h-px bg-accent" />

@@ -33,14 +33,14 @@
     --secondary-foreground: 224 55% 24%;
 
     --muted: 228 33% 97%;
-    --muted-foreground: 224 16% 45%;
+    --muted-foreground: 224 16% 41%;
 
     --accent: 0 72% 46%;
     --accent-on-dark: 0 100% 75%;
     --accent-foreground: 0 0% 100%;
     --accent-hover: 0 100% 67%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 45%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 224 20% 90%;
@@ -384,4 +384,11 @@ html.lenis-active.lenis-smooth {
 .bg-primary .text-accent,
 footer .text-accent {
   color: hsl(var(--accent-on-dark));
+}
+
+/* Une carte claire posée sur un fond marine reprend le rouge normal */
+.bg-primary .bg-card .text-accent,
+.bg-primary .bg-background .text-accent,
+.bg-primary .bg-white .text-accent {
+  color: hsl(var(--accent));
 }

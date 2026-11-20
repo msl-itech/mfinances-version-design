@@ -33,7 +33,7 @@ export default function FinalCtaSection() {
         <div className={`reveal ${isVisible ? "visible" : ""}`}>
           <div className="inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-accent/60" />
-            <span className="text-accent/75 text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-accent text-[11px] font-bold tracking-[0.2em] uppercase">
               Premier échange gratuit
             </span>
             <span className="w-8 h-px bg-accent/60" />
@@ -72,7 +72,7 @@ export default function FinalCtaSection() {
             return (
               <span
                 key={t.label}
-                className="inline-flex items-center gap-2 text-primary-foreground/45 text-[12px] tracking-wide"
+                className="inline-flex items-center gap-2 text-primary-foreground/60 text-[12px] tracking-wide"
               >
                 <Icon size={14} className="text-accent/70" strokeWidth={1.75} />
                 {t.label}

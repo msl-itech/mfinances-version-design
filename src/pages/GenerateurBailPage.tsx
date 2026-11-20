@@ -45,7 +45,7 @@ export default function GenerateurBailPage() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-14 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[780px] px-6 lg:px-12">

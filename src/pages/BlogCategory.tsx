@@ -97,7 +97,7 @@ export default function BlogCategory() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ── */}
         <section className="bg-primary py-8 md:py-10 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12 text-center">
@@ -151,7 +151,7 @@ export default function BlogCategory() {
                       <p className="text-[14px] text-muted-foreground leading-[1.7] font-body mt-3">
                         {article.excerpt}
                       </p>
-                      <p className="text-[12px] italic text-foreground/45 font-body mt-4 leading-snug">
+                      <p className="text-[12px] italic text-foreground/70 font-body mt-4 leading-snug">
                         {article.title}
                       </p>
                       <span className="inline-flex items-center gap-1 text-accent text-[13px] font-semibold mt-4 group-hover:gap-2 transition-all">
@@ -204,7 +204,7 @@ export default function BlogCategory() {
                     ) : (
                       <div className="bg-card rounded-2xl p-6 border border-border/50 opacity-75">
                         <div className="flex items-start gap-3">
-                          <Clock size={16} className="text-foreground/60 mt-1 flex-shrink-0" />
+                          <Clock size={16} className="text-foreground/70 mt-1 flex-shrink-0" />
                           <div>
                             <h3 className="text-[15px] font-bold font-body text-foreground/70 leading-snug">
                               {article.hook || article.title}

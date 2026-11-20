@@ -61,7 +61,7 @@ export default function BureauADomicileHub() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ────────────────────────────────────────────── */}
         <header className="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light overflow-hidden">
           <div className="absolute inset-0 opacity-10">
@@ -71,7 +71,7 @@ export default function BureauADomicileHub() {
 
           <div className="relative max-w-[1200px] mx-auto px-6 py-8 sm:py-10 lg:py-12">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-white/50 mb-6 flex-wrap">
+            <nav className="flex items-center gap-2 text-sm text-white/60 mb-6 flex-wrap">
               <Link to="/" className="hover:text-white/80 transition-colors">Accueil</Link>
               <span>›</span>
               <Link to="/blog/" className="hover:text-white/80 transition-colors">Blog</Link>

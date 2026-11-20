@@ -357,7 +357,7 @@ export default function NotreOrganisation() {
 
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ══════════════════════════════════════════════════════════════
             1. HERO : MODÈLE TRIPARTITE D'ÉLITE
         ══════════════════════════════════════════════════════════════ */}
@@ -621,7 +621,7 @@ export default function NotreOrganisation() {
                         </div>
                         <span
                           className={`text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full whitespace-nowrap shrink-0 ${isMain
-                              ? "bg-primary-foreground/10 text-accent-hover border border-primary-foreground/20"
+                              ? "bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20"
                               : "bg-accent/10 text-accent border border-accent/20"
                             }`}
                         >
@@ -763,7 +763,7 @@ export default function NotreOrganisation() {
                     <div>
                       {/* Badge d'étape & Timing */}
                       <div className="flex items-center justify-between mb-5">
-                        <span className="font-display font-extrabold text-[28px] text-primary/30 group-hover:text-accent transition-colors">
+                        <span className="font-display font-extrabold text-[28px] text-primary/60 group-hover:text-accent transition-colors">
                           {step.step}
                         </span>
                         <span className="text-[10.5px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded-full border border-accent/20">
@@ -793,7 +793,7 @@ export default function NotreOrganisation() {
 
                     {/* Livrable de l'étape */}
                     <div className="pt-4 border-t border-border/60 mt-auto">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70 block mb-0.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mb-0.5">
                         Résultat concret :
                       </span>
                       <p className="text-[12.5px] font-semibold text-primary group-hover:text-accent transition-colors leading-tight">
@@ -1206,7 +1206,7 @@ export default function NotreOrganisation() {
                 >
                   <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-[15px] sm:text-[16px] text-foreground font-body select-none hover:text-accent transition-colors">
                     <span className="flex items-center gap-3">
-                      <span className="text-[12px] font-mono text-accent font-bold opacity-80">
+                      <span className="text-[12px] font-mono text-accent font-bold">
                         0{index + 1}.
                       </span>
                       {faq.q}

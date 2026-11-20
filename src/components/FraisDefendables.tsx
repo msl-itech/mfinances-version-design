@@ -254,7 +254,7 @@ export default function FraisDefendables() {
           </div>
           <div className="text-right leading-relaxed hidden sm:block">
             <div className="text-2xl font-bold text-white">{totalFrais}</div>
-            <div className="text-[11px] text-white/50 uppercase tracking-wider">frais · 6 catégories</div>
+            <div className="text-[11px] text-white/60 uppercase tracking-wider">frais · 6 catégories</div>
           </div>
         </div>
 
@@ -270,7 +270,7 @@ export default function FraisDefendables() {
             {[{ n: 1, label: "Sélection" }, { n: 2, label: "Contexte" }, { n: 3, label: "Verdict" }].map((s, i) => (
               <span key={s.n} className="contents">
                 {i > 0 && <span className="text-border text-sm mx-0.5">›</span>}
-                <span className={`inline-flex items-center gap-1.5 transition-colors ${step === s.n ? "text-primary font-bold" : step > s.n ? "text-primary/50" : "text-muted-foreground"}`}>
+                <span className={`inline-flex items-center gap-1.5 transition-colors ${step === s.n ? "text-primary font-bold" : step > s.n ? "text-primary/80" : "text-muted-foreground"}`}>
                   <span className={`w-6 h-6 rounded-full grid place-items-center text-xs font-bold transition-all duration-300 ${step === s.n ? "bg-primary text-primary-foreground shadow-md" : step > s.n ? "bg-primary/15 text-primary" : "bg-muted text-muted-foreground"}`}>{step > s.n ? "✓" : s.n}</span>
                   <span className="hidden sm:inline">{s.label}</span>
                 </span>
@@ -293,7 +293,7 @@ export default function FraisDefendables() {
                   <input
                     id="fd-search" type="search" placeholder="Ex. voiture, restaurant, bureau…"
                     value={search} onChange={(e) => setSearch(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-border bg-muted text-foreground text-sm outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/60"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-border bg-muted text-foreground text-sm outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-muted-foreground"
                     autoComplete="off"
                   />
                 </div>
@@ -522,11 +522,11 @@ export default function FraisDefendables() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                         <div>
                           <label htmlFor="fd-prenom" className="block text-[12.5px] font-bold text-white/90 mb-1.5">Prénom</label>
-                          <input id="fd-prenom" name="firstname" type="text" placeholder="Votre prénom" autoComplete="given-name" required className="w-full px-4 py-3.5 rounded-xl border border-white/15 bg-white/10 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 focus:bg-white/15 transition-all" />
+                          <input id="fd-prenom" name="firstname" type="text" placeholder="Votre prénom" autoComplete="given-name" required className="w-full px-4 py-3.5 rounded-xl border border-white/15 bg-white/10 text-white text-sm placeholder:text-white/60 outline-none focus:border-white/40 focus:bg-white/15 transition-all" />
                         </div>
                         <div>
                           <label htmlFor="fd-email" className="block text-[12.5px] font-bold text-white/90 mb-1.5">Email professionnel</label>
-                          <input id="fd-email" name="email" type="email" placeholder="vous@entreprise.be" autoComplete="email" required className="w-full px-4 py-3.5 rounded-xl border border-white/15 bg-white/10 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 focus:bg-white/15 transition-all" />
+                          <input id="fd-email" name="email" type="email" placeholder="vous@entreprise.be" autoComplete="email" required className="w-full px-4 py-3.5 rounded-xl border border-white/15 bg-white/10 text-white text-sm placeholder:text-white/60 outline-none focus:border-white/40 focus:bg-white/15 transition-all" />
                         </div>
                       </div>
                       <div className="mb-4">
@@ -544,7 +544,7 @@ export default function FraisDefendables() {
                       <button type="submit" disabled={isSubmitting} className="w-full px-6 py-4 rounded-xl font-bold text-[15px] bg-accent text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/30 hover:brightness-110 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed">
                         {isSubmitting ? "Envoi en cours…" : `${v.cta} →`}
                       </button>
-                      <div className="mt-3 text-xs text-white/50 text-center">🔒 Vos données sont transmises uniquement à MFinances, Uccle.</div>
+                      <div className="mt-3 text-xs text-white/60 text-center">🔒 Vos données sont transmises uniquement à MFinances, Uccle.</div>
                     </form>
                   ) : null
                 ) : (

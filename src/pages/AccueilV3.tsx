@@ -173,7 +173,7 @@ export default function AccueilV3() {
         noIndex
       />
       <Header />
-      <main>
+      <main id="contenu-principal">
         {/* ============== HERO — style Axios (pills inside H1) ============== */}
         <section className="relative">
           <div className="relative overflow-hidden bg-primary w-full min-h-[640px] md:min-h-[760px] lg:min-h-[820px]">
@@ -386,7 +386,7 @@ export default function AccueilV3() {
                       <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center transition-all duration-500 group-hover:bg-accent group-hover:rotate-[-6deg]">
                         <Icon size={20} className="text-accent transition-colors duration-500 group-hover:text-accent-foreground" strokeWidth={1.75} />
                       </div>
-                      <span className="text-[11px] font-bold tracking-[0.22em] text-foreground/60">
+                      <span className="text-[11px] font-bold tracking-[0.22em] text-foreground/70">
                         0{idx + 1}
                       </span>
                     </div>
@@ -725,7 +725,7 @@ export default function AccueilV3() {
                   </button>
                   <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
                     {String(reviewIndex + 1).padStart(2, "0")}
-                    <span className="text-foreground/60"> / {String(reviews.length).padStart(2, "0")}</span>
+                    <span className="text-foreground/70"> / {String(reviews.length).padStart(2, "0")}</span>
                   </span>
                 </div>
               </div>
@@ -831,7 +831,7 @@ export default function AccueilV3() {
 
                 <div className="mt-10 flex items-center gap-3" data-anim="fade-up" data-delay="0.2">
                   <span className="block w-8 h-px bg-primary/30" />
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-primary/60 font-bold">Sa conviction</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-primary/80 font-bold">Sa conviction</span>
                 </div>
 
                 {/* Stats — strip sans carte */}

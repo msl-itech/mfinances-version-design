@@ -138,7 +138,7 @@ export default function DafExternalise() {
 
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="DAF à temps partiel"
           eyebrow="Service Excellence"
@@ -208,7 +208,7 @@ export default function DafExternalise() {
         {/* SECTION 1 — Missions (split éditorial + watermark) */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 260px)", letterSpacing: "-0.04em" }}
             >
@@ -262,7 +262,7 @@ export default function DafExternalise() {
                       
                       className="group relative bg-secondary/50 hover:bg-card border border-border/50 hover:border-accent/30 rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_8px_32px_hsl(var(--primary)/0.08)]"
                     >
-                      <span className="absolute top-3 right-4 text-[11px] font-display italic text-muted-foreground/40 tracking-wide">
+                      <span className="absolute top-3 right-4 text-[11px] font-display italic text-muted-foreground tracking-wide">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-500">
@@ -280,7 +280,7 @@ export default function DafExternalise() {
         {/* SECTION 2 — Fonctionnement (timeline éditoriale connectée) */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none"
               style={{ fontSize: "clamp(140px, 20vw, 300px)", letterSpacing: "-0.04em" }}
             >
@@ -366,7 +366,7 @@ export default function DafExternalise() {
                 {/* corner mark */}
                 <div aria-hidden className="absolute top-6 right-6 flex items-center gap-2">
                   <div className="h-px w-8 bg-accent" />
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">N°01</span>
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">N°01</span>
                 </div>
 
                 <ul className="space-y-6 font-body text-[15px] md:text-[16px] text-primary-foreground/85 leading-[1.7] mt-4">
@@ -385,7 +385,7 @@ export default function DafExternalise() {
                 </ul>
 
                 <div className="mt-10 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <span className="text-[12px] uppercase tracking-[0.22em] text-primary-foreground/50 font-medium">
+                  <span className="text-[12px] uppercase tracking-[0.22em] text-primary-foreground/60 font-medium">
                     Forfait Excellence : à partir de 650 € HTVA / mois
                   </span>
                   <Button variant="accent" size="lg" className="rounded-full whitespace-nowrap" asChild>

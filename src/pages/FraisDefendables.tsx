@@ -63,7 +63,7 @@ export default function FraisDefendablesPage() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ────────────────────────────────────────────── */}
         <header className="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light overflow-hidden">
           {/* Decorative elements — hidden on mobile */}

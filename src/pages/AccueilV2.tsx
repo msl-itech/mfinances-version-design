@@ -258,7 +258,7 @@ export default function AccueilV2() {
         schemaJson={[accountingServiceSchema, createFaqSchema(faqs)]}
       />
       <Header />
-      <main>
+      <main id="contenu-principal">
         {/* ============== HERO (texte gauche + image droite fondu) ============== */}
         <section className="relative">
           <h1 className="sr-only">Cabinet d'expert-comptable à Bruxelles : Pilotage financier pour TPE</h1>
@@ -398,7 +398,7 @@ export default function AccueilV2() {
             </div>
             <div className="bg-accent text-accent-foreground border-y border-accent px-5 md:px-12 lg:px-20 py-5 md:py-6 flex items-center justify-between gap-3">
               <p className="font-display text-[22px] sm:text-[26px] md:text-[32px] leading-none">
-                200+ <span className="text-[12px] md:text-[14px] font-body align-middle opacity-80">entreprises</span>
+                200+ <span className="text-[12px] md:text-[14px] font-body align-middle">entreprises</span>
               </p>
               <div className="flex -space-x-2 shrink-0">
                 {[avatarMika, avatarEquipe, avatarDaf].map((src, i) => (
@@ -738,7 +738,7 @@ export default function AccueilV2() {
                   </button>
                   <span className="font-display text-[13px] text-muted-foreground tracking-wider ml-2">
                     {String(reviewIndex + 1).padStart(2, "0")}
-                    <span className="text-foreground/60"> / {String(reviews.length).padStart(2, "0")}</span>
+                    <span className="text-foreground/70"> / {String(reviews.length).padStart(2, "0")}</span>
                   </span>
                 </div>
               </div>

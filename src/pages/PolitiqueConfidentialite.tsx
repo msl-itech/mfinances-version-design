@@ -38,7 +38,7 @@ export default function PolitiqueConfidentialite() {
         ]}
       />
       <Header />
-      <main>
+      <main id="contenu-principal">
         <section className="bg-primary py-6 md:py-8 bg-precision-grid-light">
           <div className="mx-auto max-w-[800px] px-6 lg:px-12">
             <Breadcrumb>
@@ -57,7 +57,7 @@ export default function PolitiqueConfidentialite() {
             <div>
               <h2 className="font-display text-[22px] text-foreground mb-4">Responsable du traitement</h2>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body">
-                MFinances S.R.L., Rue de la Magnanerie 20, 1180 Uccle, <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a>, <a href="tel:+3228860550" className="text-accent hover:underline">+32 2 886 05 50</a>
+                MFinances S.R.L., Rue de la Magnanerie 20, 1180 Uccle, <a href="mailto:info@mfinances.be" className="text-accent underline underline-offset-2">info@mfinances.be</a>, <a href="tel:+3228860550" className="text-accent underline underline-offset-2">+32 2 886 05 50</a>
               </p>
             </div>
 
@@ -109,14 +109,14 @@ export default function PolitiqueConfidentialite() {
                 Accès, rectification, effacement, limitation, portabilité, opposition, retrait du consentement.
               </p>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body mt-2">
-                Contact : <a href="mailto:info@mfinances.be" className="text-accent hover:underline">info@mfinances.be</a>
+                Contact : <a href="mailto:info@mfinances.be" className="text-accent underline underline-offset-2">info@mfinances.be</a>
               </p>
               <p className="text-[14px] text-foreground/80 leading-[1.8] font-body mt-2">
-                Réclamation : Autorité de protection des données belge (APD) : <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">www.autoriteprotectiondonnees.be</a>
+                Réclamation : Autorité de protection des données belge (APD) : <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener noreferrer" className="text-accent underline underline-offset-2">www.autoriteprotectiondonnees.be</a>
               </p>
             </div>
 
-            <p className="text-[12px] text-foreground/40 italic font-body">Dernière mise à jour : mars 2026</p>
+            <p className="text-[12px] text-foreground/70 italic font-body">Dernière mise à jour : mars 2026</p>
           </div>
         </section>
       </main>

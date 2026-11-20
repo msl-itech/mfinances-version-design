@@ -122,7 +122,7 @@ export default function Tresorerie() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         <ServicePageHero
           breadcrumbLabel="Trésorerie"
           eyebrow="Forfait Excellence"
@@ -178,7 +178,7 @@ export default function Tresorerie() {
         {/* SECTION 1 — Douleur trésorerie (split éditorial) */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-12 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -221,7 +221,7 @@ export default function Tresorerie() {
                       
                       className="group relative flex items-start gap-5 p-7 rounded-2xl bg-secondary/40 hover:bg-card border border-border/50 hover:border-accent/30 transition-all duration-500"
                     >
-                      <span className="font-display italic text-accent/40 group-hover:text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
+                      <span className="font-display italic text-accent text-[18px] leading-none mt-1 flex-shrink-0 transition-colors duration-300 w-8">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:-rotate-6 transition-all duration-500">
@@ -275,7 +275,7 @@ export default function Tresorerie() {
                     
                     className="group relative bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.12)] overflow-hidden"
                   >
-                    <span
+                    <span aria-hidden="true"
                       className="absolute -top-4 -right-2 font-display italic font-bold text-accent/[0.15] group-hover:text-accent/25 leading-none transition-colors duration-500"
                       style={{ fontSize: "120px" }}
                     >
@@ -302,7 +302,7 @@ export default function Tresorerie() {
         {/* SECTION 3 — Périodes critiques (timeline horizontale) */}
         <section className="relative bg-card py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-12 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >
@@ -354,7 +354,7 @@ export default function Tresorerie() {
         {/* SECTION 4 — Odoo (split + grand visuel) */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -right-10 top-1/3 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(120px, 16vw, 240px)", letterSpacing: "-0.04em" }}
             >

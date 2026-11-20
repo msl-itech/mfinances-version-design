@@ -136,7 +136,7 @@ function AudienceCard({
         />
 
         {/* numéro éditorial */}
-        <span className="absolute top-4 right-5 font-display italic text-accent/[0.7] group-hover:text-accent transition-colors text-[13px] tracking-wide">
+        <span className="absolute top-4 right-5 font-display italic text-accent transition-colors text-[13px] tracking-wide">
           {String(index + 1).padStart(2, "0")}
         </span>
 
@@ -197,7 +197,7 @@ export default function QuiNousAccompagnons() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ÉDITORIAL ── */}
         <section className="relative bg-primary overflow-hidden py-8 md:py-14 bg-precision-grid-light">
           {/* watermark */}
@@ -289,7 +289,7 @@ export default function QuiNousAccompagnons() {
         {/* ── PAR PROFIL D'ACTIVITÉ ── */}
         <section className="relative bg-secondary py-10 md:py-32 overflow-hidden">
           <div aria-hidden className="pointer-events-none absolute -left-10 top-32 select-none">
-            <span
+            <span aria-hidden="true"
               data-anim="text-scrub" className="font-display italic font-bold text-foreground/[0.035] leading-none block"
               style={{ fontSize: "clamp(140px, 18vw, 280px)", letterSpacing: "-0.04em" }}
             >

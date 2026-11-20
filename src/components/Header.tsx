@@ -100,6 +100,20 @@ export default function Header() {
 
   return (
     <>
+      <a
+        href="#contenu-principal"
+        onClick={(e) => {
+          const main = document.querySelector("main");
+          if (!main) return;
+          e.preventDefault();
+          main.setAttribute("tabindex", "-1");
+          main.focus({ preventScroll: true });
+          main.scrollIntoView();
+        }}
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-[14px] focus:font-semibold focus:text-primary-foreground focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        Aller au contenu principal
+      </a>
       <header
         className={`sticky top-0 z-[100] transition-all duration-200 bg-white ${
           scrolled ? "shadow-[0_2px_8px_rgba(0,0,0,0.08)] backdrop-blur-md" : ""
@@ -117,7 +131,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
+          <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-7 xl:gap-9">
             {/* Services dropdown */}
             <DropdownWrapper label="Services" href="/services/">
               <div className="p-3 min-w-[220px]">
@@ -138,7 +152,7 @@ export default function Header() {
               <div className="p-4 min-w-[440px] grid grid-cols-2 gap-x-6">
                 <div>
                   <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
-                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Profils</span>
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Profils</span>
                   </div>
                   {audienceLeft.map((link) => (
                     <Link
@@ -152,7 +166,7 @@ export default function Header() {
                 </div>
                 <div>
                   <div className="px-4 pb-2 mb-1 border-b-2 border-accent">
-                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Structures</span>
+                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Structures</span>
                   </div>
                   {audienceRight.map((link) => (
                     <Link
@@ -199,8 +213,8 @@ export default function Header() {
                 {/* Right — Outils grid */}
                 <div className="flex-1 p-6 bg-background">
                   <div className="flex items-center justify-between mb-5">
-                    <h4 className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/50">Outils & Ressources</h4>
-                    <span className="text-[11px] text-foreground/40">5 outils disponibles</span>
+                    <h4 className="text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Outils & Ressources</h4>
+                    <span className="text-[11px] text-foreground/70">5 outils disponibles</span>
                   </div>
                   <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                     {outilsLinks.map((link) => {
@@ -270,7 +284,7 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="flex-1 overflow-y-auto p-4 flex flex-col gap-0.5">
+            <nav aria-label="Menu mobile" className="flex-1 overflow-y-auto p-4 flex flex-col gap-0.5">
               {/* Services accordion */}
               <button
                 className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-[15px] font-medium text-foreground hover:bg-muted"
@@ -304,7 +318,7 @@ export default function Header() {
               </button>
               {mobileAudienceOpen && (
                 <div className="pl-4 pb-2">
-                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Profils</span>
+                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Profils</span>
                   {audienceLeft.map((link) => (
                     <Link
                       key={link.label}
@@ -315,7 +329,7 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Structures</span>
+                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Structures</span>
                   {audienceRight.map((link) => (
                     <Link
                       key={link.label}
@@ -341,7 +355,7 @@ export default function Header() {
               </button>
               {mobileDiagOpen && (
                 <div className="pl-4 pb-2">
-                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Diagnostic</span>
+                  <span className="block px-4 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Diagnostic</span>
                   <Link
                     to="/diagnostic/"
                     className="flex items-center gap-2 px-4 py-2 text-[14px] text-foreground/70 hover:text-foreground rounded-lg hover:bg-muted"
@@ -350,7 +364,7 @@ export default function Header() {
                     <span className="w-2 h-2 rounded-full bg-accent" />
                     Diagnostic gratuit
                   </Link>
-                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/40">Outils</span>
+                  <span className="block px-4 pt-2 py-1.5 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/70">Outils</span>
                   {outilsLinks.map((link) => {
                     const Icon = link.icon;
                     return (

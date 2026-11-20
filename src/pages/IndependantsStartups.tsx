@@ -109,12 +109,12 @@ export default function IndependantsStartups() {
       />
       <Header />
 
-      <main>
+      <main id="contenu-principal">
         {/* ── HERO ÉDITORIAL ── */}
         <section className="bg-primary py-6 md:py-12 relative overflow-hidden bg-precision-grid-light">
           {/* Watermark */}
           <div className="pointer-events-none absolute -top-8 -right-10 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[180px] lg:text-[240px] leading-none text-primary-foreground/[0.04] tracking-tight">
               Lancer
             </span>
           </div>
@@ -126,13 +126,13 @@ export default function IndependantsStartups() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
+                    <Link to="/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Accueil</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/50 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
+                    <Link to="/qui-nous-accompagnons/" className="text-primary-foreground/60 hover:text-primary-foreground text-[12px] tracking-wider uppercase">Qui nous accompagnons</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="text-primary-foreground/30" />
@@ -146,7 +146,7 @@ export default function IndependantsStartups() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-px w-10 bg-accent" />
-                  <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Profil : N°01</span>
+                  <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Profil : N°01</span>
                 </div>
                 <h1 className="font-display text-[36px] md:text-[64px] leading-[1.05] text-primary-foreground tracking-tight">
                   Indépendant ou startup —<br />
@@ -192,7 +192,7 @@ export default function IndependantsStartups() {
         {/* ── CE QUE MFINANCES FAIT POUR VOUS ── */}
         <section className="bg-card py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute top-10 -right-10 select-none hidden md:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
               Méthode
             </span>
           </div>
@@ -201,7 +201,7 @@ export default function IndependantsStartups() {
             <div data-anim="fade-up" className="max-w-[680px] mb-12 md:mb-16">
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Notre approche</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Notre approche</span>
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
                 Ce que MFinances fait <span className="italic text-accent">pour vous.</span>
@@ -235,7 +235,7 @@ export default function IndependantsStartups() {
         {/* ── ÉTAPES POUR DÉMARRER ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute -bottom-10 -left-10 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[140px] lg:text-[200px] leading-none text-accent/[0.06] tracking-tight">
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[140px] lg:text-[200px] leading-none text-accent/[0.06] tracking-tight">
               Étapes
             </span>
           </div>
@@ -244,7 +244,7 @@ export default function IndependantsStartups() {
             <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Roadmap</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Roadmap</span>
                 <span className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
@@ -280,7 +280,7 @@ export default function IndependantsStartups() {
             <div data-anim="fade-up" className="text-center mb-12 md:mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Financement</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Financement</span>
                 <span className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
@@ -316,7 +316,7 @@ export default function IndependantsStartups() {
         {/* ── FORFAITS DISPONIBLES ── */}
         <section className="bg-secondary py-8 md:py-14 relative overflow-hidden">
           <div className="pointer-events-none absolute top-20 -right-10 select-none hidden md:block">
-            <span data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
+            <span aria-hidden="true" data-anim="text-scrub" data-scrub-dir="right" className="font-display italic text-[140px] lg:text-[200px] leading-none text-primary/[0.04] tracking-tight">
               Forfaits
             </span>
           </div>
@@ -325,7 +325,7 @@ export default function IndependantsStartups() {
             <div data-anim="fade-up" className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Tarification</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Tarification</span>
                 <span className="h-px w-10 bg-accent" />
               </div>
               <h2 className="font-display text-[32px] md:text-[48px] text-foreground leading-[1.1] tracking-tight">
@@ -403,7 +403,7 @@ export default function IndependantsStartups() {
           <img src={imgMeeting} alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.12]" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
           <div className="pointer-events-none absolute -bottom-12 right-0 select-none hidden md:block">
-            <span data-anim="text-scrub" className="font-display italic text-[160px] lg:text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">
+            <span aria-hidden="true" data-anim="text-scrub" className="font-display italic text-[160px] lg:text-[220px] leading-none text-primary-foreground/[0.05] tracking-tight">
               Lançons
             </span>
           </div>
@@ -412,7 +412,7 @@ export default function IndependantsStartups() {
             <div data-anim="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-10 bg-accent" />
-                <span className="text-accent/75 text-[11px] font-bold tracking-[0.25em] uppercase">Premier pas</span>
+                <span className="text-accent text-[11px] font-bold tracking-[0.25em] uppercase">Premier pas</span>
               </div>
               <h2 className="font-display text-[34px] md:text-[56px] text-primary-foreground leading-[1.05] tracking-tight max-w-[820px]">
                 Prêt à lancer <span className="italic text-accent">votre activité ?</span>
